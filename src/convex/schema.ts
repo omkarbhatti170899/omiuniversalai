@@ -32,6 +32,23 @@ const schema = defineSchema(
       role: v.optional(roleValidator), // role of the user. do not remove
     }).index("email", ["email"]), // index for the email. do not remove or modify
 
+    // Human Emotions AI — one analysis record per run, scoped to the signed-in user
+    emotionAnalyses: defineTable({
+      userId: v.id("users"),
+      text: v.string(),
+      emotion: v.string(),
+      confidence: v.number(), // 0..1
+      rantScore: v.optional(v.number()),
+      rantInterpretation: v.optional(v.string()),
+      sentiment: v.optional(v.string()),
+      sentimentScore: v.optional(v.number()),
+      urgency: v.optional(v.string()),
+      urgencyScore: v.optional(v.number()),
+      signalFields: v.optional(v.string()),
+      advice: v.optional(v.string()),
+      omiNote: v.optional(v.string()),
+    }).index("by_user", ["userId"]),
+
     // add other tables here
 
     // tableName: defineTable({
