@@ -4,7 +4,6 @@ import type { Id } from "@/convex/_generated/dataModel";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -77,7 +76,8 @@ export default function Dashboard() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
-  const analyses = useQuery(api.emotions.listMine) ?? [];
+  const history = useQuery(api.emotions.listMine);
+  const analyses = history ?? [];
   const analyze = useAction(api.emotionsAi.analyze);
   const removeAnalysis = useMutation(api.emotions.remove);
 
@@ -85,7 +85,7 @@ export default function Dashboard() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const isLoadingAuth = user === undefined;
-  const isLoadingHistory = analyses === undefined;
+  const isLoadingHistory = history === undefined;
 
   const handleSignOut = async () => {
     await signOut();
