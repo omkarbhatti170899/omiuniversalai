@@ -5,6 +5,7 @@ import { action } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { vly } from "../lib/vly-integrations";
+import { friendlyAiError } from "./aiErrors";
 import {
   getActiveProvider,
   MissingKeyError,
@@ -73,9 +74,7 @@ export const searchWeb = action({
     });
 
     if (!completion.success || !completion.data) {
-      throw new Error(
-        completion.error ?? "Omi could not synthesize an answer. Try again.",
-      );
+      throw new Error(friendlyAiError(completion.error));
     }
 
     const answer = (

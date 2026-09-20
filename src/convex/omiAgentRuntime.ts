@@ -5,6 +5,7 @@ import { action } from "./_generated/server";
 import { api, internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { vly } from "../lib/vly-integrations";
+import { friendlyAiError } from "./aiErrors";
 
 /** AI plans the steps for an objective. Creates the task awaiting human approval. */
 export const planTask = action({
@@ -40,7 +41,7 @@ export const planTask = action({
     });
 
     if (!result.success || !result.data) {
-      throw new Error(result.error ?? "Omi could not plan this task.");
+      throw new Error(friendlyAiError(result.error));
     }
 
     const raw = result.data.choices?.[0]?.message?.content ?? "";
@@ -120,9 +121,7 @@ export const runTask = action({
         });
 
         if (!stepResult.success || !stepResult.data) {
-          throw new Error(
-            stepResult.error ?? `Step ${i + 1} failed at the model layer.`,
-          );
+          throw new Error(friendlyAiError(stepResult.error));
         }
 
         const output = (

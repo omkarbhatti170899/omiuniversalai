@@ -4,6 +4,7 @@ import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { vly } from "../lib/vly-integrations";
+import { friendlyAiError } from "./aiErrors";
 import { getAuthUserId } from "@convex-dev/auth/server";
 
 const SYSTEM_PROMPT = `You are Omi, the emotion-analysis engine inside Ominnovations Intelligence, an AI workspace for customer-support and operations teams.
@@ -88,7 +89,7 @@ export const analyze = action({
     });
 
     if (!result.success || !result.data) {
-      throw new Error(result.error ?? "Omi could not reach the emotion engine.");
+      throw new Error(friendlyAiError(result.error));
     }
 
     const raw = result.data.choices?.[0]?.message?.content ?? "";
