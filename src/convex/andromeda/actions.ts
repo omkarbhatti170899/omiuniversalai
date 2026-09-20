@@ -60,6 +60,8 @@ export const research = action({
       sourcesFooter: result.sourcesFooter,
       verification: result.verification,
       usedAi: result.usedAi,
+      confidence: result.confidence,
+      followUps: result.followUps,
       stages: result.stages,
       gates: {
         accepted: result.gates?.accepted.length ?? 0,

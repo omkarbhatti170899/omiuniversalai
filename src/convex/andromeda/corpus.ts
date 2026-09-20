@@ -17,6 +17,8 @@ import { retrieve } from "../searchEngine/retrieval";
  */
 
 export const INTERNAL_SCHEME = "internal://";
+/** Virtual host so citations read as a source ("omi.corpus") in UIs. */
+export const INTERNAL_HOST = "omi.corpus";
 
 export const corpusSearch = internalQuery({
   args: {
@@ -32,7 +34,7 @@ export const corpusSearch = internalQuery({
     const passages = retrieve(query, docs, limit, "bm25");
     return passages.map((p) => ({
       title: p.title,
-      url: `${INTERNAL_SCHEME}${p.documentId}`,
+      url: `${INTERNAL_SCHEME}${INTERNAL_HOST}/${p.documentId}`,
       snippet: p.snippet,
     }));
   },

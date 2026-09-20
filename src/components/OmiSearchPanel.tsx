@@ -37,6 +37,8 @@ type PipelineResult = {
   sourcesFooter: string;
   verification: { verdict: string; notes: string[] };
   usedAi: boolean;
+  confidence?: { level: "high" | "moderate" | "low" | "unverified"; reason: string };
+  followUps?: Array<{ question: string; why: string }>;
   stages: Array<{ stage: string; detail: string; ms: number }>;
   gates: {
     accepted: number;
@@ -170,6 +172,69 @@ function AndromedaPipelineCard() {
 
             <div className="rounded-lg border border-border/60 p-3 text-sm leading-relaxed">
               <p className="whitespace-pre-wrap">{result.answer}</p>
+              {result.confidence && (
+                <p
+                  className={`mt-3 border-t border-border/60 pt-2 text-[11px] ${
+                    result.confidence.level === "high"
+                      ? "text-emerald-400"
+                      : result.confidence.level === "moderate"
+                        ? "text-sky-400"
+                        : result.confidence.level === "low"
+                          ? "text-amber-400"
+                          : "text-muted-foreground"
+                  }`}
+                  title={result.confidence.reason}
+                >
+                  Confidence: {result.confidence.level} — {result.confidence.reason}
+                </p>
+              )}
+            </div>
+
+            {result.followUps && result.followUps.length > 0 && (
+              <div className="space-y-1.5">
+                <p className="text-xs font-semibold text-muted-foreground">
+                  Deepen this research
+                </p>
+                {result.followUps.map((f) => (
+                  <button
+                    key={f.question}
+                    type="button"
+                    className="block w-full cursor-pointer rounded-md border border-border/60 px-2.5 py-1.5 text-left text-xs transition-colors hover:border-primary/50 hover:text-foreground"
+                    title={f.why}
+                    onClick={() => {
+                      setQuestion(f.question);
+                      void run();
+                    }}
+                  >
+                    {f.question}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                className="cursor-pointer"
+                onClick={() => {
+                  const md = [
+                    `# Andromeda Research: ${question.trim()}`,
+                    "",
+                    result.answer,
+                    "",
+                    "## Sources",
+                    ...result.citations.map((c) => `${c.idx}. [${c.title}](${c.url}) — ${c.domain}`),
+                    "",
+                    `Verification: ${result.verification.verdict}`,
+                    result.confidence ? `Confidence: ${result.confidence.level} — ${result.confidence.reason}` : "",
+                  ].join("\n");
+                  void navigator.clipboard.writeText(md);
+                  toast("Markdown report copied to clipboard.");
+                }}
+              >
+                Copy as Markdown
+              </Button>
             </div>
 
             {result.citations.length > 0 && (

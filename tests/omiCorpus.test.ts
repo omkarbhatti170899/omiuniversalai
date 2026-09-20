@@ -31,9 +31,9 @@ describe("internal corpus — retrieval and mapping", () => {
 
   test("internal:// scheme maps from the retrieved documentId", () => {
     const out = retrieve("battery policy", docs, 1, "bm25");
-    const url = `internal://${out[0].documentId}`;
+    const url = `internal://${"omi.corpus"}/${out[0].documentId}`;
     expect(url.startsWith("internal://")).toBe(true);
-    expect(url).toBe("internal://doc-1");
+    expect(url).toBe("internal://omi.corpus/doc-1");
   });
 
   test("irrelevant queries return nothing (no fabrication from corpus)", () => {

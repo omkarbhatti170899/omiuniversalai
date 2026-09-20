@@ -22,11 +22,11 @@ export async function extractPdf(
   maxChars = 60_000,
 ): Promise<PdfExtractResult> {
   const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
-  // Disable the worker bundle entirely: single-threaded main-thread parsing
-  // is the right trade-off for a 2 MB cap, and avoids bundler/worker wiring.
-  // pdf.js v4: GlobalWorkerOptions must exist even when workerSrc is a stub.
+  // Vite-correct worker wiring: resolve the worker asset from the legacy
+  // build so both dev and production builds load it reliably (an empty
+  // workerSrc falls back to a fragile fake-worker path).
   (pdfjs as unknown as { GlobalWorkerOptions: { workerSrc: string } }).GlobalWorkerOptions.workerSrc =
-    "";
+    new URL("pdfjs-dist/legacy/build/pdf.worker.min.mjs", import.meta.url).toString();
 
   let doc: Awaited<ReturnType<typeof pdfjs.getDocument>["promise"]> | null = null;
   try {

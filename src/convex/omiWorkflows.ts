@@ -22,7 +22,6 @@ import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { rateLimit } from "./searchEngine/resilience";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
-import { runAndromeda } from "./andromeda/orchestrator";
 import { fetchPageText } from "./searchProviders/pageFetcher";
 import {
   buildEvidencePack,

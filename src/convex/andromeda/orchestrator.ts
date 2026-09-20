@@ -48,6 +48,7 @@ import { verifyResult } from "../verification";
 import { dedupeCitations } from "../workflows/plan";
 import { planQuery, type AndromedaQueryPlan } from "./query";
 import { applySourceGates, type GateResult } from "./gates";
+import { deriveConfidence, suggestFollowUps } from "./insight";
 
 export type AndromedaStage = {
   stage: string;
@@ -78,6 +79,10 @@ export type AndromedaResult = {
   verification: { verdict: string; notes: string[] };
   /** Whether an AI model was available for synthesis. */
   usedAi: boolean;
+  /** Measured answer-confidence label (never invented certainty). */
+  confidence: { level: "high" | "moderate" | "low" | "unverified"; reason: string };
+  /** Suggested follow-up questions that deepen or challenge the answer. */
+  followUps: Array<{ question: string; why: string }>;
   stages: AndromedaStage[];
   totalMs: number;
 };
@@ -256,6 +261,8 @@ export async function runAndromeda(
     sourcesFooter: footer,
     verification: { verdict: verification.verdict, notes: verification.notes },
     usedAi: research !== null,
+    confidence: deriveConfidence(plan, gates, verification.verdict, research !== null),
+    followUps: suggestFollowUps(plan, gates),
     stages,
     totalMs: Date.now() - t0,
   };
@@ -283,6 +290,8 @@ function emptyResult(
     sourcesFooter: "",
     verification: { verdict: "unverified", notes: [] },
     usedAi: false,
+    confidence: { level: "unverified", reason: error },
+    followUps: [],
     stages,
     totalMs: 0,
   };
