@@ -46,6 +46,14 @@ export const send = action({
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to talk with Omi.");
 
+    // Fail fast with an actionable message when the workspace AI key is missing.
+    if (!process.env.VLY_INTEGRATION_KEY) {
+      throw new Error(
+        "Omi's AI connection is not configured: the workspace AI key (VLY_INTEGRATION_KEY) is missing. " +
+        "Re-copy the project's integration key in the Keys/API Keys tab, then try again."
+      );
+    }
+
     const trimmed = message.trim().slice(0, 4000);
     if (trimmed.length < 1) throw new Error("Type a message first.");
 
