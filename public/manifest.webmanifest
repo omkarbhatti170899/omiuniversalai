@@ -1,17 +1,18 @@
 {
-  "name": "freebuff.com application",
-  "short_name": "freebuff.com",
-  "description": "freebuff.com application",
+  "name": "Omi Universal AI — Ominnovations Intelligence",
+  "short_name": "Omi",
+  "description": "Omi Universal AI + Andromeda universal search — provider-neutral, free-first intelligence by Ominnovations.",
+  "id": "/",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#f8fafc",
+  "theme_color": "#4f46e5",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "/logo.svg",
       "sizes": "any",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }
