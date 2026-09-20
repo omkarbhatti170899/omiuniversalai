@@ -8,7 +8,9 @@ import { v } from "convex/values";
  * the second identical search costs nothing and returns instantly.
  */
 
-export const CACHE_TTL_MS = 1000 * 60 * 30; // 30 minutes
+export const CACHE_TTL_MS = Number(
+  process.env.SEARCH_CACHE_TTL_MS ?? 1000 * 60 * 30,
+); // 30 minutes, configurable
 
 /** Stable fingerprint for a search request. */
 export function cacheKeyFor(
@@ -73,6 +75,51 @@ export const write = internalMutation({
     return await ctx.db.insert("searchCache", {
       ...args,
       createdAt: Date.now(),
+    });
+  },
+});
+
+// --- Retrieved-page cache (evidence store) --------------------------------
+
+const PAGE_TTL_MS = Number(process.env.PAGE_CACHE_TTL_MS ?? 1000 * 60 * 60 * 6);
+
+export const pageRead = internalQuery({
+  args: { urlKey: v.string() },
+  handler: async (ctx, { urlKey }) => {
+    const doc = await ctx.db
+      .query("pageCache")
+      .withIndex("by_url_key", (q) => q.eq("urlKey", urlKey))
+      .first();
+    if (!doc) return null;
+    if (Date.now() - doc.fetchedAt > PAGE_TTL_MS) return null; // expired
+    return {
+      url: doc.url,
+      title: doc.title,
+      text: doc.text,
+      fetchedAt: doc.fetchedAt,
+    };
+  },
+});
+
+export const pageWrite = internalMutation({
+  args: {
+    urlKey: v.string(),
+    url: v.string(),
+    title: v.string(),
+    text: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const existing = await ctx.db
+      .query("pageCache")
+      .withIndex("by_url_key", (q) => q.eq("urlKey", args.urlKey))
+      .first();
+    if (existing) {
+      await ctx.db.patch(existing._id, { ...args, fetchedAt: Date.now() });
+      return existing._id;
+    }
+    return await ctx.db.insert("pageCache", {
+      ...args,
+      fetchedAt: Date.now(),
     });
   },
 });
