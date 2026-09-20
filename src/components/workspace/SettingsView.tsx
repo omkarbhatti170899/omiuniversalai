@@ -142,6 +142,31 @@ export function SettingsView() {
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <div className="rounded-lg border border-border/60 p-3">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Vision (image understanding)
+              </p>
+              {health === undefined ? (
+                <p className="mt-2 text-sm text-muted-foreground">Loading…</p>
+              ) : health === null ? (
+                <p className="mt-2 text-sm text-muted-foreground">Sign in to see vision status.</p>
+              ) : health.vision.available ? (
+                <>
+                  <p className="mt-2 text-sm font-medium">{health.vision.activeLabel}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Uploaded images are described and join your knowledge base.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="mt-2 text-sm font-medium">Not configured — optional</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Add a free GROQ_API_KEY in the API Keys tab to let Omi describe
+                    uploaded images. Everything else keeps working without it.
+                  </p>
+                </>
+              )}
+            </div>
+            <div className="rounded-lg border border-border/60 p-3">
               <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 <ShieldCheck className="size-3.5" />
                 Verification quality

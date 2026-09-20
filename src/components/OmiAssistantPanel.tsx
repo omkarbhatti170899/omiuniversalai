@@ -40,10 +40,13 @@ import {
   Pencil,
   Plus,
   Send,
+  Square,
   Trash2,
+  Volume2,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
+import { useSpeechOutput } from "@/hooks/useSpeechOutput";
 
 type OmiMessage = {
   _id: Id<"omiMessages">;
@@ -94,6 +97,7 @@ export function OmiAssistantPanel({
   const updateMemory = useMutation(api.omiMemories.update);
   const removeMemory = useMutation(api.omiMemories.remove);
   const voice = useVoiceInput();
+  const tts = useSpeechOutput();
 
   // Auto-select the newest conversation on first load.
   useEffect(() => {
@@ -311,6 +315,24 @@ export function OmiAssistantPanel({
                     }`}
                   >
                     <p className="whitespace-pre-wrap">{m.content}</p>
+                    {m.role !== "user" && tts.supported && (
+                      <button
+                        type="button"
+                        onClick={() => (tts.speaking ? tts.stop() : tts.speak(m.content))}
+                        className="mt-2 flex cursor-pointer items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
+                        title="Read aloud (on-device, free)"
+                      >
+                        {tts.speaking ? (
+                          <>
+                            <Square className="size-3" /> Stop
+                          </>
+                        ) : (
+                          <>
+                            <Volume2 className="size-3" /> Listen
+                          </>
+                        )}
+                      </button>
+                    )}
                     {m.reasoning && (
                       <Collapsible className="mt-3 border-t border-border/60 pt-2">
                         <CollapsibleTrigger className="flex cursor-pointer items-center gap-1 text-xs font-medium text-primary">

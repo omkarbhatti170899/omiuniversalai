@@ -1,6 +1,7 @@
 import { query } from "./_generated/server";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { getAiStatus } from "./aiProviders/catalog";
+import { getVisionStatus } from "./aiProviders/visionCatalog";
 
 /**
  * OMI workspace health (master plan Phase 11/13 observability).
@@ -22,6 +23,7 @@ export const workspaceHealth = query({
     if (userId === null) return null;
 
     const ai = getAiStatus();
+    const vision = getVisionStatus();
 
     const toolRuns = await ctx.db
       .query("omiToolRuns")
@@ -69,6 +71,6 @@ export const workspaceHealth = query({
           : Math.round((passed.length / checkedTasks.length) * 100),
     };
 
-    return { ai, toolMetrics, verification };
+    return { ai, vision, toolMetrics, verification };
   },
 });

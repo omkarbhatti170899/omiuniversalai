@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { FileSpreadsheet, FileText, Files, Loader2, Trash2, Upload } from "lucide-react";
+import { FileImage, FileSpreadsheet, FileText, Files, Loader2, Trash2, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import { extractDocx, extractXlsx } from "@/lib/docExtract";
 
@@ -29,13 +29,14 @@ function formatBytes(bytes: number): string {
 }
 
 const ACCEPTED =
-  ".txt,.md,.markdown,.csv,.json,.log,.html,.htm,.ts,.tsx,.js,.py,.sh,.yml,.yaml,.xml,.docx,.xlsx,text/*,application/json,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+  ".txt,.md,.markdown,.csv,.json,.log,.html,.htm,.ts,.tsx,.js,.py,.sh,.yml,.yaml,.xml,.docx,.xlsx,image/png,image/jpeg,image/webp,image/gif,text/*,application/json,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
 export function FilesView() {
   const allDocs = useQuery(api.omiKnowledge.listMine);
   const fileDocs = allDocs?.filter((d) => d.fileId !== undefined);
   const generateUploadUrl = useMutation(api.omiFiles.generateUploadUrl);
   const ingestFile = useAction(api.omiFiles.ingestFile);
+  const ingestImage = useAction(api.omiFiles.ingestImage);
   const removeFile = useMutation(api.omiFiles.remove);
 
   const [uploading, setUploading] = useState(false);
@@ -69,6 +70,31 @@ export function FilesView() {
       });
       if (!res.ok) throw new Error(`Upload failed (${res.status}).`);
       const { storageId } = (await res.json()) as { storageId: string };
+
+      // Images: stored, then described by the VisionProvider chain (needs a
+      // free GROQ_API_KEY; the app says so plainly when none is set).
+      if (file.type.startsWith("image/")) {
+        const dataUrl = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () => reject(new Error("Couldn't read that image."));
+          reader.readAsDataURL(file);
+        });
+        const out = await ingestImage({
+          storageId: storageId as Id<"_storage">,
+          fileName: file.name,
+          dataUrl,
+        });
+        if (!out.ok) {
+          toast.error(
+            `${out.error} The image is saved — retry describing it once a vision key is added.`,
+          );
+          return;
+        }
+        toast("Image understood — its description joined your knowledge base.");
+        return;
+      }
+
       const { truncated } = await ingestFile({
         storageId: storageId as Id<"_storage">,
         fileName: file.name,
@@ -158,8 +184,8 @@ export function FilesView() {
             </p>
             <p className="mt-1 max-w-sm text-xs text-muted-foreground">
               Text, Markdown, CSV, JSON, HTML, code, logs, Word (.docx), Excel
-              (.xlsx) · up to 2 MB. Extraction is local — no third-party
-              parsing service.
+              (.xlsx), images · up to 2 MB. Extraction is local — no
+              third-party parsing service.
             </p>
           </div>
         </CardContent>
@@ -192,7 +218,9 @@ export function FilesView() {
             <Card key={d._id} className="bg-card/60">
               <CardContent className="flex items-start gap-3 p-4">
                 <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  {d.fileType?.includes("sheet") || d.title.toLowerCase().endsWith(".xlsx") ? (
+                  {d.fileType?.startsWith("image/") ? (
+                    <FileImage className="size-4" />
+                  ) : d.fileType?.includes("sheet") || d.title.toLowerCase().endsWith(".xlsx") ? (
                     <FileSpreadsheet className="size-4" />
                   ) : (
                     <FileText className="size-4" />

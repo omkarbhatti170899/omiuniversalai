@@ -4,6 +4,12 @@ import { internal } from "./_generated/api";
 import { v } from "convex/values";
 import { rateLimit } from "./searchEngine/resilience";
 import { htmlToText } from "./searchProviders/pageFetcher";
+import {
+  ALLOWED_IMAGE_TYPES,
+  VISION_LIMITS,
+  validateImageDataUrl,
+} from "./aiProviders/visionCatalog";
+import { describeImage } from "./aiProviders/vision";
 
 /**
  * Omi Files — Phase 4 (multimodal) ingest.
@@ -18,9 +24,13 @@ import { htmlToText } from "./searchProviders/pageFetcher";
  *  • DOCX / XLSX — extracted ON THE USER'S DEVICE (src/lib/docExtract.ts,
  *    zero dependencies) and passed here as `preExtracted`; the original blob
  *    is still stored so files remain re-downloadable and deletable.
+ *  • images (png/jpeg/webp/gif) — validated, stored, and described by the
+ *    VisionProvider chain (aiProviders/vision.ts) IF a vision-capable key is
+ *    configured; otherwise the image is still stored but ingest reports the
+ *    honest "vision unavailable" state instead of a fake description.
  *
- * Binary formats we cannot honestly read yet (e.g. PDF, images) are rejected
- * with a clear message; Omi never pretends to have read a file.
+ * Binary formats we cannot honestly read yet (e.g. PDF) are rejected with a
+ * clear message; Omi never pretends to have read a file.
  */
 
 const MAX_FILE_BYTES = 2_000_000; // 2 MB
@@ -39,6 +49,86 @@ export const generateUploadUrl = mutation({
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Not authenticated");
     return await ctx.storage.generateUploadUrl();
+  },
+});
+
+/**
+ * Ingest an uploaded image: validate it, describe it through the
+ * VisionProvider chain (if configured), and store the description as a
+ * knowledge document alongside the original blob. Honesty first: without a
+ * vision provider the image is stored but NOT described, and the caller is
+ * told exactly why.
+ */
+export const ingestImage = action({
+  args: {
+    storageId: v.id("_storage"),
+    fileName: v.string(),
+    /** Base64 data URL of the image (already size/type-checked client-side; re-checked here). */
+    dataUrl: v.string(),
+    /** Optional focus for the description, e.g. "read the chart labels". */
+    prompt: v.optional(v.string()),
+  },
+  handler: async (
+    ctx,
+    { storageId, fileName, dataUrl, prompt },
+  ): Promise<
+    | { ok: true; documentId: string; description: string; truncated: false }
+    | { ok: false; error: string; stored: boolean }
+  > => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) throw new Error("Sign in to upload images.");
+
+    const rl = rateLimit(`image:${userId}`, 10);
+    if (!rl.ok) {
+      throw new Error(
+        `Too many image uploads — retry in ${Math.ceil(rl.retryAfterMs / 1000)}s.`,
+      );
+    }
+
+    const meta = await ctx.storage.getMetadata(storageId);
+    if (!meta) throw new Error("Upload not found — try again.");
+    if (meta.size > VISION_LIMITS.maxImageBytes) {
+      throw new Error(
+        `Image is too large — Omi reads images up to ${Math.round(VISION_LIMITS.maxImageBytes / 1_000_000)} MB.`,
+      );
+    }
+    const contentType = meta.contentType ?? "";
+    if (!ALLOWED_IMAGE_TYPES.has(contentType)) {
+      throw new Error(
+        `"${fileName}" isn't a supported image — use PNG, JPEG, WebP or GIF.`,
+      );
+    }
+
+    // Defense in depth: re-validate the data URL server-side (client checks
+    // are UX, not security — master plan §12).
+    const validated = validateImageDataUrl(dataUrl);
+    if (!validated.ok) {
+      throw new Error(validated.error);
+    }
+
+    const focus = (prompt ?? "").trim().slice(0, VISION_LIMITS.maxPromptChars);
+    const ask = focus.length > 0 ? focus : "Describe this image in clear detail.\n If it contains text, transcribe the key text verbatim.";
+
+    const described = await describeImage(validated.dataUrl, ask, "describe");
+    if (!described.ok) {
+      // The image stays in storage (re-upload-free retry later); report honestly.
+      return { ok: false, error: described.error ?? "Vision failed.", stored: true };
+    }
+
+    const title = (fileName.replace(/\.[^.]+$/, "").trim() || fileName).slice(0, 200);
+    const description = described.description;
+    const wordCount = description.split(/\s+/).filter(Boolean).length;
+
+    const documentId = await ctx.runMutation(internal.omiFiles.createFileDocument, {
+      userId,
+      title,
+      content: `Image description of "${title}":\n\n${description}`,
+      fileId: storageId,
+      fileType: contentType || "image",
+      fileSize: meta.size,
+      wordCount,
+    });
+    return { ok: true, documentId, description, truncated: false };
   },
 });
 
@@ -87,10 +177,10 @@ export const ingestFile = action({
       TEXTUAL_NAME_RE.test(lowerName);
 
     // Client-extracted text (DOCX/XLSX) and server-readable text files are
-    // both fine; everything else is honestly rejected.
+    // both fine; images have their own action; everything else is honestly rejected.
     if (!isTextual && !isHtml && !preExtracted) {
       throw new Error(
-        `Omi reads text-based files (txt, md, csv, json, html, code) plus Word (.docx) and Excel (.xlsx). "${fileName}" isn't supported yet — PDF/image reading is on the roadmap.`,
+        `Omi reads text-based files (txt, md, csv, json, html, code) plus Word (.docx), Excel (.xlsx) and images. "${fileName}" isn't supported yet — PDF reading is on the roadmap.`,
       );
     }
 
