@@ -4,6 +4,7 @@ import {
   type SearchProvider,
 } from "./exa";
 import { createTavilyProvider } from "./tavily";
+import { createWikipediaProvider } from "./wikipedia";
 import { createKeylessProvider } from "./keyless";
 
 export type { WebCitation } from "./exa";
@@ -20,6 +21,7 @@ export type { WebCitation } from "./exa";
 const REGISTRY: SearchProvider[] = [
   createTavilyProvider(),
   createExaProvider(),
+  createWikipediaProvider(),
   createKeylessProvider(),
 ];
 

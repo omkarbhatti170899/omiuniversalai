@@ -6,6 +6,7 @@ import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { vly } from "../lib/vly-integrations";
 import { friendlyAiError } from "./aiErrors";
+import { runUniversalSearch } from "./universalSearch";
 
 const OMI_SYSTEM = `You are Omi, the Universal AI inside Ominnovations Intelligence. You coordinate intelligence rather than just answering: you reason before acting, and you explain your thinking.
 
@@ -14,8 +15,8 @@ Rules:
 2. Answer in clear, direct language. Use short paragraphs or bullet points where helpful.
 3. After your answer, include a final paragraph starting exactly with "Because:" that explains WHY you reached that answer (your reasoning trail, 1-3 sentences).
 4. If the user's approved memories are provided, use them as personal context and respect them.
-5. If you are uncertain or lack information, say so plainly and suggest what would help.
-6. Never invent facts. If something needs live data, say Omi Search can verify it.`;
+5. If live web search results are provided, ground factual claims in them and cite them inline using [1], [2] etc.
+6. Never invent facts. If you are uncertain or lack information, say so plainly and suggest what would help.`;
 
 type ChatMsg = { role: "system" | "user" | "assistant"; content: string };
 
@@ -89,11 +90,35 @@ export const send = action({
             .join("\n")}`
         : "";
 
-    // 3) Build the conversation for the model
+    // 3) Universal live search for this turn (multi-engine, deduped,
+    //    domain-diverse). Never throws — a failing engine set must not
+    //    break the conversation.
+    let searchBlock = "";
+    try {
+      const universal = await runUniversalSearch(trimmed, {
+        perEngineLimit: 3,
+        maxCitations: 4,
+      });
+      if (universal.citations.length > 0) {
+        searchBlock =
+          "Live web search results (cite them inline as [1], [2] … where used):\n" +
+          universal.citations
+            .map(
+              (c, i) =>
+                `[${i + 1}] ${c.title}\nURL: ${c.url}\nEXCERPT: ${c.snippet ?? ""}`,
+            )
+            .join("\n\n");
+      }
+    } catch {
+      searchBlock = "";
+    }
+
+    // 4) Build the conversation for the model
     const chat: ChatMsg[] = [
       { role: "system", content: OMI_SYSTEM },
     ];
     if (memoryBlock) chat.push({ role: "system", content: memoryBlock });
+    if (searchBlock) chat.push({ role: "system", content: searchBlock });
     for (const m of recent) {
       chat.push({
         role: m.role === "user" ? "user" : "assistant",
@@ -108,7 +133,7 @@ export const send = action({
       chat.push({ role: "user", content: trimmed });
     }
 
-    // 4) Reason + answer
+    // 5) Reason + answer
     const result = await vly.ai.completion({
       model: "gpt-4o-mini",
       messages: chat,
@@ -127,7 +152,7 @@ export const send = action({
       throw new Error("Omi returned an empty answer. Try again.");
     }
 
-    // 5) Save Omi's reply with its transparent reasoning trail
+    // 6) Save Omi's reply with its transparent reasoning trail
     const omiMessageId = await ctx.runMutation(internal.omiMessages.saveInternal, {
       userId,
       conversationId,
