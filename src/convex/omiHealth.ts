@@ -2,6 +2,7 @@ import { query } from "./_generated/server";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
+import { deriveProposals } from "./omiImprove";
 
 /**
  * OMI workspace health (master plan Phase 11/13 observability).
@@ -71,6 +72,10 @@ export const workspaceHealth = query({
           : Math.round((passed.length / checkedTasks.length) * 100),
     };
 
-    return { ai, vision, toolMetrics, verification };
+    // Phase 11: derive PROPOSALS from this record — never mutations, the
+    // APPROVE step is always human (omiImprove.ts).
+    const proposals = deriveProposals({ ai, toolMetrics, verification });
+
+    return { ai, vision, toolMetrics, verification, proposals };
   },
 });

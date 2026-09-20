@@ -144,6 +144,50 @@ export function SettingsView() {
             </div>
           </div>
 
+          {/* Phase 11 — improvement proposals (human-approved only, §11) */}
+          {health !== undefined && health !== null && health.proposals.length > 0 && (
+            <div className="mt-4 space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Improvement proposals — for your approval
+              </p>
+              {health.proposals.map((p) => (
+                <div
+                  key={p.id}
+                  className="rounded-lg border border-border/60 p-3"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="min-w-0 text-sm font-medium">{p.title}</p>
+                    <Badge
+                      variant="outline"
+                      className={
+                        p.severity === "action"
+                          ? "shrink-0 border-amber-500/30 bg-amber-500/10 text-amber-400"
+                          : p.severity === "watch"
+                            ? "shrink-0 border-sky-500/30 bg-sky-500/10 text-sky-400"
+                            : "shrink-0 border-border bg-muted text-muted-foreground"
+                      }
+                    >
+                      {p.severity === "action"
+                        ? "Needs review"
+                        : p.severity === "watch"
+                          ? "Watch"
+                          : "Info"}
+                    </Badge>
+                  </div>
+                  <p className="mt-1 text-xs text-muted-foreground">{p.detail}</p>
+                  <p className="mt-1.5 text-xs text-foreground/90">
+                    <span className="font-medium">Requested decision:</span> {p.ask}
+                  </p>
+                </div>
+              ))}
+              <p className="text-[10px] text-muted-foreground">
+                Derived read-only from your live metrics (master plan §11:
+                PROPOSE → TEST → VERIFY → APPROVE → DEPLOY). Omi never applies
+                a change without your explicit approval.
+              </p>
+            </div>
+          )}
+
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <div className="rounded-lg border border-border/60 p-3">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
