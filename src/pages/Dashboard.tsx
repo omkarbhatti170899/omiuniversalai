@@ -3,6 +3,7 @@ import { WorkspaceShell } from "@/components/workspace/WorkspaceShell";
 import type { WorkspaceView } from "@/components/workspace/WorkspaceShell";
 import { HomeView } from "@/components/workspace/HomeView";
 import { MemoryView } from "@/components/workspace/MemoryView";
+import { KnowledgeView } from "@/components/workspace/KnowledgeView";
 import { SettingsView } from "@/components/workspace/SettingsView";
 import { EmotionsView } from "@/components/workspace/EmotionsView";
 import { OmiSearchPanel } from "@/components/OmiSearchPanel";
@@ -76,6 +77,8 @@ export default function Dashboard() {
       )}
 
       {view === "memory" && <MemoryView />}
+
+      {view === "knowledge" && <KnowledgeView />}
 
       {view === "emotions" && (
         <div className="mx-auto max-w-4xl">

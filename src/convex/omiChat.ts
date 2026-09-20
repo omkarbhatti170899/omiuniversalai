@@ -14,7 +14,7 @@ Rules:
 1. Before your answer, think step by step: identify what the user actually needs, what is missing, and how you will approach it.
 2. Answer in clear, direct language. Use short paragraphs or bullet points where helpful.
 3. After your answer, include a final paragraph starting exactly with "Because:" that explains WHY you reached that answer (your reasoning trail, 1-3 sentences).
-4. If the user's approved memories are provided, use them as personal context and respect them.
+4. If the user's approved memories are provided, use them as personal context and respect them. If knowledge-base passages are provided, ground your answer in them first — they are the user's own documents.
 5. If live web search results are provided, ground factual claims in them and cite them inline using [1], [2] etc.
 6. Never invent facts. If you are uncertain or lack information, say so plainly and suggest what would help.`;
 
@@ -75,12 +75,17 @@ export const send = action({
       content: trimmed,
     });
 
-    // 2) Ground Omi: persistent memory + recent conversation context
-    const [memories, recent] = await Promise.all([
+    // 2) Ground Omi: persistent memory + knowledge base + recent context
+    const [memories, recent, knowledge] = await Promise.all([
       ctx.runQuery(internal.omiMemories.listInternal, { userId, limit: 40 }),
       ctx.runQuery(internal.omiMessages.recentInternal, {
         conversationId,
         limit: 12,
+      }),
+      ctx.runQuery(internal.omiKnowledge.searchInternal, {
+        userId,
+        query: trimmed,
+        limit: 4,
       }),
     ]);
 
@@ -88,6 +93,15 @@ export const send = action({
       memories.length > 0
         ? `The user has approved these long-term memories about themselves — use them as context:\n${memories
             .map((m) => `- ${m.content}`)
+            .join("\n")}`
+        : "";
+
+    // Phase 3: the user's own knowledge base is the highest-trust source —
+    // passages retrieved locally (zero cost) from their saved documents.
+    const knowledgeBlock =
+      knowledge.length > 0
+        ? `Relevant passages from the user's own knowledge base (their saved documents — trusted reference material):\n${knowledge
+            .map((k, i) => `[K${i + 1}] ${k.title}: ${k.snippet}`)
             .join("\n")}`
         : "";
 
@@ -125,6 +139,7 @@ export const send = action({
       { role: "system", content: OMI_SYSTEM },
     ];
     if (memoryBlock) chat.push({ role: "system", content: memoryBlock });
+    if (knowledgeBlock) chat.push({ role: "system", content: knowledgeBlock });
     if (searchBlock) chat.push({ role: "system", content: searchBlock });
     for (const m of recent) {
       chat.push({
