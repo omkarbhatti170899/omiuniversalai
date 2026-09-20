@@ -6,6 +6,8 @@ import { api, internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { complete } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
+import { toolCatalogPrompt, parseToolCall } from "./omiTools/registry";
+import { executeTool } from "./omiTools/executor";
 
 /** AI plans the steps for an objective. Creates the task awaiting human approval. */
 export const planTask = action({
@@ -30,7 +32,7 @@ export const planTask = action({
         {
           role: "system",
           content:
-            'You are Omi\'s agent planner. Break the objective into 2-4 concrete, sequential steps. Respond with ONLY a JSON array of short step descriptions, e.g. ["Step one","Step two"]. No commentary.',
+            'You are Omi\'s agent planner. Break the objective into 2-4 concrete, sequential steps. Respond with ONLY a JSON array of short step descriptions, e.g. ["Step one","Step two"]. No commentary. When research or live facts are involved, plan a step that uses the available tools (web search, page reading).',
         },
         {
           role: "user",
@@ -92,6 +94,7 @@ export const runTask = action({
     try {
       const steps: string[] = task.plan ?? [];
       const outputs: string[] = [];
+      const toolLines: string[] = [];
 
       for (let i = 0; i < steps.length; i++) {
         // Routed as a conversational task — short, concrete step outputs.
@@ -100,7 +103,7 @@ export const runTask = action({
           messages: [
             {
               role: "system",
-              content: `You are Omi's ${specialty} agent executing one step of a multi-step task. Produce the concrete output for this step only: concise, actionable, under 150 words. No preamble.`,
+              content: `You are Omi's ${specialty} agent executing one step of a multi-step task. Produce the concrete output for this step only: concise, actionable, under 150 words. No preamble.\n\n${toolCatalogPrompt()}`,
             },
             {
               role: "user",
@@ -126,8 +129,34 @@ export const runTask = action({
           throw new Error(friendlyAiError(stepResult.error));
         }
 
-        const output = stepResult.content.trim();
+        let output = stepResult.content.trim();
         if (!output) throw new Error(`Step ${i + 1} produced no output.`);
+
+        // Tool execution (master plan Phase 1/6): the step's final line may
+        // be a registry tool call. Execute it through the allowlisted
+        // executor and keep the result as context for later steps.
+        const call = parseToolCall(output);
+        if (call.ok) {
+          const run = await executeTool(ctx, userId, call.tool, call.args, {
+            taskId,
+            agentId: task.agentId,
+          });
+          toolLines.push(
+            `${run.ok ? "✔" : "✖"} ${call.tool}: ${
+              run.ok ? run.output.slice(0, 300) : run.error
+            }`,
+          );
+          output = call.textBefore.trim();
+          if (run.ok && run.output) {
+            outputs.push(`[${call.tool}] ${run.output.slice(0, 1200)}`);
+          }
+        } else if (
+          /^TOOL\s/.test(output.split("\n").pop() ?? "")
+        ) {
+          // Malformed call: surface the parser error honestly.
+          toolLines.push(`✖ malformed tool call: ${call.error}`);
+          output = call.textBefore.trim();
+        }
 
         outputs.push(output);
         await ctx.runMutation(internal.omiTasks.saveStepInternal, {
@@ -159,7 +188,11 @@ export const runTask = action({
             role: "user",
             content: `Objective: ${task.objective}\n\nStep outputs:\n${outputs
               .map((o, j) => `Step ${j + 1}: ${o}`)
-              .join("\n\n")}`,
+              .join("\n\n")}${
+              toolLines.length > 0
+                ? `\n\nTool runs:\n${toolLines.join("\n")}`
+                : ""
+            }`,
           },
         ],
         temperature: 0.3,

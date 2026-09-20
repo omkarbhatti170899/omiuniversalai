@@ -1,5 +1,5 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
-import { internalQuery, mutation, query } from "./_generated/server";
+import { internalMutation, internalQuery, mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 /** Memories for the signed-in user, newest first (user-facing). */
@@ -67,6 +67,24 @@ export const remove = mutation({
   },
 });
 
+/** Internal create used by the OMI tool executor (memory_save tool). */
+export const createInternal = internalMutation({
+  args: {
+    userId: v.id("users"),
+    content: v.string(),
+  },
+  handler: async (ctx, { userId, content }) => {
+    const trimmed = content.trim().slice(0, 500);
+    if (trimmed.length < 2) {
+      throw new Error("Memory needs at least a few characters.");
+    }
+    return await ctx.db.insert("omiMemories", {
+      userId,
+      content: trimmed,
+      source: "omi",
+    });
+  },
+});
 /** Internal read used by the chat action to ground Omi in approved memory. */
 export const listInternal = internalQuery({
   args: { userId: v.id("users"), limit: v.number() },

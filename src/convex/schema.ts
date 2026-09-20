@@ -241,6 +241,21 @@ const schema = defineSchema(
       detail: v.optional(v.string()),
     }).index("by_user", ["userId"]),
 
+    // OMI Tool Registry — every tool execution for observability + the
+    // Phase 11 self-improvement loop (what ran, with what, and whether it
+    // succeeded). Args are summarized, never stored raw with secrets.
+    omiToolRuns: defineTable({
+      userId: v.id("users"),
+      taskId: v.optional(v.id("omiTasks")),
+      agentId: v.optional(v.id("omiAgents")),
+      tool: v.string(),
+      argsSummary: v.optional(v.string()),
+      ok: v.boolean(),
+      output: v.optional(v.string()),
+      error: v.optional(v.string()),
+      durationMs: v.number(),
+    }).index("by_user", ["userId"]).index("by_task", ["taskId"]),
+
     // add other tables here
 
     // tableName: defineTable({

@@ -35,6 +35,7 @@ import {
   ScrollText,
   ShieldCheck,
   Trash2,
+  Wrench,
   X,
 } from "lucide-react";
 import { useState } from "react";
@@ -107,6 +108,7 @@ export function OmiAgentsPanel() {
   const tasks = useQuery(api.omiTasks.listMine);
   const audit = useQuery(api.omiAudit.listMine);
   const taskDetails = useQuery(api.omiTasks.detail);
+  const toolRuns = useQuery(api.omiToolRuns.listMine, { limit: 30 });
   const stepsByTask = new Map(
     (taskDetails ?? []).map((d) => [d.task._id, d.steps]),
   );
@@ -190,7 +192,11 @@ export function OmiAgentsPanel() {
     }
   };
 
-  const isLoading = agents === undefined || tasks === undefined || audit === undefined;
+  const isLoading =
+    agents === undefined ||
+    tasks === undefined ||
+    audit === undefined ||
+    toolRuns === undefined;
   if (isLoading) {
     return (
       <div className="space-y-4">
@@ -448,6 +454,66 @@ export function OmiAgentsPanel() {
               );
             })}
           </div>
+        )}
+      </section>
+
+      {/* Tool activity (OMI Tool Registry — shared by all agents) */}
+      <section>
+        <h2 className="mb-3 flex items-center gap-2 text-xl font-bold tracking-tight">
+          <Wrench className="size-5 text-muted-foreground" />
+          Tool activity
+        </h2>
+        {toolRuns.length === 0 ? (
+          <p className="text-sm text-muted-foreground">
+            No tool runs yet — agents use tools (web search, page reading,
+            knowledge lookup, memory) automatically when a step needs them.
+          </p>
+        ) : (
+          <Card>
+            <CardContent className="divide-y divide-border/60 py-2">
+              {toolRuns.map((run) => {
+                const r = run as {
+                  _id: Id<"omiToolRuns">;
+                  tool: string;
+                  ok: boolean;
+                  output?: string;
+                  error?: string;
+                  durationMs: number;
+                  _creationTime: number;
+                };
+                return (
+                  <div key={r._id} className="flex items-start gap-3 py-2.5">
+                    <span
+                      className={`mt-1.5 size-1.5 shrink-0 rounded-full ${
+                        r.ok ? "bg-emerald-500" : "bg-red-500"
+                      }`}
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className="flex items-center gap-2 text-sm font-medium">
+                        {r.tool}
+                        <span className="text-xs font-normal text-muted-foreground">
+                          {r.durationMs}ms
+                        </span>
+                        {!r.ok && r.error && (
+                          <span className="truncate text-xs font-normal text-red-500">
+                            {r.error}
+                          </span>
+                        )}
+                      </p>
+                      {r.ok && r.output && (
+                        <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground">
+                          {r.output}
+                        </p>
+                      )}
+                    </div>
+                    <span className="shrink-0 text-xs text-muted-foreground">
+                      {new Date(r._creationTime).toLocaleTimeString()}
+                    </span>
+                  </div>
+                );
+              })}
+            </CardContent>
+          </Card>
         )}
       </section>
 
