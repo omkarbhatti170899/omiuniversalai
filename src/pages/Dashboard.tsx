@@ -7,12 +7,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { OmiSearchPanel } from "@/components/OmiSearchPanel";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/use-auth";
 import { motion } from "framer-motion";
 import {
   Activity,
   BrainCircuit,
+  Globe,
   Loader2,
   LogOut,
   Send,
@@ -159,22 +162,35 @@ export default function Dashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-sm text-muted-foreground">Human Emotions AI</p>
+          <p className="text-sm text-muted-foreground">Ominnovations Intelligence</p>
           <h1 className="mt-1 text-3xl font-bold tracking-tight">
-            Welcome{user?.name ? `, ${user.name}` : ""} — ask Omi how they feel
+            Welcome{user?.name ? `, ${user.name}` : ""} — Omi is ready
           </h1>
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-            Paste a customer message, chat, review, or note. Omi reads the human
-            emotion inside it and returns a full read-out saved to your history.
+            Read the emotion in any customer message, or ask Omi to search the
+            live web with cited answers — all in one workspace.
           </p>
         </motion.div>
 
+        <Tabs defaultValue="emotions" className="mt-6">
+          <TabsList className="grid w-full max-w-md grid-cols-2">
+            <TabsTrigger value="emotions" className="cursor-pointer gap-2">
+              <Sparkles className="size-4" />
+              Emotions AI
+            </TabsTrigger>
+            <TabsTrigger value="search" className="cursor-pointer gap-2">
+              <Globe className="size-4" />
+              Omi Search
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="emotions" className="mt-6">
         {/* Analyzer */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.08 }}
-          className="mt-8"
+          className="mt-2"
         >
           <Card>
             <CardHeader>
@@ -374,10 +390,16 @@ export default function Dashboard() {
             </div>
           )}
         </motion.section>
+          </TabsContent>
+
+          <TabsContent value="search" className="mt-6">
+            <OmiSearchPanel />
+          </TabsContent>
+        </Tabs>
       </main>
 
       <footer className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
-        Ominnovations Intelligence · Human Emotions AI v1
+        Ominnovations Intelligence · Human Emotions AI + Omi Search
       </footer>
     </div>
   );

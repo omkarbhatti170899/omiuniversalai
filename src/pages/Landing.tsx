@@ -115,8 +115,8 @@ export default function Landing() {
           >
             Ominnovations Intelligence is the AI workspace for support and
             operations teams. Paste any message and Omi decodes the emotion
-            behind it — so every agent responds with empathy, speed, and
-            consistency.
+            behind it — or ask Omi to search the live web and answer with
+            citations. Empathy, speed, and consistency in one place.
           </motion.p>
 
           <motion.div
@@ -201,7 +201,7 @@ export default function Landing() {
               {[
                 "Primary emotion with confidence score",
                 "Recommended next action for the agent",
-                "A plain-language note on the human feeling",
+                "Live web search with cited answers",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2.5">
                   <MessageSquareHeart className="mt-0.5 size-4 shrink-0 text-primary" />

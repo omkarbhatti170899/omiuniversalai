@@ -49,6 +49,20 @@ const schema = defineSchema(
       omiNote: v.optional(v.string()),
     }).index("by_user", ["userId"]),
 
+    // Omi Search — saved web searches with Omi's cited answer
+    webSearches: defineTable({
+      userId: v.id("users"),
+      query: v.string(),
+      answer: v.string(),
+      citations: v.array(
+        v.object({
+          title: v.string(),
+          url: v.string(),
+          snippet: v.optional(v.string()),
+        }),
+      ),
+    }).index("by_user", ["userId"]),
+
     // add other tables here
 
     // tableName: defineTable({
