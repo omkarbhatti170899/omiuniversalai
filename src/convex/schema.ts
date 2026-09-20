@@ -238,6 +238,49 @@ const schema = defineSchema(
       status: v.union(v.literal("pending"), v.literal("approved"), v.literal("denied")),
     }).index("by_task", ["taskId"]),
 
+    // Phase 10 — Automation Engine: persistent, resumable workflow runs.
+    // Workflows chain Omi capabilities (Andromeda retrieval → page reading →
+    // grounded synthesis → verification → deliverable) with per-step status,
+    // so a failed/timeouted run reports exactly where it stopped (§40).
+    omiWorkflows: defineTable({
+      userId: v.id("users"),
+      title: v.string(),
+      objective: v.string(),
+      workflowType: v.literal("research_report"), // more types plug in later
+      status: v.union(
+        v.literal("running"),
+        v.literal("done"),
+        v.literal("failed"),
+      ),
+      stage: v.optional(v.string()), // human-readable progress
+      steps: v.optional(
+        v.array(
+          v.object({
+            label: v.string(),
+            // Statuses are code-controlled (workflows/plan.ts); kept a plain
+            // string in the validator so legacy runs can be patched freely.
+            status: v.string(),
+            detail: v.optional(v.string()),
+          }),
+        ),
+      ),
+      // Deliverable: saved into omiDocuments (source: "omi") so the report
+      // joins the knowledge base and stays searchable/quotable.
+      documentId: v.optional(v.id("omiDocuments")),
+      result: v.optional(v.string()),
+      summary: v.optional(v.string()),
+      citations: v.optional(
+        v.array(v.object({ title: v.string(), url: v.string(), snippet: v.optional(v.string()) })),
+      ),
+      verification: v.optional(
+        v.union(v.literal("pass"), v.literal("warnings"), v.literal("unverified"), v.literal("failed")),
+      ),
+      verificationNotes: v.optional(v.array(v.string())),
+      error: v.optional(v.string()),
+      createdAt: v.number(),
+      completedAt: v.optional(v.number()),
+    }).index("by_user", ["userId"]),
+
     // Audit trail — every agent action, newest first in queries
     omiAuditLog: defineTable({
       userId: v.id("users"),

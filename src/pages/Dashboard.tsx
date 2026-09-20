@@ -6,6 +6,7 @@ import { KnowledgeView } from "@/components/workspace/KnowledgeView";
 import { FilesView } from "@/components/workspace/FilesView";
 import { SettingsView } from "@/components/workspace/SettingsView";
 import { EmotionsView } from "@/components/workspace/EmotionsView";
+import { AutomationView } from "@/components/workspace/AutomationView";
 import { OmiSearchPanel } from "@/components/OmiSearchPanel";
 import { OmiAssistantPanel } from "@/components/OmiAssistantPanel";
 import { OmiAgentsPanel } from "@/components/OmiAgentsPanel";
@@ -93,6 +94,8 @@ export default function Dashboard() {
           <OmiAgentsPanel />
         </div>
       )}
+
+      {view === "automation" && <AutomationView />}
 
       {view === "settings" && <SettingsView />}
     </WorkspaceShell>

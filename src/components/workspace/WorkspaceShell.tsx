@@ -22,6 +22,7 @@ import {
   Search,
   Settings,
   Sparkles,
+  Workflow,
 } from "lucide-react";
 
 export type WorkspaceView =
@@ -34,6 +35,7 @@ export type WorkspaceView =
   | "memory"
   | "files"
   | "tasks"
+  | "automation"
   | "emotions"
   | "search"
   | "settings";
@@ -54,6 +56,7 @@ const NAV: NavItem[] = [
   { id: "emotions", label: "Emotions AI", icon: Sparkles, ready: true },
   { id: "search", label: "Andromeda", icon: Search, ready: true },
   { id: "tasks", label: "Tasks", icon: ListChecks, ready: true },
+  { id: "automation", label: "Automation", icon: Workflow, ready: true },
   { id: "files", label: "Files", icon: Files, ready: true },
   { id: "knowledge", label: "Knowledge", icon: BookOpen, ready: true },
   { id: "settings", label: "Settings", icon: Settings, ready: true },
