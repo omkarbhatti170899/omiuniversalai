@@ -65,6 +65,8 @@ type Task = {
   plan?: string[];
   result?: string;
   error?: string;
+  verification?: "pass" | "warnings" | "unverified" | "failed";
+  verificationNotes?: string[];
 };
 
 type AuditEvent = {
@@ -94,6 +96,13 @@ const PRESETS = [
       "Turns messy operational problems into sequenced action plans.",
   },
 ];
+
+const VERIFICATION_STYLES: Record<string, string> = {
+  pass: "border-emerald-500/40 bg-emerald-500/10 text-emerald-500",
+  warnings: "border-amber-500/40 bg-amber-500/10 text-amber-500",
+  unverified: "border-slate-500/40 bg-slate-500/10 text-slate-400",
+  failed: "border-red-500/40 bg-red-500/10 text-red-500",
+};
 
 const STATUS_STYLES: Record<Task["status"], string> = {
   awaiting_approval: "bg-amber-500/15 text-amber-500 border-amber-500/30",
@@ -410,11 +419,42 @@ export function OmiAgentsPanel() {
 
                       {task.result && (
                         <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3">
-                          <p className="mb-1 flex items-center gap-1.5 text-xs font-semibold text-emerald-500">
-                            <CheckCircle2 className="size-3.5" />
-                            Result
-                          </p>
+                          <div className="mb-1 flex flex-wrap items-center gap-2">
+                            <p className="flex items-center gap-1.5 text-xs font-semibold text-emerald-500">
+                              <CheckCircle2 className="size-3.5" />
+                              Result
+                            </p>
+                            {task.verification && task.verification !== "pass" && (
+                              <Badge
+                                variant="outline"
+                                className={VERIFICATION_STYLES[task.verification]}
+                              >
+                                {task.verification === "warnings"
+                                  ? "⚠ verified with warnings"
+                                  : task.verification === "unverified"
+                                    ? "◌ not verified"
+                                    : "✖ verification failed"}
+                              </Badge>
+                            )}
+                            {task.verification === "pass" && (
+                              <Badge
+                                variant="outline"
+                                className="border-emerald-500/40 bg-emerald-500/10 text-emerald-500"
+                              >
+                                ✓ verified
+                              </Badge>
+                            )}
+                          </div>
                           <p className="whitespace-pre-wrap text-sm">{task.result}</p>
+                          {task.verificationNotes && task.verificationNotes.length > 0 && (
+                            <ul className="mt-2 space-y-1 border-t border-emerald-500/20 pt-2">
+                              {task.verificationNotes.map((n, i) => (
+                                <li key={i} className="text-xs text-muted-foreground">
+                                  • {n}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       )}
 

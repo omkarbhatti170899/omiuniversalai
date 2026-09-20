@@ -7,10 +7,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/hooks/use-auth";
 import {
+  Activity,
   Bot,
   Brain,
   Globe,
   MessageSquare,
+  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 import { Link } from "react-router";
@@ -18,6 +20,7 @@ import { Link } from "react-router";
 export function SettingsView() {
   const { user, isLoading } = useAuth();
   const providerStatus = useQuery(api.searchStatus.status);
+  const health = useQuery(api.omiHealth.workspaceHealth);
 
   const searchReady =
     providerStatus !== undefined && providerStatus.some((p) => p.ready);
@@ -119,6 +122,104 @@ export function SettingsView() {
             free/open keyless API. Paid engines may exist only as optional
             adapters — none are registered, so none can silently bill.
           </p>
+        </CardContent>
+      </Card>
+
+      {/* OMI health — tool reliability + verification quality (Phase 11/13) */}
+      <Card>
+        <CardContent className="p-5">
+          <div className="flex items-center gap-3">
+            <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <Activity className="size-5" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold">OMI health & reliability</p>
+              <p className="text-xs text-muted-foreground">
+                Live metrics from your tool runs and verification passes.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-lg border border-border/60 p-3">
+              <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <ShieldCheck className="size-3.5" />
+                Verification quality
+              </p>
+              {health === undefined ? (
+                <p className="mt-2 text-sm text-muted-foreground">Loading…</p>
+              ) : health === null || health.verification.checked === 0 ? (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Run an agent task to see verification metrics.
+                </p>
+              ) : (
+                <>
+                  <p className="mt-2 text-2xl font-bold tracking-tight">
+                    {health.verification.passRate}%
+                    <span className="ml-2 text-xs font-normal text-muted-foreground">
+                      of {health.verification.checked} verified tasks passed
+                    </span>
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {health.verification.pass} pass · {health.verification.warnings} warnings ·{" "}
+                    {health.verification.failed} failed
+                  </p>
+                </>
+              )}
+            </div>
+            <div className="rounded-lg border border-border/60 p-3">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                AI routing (active provider)
+              </p>
+              {health === undefined || health === null ? (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {health === undefined ? "Loading…" : "Sign in to see routing."}
+                </p>
+              ) : (
+                <>
+                  <p className="mt-2 text-sm font-medium">
+                    {health.ai.providers.filter((p) => p.configured).map((p) => p.label).join(", ") ||
+                      "None configured"}
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Tasks route to the best model per provider — free-first,
+                    with automatic fallback.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+
+          {health !== undefined && health !== null && health.toolMetrics.length > 0 && (
+            <div className="mt-4 space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Tool reliability (last {health.toolMetrics.reduce((a, m) => a + m.total, 0)} runs)
+              </p>
+              {health.toolMetrics.map((m) => (
+                <div
+                  key={m.tool}
+                  className="flex items-center justify-between gap-3 rounded-lg border border-border/60 px-3 py-2"
+                >
+                  <p className="truncate text-sm font-medium">{m.tool}</p>
+                  <div className="flex shrink-0 items-center gap-3 text-xs">
+                    <span className="text-muted-foreground">{m.avgMs}ms avg</span>
+                    <Badge
+                      variant="outline"
+                      className={
+                        m.successRate >= 90
+                          ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                          : m.successRate >= 60
+                            ? "border-amber-500/30 bg-amber-500/10 text-amber-400"
+                            : "border-red-500/30 bg-red-500/10 text-red-400"
+                      }
+                    >
+                      {m.successRate}% success
+                    </Badge>
+                  </div>
+</div>
+              ))}
+            </div>
+          )}
         </CardContent>
       </Card>
 

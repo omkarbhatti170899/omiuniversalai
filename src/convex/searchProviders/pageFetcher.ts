@@ -10,7 +10,7 @@
  * every failure mode returns { ok: false, error } instead of throwing.
  */
 
-import { assertSafeUrl } from "../searchEngine/security";
+import { assertSafeUrl, sanitizeUntrustedText } from "../searchEngine/security";
 
 const UA =
   "Mozilla/5.0 (compatible; OmiResearchBot/1.0; +https://ominnovations.example/bot) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
@@ -224,7 +224,9 @@ export async function fetchPageText(
       html.match(/<main[\s\S]*?<\/main>/i);
     const body = articleMatch ? articleMatch[0] : html;
 
-    const text = htmlToText(body).slice(0, maxChars);
+    // Phase 12: page text is untrusted — sanitize BEFORE it can reach any
+    // model prompt (prompt-injection defense), then cap length.
+    const text = sanitizeUntrustedText(htmlToText(body), maxChars);
     if (text.length < 80) {
       return { url: finalUrl, title, text, publishedAt, updatedAt, ok: false, error: "too little text" };
     }

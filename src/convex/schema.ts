@@ -212,6 +212,12 @@ const schema = defineSchema(
       plan: v.optional(v.array(v.string())), // planned steps
       result: v.optional(v.string()), // final summary when done
       error: v.optional(v.string()),
+      // Phase 7 — Verification Intelligence: independent check of the result
+      // against the step outputs before it is shown as final.
+      verification: v.optional(
+        v.union(v.literal("pass"), v.literal("warnings"), v.literal("unverified"), v.literal("failed")),
+      ),
+      verificationNotes: v.optional(v.array(v.string())),
     }).index("by_user", ["userId"]).index("by_agent", ["agentId"]),
 
     // Individual step outputs of a task run

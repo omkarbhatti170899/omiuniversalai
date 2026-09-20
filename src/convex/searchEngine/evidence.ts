@@ -14,6 +14,7 @@
 
 import type { WebCitation } from "../searchProviders/types";
 import { domainOf, sourceTier, type SourceTier } from "./quality";
+import { sanitizeUntrustedText } from "./security";
 import { complete } from "../aiProviders";
 
 export type EvidenceItem = {
@@ -46,10 +47,11 @@ export function buildEvidencePack(
   const items: EvidenceItem[] = [];
   for (const c of citations.slice(0, maxSources)) {
     const pageText = pageTexts?.get(c.url);
-    const excerpt = (pageText ?? c.snippet ?? "")
-      .replace(/\s+/g, " ")
-      .trim()
-      .slice(0, perSource);
+    // Phase 12: snippets/page text are untrusted — sanitized before prompt use.
+    const excerpt = sanitizeUntrustedText(
+      (pageText ?? c.snippet ?? "").replace(/\s+/g, " ").trim(),
+      perSource,
+    );
     if (!excerpt && !c.title) continue;
     items.push({
       idx: items.length + 1,

@@ -35,12 +35,15 @@ import {
   History,
   Loader2,
   MessageSquarePlus,
+  Mic,
+  MicOff,
   Pencil,
   Plus,
   Send,
   Trash2,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useVoiceInput } from "@/hooks/useVoiceInput";
 
 type OmiMessage = {
   _id: Id<"omiMessages">;
@@ -90,6 +93,7 @@ export function OmiAssistantPanel({
   const createMemory = useMutation(api.omiMemories.create);
   const updateMemory = useMutation(api.omiMemories.update);
   const removeMemory = useMutation(api.omiMemories.remove);
+  const voice = useVoiceInput();
 
   // Auto-select the newest conversation on first load.
   useEffect(() => {
@@ -353,19 +357,53 @@ export function OmiAssistantPanel({
               <span className="text-xs text-muted-foreground">
                 ⌘/Ctrl + Enter to send
               </span>
-              <Button
-                className="cursor-pointer"
-                onClick={() => void handleSend()}
-                disabled={isSending || draft.trim().length === 0}
-              >
-                {isSending ? (
-                  <Loader2 className="mr-2 size-4 animate-spin" />
-                ) : (
-                  <Send className="mr-2 size-4" />
+              <div className="flex items-center gap-2">
+                {voice.supported && (
+                  <Button
+                    variant={voice.listening ? "default" : "outline"}
+                    size="sm"
+                    className="cursor-pointer"
+                    title={
+                      voice.listening
+                        ? "Stop listening"
+                        : "Speak to Omi (on-device, free)"
+                    }
+                    onClick={() => {
+                      if (voice.listening) {
+                        voice.stop();
+                      } else {
+                        voice.start((text) => setDraft(text));
+                      }
+                    }}
+                  >
+                    {voice.listening ? (
+                      <>
+                        <Mic className="mr-1.5 size-4 animate-pulse" />
+                        Listening…
+                      </>
+                    ) : (
+                      <MicOff className="size-4" />
+                    )
+                    }
+                  </Button>
                 )}
-                Send
-              </Button>
+                <Button
+                  className="cursor-pointer"
+                  onClick={() => void handleSend()}
+                  disabled={isSending || draft.trim().length === 0}
+                >
+                  {isSending ? (
+                    <Loader2 className="mr-2 size-4 animate-spin" />
+                  ) : (
+                    <Send className="mr-2 size-4" />
+                  )}
+                  Send
+                </Button>
+              </div>
             </div>
+            {voice.error && (
+              <p className="mt-1 text-right text-xs text-red-500">{voice.error}</p>
+            )}
           </div>
         </CardContent>
       </Card>

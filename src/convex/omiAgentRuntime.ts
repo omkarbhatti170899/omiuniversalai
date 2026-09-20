@@ -8,6 +8,7 @@ import { complete } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 import { toolCatalogPrompt, parseToolCall } from "./omiTools/registry";
 import { executeTool } from "./omiTools/executor";
+import { verifyResult, correctiveRetry } from "./verification";
 
 /** AI plans the steps for an objective. Creates the task awaiting human approval. */
 export const planTask = action({
@@ -204,9 +205,57 @@ export const runTask = action({
           ? final.content.trim()
           : outputs[outputs.length - 1];
 
+      // Phase 7 — Verification Intelligence: independent verifier checks the
+      // final result against the recorded evidence BEFORE it is shown.
+      let verification: "pass" | "warnings" | "unverified" | "failed" = "unverified";
+      let verificationNotes: string[] = [];
+      let resultText = finalText;
+      try {
+        const verdict = await verifyResult(task.objective, finalText, [...outputs, ...toolLines]);
+        verification = verdict.verdict;
+        verificationNotes = verdict.notes;
+
+        // Bounded retry: one corrective pass on "failed" (master plan:
+        // ANSWER → CHECK → IDENTIFY ERRORS → RETRY/CORRECT → FINAL).
+        if (verdict.verdict === "failed" && verdict.notes.length > 0) {
+          const corrected = await correctiveRetry(task.objective, finalText, verdict.notes);
+          if (corrected) {
+            resultText = corrected;
+            const recheck = await verifyResult(task.objective, corrected, [
+              ...outputs,
+              ...toolLines,
+            ]);
+            verification = recheck.verdict === "failed" ? "warnings" : recheck.verdict;
+            verificationNotes = [
+              ...recheck.notes,
+              ...(recheck.notes.length === 0 ? ["Corrected once after verification failure."] : []),
+            ];
+            await ctx.runMutation(internal.omiAudit.addInternal, {
+              userId,
+              taskId,
+              agentId: task.agentId,
+              event: "verification_retry",
+              detail: "Corrective pass applied after failed verification",
+            });
+          }
+        }
+
+        await ctx.runMutation(internal.omiAudit.addInternal, {
+          userId,
+          taskId,
+          agentId: task.agentId,
+          event: "verification_run",
+          detail: `Verdict: ${verification}${verificationNotes.length > 0 ? ` — ${verificationNotes[0].slice(0, 120)}` : ""}`,
+        });
+      } catch {
+        verification = "unverified";
+      }
+
       await ctx.runMutation(internal.omiTasks.setResultInternal, {
         id: taskId,
-        result: finalText.slice(0, 3000),
+        result: resultText.slice(0, 3000),
+        verification,
+        verificationNotes: verificationNotes.slice(0, 5),
       });
       await ctx.runMutation(internal.omiTasks.setStatusInternal, {
         id: taskId,

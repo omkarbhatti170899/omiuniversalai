@@ -234,9 +234,20 @@ export const setStatusInternal = internalMutation({
 });
 
 export const setResultInternal = internalMutation({
-  args: { id: v.id("omiTasks"), result: v.string() },
-  handler: async (ctx, { id, result }) => {
-    await ctx.db.patch(id, { result });
+  args: {
+    id: v.id("omiTasks"),
+    result: v.string(),
+    verification: v.optional(
+      v.union(v.literal("pass"), v.literal("warnings"), v.literal("unverified"), v.literal("failed")),
+    ),
+    verificationNotes: v.optional(v.array(v.string())),
+  },
+  handler: async (ctx, { id, result, verification, verificationNotes }) => {
+    await ctx.db.patch(id, {
+      result,
+      ...(verification !== undefined ? { verification } : {}),
+      ...(verificationNotes !== undefined ? { verificationNotes } : {}),
+    });
   },
 });
 
