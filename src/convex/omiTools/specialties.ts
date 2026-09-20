@@ -53,7 +53,7 @@ export const SPECIALTIES: SpecialtyProfile[] = [
       "Plan steps that gather evidence before concluding: identify what is known vs unknown, retrieve current facts with web search, open primary sources with read_page, and check the user's own documents first — they are the highest-trust source. Never plan a step that asserts a fact you have not retrieved.",
     execution:
       "Cite where each finding came from (which source or document). Separate what the sources say from your interpretation. If sources conflict, say so instead of picking one silently.",
-    tools: ["web_search", "read_page", "knowledge_search", "memory_list"],
+    tools: ["web_search", "read_page", "knowledge_search", "memory_list", "andromeda_research"],
   },
   {
     id: "analysis",
@@ -64,7 +64,7 @@ export const SPECIALTIES: SpecialtyProfile[] = [
       "Plan steps that quantify and compare: define the metrics that matter, ground every claim in the user's documents before generalizing, and reserve the final step for a decision-ready summary with explicit trade-offs.",
     execution:
       "State numbers and assumptions explicitly. Distinguish observation from interpretation, and note what the data cannot support.",
-    tools: ["web_search", "knowledge_search", "memory_list", "calculate"],
+    tools: ["web_search", "knowledge_search", "memory_list", "calculate", "andromeda_research"],
   },
   {
     id: "operations",
@@ -86,7 +86,7 @@ export const SPECIALTIES: SpecialtyProfile[] = [
       "Plan steps that build and verify: restate the requirement precisely, identify the interfaces and data shapes involved, look up current API or library documentation when unsure rather than guessing, and reserve a final step for how the result can be tested.",
     execution:
       "Prefer exact, runnable specifics over vague guidance. When API behavior matters, verify against documentation instead of memory, and note the version or source you relied on.",
-    tools: ["web_search", "read_page", "knowledge_search", "memory_list"],
+    tools: ["web_search", "read_page", "knowledge_search", "memory_list", "andromeda_research"],
   },
   {
     id: "document",

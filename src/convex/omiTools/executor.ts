@@ -27,6 +27,7 @@ import { runUniversalSearch } from "../universalSearch";
 import { fetchPageText } from "../searchProviders/pageFetcher";
 import { rateLimit, withTimeout } from "../searchEngine/resilience";
 import { evaluateExpression } from "../searchEngine/calculator";
+import { runAndromeda } from "../andromeda/orchestrator";
 
 type ToolCtx = GenericActionCtx<DataModel>;
 
@@ -196,6 +197,40 @@ async function runTool(
         ok: true,
         tool,
         output: `Memory saved: "${content}"`,
+        ms: Date.now() - started,
+      };
+    }
+
+    case "andromeda_research": {
+      const question = clampStringArg(String(rawArgs.question), ARG_LIMITS.questionChars);
+      if (!question) return fail(tool, "question too long or empty", started);
+      const focusRaw = typeof rawArgs.focus === "string" ? rawArgs.focus : "";
+      const focus = clampStringArg(focusRaw, 120);
+      const r = await runAndromeda(ctx, question, focus ? { focus } : undefined);
+      if (!r.ok) {
+        return {
+          ok: false,
+          tool,
+          output: "",
+          error: (r.error ?? "research failed").slice(0, 300),
+          ms: Date.now() - started,
+        };
+      }
+      // Compact, citation-intact output for the agent context: the answer,
+      // the verification verdict, and the numbered sources (§29 provenance).
+      const lines = [
+        ...r.answer.split(/(?<=\.)\s+/).slice(0, 6),
+        "",
+        `Verification: ${r.verification.verdict}`,
+        r.verification.notes.length > 0 ? `Notes: ${r.verification.notes.join("; ").slice(0, 400)}` : "",
+        `Sources (${r.citations.length}):`,
+        ...r.citations.slice(0, 6).map((c) => `[${c.idx}] ${c.title} — ${c.domain}`),
+        r.gates && r.gates.warnings.length > 0 ? `Cautions: ${r.gates.warnings.join("; ").slice(0, 300)}` : "",
+      ].filter((l) => l !== "");
+      return {
+        ok: true,
+        tool,
+        output: truncate(lines.join("\n"), descriptorMax("andromeda_research")),
         ms: Date.now() - started,
       };
     }

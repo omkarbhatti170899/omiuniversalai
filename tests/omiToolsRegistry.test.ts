@@ -23,13 +23,14 @@ const webSearch = toolById("web_search")!;
 
 describe("tool registry catalog", () => {
   test("declares the expected keyless tools", () => {
-    expect(TOOLS.length).toBe(6);
+    expect(TOOLS.length).toBe(7);
     expect(TOOL_IDS).toEqual([
       "web_search",
       "read_page",
       "knowledge_search",
       "memory_save",
       "memory_list",
+      "andromeda_research",
       "calculate",
     ]);
   });

@@ -22,7 +22,8 @@ export type ToolId =
   | "knowledge_search"
   | "memory_save"
   | "memory_list"
-  | "calculate";
+  | "calculate"
+  | "andromeda_research";
 
 export type ToolInputSchema = {
   [K in string]: "string" | "number" | "boolean";
@@ -98,6 +99,17 @@ export const TOOLS: ToolDescriptor[] = [
     safe: true,
     maxResultChars: 1200,
     syntax: 'TOOL memory_list {"limit": 10}',
+  },
+  {
+    id: "andromeda_research",
+    label: "Andromeda research",
+    description:
+      "The full Andromeda pipeline for one question: multi-source retrieval, dedupe, source-quality/freshness gates, grounded synthesis with citation integrity, and independent verification. Use for research questions that deserve evidence — deeper than web_search.",
+    required: { question: "string" },
+    optional: { focus: "string" },
+    safe: true,
+    maxResultChars: 3500,
+    syntax: 'TOOL andromeda_research {"question": "...", "focus": "optional angle"}',
   },
   {
     id: "calculate",
@@ -249,6 +261,7 @@ export const ARG_LIMITS = {
   contentChars: 500,
   limitMax: 10,
   expressionChars: 200,
+  questionChars: 400,
 } as const;
 
 /** Clamp a validated string arg to its cap. Returns null when it overflows. */
