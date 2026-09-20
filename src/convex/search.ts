@@ -20,8 +20,9 @@
  */
 
 import { v } from "convex/values";
-import { action } from "./_generated/server";
+import { action, type ActionCtx } from "./_generated/server";
 import { internal } from "./_generated/api";
+import type { Id } from "./_generated/dataModel";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
 import { fetchPageText } from "./searchProviders/pageFetcher";
@@ -36,9 +37,9 @@ import { complete } from "./aiProviders";
 // --- Helper: write one telemetry row (never breaks the request) ------------
 
 async function recordTelemetry(
-  ctx: any,
+  ctx: ActionCtx,
   row: {
-    userId?: string | null;
+    userId?: Id<"users">;
     query: string;
     mode: string;
     engines: string[];
@@ -139,7 +140,6 @@ export const searchWeb = action({
       const expr = trimmed.replace(/[^0-9+\-*/().,%^\s]/g, "").trim();
       let value = "";
       try {
-        // eslint-disable-next-line no-new-func
         const fn = new Function(`"use strict"; return (${expr});`) as () => unknown;
         const out = fn();
         value = String(out);

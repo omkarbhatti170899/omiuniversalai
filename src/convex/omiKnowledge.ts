@@ -40,8 +40,20 @@ function keywordsOf(text: string): string[] {
     .filter((w) => w.length > 2 && !STOP_WORDS.has(w));
 }
 
+/** Count non-overlapping occurrences (relevance grows with term frequency). */
+function countOccurrences(haystack: string, needle: string): number {
+  if (needle.length === 0) return 0;
+  let count = 0;
+  let idx = haystack.indexOf(needle);
+  while (idx !== -1) {
+    count += 1;
+    idx = haystack.indexOf(needle, idx + needle.length);
+  }
+  return count;
+}
+
 /** Split a document into readable chunks (~sentences, capped size). */
-function chunkContent(content: string): string[] {
+export function chunkContent(content: string): string[] {
   const paragraphs = content.split(/\n{2,}/);
   const chunks: string[] = [];
   let current = "";
@@ -84,7 +96,10 @@ export function scorePassages(
       const lower = chunk.toLowerCase();
       let score = 0;
       for (const k of kws) {
-        if (lower.includes(k)) score += 2;
+        // Term frequency matters: a passage mentioning the term repeatedly is
+        // a better match than a single mention (capped to avoid spam wins).
+        const hits = countOccurrences(lower, k);
+        if (hits > 0) score += 2 * Math.min(hits, 5);
       }
       // Full-phrase bonus: the passage likely contains the actual answer.
       if (phrase.length > 8 && lower.includes(phrase)) score += 5;

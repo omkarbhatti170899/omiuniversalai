@@ -1,15 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Kbd } from "@/components/ui/kbd";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
-import { useMutation } from "convex/react";
-import { api } from "@/convex/_generated/api";
-import { toast } from "sonner";
 import {
   Bell,
   BookOpen,
@@ -17,8 +13,6 @@ import {
   Brain,
   ChevronsLeft,
   ChevronsRight,
-  Database,
-  FileText,
   Files,
   Globe,
   Home,

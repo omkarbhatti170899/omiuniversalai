@@ -41,16 +41,6 @@ type WebSearch = {
   _creationTime: number;
 };
 
-type ProviderStatus = {
-  providers: Array<{
-    id: string;
-    label: string;
-    configured: boolean;
-    hint: string;
-  }>;
-  activeId: string | null;
-};
-
 const EXAMPLE_QUERIES = [
   "What are customers saying about our competitors' support quality?",
   "Latest AI trends for customer support teams",

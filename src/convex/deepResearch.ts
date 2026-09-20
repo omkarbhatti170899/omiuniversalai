@@ -18,9 +18,8 @@ import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
 import { fetchPageText } from "./searchProviders/pageFetcher";
-import { assertSafeUrl } from "./searchEngine/security";
 import { rateLimit, withTimeout } from "./searchEngine/resilience";
-import { decideSearch, detectScriptLanguage } from "./searchEngine/decision";
+import { detectScriptLanguage } from "./searchEngine/decision";
 import {
   buildEvidencePack,
   synthesizeResearchAnswer,
@@ -246,7 +245,7 @@ export const startDeepResearch = action({
     await ctx.runMutation(internal.deepResearchRuns.updateRun, {
       runId,
       status: "done",
-      stage: "Done",
+      stage: extractionFailures > 0 ? `Done — ${extractionFailures} source(s) unreadable` : "Done",
       answer: finalAnswer,
       summary,
       findings,

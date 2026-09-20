@@ -1,4 +1,3 @@
-import { api } from "@/convex/_generated/api";
 import { WorkspaceShell } from "@/components/workspace/WorkspaceShell";
 import type { WorkspaceView } from "@/components/workspace/WorkspaceShell";
 import { HomeView } from "@/components/workspace/HomeView";

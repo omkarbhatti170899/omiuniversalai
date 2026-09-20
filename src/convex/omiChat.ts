@@ -110,13 +110,11 @@ export const send = action({
     //    break the conversation.
     let searchBlock = "";
     let fallbackAnswer: string | null = null;
-    let citationCount = 0;
     try {
       const universal = await runUniversalSearch(ctx, trimmed, {
         perEngineLimit: 3,
         maxCitations: 4,
       });
-      citationCount = universal.citations.length;
       if (universal.citations.length > 0) {
         searchBlock =
           "Live web search results (cite them inline as [1], [2] … where used):\n" +
