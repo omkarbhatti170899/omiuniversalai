@@ -1,29 +1,24 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { internalQuery, mutation, query } from "./_generated/server";
 import { v } from "convex/values";
+import { retrieve, type RetrievalMode } from "./searchEngine/retrieval";
 
 /**
  * Omi Knowledge — Phase 3 local knowledge base (master plan).
  *
- * Documents are stored in Convex and retrieved with local keyword scoring —
- * ZERO per-query cost: no vector database, no paid embedding API, no
- * OpenSearch/FAISS hosting required. The scorer lives in this module, so a
+ * Documents are stored in Convex and retrieved with the local BM25 ranking
+ * engine (searchEngine/retrieval.ts) — ZERO per-query cost: no vector
+ * database, no paid embedding API, no OpenSearch/FAISS hosting required.
+ * The engine lives behind the provider-neutral retriever seam, so a
  * self-hosted semantic index can be swapped in later without touching the
  * chat runtime or the UI.
  *
- * Scoring: passage chunks are scored by keyword overlap (with a full-phrase
- * bonus and stop-word filtering). Deterministic, explainable, and free.
+ * Scoring: BM25 — inverse document frequency, length normalization and term
+ * saturation, with a full-phrase bonus. Deterministic, explainable, and
+ * free. The legacy keyword scorer remains available via `retrievalMode`.
  */
 
 const MAX_CONTENT_CHARS = 60_000;
-const CHUNK_CHARS = 420;
-const STOP_WORDS = new Set([
-  "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have",
-  "how", "in", "is", "it", "its", "of", "on", "or", "that", "the", "to", "was",
-  "what", "when", "where", "which", "who", "why", "will", "with", "do", "does",
-  "did", "can", "could", "should", "would", "me", "my", "your", "you", "i",
-  "this", "these", "those", "their", "there", "about", "into", "over", "than",
-]);
 
 export type KnowledgePassage = {
   documentId: string;
@@ -31,92 +26,6 @@ export type KnowledgePassage = {
   snippet: string;
   score: number;
 };
-
-function keywordsOf(text: string): string[] {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s'-]/g, " ")
-    .split(/\s+/)
-    .filter((w) => w.length > 2 && !STOP_WORDS.has(w));
-}
-
-/** Count non-overlapping occurrences (relevance grows with term frequency). */
-function countOccurrences(haystack: string, needle: string): number {
-  if (needle.length === 0) return 0;
-  let count = 0;
-  let idx = haystack.indexOf(needle);
-  while (idx !== -1) {
-    count += 1;
-    idx = haystack.indexOf(needle, idx + needle.length);
-  }
-  return count;
-}
-
-/** Split a document into readable chunks (~sentences, capped size). */
-export function chunkContent(content: string): string[] {
-  const paragraphs = content.split(/\n{2,}/);
-  const chunks: string[] = [];
-  let current = "";
-
-  const pushCurrent = () => {
-    const t = current.trim();
-    if (t.length > 0) chunks.push(t);
-    current = "";
-  };
-
-  for (const para of paragraphs) {
-    const sentences = para.split(/(?<=[.!?])\s+/);
-    for (const s of sentences) {
-      if ((current + " " + s).trim().length > CHUNK_CHARS) pushCurrent();
-      current = `${current} ${s}`.trim();
-      if (current.length > CHUNK_CHARS * 1.5) pushCurrent();
-    }
-    if (current.length > CHUNK_CHARS) pushCurrent();
-  }
-  pushCurrent();
-  return chunks.slice(0, 120);
-}
-
-/**
- * Keyword-scored retrieval over a set of documents.
- * Exported for testing/reuse; deterministic and free.
- */
-export function scorePassages(
-  query: string,
-  docs: Array<{ _id: { toString(): string }; title: string; content: string }>,
-  limit: number,
-): KnowledgePassage[] {
-  const kws = keywordsOf(query);
-  if (kws.length === 0) return [];
-  const phrase = query.toLowerCase().replace(/\s+/g, " ").trim();
-
-  const scored: KnowledgePassage[] = [];
-  for (const doc of docs) {
-    for (const chunk of chunkContent(doc.content)) {
-      const lower = chunk.toLowerCase();
-      let score = 0;
-      for (const k of kws) {
-        // Term frequency matters: a passage mentioning the term repeatedly is
-        // a better match than a single mention (capped to avoid spam wins).
-        const hits = countOccurrences(lower, k);
-        if (hits > 0) score += 2 * Math.min(hits, 5);
-      }
-      // Full-phrase bonus: the passage likely contains the actual answer.
-      if (phrase.length > 8 && lower.includes(phrase)) score += 5;
-      if (score > 0) {
-        scored.push({
-          documentId: doc._id.toString(),
-          title: doc.title,
-          snippet: chunk.length > 400 ? `${chunk.slice(0, 400)}…` : chunk,
-          score,
-        });
-      }
-    }
-  }
-
-  scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, limit);
-}
 
 // --- User-facing queries/mutations ------------------------------------------
 
@@ -135,10 +44,14 @@ export const listMine = query({
   },
 });
 
-/** Keyword-scored retrieval across the user's documents (free, local). */
+/** BM25-scored retrieval across the user's documents (free, local). */
 export const search = query({
-  args: { query: v.string(), limit: v.optional(v.number()) },
-  handler: async (ctx, { query, limit }) => {
+  args: {
+    query: v.string(),
+    limit: v.optional(v.number()),
+    retrievalMode: v.optional(v.string()),
+  },
+  handler: async (ctx, { query, limit, retrievalMode }) => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) return [];
 
@@ -146,7 +59,8 @@ export const search = query({
       .query("omiDocuments")
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .take(200);
-    return scorePassages(query, docs, Math.min(limit ?? 6, 12));
+    const mode: RetrievalMode = retrievalMode === "legacy" ? "legacy" : "bm25";
+    return retrieve(query, docs, Math.min(limit ?? 6, 12), mode);
   },
 });
 
@@ -189,15 +103,21 @@ export const remove = mutation({
   },
 });
 
-// --- Internal read used by the chat action (actions can't query directly) ----
+// --- Internal read used by chat/tool actions (actions can't query directly) --
 
 export const searchInternal = internalQuery({
-  args: { userId: v.id("users"), query: v.string(), limit: v.number() },
-  handler: async (ctx, { userId, query, limit }) => {
+  args: {
+    userId: v.id("users"),
+    query: v.string(),
+    limit: v.number(),
+    retrievalMode: v.optional(v.string()),
+  },
+  handler: async (ctx, { userId, query, limit, retrievalMode }) => {
     const docs = await ctx.db
       .query("omiDocuments")
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .take(200);
-    return scorePassages(query, docs, limit);
+    const mode: RetrievalMode = retrievalMode === "legacy" ? "legacy" : "bm25";
+    return retrieve(query, docs, limit, mode);
   },
 });
