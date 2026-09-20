@@ -1,10 +1,11 @@
 // VLY Integrations Configuration
 // See /integrations.md for usage documentation
 //
-// The VLY gateway is the primary AI path. If the workspace integration key is
-// temporarily rejected (e.g. stale credential), we transparently fall back to
-// a direct OpenAI-compatible completion so Omi keeps working. The fallback
-// keeps the exact same response shape, so call sites never change.
+// Resilient AI chain: the VLY gateway is the primary path; if the workspace
+// key is rejected or the gateway fails, we transparently try OpenAI-compatible
+// fallbacks (Groq free tier, then OpenAI). The response shape is identical for
+// every provider, so call sites never change. Whichever provider succeeds is
+// invisible to the rest of the app.
 
 import { createVlyIntegrations } from '@vly-ai/integrations';
 
@@ -27,33 +28,32 @@ type CompletionData = {
   usage?: { totalTokens?: number };
 };
 
+type CompletionResult = {
+  success: boolean;
+  data?: CompletionData;
+  error?: string;
+};
+
+const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+const GROQ_MODEL = "llama-3.3-70b-versatile";
 const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
 
-/**
- * Direct OpenAI fallback, used only when the VLY gateway refuses the
- * workspace key. Mirrors the @vly-ai/integrations completion() response shape.
- */
-async function openAiCompletion(
-  req: CompletionRequest
-): Promise<{ success: boolean; data?: CompletionData; error?: string }> {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) {
-    return {
-      success: false,
-      error:
-        "fallback unavailable: OPENAI_API_KEY is not configured in the project's API Keys tab",
-    };
-  }
-
+async function openAiCompatibleCompletion(
+  url: string,
+  apiKey: string,
+  model: string,
+  req: CompletionRequest,
+  label: string,
+): Promise<CompletionResult> {
   try {
-    const res = await fetch(OPENAI_URL, {
+    const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: req.model || "gpt-4o-mini",
+        model,
         messages: req.messages,
         temperature: req.temperature,
         max_tokens: req.maxTokens,
@@ -64,7 +64,7 @@ async function openAiCompletion(
     if (!res.ok) {
       return {
         success: false,
-        error: `OpenAI fallback error ${res.status}: ${bodyText.slice(0, 200)}`,
+        error: `${label} error ${res.status}: ${bodyText.slice(0, 160)}`,
       };
     }
 
@@ -73,13 +73,13 @@ async function openAiCompletion(
   } catch (e) {
     return {
       success: false,
-      error: `OpenAI fallback failed: ${e instanceof Error ? e.message : String(e)}`,
+      error: `${label} failed: ${e instanceof Error ? e.message : String(e)}`,
     };
   }
 }
 
-/** Detects a workspace-key rejection from the VLY gateway. */
-function isKeyRejection(error?: string): boolean {
+/** True when the failure looks like a credential problem (try another provider). */
+function isCredentialish(error?: string): boolean {
   const msg = (error ?? "").toLowerCase();
   return (
     msg.includes("401") ||
@@ -88,34 +88,74 @@ function isKeyRejection(error?: string): boolean {
     msg.includes("forbidden") ||
     msg.includes("invalid token") ||
     msg.includes("invalid api key") ||
-    msg.includes("invalid_api_key")
+    msg.includes("invalid_api_key") ||
+    msg.includes("insufficient") || // OpenAI: no credits left
+    msg.includes("quota")
   );
 }
 
 // Wrap the AI client so every call site keeps using `vly.ai.completion`
-// unchanged: VLY gateway first, transparent OpenAI fallback on key rejection.
+// unchanged: VLY first, then Groq (free tier), then OpenAI.
 const vlyAi = vly.ai as {
-  completion: (req: CompletionRequest) => Promise<{
-    success: boolean;
-    data?: CompletionData;
-    error?: string;
-  }>;
+  completion: (req: CompletionRequest) => Promise<CompletionResult>;
 };
 
 (vly as { ai: typeof vlyAi }).ai = {
-  completion: async (req) => {
-    const primary = await vlyAi.completion(req);
-    if (primary.success && primary.data) return primary;
+  completion: async (req): Promise<CompletionResult> => {
+    const attempts: Array<() => Promise<CompletionResult>> = [];
 
-    if (isKeyRejection(primary.error) && process.env.OPENAI_API_KEY) {
-      const fallback = await openAiCompletion(req);
-      if (fallback.success && fallback.data) {
-        return fallback; // same shape — callers can't tell the difference
-      }
-      // Both paths failed: prefer the primary (gateway) error for clarity.
-      return primary;
+    // 1) Primary: the workspace VLY gateway.
+    if (process.env.VLY_INTEGRATION_KEY) {
+      attempts.push(() => vlyAi.completion(req));
     }
 
-    return primary;
+    // 2) Groq — free tier, OpenAI-compatible.
+    if (process.env.GROQ_API_KEY) {
+      attempts.push(() =>
+        openAiCompatibleCompletion(
+          GROQ_URL,
+          process.env.GROQ_API_KEY as string,
+          GROQ_MODEL,
+          req,
+          "Groq",
+        ),
+      );
+    }
+
+    // 3) OpenAI — direct API.
+    if (process.env.OPENAI_API_KEY) {
+      attempts.push(() =>
+        openAiCompatibleCompletion(
+          OPENAI_URL,
+          process.env.OPENAI_API_KEY as string,
+          req.model || "gpt-4o-mini",
+          req,
+          "OpenAI",
+        ),
+      );
+    }
+
+    if (attempts.length === 0) {
+      return {
+        success: false,
+        error:
+          "no AI provider is configured: add VLY_INTEGRATION_KEY (workspace), GROQ_API_KEY (free) or OPENAI_API_KEY in the project's API Keys tab",
+      };
+    }
+
+    // Try each provider in order; the first success wins. Any failure
+    // (credential, quota, timeout, 5xx) moves on to the next provider.
+    let lastResult: CompletionResult = {
+      success: false,
+      error: "no AI provider responded",
+    };
+
+    for (const attempt of attempts) {
+      const result = await attempt();
+      if (result.success && result.data) return result;
+      lastResult = result;
+    }
+
+    return lastResult;
   },
 };

@@ -141,18 +141,39 @@ export const send = action({
       maxTokens: 900,
     });
 
-    if (!result.success || !result.data) {
-      throw new Error(friendlyAiError(result.error));
-    }
+    // 6) Save Omi's reply — with a graceful sourced reply if the AI is
+    //    unreachable, so conversations never dead-end.
+    let content: string;
+    let reasoning = "";
 
-    const raw = result.data.choices?.[0]?.message?.content ?? "";
-    const { content, reasoning } = splitReasoning(raw);
+    if (result.success && result.data) {
+      const raw = result.data.choices?.[0]?.message?.content ?? "";
+      const split = splitReasoning(raw);
+      content = split.content;
+      reasoning = split.reasoning;
+    } else {
+      const aiHint = friendlyAiError(result.error);
+      content = searchBlock
+        ? "I pulled live sources for your question while my full reasoning is temporarily " +
+          "unavailable (" +
+          aiHint.slice(0, 120) +
+          "):\n\n" +
+          searchBlock
+            .split("\n\n")
+            .filter((b) => b.startsWith("["))
+            .map((b) => b.split("\n")[0])
+            .join("\n")
+        : "I couldn't reach any AI provider just now, and no live sources came back either. " +
+          "Here's what I can tell you: your message is saved and the moment an AI provider is " +
+          "available I can reason over it properly. " +
+          aiHint.slice(0, 160);
+      reasoning = "Answered from live sources directly (AI synthesis unavailable).";
+    }
 
     if (!content) {
       throw new Error("Omi returned an empty answer. Try again.");
     }
 
-    // 6) Save Omi's reply with its transparent reasoning trail
     const omiMessageId = await ctx.runMutation(internal.omiMessages.saveInternal, {
       userId,
       conversationId,
