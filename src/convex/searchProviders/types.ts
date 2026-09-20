@@ -26,6 +26,8 @@ export type SearchOptions = {
   /** e.g. "en", "de", "all" */
   language?: string;
   timeRange?: "day" | "week" | "month" | "year";
+  /** 0 = off, 1 = moderate, 2 = strict (SearXNG; others ignore). */
+  safeSearch?: number;
   /** 1-based result page. */
   page?: number;
 };

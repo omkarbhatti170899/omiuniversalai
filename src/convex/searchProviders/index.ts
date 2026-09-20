@@ -19,6 +19,20 @@ export type ProviderInfo = {
   hint: string;
 };
 
+export type ProviderStatus = {
+  id: string;
+  label: string;
+  /** Ready to serve right now (configured). */
+  ready: boolean;
+  /** Always-on vs optional. */
+  enabled: boolean;
+  /** Cost transparency: all registered providers are free per-search. */
+  cost: string;
+  /** Requires an env key to be useful? */
+  requiresKey: boolean;
+  hint: string;
+};
+
 /**
  * Registered search sources, in priority order.
  *
@@ -46,17 +60,19 @@ export function getActiveProvider(): SearchProvider | null {
   return getConfiguredProviders()[0] ?? null;
 }
 
-export function getProviderStatus(): {
-  providers: ProviderInfo[];
-  activeId: string | null;
-} {
-  return {
-    providers: REGISTRY.map((p) => ({
-      id: p.id,
-      label: p.label,
-      configured: p.isConfigured(),
-      hint: p.missingKeyHint,
-    })),
-    activeId: getActiveProvider()?.id ?? null,
-  };
+/**
+ * Full status incl. cost transparency (master spec §32):
+ * every registered provider is $0 per query; paid providers are simply
+ * not registered at all, so none can be silently enabled.
+ */
+export function getProviderStatus(): ProviderStatus[] {
+  return REGISTRY.map((p) => ({
+    id: p.id,
+    label: p.label,
+    ready: p.isConfigured(),
+    enabled: true,
+    cost: "$0 per query",
+    requiresKey: p.id === "searxng" && !process.env.SEARXNG_BASE_URL,
+    hint: p.missingKeyHint,
+  }));
 }

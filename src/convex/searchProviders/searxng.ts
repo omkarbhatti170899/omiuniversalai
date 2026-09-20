@@ -72,8 +72,40 @@ function buildParams({
   }
   if (opts.language) params.language = opts.language;
   if (opts.timeRange) params.time_range = opts.timeRange;
+  if (opts.safeSearch !== undefined) params.safesearch = String(opts.safeSearch);
   if (opts.page && opts.page > 1) params.pageno = String(opts.page);
   return params;
+}
+
+/**
+ * Search suggestions (autocomplete). SearXNG exposes /autocompleter
+ * returning a JSON array of strings. Best-effort: empty on any failure.
+ */
+export async function searxSuggestions(query: string): Promise<string[]> {
+  const configuredBase = process.env.SEARXNG_BASE_URL?.replace(/\/+$/, "");
+  const bases = configuredBase ? [configuredBase] : PUBLIC_INSTANCES;
+  for (const base of bases.slice(0, configuredBase ? 1 : 2)) {
+    try {
+      const res = await axios.get(base + "/autocompleter", {
+        params: { q: query.slice(0, 100), format: "json" },
+        timeout: 4_000,
+        headers: { Accept: "application/json" },
+        validateStatus: (s) => s >= 200 && s < 300,
+      });
+      const data = res.data;
+      const list = Array.isArray(data)
+        ? data
+        : Array.isArray(data?.[1])
+          ? data[1]
+          : [];
+      return list
+        .filter((s): s is string => typeof s === "string")
+        .slice(0, 8);
+    } catch {
+      // try next base
+    }
+  }
+  return [];
 }
 
 async function fetchInstance(

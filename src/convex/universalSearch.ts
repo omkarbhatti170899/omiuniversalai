@@ -3,9 +3,11 @@
 /**
  * Universal search core shared by every Omi feature that needs live web
  * knowledge. Provider-independent: fans out over configured sources
- * (SearXNG primary — self-hosted, zero cost), merges with dedupe +
- * domain diversity + relevance ranking, caches results, and produces
- * either an AI-synthesized brief or an extractive brief.
+ * (SearXNG primary — self-hosted, zero cost), merges with URL dedupe +
+ * syndication dedupe + domain diversity + tiered relevance ranking
+ * (searchEngine/quality.ts), boosts cross-source agreement, caches
+ * results, and produces either an AI-synthesized brief or an extractive
+ * brief. Never fabricates: the brief is grounded in real citations only.
  */
 
 import type {
@@ -16,6 +18,13 @@ import { getConfiguredProviders } from "./searchProviders";
 import { fetchPageText } from "./searchProviders/pageFetcher";
 import { vly } from "../lib/vly-integrations";
 import { cacheKeyFor } from "./searchCache";
+import {
+  normalizeUrl,
+  domainOf,
+  keywordSet,
+  scoreSource,
+  dedupeSyndication,
+} from "./searchEngine/quality";
 import { internal } from "./_generated/api";
 
 export type UniversalResult = {
@@ -31,47 +40,11 @@ export type UniversalResult = {
 const PER_ENGINE_LIMIT = 6;
 const MAX_CITATIONS = 8;
 
-function normalizeUrl(url: string): string {
-  try {
-    const u = new URL(url);
-    const params = [...u.searchParams.keys()];
-    for (const k of params) {
-      if (k.toLowerCase().startsWith("utm_")) u.searchParams.delete(k);
-    }
-    return (
-      u.origin +
-      u.pathname.replace(/\/+$/, "") +
-      (u.searchParams.toString() ? `?${u.searchParams.toString()}` : "")
-    );
-  } catch {
-    return url;
-  }
-}
-
-function domainOf(url: string): string {
-  try {
-    return new URL(url).hostname.replace(/^www\./, "").toLowerCase();
-  } catch {
-    return url;
-  }
-}
-
-/** Token overlap scoring: fraction of query keywords found in title+snippet. */
-function relevanceScore(c: WebCitation, keywords: string[]): number {
-  const hay = `${c.title} ${c.snippet ?? ""}`.toLowerCase();
-  if (keywords.length === 0) return 0.5;
-  let hits = 0;
-  for (const k of keywords) {
-    if (hay.includes(k)) hits += 1;
-  }
-  return hits / keywords.length;
-}
-
 /**
  * Fans out across every configured engine, merges results with dedupe and
- * domain diversity, ranks by relevance, serves from cache when possible,
- * and enriches the top results with extracted page text when snippets are
- * thin.
+ * domain diversity, ranks by tiered relevance, serves from cache when
+ * possible, and enriches the top results with extracted page text when
+ * snippets are thin.
  */
 export async function runUniversalSearch(
   ctx: any,
@@ -81,12 +54,15 @@ export async function runUniversalSearch(
     maxCitations?: number;
     enrichPages?: boolean;
     skipCache?: boolean;
+    /** Freshness-sensitive queries rank recency higher and skip cache. */
+    freshnessMatters?: boolean;
   },
 ): Promise<UniversalResult> {
   const perEngine = opts?.perEngineLimit ?? PER_ENGINE_LIMIT;
   const maxCitations = opts?.maxCitations ?? MAX_CITATIONS;
   const page = Math.max(1, opts?.page ?? 1);
   const enrichPages = opts?.enrichPages ?? false;
+  const freshnessMatters = opts?.freshnessMatters ?? false;
 
   const engineOpts: SearchOptions = {
     category: opts?.category,
@@ -100,7 +76,7 @@ export async function runUniversalSearch(
     throw new Error("No search engines are available right now.");
   }
 
-  // --- Cache read -------------------------------------------------------
+  // --- Cache read (fresh/current queries bypass it per spec §14) ---------
   const cacheKey = cacheKeyFor(query, {
     category: engineOpts.category,
     language: engineOpts.language,
@@ -108,7 +84,7 @@ export async function runUniversalSearch(
     page,
   });
 
-  if (!opts?.skipCache) {
+  if (!opts?.skipCache && !freshnessMatters) {
     const cached = await ctx.runQuery(internal.searchCache.read, { cacheKey });
     if (cached) {
       return {
@@ -124,11 +100,7 @@ export async function runUniversalSearch(
   }
 
   // --- Multi-engine fan-out ----------------------------------------------
-  const keywords = query
-    .toLowerCase()
-    .replace(/[^a-z0-9\s'-]/g, " ")
-    .split(/\s+/)
-    .filter((w) => w.length > 2);
+  const keywords = keywordSet(query);
 
   const settled = await Promise.allSettled(
     providers.map(async (p) => ({
@@ -138,7 +110,7 @@ export async function runUniversalSearch(
   );
 
   const merged: Array<{ c: WebCitation; engine: string; score: number }> = [];
-  const seenUrls = new Set<string>();
+  const seenUrls = new Map<string, number>(); // normalized URL -> engine count
   const enginesUsed: string[] = [];
   const failures: string[] = [];
 
@@ -153,9 +125,10 @@ export async function runUniversalSearch(
     if (result.citations.length > 0) enginesUsed.push(engine.label);
     for (const c of result.citations) {
       const url = normalizeUrl(c.url);
-      if (seenUrls.has(url)) continue;
-      seenUrls.add(url);
-      merged.push({ c: { ...c, url }, engine: engine.label, score: relevanceScore(c, keywords) });
+      const engineCount = (seenUrls.get(url) ?? 0) + 1;
+      seenUrls.set(url, engineCount);
+      if (engineCount > 1) continue; // already merged; count = agreement boost
+      merged.push({ c: { ...c, url }, engine: engine.label, score: 0 });
     }
   }
 
@@ -167,13 +140,27 @@ export async function runUniversalSearch(
     );
   }
 
-  // --- Rank: relevance first, then engine priority (merge order) ---------
+  // --- Tiered ranking + cross-source agreement ---------------------------
+  // scoreSource: relevance (0.5) + authority tier + freshness (weighted up
+  // when freshness matters) + completeness. Same URL found by 2+ independent
+  // engines earns a confidence bump (spec: cross-source priority).
+  for (const item of merged) {
+    let score = scoreSource(item.c, keywords, { freshnessMatters });
+    const agreement = seenUrls.get(normalizeUrl(item.c.url)) ?? 1;
+    if (agreement > 1) {
+      score = Math.min(1, score + 0.08 * (agreement - 1));
+    }
+    item.score = score;
+  }
   merged.sort((a, b) => b.score - a.score);
+
+  // --- Syndication dedupe: same story across sites → best copy only ------
+  const unique = dedupeSyndication(merged);
 
   // --- Domain diversity: max 2 per domain --------------------------------
   const perDomain = new Map<string, number>();
   const diverse: Array<{ c: WebCitation; engine: string }> = [];
-  for (const item of merged) {
+  for (const item of unique) {
     const domain = domainOf(item.c.url);
     const count = perDomain.get(domain) ?? 0;
     if (count >= 2) continue;
