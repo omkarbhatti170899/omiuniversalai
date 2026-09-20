@@ -1,11 +1,13 @@
 import { type SearchProvider } from "./types";
 import { createSearxProvider } from "./searxng";
 import { createWikipediaProvider } from "./wikipedia";
+import { createWikidataProvider } from "./wikidata";
 import { createArxivProvider } from "./arxiv";
 import { createOpenAlexProvider } from "./openalex";
 import { createOpenLibraryProvider } from "./openlibrary";
 import { createHackerNewsProvider } from "./hackernews";
 import { createOpenverseProvider } from "./openverse";
+import { createCommonCrawlProvider } from "./commoncrawl";
 import { createKeylessProvider } from "./keyless";
 
 export type {
@@ -45,11 +47,13 @@ export type ProviderStatus = {
  *   SearXNG      — self-hosted metasearch floor (SEARXNG_BASE_URL optional;
  *                  public instances used until configured)
  *   Wikipedia    — encyclopedic entities and stable facts
+ *   Wikidata     — CC0 structured knowledge graph (Freebase successor)
  *   arXiv        — scientific/technical papers (spec §5 knowledge/research)
  *   OpenAlex     — 250M+ scholarly works across all disciplines
  *   Open Library — open book catalog (Internet Archive)
  *   Hacker News  — practitioner/tech signal (keyless Algolia API)
  *   Openverse    — openly-licensed images (image-category specialist)
+ *   Common Crawl — open web index metadata (AWS open data; provenance/diversity)
  *   DuckDuckGo   — keyless last-resort web floor
  *
  * Every source runs in parallel under Promise.allSettled in the orchestrator
@@ -62,11 +66,13 @@ export type ProviderStatus = {
 const REGISTRY: SearchProvider[] = [
   createSearxProvider(),
   createWikipediaProvider(),
+  createWikidataProvider(),
   createArxivProvider(),
   createOpenAlexProvider(),
   createOpenLibraryProvider(),
   createHackerNewsProvider(),
   createOpenverseProvider(),
+  createCommonCrawlProvider(),
   createKeylessProvider(),
 ];
 

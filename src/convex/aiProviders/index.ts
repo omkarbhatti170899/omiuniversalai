@@ -16,6 +16,7 @@
 import {
   GROQ_URL,
   OPENAI_URL,
+  DEEPSEEK_URL,
   getConfiguredAiProviders,
   type AiTask,
   type ProviderDescriptor,
@@ -77,6 +78,15 @@ function adapterFor(p: ProviderDescriptor): Adapter {
           model,
           req,
           `OpenAI(${model})`,
+        );
+    case "deepseek":
+      return (model, req) =>
+        openAiCompatibleCompletion(
+          DEEPSEEK_URL,
+          process.env.DEEPSEEK_API_KEY as string,
+          model,
+          req,
+          `DeepSeek(${model})`,
         );
   }
 }

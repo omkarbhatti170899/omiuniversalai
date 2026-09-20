@@ -1,5 +1,8 @@
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
+
+
+
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,6 +24,7 @@ export function SettingsView() {
   const { user, isLoading } = useAuth();
   const providerStatus = useQuery(api.searchStatus.status);
   const health = useQuery(api.omiHealth.workspaceHealth);
+  const ecosystem = useQuery(api.ecosystemStatus.status);
 
   const searchReady =
     providerStatus !== undefined && providerStatus.some((p) => p.ready);
@@ -245,6 +249,71 @@ export function SettingsView() {
               ))}
             </div>
           )}
+        </CardContent>
+      </Card>
+
+      {/* Ecosystem technologies (master plan §15–23/§31/§32) */}
+      <Card>
+        <CardContent className="p-5">
+          <p className="text-sm font-semibold">Ecosystem technologies</p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            What Omi actually uses from each ecosystem, its license, and its
+            real cost — free/open things are active, everything metered is
+            excluded or off by default.
+          </p>
+          <div className="mt-4 space-y-3">
+            {(ecosystem ?? []).map((group) => (
+              <details
+                key={group.ecosystem}
+                className="rounded-lg border border-border/60 p-3"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-2 text-sm font-medium">
+                  <span>{group.ecosystem}</span>
+                  <span className="shrink-0 text-[10px] text-muted-foreground">
+                    {group.counts.active} active · {group.counts.optional} optional ·{" "}
+                    {group.counts.notApproved} excluded
+                  </span>
+                </summary>
+                <div className="mt-3 space-y-2">
+                  {group.entries.map((e) => (
+                    <div
+                      key={e.tech}
+                      className="rounded-md border border-border/50 px-3 py-2"
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="min-w-0 text-xs font-semibold">{e.tech}</p>
+                        <Badge
+                          variant="outline"
+                          className={
+                            e.status === "active"
+                              ? "shrink-0 border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                              : e.status === "optional"
+                                ? "shrink-0 border-sky-500/30 bg-sky-500/10 text-sky-400"
+                                : "shrink-0 border-border bg-muted text-muted-foreground"
+                          }
+                        >
+                          {e.status === "active"
+                            ? "Active · $0"
+                            : e.status === "optional"
+                              ? "Optional"
+                              : "Not approved"}
+                        </Badge>
+                      </div>
+                      <p className="mt-1 text-xs text-muted-foreground">{e.role}</p>
+                      <p className="mt-1 text-[10px] text-muted-foreground/80">
+                        License: {e.license} · Cost: {e.cost}
+                      </p>
+                      {e.reason && (
+                        <p className="mt-1 text-[10px] text-muted-foreground/80">
+                          Why excluded: {e.reason}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </details>
+            ))}
+          </div>
         </CardContent>
       </Card>
 

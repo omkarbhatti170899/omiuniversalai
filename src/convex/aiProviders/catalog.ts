@@ -29,7 +29,7 @@ export const AI_TASKS: AiTask[] = [
   "research",
 ];
 
-export type ProviderId = "vly" | "groq" | "openai";
+export type ProviderId = "vly" | "groq" | "openai" | "deepseek";
 
 export type ProviderDescriptor = {
   id: ProviderId;
@@ -48,6 +48,7 @@ export type ProviderDescriptor = {
 
 export const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 export const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
+export const DEEPSEEK_URL = "https://api.deepseek.com/chat/completions";
 
 /**
  * Registered providers in priority order:
@@ -111,6 +112,23 @@ export const AI_PROVIDERS: ProviderDescriptor[] = [
     },
     fallbackModels: ["gpt-4o-mini"],
     hint: "Optional paid adapter — add OPENAI_API_KEY only if you want it.",
+  },
+  {
+    id: "deepseek",
+    label: "DeepSeek (free tier, optional adapter)",
+    envKeys: ["DEEPSEEK_API_KEY"],
+    cost: "free tier, rate-limited (optional adapter)",
+    taskModels: {
+      conversational: "deepseek-chat",
+      reasoning: "deepseek-reasoner",
+      summarization: "deepseek-chat",
+      extraction: "deepseek-chat",
+      classification: "deepseek-chat",
+      coding: "deepseek-chat",
+      research: "deepseek-reasoner",
+    },
+    fallbackModels: ["deepseek-chat"],
+    hint: "Add a free DEEPSEEK_API_KEY only if you want this adapter — Omi works fully without it.",
   },
 ];
 
