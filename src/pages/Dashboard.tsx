@@ -10,11 +10,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { OmiSearchPanel } from "@/components/OmiSearchPanel";
 import { OmiAssistantPanel } from "@/components/OmiAssistantPanel";
+import { OmiAgentsPanel } from "@/components/OmiAgentsPanel";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/use-auth";
 import { motion } from "framer-motion";
 import {
   Activity,
+  Bot,
   BrainCircuit,
   Globe,
   Loader2,
@@ -174,10 +176,14 @@ export default function Dashboard() {
         </motion.div>
 
         <Tabs defaultValue="assistant" className="mt-6">
-          <TabsList className="grid w-full max-w-lg grid-cols-3">
+          <TabsList className="grid w-full max-w-2xl grid-cols-4">
             <TabsTrigger value="assistant" className="cursor-pointer gap-2">
               <BrainCircuit className="size-4" />
               Omi Assistant
+            </TabsTrigger>
+            <TabsTrigger value="agents" className="cursor-pointer gap-2">
+              <Bot className="size-4" />
+              Agents
             </TabsTrigger>
             <TabsTrigger value="emotions" className="cursor-pointer gap-2">
               <Sparkles className="size-4" />
@@ -191,6 +197,10 @@ export default function Dashboard() {
 
           <TabsContent value="assistant" className="mt-6">
             <OmiAssistantPanel />
+          </TabsContent>
+
+          <TabsContent value="agents" className="mt-6">
+            <OmiAgentsPanel />
           </TabsContent>
 
           <TabsContent value="emotions" className="mt-6">

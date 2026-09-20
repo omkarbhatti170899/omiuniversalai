@@ -85,6 +85,58 @@ const schema = defineSchema(
       source: v.union(v.literal("user"), v.literal("omi")),
     }).index("by_user", ["userId"]),
 
+    // Omi Agents — specialized agents owned by the user
+    omiAgents: defineTable({
+      userId: v.id("users"),
+      name: v.string(),
+      description: v.string(),
+      specialty: v.string(), // e.g. research, analysis, operations, writing
+    }).index("by_user", ["userId"]),
+
+    // Omi agent tasks — one execution run assigned to an agent
+    omiTasks: defineTable({
+      userId: v.id("users"),
+      agentId: v.id("omiAgents"),
+      objective: v.string(),
+      status: v.union(
+        v.literal("awaiting_approval"),
+        v.literal("running"),
+        v.literal("needs_input"),
+        v.literal("done"),
+        v.literal("failed"),
+      ),
+      plan: v.optional(v.array(v.string())), // planned steps
+      result: v.optional(v.string()), // final summary when done
+      error: v.optional(v.string()),
+    }).index("by_user", ["userId"]).index("by_agent", ["agentId"]),
+
+    // Individual step outputs of a task run
+    omiTaskSteps: defineTable({
+      userId: v.id("users"),
+      taskId: v.id("omiTasks"),
+      index: v.number(),
+      description: v.string(),
+      output: v.optional(v.string()),
+    }).index("by_task", ["taskId"]),
+
+    // Human-in-the-loop approval requests raised by the runtime
+    omiApprovals: defineTable({
+      userId: v.id("users"),
+      taskId: v.id("omiTasks"),
+      action: v.string(),
+      reason: v.string(),
+      status: v.union(v.literal("pending"), v.literal("approved"), v.literal("denied")),
+    }).index("by_task", ["taskId"]),
+
+    // Audit trail — every agent action, newest first in queries
+    omiAuditLog: defineTable({
+      userId: v.id("users"),
+      taskId: v.optional(v.id("omiTasks")),
+      agentId: v.optional(v.id("omiAgents")),
+      event: v.string(),
+      detail: v.optional(v.string()),
+    }).index("by_user", ["userId"]),
+
     // add other tables here
 
     // tableName: defineTable({

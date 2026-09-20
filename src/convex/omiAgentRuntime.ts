@@ -1,0 +1,210 @@
+"use node";
+
+import { v } from "convex/values";
+import { action } from "./_generated/server";
+import { api, internal } from "./_generated/api";
+import { getAuthUserId } from "@convex-dev/auth/server";
+import { vly } from "../lib/vly-integrations";
+
+/** AI plans the steps for an objective. Creates the task awaiting human approval. */
+export const planTask = action({
+  args: {
+    agentId: v.id("omiAgents"),
+    objective: v.string(),
+  },
+  handler: async (ctx, { agentId, objective }): Promise<{ taskId: string }> => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) throw new Error("Sign in to use agents.");
+
+    const trimmed = objective.trim().slice(0, 1000);
+    if (trimmed.length < 4) throw new Error("Describe the objective first.");
+
+    const agent = await ctx.runQuery(internal.omiAgents.getInternal, { id: agentId });
+    if (!agent || agent.userId !== userId) throw new Error("Not your agent.");
+
+    const result = await vly.ai.completion({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content:
+            'You are Omi\'s agent planner. Break the objective into 2-4 concrete, sequential steps. Respond with ONLY a JSON array of short step descriptions, e.g. ["Step one","Step two"]. No commentary.',
+        },
+        {
+          role: "user",
+          content: `Agent specialty: ${agent.specialty}. Objective: ${trimmed}`,
+        },
+      ],
+      temperature: 0.2,
+      maxTokens: 300,
+    });
+
+    if (!result.success || !result.data) {
+      throw new Error(result.error ?? "Omi could not plan this task.");
+    }
+
+    const raw = result.data.choices?.[0]?.message?.content ?? "";
+    let plan: string[];
+    try {
+      const start = raw.indexOf("[");
+      const end = raw.lastIndexOf("]");
+      const parsed: unknown = JSON.parse(raw.slice(start, end + 1));
+      if (!Array.isArray(parsed)) throw new Error("not an array");
+      plan = parsed
+        .filter((s): s is string => typeof s === "string")
+        .map((s) => s.slice(0, 200))
+        .slice(0, 4);
+    } catch {
+      throw new Error("Omi's plan was malformed. Try again.");
+    }
+    if (plan.length === 0) throw new Error("Omi produced an empty plan.");
+
+    const taskId = await ctx.runMutation(api.omiTasks.create, {
+      agentId,
+      objective: trimmed,
+      plan,
+    });
+
+    return { taskId };
+  },
+});
+
+/** Execute an approved plan: each step is reasoned over with prior outputs as context. */
+export const runTask = action({
+  args: { taskId: v.id("omiTasks") },
+  handler: async (ctx, { taskId }): Promise<{ ok: boolean }> => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) throw new Error("Sign in to use agents.");
+
+    const task = await ctx.runQuery(internal.omiTasks.getInternal, { id: taskId });
+    if (!task || task.userId !== userId) throw new Error("Not your task.");
+    if (task.status !== "running") {
+      throw new Error("Task must be approved before running.");
+    }
+
+    const agent = await ctx.runQuery(internal.omiAgents.getInternal, {
+      id: task.agentId,
+    });
+    const specialty = agent?.specialty ?? "general";
+
+    try {
+      const steps: string[] = task.plan ?? [];
+      const outputs: string[] = [];
+
+      for (let i = 0; i < steps.length; i++) {
+        const stepResult = await vly.ai.completion({
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content: `You are Omi's ${specialty} agent executing one step of a multi-step task. Produce the concrete output for this step only: concise, actionable, under 150 words. No preamble.`,
+            },
+            {
+              role: "user",
+              content: [
+                `Overall objective: ${task.objective}`,
+                `Full plan: ${steps.map((s, j) => `${j + 1}. ${s}`).join(" | ")}`,
+                outputs.length > 0
+                  ? `Previous step outputs:\n${outputs
+                      .map((o, j) => `Step ${j + 1}: ${o}`)
+                      .join("\n")}`
+                  : "",
+                `Now execute step ${i + 1}: ${steps[i]}`,
+              ]
+                .filter(Boolean)
+                .join("\n\n"),
+            },
+          ],
+          temperature: 0.3,
+          maxTokens: 350,
+        });
+
+        if (!stepResult.success || !stepResult.data) {
+          throw new Error(
+            stepResult.error ?? `Step ${i + 1} failed at the model layer.`,
+          );
+        }
+
+        const output = (
+          stepResult.data.choices?.[0]?.message?.content ?? ""
+        ).trim();
+        if (!output) throw new Error(`Step ${i + 1} produced no output.`);
+
+        outputs.push(output);
+        await ctx.runMutation(internal.omiTasks.saveStepInternal, {
+          userId,
+          taskId,
+          index: i,
+          description: steps[i],
+          output: output.slice(0, 2000),
+        });
+        await ctx.runMutation(internal.omiAudit.addInternal, {
+          userId,
+          taskId,
+          agentId: task.agentId,
+          event: "step_completed",
+          detail: `Step ${i + 1}/${steps.length}: ${steps[i].slice(0, 80)}`,
+        });
+      }
+
+      // Synthesize the final result from all step outputs
+      const final = await vly.ai.completion({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are Omi. Summarize the completed agent work into a clear final answer for the user: what was done, key findings, and the recommended next action. Under 180 words. No preamble.",
+          },
+          {
+            role: "user",
+            content: `Objective: ${task.objective}\n\nStep outputs:\n${outputs
+              .map((o, j) => `Step ${j + 1}: ${o}`)
+              .join("\n\n")}`,
+          },
+        ],
+        temperature: 0.3,
+        maxTokens: 400,
+      });
+
+      const finalText = final.success && final.data
+        ? (final.data.choices?.[0]?.message?.content ?? "").trim() ||
+          outputs[outputs.length - 1]
+        : outputs[outputs.length - 1];
+
+      await ctx.runMutation(internal.omiTasks.setResultInternal, {
+        id: taskId,
+        result: finalText.slice(0, 3000),
+      });
+      await ctx.runMutation(internal.omiTasks.setStatusInternal, {
+        id: taskId,
+        status: "done",
+      });
+      await ctx.runMutation(internal.omiAudit.addInternal, {
+        userId,
+        taskId,
+        agentId: task.agentId,
+        event: "task_completed",
+        detail: `All ${steps.length} step(s) finished`,
+      });
+
+      return { ok: true };
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Task failed unexpectedly.";
+      await ctx.runMutation(internal.omiTasks.setStatusInternal, {
+        id: taskId,
+        status: "failed",
+        error: message.slice(0, 500),
+      });
+      await ctx.runMutation(internal.omiAudit.addInternal, {
+        userId,
+        taskId,
+        agentId: task.agentId,
+        event: "task_failed",
+        detail: message.slice(0, 200),
+      });
+      return { ok: false };
+    }
+  },
+});
