@@ -4,23 +4,12 @@ import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
-import axios from "axios";
 import { vly } from "../lib/vly-integrations";
-
-const EXA_BASE = "https://api.exa.ai";
-
-type Citation = {
-  title: string;
-  url: string;
-  snippet?: string;
-};
-
-type ExaResult = {
-  title?: string;
-  url?: string;
-  text?: string;
-  highlight?: string | string[];
-};
+import {
+  getActiveProvider,
+  MissingKeyError,
+  type WebCitation,
+} from "./searchProviders";
 
 export const searchWeb = action({
   args: { query: v.string() },
@@ -35,49 +24,23 @@ export const searchWeb = action({
       throw new Error("Type a question or topic to search.");
     }
 
-    const exaKey = process.env.EXA_API_KEY;
-    if (!exaKey) {
-      throw new Error(
-        "Omi Search needs the EXA_API_KEY. Add it in the project's API Keys tab and try again.",
-      );
-    }
-
-    // 1) Live web search via Exa (semantic, with page text for grounding)
-    let citations: Citation[] = [];
+    // 1) Live web search via the provider layer
+    let citations: WebCitation[];
     try {
-      const exaRes = await axios.post(
-        `${EXA_BASE}/search`,
-        {
-          query: trimmed,
-          numResults: 6,
-          type: "auto",
-          contents: { text: { maxCharacters: 1000 } },
-        },
-        {
-          headers: {
-            "x-api-key": exaKey,
-            "Content-Type": "application/json",
-          },
-          timeout: 20000,
-        },
-      );
-
-      const results: ExaResult[] = exaRes.data?.results ?? [];
-      citations = results
-        .filter((r) => r.url)
-        .map((r) => ({
-          title: (r.title ?? r.url ?? "Untitled").slice(0, 200),
-          url: r.url as string,
-          snippet: (r.highlight ?? r.text ?? "")
-            .slice(0, 400)
-            .toString(),
-        }));
+      const provider = getActiveProvider();
+      if (!provider) {
+        throw new MissingKeyError("none");
+      }
+      const result = await provider.search(trimmed, 6);
+      citations = result.citations;
     } catch (err) {
-      const msg =
-        axios.isAxiosError(err) && err.response
-          ? `Exa search failed (${err.response.status}).`
-          : "Exa search failed. Check EXA_API_KEY and try again.";
-      throw new Error(msg);
+      if (err instanceof MissingKeyError) {
+        // Graceful, actionable message — no raw server error.
+        throw new Error(
+          "Omi Search needs a web-search API key to reach the live web. Add EXA_API_KEY in the project's API Keys tab, then try again.",
+        );
+      }
+      throw err;
     }
 
     if (citations.length === 0) {
@@ -98,7 +61,7 @@ export const searchWeb = action({
         {
           role: "system",
           content:
-            "You are Omi, the AI inside Ominnovations Intelligence. You just received live web search results. Write a clear, direct answer to the user's question grounded ONLY in the provided excerpts. Cite sources inline using [1], [2] etc. matching the numbered sources. Keep it under 250 words. No preamble, no markdown headings.",
+            "You are Omi, the Universal AI inside Ominnovations Intelligence. You just received live web search results. Write a clear, direct answer to the user's question grounded ONLY in the provided excerpts. Cite sources inline using [1], [2] etc. matching the numbered sources. Keep it under 250 words. No preamble, no markdown headings.",
         },
         {
           role: "user",

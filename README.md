@@ -29,6 +29,18 @@ The convex server has a separate set of environment variables that are accessibl
 
 Currently, these variables include auth-specific keys: JWKS, JWT_PRIVATE_KEY, and SITE_URL.
 
+## Required API Keys (project)
+
+| Key | Required by | How to get it |
+|-----|-------------|---------------|
+| `EXA_API_KEY` | **Omi Search** (live web search) | Sign up at [exa.ai](https://exa.ai) → API Keys → copy. Add it via the project's **API Keys tab** (never hardcode it in source). |
+
+Omi Search is **provider-independent** (`src/convex/searchProviders/`). The app detects the key automatically:
+- Key present → live web search with citations works immediately.
+- Key missing → the Search tab shows a graceful "Connect a web-search provider" setup card instead of an error.
+
+To add an alternative provider (Brave, Tavily, etc.), implement `SearchProvider` in `src/convex/searchProviders/` and register it in `index.ts` — no app code changes needed.
+
 
 # Using Authentication (Important!)
 

@@ -3,7 +3,13 @@ import { api } from "@/convex/_generated/api";
 import type { Id } from "@/convex/_generated/dataModel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
@@ -12,7 +18,7 @@ import {
   ExternalLink,
   Globe,
   History,
-  Link2,
+  KeyRound,
   Loader2,
   Search,
   Sparkles,
@@ -28,10 +34,21 @@ type Citation = {
 
 type WebSearch = {
   _id: Id<"webSearches">;
+  userId: Id<"users">;
   query: string;
   answer: string;
   citations: Citation[];
   _creationTime: number;
+};
+
+type ProviderStatus = {
+  providers: Array<{
+    id: string;
+    label: string;
+    configured: boolean;
+    hint: string;
+  }>;
+  activeId: string | null;
 };
 
 const EXAMPLE_QUERIES = [
@@ -41,7 +58,6 @@ const EXAMPLE_QUERIES = [
 ];
 
 function renderAnswer(answer: string) {
-  // Split on [1]-style citations and make them small superscript-ish chips
   const parts = answer.split(/(\[\d+\])/g);
   return parts.map((part, i) => {
     const match = part.match(/^\[(\d+)\]$/);
@@ -63,10 +79,22 @@ export function OmiSearchPanel() {
   const [query, setQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
+  const providerStatus = useQuery(api.searchStatus.status);
   const history = useQuery(api.searchHistory.listMine);
   const searches = history ?? [];
+
   const searchWeb = useAction(api.search.searchWeb);
   const removeSearch = useMutation(api.searchHistory.remove);
+
+  const searchReady =
+    providerStatus !== undefined &&
+    providerStatus.providers.some((p) => p.configured);
+  const needsSetup = providerStatus !== undefined && !searchReady;
+  const missingHints =
+    providerStatus?.providers
+      .filter((p) => !p.configured)
+      .map((p) => p.hint)
+      .join(" ") ?? "";
 
   const handleSearch = async () => {
     if (query.trim().length < 2 || isSearching) return;
@@ -74,7 +102,9 @@ export function OmiSearchPanel() {
     try {
       await searchWeb({ query });
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Omi Search failed. Try again.");
+      toast.error(
+        err instanceof Error ? err.message : "Omi Search failed. Try again.",
+      );
     } finally {
       setIsSearching(false);
     }
@@ -91,30 +121,43 @@ export function OmiSearchPanel() {
 
   return (
     <div className="space-y-6">
-      {/* Search bar */}
-      <Card>
-        <CardHeader>
-          <div className="flex items-center gap-3">
-            <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <Globe className="size-5" />
-            </div>
-            <div>
-              <CardTitle>Omi Search</CardTitle>
-              <CardDescription>
-                Live web answers with citations — powered by Omi.
-              </CardDescription>
-            </div>
+      {/* Hero ask bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45 }}
+        className="relative overflow-hidden rounded-2xl border border-border/60 bg-gradient-to-b from-primary/15 via-card to-card p-6 sm:p-8"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(420px circle at 50% -20%, oklch(0.68 0.15 262 / 0.25), transparent 65%)",
+          }}
+        />
+        <div className="relative">
+          <div className="flex items-center justify-center gap-2">
+            <Globe className="size-4 text-primary" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+              Omi Universal Search
+            </span>
           </div>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <h2 className="mt-2 text-center text-2xl font-bold tracking-tight sm:text-3xl">
+            Ask Omi anything
+          </h2>
+          <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
+            Live web answers with citations — any question, any topic.
+          </p>
+
+          <div className="mx-auto mt-6 flex max-w-2xl flex-col gap-3 sm:flex-row">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Ask anything — Omi searches the live web…"
-                className="pl-9"
+                placeholder="Search anything… (topics, news, research, how-tos)"
+                className="h-12 rounded-xl pl-11 text-base"
                 disabled={isSearching}
                 maxLength={500}
                 onKeyDown={(e) => {
@@ -126,7 +169,8 @@ export function OmiSearchPanel() {
               />
             </div>
             <Button
-              className="cursor-pointer"
+              size="lg"
+              className="h-12 cursor-pointer rounded-xl px-6"
               onClick={() => void handleSearch()}
               disabled={isSearching || query.trim().length < 2}
             >
@@ -138,18 +182,18 @@ export function OmiSearchPanel() {
               ) : (
                 <>
                   <Sparkles className="mr-2 size-4" />
-                  Search with Omi
+                  Ask Omi
                 </>
               )}
             </Button>
           </div>
 
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="mx-auto mt-4 flex max-w-2xl flex-wrap justify-center gap-2">
             {EXAMPLE_QUERIES.map((q) => (
               <button
                 key={q}
                 type="button"
-                className="max-w-full truncate rounded-full border border-border/70 px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+                className="max-w-full truncate rounded-full border border-border/70 bg-background/60 px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
                 onClick={() => setQuery(q)}
                 disabled={isSearching}
               >
@@ -157,8 +201,47 @@ export function OmiSearchPanel() {
               </button>
             ))}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </motion.div>
+
+      {/* Missing key — graceful setup state */}
+      {needsSetup && (
+        <Card className="border-primary/40">
+          <CardHeader className="pb-2">
+            <div className="flex items-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <KeyRound className="size-5" />
+              </div>
+              <div>
+                <CardTitle className="text-base">
+                  Connect a web-search provider
+                </CardTitle>
+                <CardDescription>
+                  Omi Search is provider-independent — connect one key and it
+                  goes live.
+                </CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <ul className="space-y-1.5 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+                {missingHints ||
+                  "Add EXA_API_KEY in the project's API Keys tab to enable live web search."}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+                Exa free tier: sign up at exa.ai → API Keys → copy the key.
+              </li>
+            </ul>
+            <p className="text-xs text-muted-foreground">
+              Nothing else to configure — the app detects the key automatically
+              and search turns on.
+            </p>
+          </CardContent>
+        </Card>
+      )}
 
       {/* History */}
       <section>
@@ -172,12 +255,8 @@ export function OmiSearchPanel() {
               Your last 50 searches, newest first.
             </p>
           </div>
-          {!history && <Loader2 className="size-4 animate-spin text-muted-foreground" />}
           {history && history.length > 0 && (
             <Badge variant="secondary">{history.length} saved</Badge>
-          )}
-          {history && history.length === 0 && (
-            <Badge variant="secondary">0</Badge>
           )}
         </div>
 
@@ -192,8 +271,9 @@ export function OmiSearchPanel() {
               <Search className="size-8 text-muted-foreground/50" />
               <p className="mt-4 font-semibold">No searches yet</p>
               <p className="mt-1 max-w-sm text-sm text-muted-foreground">
-                Ask your first question above — Omi will search the live web and
-                save every answer with its citations here.
+                {searchReady
+                  ? "Ask your first question above — Omi searches the live web and saves every cited answer here."
+                  : "Once a search provider is connected, your cited answers will appear here."}
               </p>
             </CardContent>
           </Card>
@@ -254,7 +334,6 @@ export function OmiSearchPanel() {
                                   </p>
                                 )}
                               </div>
-                              <Link2 className="mt-0.5 size-4 shrink-0 text-muted-foreground/50" />
                             </a>
                           ))}
                         </div>
