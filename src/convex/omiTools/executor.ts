@@ -22,6 +22,7 @@ import {
   toolById,
   type ToolId,
 } from "./registry";
+import { toolAllowedForSpecialty } from "./specialties";
 import { runUniversalSearch } from "../universalSearch";
 import { fetchPageText } from "../searchProviders/pageFetcher";
 import { rateLimit, withTimeout } from "../searchEngine/resilience";
@@ -47,18 +48,35 @@ function truncate(text: string, cap: number): string {
  * Execute one validated tool call inside an action context.
  * Guaranteed to resolve (never throw) so an agent step can never be killed
  * by a misbehaving tool.
+ *
+ * `opts.specialty` enforces the per-specialty tool allowlist here — the
+ * executor is the security boundary; prompt-level restrictions alone are
+ * never trusted.
  */
 export async function executeTool(
   ctx: ToolCtx,
   userId: Id<"users">,
   tool: ToolId,
   rawArgs: Record<string, string | number | boolean>,
-  opts?: { taskId?: Id<"omiTasks">; agentId?: Id<"omiAgents"> },
+  opts?: {
+    taskId?: Id<"omiTasks">;
+    agentId?: Id<"omiAgents">;
+    specialty?: string;
+  },
 ): Promise<ToolRunResult> {
   const started = Date.now();
   const descriptor = toolById(tool);
   if (!descriptor) {
     return { ok: false, tool, output: "", error: "unknown tool", ms: 0 };
+  }
+  if (!toolAllowedForSpecialty(tool, opts?.specialty)) {
+    return await finish(ctx, userId, opts, {
+      ok: false,
+      tool,
+      output: "",
+      error: `tool "${tool}" is not permitted for this agent's specialty`,
+      ms: 0,
+    });
   }
 
   // Rate limit per user across all tools (master plan §12).

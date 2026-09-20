@@ -106,12 +106,20 @@ export function toolById(id: string): ToolDescriptor | null {
   return TOOLS.find((t) => t.id === id) ?? null;
 }
 
-/** Prompt fragment listing every tool + syntax — shared by agent runtime. */
-export function toolCatalogPrompt(): string {
-  const lines = TOOLS.map((t) => `- ${t.syntax} — ${t.description}`);
+/**
+ * Prompt fragment listing tools + syntax — shared by agent runtime.
+ * Pass an allowlist to show only the tools the caller may execute
+ * (the executor still enforces the same list — prompts are never the
+ * security boundary).
+ */
+export function toolCatalogPrompt(allow?: readonly ToolId[]): string {
+  const shown = allow ? TOOLS.filter((t) => allow.includes(t.id)) : TOOLS;
+  const lines = shown.map((t) => `- ${t.syntax} — ${t.description}`);
   return [
     "You can call tools by writing a tool-call line inside your step output, exactly:",
-    ...lines,
+    ...(lines.length > 0
+      ? lines
+      : ["(No tools are available for this step — answer from the provided context.)"]),
     "Rules: one tool call per step output, only at the very end of the output.",
     "The system executes the call and gives you the result as context for the next step.",
   ].join("\n");

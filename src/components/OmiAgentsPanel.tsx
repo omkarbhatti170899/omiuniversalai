@@ -39,6 +39,11 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
+import {
+  SPECIALTIES,
+  specialtyProfile,
+  allowedToolIds,
+} from "@/convex/omiTools/specialties";
 
 type Agent = {
   _id: Id<"omiAgents">;
@@ -76,26 +81,21 @@ type AuditEvent = {
   _creationTime: number;
 };
 
-const PRESETS = [
-  {
-    name: "Researcher",
-    specialty: "research",
-    description:
-      "Breaks research questions into steps and synthesizes findings with structure.",
-  },
-  {
-    name: "Analyst",
-    specialty: "analysis",
-    description:
-      "Analyzes data, compares options, and produces decision-ready summaries.",
-  },
-  {
-    name: "Operations",
-    specialty: "operations",
-    description:
-      "Turns messy operational problems into sequenced action plans.",
-  },
-];
+// Presets are derived from the real specialty profiles (Phase 6) so the UI
+// can never drift from the backend's actual prompt/permission behavior.
+const PRESET_NAMES: Record<string, string> = {
+  research: "Researcher",
+  analysis: "Analyst",
+  operations: "Operator",
+  coding: "Coder",
+  document: "Doc Reader",
+  data: "Data Wrangler",
+};
+const PRESETS = SPECIALTIES.map((p) => ({
+  name: PRESET_NAMES[p.id] ?? p.label,
+  specialty: p.id,
+  description: p.description,
+}));
 
 const VERIFICATION_STYLES: Record<string, string> = {
   pass: "border-emerald-500/40 bg-emerald-500/10 text-emerald-500",
@@ -641,13 +641,29 @@ export function OmiAgentsPanel() {
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="agent-spec">Specialty</Label>
-              <Input
-                id="agent-spec"
-                value={specialty}
-                onChange={(e) => setSpecialty(e.target.value)}
-                placeholder="research, analysis, operations…"
-                maxLength={40}
-              />
+              <div className="flex flex-wrap gap-1.5">
+                {SPECIALTIES.map((p) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    title={p.description}
+                    className={`cursor-pointer rounded-full border px-2.5 py-1 text-xs transition-colors ${
+                      specialty === p.id
+                        ? "border-primary bg-primary/10 text-primary"
+                        : "border-border/70 text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                    }`}
+                    onClick={() => setSpecialty(p.id)}
+                  >
+                    {p.label}
+                    <span className="ml-1 text-[10px] opacity-70">
+                      {allowedToolIds(p.id).length} tools
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground">
+                {specialtyProfile(specialty).description}
+              </p>
             </div>
           </div>
 

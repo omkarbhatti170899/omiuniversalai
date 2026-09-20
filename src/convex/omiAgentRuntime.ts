@@ -7,6 +7,7 @@ import { getAuthUserId } from "@convex-dev/auth/server";
 import { complete } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 import { toolCatalogPrompt, parseToolCall } from "./omiTools/registry";
+import { specialtyProfile, allowedToolIds } from "./omiTools/specialties";
 import { executeTool } from "./omiTools/executor";
 import { verifyResult, correctiveRetry } from "./verification";
 
@@ -24,20 +25,22 @@ export const planTask = action({
     if (trimmed.length < 4) throw new Error("Describe the objective first.");
 
     const agent = await ctx.runQuery(internal.omiAgents.getInternal, { id: agentId });
-    if (!agent || agent.userId !== userId) throw new Error("Not your agent.");
-
-    // Routed as a reasoning task — planning benefits from the strong model.
+    if (!agent || agent.userId !== userId) throw new Error("Not your agent.");    // Routed as a reasoning task — planning benefits from the strong model.
+    // Phase 6: the planner prompt follows the specialty's domain hierarchy.
+    const profile = specialtyProfile(agent.specialty);
     const result = await complete({
       task: "reasoning",
       messages: [
         {
           role: "system",
-          content:
+          content: [
             'You are Omi\'s agent planner. Break the objective into 2-4 concrete, sequential steps. Respond with ONLY a JSON array of short step descriptions, e.g. ["Step one","Step two"]. No commentary. When research or live facts are involved, plan a step that uses the available tools (web search, page reading).',
+            profile.planning,
+          ].join("\n\n"),
         },
         {
           role: "user",
-          content: `Agent specialty: ${agent.specialty}. Objective: ${trimmed}`,
+          content: `Agent specialty: ${profile.label}. Objective: ${trimmed}`,
         },
       ],
       temperature: 0.2,
@@ -85,12 +88,11 @@ export const runTask = action({
     if (!task || task.userId !== userId) throw new Error("Not your task.");
     if (task.status !== "running") {
       throw new Error("Task must be approved before running.");
-    }
-
-    const agent = await ctx.runQuery(internal.omiAgents.getInternal, {
-      id: task.agentId,
-    });
-    const specialty = agent?.specialty ?? "general";
+    }      const agent = await ctx.runQuery(internal.omiAgents.getInternal, {
+        id: task.agentId,
+      });
+      const specialty = agent?.specialty ?? "general";
+      const profile = specialtyProfile(specialty);
 
     try {
       const steps: string[] = task.plan ?? [];
@@ -99,12 +101,15 @@ export const runTask = action({
 
       for (let i = 0; i < steps.length; i++) {
         // Routed as a conversational task — short, concrete step outputs.
+        // Phase 6: step prompts follow the specialty's execution discipline,
+        // and the tool catalog shows ONLY the tools this specialty may run.
+        const allowed = allowedToolIds(specialty);
         const stepResult = await complete({
           task: "conversational",
           messages: [
             {
               role: "system",
-              content: `You are Omi's ${specialty} agent executing one step of a multi-step task. Produce the concrete output for this step only: concise, actionable, under 150 words. No preamble.\n\n${toolCatalogPrompt()}`,
+              content: `You are Omi's ${profile.label.toLowerCase()} agent executing one step of a multi-step task. Produce the concrete output for this step only: concise, actionable, under 150 words. No preamble.\n\n${profile.execution}\n\n${toolCatalogPrompt(allowed)}`,
             },
             {
               role: "user",
@@ -141,6 +146,7 @@ export const runTask = action({
           const run = await executeTool(ctx, userId, call.tool, call.args, {
             taskId,
             agentId: task.agentId,
+            specialty,
           });
           toolLines.push(
             `${run.ok ? "✔" : "✖"} ${call.tool}: ${
