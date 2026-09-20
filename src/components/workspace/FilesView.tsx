@@ -8,8 +8,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { FileText, Files, Loader2, Trash2, Upload } from "lucide-react";
+import { FileSpreadsheet, FileText, Files, Loader2, Trash2, Upload } from "lucide-react";
 import { useRef, useState } from "react";
+import { extractDocx, extractXlsx } from "@/lib/docExtract";
 
 type FileDoc = {
   _id: Id<"omiDocuments">;
@@ -28,12 +29,11 @@ function formatBytes(bytes: number): string {
 }
 
 const ACCEPTED =
-  ".txt,.md,.markdown,.csv,.json,.log,.html,.htm,.ts,.tsx,.js,.py,.sh,.yml,.yaml,.xml,text/*,application/json";
+  ".txt,.md,.markdown,.csv,.json,.log,.html,.htm,.ts,.tsx,.js,.py,.sh,.yml,.yaml,.xml,.docx,.xlsx,text/*,application/json,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
 export function FilesView() {
   const allDocs = useQuery(api.omiKnowledge.listMine);
   const fileDocs = allDocs?.filter((d) => d.fileId !== undefined);
-
   const generateUploadUrl = useMutation(api.omiFiles.generateUploadUrl);
   const ingestFile = useAction(api.omiFiles.ingestFile);
   const removeFile = useMutation(api.omiFiles.remove);
@@ -46,6 +46,21 @@ export function FilesView() {
     if (!file || uploading) return;
     setUploading(true);
     try {
+      // DOCX/XLSX: extract text ON THIS DEVICE (zero cost, private — §41).
+      // The raw bytes are uploaded only for storage; the text we send is
+      // exactly what Omi will quote.
+      const lower = file.name.toLowerCase();
+      let preExtracted: string | undefined;
+      if (lower.endsWith(".docx")) {
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const out = await extractDocx(bytes, file.name);
+        preExtracted = out.text;
+      } else if (lower.endsWith(".xlsx")) {
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const out = await extractXlsx(bytes, file.name);
+        preExtracted = out.text;
+      }
+
       const url = await generateUploadUrl({});
       const res = await fetch(url, {
         method: "POST",
@@ -54,11 +69,16 @@ export function FilesView() {
       });
       if (!res.ok) throw new Error(`Upload failed (${res.status}).`);
       const { storageId } = (await res.json()) as { storageId: string };
-      await ingestFile({
+      const { truncated } = await ingestFile({
         storageId: storageId as Id<"_storage">,
         fileName: file.name,
+        preExtracted,
       });
-      toast("File ingested — Omi can now search and quote it.");
+      toast(
+        truncated
+          ? "File ingested — note: only the first ~60k characters were indexed."
+          : "File ingested — Omi can now search and quote it.",
+      );
     } catch (err) {
       toast.error(
         err instanceof Error ? err.message : "Couldn't ingest that file.",
@@ -137,8 +157,9 @@ export function FilesView() {
               {uploading ? "Extracting text…" : "Drop a file here or click to upload"}
             </p>
             <p className="mt-1 max-w-sm text-xs text-muted-foreground">
-              Text, Markdown, CSV, JSON, HTML, code, logs · up to 2 MB.
-              Extraction is local — no third-party parsing service.
+              Text, Markdown, CSV, JSON, HTML, code, logs, Word (.docx), Excel
+              (.xlsx) · up to 2 MB. Extraction is local — no third-party
+              parsing service.
             </p>
           </div>
         </CardContent>
@@ -171,7 +192,11 @@ export function FilesView() {
             <Card key={d._id} className="bg-card/60">
               <CardContent className="flex items-start gap-3 p-4">
                 <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <FileText className="size-4" />
+                  {d.fileType?.includes("sheet") || d.title.toLowerCase().endsWith(".xlsx") ? (
+                    <FileSpreadsheet className="size-4" />
+                  ) : (
+                    <FileText className="size-4" />
+                  )}
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-semibold">{d.title}</p>

@@ -13,9 +13,14 @@ import { htmlToText } from "./searchProviders/pageFetcher";
  * extracted text becomes an `omiDocuments` entry, so every existing retrieval
  * and grounding path (Knowledge search, Omi chat) picks it up automatically.
  *
- * Supported: text-based files — txt, md, csv, json, html, code, logs.
- * Binary formats (e.g. PDF, images) are rejected with a clear message until a
- * zero-cost extractor exists; Omi never pretends to have read a file.
+ * Supported:
+ *  • text-based files — txt, md, csv, json, html, code, logs (server extraction)
+ *  • DOCX / XLSX — extracted ON THE USER'S DEVICE (src/lib/docExtract.ts,
+ *    zero dependencies) and passed here as `preExtracted`; the original blob
+ *    is still stored so files remain re-downloadable and deletable.
+ *
+ * Binary formats we cannot honestly read yet (e.g. PDF, images) are rejected
+ * with a clear message; Omi never pretends to have read a file.
  */
 
 const MAX_FILE_BYTES = 2_000_000; // 2 MB
@@ -25,7 +30,7 @@ const MAX_CONTENT_CHARS = 60_000;
 const TEXTUAL_NAME_RE =
   /\.(txt|md|markdown|csv|json|log|ts|tsx|js|jsx|py|rb|go|rs|java|c|h|cpp|sh|ya?ml|toml|ini|xml|svg|html?)$/i;
 
-export type IngestResult = { documentId: string };
+export type IngestResult = { documentId: string; truncated: boolean };
 
 /** Short-lived upload URL for direct browser → Convex storage upload. */
 export const generateUploadUrl = mutation({
@@ -46,9 +51,14 @@ export const ingestFile = action({
   args: {
     storageId: v.id("_storage"),
     fileName: v.string(),
+    /**
+     * Text extracted on the user's device for structured formats (DOCX/XLSX).
+     * Optional: plain-text files are extracted server-side as before.
+     */
+    preExtracted: v.optional(v.string()),
   },
   // Explicit return type avoids the generated-api type-inference cycle.
-  handler: async (ctx, { storageId, fileName }): Promise<IngestResult> => {
+  handler: async (ctx, { storageId, fileName, preExtracted }): Promise<IngestResult> => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to upload files.");
 
@@ -62,7 +72,7 @@ export const ingestFile = action({
     const meta = await ctx.storage.getMetadata(storageId);
     if (!meta) throw new Error("Upload not found — try again.");
     if (meta.size > MAX_FILE_BYTES) {
-      throw new Error("File is too large — Omi reads text files up to 2 MB.");
+      throw new Error("File is too large — Omi reads files up to 2 MB.");
     }
 
     const contentType = meta.contentType ?? "";
@@ -75,18 +85,27 @@ export const ingestFile = action({
       contentType.startsWith("text/") ||
       contentType.includes("json") ||
       TEXTUAL_NAME_RE.test(lowerName);
-    if (!isTextual && !isHtml) {
+
+    // Client-extracted text (DOCX/XLSX) and server-readable text files are
+    // both fine; everything else is honestly rejected.
+    if (!isTextual && !isHtml && !preExtracted) {
       throw new Error(
-        `Omi reads text-based files (txt, md, csv, json, html, code). "${fileName}" isn't one yet — binary/PDF support is on the roadmap.`,
+        `Omi reads text-based files (txt, md, csv, json, html, code) plus Word (.docx) and Excel (.xlsx). "${fileName}" isn't supported yet — PDF/image reading is on the roadmap.`,
       );
     }
 
-    const blob = await ctx.storage.get(storageId);
-    if (!blob) throw new Error("Upload not found — try again.");
-    const raw = await blob.text();
-
-    let content = isHtml ? htmlToText(raw) : raw;
-    content = content.trim().slice(0, MAX_CONTENT_CHARS);
+    let content: string;
+    let truncated = false;
+    if (preExtracted !== undefined) {
+      content = preExtracted.trim().slice(0, MAX_CONTENT_CHARS);
+      truncated = preExtracted.trim().length > MAX_CONTENT_CHARS;
+    } else {
+      const blob = await ctx.storage.get(storageId);
+      if (!blob) throw new Error("Upload not found — try again.");
+      const raw = await blob.text();
+      content = (isHtml ? htmlToText(raw) : raw).trim().slice(0, MAX_CONTENT_CHARS);
+      truncated = raw.trim().length > MAX_CONTENT_CHARS;
+    }
     if (content.length < 20) {
       throw new Error("No readable text found in that file.");
     }
@@ -109,7 +128,7 @@ export const ingestFile = action({
         wordCount,
       },
     );
-    return { documentId };
+    return { documentId, truncated };
   },
 });
 
