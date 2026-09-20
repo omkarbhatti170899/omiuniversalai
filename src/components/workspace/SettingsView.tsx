@@ -22,10 +22,10 @@ export function SettingsView() {
   const providerStatus = useQuery(api.searchStatus.status);
 
   const searchReady =
-    providerStatus !== undefined && providerStatus.providers.some((p) => p.configured);
+    providerStatus !== undefined && providerStatus.some((p) => p.ready);
   const missingHints =
-    providerStatus?.providers
-      .filter((p) => !p.configured)
+    providerStatus
+      ?.filter((p) => !p.ready)
       .map((p) => p.hint)
       .join(" ") ?? "";
 

@@ -118,7 +118,9 @@ export const startDeepResearch = action({
 
     // 1) Plan
     const subqueries = await planSubqueries(trimmed);
-    const runId: string = await ctx.runMutation(internal.deepResearchRuns.createRun, {
+    // Inferred as Id<"researchRuns"> — annotating it as `string` here broke
+    // every subsequent updateRun call (Id is a branded type).
+    const runId = await ctx.runMutation(internal.deepResearchRuns.createRun, {
       userId,
       query: trimmed,
       plan: subqueries,

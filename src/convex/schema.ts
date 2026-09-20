@@ -166,6 +166,19 @@ const schema = defineSchema(
       source: v.union(v.literal("user"), v.literal("omi")),
     }).index("by_user", ["userId"]),
 
+    // Omi Knowledge — Phase 3 local knowledge base. Documents live in Convex
+    // (zero cost) and retrieval is keyword-scored locally — no vector DB or
+    // paid embedding API is required. A FAISS/OpenSearch backend can replace
+    // the scorer later without changing call sites.
+    omiDocuments: defineTable({
+      userId: v.id("users"),
+      title: v.string(),
+      content: v.string(),
+      source: v.union(v.literal("user"), v.literal("omi")),
+      wordCount: v.number(),
+      createdAt: v.number(),
+    }).index("by_user", ["userId"]),
+
     // Omi Agents — specialized agents owned by the user
     omiAgents: defineTable({
       userId: v.id("users"),

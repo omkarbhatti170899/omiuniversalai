@@ -68,6 +68,15 @@ async function recordTelemetry(
 
 // --- Main search -----------------------------------------------------------
 
+export type SearchWebResult = {
+  searchId: string;
+  cached: boolean;
+  page: number;
+  engine: string;
+  intent: string;
+  reasons?: string[];
+};
+
 export const searchWeb = action({
   args: {
     query: v.string(),
@@ -98,7 +107,10 @@ export const searchWeb = action({
     /** Explicit override of the decision engine (UI toggle). */
     forceSearch: v.optional(v.boolean()),
   },
-  handler: async (ctx, args) => {
+  // Explicit return type breaks the type-inference cycle: the handler's
+  // result flows through ctx.runMutation(internal…), whose type requires the
+  // full generated api object — which includes this very function.
+  handler: async (ctx, args): Promise<SearchWebResult> => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to use Omi Search.");
 

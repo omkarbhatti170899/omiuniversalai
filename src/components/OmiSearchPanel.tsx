@@ -92,13 +92,13 @@ export function OmiSearchPanel({
 
   const searchReady =
     providerStatus !== undefined &&
-    providerStatus.providers.some((p) => p.configured);
+    providerStatus.some((p) => p.ready);
   // SearXNG is always configured (self-hosted or public floor) — search
   // works with zero cost and zero keys. No premium upgrade card needed.
   const needsSetup = false;
   const missingHints =
-    providerStatus?.providers
-      .filter((p) => !p.configured && p.hint)
+    providerStatus
+      ?.filter((p) => !p.ready && p.hint)
       .map((p) => p.hint)
       .join(" ") ?? "";
 
