@@ -93,10 +93,17 @@ export function OmiSearchPanel({
   const searchReady =
     providerStatus !== undefined &&
     providerStatus.providers.some((p) => p.configured);
-  const needsSetup = providerStatus !== undefined && !searchReady;
+  // Search always works (keyless floor), but premium engines unlock
+  // higher-quality results — show a gentle upgrade card until one is added.
+  const premiumReady =
+    providerStatus !== undefined &&
+    providerStatus.providers.some(
+      (p) => p.configured && (p.id === "tavily" || p.id === "exa"),
+    );
+  const needsSetup = providerStatus !== undefined && !premiumReady;
   const missingHints =
     providerStatus?.providers
-      .filter((p) => !p.configured)
+      .filter((p) => !p.configured && p.id !== "duckduckgo")
       .map((p) => p.hint)
       .join(" ") ?? "";
 
@@ -218,11 +225,11 @@ export function OmiSearchPanel({
               </div>
               <div>
                 <CardTitle className="text-base">
-                  Connect a web-search provider
+                  Power up Omi Search
                 </CardTitle>
                 <CardDescription>
-                  Omi Search is provider-independent — connect one key and it
-                  goes live.
+                  Omi is searching with its built-in keyless engine. Connect a
+                  premium engine for deeper, cleaner AI answers.
                 </CardDescription>
               </div>
             </div>
@@ -232,11 +239,11 @@ export function OmiSearchPanel({
               <li className="flex items-start gap-2">
                 <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
                 {missingHints ||
-                  "Add EXA_API_KEY in the project's API Keys tab to enable live web search."}
+                  "Add TAVILY_API_KEY or EXA_API_KEY in the project's API Keys tab for premium search."}
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
-                Exa free tier: sign up at exa.ai → API Keys → copy the key.
+                Free tiers: tavily.com or exa.ai → API Keys → copy the key.
               </li>
             </ul>
             <p className="text-xs text-muted-foreground">

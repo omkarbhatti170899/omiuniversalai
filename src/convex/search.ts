@@ -6,11 +6,8 @@ import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { vly } from "../lib/vly-integrations";
 import { friendlyAiError } from "./aiErrors";
-import {
-  getActiveProvider,
-  MissingKeyError,
-  type WebCitation,
-} from "./searchProviders";
+import { getConfiguredProviders } from "./searchProviders";
+import type { WebCitation } from "./searchProviders";
 
 export const searchWeb = action({
   args: { query: v.string() },
@@ -25,27 +22,42 @@ export const searchWeb = action({
       throw new Error("Type a question or topic to search.");
     }
 
-    // 1) Live web search via the provider layer
-    let citations: WebCitation[];
-    try {
-      const provider = getActiveProvider();
-      if (!provider) {
-        throw new MissingKeyError("none");
-      }
-      const result = await provider.search(trimmed, 6);
-      citations = result.citations;
-    } catch (err) {
-      if (err instanceof MissingKeyError) {
-        // Graceful, actionable message — no raw server error.
-        throw new Error(
-          "Omi Search needs a web-search API key to reach the live web. Add EXA_API_KEY in the project's API Keys tab, then try again.",
-        );
-      }
-      throw err;
+    // 1) Live web search — try each configured engine in priority order
+    //    (Tavily -> Exa -> keyless). The first engine that returns
+    //    citations wins; a failing engine never breaks the search.
+    const providers = getConfiguredProviders();
+    if (providers.length === 0) {
+      throw new Error(
+        "Omi Search could not start: no search engine is available. Add TAVILY_API_KEY or EXA_API_KEY in the project's API Keys tab.",
+      );
     }
 
-    if (citations.length === 0) {
-      throw new Error("No results found for that query. Try rephrasing it.");
+    let citations: WebCitation[] | null = null;
+    let usedEngine = "";
+    const failures: string[] = [];
+
+    for (const provider of providers) {
+      try {
+        const result = await provider.search(trimmed, 6);
+        if (result.citations.length > 0) {
+          citations = result.citations;
+          usedEngine = provider.label;
+          break;
+        }
+        failures.push(`${provider.label}: no results`);
+      } catch (err) {
+        failures.push(
+          `${provider.label}: ${err instanceof Error ? err.message : "failed"}`,
+        );
+      }
+    }
+
+    if (!citations) {
+      throw new Error(
+        `All search engines failed for this query. ${failures
+          .join(" | ")
+          .slice(0, 280)}`,
+      );
     }
 
     // 2) Omi synthesizes a cited answer from the live results
@@ -74,7 +86,29 @@ export const searchWeb = action({
     });
 
     if (!completion.success || !completion.data) {
-      throw new Error(friendlyAiError(completion.error));
+      // Graceful degradation: the engines found real sources, so save them
+      // with a plain-language note instead of failing the whole search.
+      const fallbackAnswer =
+        "I found live sources for your question, but my AI summary is temporarily " +
+        "unavailable (the AI gateway key is being rejected). Here are the top " +
+        "sources I found — the summary will work again once the AI connection is restored:\n\n" +
+        citations
+          .map(
+            (c, i) =>
+              `[${i + 1}] ${c.title}${c.snippet ? ` — ${c.snippet.slice(0, 180)}` : ""}`,
+          )
+          .join("\n");
+
+      const searchId = await ctx.runMutation(
+        internal.searchHistory.saveSearch,
+        {
+          userId,
+          query: trimmed,
+          answer: fallbackAnswer.slice(0, 3000),
+          citations,
+        },
+      );
+      return { searchId };
     }
 
     const answer = (
@@ -84,11 +118,13 @@ export const searchWeb = action({
       throw new Error("Omi returned an empty answer. Try again.");
     }
 
-    // 3) Persist to history
+    // 3) Persist to history — engine label travels with the answer as provenance
     const searchId = await ctx.runMutation(internal.searchHistory.saveSearch, {
       userId,
       query: trimmed,
-      answer,
+      answer: usedEngine
+        ? `${answer}\n\n— via ${usedEngine}`
+        : answer,
       citations,
     });
 

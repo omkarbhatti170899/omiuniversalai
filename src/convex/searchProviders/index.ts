@@ -3,18 +3,32 @@ import {
   MissingKeyError,
   type SearchProvider,
 } from "./exa";
+import { createTavilyProvider } from "./tavily";
+import { createKeylessProvider } from "./keyless";
 
 export type { WebCitation } from "./exa";
 
 /**
- * Registered providers, in priority order. To add another web-search
- * provider later (e.g. Brave, Tavily), implement SearchProvider in a new
- * file and add it here — the rest of the app is untouched.
+ * Registered providers, in priority order. The orchestrator (search.ts)
+ * tries each configured provider in this order and uses the first that
+ * succeeds — so a rate-limited or failing engine never breaks Omi Search.
+ *
+ * To add another provider later (e.g. Brave), implement SearchProvider in
+ * a new file and add it here — the rest of the app is untouched.
+ * The keyless provider is always last as a never-dead fallback.
  */
-const REGISTRY: SearchProvider[] = [createExaProvider()];
+const REGISTRY: SearchProvider[] = [
+  createTavilyProvider(),
+  createExaProvider(),
+  createKeylessProvider(),
+];
+
+export function getConfiguredProviders(): SearchProvider[] {
+  return REGISTRY.filter((p) => p.isConfigured());
+}
 
 export function getActiveProvider(): SearchProvider | null {
-  return REGISTRY.find((p) => p.isConfigured()) ?? null;
+  return getConfiguredProviders()[0] ?? null;
 }
 
 export function getProviderStatus() {
