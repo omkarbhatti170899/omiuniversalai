@@ -35,7 +35,8 @@ type CompletionResult = {
 };
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
-const GROQ_MODEL = "llama-3.3-70b-versatile";
+// Groq retires models periodically — try the big one first, then the fast one.
+const GROQ_MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b"];
 const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
 
 async function openAiCompatibleCompletion(
@@ -109,17 +110,20 @@ const vlyAi = vly.ai as {
       attempts.push(() => vlyAi.completion(req));
     }
 
-    // 2) Groq — free tier, OpenAI-compatible.
+    // 2) Groq — free tier, OpenAI-compatible. Try primary model, then fallback
+    //    model if Groq has retired the primary.
     if (process.env.GROQ_API_KEY) {
-      attempts.push(() =>
-        openAiCompatibleCompletion(
-          GROQ_URL,
-          process.env.GROQ_API_KEY as string,
-          GROQ_MODEL,
-          req,
-          "Groq",
-        ),
-      );
+      for (const model of GROQ_MODELS) {
+        attempts.push(() =>
+          openAiCompatibleCompletion(
+            GROQ_URL,
+            process.env.GROQ_API_KEY as string,
+            model,
+            req,
+            `Groq(${model})`,
+          ),
+        );
+      }
     }
 
     // 3) OpenAI — direct API.

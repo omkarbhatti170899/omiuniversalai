@@ -192,7 +192,7 @@ export const analyze = action({
           { role: "user", content: trimmed },
         ],
         temperature: 0.2,
-        maxTokens: 400,
+        maxTokens: 1000, // gpt-oss models spend reasoning tokens before the JSON — leave headroom
       });
 
       if (result.success && result.data) {
