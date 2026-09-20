@@ -75,8 +75,12 @@ function renderAnswer(answer: string) {
   });
 }
 
-export function OmiSearchPanel() {
-  const [query, setQuery] = useState("");
+export function OmiSearchPanel({
+  initialQuery,
+}: {
+  initialQuery?: string;
+} = {}) {
+  const [query, setQuery] = useState(initialQuery ?? "");
   const [isSearching, setIsSearching] = useState(false);
 
   const providerStatus = useQuery(api.searchStatus.status);

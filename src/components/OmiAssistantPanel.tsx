@@ -62,12 +62,16 @@ type Memory = {
   source: "user" | "omi";
 };
 
-export function OmiAssistantPanel() {
+export function OmiAssistantPanel({
+  initialDraft,
+}: {
+  initialDraft?: string;
+} = {}) {
   const conversations = useQuery(api.omiConversations.listMine);
   const memories = useQuery(api.omiMemories.listMine);
 
   const [activeId, setActiveId] = useState<Id<"omiConversations"> | null>(null);
-  const [draft, setDraft] = useState("");
+  const [draft, setDraft] = useState(initialDraft ?? "");
   const [isSending, setIsSending] = useState(false);
   const [memoryOpen, setMemoryOpen] = useState(false);
   const [memoryDraft, setMemoryDraft] = useState("");
