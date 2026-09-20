@@ -6,7 +6,7 @@ import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { vly } from "../lib/vly-integrations";
 import { friendlyAiError } from "./aiErrors";
-import { runUniversalSearch } from "./universalSearch";
+import { runUniversalSearch, extractiveBrief } from "./universalSearch";
 
 const OMI_SYSTEM = `You are Omi, the Universal AI inside Ominnovations Intelligence. You coordinate intelligence rather than just answering: you reason before acting, and you explain your thinking.
 
@@ -94,11 +94,14 @@ export const send = action({
     //    domain-diverse). Never throws — a failing engine set must not
     //    break the conversation.
     let searchBlock = "";
+    let fallbackAnswer: string | null = null;
+    let citationCount = 0;
     try {
       const universal = await runUniversalSearch(trimmed, {
         perEngineLimit: 3,
         maxCitations: 4,
       });
+      citationCount = universal.citations.length;
       if (universal.citations.length > 0) {
         searchBlock =
           "Live web search results (cite them inline as [1], [2] … where used):\n" +
@@ -108,6 +111,9 @@ export const send = action({
                 `[${i + 1}] ${c.title}\nURL: ${c.url}\nEXCERPT: ${c.snippet ?? ""}`,
             )
             .join("\n\n");
+        // Pre-build the no-AI fallback answer from the same sources so it's
+        // ready if every AI provider is unreachable.
+        fallbackAnswer = extractiveBrief(trimmed, universal.citations);
       }
     } catch {
       searchBlock = "";
@@ -152,22 +158,21 @@ export const send = action({
       content = split.content;
       reasoning = split.reasoning;
     } else {
-      const aiHint = friendlyAiError(result.error);
-      content = searchBlock
-        ? "I pulled live sources for your question while my full reasoning is temporarily " +
-          "unavailable (" +
-          aiHint.slice(0, 120) +
-          "):\n\n" +
-          searchBlock
-            .split("\n\n")
-            .filter((b) => b.startsWith("["))
-            .map((b) => b.split("\n")[0])
-            .join("\n")
-        : "I couldn't reach any AI provider just now, and no live sources came back either. " +
-          "Here's what I can tell you: your message is saved and the moment an AI provider is " +
-          "available I can reason over it properly. " +
-          aiHint.slice(0, 160);
-      reasoning = "Answered from live sources directly (AI synthesis unavailable).";
+      if (fallbackAnswer) {
+        // Clean, cited, relevance-ranked answer built from live sources.
+        content = fallbackAnswer;
+        reasoning =
+          "Answered from live sources directly — add a free Groq key (GROQ_API_KEY) in the API Keys tab to unlock full AI reasoning.";
+      } else {
+        // No sources and no AI: be honest, friendly, actionable.
+        const aiHint = friendlyAiError(result.error);
+        content =
+          "I couldn't reach an AI provider and no live sources came back for that one. " +
+          "Your message is saved — ask again in a moment, or add a free AI key " +
+          "(GROQ_API_KEY in the API Keys tab) to unlock full reasoning. " +
+          aiHint.slice(0, 120);
+        reasoning = "No AI provider available and no sources found.";
+      }
     }
 
     if (!content) {

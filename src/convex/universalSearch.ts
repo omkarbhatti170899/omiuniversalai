@@ -99,7 +99,8 @@ export async function runUniversalSearch(
 
   // Preferred path: AI-synthesized brief. Falls back to an extractive brief
   // so the answer is still useful when the AI gateway is unavailable.
-  const brief = (await synthesizeBrief(query, citations)) ?? extractiveBrief(citations);
+  const brief =
+    (await synthesizeBrief(query, citations)) ?? extractiveBrief(query, citations);
 
   return {
     query,
@@ -146,18 +147,83 @@ async function synthesizeBrief(
   }
 }
 
-function extractiveBrief(citations: WebCitation[]): string {
-  const lines = citations
-    .map(
-      (c, i) =>
-        `[${i + 1}] ${c.title}${c.snippet ? ` — ${c.snippet.slice(0, 180)}` : ""}`,
-    )
-    .join("\n");
-  return (
-    "Here is what Omi found across the live web for your question:\n\n" +
-    lines +
-    "\n\n(AI synthesis is temporarily unavailable, so these are direct source extracts.)"
-  );
+const STOP_WORDS = new Set([
+  "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have",
+  "how", "in", "is", "it", "its", "of", "on", "or", "that", "the", "to", "was",
+  "what", "when", "where", "which", "who", "why", "will", "with", "do", "does",
+  "did", "can", "could", "should", "would", "me", "my", "your", "you", "i",
+]);
+
+/**
+ * Relevance-ranked extractive answer: instead of dumping raw citations, pick
+ * the sentences from source snippets that best match the question's keywords
+ * and compose them into a readable, cited answer. This gives genuinely useful
+ * answers even with zero AI providers available.
+ */
+export function extractiveBrief(query: string, citations: WebCitation[]): string {
+  const keywords = query
+    .toLowerCase()
+    .replace(/[^a-z0-9\s'-]/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length > 2 && !STOP_WORDS.has(w));
+
+  type Scored = { text: string; idx: number; score: number };
+  const sentences: Scored[] = [];
+
+  citations.forEach((c, idx) => {
+    if (!c.snippet) return;
+    const parts = c.snippet
+      .split(/(?<=[.!?])\s+/)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 40 && s.length < 400);
+    for (const s of parts) {
+      const lower = s.toLowerCase();
+      let score = 0;
+      for (const k of keywords) {
+        if (lower.includes(k)) score += 2;
+      }
+      // Light boost for definitional patterns that usually answer "what is X".
+      if (/\b(is|are|means|refers to|defined as)\b/i.test(s)) score += 1;
+      if (score > 0) sentences.push({ text: s, idx: idx + 1, score });
+    }
+  });
+
+  sentences.sort((a, b) => b.score - a.score);
+
+  // Top unique sentences (dedupe near-identical text), max 4, from >=2 sources when possible.
+  const picked: Scored[] = [];
+  const seenTexts: string[] = [];
+  for (const s of sentences) {
+    const norm = s.text.toLowerCase().slice(0, 60);
+    if (seenTexts.some((t) => t === norm)) continue;
+    seenTexts.push(norm);
+    picked.push(s);
+    if (picked.length >= 4) break;
+  }
+
+  if (picked.length === 0) {
+    // Nothing scored — fall back to a clean source list.
+    const lines = citations
+      .map(
+        (c, i) =>
+          `[${i + 1}] ${c.title}${c.snippet ? ` — ${c.snippet.slice(0, 180)}` : ""}`,
+      )
+      .join("\n");
+    return (
+      "Here is what Omi found across the live web for your question:\n\n" +
+      lines
+    );
+  }
+
+  const body = picked
+    .map((s) => `${s.text} [${s.idx}]`)
+    .join("\n\n");
+  const sourceLine = citations
+    .slice(0, 4)
+    .map((c, i) => `[${i + 1}] ${c.title} (${domainOf(c.url)})`)
+    .join(" ");
+
+  return `${body}\n\nSources: ${sourceLine}`;
 }
 
 function normalizeUrl(url: string): string {
