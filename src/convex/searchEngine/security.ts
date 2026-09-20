@@ -106,17 +106,90 @@ export function sanitizeQuery(input: string, maxLen = 500): string {
  */
 const INVISIBLE_CHARS = /[\u200b-\u200f\u202a-\u202e\u2060-\u206f\ufeff]/g;
 
+// --- Homoglyph-tolerant role patterns (Phase 12 hardening) ------------------
+
+/** Cyrillic/phonetic lookalikes for common Latin letters in security-sensitive words. */
+const CONFUSABLES: Record<string, string> = {
+  a: "а", b: "в", c: "с", d: "ԁ", e: "е", g: "ɡ", h: "н",
+  i: "і", j: "ј", k: "к", m: "м", o: "о", p: "р", s: "ѕ",
+  t: "т", x: "х", y: "у",
+};
+
+/** "system" → "s[уy]s[тt][еe][мm]" — a regex tolerant of Cyrillic homoglyphs
+ * so "syсtem prompt:" can't smuggle a role marker past the sanitizer.
+ * Applied only to role/instruction patterns, never to general text. */
+function fuzzyWord(word: string): string {
+  return word
+    .split("")
+    .map((ch) => {
+      const lower = ch.toLowerCase();
+      const conf = CONFUSABLES[lower];
+      return conf ? `[${conf}${lower}]` : ch;
+    })
+    .join("");
+}
+
+const ROLE_WORDS = ["system", "developer", "assistant", "tool"];
+const FUZZY_ROLE = ROLE_WORDS.map(fuzzyWord).join("|");
+const FUZZY_ROLE_OBJ = ["system", "developer", "assistant"]
+  .map(fuzzyWord)
+  .join("|");
+const FUZZY_ROLE_OBJ_LABELS = ["prompt", "message", "instruction"]
+  .map(fuzzyWord)
+  .join("|");
+
+/** Base64-wrapped steering: decode bounded tokens and redact when the
+ * decoded content carries injection patterns. Runtime-agnostic (atob is a
+ * global in browsers, Node ≥16 and Bun); never throws. */
+function redactEncodedSteering(input: string): string {
+  const TOKEN = /[A-Za-z0-9+/]{16,}={0,2}/g;
+  let scanned = 0;
+  return input.replace(TOKEN, (tok) => {
+    if (scanned >= 5 || tok.length > 512) return tok;
+    scanned += 1;
+    try {
+      const bin = atob(tok);
+      if (bin.length < 8) return tok;
+      const decoded = bin.replace(/[\u0000-\u001f\u007f]/g, " ");
+      return looksLikeInjection(decoded)
+        ? "[encoded injection attempt redacted]"
+        : tok;
+    } catch {
+      return tok;
+    }
+  });
+}
+
 export function sanitizeUntrustedText(input: string, maxLen = 4000): string {
   return input
     .replace(INVISIBLE_CHARS, " ") // zero-width/override steering chars
+    .replace(
+      /\b[A-Za-z0-9+/]{16,}={0,2}\b/g,
+      redactEncodedSteering,
+    )
     .replace(/\br?oles?:\s*(system|developer|assistant|tool)\b/gi, "role: redacted")
     // Chat-role spoofing: a line starting with "system:"/"assistant:" tries
     // to look like conversation structure — defang it wherever it appears.
-    .replace(/^(system|developer|assistant|tool)\s*:/gim, "role: redacted")
-    .replace(/\b(system|developer|assistant)\s*(prompt|message|instruction)s?\s*:/gi, "redacted:")
+    // Homoglyph-tolerant: "syсtem:" (Cyrillic с) is caught too.
+    .replace(new RegExp(`^(?:${FUZZY_ROLE})\\s*:`, "gim"), "role: redacted")
+    .replace(
+      // NOTE: \b is ASCII-only in JS regex — it would never match before a
+      // Cyrillic lookalike. This lookbehind is the unicode-aware equivalent
+      // of \b: no match directly after a letter/digit/underscore (so
+      // "metasystem prompt:" stays untouched) but spaces/punctuation are fine.
+      new RegExp(`(?<![\\p{L}\\p{N}_])(?:${FUZZY_ROLE_OBJ})\\s*(?:${FUZZY_ROLE_OBJ_LABELS})s?\\s*:`, "giu"),
+      "redacted:",
+    )
     .replace(/\b(end of|begin of)\s+(system|context|prompt)\b/gi, "redacted")
     .replace(/\b(ignore|disregard|forget)\s+(all\s+)?(previous|prior|above)\b/gi, "[injection attempt redacted]")
+    // CJK steering (hardening pass): 忽略/无视 …指令 — common Chinese
+    // "ignore previous instructions" shapes.
+    .replace(/(忽略|无视)\s*(之前|先前|上述|以上|前面)?\s*的?\s*(所有|全部)?\s*(指令|指示)/g, "[injection attempt redacted]")
+    .replace(/(今までの|以前の|上記の)?(指示|命令)を(無視|無効化?)/g, "[injection attempt redacted]")
     .replace(/\b(you are now|new instructions?|real instructions?)\b/gi, "[redacted]")
+    // Tool-syntax smuggling: untrusted text must never carry executable
+    // Omi tool-call syntax into a prompt.
+    .replace(/\bTOOL\s+[A-Za-z_][A-Za-z0-9_]*\s*\{/g, "[tool call syntax redacted]")
     .replace(/[\u0000-\u001f\u007f]/g, " ")
     .replace(/\s{3,}/g, "  ")
     .trim()

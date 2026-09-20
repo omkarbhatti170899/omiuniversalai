@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline — Omi Universal AI</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+      }
+      @media (prefers-color-scheme: dark) {
+        body { background: #151326; color: #e2e8f0; }
+      }
+      .card {
+        max-width: 26rem;
+        padding: 2.5rem 2rem;
+        text-align: center;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #4f46e5;
+      }
+      h1 { font-size: 1.375rem; margin: 0.75rem 0 0.5rem; }
+      p { font-size: 0.875rem; line-height: 1.6; opacity: 0.75; margin: 0 0 1.5rem; }
+      button {
+        cursor: pointer;
+        border: 0;
+        border-radius: 0.625rem;
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: #4f46e5;
+        color: #fff;
+      }
+      button:hover { background: #4338ca; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <span class="badge">Ominnovations Intelligence</span>
+      <h1>You're offline</h1>
+      <p>
+        Omi couldn't reach the network. Your data is safe — conversations,
+        knowledge and files live server-side and will sync when you're back.
+      </p>
+      <button onclick="location.reload()">Try again</button>
+    </main>
+  </body>
+</html>

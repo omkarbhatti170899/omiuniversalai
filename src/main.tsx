@@ -141,3 +141,15 @@ createRoot(document.getElementById("root")!).render(
     </RootErrorBoundary>
   </StrictMode>,
 );
+
+// Phase 8 (PWA): offline-capable service worker. Registered in production
+// builds only — the managed dev/preview session must never be served stale
+// caches, and registering against dev HMR plumbing risks cache poisoning.
+// A failed registration is logged, never thrown: it must not break the app.
+if (import.meta.env.PROD && "serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch((err) => {
+      console.warn("[PWA] Service worker registration failed:", err);
+    });
+  });
+}
