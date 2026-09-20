@@ -8,6 +8,7 @@ import { createOpenLibraryProvider } from "./openlibrary";
 import { createHackerNewsProvider } from "./hackernews";
 import { createOpenverseProvider } from "./openverse";
 import { createCommonCrawlProvider } from "./commoncrawl";
+import { createGitHubProvider } from "./github";
 import { createKeylessProvider } from "./keyless";
 
 export type {
@@ -54,6 +55,7 @@ export type ProviderStatus = {
  *   Hacker News  — practitioner/tech signal (keyless Algolia API)
  *   Openverse    — openly-licensed images (image-category specialist)
  *   Common Crawl — open web index metadata (AWS open data; provenance/diversity)
+ *   GitHub       — public repository search, tech queries only (keyless 10/min)
  *   DuckDuckGo   — keyless last-resort web floor
  *
  * Every source runs in parallel under Promise.allSettled in the orchestrator
@@ -73,6 +75,7 @@ const REGISTRY: SearchProvider[] = [
   createHackerNewsProvider(),
   createOpenverseProvider(),
   createCommonCrawlProvider(),
+  createGitHubProvider(),
   createKeylessProvider(),
 ];
 

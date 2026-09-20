@@ -73,6 +73,7 @@ Registered today — **all keyless, all $0 per query:**
 | Hacker News | Algolia (keyless) | practitioner signal |
 | Openverse | WordPress/open | openly-licensed images |
 | Common Crawl | AWS open data | web index metadata (provenance) |
+| GitHub | Microsoft/GitHub | public repository search — tech queries only, keyless 10/min, metadata only |
 | DuckDuckGo | keyless HTML | last-resort web floor |
 
 Every provider gets: timeout, retry, error isolation, health status; a slow
@@ -84,7 +85,6 @@ when gates leave enough evidence.
 **[PLANNED] provider seams** (interface already supports them):
 - Commercial APIs (Brave, Exa, Tavily, Serper…) — optional, off by default,
   never mandatory (§2/§6)
-- GitHub public API — code/repository retrieval
 - News GDELT-style open indexes — broader news coverage
 - Document corpora — user-owned knowledge as a first-class source
 - **Omi's own crawler/index** — self-hosted crawl + OpenSearch/FAISS index
@@ -134,6 +134,10 @@ rejection is auditable with reasons:
 `tests/andromedaOrchestrator.test.ts` (13) — covering routing, duplicate
 sources, stale results, citation integrity, provider-fallback/failure
 contracts, and injection rejection; plus the full Omi suite (138+ tests).
+
+Privacy boundary (§41): GitHub results carry public repository METADATA only
+(name, description, language, stars, license, last push) — no code content is
+fetched or stored, and private data never leaves the workspace to providers.
 
 ## 7. Operating-cost posture
 
