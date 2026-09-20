@@ -111,6 +111,7 @@ export async function runUniversalSearch(
 
   const merged: Array<{ c: WebCitation; engine: string; score: number }> = [];
   const seenUrls = new Map<string, number>(); // normalized URL -> engine count
+  const mergedByUrl = new Map<string, WebCitation>(); // provenance target
   const enginesUsed: string[] = [];
   const failures: string[] = [];
 
@@ -127,8 +128,22 @@ export async function runUniversalSearch(
       const url = normalizeUrl(c.url);
       const engineCount = (seenUrls.get(url) ?? 0) + 1;
       seenUrls.set(url, engineCount);
-      if (engineCount > 1) continue; // already merged; count = agreement boost
-      merged.push({ c: { ...c, url }, engine: engine.label, score: 0 });
+      const existing = mergedByUrl.get(url);
+      if (existing) {
+        // Cross-source agreement (spec §10): the same URL surfaced by 2+
+        // independent engines earns a confidence bump in ranking, and
+        // provenance (§8/§29) records exactly which sources found it.
+        // REPETITION ≠ TRUTH — agreement lifts priority, it never replaces
+        // source-quality scoring.
+        existing.providers = [
+          ...(existing.providers ?? []),
+          engine.label,
+        ].slice(0, 6);
+        continue;
+      }
+      const citation: WebCitation = { ...c, url, providers: [engine.label] };
+      mergedByUrl.set(url, citation);
+      merged.push({ c: citation, engine: engine.label, score: 0 });
     }
   }
 
@@ -151,6 +166,9 @@ export async function runUniversalSearch(
       score = Math.min(1, score + 0.08 * (agreement - 1));
     }
     item.score = score;
+    // Persist the score into the citation so downstream UIs and evidence
+    // packs can show relevance/provenance without recomputing it.
+    item.c.relevance = Math.round(score * 100) / 100;
   }
   merged.sort((a, b) => b.score - a.score);
 
@@ -198,7 +216,8 @@ export async function runUniversalSearch(
 
   const engine =
     enginesUsed.length > 0
-      ? enginesUsed.slice(0, 2).join(" + ")
+      ? enginesUsed.slice(0, 4).join(" + ") +
+        (enginesUsed.length > 4 ? ` +${enginesUsed.length - 4} more` : "")
       : "Omi keyless engine";
 
   // --- Cache write (fire-and-forget; never blocks the answer) ------------
@@ -206,7 +225,15 @@ export async function runUniversalSearch(
     await ctx.runMutation(internal.searchCache.write, {
       cacheKey,
       query,
-      citations,
+      citations: citations.map((c) => ({
+        title: c.title,
+        url: c.url,
+        snippet: c.snippet,
+        imageUrl: c.imageUrl,
+        publishedAt: c.publishedAt,
+        providers: c.providers,
+        author: c.author,
+      })),
       engine,
     });
   } catch {

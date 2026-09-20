@@ -52,7 +52,7 @@ const NAV: NavItem[] = [
   { id: "research", label: "Research", icon: Globe, ready: true },
   { id: "memory", label: "Memory", icon: Brain, ready: true },
   { id: "emotions", label: "Emotions AI", icon: Sparkles, ready: true },
-  { id: "search", label: "Web Search", icon: Search, ready: true },
+  { id: "search", label: "Andromeda", icon: Search, ready: true },
   { id: "tasks", label: "Tasks", icon: ListChecks, ready: true },
   { id: "files", label: "Files", icon: Files, ready: true },
   { id: "knowledge", label: "Knowledge", icon: BookOpen, ready: true },

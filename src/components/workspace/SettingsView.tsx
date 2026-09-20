@@ -9,9 +9,7 @@ import { useAuth } from "@/hooks/use-auth";
 import {
   Bot,
   Brain,
-  ExternalLink,
   Globe,
-  KeyRound,
   MessageSquare,
   Sparkles,
 } from "lucide-react";
@@ -23,16 +21,11 @@ export function SettingsView() {
 
   const searchReady =
     providerStatus !== undefined && providerStatus.some((p) => p.ready);
-  const missingHints =
-    providerStatus
-      ?.filter((p) => !p.ready)
-      .map((p) => p.hint)
-      .join(" ") ?? "";
 
   const features = [
     { icon: MessageSquare, label: "Chat with Omi", desc: "Reasoning + transparent 'Why this answer' trails" },
     { icon: Bot, label: "Agents", desc: "Plan → approve → execute with full audit trail" },
-    { icon: Globe, label: "Omi Search", desc: "Live web answers with citations (provider-independent)" },
+    { icon: Globe, label: "Andromeda", desc: "Multi-source meta-search: parallel retrieval, provenance, citations — zero cost" },
     { icon: Sparkles, label: "Human Emotions AI", desc: "Emotion, sentiment, urgency and rant read-outs" },
     { icon: Brain, label: "Memory", desc: "User-controlled persistent context across devices" },
   ];
@@ -70,51 +63,62 @@ export function SettingsView() {
         </CardContent>
       </Card>
 
-      {/* Providers */}
+      {/* Andromeda sources — provider/cost status dashboard (spec §31) */}
       <Card>
         <CardContent className="p-5">
           <div className="flex items-center gap-3">
             <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <KeyRound className="size-5" />
+              <Globe className="size-5" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold">Web-search provider</p>
+              <p className="text-sm font-semibold">Andromeda — search sources</p>
               <p className="text-xs text-muted-foreground">
                 {searchReady
-                  ? "Connected — Omi Search is live."
-                  : "Not connected — live web search is paused."}
+                  ? "Orchestrating free/open sources in parallel — every result carries provenance and citations."
+                  : "No search source is reachable right now."}
               </p>
             </div>
             <Badge
               variant="outline"
               className={
                 searchReady
-                  ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
-                  : "border-amber-500/30 bg-amber-500/10 text-amber-400"
+                  ? "shrink-0 border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                  : "shrink-0 border-amber-500/30 bg-amber-500/10 text-amber-400"
               }
             >
-              {searchReady ? "Connected" : "Setup required"}
+              {searchReady ? "Connected" : "Degraded"}
             </Badge>
           </div>
 
-          {!searchReady && (
-            <div className="mt-4 space-y-2 rounded-lg border border-border/60 bg-muted/30 p-3 text-xs text-muted-foreground">
-              <p className="font-medium text-foreground">To connect:</p>
-              <p>{missingHints || "Add EXA_API_KEY in the project's API Keys tab."}</p>
-              <p className="flex items-center gap-1">
-                Free key:
-                <a
-                  href="https://exa.ai"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-0.5 text-primary hover:underline"
+          <div className="mt-4 space-y-2">
+            {(providerStatus ?? []).map((p) => (
+              <div
+                key={p.id}
+                className="flex items-center justify-between gap-3 rounded-lg border border-border/60 px-3 py-2"
+              >
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium">{p.label}</p>
+                  <p className="truncate text-xs text-muted-foreground">{p.cost}</p>
+                </div>
+                <Badge
+                  variant="outline"
+                  className={
+                    p.ready
+                      ? "shrink-0 border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                      : "shrink-0 border-amber-500/30 bg-amber-500/10 text-amber-400"
+                  }
                 >
-                  exa.ai
-                  <ExternalLink className="size-3" />
-                </a>
-              </p>
-            </div>
-          )}
+                  {p.ready ? "Ready" : "Unavailable"}
+                </Badge>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-3 text-xs text-muted-foreground">
+            Zero mandatory paid dependency: every registered source is a
+            free/open keyless API. Paid engines may exist only as optional
+            adapters — none are registered, so none can silently bill.
+          </p>
         </CardContent>
       </Card>
 

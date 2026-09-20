@@ -42,9 +42,9 @@ export type SourceTier =
   | "low";
 
 const ACADEMIC_RE =
-  /(\.edu|\.ac\.[a-z]{2})(:|$)|arxiv\.org|nature\.com|science\.org|ieeexplore\.ieee\.org|springer\.com|sciencedirect\.com|ncbi\.nlm\.nih\.gov|jstor\.org|pubsonline\.acs\.org|semanticscholar\.org/;
+  /(\.edu|\.ac\.[a-z]{2})(:|$)|arxiv\.org|openalex\.org|nature\.com|science\.org|ieeexplore\.ieee\.org|springer\.com|sciencedirect\.com|ncbi\.nlm\.nih\.gov|jstor\.org|pubsonline\.acs\.org|semanticscholar\.org/;
 const REFERENCE_RE =
-  /(^|\.)wikipedia\.org$|britannica\.com$|developer\.mozilla\.org$|w3\.org$|stanford\.encyclopedia/;
+  /(^|\.)wikipedia\.org$|openlibrary\.org$|britannica\.com$|developer\.mozilla\.org$|w3\.org$|stanford\.encyclopedia/;
 const NEWS_RE =
   /(^|\.)reuters\.com$|(^|\.)apnews\.com$|(^|\.)bbc\.(com|co\.uk)$|nytimes\.com$|theguardian\.com$|bloomberg\.com$|ft\.com$|economist\.com$|npr\.org$|aljazeera\.com$|cnn\.com$|wsj\.com$|cnbc\.com$|dw\.com$|lemonde\.fr$|spiegel\.de$/;
 const LOW_RE =

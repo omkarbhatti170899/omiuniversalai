@@ -1,6 +1,11 @@
 import { type SearchProvider } from "./types";
 import { createSearxProvider } from "./searxng";
 import { createWikipediaProvider } from "./wikipedia";
+import { createArxivProvider } from "./arxiv";
+import { createOpenAlexProvider } from "./openalex";
+import { createOpenLibraryProvider } from "./openlibrary";
+import { createHackerNewsProvider } from "./hackernews";
+import { createOpenverseProvider } from "./openverse";
 import { createKeylessProvider } from "./keyless";
 
 export type {
@@ -34,21 +39,34 @@ export type ProviderStatus = {
 };
 
 /**
- * Registered search sources, in priority order.
+ * Registered Andromeda sources (master plan §5), in priority order.
  *
- * PRIMARY: SearXNG (self-hosted metasearch — zero per-search cost).
- *   Point it at your own instance with SEARXNG_BASE_URL; until then it
- *   tries public SearXNG instances automatically.
- * FALLBACKS: Wikipedia and DuckDuckGo (both keyless, zero cost) keep
- *   Omi Search alive if SearXNG is unreachable.
+ * All keyless, all $0 per query, all free/open APIs:
+ *   SearXNG      — self-hosted metasearch floor (SEARXNG_BASE_URL optional;
+ *                  public instances used until configured)
+ *   Wikipedia    — encyclopedic entities and stable facts
+ *   arXiv        — scientific/technical papers (spec §5 knowledge/research)
+ *   OpenAlex     — 250M+ scholarly works across all disciplines
+ *   Open Library — open book catalog (Internet Archive)
+ *   Hacker News  — practitioner/tech signal (keyless Algolia API)
+ *   Openverse    — openly-licensed images (image-category specialist)
+ *   DuckDuckGo   — keyless last-resort web floor
  *
- * No metered APIs (Exa, Tavily, Brave, OpenAI) are registered — the
- * search layer is 100% free per-search. To add another free/open source
- * later, implement SearchProvider in a new file and add it here.
+ * Every source runs in parallel under Promise.allSettled in the orchestrator
+ * (universalSearch.ts) with its own timeout and error isolation — a slow or
+ * failed source never blocks Andromeda. No metered API (Exa, Tavily, Brave,
+ * OpenAI) is registered, so the search layer stays 100% free per-search.
+ * To add another free/open source, implement SearchProvider in a new file
+ * and register it here — no other call site changes.
  */
 const REGISTRY: SearchProvider[] = [
   createSearxProvider(),
   createWikipediaProvider(),
+  createArxivProvider(),
+  createOpenAlexProvider(),
+  createOpenLibraryProvider(),
+  createHackerNewsProvider(),
+  createOpenverseProvider(),
   createKeylessProvider(),
 ];
 
@@ -61,9 +79,11 @@ export function getActiveProvider(): SearchProvider | null {
 }
 
 /**
- * Full status incl. cost transparency (master spec §32):
- * every registered provider is $0 per query; paid providers are simply
- * not registered at all, so none can be silently enabled.
+ * Full status incl. cost transparency (master spec §31/§32):
+ * every registered Andromeda source is a free/open keyless API — $0 per
+ * query, no account, no quota purchase. Paid providers are simply not
+ * registered at all, so none can be silently enabled. Openverse's honest
+ * note: anonymous access is rate-limited by the upstream API (still free).
  */
 export function getProviderStatus(): ProviderStatus[] {
   return REGISTRY.map((p) => ({
@@ -71,7 +91,10 @@ export function getProviderStatus(): ProviderStatus[] {
     label: p.label,
     ready: p.isConfigured(),
     enabled: true,
-    cost: "$0 per query",
+    cost:
+      p.id === "openverse"
+        ? "$0 (anonymous, upstream rate-limited)"
+        : "$0 per query",
     requiresKey: p.id === "searxng" && !process.env.SEARXNG_BASE_URL,
     hint: p.missingKeyHint,
   }));

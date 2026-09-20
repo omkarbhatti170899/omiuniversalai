@@ -14,6 +14,12 @@ export type WebCitation = {
   imageUrl?: string;
   /** Publication date when the source provides one (news results). */
   publishedAt?: string;
+  /** Provenance (spec §8/§29): which Andromeda sources surfaced this result. */
+  providers?: string[];
+  /** Andromeda relevance score (0..1), assigned during merge/ranking. */
+  relevance?: number;
+  /** Author when the source provides one (papers, books, HN). */
+  author?: string;
 };
 
 /**

@@ -30,6 +30,7 @@ type Citation = {
   title: string;
   url: string;
   snippet?: string;
+  providers?: string[];
 };
 
 type WebSearch = {
@@ -136,14 +137,16 @@ export function OmiSearchPanel({
           <div className="flex items-center justify-center gap-2">
             <Globe className="size-4 text-primary" />
             <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Omi Universal Search
+              Andromeda · Universal Meta-Search
             </span>
           </div>
           <h2 className="mt-2 text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            Ask Omi anything
+            Ask Andromeda anything
           </h2>
           <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
-            Live web answers with citations — any question, any topic.
+            Parallel retrieval across SearXNG, Wikipedia, arXiv, OpenAlex, Open
+            Library, Hacker News and more — deduplicated, ranked, cited. $0
+            per search, no API keys required.
           </p>
 
           <div className="mx-auto mt-6 flex max-w-2xl flex-col gap-3 sm:flex-row">
@@ -328,6 +331,18 @@ export function OmiSearchPanel({
                                   <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground">
                                     {c.snippet}
                                   </p>
+                                )}
+                                {c.providers && c.providers.length > 0 && (
+                                  <div className="mt-1 flex flex-wrap gap-1">
+                                    {c.providers.slice(0, 4).map((p) => (
+                                      <span
+                                        key={p}
+                                        className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-medium text-primary"
+                                      >
+                                        {p}
+                                      </span>
+                                    ))}
+                                  </div>
                                 )}
                               </div>
                             </a>

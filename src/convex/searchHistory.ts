@@ -44,6 +44,8 @@ export const saveSearch = internalMutation({
         snippet: v.optional(v.string()),
         imageUrl: v.optional(v.string()),
         publishedAt: v.optional(v.string()),
+        providers: v.optional(v.array(v.string())),
+        author: v.optional(v.string()),
       }),
     ),
     engine: v.optional(v.string()),

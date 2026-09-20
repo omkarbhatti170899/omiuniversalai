@@ -209,6 +209,8 @@ export const searchWeb = action({
         snippet: c.snippet?.slice(0, 1200),
         imageUrl: c.imageUrl,
         publishedAt: c.publishedAt,
+        providers: c.providers,
+        author: c.author,
       })),
       engine: `${result.engine} · intent: ${decision.intent}`,
     });
