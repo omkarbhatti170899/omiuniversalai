@@ -84,6 +84,66 @@ const schema = defineSchema(
       createdAt: v.number(),
     }).index("by_cache_key", ["cacheKey"]),
 
+    // Omi Search — retrieved-page cache (evidence store, zero-cost)
+    pageCache: defineTable({
+      urlKey: v.string(),
+      url: v.string(),
+      title: v.string(),
+      text: v.string(),
+      fetchedAt: v.number(),
+    }).index("by_url_key", ["urlKey"]),
+
+    // Omi Search — observability (one row per search/research/url run)
+    searchTelemetry: defineTable({
+      userId: v.optional(v.id("users")),
+      query: v.string(),
+      mode: v.string(),
+      engines: v.array(v.string()),
+      failedEngines: v.array(v.string()),
+      resultCount: v.number(),
+      cacheHit: v.boolean(),
+      searchMs: v.number(),
+      aiMs: v.optional(v.number()),
+      pagesFetched: v.optional(v.number()),
+      extractionFailures: v.optional(v.number()),
+      error: v.optional(v.string()),
+      createdAt: v.number(),
+    }).index("by_created", ["createdAt"]),
+
+    // Omi Deep Research — one run, live progress for the UI
+    researchRuns: defineTable({
+      userId: v.id("users"),
+      query: v.string(),
+      status: v.union(
+        v.literal("planning"),
+        v.literal("searching"),
+        v.literal("reading"),
+        v.literal("synthesizing"),
+        v.literal("done"),
+        v.literal("failed"),
+      ),
+      stage: v.optional(v.string()),
+      plan: v.optional(v.array(v.string())),
+      searchesDone: v.optional(v.number()),
+      answer: v.optional(v.string()),
+      summary: v.optional(v.string()),
+      findings: v.optional(v.array(v.string())),
+      conflicts: v.optional(v.array(v.string())),
+      unverified: v.optional(v.array(v.string())),
+      citations: v.optional(
+        v.array(
+          v.object({
+            title: v.string(),
+            url: v.string(),
+            snippet: v.optional(v.string()),
+          }),
+        ),
+      ),
+      error: v.optional(v.string()),
+      createdAt: v.number(),
+      completedAt: v.optional(v.number()),
+    }).index("by_user", ["userId"]),
+
     // Omi Assistant — conversations
     omiConversations: defineTable({
       userId: v.id("users"),
