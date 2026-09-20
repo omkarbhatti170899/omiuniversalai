@@ -31,15 +31,26 @@ Currently, these variables include auth-specific keys: JWKS, JWT_PRIVATE_KEY, an
 
 ## Required API Keys (project)
 
+**Zero-cost by default.** Omi Search, the knowledge base, file ingest and the
+Human Emotions AI all run with no keys at all. Optional keys only unlock
+upgrades:
+
 | Key | Required by | How to get it |
 |-----|-------------|---------------|
-| `EXA_API_KEY` | **Omi Search** (live web search) | Sign up at [exa.ai](https://exa.ai) → API Keys → copy. Add it via the project's **API Keys tab** (never hardcode it in source). |
+| `GROQ_API_KEY` (optional) | Full AI reasoning in chat / deep research (free tier) | [console.groq.com](https://console.groq.com) → API Keys. Add via the project's **API Keys tab**. |
+| `OPENAI_API_KEY` (optional) | Alternative AI provider | [platform.openai.com](https://platform.openai.com) |
+| `SEARXNG_BASE_URL` (optional) | Your own self-hosted SearXNG instance for Omi Search | Your deployment's public JSON-API URL |
 
-Omi Search is **provider-independent** (`src/convex/searchProviders/`). The app detects the key automatically:
-- Key present → live web search with citations works immediately.
-- Key missing → the Search tab shows a graceful "Connect a web-search provider" setup card instead of an error.
+**Omi Search is 100% free per query** (`src/convex/searchProviders/`): the
+primary engine is SearXNG (self-hosted when `SEARXNG_BASE_URL` is set, public
+instances otherwise) with keyless Wikipedia and DuckDuckGo fallbacks. No
+metered search API (Exa, Tavily, Brave, OpenAI) is registered. Without any AI
+key, Omi still answers from live sources via extractive briefs and the local
+heuristic emotions engine — features never dead-end.
 
-To add an alternative provider (Brave, Tavily, etc.), implement `SearchProvider` in `src/convex/searchProviders/` and register it in `index.ts` — no app code changes needed.
+To add another free/open search source, implement `SearchProvider` in
+`src/convex/searchProviders/` and register it in `index.ts` — no app code
+changes needed.
 
 
 # Using Authentication (Important!)

@@ -177,6 +177,11 @@ const schema = defineSchema(
       source: v.union(v.literal("user"), v.literal("omi")),
       wordCount: v.number(),
       createdAt: v.number(),
+      // Phase 4 (multimodal): documents ingested from uploaded files keep a
+      // reference to the original blob in Convex file storage (zero cost).
+      fileId: v.optional(v.id("_storage")),
+      fileType: v.optional(v.string()),
+      fileSize: v.optional(v.number()),
     }).index("by_user", ["userId"]),
 
     // Omi Agents — specialized agents owned by the user

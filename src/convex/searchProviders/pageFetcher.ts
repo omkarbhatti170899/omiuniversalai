@@ -21,7 +21,7 @@ const MAX_REDIRECTS = 4;
 const ROBOTS_TIMEOUT_MS = 3_000;
 
 /** Strip HTML to readable text without external dependencies. */
-function htmlToText(html: string): string {
+export function htmlToText(html: string): string {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
