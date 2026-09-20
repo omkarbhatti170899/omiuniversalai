@@ -97,7 +97,7 @@ export const send = action({
     let fallbackAnswer: string | null = null;
     let citationCount = 0;
     try {
-      const universal = await runUniversalSearch(trimmed, {
+      const universal = await runUniversalSearch(ctx, trimmed, {
         perEngineLimit: 3,
         maxCitations: 4,
       });

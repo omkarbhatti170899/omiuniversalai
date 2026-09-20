@@ -59,9 +59,30 @@ const schema = defineSchema(
           title: v.string(),
           url: v.string(),
           snippet: v.optional(v.string()),
+          imageUrl: v.optional(v.string()),
+          publishedAt: v.optional(v.string()),
         }),
       ),
+      engine: v.optional(v.string()),
     }).index("by_user", ["userId"]),
+
+    // Omi Search — result cache shared across users (zero-cost layer:
+    // identical queries within the TTL skip the engines entirely)
+    searchCache: defineTable({
+      cacheKey: v.string(), // fingerprint of query + options
+      query: v.string(),
+      citations: v.array(
+        v.object({
+          title: v.string(),
+          url: v.string(),
+          snippet: v.optional(v.string()),
+          imageUrl: v.optional(v.string()),
+          publishedAt: v.optional(v.string()),
+        }),
+      ),
+      engine: v.string(),
+      createdAt: v.number(),
+    }).index("by_cache_key", ["cacheKey"]),
 
     // Omi Assistant — conversations
     omiConversations: defineTable({

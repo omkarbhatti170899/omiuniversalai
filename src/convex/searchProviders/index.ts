@@ -1,26 +1,39 @@
-import {
-  createExaProvider,
-  MissingKeyError,
-  type SearchProvider,
-} from "./exa";
-import { createTavilyProvider } from "./tavily";
+import { type SearchProvider } from "./types";
+import { createSearxProvider } from "./searxng";
 import { createWikipediaProvider } from "./wikipedia";
 import { createKeylessProvider } from "./keyless";
 
-export type { WebCitation } from "./exa";
+export type {
+  WebCitation,
+  SearchOptions,
+  SearchProvider,
+  SearchProviderResult,
+} from "./types";
+export { MissingKeyError } from "./types";
+export { fetchPageText, type ExtractedPage } from "./pageFetcher";
+
+export type ProviderInfo = {
+  id: string;
+  label: string;
+  configured: boolean;
+  hint: string;
+};
 
 /**
- * Registered providers, in priority order. The orchestrator (search.ts)
- * tries each configured provider in this order and uses the first that
- * succeeds — so a rate-limited or failing engine never breaks Omi Search.
+ * Registered search sources, in priority order.
  *
- * To add another provider later (e.g. Brave), implement SearchProvider in
- * a new file and add it here — the rest of the app is untouched.
- * The keyless provider is always last as a never-dead fallback.
+ * PRIMARY: SearXNG (self-hosted metasearch — zero per-search cost).
+ *   Point it at your own instance with SEARXNG_BASE_URL; until then it
+ *   tries public SearXNG instances automatically.
+ * FALLBACKS: Wikipedia and DuckDuckGo (both keyless, zero cost) keep
+ *   Omi Search alive if SearXNG is unreachable.
+ *
+ * No metered APIs (Exa, Tavily, Brave, OpenAI) are registered — the
+ * search layer is 100% free per-search. To add another free/open source
+ * later, implement SearchProvider in a new file and add it here.
  */
 const REGISTRY: SearchProvider[] = [
-  createTavilyProvider(),
-  createExaProvider(),
+  createSearxProvider(),
   createWikipediaProvider(),
   createKeylessProvider(),
 ];
@@ -33,7 +46,10 @@ export function getActiveProvider(): SearchProvider | null {
   return getConfiguredProviders()[0] ?? null;
 }
 
-export function getProviderStatus() {
+export function getProviderStatus(): {
+  providers: ProviderInfo[];
+  activeId: string | null;
+} {
   return {
     providers: REGISTRY.map((p) => ({
       id: p.id,
@@ -44,5 +60,3 @@ export function getProviderStatus() {
     activeId: getActiveProvider()?.id ?? null,
   };
 }
-
-export { MissingKeyError };

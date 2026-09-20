@@ -93,17 +93,12 @@ export function OmiSearchPanel({
   const searchReady =
     providerStatus !== undefined &&
     providerStatus.providers.some((p) => p.configured);
-  // Search always works (keyless floor), but premium engines unlock
-  // higher-quality results — show a gentle upgrade card until one is added.
-  const premiumReady =
-    providerStatus !== undefined &&
-    providerStatus.providers.some(
-      (p) => p.configured && (p.id === "tavily" || p.id === "exa"),
-    );
-  const needsSetup = providerStatus !== undefined && !premiumReady;
+  // SearXNG is always configured (self-hosted or public floor) — search
+  // works with zero cost and zero keys. No premium upgrade card needed.
+  const needsSetup = false;
   const missingHints =
     providerStatus?.providers
-      .filter((p) => !p.configured && p.id !== "duckduckgo")
+      .filter((p) => !p.configured && p.hint)
       .map((p) => p.hint)
       .join(" ") ?? "";
 

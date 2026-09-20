@@ -1,20 +1,22 @@
 import axios from "axios";
-import type {
-  SearchProvider,
-  SearchProviderResult,
-  WebCitation,
-} from "./exa";
+import {
+  MissingKeyError,
+  type SearchProvider,
+  type SearchProviderResult,
+} from "./types";
 
 const WIKI_API_BASES = [
   "https://en.wikipedia.org/w/api.php",
   "https://en.m.wikipedia.org/w/api.php",
 ];
 
+const UA = "OmiSearch/1.0 (https://ominnovations.example; contact: omi@ominnovations.example)";
+
 /**
  * Wikipedia knowledge engine — keyless, encyclopedic coverage with
- * automatic failover across endpoint mirrors. Full-text MediaWiki search
- * plus intro extracts: best for entities (people, science, history,
- * technology, organizations) and stable factual knowledge.
+ * automatic failover across endpoint mirrors. Best for entities (people,
+ * science, history, technology, organizations) and stable facts.
+ * Zero cost, no API key.
  */
 export function createWikipediaProvider(): SearchProvider {
   return {
@@ -37,26 +39,20 @@ export function createWikipediaProvider(): SearchProvider {
               srlimit: Math.min(numResults, 6),
               format: "json",
             },
-            // Wikimedia requires a descriptive User-Agent for API access.
-            headers: {
-              "User-Agent":
-                "OmiUniversalSearch/1.0 (Ominnovations Intelligence; contact: omi@omininnovations.app)",
-            },
-            timeout: 12000,
+            headers: { "User-Agent": UA },
+            timeout: 15000,
           });
 
           const hits: Array<{ title?: string }> =
             searchRes.data?.query?.search ?? [];
           const titles = hits
             .map((h) => h.title)
-            .filter((t): t is string => typeof t === "string" && t.length > 0)
-            .slice(0, numResults);
-
+            .filter((t): t is string => Boolean(t));
           if (titles.length === 0) {
-            throw new Error("wikipedia: no matching articles");
+            return { citations: [] };
           }
 
-          // 2) Fetch clean intro extracts for those titles in one call
+          // 2) Fetch intro extracts for those titles in one batch call
           const extractRes = await axios.get(base, {
             params: {
               action: "query",
@@ -66,48 +62,37 @@ export function createWikipediaProvider(): SearchProvider {
               titles: titles.join("|"),
               format: "json",
             },
-            headers: {
-              "User-Agent":
-                "OmiUniversalSearch/1.0 (Ominnovations Intelligence; contact: omi@omininnovations.app)",
-            },
-            timeout: 12000,
+            headers: { "User-Agent": UA },
+            timeout: 15000,
           });
 
-          const pages = extractRes.data?.query?.pages ?? {};
-          const extractsByTitle = new Map<string, string>();
-          for (const page of Object.values<Record<string, unknown>>(pages)) {
-            const title = page.title as string | undefined;
-            const extract = page.extract as string | undefined;
-            if (title && extract) {
-              extractsByTitle.set(title, extract);
-            }
+          const pages: Record<
+            string,
+            { title?: string; extract?: string }
+          > = extractRes.data?.query?.pages ?? {};
+
+          const citations = Object.values(pages)
+            .filter((p) => p.extract && p.title)
+            .slice(0, numResults)
+            .map((p) => ({
+              title: p.title as string,
+              url: `https://en.wikipedia.org/wiki/${encodeURIComponent(
+                (p.title as string).replace(/ /g, "_"),
+              )}`,
+              snippet: (p.extract as string).slice(0, 600),
+            }));
+
+          if (citations.length > 0) {
+            return { citations };
           }
-
-          const citations: WebCitation[] = titles.map((title) => ({
-            title,
-            url: `https://en.wikipedia.org/wiki/${encodeURIComponent(
-              title.replace(/\s+/g, "_"),
-            )}`,
-            snippet: (extractsByTitle.get(title) ?? "").slice(0, 500),
-          }));
-
-          const withSnippets = citations.filter(
-            (c) => (c.snippet ?? "").length > 0,
-          );
-          if (withSnippets.length === 0) {
-            throw new Error("wikipedia: extracts unavailable");
-          }
-
-          return { citations: withSnippets };
+          lastErr = new Error("no extracts returned");
         } catch (err) {
           lastErr = err;
         }
       }
 
-      throw new Error(
-        `wikipedia: ${
-          lastErr instanceof Error ? lastErr.message : "unreachable"
-        }`,
+      throw new MissingKeyError(
+        `wikipedia: ${lastErr instanceof Error ? lastErr.message : "unavailable"}`,
       );
     },
   };

@@ -42,8 +42,11 @@ export const saveSearch = internalMutation({
         title: v.string(),
         url: v.string(),
         snippet: v.optional(v.string()),
+        imageUrl: v.optional(v.string()),
+        publishedAt: v.optional(v.string()),
       }),
     ),
+    engine: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     return await ctx.db.insert("webSearches", args);
