@@ -24,7 +24,194 @@ import {
   Sparkles,
   Trash2,
 } from "lucide-react";
+import { ShieldCheck, Workflow } from "lucide-react";
 import { useState } from "react";
+
+// --- Andromeda full-pipeline card (deep research mode) -----------------------
+
+type PipelineResult = {
+  answer: string;
+  summary: string;
+  plan?: { kind: string };
+  citations: Array<{ idx: number; title: string; url: string; domain: string }>;
+  sourcesFooter: string;
+  verification: { verdict: string; notes: string[] };
+  usedAi: boolean;
+  stages: Array<{ stage: string; detail: string; ms: number }>;
+  gates: {
+    accepted: number;
+    rejected: number;
+    independentDomains: number;
+    warnings: string[];
+  };
+  rawCount: number;
+  dedupedCount: number;
+  pagesRead: number;
+  totalMs: number;
+};
+
+function AndromedaPipelineCard() {
+  const research = useAction(api.andromeda.actions.research);
+  const [question, setQuestion] = useState("");
+  const [focus, setFocus] = useState("");
+  const [running, setRunning] = useState(false);
+  const [result, setResult] = useState<PipelineResult | null>(null);
+
+  const run = async () => {
+    if (running || question.trim().length < 8) return;
+    setRunning(true);
+    setResult(null);
+    try {
+      const r = (await research({
+        query: question.trim(),
+        focus: focus.trim() || undefined,
+      })) as PipelineResult;
+      setResult(r);
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Andromeda research failed.");
+    } finally {
+      setRunning(false);
+    }
+  };
+
+  return (
+    <Card className="border-primary/30 bg-gradient-to-b from-primary/10 via-card to-card">
+      <CardHeader className="pb-3">
+        <div className="flex items-center gap-3">
+          <div className="flex size-10 items-center justify-center rounded-lg bg-primary/15 text-primary">
+            <Workflow className="size-5" />
+          </div>
+          <div className="min-w-0">
+            <CardTitle className="text-base">Andromeda Pipeline — deep research</CardTitle>
+            <CardDescription>
+              Query plan → 11 sources → dedupe → quality/freshness gates →
+              reading → cited synthesis → independent verification. Your own
+              documents are searched first.
+            </CardDescription>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <Input
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder="Research question (e.g. Compare vector databases for on-prem use)"
+            maxLength={400}
+            className="h-11"
+            disabled={running}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                void run();
+              }
+            }}
+          />
+          <Button
+            className="h-11 cursor-pointer px-5"
+            onClick={() => void run()}
+            disabled={running || question.trim().length < 8}
+          >
+            {running ? <Loader2 className="mr-2 size-4 animate-spin" /> : <Sparkles className="mr-2 size-4" />}
+            {running ? "Running pipeline…" : "Run"}
+          </Button>
+        </div>
+        <Input
+          value={focus}
+          onChange={(e) => setFocus(e.target.value)}
+          placeholder="Optional focus — e.g. focus on licensing and self-hosting"
+          maxLength={120}
+          className="h-9 text-xs"
+          disabled={running}
+        />
+
+        {result && (
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
+            <div className="flex flex-wrap items-center gap-2 text-[11px]">
+              <Badge variant="outline" className="border-primary/40 bg-primary/10 text-primary">
+                {result.plan?.kind ?? "research"}
+              </Badge>
+              <Badge variant="outline">
+                {result.rawCount} raw → {result.dedupedCount} unique
+              </Badge>
+              <Badge variant="outline">
+                gates: {result.gates.accepted} accepted · {result.gates.rejected} held ·{" "}
+                {result.gates.independentDomains} domains
+              </Badge>
+              <Badge variant="outline">{result.pagesRead} pages read</Badge>
+              <Badge variant="outline">{(result.totalMs / 1000).toFixed(1)}s</Badge>
+              {result.verification.verdict === "pass" && (
+                <Badge variant="outline" className="border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
+                  ✓ verified
+                </Badge>
+              )}
+              {result.verification.verdict === "warnings" && (
+                <Badge variant="outline" className="border-amber-500/30 bg-amber-500/10 text-amber-400">
+                  ⚠ warnings
+                </Badge>
+              )}
+              {result.verification.verdict === "unverified" && (
+                <Badge variant="outline" className="text-muted-foreground">◌ not verified</Badge>
+              )}
+              {result.verification.verdict === "failed" && (
+                <Badge variant="outline" className="border-red-500/30 bg-red-500/10 text-red-400">
+                  ✗ failed check
+                </Badge>
+              )}
+            </div>
+
+            {result.gates.warnings.length > 0 && (
+              <ul className="list-inside list-disc rounded-lg border border-amber-500/30 bg-amber-500/5 p-2.5 text-xs text-amber-400/90">
+                {result.gates.warnings.map((w, i) => (
+                  <li key={i}>{w}</li>
+                ))}
+              </ul>
+            )}
+
+            <div className="rounded-lg border border-border/60 p-3 text-sm leading-relaxed">
+              <p className="whitespace-pre-wrap">{result.answer}</p>
+            </div>
+
+            {result.citations.length > 0 && (
+              <div className="space-y-1.5">
+                <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
+                  <ShieldCheck className="size-3.5" /> Sources
+                </p>
+                {result.citations.map((c) => (
+                  <a
+                    key={c.idx}
+                    href={c.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block truncate rounded-md border border-border/60 px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+                  >
+                    [{c.idx}] {c.title} — {c.domain}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            <details className="rounded-lg border border-border/60 p-3">
+              <summary className="cursor-pointer text-xs font-medium text-muted-foreground">
+                Pipeline stage audit ({result.stages.length} stages)
+              </summary>
+              <ol className="mt-2 space-y-1 text-[11px] text-muted-foreground">
+                {result.stages.map((s, i) => (
+                  <li key={i} className="flex justify-between gap-3">
+                    <span>
+                      {s.stage} — {s.detail}
+                    </span>
+                    <span className="shrink-0 tabular-nums">{s.ms}ms</span>
+                  </li>
+                ))}
+              </ol>
+            </details>
+          </motion.div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
 
 type Citation = {
   title: string;
@@ -202,6 +389,9 @@ export function OmiSearchPanel({
           </div>
         </div>
       </motion.div>
+
+      {/* Andromeda deep-research pipeline (full §4 fabric) */}
+      <AndromedaPipelineCard />
 
       {/* Missing key — graceful setup state */}
       {needsSetup && (

@@ -11,6 +11,7 @@ import { format } from "date-fns";
 import { FileImage, FileSpreadsheet, FileText, Files, Loader2, Trash2, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import { extractDocx, extractXlsx } from "@/lib/docExtract";
+import { extractPdf } from "@/lib/pdfExtract";
 
 type FileDoc = {
   _id: Id<"omiDocuments">;
@@ -29,7 +30,7 @@ function formatBytes(bytes: number): string {
 }
 
 const ACCEPTED =
-  ".txt,.md,.markdown,.csv,.json,.log,.html,.htm,.ts,.tsx,.js,.py,.sh,.yml,.yaml,.xml,.docx,.xlsx,image/png,image/jpeg,image/webp,image/gif,text/*,application/json,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+  ".txt,.md,.markdown,.csv,.json,.log,.html,.htm,.ts,.tsx,.js,.py,.sh,.yml,.yaml,.xml,.docx,.xlsx,.pdf,image/png,image/jpeg,image/webp,image/gif,text/*,application/json,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
 export function FilesView() {
   const allDocs = useQuery(api.omiKnowledge.listMine);
@@ -59,6 +60,12 @@ export function FilesView() {
       } else if (lower.endsWith(".xlsx")) {
         const bytes = new Uint8Array(await file.arrayBuffer());
         const out = await extractXlsx(bytes, file.name);
+        preExtracted = out.text;
+      } else if (lower.endsWith(".pdf")) {
+        // PDF: parsed on-device (pdf.js, Apache-2.0). Scanned/image-only PDFs
+        // fail honestly — OCR is on the roadmap (§35).
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const out = await extractPdf(bytes, file.name);
         preExtracted = out.text;
       }
 
@@ -184,8 +191,8 @@ export function FilesView() {
             </p>
             <p className="mt-1 max-w-sm text-xs text-muted-foreground">
               Text, Markdown, CSV, JSON, HTML, code, logs, Word (.docx), Excel
-              (.xlsx), images · up to 2 MB. Extraction is local — no
-              third-party parsing service.
+              (.xlsx), PDF (text-based), images · up to 2 MB. Extraction is
+              local — no third-party parsing service.
             </p>
           </div>
         </CardContent>

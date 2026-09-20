@@ -9,6 +9,8 @@ import { createHackerNewsProvider } from "./hackernews";
 import { createOpenverseProvider } from "./openverse";
 import { createCommonCrawlProvider } from "./commoncrawl";
 import { createGitHubProvider } from "./github";
+import { createGdeltProvider } from "./gdelt";
+import { createOpenMeteoProvider } from "./openmeteo";
 import { createKeylessProvider } from "./keyless";
 
 export type {
@@ -56,6 +58,8 @@ export type ProviderStatus = {
  *   Openverse    — openly-licensed images (image-category specialist)
  *   Common Crawl — open web index metadata (AWS open data; provenance/diversity)
  *   GitHub       — public repository search, tech queries only (keyless 10/min)
+ *   GDELT        — global news index (scope-gated to news-phrased queries)
+ *   Open-Meteo   — weather/structured open data (scope-gated, CC-BY attribution)
  *   DuckDuckGo   — keyless last-resort web floor
  *
  * Every source runs in parallel under Promise.allSettled in the orchestrator
@@ -76,6 +80,8 @@ const REGISTRY: SearchProvider[] = [
   createOpenverseProvider(),
   createCommonCrawlProvider(),
   createGitHubProvider(),
+  createGdeltProvider(),
+  createOpenMeteoProvider(),
   createKeylessProvider(),
 ];
 

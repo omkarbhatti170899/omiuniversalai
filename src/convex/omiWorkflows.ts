@@ -22,6 +22,7 @@ import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { rateLimit } from "./searchEngine/resilience";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
+import { runAndromeda } from "./andromeda/orchestrator";
 import { fetchPageText } from "./searchProviders/pageFetcher";
 import {
   buildEvidencePack,
@@ -37,6 +38,7 @@ import {
   composeReport,
   type StepStatus,
 } from "./workflows/plan";
+import { planQuery } from "./andromeda/query";
 
 const SUBQUERY_TIMEOUT_MS = 30_000;
 const MAX_PAGES_READ = 6;
@@ -135,10 +137,11 @@ export const startResearchReport = action({
         focus && focus.trim().length > 0
           ? `${trimmed} ${focus.trim().slice(0, 120)}`
           : trimmed;
-      const queries = [focused];
-      // A second angle broadens coverage; both run in parallel (§7).
-      if (focused !== trimmed) queries.push(trimmed);
-      queries.push(`${trimmed} overview`);
+      // Chain depth: use Andromeda's query planner for subquery angles when
+      // available (deterministic planner is pure and always available; the
+      // AI planner is a bonus, not a dependency — §2).
+      const plan = planQuery(focused);
+      const queries = plan.subqueries.slice(0, 3);
 
       const batches = await Promise.allSettled(
         queries.map((q) =>

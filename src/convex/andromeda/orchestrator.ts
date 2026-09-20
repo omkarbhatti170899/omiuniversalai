@@ -35,6 +35,8 @@
  */
 
 import type { WebCitation } from "../searchProviders/types";
+import type { Id } from "../_generated/dataModel";
+import { internal } from "../_generated/api";
 import { runUniversalSearch, extractiveBrief } from "../universalSearch";
 import { fetchPageText } from "../searchProviders/pageFetcher";
 import {
@@ -101,7 +103,7 @@ function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
 export async function runAndromeda(
   ctx: Parameters<typeof runUniversalSearch>[0],
   rawQuery: string,
-  opts?: { focus?: string },
+  opts?: { focus?: string; userId?: Id<"users"> },
 ): Promise<AndromedaResult> {
   const t0 = Date.now();
   const stages: AndromedaStage[] = [];
@@ -121,8 +123,24 @@ export async function runAndromeda(
     : plan.cleanedQuery;
   mark("query understanding", `${plan.kind} · ${plan.subqueries.length} angle(s) · freshness=${plan.freshnessMatters}`, s);
 
-  // --- 2. Parallel retrieval (bounded fan-out over subqueries) ----------------
+  // --- 2. Parallel retrieval — internal knowledge FIRST, then the world ------
   s = Date.now();
+  // Internal corpora (user's own documents) as the highest-trust source
+  // (master plan §11 internal knowledge). Runs via the reserved
+  // internal:// scheme; never leaves the workspace (§41).
+  let internalPassages: Array<{ title: string; url: string; snippet: string }> = [];
+  if (opts?.userId) {
+    try {
+      internalPassages = await ctx.runQuery(internal.andromeda.corpus.corpusSearch, {
+        userId: opts.userId,
+        query: plan.cleanedQuery,
+        limit: 4,
+      });
+    } catch {
+      internalPassages = [];
+    }
+  }
+
   const searches = await Promise.allSettled(
     plan.subqueries.map((q) =>
       withTimeout(
@@ -137,7 +155,7 @@ export async function runAndromeda(
       ).then((r) => r.citations),
     ),
   );
-  const raw: WebCitation[] = [];
+  const raw: WebCitation[] = [...internalPassages];
   for (const b of searches) {
     if (b.status === "fulfilled") raw.push(...b.value);
   }

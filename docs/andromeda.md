@@ -74,6 +74,9 @@ Registered today — **all keyless, all $0 per query:**
 | Openverse | WordPress/open | openly-licensed images |
 | Common Crawl | AWS open data | web index metadata (provenance) |
 | GitHub | Microsoft/GitHub | public repository search — tech queries only, keyless 10/min, metadata only |
+| GDELT | open (GDELT Project) | global news index — scope-gated to news queries, metadata only |
+| Open-Meteo | open (CC-BY 4.0) | weather/structured data — scope-gated, attribution carried in snippets |
+| **Your documents** | internal (Convex + BM25) | highest-trust source — `internal://` citations, searched FIRST, never leaves the workspace |
 | DuckDuckGo | keyless HTML | last-resort web floor |
 
 Every provider gets: timeout, retry, error isolation, health status; a slow
@@ -150,6 +153,17 @@ env/secrets only — never in code, never in the frontend (§28).
 ## 8. Planned next [PLANNED]
 
 - Omi crawler + self-hosted index (needs infrastructure)
-- GitHub / document-corpus / news-index providers
 - Semantic retrieval behind the reserved `retrievalMode` seam
 - Commercial search adapters behind explicit user opt-in
+- OCR for scanned PDFs (client-side Tesseract adapter)
+
+## 9. Workspace surfaces [IMPLEMENTED]
+
+- **Andromeda view** — meta-search with briefs, citations, provenance
+- **Andromeda Pipeline card** (deep research) — the full §4 fabric visible:
+  plan → retrieval → dedupe → gates → synthesis → verification, with a
+  per-stage timing audit, gate warnings, and verdict badge
+- **Automation view** — research-report workflows built on the same fabric
+- **Agent tool** — `andromeda_research` callable by specialized agents
+- **Files view** — text/DOCX/XLSX/PDF/images ingestion feeding the internal
+  corpus that Andromeda searches first

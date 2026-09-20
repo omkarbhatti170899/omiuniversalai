@@ -24,13 +24,16 @@ import { describeImage } from "./aiProviders/vision";
  *  • DOCX / XLSX — extracted ON THE USER'S DEVICE (src/lib/docExtract.ts,
  *    zero dependencies) and passed here as `preExtracted`; the original blob
  *    is still stored so files remain re-downloadable and deletable.
+ *  • PDF (text-based) — extracted on-device via pdf.js (Apache-2.0,
+ *    src/lib/pdfExtract.ts). Scanned/image-only PDFs fail honestly (OCR
+ *    is on the roadmap).
  *  • images (png/jpeg/webp/gif) — validated, stored, and described by the
  *    VisionProvider chain (aiProviders/vision.ts) IF a vision-capable key is
  *    configured; otherwise the image is still stored but ingest reports the
  *    honest "vision unavailable" state instead of a fake description.
  *
- * Binary formats we cannot honestly read yet (e.g. PDF) are rejected with a
- * clear message; Omi never pretends to have read a file.
+ * Binary formats we cannot honestly read yet are rejected with a clear
+ * message; Omi never pretends to have read a file.
  */
 
 const MAX_FILE_BYTES = 2_000_000; // 2 MB
@@ -180,7 +183,7 @@ export const ingestFile = action({
     // both fine; images have their own action; everything else is honestly rejected.
     if (!isTextual && !isHtml && !preExtracted) {
       throw new Error(
-        `Omi reads text-based files (txt, md, csv, json, html, code) plus Word (.docx), Excel (.xlsx) and images. "${fileName}" isn't supported yet — PDF reading is on the roadmap.`,
+        `Omi reads text-based files (txt, md, csv, json, html, code), Word (.docx), Excel (.xlsx), text-based PDFs and images. "${fileName}" isn't supported yet.`,
       );
     }
 

@@ -206,7 +206,7 @@ async function runTool(
       if (!question) return fail(tool, "question too long or empty", started);
       const focusRaw = typeof rawArgs.focus === "string" ? rawArgs.focus : "";
       const focus = clampStringArg(focusRaw, 120);
-      const r = await runAndromeda(ctx, question, focus ? { focus } : undefined);
+      const r = await runAndromeda(ctx, question, { ...(focus ? { focus } : {}), userId });
       if (!r.ok) {
         return {
           ok: false,
