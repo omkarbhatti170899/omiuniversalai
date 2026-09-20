@@ -16,7 +16,7 @@ import type {
 } from "./searchProviders/types";
 import { getConfiguredProviders } from "./searchProviders";
 import { fetchPageText } from "./searchProviders/pageFetcher";
-import { vly } from "../lib/vly-integrations";
+import { complete } from "./aiProviders";
 import { cacheKeyFor } from "./searchCache";
 import {
   normalizeUrl,
@@ -243,8 +243,9 @@ async function synthesizeBrief(
       )
       .join("\n\n");
 
-    const completion = await vly.ai.completion({
-      model: "gpt-4o-mini",
+    // Routed as a summarization task — fast model, grounded synthesis.
+    const completion = await complete({
+      task: "summarization",
       messages: [
         {
           role: "system",
@@ -260,8 +261,8 @@ async function synthesizeBrief(
       maxTokens: 700,
     });
 
-    if (!completion.success || !completion.data) return null;
-    const content = completion.data.choices?.[0]?.message?.content ?? "";
+    if (!completion.ok) return null;
+    const content = completion.content;
     return content.trim().length > 0 ? content.trim() : null;
   } catch {
     return null;

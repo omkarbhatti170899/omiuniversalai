@@ -3,7 +3,7 @@
 import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { internal } from "./_generated/api";
-import { vly } from "../lib/vly-integrations";
+import { complete } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 import { getAuthUserId } from "@convex-dev/auth/server";
 
@@ -185,8 +185,12 @@ export const analyze = action({
     // on-device heuristic so the flagship feature never dead-ends.
     let parsed: AiJson | null = null;
     try {
-      const result = await vly.ai.completion({
-        model: "gpt-4o-mini",
+      // Routed as a classification task: structured extraction from text.
+      // The router picks the right model per active provider; if every
+      // provider is unavailable, the on-device heuristic below keeps the
+      // flagship feature alive.
+      const result = await complete({
+        task: "classification",
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: trimmed },
@@ -195,8 +199,8 @@ export const analyze = action({
         maxTokens: 1000, // gpt-oss models spend reasoning tokens before the JSON — leave headroom
       });
 
-      if (result.success && result.data) {
-        const raw = result.data.choices?.[0]?.message?.content ?? "";
+      if (result.ok) {
+        const raw = result.content;
 
         // The model sometimes wraps JSON in ```json fences — strip them.
         const jsonText = raw

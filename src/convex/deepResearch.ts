@@ -27,7 +27,7 @@ import {
   sourcesFooter,
 } from "./searchEngine/evidence";
 import type { WebCitation } from "./searchProviders/types";
-import { vly } from "../lib/vly-integrations";
+import { complete } from "./aiProviders";
 
 const MAX_SEARCHES = 4; // stop condition: hard cap
 const MIN_EVIDENCE_FOR_EARLY_STOP = 12; // unique citations across searches
@@ -64,8 +64,10 @@ export async function planSubqueries(query: string): Promise<string[]> {
   };
 
   try {
-    const completion = await vly.ai.completion({
-      model: "gpt-4o-mini",
+    // Routed as a reasoning task — subquery planning benefits from the
+    // strong model when one is available; heuristic fallback otherwise.
+    const completion = await complete({
+      task: "reasoning",
       messages: [
         {
           role: "system",
@@ -77,8 +79,8 @@ export async function planSubqueries(query: string): Promise<string[]> {
       temperature: 0.2,
       maxTokens: 250,
     });
-    if (!completion.success || !completion.data) return fallback();
-    const raw = completion.data.choices?.[0]?.message?.content ?? "";
+    if (!completion.ok) return fallback();
+    const raw = completion.content;
     const start = raw.indexOf("[");
     const end = raw.lastIndexOf("]");
     if (start === -1 || end <= start) return fallback();

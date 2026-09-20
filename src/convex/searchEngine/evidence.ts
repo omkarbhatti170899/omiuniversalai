@@ -14,7 +14,7 @@
 
 import type { WebCitation } from "../searchProviders/types";
 import { domainOf, sourceTier, type SourceTier } from "./quality";
-import { vly } from "../../lib/vly-integrations";
+import { complete } from "../aiProviders";
 
 export type EvidenceItem = {
   idx: number; // citation number shown to the user
@@ -146,8 +146,10 @@ export async function synthesizeResearchAnswer(
 ): Promise<ResearchAnswer | null> {
   if (pack.items.length === 0) return null;
   try {
-    const completion = await vly.ai.completion({
-      model: "gpt-4o-mini",
+    // Routed as a research task — synthesis across many sources wants the
+    // strongest available model (master spec §4).
+    const completion = await complete({
+      task: "research",
       messages: [
         {
           role: "system",
@@ -168,8 +170,8 @@ export async function synthesizeResearchAnswer(
       maxTokens: 900,
     });
 
-    if (!completion.success || !completion.data) return null;
-    const raw = completion.data.choices?.[0]?.message?.content ?? "";
+    if (!completion.ok) return null;
+    const raw = completion.content;
     const parsed = extractJson(raw);
     if (!parsed || typeof parsed.answer !== "string" || parsed.answer.trim().length === 0) {
       return null;

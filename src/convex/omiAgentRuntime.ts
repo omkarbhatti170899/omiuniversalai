@@ -4,7 +4,7 @@ import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { api, internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
-import { vly } from "../lib/vly-integrations";
+import { complete } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 
 /** AI plans the steps for an objective. Creates the task awaiting human approval. */
@@ -23,8 +23,9 @@ export const planTask = action({
     const agent = await ctx.runQuery(internal.omiAgents.getInternal, { id: agentId });
     if (!agent || agent.userId !== userId) throw new Error("Not your agent.");
 
-    const result = await vly.ai.completion({
-      model: "gpt-4o-mini",
+    // Routed as a reasoning task — planning benefits from the strong model.
+    const result = await complete({
+      task: "reasoning",
       messages: [
         {
           role: "system",
@@ -40,11 +41,11 @@ export const planTask = action({
       maxTokens: 300,
     });
 
-    if (!result.success || !result.data) {
+    if (!result.ok) {
       throw new Error(friendlyAiError(result.error));
     }
 
-    const raw = result.data.choices?.[0]?.message?.content ?? "";
+    const raw = result.content;
     let plan: string[];
     try {
       const start = raw.indexOf("[");
@@ -93,8 +94,9 @@ export const runTask = action({
       const outputs: string[] = [];
 
       for (let i = 0; i < steps.length; i++) {
-        const stepResult = await vly.ai.completion({
-          model: "gpt-4o-mini",
+        // Routed as a conversational task — short, concrete step outputs.
+        const stepResult = await complete({
+          task: "conversational",
           messages: [
             {
               role: "system",
@@ -120,13 +122,11 @@ export const runTask = action({
           maxTokens: 350,
         });
 
-        if (!stepResult.success || !stepResult.data) {
+        if (!stepResult.ok) {
           throw new Error(friendlyAiError(stepResult.error));
         }
 
-        const output = (
-          stepResult.data.choices?.[0]?.message?.content ?? ""
-        ).trim();
+        const output = stepResult.content.trim();
         if (!output) throw new Error(`Step ${i + 1} produced no output.`);
 
         outputs.push(output);
@@ -146,9 +146,9 @@ export const runTask = action({
         });
       }
 
-      // Synthesize the final result from all step outputs
-      const final = await vly.ai.completion({
-        model: "gpt-4o-mini",
+      // Synthesize the final result from all step outputs (summarization task)
+      const final = await complete({
+        task: "summarization",
         messages: [
           {
             role: "system",
@@ -166,10 +166,10 @@ export const runTask = action({
         maxTokens: 400,
       });
 
-      const finalText = final.success && final.data
-        ? (final.data.choices?.[0]?.message?.content ?? "").trim() ||
-          outputs[outputs.length - 1]
-        : outputs[outputs.length - 1];
+      const finalText =
+        final.ok && final.content.trim().length > 0
+          ? final.content.trim()
+          : outputs[outputs.length - 1];
 
       await ctx.runMutation(internal.omiTasks.setResultInternal, {
         id: taskId,

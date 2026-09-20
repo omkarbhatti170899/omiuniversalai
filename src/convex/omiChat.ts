@@ -4,7 +4,7 @@ import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
-import { vly } from "../lib/vly-integrations";
+import { complete, hasAiProvider } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
 
@@ -47,11 +47,12 @@ export const send = action({
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to talk with Omi.");
 
-    // Fail fast with an actionable message when the workspace AI key is missing.
-    if (!process.env.VLY_INTEGRATION_KEY) {
+    // Fail fast with an actionable message when no AI provider is configured
+    // (provider-neutral check — any registered provider unlocks full reasoning).
+    if (!hasAiProvider()) {
       throw new Error(
-        "Omi's AI connection is not configured: the workspace AI key (VLY_INTEGRATION_KEY) is missing. " +
-        "Re-copy the project's integration key in the Keys/API Keys tab, then try again."
+        "Omi's AI layer has no provider configured. Add a free Groq key (GROQ_API_KEY) " +
+        "in the Keys/API Keys tab — or OPENAI_API_KEY — then try again."
       );
     }
 
@@ -139,9 +140,10 @@ export const send = action({
       chat.push({ role: "user", content: trimmed });
     }
 
-    // 5) Reason + answer
-    const result = await vly.ai.completion({
-      model: "gpt-4o-mini",
+    // 5) Reason + answer — routed as a reasoning task (transparent thinking
+    //    before acting), on whichever provider is active.
+    const result = await complete({
+      task: "reasoning",
       messages: chat,
       temperature: 0.4,
       maxTokens: 900,
@@ -152,9 +154,8 @@ export const send = action({
     let content: string;
     let reasoning = "";
 
-    if (result.success && result.data) {
-      const raw = result.data.choices?.[0]?.message?.content ?? "";
-      const split = splitReasoning(raw);
+    if (result.ok) {
+      const split = splitReasoning(result.content);
       content = split.content;
       reasoning = split.reasoning;
     } else {

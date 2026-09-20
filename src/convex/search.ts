@@ -31,7 +31,7 @@ import { assertSafeUrl } from "./searchEngine/security";
 import { decideSearch, isCalculation, extractUrl } from "./searchEngine/decision";
 import { rateLimit, breakerStatus } from "./searchEngine/resilience";
 import { buildEvidencePack, sourcesFooter } from "./searchEngine/evidence";
-import { vly } from "../lib/vly-integrations";
+import { complete } from "./aiProviders";
 
 // --- Helper: write one telemetry row (never breaks the request) ------------
 
@@ -315,8 +315,9 @@ export const urlResearch = action({
     let summary: string;
     const aiStarted = Date.now();
     try {
-      const completion = await vly.ai.completion({
-        model: "gpt-4o-mini",
+      // Routed as a summarization task — faithful page summary, fast model.
+      const completion = await complete({
+        task: "summarization",
         messages: [
           {
             role: "system",
@@ -331,9 +332,7 @@ export const urlResearch = action({
         temperature: 0.2,
         maxTokens: 500,
       });
-      const content = completion.success
-        ? completion.data?.choices?.[0]?.message?.content ?? ""
-        : "";
+      const content = completion.ok ? completion.content : "";
       summary =
         content.trim().length > 40
           ? content.trim()
