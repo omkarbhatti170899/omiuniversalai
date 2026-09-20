@@ -26,7 +26,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 type EmotionAnalysis = {
   _id: Id<"emotionAnalyses">;
@@ -143,7 +143,7 @@ export default function Dashboard() {
           </div>
           <div className="flex items-center gap-2">
             <Button asChild variant="ghost" size="sm" className="cursor-pointer">
-              <a href="/">Landing</a>
+              <Link to="/">Landing</Link>
             </Button>
             <Button
               variant="outline"
@@ -418,7 +418,7 @@ export default function Dashboard() {
       </main>
 
       <footer className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
-        Ominnovations Intelligence · Human Emotions AI + Omi Search
+        Ominnovations Intelligence · Omi Universal AI
       </footer>
     </div>
   );

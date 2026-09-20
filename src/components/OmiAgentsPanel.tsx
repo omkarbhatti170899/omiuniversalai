@@ -106,6 +106,10 @@ export function OmiAgentsPanel() {
   const agents = useQuery(api.omiAgents.listMine);
   const tasks = useQuery(api.omiTasks.listMine);
   const audit = useQuery(api.omiAudit.listMine);
+  const taskDetails = useQuery(api.omiTasks.detail);
+  const stepsByTask = new Map(
+    (taskDetails ?? []).map((d) => [d.task._id, d.steps]),
+  );
 
   const createAgent = useMutation(api.omiAgents.create);
   const removeAgent = useMutation(api.omiAgents.remove);
@@ -372,6 +376,29 @@ export function OmiAgentsPanel() {
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <Loader2 className="size-4 animate-spin" />
                           Agent is working through the plan…
+                        </div>
+                      )}
+
+                      {(stepsByTask.get(task._id) ?? []).length > 0 && (
+                        <div>
+                          <p className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                            Step outputs
+                          </p>
+                          <div className="space-y-2">
+                            {(stepsByTask.get(task._id) ?? []).map((step) => (
+                              <div
+                                key={step._id}
+                                className="rounded-lg border border-border/60 bg-muted/30 p-3"
+                              >
+                                <p className="text-xs font-semibold text-primary">
+                                  Step {step.index + 1}: {step.description}
+                                </p>
+                                <p className="mt-1 whitespace-pre-wrap text-sm leading-relaxed">
+                                  {step.output}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       )}
 

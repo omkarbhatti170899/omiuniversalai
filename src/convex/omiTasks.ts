@@ -33,35 +33,42 @@ export const listMine = query({
   },
 });
 
-/** Steps + audit for the task detail view (ownership verified). */
+/** Full details (task, agent, steps, approvals) for the user's recent tasks. */
 export const detail = query({
-  args: { taskId: v.id("omiTasks") },
-  handler: async (ctx, { taskId }) => {
+  args: {},
+  handler: async (ctx) => {
     const userId = await getAuthUserId(ctx);
-    if (userId === null) return null;
+    if (userId === null) return [];
 
-    const task = await ctx.db.get(taskId);
-    if (!task || task.userId !== userId) return null;
-
-    const agent = await ctx.db.get(task.agentId);
-    const steps = await ctx.db
-      .query("omiTaskSteps")
-      .withIndex("by_task", (q) => q.eq("taskId", taskId))
-      .order("asc")
-      .collect();
-
-    const approvals = await ctx.db
-      .query("omiApprovals")
-      .withIndex("by_task", (q) => q.eq("taskId", taskId))
+    const tasks = await ctx.db
+      .query("omiTasks")
+      .withIndex("by_user", (q) => q.eq("userId", userId))
       .order("desc")
-      .take(10);
+      .take(50);
 
-    return {
-      task,
-      agentName: agent?.name ?? "Unknown agent",
-      steps,
-      approvals,
-    };
+    return Promise.all(
+      tasks.map(async (task) => {
+        const agent = await ctx.db.get(task.agentId);
+        const steps = await ctx.db
+          .query("omiTaskSteps")
+          .withIndex("by_task", (q) => q.eq("taskId", task._id))
+          .order("asc")
+          .collect();
+
+        const approvals = await ctx.db
+          .query("omiApprovals")
+          .withIndex("by_task", (q) => q.eq("taskId", task._id))
+          .order("desc")
+          .take(10);
+
+        return {
+          task,
+          agentName: agent?.name ?? "Unknown agent",
+          steps,
+          approvals,
+        };
+      }),
+    );
   },
 });
 
@@ -171,6 +178,32 @@ export const remove = mutation({
       await ctx.db.delete(s._id);
     }
     await ctx.db.delete(id);
+  },
+});
+
+/** Steps for the user's recent tasks, grouped for bulk display in the UI. */
+export const listStepsMine = query({
+  args: {},
+  handler: async (ctx) => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) return [];
+
+    const tasks = await ctx.db
+      .query("omiTasks")
+      .withIndex("by_user", (q) => q.eq("userId", userId))
+      .order("desc")
+      .take(50);
+
+    return Promise.all(
+      tasks.map(async (t) => {
+        const steps = await ctx.db
+          .query("omiTaskSteps")
+          .withIndex("by_task", (q) => q.eq("taskId", t._id))
+          .order("asc")
+          .collect();
+        return { taskId: t._id, steps };
+      }),
+    );
   },
 });
 
