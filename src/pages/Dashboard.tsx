@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { OmiSearchPanel } from "@/components/OmiSearchPanel";
+import { OmiAssistantPanel } from "@/components/OmiAssistantPanel";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/use-auth";
 import { motion } from "framer-motion";
@@ -172,8 +173,12 @@ export default function Dashboard() {
           </p>
         </motion.div>
 
-        <Tabs defaultValue="emotions" className="mt-6">
-          <TabsList className="grid w-full max-w-md grid-cols-2">
+        <Tabs defaultValue="assistant" className="mt-6">
+          <TabsList className="grid w-full max-w-lg grid-cols-3">
+            <TabsTrigger value="assistant" className="cursor-pointer gap-2">
+              <BrainCircuit className="size-4" />
+              Omi Assistant
+            </TabsTrigger>
             <TabsTrigger value="emotions" className="cursor-pointer gap-2">
               <Sparkles className="size-4" />
               Emotions AI
@@ -183,6 +188,10 @@ export default function Dashboard() {
               Omi Search
             </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="assistant" className="mt-6">
+            <OmiAssistantPanel />
+          </TabsContent>
 
           <TabsContent value="emotions" className="mt-6">
         {/* Analyzer */}

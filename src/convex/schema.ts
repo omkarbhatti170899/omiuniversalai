@@ -63,6 +63,28 @@ const schema = defineSchema(
       ),
     }).index("by_user", ["userId"]),
 
+    // Omi Assistant — conversations
+    omiConversations: defineTable({
+      userId: v.id("users"),
+      title: v.string(),
+    }).index("by_user", ["userId"]),
+
+    // Omi Assistant — messages (reasoning = Omi's transparent "why this answer" summary)
+    omiMessages: defineTable({
+      userId: v.id("users"),
+      conversationId: v.id("omiConversations"),
+      role: v.union(v.literal("user"), v.literal("omi")),
+      content: v.string(),
+      reasoning: v.optional(v.string()),
+    }).index("by_conversation", ["conversationId"]),
+
+    // Omi persistent memory — user-controlled (view/edit/delete in the UI)
+    omiMemories: defineTable({
+      userId: v.id("users"),
+      content: v.string(),
+      source: v.union(v.literal("user"), v.literal("omi")),
+    }).index("by_user", ["userId"]),
+
     // add other tables here
 
     // tableName: defineTable({

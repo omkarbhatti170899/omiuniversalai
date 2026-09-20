@@ -95,16 +95,14 @@ export default function Landing() {
               <Sparkles className="size-3.5" />
               Human Emotions AI — powered by Omi
             </Badge>
-          </motion.div>
-
-          <motion.h1
+          </motion.div>          <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
             className="mt-6 max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl"
           >
-            AI that understands how your{" "}
-            <span className="text-primary">customers feel</span>
+            One AI that <span className="text-primary">coordinates</span> your
+            intelligence
           </motion.h1>
 
           <motion.p
@@ -113,10 +111,10 @@ export default function Landing() {
             transition={{ duration: 0.55, delay: 0.16 }}
             className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            Ominnovations Intelligence is the AI workspace for support and
-            operations teams. Paste any message and Omi decodes the emotion
-            behind it — or ask Omi to search the live web and answer with
-            citations. Empathy, speed, and consistency in one place.
+            Omi Universal AI is the platform-independent intelligence
+            workspace: reasoning, research with citations, persistent memory,
+            and human emotions AI in one system that follows you across
+            devices.
           </motion.p>
 
           <motion.div
