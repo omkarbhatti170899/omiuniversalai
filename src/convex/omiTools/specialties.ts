@@ -64,7 +64,7 @@ export const SPECIALTIES: SpecialtyProfile[] = [
       "Plan steps that quantify and compare: define the metrics that matter, ground every claim in the user's documents before generalizing, and reserve the final step for a decision-ready summary with explicit trade-offs.",
     execution:
       "State numbers and assumptions explicitly. Distinguish observation from interpretation, and note what the data cannot support.",
-    tools: ["web_search", "knowledge_search", "memory_list"],
+    tools: ["web_search", "knowledge_search", "memory_list", "calculate"],
   },
   {
     id: "operations",
@@ -108,7 +108,7 @@ export const SPECIALTIES: SpecialtyProfile[] = [
       "Plan steps that structure the data: identify the schema and units, check for missing or malformed values, compute comparisons honestly, and reserve a final step for stating the limitations of the data.",
     execution:
       "Show the computation path briefly so it can be checked. Distinguish measured values from estimates, and never round in a way that hides uncertainty.",
-    tools: ["web_search", "knowledge_search", "memory_list"],
+    tools: ["web_search", "knowledge_search", "memory_list", "calculate"],
   },
 ];
 

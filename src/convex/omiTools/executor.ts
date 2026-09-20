@@ -26,6 +26,7 @@ import { toolAllowedForSpecialty } from "./specialties";
 import { runUniversalSearch } from "../universalSearch";
 import { fetchPageText } from "../searchProviders/pageFetcher";
 import { rateLimit, withTimeout } from "../searchEngine/resilience";
+import { evaluateExpression } from "../searchEngine/calculator";
 
 type ToolCtx = GenericActionCtx<DataModel>;
 
@@ -195,6 +196,24 @@ async function runTool(
         ok: true,
         tool,
         output: `Memory saved: "${content}"`,
+        ms: Date.now() - started,
+      };
+    }
+
+    case "calculate": {
+      const expression = clampStringArg(String(rawArgs.expression), ARG_LIMITS.expressionChars);
+      if (!expression) return fail(tool, "expression too long or empty", started);
+      // Sandboxed by construction: grammar-restricted parser, closed function
+      // table, bounded compute — no eval/Function, nothing user-supplied is
+      // ever compiled or executed (§27/§28).
+      const r = evaluateExpression(expression);
+      if (!r.ok) {
+        return { ok: false, tool, output: "", error: r.error, ms: Date.now() - started };
+      }
+      return {
+        ok: true,
+        tool,
+        output: `${expression} = ${r.formatted}`,
         ms: Date.now() - started,
       };
     }

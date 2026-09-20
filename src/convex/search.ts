@@ -31,6 +31,7 @@ import { getProviderStatus } from "./searchProviders";
 import { assertSafeUrl } from "./searchEngine/security";
 import { decideSearch, isCalculation, extractUrl } from "./searchEngine/decision";
 import { rateLimit, breakerStatus } from "./searchEngine/resilience";
+import { evaluateExpression } from "./searchEngine/calculator";
 import { buildEvidencePack, sourcesFooter } from "./searchEngine/evidence";
 import { complete } from "./aiProviders";
 
@@ -135,20 +136,14 @@ export const searchWeb = action({
     // --- Decision Engine: classify before any network call ----------------
     const decision = decideSearch(trimmed);
 
-    // Calculations never need an engine — answer directly.
+    // Calculations never need an engine — answer directly via the sandboxed
+    // arithmetic engine (no eval/Function: §27/§28).
     if (decision.intent === "calculation") {
-      const expr = trimmed.replace(/[^0-9+\-*/().,%^\s]/g, "").trim();
-      let value = "";
-      try {
-        const fn = new Function(`"use strict"; return (${expr});`) as () => unknown;
-        const out = fn();
-        value = String(out);
-      } catch {
-        value = "";
-      }
-      const answer = value
-        ? `${trimmed} = ${value}`
-        : `${trimmed} — Omi couldn't evaluate this expression safely. Try a simpler form like (12*4)+7.`;
+      const expr = trimmed.replace(/[^0-9+\-*/().,%^\s!a-zA-Z]/g, "").trim();
+      const calc = evaluateExpression(expr);
+      const answer = calc.ok
+        ? `${trimmed} = ${calc.formatted}`
+        : `${trimmed} — Omi couldn't evaluate this (${calc.error}). Try a simpler form like (12*4)+7 or sqrt(144).`;
       await recordTelemetry(ctx, {
         userId,
         query: trimmed,

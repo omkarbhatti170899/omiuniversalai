@@ -21,7 +21,8 @@ export type ToolId =
   | "read_page"
   | "knowledge_search"
   | "memory_save"
-  | "memory_list";
+  | "memory_list"
+  | "calculate";
 
 export type ToolInputSchema = {
   [K in string]: "string" | "number" | "boolean";
@@ -97,6 +98,17 @@ export const TOOLS: ToolDescriptor[] = [
     safe: true,
     maxResultChars: 1200,
     syntax: 'TOOL memory_list {"limit": 10}',
+  },
+  {
+    id: "calculate",
+    label: "Calculator",
+    description:
+      'Evaluate an arithmetic expression exactly (e.g. "(1240*3)+7.5", "sqrt(144)+2^10", "17!"). Supports + - * / % ^ ** ! parentheses and sqrt, abs, sin, cos, tan, log, ln, round, floor, ceil, min, max, pow. Use for ANY numeric work instead of mental math.',
+    required: { expression: "string" },
+    optional: {},
+    safe: true,
+    maxResultChars: 300,
+    syntax: 'TOOL calculate {"expression": "(1240*3)+7.5"}',
   },
 ];
 
@@ -236,6 +248,7 @@ export const ARG_LIMITS = {
   urlChars: 2000,
   contentChars: 500,
   limitMax: 10,
+  expressionChars: 200,
 } as const;
 
 /** Clamp a validated string arg to its cap. Returns null when it overflows. */
