@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "convex codegen --typecheck=disable && tsc -b && vite build",
+    "build": "convex codegen --typecheck=disable || (echo '[codegen] No Convex deployment credentials in this environment — using the committed src/convex/_generated bindings (convex best practice: check generated code into version control)' && test -f src/convex/_generated/api.d.ts) && tsc -b && vite build",
     "codegen": "convex codegen",
     "typecheck": "tsc -b --noEmit",
     "lint": "eslint .",

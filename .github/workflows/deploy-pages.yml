@@ -4,9 +4,15 @@ name: Deploy to GitHub Pages
 # Builds the EXISTING production bundle (convex codegen → tsc → vite build,
 # all via the repo's own `bun run build`) and publishes dist/ to Pages.
 # The backend stays on the existing Convex deployment; the frontend talks to
-# it via the PUBLIC VITE_CONVEX_URL connection string. No secrets live in the
-# repo — GitHub injects its ephemeral Pages deploy token automatically, and
-# AI keys remain server-side in the Convex dashboard (§28).
+# it via the PUBLIC VITE_CONVEX_URL connection string.
+#
+# Convex bindings: src/convex/_generated is COMMITTED (Convex's documented
+# best practice — https://docs.convex.dev/producing-code). CI therefore needs
+# NO Convex credentials: if `convex codegen` has no deployment configured it
+# falls back to the committed bindings (see package.json build script).
+# No secrets live in the repo — GitHub injects its ephemeral Pages deploy
+# token automatically, and AI keys remain server-side in the Convex
+# dashboard (§28).
 
 on:
   push:
@@ -38,13 +44,27 @@ jobs:
 
       - name: Build production bundle
         env:
-          # Public backend connection string (NOT a secret) — set this once in
-          # Repo → Settings → Secrets and variables → Actions → Variables as
-          # CONVEX_URL, e.g. https://resolute-ptarmigan-187.convex.cloud
-          VITE_CONVEX_URL: ${{ vars.CONVEX_URL }}
+          # Public backend connection string (NOT a secret). Resolution order:
+          # repo VARIABLE → repo SECRET → this repo's existing deployment URL.
+          # (A convex.cloud URL identifies the backend like a Firebase project
+          # id — safe to expose; it grants no access.)
+          VITE_CONVEX_URL: ${{ vars.CONVEX_URL || secrets.CONVEX_URL || 'https://resolute-ptarmigan-187.convex.cloud' }}
           # Serve the SPA under the repository subpath.
           VITE_BASE_PATH: /omiuniversalai/
         run: bun run build
+
+      - name: Verify backend URL is compiled into the bundle
+        env:
+          VITE_CONVEX_URL: ${{ vars.CONVEX_URL || secrets.CONVEX_URL || 'https://resolute-ptarmigan-187.convex.cloud' }}
+        run: |
+          # Tripwire: if VITE_CONVEX_URL ever resolves empty, the bundle ships
+          # a runtime throw ("VITE_CONVEX_URL is not set") = blank page for
+          # every visitor. Fail here, before the deploy step, instead.
+          if [ -z "$VITE_CONVEX_URL" ] || ! grep -rqF "$VITE_CONVEX_URL" dist/assets/; then
+            echo "::error::VITE_CONVEX_URL was not compiled into the bundle — the deployed site would be a blank page."
+            exit 1
+          fi
+          echo "✓ Backend URL compiled into bundle"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
