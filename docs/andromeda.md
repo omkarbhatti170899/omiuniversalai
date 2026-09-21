@@ -155,7 +155,6 @@ env/secrets only — never in code, never in the frontend (§28).
 - Omi crawler + self-hosted index (needs infrastructure)
 - Semantic retrieval behind the reserved `retrievalMode` seam
 - Commercial search adapters behind explicit user opt-in
-- OCR for scanned PDFs (client-side Tesseract adapter)
 
 ## 9. Workspace surfaces [IMPLEMENTED]
 
@@ -166,4 +165,11 @@ env/secrets only — never in code, never in the frontend (§28).
 - **Automation view** — research-report workflows built on the same fabric
 - **Agent tool** — `andromeda_research` callable by specialized agents
 - **Files view** — text/DOCX/XLSX/PDF/images ingestion feeding the internal
-  corpus that Andromeda searches first
+  corpus that Andromeda searches first; scanned PDFs fall back to on-device
+  OCR (tesseract.js, Apache-2.0, keyless, §41-private) **[IMPLEMENTED]**
+- **Automation approval gates** — workflows pause before saving a report and
+  require an explicit human Approve/Reject decision (24h window, final,
+  expiry-honest) per §11 **[IMPLEMENTED]**
+- **Progressive chat** — Omi's reply updates live through
+  thinking → searching → reading → reasoning stages; final answers are
+  immutable **[IMPLEMENTED]**

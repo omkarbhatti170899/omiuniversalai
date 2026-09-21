@@ -1,4 +1,4 @@
-import { useAction, useQuery } from "convex/react";
+import { useAction, useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import type { Id } from "@/convex/_generated/dataModel";
 import { Badge } from "@/components/ui/badge";
@@ -24,11 +24,21 @@ import { useState } from "react";
 
 type StepRow = { label: string; status: string; detail?: string };
 
+type ApprovalGate = {
+  stepIndex: number;
+  reason: string;
+  requestedAt: number;
+  expiresAt: number;
+  decision?: "approved" | "rejected";
+  decidedAt?: number;
+  decisionNote?: string;
+};
+
 type WorkflowRun = {
   _id: Id<"omiWorkflows">;
   title: string;
   objective: string;
-  status: "running" | "done" | "failed";
+  status: "running" | "awaiting_approval" | "done" | "rejected" | "failed";
   stage?: string;
   steps?: StepRow[];
   result?: string;
@@ -37,9 +47,19 @@ type WorkflowRun = {
   verification?: "pass" | "warnings" | "unverified" | "failed";
   verificationNotes?: string[];
   documentId?: Id<"omiDocuments">;
+  approval?: ApprovalGate;
+  approvalReport?: string;
   error?: string;
   _creationTime: number;
 };
+
+function timeLeft(expiresAt: number): string {
+  const left = expiresAt - Date.now();
+  if (left <= 0) return "expired";
+  const hours = Math.floor(left / 3_600_000);
+  if (hours >= 1) return `${hours}h left`;
+  return `${Math.ceil(left / 60_000)}m left`;
+}
 
 function StepIcon({ status }: { status: string }) {
   if (status === "done")
@@ -69,10 +89,41 @@ function VerdictBadge({ verdict }: { verdict: NonNullable<WorkflowRun["verificat
 export function AutomationView() {
   const runs = useQuery(api.omiWorkflowQueries.list);
   const start = useAction(api.omiWorkflows.startResearchReport);
+  const approve = useMutation(api.omiWorkflowDecisions.approve);
+  const reject = useMutation(api.omiWorkflowDecisions.reject);
 
   const [topic, setTopic] = useState("");
   const [focus, setFocus] = useState("");
   const [starting, setStarting] = useState(false);
+  const [busyRun, setBusyRun] = useState<string | null>(null);
+  const [confirmRejectId, setConfirmRejectId] = useState<string | null>(null);
+
+  const onApprove = async (runId: string) => {
+    if (busyRun) return;
+    setBusyRun(runId);
+    try {
+      await approve({ runId: runId as Id<"omiWorkflows"> });
+      toast.success("Approved — report saved to your knowledge base.");
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Couldn't approve.");
+    } finally {
+      setBusyRun(null);
+    }
+  };
+
+  const onReject = async (runId: string) => {
+    if (busyRun) return;
+    setBusyRun(runId);
+    try {
+      await reject({ runId: runId as Id<"omiWorkflows"> });
+      toast.success("Rejected — nothing was saved.");
+      setConfirmRejectId(null);
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Couldn't reject.");
+    } finally {
+      setBusyRun(null);
+    }
+  };
 
   const launch = async () => {
     if (starting) return;
@@ -204,14 +255,22 @@ export function AutomationView() {
                               ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
                               : r.status === "running"
                                 ? "border-primary/40 bg-primary/10 text-primary"
-                                : "border-red-500/30 bg-red-500/10 text-red-400"
+                                : r.status === "awaiting_approval"
+                                  ? "border-amber-500/40 bg-amber-500/10 text-amber-400"
+                                  : r.status === "rejected"
+                                    ? "border-border bg-muted text-muted-foreground"
+                                    : "border-red-500/30 bg-red-500/10 text-red-400"
                           }
                         >
                           {r.status === "running"
                             ? (r.stage ?? "Running")
-                            : r.status === "done"
-                              ? "Done"
-                              : "Failed"}
+                            : r.status === "awaiting_approval"
+                              ? "⏸ Awaiting your approval"
+                              : r.status === "done"
+                                ? "Done"
+                                : r.status === "rejected"
+                                  ? "Rejected"
+                                  : "Failed"}
                         </Badge>
                       </div>
                     </div>
@@ -238,6 +297,72 @@ export function AutomationView() {
                           </li>
                         ))}
                       </ol>
+                    )}
+
+                    {/* Approval gate (Phase 10/§11): human decision required */}
+                    {r.status === "awaiting_approval" && r.approval && (
+                      <div className="space-y-3 rounded-lg border border-amber-500/30 bg-amber-500/5 p-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="text-xs font-medium text-amber-400">{r.approval.reason}</p>
+                          <span className="shrink-0 text-[10px] text-muted-foreground">
+                            {timeLeft(r.approval.expiresAt)}
+                          </span>
+                        </div>
+                        <details className="rounded-lg border border-amber-500/20 bg-background/60 p-3">
+                          <summary className="cursor-pointer text-xs font-medium">
+                            Preview the report before deciding
+                          </summary>
+                          <p className="mt-2 max-h-64 overflow-y-auto whitespace-pre-wrap text-xs leading-relaxed">
+                            {r.approvalReport}
+                          </p>
+                        </details>
+                        <div className="flex items-center gap-2">
+                          <Button
+                            size="sm"
+                            onClick={() => void onApprove(r._id as string)}
+                            disabled={busyRun !== null}
+                            className="cursor-pointer"
+                          >
+                            {busyRun === r._id ? <Loader2 className="size-3.5 animate-spin" /> : <ShieldCheck className="size-3.5" />}
+                            Approve & save to knowledge
+                          </Button>
+                          {confirmRejectId === r._id ? (
+                            <>
+                              <Button
+                                size="sm"
+                                variant="destructive"
+                                onClick={() => void onReject(r._id as string)}
+                                disabled={busyRun !== null}
+                                className="cursor-pointer"
+                              >
+                                Confirm reject
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={() => setConfirmRejectId(null)}
+                                className="cursor-pointer"
+                              >
+                                Keep waiting
+                              </Button>
+                            </>
+                          ) : (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => setConfirmRejectId(r._id as string)}
+                              disabled={busyRun !== null}
+                              className="cursor-pointer"
+                            >
+                              Reject
+                            </Button>
+                          )}
+                        </div>
+                        <p className="text-[10px] text-muted-foreground">
+                          Omi never saves a report without your explicit approval. Rejection
+                          discards the report; the research record stays for audit.
+                        </p>
+                      </div>
                     )}
 
                     {r.status === "failed" && r.error && (

@@ -25,8 +25,8 @@ import { describeImage } from "./aiProviders/vision";
  *    zero dependencies) and passed here as `preExtracted`; the original blob
  *    is still stored so files remain re-downloadable and deletable.
  *  • PDF (text-based) — extracted on-device via pdf.js (Apache-2.0,
- *    src/lib/pdfExtract.ts). Scanned/image-only PDFs fail honestly (OCR
- *    is on the roadmap).
+ *    src/lib/pdfExtract.ts). Scanned/image-only PDFs fall back to on-device
+ *    OCR (tesseract.js, Apache-2.0, keyless — src/lib/ocr.ts).
  *  • images (png/jpeg/webp/gif) — validated, stored, and described by the
  *    VisionProvider chain (aiProviders/vision.ts) IF a vision-capable key is
  *    configured; otherwise the image is still stored but ingest reports the

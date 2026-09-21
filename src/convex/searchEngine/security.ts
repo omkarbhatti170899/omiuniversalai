@@ -28,8 +28,49 @@ function isPrivateIPv6(host: string): boolean {
   const h = host.replace(/^\[|\]$/g, "").toLowerCase();
   if (h === "::1" || h === "::" || h === "0:0:0:0:0:0:0:1") return true;
   if (h.startsWith("fe8") || h.startsWith("fc") || h.startsWith("fd")) return true;
-  if (h.startsWith("::ffff:")) return isPrivateIPv4(h.slice(7));
+  // Exact group expansion — catches compressed/hex forms like ::ffff:7f00:1
+  // (the hex-group notation of IPv4-mapped 127.0.0.1) that the old
+  // prefix+dotted check missed (hardening pass, eval-found bypass).
+  const groups = expandIPv6(h);
+  if (!groups) return false;
+  const isLoopback = groups.every((g, i) => g === (i === 7 ? 1 : 0));
+  if (isLoopback) return true;
+  // IPv4-mapped ::ffff:0:0/96 — resolve the embedded v4 and check it.
+  if (groups.slice(0, 5).every((g) => g === 0) && groups[5] === 0xffff) {
+    const v4 = `${groups[6] >> 8}.${groups[6] & 255}.${groups[7] >> 8}.${groups[7] & 255}`;
+    return isPrivateIPv4(v4);
+  }
+  if ((groups[0] & 0xffc0) === 0xfe80) return true; // link-local fe80::/10
+  if ((groups[0] & 0xfe00) === 0xfc00) return true; // unique-local fc00::/7
   return false;
+}
+
+/**
+ * Expand an IPv6 literal to its 8 numeric groups (handles "::" compression
+ * and an embedded dotted-quad tail). Returns null when unparseable.
+ */
+function expandIPv6(addr: string): number[] | null {
+  let a = addr;
+  if (a.includes(".")) {
+    const i = a.lastIndexOf(":");
+    const parts = a.slice(i + 1).split(".").map(Number);
+    if (parts.length !== 4 || parts.some((p) => !Number.isInteger(p) || p < 0 || p > 255)) {
+      return null;
+    }
+    a = `${a.slice(0, i + 1)}${((parts[0] << 8) | parts[1]).toString(16)}:${((parts[2] << 8) | parts[3]).toString(16)}`;
+  }
+  const halves = a.split("::");
+  if (halves.length > 2) return null;
+  const head = halves[0] ? halves[0].split(":") : [];
+  const tail = halves.length === 2 && halves[1] ? halves[1].split(":") : [];
+  const missing = 8 - head.length - tail.length;
+  if (missing < 0) return null;
+  if (halves.length === 1 && missing !== 0) return null;
+  const groups = [...head, ...Array(missing).fill("0"), ...tail].map((g) =>
+    parseInt(g || "0", 16),
+  );
+  if (groups.some((g) => Number.isNaN(g))) return null;
+  return groups;
 }
 
 /**
@@ -171,7 +212,10 @@ export function sanitizeUntrustedText(input: string, maxLen = 4000): string {
     // Chat-role spoofing: a line starting with "system:"/"assistant:" tries
     // to look like conversation structure — defang it wherever it appears.
     // Homoglyph-tolerant: "syсtem:" (Cyrillic с) is caught too.
-    .replace(new RegExp(`^(?:${FUZZY_ROLE})\\s*:`, "gim"), "role: redacted")
+    .replace(
+      new RegExp(`(?:^|[.;!?]\\s+)(?:${FUZZY_ROLE})\\s*:`, "gim"),
+      "role: redacted",
+    )
     .replace(
       // NOTE: \b is ASCII-only in JS regex — it would never match before a
       // Cyrillic lookalike. This lookbehind is the unicode-aware equivalent
@@ -181,7 +225,34 @@ export function sanitizeUntrustedText(input: string, maxLen = 4000): string {
       "redacted:",
     )
     .replace(/\b(end of|begin of)\s+(system|context|prompt)\b/gi, "redacted")
-    .replace(/\b(ignore|disregard|forget)\s+(all\s+)?(previous|prior|above)\b/gi, "[injection attempt redacted]")
+    .replace(
+      /\b(ignore|disregard|forget)\s+(all\s+)?(previous|prior|above)\b/gi,
+      "[injection attempt redacted]",
+    )
+    // "forget your instructions" / "ignore your instructions" (possessive
+    // form skipped by the original pattern — hardening pass, eval-found).
+    .replace(
+      /\b(ignore|disregard|forget)\s+(your|the(\s+above)?|any|these|those)\s+(instructions?|directives?|rules?|prompts?|guardrails?)\b/gi,
+      "[injection attempt redacted]",
+    )
+    // Romance/Germanic steering (hardening pass): FR/ES/DE "ignore all
+    // previous instructions" shapes, adjective order per language —
+    // measured against benign lookalikes ("ignorez les Lilas" survives).
+    .replace(
+      /\b(ignorez?|ignorons?|ignora[sr]?|ignoriere)\s+(toutes\s+les\s+|alle\s+|las\s+|todas\s+las\s+)?\s*(précédentes?|anteriores?|vorherigen?)?\s*(instructions?|consignes?|anweisungen?|instrucciones?)\b/gi,
+      "[injection attempt redacted]",
+    )
+    // Korean steering: "ignore previous instructions" (measured form).
+    .replace(/이전(의)?\s*지시(를|은)?\s*무시/g, "[injection attempt redacted]")
+    // HTML-comment-wrapped role markers: <!-- system: … --> smuggles fake
+    // conversation structure inside what looks like markup noise. Only
+    // comments carrying role/instruction markers are redacted — benign
+    // comments (<!-- TODO: fix -->) pass through untouched.
+    .replace(/<!--[\s\S]{0,300}?(?:-->|$)/g, (comment) =>
+      new RegExp(`(?:${FUZZY_ROLE})\\s*:|ignore|instructions?|obey`, "i").test(comment)
+        ? "[markup role marker redacted]"
+        : comment,
+    )
     // CJK steering (hardening pass): 忽略/无视 …指令 — common Chinese
     // "ignore previous instructions" shapes.
     .replace(/(忽略|无视)\s*(之前|先前|上述|以上|前面)?\s*的?\s*(所有|全部)?\s*(指令|指示)/g, "[injection attempt redacted]")
@@ -198,8 +269,12 @@ export function sanitizeUntrustedText(input: string, maxLen = 4000): string {
 
 /** True when the text shows injection-signal patterns (for telemetry). */
 export function looksLikeInjection(input: string): boolean {
-  return /\b(ignore|disregard)\s+(all\s+)?(previous|prior|above)\b/i.test(input) ||
+  return /\b(ignore|disregard|forget)\s+(all\s+)?(previous|prior|above)\b/i.test(input) ||
+    /\b(ignore|disregard|forget)\s+(your|the|any|these|those)\s+(instructions?|directives?|rules?|prompts?)/i.test(input) ||
     /\b(system|developer)\s*prompt\s*:/i.test(input) ||
+    /\b(ignorez?|ignorons?|ignora[sr]?|ignoriere)\s+(toutes\s+les\s+|alle\s+|las\s+|todas\s+las\s+)?\s*(précédentes?|anteriores?|vorherigen?)?\s*(instructions?|consignes?|anweisungen?|instrucciones?)\b/i.test(input) ||
+    /(忽略|无视)\s*(之前|先前|上述|以上|前面)?\s*的?\s*(所有|全部)?\s*(指令|指示)/.test(input) ||
+    /이전(의)?\s*지시(를|은)?\s*무시/.test(input) ||
     INVISIBLE_CHARS.test(input);
 }
 

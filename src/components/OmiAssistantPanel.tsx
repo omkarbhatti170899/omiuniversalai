@@ -53,6 +53,7 @@ type OmiMessage = {
   role: "user" | "omi";
   content: string;
   reasoning?: string;
+  status?: "streaming" | "final";
   _creationTime: number;
 };
 
@@ -311,10 +312,17 @@ export function OmiAssistantPanel({
                     className={`max-w-[85%] rounded-xl border px-4 py-3 text-sm leading-relaxed ${
                       m.role === "user"
                         ? "border-primary/40 bg-primary/10"
-                        : "border-border/60 bg-muted/40"
+                        : m.status === "streaming"
+                          ? "border-primary/40 bg-primary/5"
+                          : "border-border/60 bg-muted/40"
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">{m.content}</p>
+                    <p className="whitespace-pre-wrap">
+                      {m.status === "streaming" && (
+                        <span className="mr-2 inline-flex size-2 animate-pulse rounded-full bg-primary align-middle" />
+                      )}
+                      {m.content}
+                    </p>
                     {m.role !== "user" && tts.supported && (
                       <button
                         type="button"
@@ -349,14 +357,6 @@ export function OmiAssistantPanel({
                   </div>
                 </motion.div>
               ))
-            )}
-            {isSending && (
-              <div className="flex justify-start">
-                <div className="flex items-center gap-2 rounded-xl border border-border/60 bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
-                  <Loader2 className="size-4 animate-spin" />
-                  Omi is thinking…
-                </div>
-              </div>
             )}
           </div>
 

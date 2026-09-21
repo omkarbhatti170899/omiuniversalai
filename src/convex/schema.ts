@@ -162,6 +162,12 @@ const schema = defineSchema(
       role: v.union(v.literal("user"), v.literal("omi")),
       content: v.string(),
       reasoning: v.optional(v.string()),
+      // Progressive responses (§40): "streaming" messages update in place as
+      // pipeline stages complete, then are patched to "final". Legacy rows
+      // (no status) render as final — backward compatible.
+      status: v.optional(
+        v.union(v.literal("streaming"), v.literal("final")),
+      ),
     }).index("by_conversation", ["conversationId"]),
 
     // Omi persistent memory — user-controlled (view/edit/delete in the UI)
@@ -249,7 +255,9 @@ const schema = defineSchema(
       workflowType: v.literal("research_report"), // more types plug in later
       status: v.union(
         v.literal("running"),
+        v.literal("awaiting_approval"),
         v.literal("done"),
+        v.literal("rejected"),
         v.literal("failed"),
       ),
       stage: v.optional(v.string()), // human-readable progress
@@ -269,6 +277,24 @@ const schema = defineSchema(
       documentId: v.optional(v.id("omiDocuments")),
       result: v.optional(v.string()),
       summary: v.optional(v.string()),
+      // Phase 10 approval gate: populated while status = awaiting_approval.
+      // approvalReport holds the FULL composed report (capped 60k) so the
+      // user approves the exact artifact that would be saved — never a
+      // promise to compose one later (§35 no-fake-features).
+      approval: v.optional(
+        v.object({
+          stepIndex: v.number(),
+          reason: v.string(),
+          requestedAt: v.number(),
+          expiresAt: v.number(),
+          decision: v.optional(
+            v.union(v.literal("approved"), v.literal("rejected")),
+          ),
+          decidedAt: v.optional(v.number()),
+          decisionNote: v.optional(v.string()),
+        }),
+      ),
+      approvalReport: v.optional(v.string()),
       citations: v.optional(
         v.array(v.object({ title: v.string(), url: v.string(), snippet: v.optional(v.string()) })),
       ),

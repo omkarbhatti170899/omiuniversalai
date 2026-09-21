@@ -10,6 +10,8 @@
  * affected, with the legacy build for broad browser compatibility.
  */
 
+import { isScannedLikeText, ocrCanvases } from "./ocr";
+
 export type PdfExtractResult = {
   text: string;
   pages: number;
@@ -50,10 +52,30 @@ export async function extractPdf(
       page.cleanup();
     }
     const text = pages.join("\n\n");
-    if (text.replace(/\[Page \d+\]/g, "").trim().length < 20) {
-      throw new Error(
-        `No readable text found in "${fileName}" — it may be a scanned image PDF (OCR is on the roadmap).`,
-      );
+    if (isScannedLikeText(text)) {
+      // Scanned/image PDF: fall back to on-device OCR (Apache-2.0, keyless,
+      // §41 privacy — pages render and recognize locally, never uploaded).
+      const ocr = await ocrCanvases(async (pageIndex) => {
+        const page = await doc!.getPage(pageIndex + 1);
+        const viewport = page.getViewport({ scale: 2 });
+        const canvas = document.createElement("canvas");
+        canvas.width = Math.floor(viewport.width);
+        canvas.height = Math.floor(viewport.height);
+        const ctx2d = canvas.getContext("2d");
+        if (!ctx2d) return null;
+        await page.render({ canvasContext: ctx2d, viewport }).promise;
+        return canvas;
+      }, pageCount);
+      if (isScannedLikeText(ocr.text)) {
+        throw new Error(
+          `No readable text found in "${fileName}" — even OCR came back empty (pages may be blank or unreadable).`,
+        );
+      }
+      return {
+        text: `${ocr.text}\n\n(Extracted via on-device OCR — recognition can be imperfect.)`,
+        pages: ocr.pages,
+        kind: "pdf",
+      };
     }
     return { text, pages: pages.length, kind: "pdf" };
   } finally {

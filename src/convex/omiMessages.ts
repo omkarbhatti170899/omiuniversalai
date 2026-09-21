@@ -47,9 +47,32 @@ export const saveInternal = internalMutation({
     role: v.union(v.literal("user"), v.literal("omi")),
     content: v.string(),
     reasoning: v.optional(v.string()),
+    status: v.optional(v.union(v.literal("streaming"), v.literal("final"))),
   },
   handler: async (ctx, args) => {
     return await ctx.db.insert("omiMessages", args);
+  },
+});
+
+/**
+ * Public patch used ONLY by the conversation's own chat action while a
+ * message is streaming (§40). Ownership enforced against the acting user; a
+ * terminal status can never be overwritten (final is final).
+ */
+export const patchInternal = internalMutation({
+  args: {
+    messageId: v.id("omiMessages"),
+    actingUserId: v.id("users"),
+    content: v.optional(v.string()),
+    reasoning: v.optional(v.string()),
+    status: v.optional(v.union(v.literal("streaming"), v.literal("final"))),
+  },
+  handler: async (ctx, { messageId, actingUserId, ...patch }) => {
+    const doc = await ctx.db.get(messageId);
+    if (!doc || doc.userId !== actingUserId) return;
+    // Terminal states are immutable — final is final.
+    if (doc.status === "final") return;
+    await ctx.db.patch(messageId, patch);
   },
 });
 

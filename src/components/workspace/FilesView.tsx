@@ -63,7 +63,7 @@ export function FilesView() {
         preExtracted = out.text;
       } else if (lower.endsWith(".pdf")) {
         // PDF: parsed on-device (pdf.js, Apache-2.0). Scanned/image-only PDFs
-        // fail honestly — OCR is on the roadmap (§35).
+        // fail honestly — on-device OCR (tesseract.js) runs as fallback.
         const bytes = new Uint8Array(await file.arrayBuffer());
         const out = await extractPdf(bytes, file.name);
         preExtracted = out.text;
@@ -191,8 +191,8 @@ export function FilesView() {
             </p>
             <p className="mt-1 max-w-sm text-xs text-muted-foreground">
               Text, Markdown, CSV, JSON, HTML, code, logs, Word (.docx), Excel
-              (.xlsx), PDF (text-based), images · up to 2 MB. Extraction is
-              local — no third-party parsing service.
+              (.xlsx), PDF (text + scanned via on-device OCR), images · up to
+              2 MB. Extraction is local — no third-party parsing service.
             </p>
           </div>
         </CardContent>

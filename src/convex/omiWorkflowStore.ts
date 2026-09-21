@@ -41,7 +41,13 @@ export const updateRun = internalMutation({
     ),
     stage: v.optional(v.string()),
     status: v.optional(
-      v.union(v.literal("running"), v.literal("done"), v.literal("failed")),
+      v.union(
+        v.literal("running"),
+        v.literal("awaiting_approval"),
+        v.literal("done"),
+        v.literal("rejected"),
+        v.literal("failed"),
+      ),
     ),
     result: v.optional(v.string()),
     summary: v.optional(v.string()),
@@ -63,6 +69,21 @@ export const updateRun = internalMutation({
       ),
     ),
     verificationNotes: v.optional(v.array(v.string())),
+    // Phase 10 approval gate (composed in workflows/approval.ts)
+    approval: v.optional(
+      v.object({
+        stepIndex: v.number(),
+        reason: v.string(),
+        requestedAt: v.number(),
+        expiresAt: v.number(),
+        decision: v.optional(
+          v.union(v.literal("approved"), v.literal("rejected")),
+        ),
+        decidedAt: v.optional(v.number()),
+        decisionNote: v.optional(v.string()),
+      }),
+    ),
+    approvalReport: v.optional(v.string()),
     documentId: v.optional(v.id("omiDocuments")),
     error: v.optional(v.string()),
     completedAt: v.optional(v.number()),

@@ -38,6 +38,7 @@ import {
   type StepStatus,
 } from "./workflows/plan";
 import { planQuery } from "./andromeda/query";
+import { buildGate } from "./workflows/approval";
 
 const SUBQUERY_TIMEOUT_MS = 30_000;
 const MAX_PAGES_READ = 6;
@@ -89,7 +90,7 @@ export const startResearchReport = action({
     topic: v.string(),
     focus: v.optional(v.string()),
   },
-  handler: async (ctx, { topic, focus }): Promise<{ runId: string }> => {
+  handler: async (ctx, { topic, focus }): Promise<{ runId: string; awaitingApproval: boolean }> => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to run workflows.");
 
@@ -266,24 +267,21 @@ export const startResearchReport = action({
         stage: stageOf(steps),
       });
 
-      // --- Step 6: Save the report deliverable (knowledge base, searchable)
+      // --- Step 6: APPROVAL GATE (Phase 10/§11) — the report save is a
+      // MUTATING step, so Omi pauses and asks. The user approves the exact
+      // composed artifact (stored in approvalReport), never a promise.
       const report = composeReport(trimmed, answer, footer, verification);
-      const documentId = await ctx.runMutation(
-        internal.omiWorkflowStore.insertReportDocument,
-        {
-          userId,
-          title: `Research report: ${trimmed.slice(0, 150)}`,
-          content: report.slice(0, 60_000),
-          wordCount: report.split(/\s+/).filter(Boolean).length,
-        },
-      );
+      const gate = buildGate(report, Date.now());
+      if (!gate.ok) {
+        throw new Error(gate.message);
+      }
 
-      setStep(steps, 5, "done", "Report saved to knowledge");
+      setStep(steps, 5, "pending", "Awaiting your approval");
       await ctx.runMutation(internal.omiWorkflowStore.updateRun, {
         runId,
         steps: toStepRows(steps),
-        status: "done",
-        stage: "Done",
+        status: "awaiting_approval",
+        stage: "Awaiting approval",
         result: answer.slice(0, 8000),
         summary: summary.slice(0, 500),
         citations: pack.items.map((e) => ({
@@ -293,11 +291,11 @@ export const startResearchReport = action({
         })),
         verification: verification.verdict,
         verificationNotes: verification.notes,
-        documentId,
-        completedAt: Date.now(),
+        approval: gate.gate,
+        approvalReport: gate.report,
       });
 
-      return { runId };
+      return { runId, awaitingApproval: true };
     } catch (e) {
       const message = e instanceof Error ? e.message : String(e);
       const failedSteps: StepRow[] = steps.map((s) => ({

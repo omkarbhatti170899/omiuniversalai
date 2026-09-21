@@ -75,6 +75,29 @@ export const send = action({
       content: trimmed,
     });
 
+    // 1b) Progressive response (§40): create Omi's message document FIRST as
+    // a live placeholder so the UI reacts to each stage instead of a spinner.
+    const omiMessageId = await ctx.runMutation(internal.omiMessages.saveInternal, {
+      userId,
+      conversationId,
+      role: "omi",
+      content: "Omi is thinking…",
+      status: "streaming",
+    });
+    const patchStreaming = (patch: {
+      content?: string;
+      reasoning?: string;
+      status?: "streaming" | "final";
+    }) =>
+      ctx.runMutation(internal.omiMessages.patchInternal, {
+        messageId: omiMessageId,
+        actingUserId: userId,
+        ...patch,
+      });
+
+    // 1c) If anything below fails, the live message must never stay stuck
+    // in "streaming" — finalize it with an honest error (§35).
+    try {
     // 2) Ground Omi: persistent memory + knowledge base + recent context
     const [memories, recent, knowledge] = await Promise.all([
       ctx.runQuery(internal.omiMemories.listInternal, { userId, limit: 40 }),
@@ -107,15 +130,19 @@ export const send = action({
 
     // 3) Universal live search for this turn (multi-engine, deduped,
     //    domain-diverse). Never throws — a failing engine set must not
-    //    break the conversation.
+    //    break the conversation. Progress is streamed into the live message.
     let searchBlock = "";
     let fallbackAnswer: string | null = null;
     try {
+      await patchStreaming({ content: "Omi is searching the web…" });
       const universal = await runUniversalSearch(ctx, trimmed, {
         perEngineLimit: 3,
         maxCitations: 4,
       });
       if (universal.citations.length > 0) {
+        await patchStreaming({
+          content: `Reading ${universal.citations.length} sources…`,
+        });
         searchBlock =
           "Live web search results (cite them inline as [1], [2] … where used):\n" +
           universal.citations
@@ -155,6 +182,7 @@ export const send = action({
 
     // 5) Reason + answer — routed as a reasoning task (transparent thinking
     //    before acting), on whichever provider is active.
+    await patchStreaming({ content: "Omi is reasoning…" });
     const result = await complete({
       task: "reasoning",
       messages: chat,
@@ -190,17 +218,26 @@ export const send = action({
     }
 
     if (!content) {
-      throw new Error("Omi returned an empty answer. Try again.");
+      // Never leave a streaming message stuck: finalize honestly.
+      await patchStreaming({
+        content: "I hit an empty answer from the AI layer. Please try again.",
+        status: "final",
+      });
+      return { userMessageId, omiMessageId };
     }
 
-    const omiMessageId = await ctx.runMutation(internal.omiMessages.saveInternal, {
-      userId,
-      conversationId,
-      role: "omi",
-      content,
-      reasoning,
-    });
+    // 6b) Finalize the SAME streaming message — the whole reply was one
+    // live document, no stuck placeholders.
+    await patchStreaming({ content, reasoning, status: "final" });
 
     return { userMessageId, omiMessageId };
+    } catch (e) {
+      const message = e instanceof Error ? e.message : String(e);
+      await patchStreaming({
+        content: `Something went wrong mid-answer: ${message.slice(0, 200)}`,
+        status: "final",
+      });
+      throw e;
+    }
   },
 });
