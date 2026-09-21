@@ -76,14 +76,21 @@ function makeCaches(
 async function loadServiceWorker(opts: {
   prefillCache?: Array<[string, Response]>;
   fetchImpl?: typeof fetch;
+  /** Worker scope — defaults to the root-host deployment. */
+  scope?: string;
 } = {}): Promise<Harness> {
   const handlers: Record<string, Handler[]> = {};
   const cacheStore = new Map<string, Map<string, Response>>();
   const fetchLog: string[] = [];
   const listeners: Array<(n: string) => void> = [];
 
+  // The SW derives APP_BASE/OFFLINE_URL from registration.scope — real
+  // service workers ALWAYS have a scope (default: the SW's directory), so
+  // the harness provides one. Overridable to test subpath deployments.
+  const SCOPE = opts.scope ?? "https://omi.example/";
   const swSelf: Record<string, unknown> = {
-    location: new URL("https://omi.example/sw.js"),
+    // Real SWs always share origin with their scope — derive location.
+    location: new URL("sw.js", SCOPE),
     addEventListener: (type: string, fn: Handler) => {
       (handlers[type] ??= []).push(fn);
     },
@@ -91,12 +98,11 @@ async function loadServiceWorker(opts: {
     clients: {
       claim: async () => undefined,
     },
-    registration: {},
+    registration: { scope: SCOPE },
   };
 
   // Real service workers resolve relative fetch URLs against the worker
   // scope (https://omi.example/). The harness reproduces that behavior.
-  const SCOPE = "https://omi.example/";
   const resolveUrl = (u: string) => new URL(u, SCOPE).toString();
 
   const fetchImpl: typeof fetch =
@@ -130,7 +136,7 @@ async function loadServiceWorker(opts: {
   fn(sandbox.self, cachesImpl, fetchImpl, Response, URL, console);
 
   if (opts.prefillCache) {
-    const cache = await cachesImpl.open("omi-shell-v1");
+    const cache = await cachesImpl.open("omi-shell-v2");
     for (const [url, res] of opts.prefillCache) cache.put(url, res);
   }
 
@@ -170,13 +176,16 @@ function makeFetchEvent(request: Request) {
 
 describe("PWA artifacts", () => {
   test("manifest is valid JSON with real branding and an existing icon", () => {
-    const manifest = JSON.parse(readFileSync(new URL("../public/manifest.webmanifest", import.meta.url).pathname, "utf-8"));
+    const manifestUrl = new URL("../public/manifest.webmanifest", import.meta.url);
+    const manifest = JSON.parse(readFileSync(manifestUrl.pathname, "utf-8"));
     expect(manifest.name).toContain("Ominnovations");
     expect(manifest.short_name).toBe("Omi");
     expect(manifest.display).toBe("standalone");
     expect(manifest.icons.length).toBeGreaterThan(0);
     for (const icon of manifest.icons) {
-      const iconPath = new URL(`../public${icon.src}`, import.meta.url).pathname;
+      // Spec-correct: icon paths resolve against the MANIFEST URL (relative
+      // icons keep the manifest subpath-safe for GitHub Pages).
+      const iconPath = new URL(icon.src, manifestUrl).pathname;
       expect(existsSync(iconPath)).toBe(true);
     }
   });
@@ -227,7 +236,7 @@ describe("PWA artifacts", () => {
     const res = await ev.response!;
     expect(await res.text()).toBe(`network:https://omi.example/`);
     // The fresh response was put back into the cache.
-    const map = h.cacheStore.get("omi-shell-v1")!;
+    const map = h.cacheStore.get("omi-shell-v2")!;
     expect((await map.get("https://omi.example/")!.text())).toBe(`network:https://omi.example/`);
   });
 
@@ -267,14 +276,67 @@ describe("PWA artifacts", () => {
     await ev.done();
     expect(seen).toContain("https://omi.example/offline.html");
   });
+
+  test("subpath deployment (GitHub Pages /omiuniversalai/): scope-derived paths", async () => {
+    // The whole point of the scope-relative SW: identical artifact serves a
+    // repository-subpath host. Offline precache, asset interception, and the
+    // SPA-miss shell fallback must all live under the subpath.
+    const base = "https://user.github.io/omiuniversalai/";
+    const h = await loadServiceWorker({
+      scope: base,
+      fetchImpl: (async (input: RequestInfo | URL) => {
+        const url =
+          input instanceof Request
+            ? input.url
+            : typeof input === "string"
+              ? input
+              : String(input);
+        if (url === `${base}offline.html`) return new Response("OFFLINE-PAGE");
+        return new Response(`network:${url}`, { status: 200 });
+      }) as typeof fetch,
+    });
+
+    // Install pre-caches the subpath offline page.
+    const installEv = makeExtendableEvent();
+    await h.dispatch("install", installEv);
+    await installEv.done();
+    const offline = h.cacheStore.get("omi-shell-v2")!.get(`${base}offline.html`);
+    expect(offline).toBeDefined();
+
+    // Subpath hashed assets are intercepted cache-first.
+    const asset = makeFetchEvent(
+      new Request(`${base}assets/index-x9y8z7.js`),
+    );
+    await h.dispatch("fetch", asset);
+    const assetRes = await asset.response!;
+    expect(await assetRes.text()).toBe(`network:${base}assets/index-x9y8z7.js`);
+
+    // A 404 deep link (GitHub Pages answers 404 for unknown same-origin
+    // routes once the SW controls the page) falls back to the cached app
+    // shell at the subpath root — React Router then renders the route.
+    const offlineFetch: typeof fetch = (async () =>
+      new Response("GitHub 404 body", { status: 404 })) as typeof fetch;
+    const h2 = await loadServiceWorker({
+      scope: base,
+      prefillCache: [[`${base}`, new Response("APP-SHELL")]],
+      fetchImpl: offlineFetch,
+    });
+    const deep2 = makeFetchEvent(new Request(`${base}dashboard`, { mode: "navigate" }));
+    await h2.dispatch("fetch", deep2);
+    const deepRes = await deep2.response!;
+    expect(deepRes.status).toBe(200);
+    expect(await deepRes.text()).toBe("APP-SHELL");
+  });
 });
 
 describe("SW registration gating (main.tsx)", () => {
   const mainSource = readFileSync(new URL("../src/main.tsx", import.meta.url).pathname, "utf-8");
 
-  test("registration is production-gated and failure-safe", () => {
+  test("registration is production-gated, scope-relative and failure-safe", () => {
     expect(mainSource).toContain("import.meta.env.PROD");
-    expect(mainSource).toContain("navigator.serviceWorker.register");
+    // Scope-relative registration (works at root and under /omiuniversalai/).
+    expect(mainSource).toMatch(/navigator\.serviceWorker\s*\n?\s*\.register/);
+    expect(mainSource).toContain("import.meta.env.BASE_URL");
     expect(mainSource).toContain(".catch(");
   });
 });

@@ -5,7 +5,12 @@ import path from "path";
 import { defineConfig } from "vite";
 
 // https://vite.dev/config/
-export default defineConfig({
+// `base` is env-driven (§: deploy-agnostic build): GitHub Pages hosts the app
+// under /omiuniversalai/ (VITE_BASE_PATH=/omiuniversalai/ in CI), while the
+// managed dev/preview environment builds with the default "/" — one codebase,
+// both hosts, nothing hardcoded.
+export default defineConfig(({ mode }) => ({
+  base: process.env.VITE_BASE_PATH || "/",
   plugins: [react(), vlyPlugin(), tailwindcss()],
   resolve: {
     alias: {
@@ -97,4 +102,4 @@ export default defineConfig({
       overlay: false,
     },
   },
-});
+}));

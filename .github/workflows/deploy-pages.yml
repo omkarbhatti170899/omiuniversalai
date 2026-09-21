@@ -1,0 +1,66 @@
+name: Deploy to GitHub Pages
+
+# Omi Universal AI — frontend deployment (GitHub Pages target).
+# Builds the EXISTING production bundle (convex codegen → tsc → vite build,
+# all via the repo's own `bun run build`) and publishes dist/ to Pages.
+# The backend stays on the existing Convex deployment; the frontend talks to
+# it via the PUBLIC VITE_CONVEX_URL connection string. No secrets live in the
+# repo — GitHub injects its ephemeral Pages deploy token automatically, and
+# AI keys remain server-side in the Convex dashboard (§28).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; don't cancel an in-flight deploy mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun (uses the repo's bun.lock)
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies (frozen lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Build production bundle
+        env:
+          # Public backend connection string (NOT a secret) — set this once in
+          # Repo → Settings → Secrets and variables → Actions → Variables as
+          # CONVEX_URL, e.g. https://resolute-ptarmigan-187.convex.cloud
+          VITE_CONVEX_URL: ${{ vars.CONVEX_URL }}
+          # Serve the SPA under the repository subpath.
+          VITE_BASE_PATH: /omiuniversalai/
+        run: bun run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

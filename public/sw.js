@@ -13,8 +13,14 @@
  * served stale caches.
  */
 
-const CACHE_NAME = "omi-shell-v1";
-const OFFLINE_URL = "/offline.html";
+// Scope-relative paths: the SW lives at the app root (whatever that is —
+// "/" on the managed preview, "/omiuniversalai/" on GitHub Pages). Deriving
+// from registration.scope means one SW serves both hosts correctly.
+const APP_BASE = new URL(self.registration.scope).pathname;
+// Bump the cache version when the shell's URL structure changes (the
+// subpath deployment moved from absolute to scope-relative offline URL).
+const CACHE_NAME = "omi-shell-v2";
+const OFFLINE_URL = new URL("offline.html", self.registration.scope).toString();
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -43,10 +49,11 @@ self.addEventListener("activate", (event) => {
 });
 
 function isHashedAsset(url) {
-  // Vite emits immutable, content-hashed bundles under /assets/.
+  // Vite emits immutable, content-hashed bundles under the app's assets dir
+  // (scope-relative: /assets/ at root, /omiuniversalai/assets/ on Pages).
   return (
     url.origin === self.location.origin &&
-    url.pathname.startsWith("/assets/") &&
+    url.pathname.startsWith(`${APP_BASE}assets/`) &&
     /\.(?:js|mjs|css|woff2?|ttf|otf|png|jpe?g|svg|webp|ico|wasm)$/.test(
       url.pathname,
     )
@@ -57,12 +64,32 @@ async function networkFirstNavigation(request) {
   const cache = await caches.open(CACHE_NAME);
   try {
     const fresh = await fetch(request);
-    // Opportunistically keep the latest HTML for the offline fallback.
-    cache.put(request, fresh.clone()).catch(() => {});
-    return fresh;
-  } catch {
+    if (fresh.ok) {
+      // Opportunistically keep the latest HTML for the offline fallback.
+      cache.put(request, fresh.clone()).catch(() => {});
+      return fresh;
+    }
+    // Static-host SPA miss (GitHub Pages answers 404) or server error:
+    // serve the cached app shell for THIS url if seen before, else the
+    // cached app root — React Router (with its basename) then renders the
+    // correct route in place. Never cache the error page itself.
     const cached = await cache.match(request, { ignoreSearch: true });
     if (cached) return cached;
+    // NOTE: Cache.match wants a Request or string — an URL object is not
+    // RequestInfo in all implementations (found by the PWA test harness).
+    const shell = await cache.match(
+      new URL(APP_BASE, self.location.origin).toString(),
+    );
+    if (shell) return shell;
+    return (await cache.match(OFFLINE_URL)) || fresh;
+  } catch {
+    // Offline: cached copy → app shell → offline page.
+    const cached = await cache.match(request, { ignoreSearch: true });
+    if (cached) return cached;
+    const shell = await cache.match(
+      new URL(APP_BASE, self.location.origin).toString(),
+    );
+    if (shell) return shell;
     const offline = await cache.match(OFFLINE_URL);
     if (offline) return offline;
     return new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } });

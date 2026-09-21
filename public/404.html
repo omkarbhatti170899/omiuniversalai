@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Omi Universal AI</title>
+    <script>
+      /**
+       * GitHub Pages SPA fallback.
+       *
+       * GitHub serves this file for any unknown path (e.g. /omiuniversalai/
+       * dashboard), because a static host has no server-side routing. The
+       * missed URL is stashed and the browser is bounced to the app root
+       * (the directory containing this 404.html); main.tsx restores the
+       * exact route with history.replaceState before React Router mounts.
+       */
+      (function () {
+        try {
+          sessionStorage.setItem("omi-spa-redirect", window.location.href);
+        } catch {
+          /* storage blocked — fall through; the app still loads at root */
+        }
+        window.location.replace(
+          window.location.pathname.replace(/[^/]*$/, "") +
+            window.location.search,
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

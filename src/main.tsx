@@ -80,7 +80,40 @@ class RootErrorBoundary extends React.Component<
   }
 }
 
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
+// Convex URL is a PUBLIC connection string by design (like a Firebase
+// project id) — it identifies the backend, it is not a secret (§28). Secrets
+// (Groq/DeepSeek/OpenAI keys) stay server-side in the Convex dashboard and
+// are never compiled into the frontend.
+const CONVEX_URL = import.meta.env.VITE_CONVEX_URL as string | undefined;
+const convex = new ConvexReactClient(
+  CONVEX_URL ||
+    // Fail loudly and clearly in a misconfigured deployment (e.g. GitHub
+    // Pages CI without the env var) instead of a cryptic runtime error.
+    (() => {
+      throw new Error(
+        "VITE_CONVEX_URL is not set. The frontend cannot reach the Omi backend. " +
+          "Set it to your Convex deployment URL (https://<deployment>.convex.cloud).",
+      );
+    })(),
+);
+
+// SPA deep links on static hosts (GitHub Pages): public/404.html catches the
+// missed route, stashes it, and bounces here — restore the exact path before
+// React Router mounts (basename below keeps URLs under /omiuniversalai/).
+(function restoreSpaRoute() {
+  try {
+    const stashed = sessionStorage.getItem("omi-spa-redirect");
+    if (!stashed) return;
+    sessionStorage.removeItem("omi-spa-redirect");
+    const target = new URL(stashed);
+    const path = target.pathname + target.search + target.hash;
+    if (path !== window.location.pathname + window.location.search + window.location.hash) {
+      window.history.replaceState(null, "", path);
+    }
+  } catch {
+    /* storage blocked — root route renders, no harm */
+  }
+})();
 
 
 
@@ -115,7 +148,7 @@ createRoot(document.getElementById("root")!).render(
         <VlyToolbar />
       </ToolbarErrorBoundary>
       <ConvexAuthProvider client={convex}>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <RouteSyncer />
           <Suspense fallback={<RouteLoading />}>
             <Routes>
@@ -148,8 +181,14 @@ createRoot(document.getElementById("root")!).render(
 // A failed registration is logged, never thrown: it must not break the app.
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch((err) => {
-      console.warn("[PWA] Service worker registration failed:", err);
-    });
+    // Relative to BASE_URL so the SW scope covers the app on any host —
+    // root deployments (managed preview) and subpath hosts (GitHub Pages
+    // /omiuniversalai/) alike. Scope limits caching to app URLs, never
+    // foreign paths, and never touches Convex API calls (network-only).
+    navigator.serviceWorker
+      .register(`${import.meta.env.BASE_URL}sw.js`)
+      .catch((err) => {
+        console.warn("[PWA] Service worker registration failed:", err);
+      });
   });
 }
