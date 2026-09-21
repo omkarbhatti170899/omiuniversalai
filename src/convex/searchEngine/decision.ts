@@ -41,11 +41,11 @@ const NEWS_WORDS =
 const RESEARCH_WORDS =
   /\b(compare|comparison|vs\.?|versus|best|top \d+|research|alternatives|pros and cons|which .*(?:best|better))\b/i;
 const CONVO_RE =
-  /^(hi+|hello+|hey+|thanks|thank you|good (morning|afternoon|evening|night)|bye+|ok(?:ay)?|who invented you|who are you|what are you|how are you)[\s!?.]*$/i;
+  /^(hi+|hello+|hey+|yo+|thanks|thank you|good (morning|afternoon|evening|night)|bye+|ok(?:ay)?|who invented you|who are you|what are you|how are you)\b[\s,!.]*(there|everyone|all|omi|team|bro)?[\s!?.]*$/i;
 const FILLER_RE =
   /^(?:please\s+)?(?:search(?:\s+for)?|find(?:\s+me)?|look\s+up|google|show\s+me|tell\s+me\s+about|what\s+(?:is|are)|who\s+(?:is|was)|whats|what's)\s+/i;
 
-const CALC_CHARS_RE = /^[\s\d+\-*/().,%^]+$/;
+const CALC_CHARS_RE = /^[\s\d+\-*/().,%^!]+$/;
 const CALC_HINT_RE = /\b(?:calculate|compute|how much is|what is)\b/i;
 
 export function extractUrl(query: string): string | null {
@@ -53,11 +53,23 @@ export function extractUrl(query: string): string | null {
   return m ? m[0] : null;
 }
 
+const CALC_FUNC_RE =
+  /\b(sqrt|cbrt|sin|cos|tan|log|ln|abs|floor|ceil|round|min|max|pi|e)\b/gi;
+
 export function isCalculation(query: string): boolean {
   const q = query.trim();
-  if (q.length === 0 || q.length > 60) return false;
-  if (CALC_CHARS_RE.test(q) && /[+\-*/]/.test(q) && /\d/.test(q)) return true;
+  if (q.length === 0 || q.length > 80) return false;
   if (CALC_HINT_RE.test(q) && /\d\s*[+\-*/]\s*\d/.test(q)) return true;
+  // Strip known function/constant names, then the remainder must be pure
+  // arithmetic characters (includes `!` for factorial, e.g. "17!").
+  const stripped = q.replace(CALC_FUNC_RE, " ").trim();
+  if (
+    CALC_CHARS_RE.test(stripped) &&
+    /\d/.test(stripped) &&
+    /[+\-*/^!]/.test(stripped)
+  ) {
+    return true;
+  }
   return false;
 }
 

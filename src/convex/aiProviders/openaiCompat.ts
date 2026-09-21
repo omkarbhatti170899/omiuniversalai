@@ -17,6 +17,10 @@ export async function openAiCompatibleCompletion(
   req: CompletionRequest,
   label: string,
 ): Promise<CompletionResult> {
+  // Deadline (§40): a hung provider must fail its attempt inside the router
+  // (which then falls through to the next provider) instead of stalling the
+  // whole request. AbortSignal.timeout is supported on Node ≥18 / Bun.
+  const timeoutMs = Number(process.env.AI_PROVIDER_TIMEOUT_MS ?? 45_000);
   try {
     const res = await fetch(url, {
       method: "POST",
@@ -30,6 +34,7 @@ export async function openAiCompatibleCompletion(
         temperature: req.temperature,
         max_tokens: req.maxTokens,
       }),
+      signal: AbortSignal.timeout(timeoutMs),
     });
 
     const bodyText = await res.text();
@@ -43,10 +48,11 @@ export async function openAiCompatibleCompletion(
     const parsed = JSON.parse(bodyText) as CompletionResult["data"];
     return { success: true, data: parsed };
   } catch (e) {
-    return {
-      success: false,
-      error: `${label} failed: ${e instanceof Error ? e.message : String(e)}`,
-    };
+    const raw = e instanceof Error ? e.message : String(e);
+    const msg = /abort|timeout|timed out/i.test(raw)
+      ? `${label} timed out after ${Math.round(timeoutMs / 1000)}s`
+      : `${label} failed: ${raw}`;
+    return { success: false, error: msg };
   }
 }
 

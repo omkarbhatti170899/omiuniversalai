@@ -77,3 +77,30 @@ export function withTimeout<T>(
     ),
   ]);
 }
+
+// --- Guarded provider call (circuit breaker + timeout, composed) -----------
+
+/**
+ * The ONE way any search/AI provider should be invoked: circuit-checked,
+ * timed out, and outcome-recorded. Used by the universal fan-out so a
+ * repeatedly failing or hung provider is skipped/cooled-down instead of
+ * being re-tried on every request (§7, §30).
+ */
+export async function guardedCall<T>(
+  providerId: string,
+  label: string,
+  fn: () => Promise<T>,
+  timeoutMs: number,
+): Promise<T> {
+  if (!breakerAllow(providerId)) {
+    throw new Error(`${label}: circuit open (cooling down)`);
+  }
+  try {
+    const result = await withTimeout(fn(), timeoutMs, label);
+    breakerRecord(providerId, true);
+    return result;
+  } catch (e) {
+    breakerRecord(providerId, false);
+    throw e;
+  }
+}

@@ -79,11 +79,15 @@ Registered today — **all keyless, all $0 per query:**
 | **Your documents** | internal (Convex + BM25) | highest-trust source — `internal://` citations, searched FIRST, never leaves the workspace |
 | DuckDuckGo | keyless HTML | last-resort web floor |
 
-Every provider gets: timeout, retry, error isolation, health status; a slow
-or dead source never blocks Andromeda (graceful fallback, §30). Cost
-controls: bounded fan-out (≤3 query angles), per-engine result caps,
-dedupe-before-synthesis, cache with freshness-aware bypass, synthesis only
-when gates leave enough evidence.
+Every provider call is wrapped in a **composed guard** (`guardedCall`):
+circuit breaker (a provider failing 3× opens its circuit and is skipped for a
+60s cooldown — half-open probes test recovery) + per-call timeout
+(`SEARCH_PROVIDER_TIMEOUT_MS`, default 12s). A slow or dead source never
+blocks Andromeda (graceful fallback, §30). Live-environment verification has
+shown this matters: arXiv can exceed timeouts from some hosts — its breaker
+opens and the other sources keep flowing. Cost controls: bounded fan-out
+(≤3 query angles), per-engine result caps, dedupe-before-synthesis, cache
+with freshness-aware bypass, synthesis only when gates leave enough evidence.
 
 **[PLANNED] provider seams** (interface already supports them):
 - Commercial APIs (Brave, Exa, Tavily, Serper…) — optional, off by default,
@@ -173,3 +177,10 @@ env/secrets only — never in code, never in the frontend (§28).
 - **Progressive chat** — Omi's reply updates live through
   thinking → searching → reading → reasoning stages; final answers are
   immutable **[IMPLEMENTED]**
+- **Universal orchestration in chat** — every message is classified first:
+  calculations → sandboxed local engine (zero network), greetings → no
+  search, URLs → page-read instead of engine spam, knowledge/current/news →
+  Andromeda **[IMPLEMENTED]**
+- **Resilience** — `guardedCall` (circuit breaker + timeout) wraps every
+  search provider; AI provider transports carry abort deadlines; /api/status
+  surfaces circuit state **[IMPLEMENTED]**

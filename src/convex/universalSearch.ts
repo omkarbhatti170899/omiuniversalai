@@ -26,6 +26,7 @@ import {
   dedupeSyndication,
 } from "./searchEngine/quality";
 import { internal } from "./_generated/api";
+import { guardedCall } from "./searchEngine/resilience";
 
 export type UniversalResult = {
   query: string;
@@ -102,11 +103,23 @@ export async function runUniversalSearch(
   // --- Multi-engine fan-out ----------------------------------------------
   const keywords = keywordSet(query);
 
+  // Resilience (§7/§30): every provider call is (1) circuit-broken — a
+  // repeatedly failing engine is skipped for a cooldown instead of being
+  // re-tried on every search — and (2) timed out so a hung provider can
+  // never stall the pipeline. Failed engines degrade the result set; they
+  // never block the fan-out (Promise.allSettled error isolation).
+  const perProviderTimeoutMs = Number(
+    process.env.SEARCH_PROVIDER_TIMEOUT_MS ?? 12_000,
+  );
   const settled = await Promise.allSettled(
-    providers.map(async (p) => ({
-      engine: p,
-      result: await p.search(query, perEngine, engineOpts),
-    })),
+    providers.map((p) =>
+      guardedCall(
+        p.id,
+        p.label,
+        () => p.search(query, perEngine, engineOpts),
+        perProviderTimeoutMs,
+      ).then((result) => ({ engine: p, result })),
+    ),
   );
 
   const merged: Array<{ c: WebCitation; engine: string; score: number }> = [];
