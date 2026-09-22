@@ -13,12 +13,13 @@
  */
 
 import type { ProviderId } from "./catalog";
+import { isProviderDisabled } from "./catalog";
 
 /** Tasks vision is for: describing, extracting, answering about an image. */
 export type VisionTask = "describe" | "extract" | "answer";
 
 export type VisionProviderDescriptor = {
-  id: Extract<ProviderId, "groq" | "openai">;
+  id: Extract<ProviderId, "groq" | "gemini" | "openai">;
   label: string;
   /** Every env var here must be set for the provider to activate. */
   envKeys: string[];
@@ -62,6 +63,24 @@ export const VISION_PROVIDERS: VisionProviderDescriptor[] = [
     // Discovery + VISION_GROQ_MODEL cover replacement, honestly.
     fallbackModels: [],
     hint: "Add a free GROQ_API_KEY (console.groq.com → API Keys) in the project's API Keys tab.",
+  },
+  {
+    // Second, INDEPENDENT vision provider: Groq's tier cap (429 "Request too
+    // large ... tokens per minute") can no longer leave image understanding
+    // unavailable, because Gemini speaks the same multimodal message shape
+    // (text + image_url parts) on its own OpenAI-compatible endpoint and its
+    // own free quota.
+    id: "gemini",
+    label: "Google Gemini Vision (free tier)",
+    envKeys: ["GEMINI_API_KEY"],
+    cost: "free tier, rate-limited",
+    taskModels: {
+      describe: "gemini-2.5-flash",
+      extract: "gemini-2.5-flash",
+      answer: "gemini-2.5-flash",
+    },
+    fallbackModels: ["gemini-2.5-flash-lite", "gemini-2.0-flash"],
+    hint: "Add a free GEMINI_API_KEY (aistudio.google.com → Get API key) in the project's API Keys tab.",
   },
   {
     id: "openai",
@@ -123,7 +142,12 @@ export const ALLOWED_IMAGE_TYPES = new Set([
 ]);
 
 export function visionProviderConfigured(p: VisionProviderDescriptor): boolean {
-  return p.envKeys.every((k) => Boolean(process.env[k]));
+  return (
+    p.envKeys.every((k) => Boolean(process.env[k])) &&
+    // Honour the deployment-level kill switch, same as the text chain — a
+    // provider deliberately removed from routing must not sneak back in here.
+    !isProviderDisabled(p.id)
+  );
 }
 
 export function getConfiguredVisionProviders(): VisionProviderDescriptor[] {

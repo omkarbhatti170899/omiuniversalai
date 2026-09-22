@@ -20,7 +20,7 @@ import {
   visionModelFor,
   type VisionTask,
 } from "./visionCatalog";
-import { GROQ_URL, OPENAI_URL } from "./catalog";
+import { GROQ_URL, GEMINI_URL, OPENAI_URL } from "./catalog";
 import { isModelSpecific } from "./openaiCompat";
 import { filterToAvailableModels } from "./modelDiscovery";
 import type { ProviderId } from "./catalog";
@@ -46,6 +46,8 @@ function endpointFor(id: ProviderId): string | null {
   switch (id) {
     case "groq":
       return GROQ_URL;
+    case "gemini":
+      return GEMINI_URL;
     case "openai":
       return OPENAI_URL;
     default:

@@ -29,7 +29,7 @@ export const AI_TASKS: AiTask[] = [
   "research",
 ];
 
-export type ProviderId = "vly" | "groq" | "openai" | "deepseek";
+export type ProviderId = "vly" | "groq" | "gemini" | "openai" | "deepseek";
 
 export type ProviderDescriptor = {
   id: ProviderId;
@@ -49,34 +49,30 @@ export type ProviderDescriptor = {
 export const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 export const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
 export const DEEPSEEK_URL = "https://api.deepseek.com/chat/completions";
+/** Google's OpenAI-compatible surface — same protocol, separate free quota. */
+export const GEMINI_URL =
+  "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions";
 
 /**
  * Registered providers in priority order:
- *   1. VLY workspace gateway (provided with the workspace, no marginal cost)
- *   2. Groq free tier (zero cost, rate-limited)
+ *   1. Groq free tier (zero cost, rate-limited) — PRIMARY
+ *   2. Gemini free tier (independent quota, OpenAI-compatible endpoint) — SECONDARY
  *   3. OpenAI (optional metered adapter — off unless a key exists)
+ *   4. DeepSeek (optional adapter — off unless a key exists)
+ *
+ * The workspace gateway ("vly") was REMOVED from the registry outright: its
+ * platform-injected key is rejected by the gateway itself, so every AI request
+ * paid a guaranteed-failed round-trip before reaching a working provider
+ * (verified live — /selftest reported "after 1 fallback attempt(s)" on every
+ * AI check; after removal: zero fallback attempts). The adapter in index.ts
+ * is kept so re-registration is a one-object change if the gateway is ever
+ * fixed. Unrelated providers can also be disabled per-deployment without a
+ * code change via OMI_DISABLE_PROVIDERS (comma list of IDs).
  *
  * To add a provider (e.g. a self-hosted Ollama/vLLM endpoint later), add a
  * descriptor here plus an adapter in index.ts. No call site changes.
  */
 export const AI_PROVIDERS: ProviderDescriptor[] = [
-  {
-    id: "vly",
-    label: "Workspace gateway",
-    envKeys: ["VLY_INTEGRATION_KEY"],
-    cost: "included with workspace",
-    taskModels: {
-      conversational: "gpt-4o-mini",
-      reasoning: "gpt-4o-mini",
-      summarization: "gpt-4o-mini",
-      extraction: "gpt-4o-mini",
-      classification: "gpt-4o-mini",
-      coding: "gpt-4o-mini",
-      research: "gpt-4o-mini",
-    },
-    fallbackModels: [],
-    hint: "Provided automatically with the workspace — nothing to set up.",
-  },
   {
     id: "groq",
     label: "Groq (free tier)",
@@ -100,6 +96,28 @@ export const AI_PROVIDERS: ProviderDescriptor[] = [
     // detected rather than fatal.
     fallbackModels: ["openai/gpt-oss-120b", "qwen/qwen3.8-27b"],
     hint: "Add a free GROQ_API_KEY (console.groq.com → API Keys) in the project's API Keys tab.",
+  },
+  {
+    id: "gemini",
+    label: "Google Gemini (free tier)",
+    envKeys: ["GEMINI_API_KEY"],
+    // Independent quota: a separate company and rate budget from Groq, which
+    // is the whole point of this slot — one provider's 429 no longer means
+    // every capability stalls.
+    cost: "free tier, rate-limited",
+    taskModels: {
+      conversational: "gemini-2.5-flash",
+      reasoning: "gemini-2.5-flash",
+      summarization: "gemini-2.5-flash",
+      extraction: "gemini-2.5-flash",
+      classification: "gemini-2.5-flash",
+      coding: "gemini-2.5-flash",
+      research: "gemini-2.5-flash",
+    },
+    // Verified against the provider's own /models list before use
+    // (modelDiscovery.ts), so a retired entry costs zero round-trips.
+    fallbackModels: ["gemini-2.5-flash-lite", "gemini-2.0-flash"],
+    hint: "Add a free GEMINI_API_KEY (aistudio.google.com → Get API key) in the project's API Keys tab.",
   },
   {
     id: "openai",
@@ -137,12 +155,33 @@ export const AI_PROVIDERS: ProviderDescriptor[] = [
   },
 ];
 
+/**
+ * Deployment-level kill switch for providers, e.g. OMI_DISABLE_PROVIDERS=vly.
+ * Comma/space separated IDs. Server-side env only — never sent to a client.
+ *
+ * This is how the rejected workspace gateway left the routing chain: the
+ * platform injects VLY_INTEGRATION_KEY automatically (it cannot be deleted
+ * from the deployment), so the disable list is the supported way to keep the
+ * gateway registered-but-unrouted.
+ */
+export function isProviderDisabled(id: string): boolean {
+  const raw = (process.env.OMI_DISABLE_PROVIDERS ?? "").trim().toLowerCase();
+  if (raw.length === 0) return false;
+  return raw
+    .split(/[\s,]+/)
+    .filter(Boolean)
+    .includes(id.toLowerCase());
+}
+
 export function providerConfigured(p: ProviderDescriptor): boolean {
   return p.envKeys.every((k) => Boolean(process.env[k]));
 }
 
+/** Configured = key present AND not explicitly disabled. Drives routing. */
 export function getConfiguredAiProviders(): ProviderDescriptor[] {
-  return AI_PROVIDERS.filter(providerConfigured);
+  return AI_PROVIDERS.filter(
+    (p) => providerConfigured(p) && !isProviderDisabled(p.id),
+  );
 }
 
 export function hasAiProvider(): boolean {
@@ -162,6 +201,7 @@ export function getAiStatus() {
     id: p.id,
     label: p.label,
     configured: providerConfigured(p),
+    disabled: isProviderDisabled(p.id),
     cost: p.cost,
     taskModels: p.taskModels,
     hint: p.hint,

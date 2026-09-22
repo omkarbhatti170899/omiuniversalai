@@ -15,6 +15,7 @@
 
 import {
   GROQ_URL,
+  GEMINI_URL,
   OPENAI_URL,
   DEEPSEEK_URL,
   getConfiguredAiProviders,
@@ -103,6 +104,15 @@ function adapterFor(p: ProviderDescriptor): Adapter {
           req,
           `Groq(${model})`,
         );
+    case "gemini":
+      return (model, req) =>
+        openAiCompatibleCompletion(
+          GEMINI_URL,
+          process.env.GEMINI_API_KEY as string,
+          model,
+          req,
+          `Gemini(${model})`,
+        );
     case "openai":
       return (model, req) =>
         openAiCompatibleCompletion(
@@ -135,11 +145,14 @@ function transportFor(
   switch (p.id) {
     case "groq":
       return { url: GROQ_URL, key: process.env.GROQ_API_KEY ?? "" };
+    case "gemini":
+      return { url: GEMINI_URL, key: process.env.GEMINI_API_KEY ?? "" };
     case "openai":
       return { url: OPENAI_URL, key: process.env.OPENAI_API_KEY ?? "" };
     case "deepseek":
       return { url: DEEPSEEK_URL, key: process.env.DEEPSEEK_API_KEY ?? "" };
     default:
+      // The workspace gateway — different transport, no /models catalogue.
       return null;
   }
 }
