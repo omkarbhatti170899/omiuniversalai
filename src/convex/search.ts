@@ -31,7 +31,10 @@ import { getProviderStatus } from "./searchProviders";
 import { assertSafeUrl } from "./searchEngine/security";
 import { decideSearch, isCalculation, extractUrl } from "./searchEngine/decision";
 import { rateLimit, breakerStatus } from "./searchEngine/resilience";
-import { evaluateExpression } from "./searchEngine/calculator";
+import {
+  evaluateExpression,
+  extractMathExpression,
+} from "./searchEngine/calculator";
 // §45 — single source of truth for product identity, shared by every surface.
 import { creatorIdentityBlock } from "./omiIdentity";
 import { buildEvidencePack, sourcesFooter } from "./searchEngine/evidence";
@@ -141,7 +144,7 @@ export const searchWeb = action({
     // Calculations never need an engine — answer directly via the sandboxed
     // arithmetic engine (no eval/Function: §27/§28).
     if (decision.intent === "calculation") {
-      const expr = trimmed.replace(/[^0-9+\-*/().,%^\s!a-zA-Z]/g, "").trim();
+      const expr = extractMathExpression(trimmed);
       const calc = evaluateExpression(expr);
       const answer = calc.ok
         ? `${trimmed} = ${calc.formatted}`

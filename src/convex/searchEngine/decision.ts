@@ -32,6 +32,8 @@ export type DecisionResult = {
   reasons: string[];
 };
 
+import { normalizeMathOperators } from "./calculator";
+
 const URL_RE = /https?:\/\/[^\s<>"')\]]+/i;
 
 const FRESH_WORDS =
@@ -46,7 +48,10 @@ const FILLER_RE =
   /^(?:please\s+)?(?:search(?:\s+for)?|find(?:\s+me)?|look\s+up|google|show\s+me|tell\s+me\s+about|what\s+(?:is|are)|who\s+(?:is|was)|whats|what's)\s+/i;
 
 const CALC_CHARS_RE = /^[\s\d+\-*/().,%^!]+$/;
-const CALC_HINT_RE = /\b(?:calculate|compute|how much is|what is)\b/i;
+const CALC_HINT_RE = /\b(?:calculate|compute|how much is|what is|what's|whats)\b/i;
+/** Natural-language wrapper in front of an expression ("What's 25 * 48?"). */
+const CALC_PREFIX_RE =
+  /^\s*(?:what(?:'s|s| is| are)?|how\s+much\s+is|how\s+many\s+is|calculate|compute|work\s+out|solve|evaluate|equals?)\s+/i;
 
 export function extractUrl(query: string): string | null {
   const m = query.match(URL_RE);
@@ -56,13 +61,29 @@ export function extractUrl(query: string): string | null {
 const CALC_FUNC_RE =
   /\b(sqrt|cbrt|sin|cos|tan|log|ln|abs|floor|ceil|round|min|max|pi|e)\b/gi;
 
+/** A bare function call, e.g. sqrt(144) — arithmetic with no operator in it. */
+const CALC_FUNC_CALL_RE =
+  /^(?:sqrt|cbrt|sin|cos|tan|log|ln|abs|floor|ceil|round|min|max)\s*\(/i;
+
 export function isCalculation(query: string): boolean {
-  const q = query.trim();
+  // Normalize first: × ÷ − are what phone keyboards and copied text produce,
+  // and without this "What's 25 × 48?" never even looked like arithmetic.
+  const q = normalizeMathOperators(query).trim();
   if (q.length === 0 || q.length > 80) return false;
-  if (CALC_HINT_RE.test(q) && /\d\s*[+\-*/]\s*\d/.test(q)) return true;
-  // Strip known function/constant names, then the remainder must be pure
-  // arithmetic characters (includes `!` for factorial, e.g. "17!").
-  const stripped = q.replace(CALC_FUNC_RE, " ").trim();
+  if (CALC_HINT_RE.test(q) && /\d\s*[+\-*/^%]\s*\d/.test(q)) return true;
+  // Drop a natural-language wrapper, trailing question marks, and known
+  // function/constant names; the remainder must be pure arithmetic (including
+  // `!` for factorial, e.g. "17!").
+  const bare = q
+    .replace(CALC_PREFIX_RE, "")
+    // Trailing question/assignment marks only — never `!`, which is factorial.
+    .replace(/[?=]+\s*$/g, "")
+    .trim();
+  // A bare function call (sqrt, log, sin ...) is arithmetic even with no
+  // operator in it. The product own error hint advertises exactly this form,
+  // yet it used to fall through to a web search instead of being computed.
+  if (CALC_FUNC_CALL_RE.test(bare)) return true;
+  const stripped = bare.replace(CALC_FUNC_RE, " ").trim();
   if (
     CALC_CHARS_RE.test(stripped) &&
     /\d/.test(stripped) &&

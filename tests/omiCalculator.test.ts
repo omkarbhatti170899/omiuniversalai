@@ -9,13 +9,85 @@ import { describe, test, expect } from "bun:test";
 import {
   CALC_LIMITS,
   evaluateExpression,
+  extractMathExpression,
+  normalizeMathOperators,
 } from "../src/convex/searchEngine/calculator";
+import { isCalculation } from "../src/convex/searchEngine/decision";
 
 function ok(expr: string): number {
   const r = evaluateExpression(expr);
   expect(r.ok).toBe(true);
   return r.ok ? r.value : NaN;
 }
+
+/**
+ * Regression suite for the real routing failure behind master-plan test 1.
+ *
+ * "What's 25 × 48?" — the most natural way to type a multiplication, and the
+ * exact phrasing the plan specifies — never reached the calculator: the ×
+ * (U+00D7) that phone keyboards and copied text produce was rejected as an
+ * "unexpected character", the natural-language wrapper defeated the
+ * arithmetic test, and the expression builder then deleted the operator and
+ * produced nonsense like "Whats 25 48".
+ */
+describe("calculator routing from natural-language input", () => {
+  const SHOULD_CALC: Array<[string, string]> = [
+    ["What's 25 × 48?", "1200"],
+    ["25 × 48", "1200"],
+    ["what is 25 x 48", "1200"],
+    ["Whats 25 * 48?", "1200"],
+    ["100 ÷ 4", "25"],
+    ["10 − 3", "7"],
+    ["how much is 12*4", "48"],
+    ["sqrt(144)", "12"],
+    ["log(100)", "2"],
+    ["25 * 48 =", "1200"],
+  ];
+
+  for (const [input, expected] of SHOULD_CALC) {
+    test(`routes and computes: ${input}`, () => {
+      expect(isCalculation(input)).toBe(true);
+      const r = evaluateExpression(extractMathExpression(input));
+      expect(r.ok).toBe(true);
+      if (r.ok) expect(r.formatted).toBe(expected);
+    });
+  }
+
+  test("factorial survives: `!` is an operator, not a question mark", () => {
+    // Stripping `!` as punctuation silently turned 17! into 17.
+    expect(isCalculation("17!")).toBe(true);
+    expect(ok(extractMathExpression("17!"))).toBe(355687428096000);
+    expect(ok(extractMathExpression("5!"))).toBe(120);
+  });
+
+  test("Unicode operators normalize to ASCII", () => {
+    expect(normalizeMathOperators("6 × 7 ÷ 2 − 1")).toBe("6 * 7 / 2 - 1");
+    expect(normalizeMathOperators("3 · 4")).toBe("3 * 4");
+    expect(ok(normalizeMathOperators("6 × 7"))).toBe(42);
+  });
+
+  test("extractMathExpression keeps a clean expression intact", () => {
+    expect(extractMathExpression("(12*4)+7")).toBe("(12*4)+7");
+    expect(extractMathExpression("What's (12*4)+7?")).toBe("(12*4)+7");
+  });
+
+  test("ordinary questions are NOT hijacked into the calculator", () => {
+    const notMath = [
+      "what is the capital of France",
+      "who created Bitcoin",
+      "explain quantum entanglement",
+      "compare iPhone vs Pixel",
+      "best laptops 2026",
+      "how do I reset my password",
+    ];
+    for (const q of notMath) expect(isCalculation(q)).toBe(false);
+  });
+
+  test("numbers without an operator are not calculations", () => {
+    expect(isCalculation("2026")).toBe(false);
+    expect(isCalculation("how many users in 2026")).toBe(false);
+  });
+});
 
 function err(expr: string): string {
   const r = evaluateExpression(expr);

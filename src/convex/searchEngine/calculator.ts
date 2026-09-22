@@ -338,6 +338,64 @@ function factorial(n: number): number | { error: string } {
   return acc;
 }
 
+// --- Input normalization --------------------------------------------------------
+
+/**
+ * Map Unicode maths symbols onto their ASCII operators.
+ *
+ * Users type × and ÷ constantly — phone keyboards default to them, and text
+ * copied out of rendered documents carries − (U+2212) and en/em dashes. The
+ * evaluator used to reject these outright ("unexpected character ×"), so
+ * "What's 25 × 48?" — the single most natural way to type a multiplication —
+ * never reached the calculator at all.
+ */
+export function normalizeMathOperators(input: string): string {
+  return input
+    .replace(/[\u00D7\u22C5\u00B7\u2217\uFF0A]/g, "*") // × ⋅ · ∗ ＊
+    .replace(/[\u00F7\u2215\u2044\uFF0F]/g, "/") // ÷ ∕ ⁄ ／
+    .replace(/[\u2212\u2013\u2014\u2010\u2011\uFF0D]/g, "-") // − – — ‐ ‑ －
+    .replace(/[\uFF0B]/g, "+")
+    .replace(/[\uFF08]/g, "(")
+    .replace(/[\uFF09]/g, ")")
+    .replace(/[\u02C6\uFF3E]/g, "^")
+    .replace(/[\uFF0C]/g, ",")
+    // "25 x 48" — the letter x between two digits is multiplication in every
+    // real-world usage (nobody means the variable x there), and it was the
+    // last common way of writing × that still failed.
+    .replace(/(\d)\s*[xX]\s*(\d)/g, "$1*$2");
+}
+
+/**
+ * Natural-language wrapper in front of a maths expression, e.g. "What's " in
+ * "What's 25 * 48?". Stripped before the arithmetic-character test so a polite
+ * question is still recognised as a calculation.
+ */
+const CALC_PREFIX_RE =
+  /^\s*(?:what(?:'s|s| is| are)?|how\s+much\s+is|how\s+many\s+is|calculate|compute|work\s+out|solve|evaluate|equals?)\s+/i;
+
+/**
+ * Pull the arithmetic expression out of a natural-language question.
+ *
+ * This exists because the same naive strip was duplicated in two call sites
+ * (chat and search) and both mangled Unicode operators, silently producing
+ * nonsense like "Whats 25 48" instead of an expression. One shared helper
+ * means one place to get it right.
+ */
+export function extractMathExpression(input: string): string {
+  return normalizeMathOperators(input)
+    .replace(CALC_PREFIX_RE, "")
+    // Strip question/assignment wrappers only. `!` is deliberately NOT
+    // stripped — it is the factorial operator, and removing it silently
+    // turned "17!" into "17".
+    .replace(/[?=]+/g, " ")
+    // Keep only characters the evaluator understands, plus letters so
+    // function names (sqrt, log, …) survive; unknown words fail honestly
+    // in the evaluator rather than being silently deleted into a wrong sum.
+    .replace(/[^0-9a-zA-Z+\-*/().,%^\s!]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 // --- Entry point ----------------------------------------------------------------
 
 /** Evaluate a grammar-restricted arithmetic expression. Never throws. */
@@ -348,7 +406,9 @@ export function evaluateExpression(input: string): CalcResult {
   if (input.length > CALC_LIMITS.maxInputChars) {
     return { ok: false, error: "expression too long" };
   }
-  const tokens = tokenize(input);
+  // Accept the operators users actually type (× ÷ −) before tokenizing.
+  const normalized = normalizeMathOperators(input);
+  const tokens = tokenize(normalized);
   if ("error" in tokens) return { ok: false, error: tokens.error };
   if (tokens.length === 0) return { ok: false, error: "empty expression" };
 

@@ -8,7 +8,10 @@ import { complete, hasAiProvider } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
 import { decideSearch, extractUrl } from "./searchEngine/decision";
-import { evaluateExpression } from "./searchEngine/calculator";
+import {
+  evaluateExpression,
+  extractMathExpression,
+} from "./searchEngine/calculator";
 import { fetchPageText } from "./searchProviders/pageFetcher";
 import { sanitizeUntrustedText } from "./searchEngine/security";
 import { describeImage } from "./aiProviders/vision";
@@ -310,7 +313,7 @@ export const send = action({
     const decision = decideSearch(trimmed);
 
     if (decision.intent === "calculation") {
-      const expr = trimmed.replace(/[^0-9+\-*/().,%^\s!a-zA-Z]/g, "").trim();
+      const expr = extractMathExpression(trimmed);
       const calc = evaluateExpression(expr);
       const answer = calc.ok
         ? `${trimmed} = ${calc.formatted}`

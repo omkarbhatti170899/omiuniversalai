@@ -5,6 +5,7 @@ import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
 import { getProviderStatus } from "./searchProviders";
 import { runSelfTest } from "./omiSelfTest";
+import { breakerStatus } from "./searchEngine/resilience";
 import {
   CREATOR_STATEMENT,
   OMI_CREATOR,
@@ -90,6 +91,8 @@ function statusSnapshot() {
         label: p.label,
         configured: p.configured,
         cost: p.cost,
+        // Circuit state is process-local and resets on deploy/cold start.
+        circuit: breakerStatus()[`ai:${p.id}`] ?? { open: false, failures: 0 },
       })),
     },
     vision: {
@@ -177,8 +180,8 @@ http.route({
 http.route({
   path: "/selftest",
   method: "GET",
-  handler: httpAction(async () => {
-    const report = await runSelfTest();
+  handler: httpAction(async (ctx) => {
+    const report = await runSelfTest(ctx);
     return jsonResponse(report, report.status === "down" ? 503 : 200);
   }),
 });

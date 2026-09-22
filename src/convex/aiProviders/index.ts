@@ -27,6 +27,9 @@ import {
   openAiCompatibleCompletion,
 } from "./openaiCompat";
 import { vlyCompletion } from "./vly";
+// Provider-level circuit breaking, shared with the search layer (one
+// resilience primitive for the whole runtime, not two divergent ones).
+import { breakerAllow, breakerRecord } from "../searchEngine/resilience";
 import type { CompletionRequest } from "../../lib/vly-integrations";
 
 export {
@@ -151,7 +154,18 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
   // Explicit model override pins the model on every provider (advanced use).
   const override = args.model?.trim();
 
-  for (const p of providers) {
+  // Skip providers whose circuit is open. A provider that just failed with a
+  // credential/quota error is not retried on every request — without this,
+  // every single AI call paid a doomed round-trip to a misconfigured gateway
+  // before the working provider answered (observed on the live deployment:
+  // the workspace gateway rejects its key, so each call waited on `vly`
+  // before falling through to Groq).
+  const circuits = providers.filter((p) => breakerAllow(`ai:${p.id}`));
+  // Never let the breaker be worse than no breaker: if every provider is
+  // cooled down, ignore the circuits and try them all anyway.
+  const ordered = circuits.length > 0 ? circuits : providers;
+
+  for (const p of ordered) {
     const primary =
       override || p.taskModels[task] || p.taskModels.conversational;
     const candidates = [primary, ...p.fallbackModels.filter((m) => m !== primary)];
@@ -165,6 +179,7 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
           result.data.choices?.[0]?.message?.content ?? ""
         ).trim();
         if (content.length > 0) {
+          breakerRecord(`ai:${p.id}`, true);
           return { ok: true, content, provider: p.id, model, attempts };
         }
         // Empty output from a call that otherwise succeeded is a
@@ -185,6 +200,9 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
 
       if (decideAfterFailedAttempt(lastError, false) === "next_provider") break;
     }
+
+    // Reached only when no candidate produced content → provider-level failure.
+    breakerRecord(`ai:${p.id}`, false);
   }
 
   return {
