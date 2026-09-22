@@ -30,6 +30,22 @@ export type VisionProviderDescriptor = {
   hint: string;
 };
 
+/**
+ * The multimodal model Groq currently serves on its free tier.
+ *
+ * Groq shut down the Llama 4 vision family on 2026-07-17, and this app kept
+ * requesting those retired IDs, so every image upload 404'd in production
+ * while /status still called vision "available". The fix is threefold:
+ *   1. a model Groq actually serves today (Qwen3.8 27B — its only listed
+ *      multimodal model, and the only one with a documented file-size cap),
+ *   2. discovery (aiProviders/modelDiscovery.ts) validates this ID against
+ *      Groq's live /models list before it is ever sent a request, and
+ *   3. VISION_GROQ_MODEL overrides it with no code change.
+ * Any future retirement is therefore detected and reported, not discovered by
+ * a user whose image quietly fails.
+ */
+export const GROQ_VISION_MODEL = "qwen/qwen3.8-27b";
+
 export const VISION_PROVIDERS: VisionProviderDescriptor[] = [
   {
     id: "groq",
@@ -37,13 +53,14 @@ export const VISION_PROVIDERS: VisionProviderDescriptor[] = [
     envKeys: ["GROQ_API_KEY"],
     cost: "free tier, rate-limited",
     taskModels: {
-      describe: "meta-llama/llama-4-scout-17b-16e-instruct",
-      extract: "meta-llama/llama-4-scout-17b-16e-instruct",
-      answer: "meta-llama/llama-4-scout-17b-16e-instruct",
+      describe: GROQ_VISION_MODEL,
+      extract: GROQ_VISION_MODEL,
+      answer: GROQ_VISION_MODEL,
     },
-    // Scout → Maverick: both multimodal; llama-4 name changes are handled
-    // without a code change via VISION_GROQ_MODEL.
-    fallbackModels: ["meta-llama/llama-4-maverick-17b-128e-instruct"],
+    // Empty on purpose: no other free-tier multimodal model is served, and a
+    // guessed fallback would just add a doomed round-trip to every request.
+    // Discovery + VISION_GROQ_MODEL cover replacement, honestly.
+    fallbackModels: [],
     hint: "Add a free GROQ_API_KEY (console.groq.com → API Keys) in the project's API Keys tab.",
   },
   {
@@ -68,7 +85,35 @@ export const VISION_LIMITS = {
   maxImageBytes: 3_500_000,
   maxPromptChars: 2000,
   maxAnswerChars: 4000,
+  /**
+   * Completion budget for a vision answer — deliberately modest.
+   *
+   * Groq's free tier sizes a request by `prompt + max_tokens` and rejects an
+   * oversized one with `429 "Request too large ... service tier on_demand on
+   * tokens per minute (TPM)"`. Asking for 1024 tokens to describe one image
+   * made every vision call hover at that ceiling, so requests intermittently
+   * failed even though the model was fine. 512 tokens is ~380 words — far
+   * more than any image description needs — while leaving real headroom on a
+   * shared per-minute budget. Override with VISION_MAX_TOKENS if needed.
+   */
+  maxOutputTokens: 512,
 } as const;
+
+/**
+ * Synthetic probe image for the PUBLIC self-test: a 64×64 solid-red PNG
+ * (137 bytes), generated locally and pinned here as a constant.
+ *
+ * This lets the unauthenticated /selftest exercise the REAL vision path
+ * end-to-end — provider, model, transport — without storing, fetching or
+ * exposing anybody's upload. It is why vision can report a true PASS instead
+ * of hiding behind "configured".
+ */
+export const VISION_PROBE_IMAGE =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAAUElEQVR42u3PQQkAAAgEsEvi2/55DGME38JgBZapfi0CAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICApcFEWchD98r0aIAAAAASUVORK5CYII=";
+
+/** Asks for one word, so a non-empty answer proves the image was truly read. */
+export const VISION_PROBE_PROMPT =
+  "What single colour fills this image? Reply with one word.";
 
 export const ALLOWED_IMAGE_TYPES = new Set([
   "image/png",

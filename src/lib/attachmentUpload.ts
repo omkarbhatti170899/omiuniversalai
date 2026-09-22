@@ -161,9 +161,11 @@ export async function uploadAttachment(
       | { ok: true; documentId: string; description: string }
       | { ok: false; error: string; stored: boolean };
     if (!out.ok) {
-      throw new Error(
-        `${out.error} The image is saved — retry describing it once a vision key is added.`,
-      );
+      // Do NOT tell the user to "add a vision key" here: the vision key may
+      // well be present and the failure something else entirely (the provider
+      // retiring the configured model, for instance). `out.error` already
+      // names the real cause; this only adds what happened to the file.
+      throw new Error(`${out.error} The image is saved and stays in your files.`);
     }
     return { documentId: out.documentId, truncated: false };
   }

@@ -93,9 +93,10 @@ export function FilesView() {
           dataUrl,
         });
         if (!out.ok) {
-          toast.error(
-            `${out.error} The image is saved — retry describing it once a vision key is added.`,
-          );
+          // `out.error` names the real cause (missing key, retired model,
+          // rate limit…). Don't presume it is a missing key — that guess sent
+          // people to add a key they already had.
+          toast.error(`${out.error} The image is saved and stays in your files.`);
           return;
         }
         toast("Image understood — its description joined your knowledge base.");

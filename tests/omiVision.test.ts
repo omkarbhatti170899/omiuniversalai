@@ -90,19 +90,17 @@ describe("vision catalog — model routing", () => {
       envKeys: ["GROQ_API_KEY"],
       cost: "",
       taskModels: {
-        describe: "meta-llama/llama-4-scout-17b-16e-instruct",
-        extract: "meta-llama/llama-4-scout-17b-16e-instruct",
-        answer: "meta-llama/llama-4-scout-17b-16e-instruct",
+        describe: "catalog/describe-model",
+        extract: "catalog/extract-model",
+        answer: "catalog/answer-model",
       },
       fallbackModels: [],
       hint: "",
     };
     const prev = process.env["VISION_GROQ_MODEL"];
-    process.env["VISION_GROQ_MODEL"] = "meta-llama/llama-4-maverick-17b-128e-instruct";
+    process.env["VISION_GROQ_MODEL"] = "override/model-v2";
     try {
-      expect(visionModelFor(provider, "describe")).toBe(
-        "meta-llama/llama-4-maverick-17b-128e-instruct",
-      );
+      expect(visionModelFor(provider, "describe")).toBe("override/model-v2");
     } finally {
       if (prev === undefined) delete process.env["VISION_GROQ_MODEL"];
       else process.env["VISION_GROQ_MODEL"] = prev;

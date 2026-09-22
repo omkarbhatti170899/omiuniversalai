@@ -91,9 +91,14 @@ export const AI_PROVIDERS: ProviderDescriptor[] = [
       coding: "openai/gpt-oss-120b",
       research: "openai/gpt-oss-120b",
     },
-    // Groq retires models periodically — gpt-oss → llama fallbacks keep the
-    // provider usable even mid-transition.
-    fallbackModels: ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"],
+    // Groq retires models on its own schedule. The previous entries here were
+    // llama-3.3-70b-versatile and llama-3.1-8b-instant — both shut down on
+    // 2026-08-16, so this list had become guaranteed-404 dead weight and gave
+    // no fallback at all. These are the live models Groq's deprecation page
+    // names as replacements, and modelDiscovery.ts verifies them against the
+    // provider's own /models list before use, so the next retirement is
+    // detected rather than fatal.
+    fallbackModels: ["openai/gpt-oss-120b", "qwen/qwen3.8-27b"],
     hint: "Add a free GROQ_API_KEY (console.groq.com → API Keys) in the project's API Keys tab.",
   },
   {

@@ -31,8 +31,8 @@ key, token, env var name, or any user data.
 | MULTI-MODEL ROUTING | **PASS** | Task→model map per provider; fallback chain live-verified |
 | UNIVERSAL SEARCH | **PASS** | Real keyless retrieval call (Wikipedia, ~300 ms) |
 | DEEP RESEARCH | **CONFIGURED** | Pipeline + `researchRuns` persistence deployed (table read passes); run needs sign-in |
-| IMAGE UPLOAD | **PASS (unit)** | Vision tests + upload code path; live upload PENDING |
-| VISION | **CONFIGURED** | Groq vision wired — not exercised with a real image |
+| IMAGE UPLOAD | **PASS (unit)** | Upload path + server-side ownership enforced; browser→storage leg needs a session |
+| VISION | **PASS** | Real image read end-to-end — Groq `qwen/qwen3.8-27b` answered "red" for a synthetic 64×64 PNG in 337 ms (`/selftest`). Free-tier token caps can make this `unverified` under load, never a false FAIL |
 | PDF | **PASS (unit)** | `pdf.js` + OCR fallback path; **no dedicated unit test** (gap) |
 | DOC/DOCX | **PASS (unit)** | `docExtract.test.ts`: paragraph order, honest failure |
 | TXT | **PASS (unit)** | Server-side text path |
@@ -54,7 +54,7 @@ key, token, env var name, or any user data.
 | GITHUB ACTIONS | **PASS** | Current artifact live via pipeline; workflow now gates on typecheck + tests |
 | LIVE DEPLOYMENT | **PASS** | `llms.txt` served → proves the *current* build, not a cached one |
 
-Suite: **301 tests / 0 fail / 916 assertions** across 25 files · `tsc` clean ·
+Suite: **325 tests / 0 fail / 971 assertions** across 26 files · `tsc` clean ·
 CI-shaped `vite build` green · base path + backend-URL tripwire verified.
 
 ## §13 live test suite
@@ -64,7 +64,7 @@ CI-shaped `vite build` green · base path + backend-URL tripwire verified.
 | 1 | `"25 × 48"` | **PASS — FIXED** | Calculator (local, zero network) | sandboxed arithmetic engine | n/a |
 | 2 | Current-information question | **PASS** | Search/retrieval | Wikipedia (keyless) | circuit breaker + 13 sources |
 | 3 | Upload PDF → summarise | **PENDING** | Extraction → knowledge → chat | on-device `pdf.js` (+OCR) | text extract, honest failure |
-| 4 | Upload image → describe | **CONFIGURED** | Vision | Groq vision | OpenAI vision |
+| 4 | Upload image → describe | **PASS** (vision path; upload leg PENDING) | Vision | Groq `qwen/qwen3.8-27b` | model discovery + candidate chain |
 | 5 | Complex research question | **PASS (plan+retrieve)**, full journey PENDING | Andromeda | multi-source | per-source timeout + breaker |
 | 6 | Provider failure | **PASS** | Fallback | `vly` fails → Groq answers (1 fallback recorded live) | provider chain + circuit breaker |
 | 7 | Simple question | **PASS** | Economic route | calculator/local, no provider call | n/a |
@@ -106,6 +106,56 @@ unnoticed. It now separates `configured` from verified and points at
 them. `bun run test` / `bun run verify` added, and the Pages workflow now runs
 typecheck + suite before building.
 
+**5. Vision was broken in production — the provider had retired the models.**
+A user found it on Android: every image upload 404'd with *"the model
+`meta-llama/llama-4-scout-17b-16e-instruct` does not exist"*, while `/status`
+still reported vision "available". Groq had shut the whole Llama 4 vision
+family down on 2026-07-17 and our catalogues had drifted. The text fallbacks
+were dead too (`llama-3.3-70b-versatile`, `llama-3.1-8b-instant` — retired
+2026-08-16), so there was no working fallback on that side either.
+
+Three fixes, because correcting an ID alone would only postpone the next
+outage:
+
+- **Current models.** Vision now uses `qwen/qwen3.8-27b` — the multimodal model
+  Groq actually serves, and the only one with a documented file-size cap. Text
+  fallbacks now name models Groq currently lists.
+- **Model discovery** (`aiProviders/modelDiscovery.ts`) verifies every
+  configured ID against the provider's own `/models` list before a request is
+  sent, so a retirement costs zero round-trips instead of a 404 per request. It
+  fails OPEN at every step, so a listing outage can never disable a model that
+  works.
+- **A real vision probe.** `/selftest` previously reported vision as
+  `configured` on the grounds that a probe "needs an upload". It now pushes a
+  synthetic 64×64 PNG through the exact production path, so vision reports a
+  true PASS — and the next retirement reports a FAIL instead of hiding behind
+  configuration.
+
+A regression test now asserts that no catalogue entry is a model Groq has
+retired: the check that would have caught this before a user did.
+
+**6. The vision fix then exposed a second, different failure — the tier cap.**
+With the model corrected, the very next probe failed a different way:
+
+```
+groq: qwen/qwen3.8-27b error 429: "Request too large for model
+`qwen/qwen3.8-27b` in organization ... service tier `on_demand` on tokens
+per minute (TPM)"
+```
+
+That is Groq sizing a request as `prompt + max_tokens` against a free-tier
+per-minute budget. The adapter asked for **1024** tokens to describe one image,
+so every vision call sat right at the ceiling and succeeded or failed
+depending on what else had run that minute — an intermittent, load-dependent
+failure that no static check could see. It now asks for 512 (≈380 words, far
+more than an image description needs), tunable via `VISION_MAX_TOKENS`.
+
+Just as important, the health endpoint stopped reporting this as a defect. The
+suite already defined `unverified` for exactly this case ("could not be checked
+at all right now (e.g. upstream rate limit)"), so a tier limit now reports that
+while a **retired model still reports FAIL** — the two are deliberately not
+conflated, because only one of them is a bug.
+
 ### Earlier in this session (still relevant)
 
 - **AI synthesis was fully broken in production.** Every provider failing
@@ -119,10 +169,11 @@ typecheck + suite before building.
 
 ## Remaining blockers
 
-1. **Groq's free tier is a single point of failure for AI.** The workspace
-   gateway key is rejected and OpenAI has no credits, so Groq carries all
-   synthesis. Degradation is graceful (extractive floor) but real. **Fix: add
-   a working key for a second provider.**
+1. **Groq's free tier is a single point of failure for AI — including
+   vision.** The workspace gateway key is rejected and OpenAI has no credits,
+   so Groq carries both synthesis and image understanding, on a *preview*
+   model. Degradation is graceful (extractive floor) but real. **Fix: add a
+   working key for a second provider.**
 2. **No PDF unit test** — DOCX/XLSX are covered; the PDF + OCR path is not.
 3. **No live click-through** for uploads/agents/research — the one class of
    check that needs a signed-in browser session.
@@ -138,8 +189,10 @@ evidence/gates/verification, provider abstraction with fallback, calculator,
 knowledge/memory retrieval, auth + per-user isolation, secret hygiene, health
 endpoint, CI gating.
 
-**Experimental / unverified end-to-end:** vision and file answers on the live
-site (wired, unit-tested, not yet exercised with a real upload), deep research
+**Experimental / unverified end-to-end:** answers from a user's *own* uploaded
+file (the vision model path is now live-verified with a synthetic image, but
+the browser→storage→ingest leg still needs a signed-in session **and Groq's
+free-tier token cap can still return 429 under concurrent load**), deep research
 and agent runs (deployed, need a session), mobile on real devices, semantic
 retrieval (not built).
 

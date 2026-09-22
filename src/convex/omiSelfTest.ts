@@ -31,7 +31,13 @@ import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { complete } from "./aiProviders";
 import { getAiStatus } from "./aiProviders/catalog";
-import { getVisionStatus } from "./aiProviders/visionCatalog";
+import { describeImage } from "./aiProviders/vision";
+import { classifyProviderFailure } from "./aiProviders/openaiCompat";
+import {
+  getVisionStatus,
+  VISION_PROBE_IMAGE,
+  VISION_PROBE_PROMPT,
+} from "./aiProviders/visionCatalog";
 import { getConfiguredProviders } from "./searchProviders";
 import { withTimeout } from "./searchEngine/resilience";
 import { planQuery } from "./andromeda/query";
@@ -79,6 +85,8 @@ const PROBE_MATH_EXPECTED = "1200";
 
 const NET_TIMEOUT_MS = 12_000;
 const AI_TIMEOUT_MS = 20_000;
+/** Vision models may reason before answering, so it gets a larger budget. */
+const VISION_TIMEOUT_MS = 30_000;
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
 type QueryRunner = { runQuery: (...args: any[]) => Promise<any> };
@@ -296,7 +304,7 @@ async function checkSynthesis(): Promise<SubsystemCheck> {
     if (!res.ok || res.content.trim().length === 0) {
       const tried = res.attempts.map((a) => a.provider).join(" → ") || "none";
       return {
-        status: "fail",
+        status: classifyProviderFailure(res.attempts),
         detail: `AI chain failed (${res.error ?? "empty response"}); tried: ${tried}`,
       };
     }
@@ -334,19 +342,47 @@ async function checkAuth(ctx: QueryRunner): Promise<SubsystemCheck> {
   });
 }
 
-/** Vision — configuration only; a real image call needs an upload. */
+/**
+ * Vision — a REAL image-understanding call.
+ *
+ * This previously reported `configured` on the grounds that a probe "needs an
+ * upload". It does not: a tiny synthetic PNG exercises the exact
+ * provider → model → transport path a user's upload takes, without storing,
+ * fetching or exposing anybody's file. That upgrade is what makes a retired
+ * model visible as a FAIL instead of hiding behind configuration — which is
+ * precisely how the Llama 4 shutdown stayed invisible until a user hit it.
+ */
 async function checkVision(): Promise<SubsystemCheck> {
   return check("vision", async () => {
     const v = getVisionStatus();
-    return v.available
-      ? {
-          status: "configured",
-          detail: `Image understanding configured via ${v.activeProvider} — configuration verified, NOT exercised with a real image here`,
-        }
-      : {
-          status: "fail",
-          detail: "No vision provider configured — images are stored and retrievable but cannot be described.",
-        };
+    if (!v.available) {
+      return {
+        status: "fail",
+        detail:
+          "No vision provider configured — images are stored and retrievable but cannot be described.",
+      };
+    }
+    const res = await withTimeout(
+      describeImage(VISION_PROBE_IMAGE, VISION_PROBE_PROMPT, "describe"),
+      VISION_TIMEOUT_MS,
+      "selftest vision",
+    );
+    if (!res.ok) {
+      const tried =
+        res.attempts.map((a) => `${a.provider}/${a.model}`).join(" → ") || "none";
+      const verdict = classifyProviderFailure(res.attempts);
+      return {
+        status: verdict,
+        detail:
+          verdict === "unverified"
+            ? `Vision could not be checked right now — upstream rate/tier limit, not a defect (${res.error ?? "unknown"}); tried ${tried}`
+            : `Vision call failed: ${res.error ?? "unknown error"}; tried ${tried}`,
+      };
+    }
+    return {
+      status: "pass",
+      detail: `Read a real image via ${res.provider} (${res.model}) — answered "${res.description.slice(0, 40)}"`,
+    };
   });
 }
 

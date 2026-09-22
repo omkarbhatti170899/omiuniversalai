@@ -22,6 +22,7 @@ import {
 } from "./visionCatalog";
 import { GROQ_URL, OPENAI_URL } from "./catalog";
 import { isModelSpecific } from "./openaiCompat";
+import { filterToAvailableModels } from "./modelDiscovery";
 import type { ProviderId } from "./catalog";
 
 export type VisionResult = {
@@ -70,7 +71,15 @@ async function visionCompletion(
       body: JSON.stringify({
         model,
         messages: [{ role: "user", content: parts }],
-        max_tokens: 1024,
+        // Kept small on purpose — an upstream provider sizes the request as
+        // prompt + max_tokens against a per-minute tier cap, so a generous
+        // budget here turns into intermittent 429s on a free tier.
+        max_tokens: Math.max(
+          64,
+          Number(
+            process.env.VISION_MAX_TOKENS ?? VISION_LIMITS.maxOutputTokens,
+          ) || VISION_LIMITS.maxOutputTokens,
+        ),
       }),
       signal: AbortSignal.timeout(VISION_TIMEOUT_MS),
     });
@@ -130,13 +139,26 @@ export async function describeImage(
       continue;
     }
     const primary = visionModelFor(p, task);
-    const candidates = [primary, ...p.fallbackModels.filter((m) => m !== primary)];
+    const preferred = [primary, ...p.fallbackModels.filter((m) => m !== primary)];
+    const apiKey = process.env[p.envKeys[0]] ?? "";
+
+    // Never send an image request for a model the provider no longer serves.
+    // The retired-Llama-4 incident was precisely this: a configured-but-dead
+    // model ID 404'd on every upload while the capability still reported
+    // "available". Discovery fails open, so it can only remove models the
+    // provider has confirmed are gone.
+    const candidates = await filterToAvailableModels(
+      p.id,
+      url,
+      apiKey,
+      preferred,
+    );
     let lastError = "";
 
     for (const model of candidates) {
       const result = await visionCompletion(
         url,
-        (process.env[p.envKeys[0]] ?? "") as string,
+        apiKey,
         model,
         parts,
         `${p.label}(${model})`,

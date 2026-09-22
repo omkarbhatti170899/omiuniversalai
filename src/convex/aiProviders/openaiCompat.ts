@@ -72,6 +72,28 @@ export function isCredentialish(error?: string): boolean {
   );
 }
 
+/**
+ * True when the failure is an upstream rate/tier limit — retryable, and NOT
+ * evidence that the capability is broken.
+ *
+ * Groq answers an oversized request with `429 "Request too large ... service
+ * tier on_demand on tokens per minute (TPM): Limit N, Requested M"`; the
+ * capability may be perfectly healthy. Distinguishing this from a genuinely
+ * broken provider is what keeps a transient limit from being reported as a
+ * hard failure (or, worse, from looking like the retired-model bug).
+ */
+export function isRateLimited(error?: string): boolean {
+  const msg = (error ?? "").toLowerCase();
+  return (
+    msg.includes("429") ||
+    msg.includes("rate limit") ||
+    msg.includes("rate_limit") ||
+    msg.includes("too many requests") ||
+    msg.includes("tokens per minute") ||
+    msg.includes("request too large")
+  );
+}
+
 /** True when the failure is specific to the chosen model (try its fallbacks). */
 export function isModelSpecific(error?: string): boolean {
   const msg = (error ?? "").toLowerCase();
@@ -83,4 +105,30 @@ export function isModelSpecific(error?: string): boolean {
     msg.includes("no longer supported") ||
     (msg.includes("model") && msg.includes("404"))
   );
+}
+
+/** `unverified` means "could not be checked right now", not "broken". */
+export type ProviderFailureVerdict = "fail" | "unverified";
+
+/**
+ * Decide whether failed provider attempts mean the capability is BROKEN, or
+ * whether it simply could not be exercised right now.
+ *
+ * Pure and shared, because the distinction is the difference between an
+ * honest health report and a misleading one:
+ *
+ *   • retired/missing model → `fail`. A provider shutting a model down is the
+ *     exact bug class that silently broke vision in production, so it must
+ *     never be softened into "couldn't check".
+ *   • upstream rate/tier limit → `unverified`. The capability may be perfectly
+ *     healthy and merely out of budget this minute; reporting FAIL there is
+ *     the false signal this logic exists to prevent.
+ *   • anything else → `fail`.
+ */
+export function classifyProviderFailure(
+  attempts: Array<{ error?: string }>,
+): ProviderFailureVerdict {
+  if (attempts.some((a) => isModelSpecific(a.error))) return "fail";
+  if (attempts.some((a) => isRateLimited(a.error))) return "unverified";
+  return "fail";
 }

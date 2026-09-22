@@ -7,10 +7,53 @@
 import { describe, test, expect } from "bun:test";
 import {
   openAiCompatibleCompletion,
+  classifyProviderFailure,
   isCredentialish,
   isModelSpecific,
+  isRateLimited,
 } from "../src/convex/aiProviders/openaiCompat";
 import { decideAfterFailedAttempt } from "../src/convex/aiProviders";
+
+describe("rate/tier limits are distinguished from real breakage", () => {
+  test("recognises Groq's 'Request too large' tier rejection", () => {
+    // The exact shape seen live, which was a tier cap — not a broken model.
+    expect(
+      isRateLimited(
+        'Groq(qwen/qwen3.8-27b) error 429: {"error":{"message":"Request too large for model `qwen/qwen3.8-27b` in organization `org_x` service tier `on_demand` on tokens per minute (TPM)"}}',
+      ),
+    ).toBe(true);
+    expect(isRateLimited("error 429: Rate limit reached, please try again")).toBe(true);
+    expect(isRateLimited("too many requests")).toBe(true);
+  });
+
+  test("does not mistake a retired model or a plain error for a limit", () => {
+    expect(isRateLimited("model 'x' does not exist (404)")).toBe(false);
+    expect(isRateLimited("ECONNRESET")).toBe(false);
+    expect(isRateLimited(undefined)).toBe(false);
+  });
+});
+
+describe("health verdicts never soften a retired model into 'unverified'", () => {
+  test("a missing model is a FAIL even alongside a rate limit", () => {
+    expect(
+      classifyProviderFailure([
+        { error: "groq error 429: request too large" },
+        { error: "groq(gone/1) error 404: the model does not exist" },
+      ]),
+    ).toBe("fail");
+  });
+
+  test("a pure rate/tier limit is UNVERIFIED, not a defect", () => {
+    expect(
+      classifyProviderFailure([{ error: "error 429: rate limit reached" }]),
+    ).toBe("unverified");
+  });
+
+  test("an unrecognised failure stays a FAIL", () => {
+    expect(classifyProviderFailure([{ error: "kaboom" }])).toBe("fail");
+    expect(classifyProviderFailure([])).toBe("fail");
+  });
+});
 
 describe("fallback classification (router decision rules)", () => {
   test("credential/quota failures are credentialish", () => {

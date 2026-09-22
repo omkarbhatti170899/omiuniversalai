@@ -11,6 +11,7 @@
 import type * as aiErrors from "../aiErrors.js";
 import type * as aiProviders_catalog from "../aiProviders/catalog.js";
 import type * as aiProviders_index from "../aiProviders/index.js";
+import type * as aiProviders_modelDiscovery from "../aiProviders/modelDiscovery.js";
 import type * as aiProviders_openaiCompat from "../aiProviders/openaiCompat.js";
 import type * as aiProviders_vision from "../aiProviders/vision.js";
 import type * as aiProviders_visionCatalog from "../aiProviders/visionCatalog.js";
@@ -98,6 +99,7 @@ declare const fullApi: ApiFromModules<{
   aiErrors: typeof aiErrors;
   "aiProviders/catalog": typeof aiProviders_catalog;
   "aiProviders/index": typeof aiProviders_index;
+  "aiProviders/modelDiscovery": typeof aiProviders_modelDiscovery;
   "aiProviders/openaiCompat": typeof aiProviders_openaiCompat;
   "aiProviders/vision": typeof aiProviders_vision;
   "aiProviders/visionCatalog": typeof aiProviders_visionCatalog;

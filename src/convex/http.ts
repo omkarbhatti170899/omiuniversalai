@@ -6,6 +6,7 @@ import { getVisionStatus } from "./aiProviders/visionCatalog";
 import { getProviderStatus } from "./searchProviders";
 import { runSelfTest } from "./omiSelfTest";
 import { breakerStatus } from "./searchEngine/resilience";
+import { modelDiscoveryStatus } from "./aiProviders/modelDiscovery";
 import {
   CREATOR_STATEMENT,
   OMI_CREATOR,
@@ -93,11 +94,23 @@ function statusSnapshot() {
         cost: p.cost,
         // Circuit state is process-local and resets on deploy/cold start.
         circuit: breakerStatus()[`ai:${p.id}`] ?? { open: false, failures: 0 },
+        // Whether this provider's configured models were found in its live
+        // catalogue (modelDiscovery.ts). `verified: false` means the catalogue
+        // was unreachable — NOT that the models are missing.
+        models: modelDiscoveryStatus()[p.id] ?? {
+          verified: false,
+          modelCount: null,
+        },
       })),
     },
     vision: {
       available: vision.available,
+      // Configuration only. The model is published on purpose: a provider
+      // retiring it is then visible right here instead of surfacing as a 404
+      // the first time somebody uploads a photo. /selftest makes a real call.
+      verifiedBy: "/selftest",
       activeProvider: vision.activeProvider,
+      models: vision.taskModels,
       providers: vision.providers.map((p) => ({
         id: p.id,
         label: p.label,

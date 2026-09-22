@@ -27,6 +27,7 @@ import {
   openAiCompatibleCompletion,
 } from "./openaiCompat";
 import { vlyCompletion } from "./vly";
+import { filterToAvailableModels } from "./modelDiscovery";
 // Provider-level circuit breaking, shared with the search layer (one
 // resilience primitive for the whole runtime, not two divergent ones).
 import { breakerAllow, breakerRecord } from "../searchEngine/resilience";
@@ -124,6 +125,26 @@ function adapterFor(p: ProviderDescriptor): Adapter {
 }
 
 /**
+ * Endpoint + key for providers that speak the OpenAI-compatible protocol.
+ * Returns null for the workspace gateway, which has a different transport and
+ * no /models catalogue to consult.
+ */
+function transportFor(
+  p: ProviderDescriptor,
+): { url: string; key: string } | null {
+  switch (p.id) {
+    case "groq":
+      return { url: GROQ_URL, key: process.env.GROQ_API_KEY ?? "" };
+    case "openai":
+      return { url: OPENAI_URL, key: process.env.OPENAI_API_KEY ?? "" };
+    case "deepseek":
+      return { url: DEEPSEEK_URL, key: process.env.DEEPSEEK_API_KEY ?? "" };
+    default:
+      return null;
+  }
+}
+
+/**
  * Run a completion through the provider chain. Never throws: every failure
  * mode comes back as ok:false with the attempt trace so call sites can use
  * their own graceful fallbacks (heuristic emotion analysis, extractive
@@ -168,7 +189,23 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
   for (const p of ordered) {
     const primary =
       override || p.taskModels[task] || p.taskModels.conversational;
-    const candidates = [primary, ...p.fallbackModels.filter((m) => m !== primary)];
+    const preferred = [primary, ...p.fallbackModels.filter((m) => m !== primary)];
+
+    // Drop models the provider no longer serves, so a retirement costs zero
+    // round-trips instead of a 404 on every request (the failure mode that
+    // silently broke vision in production). An explicit model override is
+    // honoured as-is — the caller asked for that exact model — and discovery
+    // fails open, so this can only ever remove models we know are gone.
+    const transport = transportFor(p);
+    const candidates =
+      override || transport === null
+        ? preferred
+        : await filterToAvailableModels(
+            p.id,
+            transport.url,
+            transport.key,
+            preferred,
+          );
     let lastError = "";
 
     for (const model of candidates) {
