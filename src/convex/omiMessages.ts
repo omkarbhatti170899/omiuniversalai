@@ -48,6 +48,18 @@ export const saveInternal = internalMutation({
     content: v.string(),
     reasoning: v.optional(v.string()),
     status: v.optional(v.union(v.literal("streaming"), v.literal("final"))),
+    // PRIORITY 1 — chat attachments: ownership-checked references to the
+    // user's own knowledge documents attached to this message. Only IDs the
+    // sender owns ever reach this field (chat resolves them first).
+    attachments: v.optional(
+      v.array(
+        v.object({
+          documentId: v.id("omiDocuments"),
+          title: v.string(),
+          kind: v.union(v.literal("image"), v.literal("file")),
+        }),
+      ),
+    ),
   },
   handler: async (ctx, args) => {
     return await ctx.db.insert("omiMessages", args);

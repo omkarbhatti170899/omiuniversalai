@@ -1,5 +1,5 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
-import { action, internalMutation, mutation } from "./_generated/server";
+import { action, internalMutation, internalQuery, mutation } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { v } from "convex/values";
 import { rateLimit } from "./searchEngine/resilience";
@@ -238,6 +238,27 @@ export const remove = mutation({
 
     if (doc.fileId) await ctx.storage.delete(doc.fileId);
     await ctx.db.delete(id);
+  },
+});
+
+/**
+ * Internal ownership-checked read used by chat attachments: returns the
+ * document ONLY when it belongs to `userId`. Everything else (other users'
+ * docs, deleted docs) returns null — callers can never ground from, or
+ * persist, a file they don't own (PRIORITY 2).
+ */
+export const getOwnedInternal = internalQuery({
+  args: { userId: v.id("users"), documentId: v.id("omiDocuments") },
+  handler: async (ctx, { userId, documentId }) => {
+    const doc = await ctx.db.get(documentId);
+    if (!doc || doc.userId !== userId) return null;
+    return {
+      _id: doc._id,
+      title: doc.title,
+      content: doc.content,
+      fileId: doc.fileId,
+      fileType: doc.fileType,
+    };
   },
 });
 

@@ -38,6 +38,7 @@ import type * as omiChat from "../omiChat.js";
 import type * as omiConversations from "../omiConversations.js";
 import type * as omiFiles from "../omiFiles.js";
 import type * as omiHealth from "../omiHealth.js";
+import type * as omiIdentity from "../omiIdentity.js";
 import type * as omiImprove from "../omiImprove.js";
 import type * as omiKnowledge from "../omiKnowledge.js";
 import type * as omiMemories from "../omiMemories.js";
@@ -123,6 +124,7 @@ declare const fullApi: ApiFromModules<{
   omiConversations: typeof omiConversations;
   omiFiles: typeof omiFiles;
   omiHealth: typeof omiHealth;
+  omiIdentity: typeof omiIdentity;
   omiImprove: typeof omiImprove;
   omiKnowledge: typeof omiKnowledge;
   omiMemories: typeof omiMemories;

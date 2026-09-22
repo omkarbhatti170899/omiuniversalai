@@ -168,6 +168,18 @@ const schema = defineSchema(
       status: v.optional(
         v.union(v.literal("streaming"), v.literal("final")),
       ),
+      // Phase 4 (multimodal): files/images attached to this message by its
+      // author — ownership-checked before persisting. Images carry their
+      // original blob; documents carry extracted text in omiDocuments.
+      attachments: v.optional(
+        v.array(
+          v.object({
+            documentId: v.id("omiDocuments"),
+            title: v.string(),
+            kind: v.union(v.literal("image"), v.literal("file")),
+          }),
+        ),
+      ),
     }).index("by_conversation", ["conversationId"]),
 
     // Omi persistent memory — user-controlled (view/edit/delete in the UI)

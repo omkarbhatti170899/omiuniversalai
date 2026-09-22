@@ -37,16 +37,27 @@ import {
   MessageSquarePlus,
   Mic,
   MicOff,
+  Paperclip,
+  FileImage,
   Pencil,
   Plus,
   Send,
   Square,
   Trash2,
   Volume2,
+  X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { useSpeechOutput } from "@/hooks/useSpeechOutput";
+import { useConvexClient } from "@/hooks/useConvexClient";
+import {
+  MAX_ATTACHMENTS,
+  isImageFile,
+  uploadAttachment,
+  validateForUpload,
+  type AttachmentState,
+} from "@/lib/attachmentUpload";
 
 type OmiMessage = {
   _id: Id<"omiMessages">;
@@ -54,6 +65,11 @@ type OmiMessage = {
   content: string;
   reasoning?: string;
   status?: "streaming" | "final";
+  attachments?: Array<{
+    documentId: string;
+    title: string;
+    kind: "image" | "file";
+  }>;
   _creationTime: number;
 };
 
@@ -99,6 +115,82 @@ export function OmiAssistantPanel({
   const removeMemory = useMutation(api.omiMemories.remove);
   const voice = useVoiceInput();
   const tts = useSpeechOutput();
+  const convex = useConvexClient();
+
+  // --- Attachments (PRIORITY 1: upload → extract → knowledge → answer) ---
+  const [attachments, setAttachments] = useState<AttachmentState[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const uploadQueue = useRef(0);
+  const [uploadingCount, setUploadingCount] = useState(0);
+
+  const pendingAttachments = attachments.filter((a) => a.state === "ready");
+  const hasUploading = uploadingCount > 0;
+
+  const handleFilesChosen = (list: FileList | null) => {
+    if (!list || list.length === 0) return;
+    const room = MAX_ATTACHMENTS - attachments.length;
+    if (room <= 0) {
+      toast.error(`Omi reads up to ${MAX_ATTACHMENTS} attachments per message.`);
+      return;
+    }
+    const chosen = Array.from(list).slice(0, room);
+    if (Array.from(list).length > room) {
+      toast.error(`Only the first ${room} file${room === 1 ? "" : "s"} were added — ${MAX_ATTACHMENTS} max per message.`);
+    }
+    for (const file of chosen) {
+      const check = validateForUpload(file);
+      if (!check.ok) {
+        toast.error(check.error);
+        continue;
+      }
+      const kind = isImageFile(file) ? "image" : "file";
+      const localId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      const previewUrl = kind === "image" ? URL.createObjectURL(file) : undefined;
+      setAttachments((prev) => [
+        ...prev,
+        { localId, state: "uploading", name: file.name, size: file.size, kind, previewUrl },
+      ]);
+      setUploadingCount((c) => c + 1);
+      uploadAttachment(file, { api, convex })
+        .then(({ documentId, truncated }) => {
+          setAttachments((prev) =>
+            prev.map((a) =>
+              a.localId === localId
+                ? { ...a, state: "ready" as const, documentId, truncated }
+                : a,
+            ),
+          );
+        })
+        .catch((err) => {
+          setAttachments((prev) =>
+            prev.map((a) =>
+              a.localId === localId
+                ? {
+                    ...a,
+                    state: "failed" as const,
+                    error: err instanceof Error ? err.message : "Upload failed.",
+                  }
+                : a,
+            ),
+          );
+          toast.error(err instanceof Error ? err.message : `Couldn't upload "${file.name}".`);
+        })
+        .finally(() => {
+          setUploadingCount((c) => Math.max(0, c - 1));
+          uploadQueue.current = Math.max(0, uploadQueue.current - 1);
+        });
+    }
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const removeAttachment = (localId: string) => {
+    setAttachments((prev) => {
+      const a = prev.find((x) => x.localId === localId);
+      if (a?.previewUrl) URL.revokeObjectURL(a.previewUrl);
+      return prev.filter((x) => x.localId !== localId);
+    });
+  };
+  // --- end attachments ---
 
   // Auto-select the newest conversation on first load.
   useEffect(() => {
@@ -119,6 +211,10 @@ export function OmiAssistantPanel({
   const handleSend = async () => {
     const text = draft.trim();
     if (!text || isSending) return;
+    if (hasUploading) {
+      toast.error("Hold on — Omi is still reading your attachment(s).");
+      return;
+    }
     let convId = activeId;
     if (!convId) {
       try {
@@ -130,9 +226,16 @@ export function OmiAssistantPanel({
       }
     }
     setIsSending(true);
+    const ready = attachments.filter((a) => a.state === "ready");
+    const documentIds = ready.map((a) => a.documentId as never);
     try {
-      await sendMessage({ conversationId: convId, message: text });
+      await sendMessage({ conversationId: convId, message: text, documentIds: documentIds.length > 0 ? documentIds : undefined });
       setDraft("");
+      // Attachments sent: clear chips (their docs stay in the knowledge base).
+      setAttachments((prev) => {
+        for (const a of prev) if (a.previewUrl) URL.revokeObjectURL(a.previewUrl);
+        return [];
+      });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Omi couldn't respond.");
     } finally {
@@ -317,6 +420,23 @@ export function OmiAssistantPanel({
                           : "border-border/60 bg-muted/40"
                     }`}
                   >
+                    {m.role === "user" && m.attachments && m.attachments.length > 0 && (
+                      <div className="mb-2 flex flex-wrap gap-1.5">
+                        {m.attachments.map((att) => (
+                          <span
+                            key={att.documentId}
+                            className="flex items-center gap-1 rounded-md border border-border/60 bg-background/60 px-1.5 py-0.5 text-[11px] text-muted-foreground"
+                          >
+                            {att.kind === "image" ? (
+                              <FileImage className="size-3" />
+                            ) : (
+                              <Paperclip className="size-3" />
+                            )}
+                            {att.title}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <p className="whitespace-pre-wrap">
                       {m.status === "streaming" && (
                         <span className="mr-2 inline-flex size-2 animate-pulse rounded-full bg-primary align-middle" />
@@ -361,10 +481,52 @@ export function OmiAssistantPanel({
           </div>
 
           <div className="mt-4 border-t border-border/60 pt-4">
+            {/* Attachment chips */}
+            {attachments.length > 0 && (
+              <div className="mb-2 flex flex-wrap gap-2">
+                {attachments.map((a) => (
+                  <div
+                    key={a.localId}
+                    className={`flex items-center gap-2 rounded-lg border px-2.5 py-1.5 text-xs ${
+                      a.state === "failed"
+                        ? "border-destructive/40 bg-destructive/10 text-destructive"
+                        : a.state === "ready"
+                          ? "border-primary/40 bg-primary/10"
+                          : "border-border/60 bg-muted/40"
+                    }`}
+                    title={a.state === "failed" ? a.error : a.name}
+                  >
+                    {a.previewUrl ? (
+                      <img src={a.previewUrl} alt="" className="size-7 rounded object-cover" />
+                    ) : (
+                      <Paperclip className="size-3.5 shrink-0" />
+                    )}
+                    <span className="max-w-40 truncate font-medium">{a.name}</span>
+                    {a.state === "uploading" && (
+                      <span className="flex items-center gap-1 text-muted-foreground">
+                        <Loader2 className="size-3 animate-spin" /> reading…
+                      </span>
+                    )}
+                    {a.state === "ready" && a.truncated && (
+                      <Badge variant="secondary" className="px-1.5 py-0 text-[10px]">truncated</Badge>
+                    )}
+                    {a.state === "failed" && <span>failed</span>}
+                    <button
+                      type="button"
+                      aria-label={`Remove ${a.name}`}
+                      className="cursor-pointer text-muted-foreground transition-colors hover:text-destructive"
+                      onClick={() => removeAttachment(a.localId)}
+                    >
+                      <X className="size-3.5" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
             <Textarea
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
-              placeholder="Ask Omi anything…"
+              placeholder="Ask Omi anything — attach files or images with the paperclip"
               className="min-h-20 resize-y"
               maxLength={4000}
               disabled={isSending}
@@ -380,6 +542,25 @@ export function OmiAssistantPanel({
                 ⌘/Ctrl + Enter to send
               </span>
               <div className="flex items-center gap-2">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  multiple
+                  accept="image/png,image/jpeg,image/webp,image/gif,.txt,.md,.csv,.json,.log,.html,.pdf,.docx,.xlsx,.ts,.tsx,.js,.py,.sh,.yml,.yaml,.xml"
+                  className="hidden"
+                  onChange={(e) => handleFilesChosen(e.target.files)}
+                />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="cursor-pointer"
+                  title="Attach files or images (read on-device, stored privately)"
+                  disabled={isSending || attachments.length >= MAX_ATTACHMENTS}
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  <Paperclip className="mr-1.5 size-4" />
+                  Attach
+                </Button>
                 {voice.supported && (
                   <Button
                     variant={voice.listening ? "default" : "outline"}
