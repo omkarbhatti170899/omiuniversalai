@@ -89,11 +89,14 @@ opens and the other sources keep flowing. Cost controls: bounded fan-out
 (≤3 query angles), per-engine result caps, dedupe-before-synthesis, cache
 with freshness-aware bypass, synthesis only when gates leave enough evidence.
 
+**[IMPLEMENTED] seams already in use:**
+- Document corpora — user-owned knowledge is a first-class source (the
+  `internal://` corpus, searched first, tier "highest trust")
+- News coverage via the GDELT open index
+
 **[PLANNED] provider seams** (interface already supports them):
 - Commercial APIs (Brave, Exa, Tavily, Serper…) — optional, off by default,
   never mandatory (§2/§6)
-- News GDELT-style open indexes — broader news coverage
-- Document corpora — user-owned knowledge as a first-class source
 - **Omi's own crawler/index** — self-hosted crawl + OpenSearch/FAISS index
 
 **[EXCLUDED]:** metered-only APIs as mandatory dependencies; content
@@ -154,10 +157,28 @@ and can change. Controls in place: zero mandatory paid dependency
 degradation paths. Optional keys (Groq/DeepSeek vision & reasoning) live in
 env/secrets only — never in code, never in the frontend (§28).
 
-## 8. Planned next [PLANNED]
+## 8. Retrieval engine and what's still planned
 
+**[IMPLEMENTED] hybrid local retrieval** (`searchEngine/retrieval.ts`):
+BM25 (IDF · length normalization · term saturation) plus the locality
+signals plain BM25 misses — BM25F-style *title field weighting*, *typo
+tolerance* (edit-distance-1, reduced weight) and *proximity* (distinct query
+terms near each other). Deterministic, explainable, zero dependencies, zero
+cost. `retrievalMode` selects `hybrid` (default), `bm25`, or the legacy
+keyword scorer for A/B comparison.
+
+**[PLANNED] — blocked, and honestly so:** embedding-based vector search.
+The seam is reserved, but this deployment has **no working embedding
+provider** (the workspace gateway rejects its key and the OpenAI account has
+no credits), and no free server-side embedding API is available. Shipping an
+embedding path that could never run would be a fake feature (§35), so the
+engine deliberately stays deterministic and dependency-free until a provider
+exists. To unlock it: add an embeddings-capable key via the project's API
+Keys tab; the adapter then slots in behind `parseRetrievalMode` with no call
+site changes.
+
+**[PLANNED] other:**
 - Omi crawler + self-hosted index (needs infrastructure)
-- Semantic retrieval behind the reserved `retrievalMode` seam
 - Commercial search adapters behind explicit user opt-in
 
 ## 9. Workspace surfaces [IMPLEMENTED]

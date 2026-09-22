@@ -31,7 +31,9 @@ export const corpusSearch = internalQuery({
       .query("omiDocuments")
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .take(200);
-    const passages = retrieve(query, docs, limit, "bm25");
+    // Hybrid (BM25 + field weighting + typo tolerance + proximity) is the
+    // default engine; the seam still accepts "bm25"/"legacy" for A/B work.
+    const passages = retrieve(query, docs, limit, "hybrid");
     return passages.map((p) => ({
       title: p.title,
       url: `${INTERNAL_SCHEME}${INTERNAL_HOST}/${p.documentId}`,

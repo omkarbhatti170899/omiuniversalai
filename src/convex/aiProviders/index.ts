@@ -51,6 +51,35 @@ export type AiCompletionResult = {
 
 export type CompleteArgs = CompletionRequest & { task?: AiTask };
 
+export type AttemptDecision = "next_candidate" | "next_provider";
+
+/**
+ * Decide what to do after one model attempt produced no usable content.
+ *
+ * This is the single most failure-prone decision in the router, so it is
+ * pure and unit-tested (tests/omiAiProviders.test.ts) rather than buried in
+ * the loop:
+ *
+ *   • EMPTY completion → try the next candidate model on the SAME provider.
+ *     A live call that returned nothing is model/parameter-shaped, not a
+ *     dead provider — reasoning models can spend the whole maxTokens budget
+ *     on hidden reasoning and emit no visible content, while the provider's
+ *     next model answers immediately. (Treating this as provider-level was a
+ *     real production bug: it skipped the provider's own fallback models and
+ *     silently killed all synthesis — caught by /selftest on the live API.)
+ *   • Retired/renamed model → try the next candidate model.
+ *   • Anything else (credentials, quota, network, 5xx) → move to the next
+ *     PROVIDER; the key/quota applies to every model on this provider, so
+ *     retrying siblings would just burn latency.
+ */
+export function decideAfterFailedAttempt(
+  lastError: string,
+  emptyCompletion: boolean,
+): AttemptDecision {
+  if (emptyCompletion) return "next_candidate";
+  return isModelSpecific(lastError) ? "next_candidate" : "next_provider";
+}
+
 type Adapter = (
   model: string,
   req: CompletionRequest,
@@ -130,6 +159,7 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
 
     for (const model of candidates) {
       const result = await adapterFor(p)(model, req);
+
       if (result.success && result.data) {
         const content = (
           result.data.choices?.[0]?.message?.content ?? ""
@@ -137,16 +167,23 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
         if (content.length > 0) {
           return { ok: true, content, provider: p.id, model, attempts };
         }
+        // Empty output from a call that otherwise succeeded is a
+        // CANDIDATE-level failure, not a provider-level one. Reasoning models
+        // can spend the whole maxTokens budget on hidden reasoning and return
+        // no visible content, and the next model on the SAME provider usually
+        // answers fine. Breaking out here (the previous behaviour) silently
+        // skipped this provider's own fallback models and lost synthesis
+        // entirely — verified against the live deployment by /selftest.
         lastError = `${p.id} (${model}) returned an empty completion`;
-      } else {
-        lastError = result.error ?? `${p.id} failed`;
+        attempts.push({ provider: p.id, model, error: lastError.slice(0, 200) });
+        if (decideAfterFailedAttempt(lastError, true) === "next_provider") break;
+        continue;
       }
+
+      lastError = result.error ?? `${p.id} failed`;
       attempts.push({ provider: p.id, model, error: lastError.slice(0, 200) });
 
-      // Model-specific rejection (retired/renamed) → try the provider's next
-      // candidate. Anything else (credentials, quota, network, 5xx) → skip
-      // the remaining candidates and fall through to the next provider.
-      if (!isModelSpecific(lastError)) break;
+      if (decideAfterFailedAttempt(lastError, false) === "next_provider") break;
     }
   }
 

@@ -10,6 +10,7 @@ import {
   isCredentialish,
   isModelSpecific,
 } from "../src/convex/aiProviders/openaiCompat";
+import { decideAfterFailedAttempt } from "../src/convex/aiProviders";
 
 describe("fallback classification (router decision rules)", () => {
   test("credential/quota failures are credentialish", () => {
@@ -35,6 +36,51 @@ describe("fallback classification (router decision rules)", () => {
   test("undefined errors classify as neither", () => {
     expect(isCredentialish(undefined)).toBe(false);
     expect(isModelSpecific(undefined)).toBe(false);
+  });
+});
+
+describe("empty completions retry the same provider's fallback models", () => {
+  /**
+   * Regression: an empty completion used to be classified like a credential
+   * error, which BROKE out of the candidate loop and skipped the provider's
+   * own fallback models. On the live deployment every provider then failed
+   * (vly unauthorized, openai out of credits) and ALL AI synthesis silently
+   * disappeared while /status still reported "available" — because an empty
+   * string from a successful HTTP call is easy to mistake for success.
+   */
+  test("empty completion → next candidate model, not next provider", () => {
+    expect(
+      decideAfterFailedAttempt(
+        "groq (openai/gpt-oss-20b) returned an empty completion",
+        true,
+      ),
+    ).toBe("next_candidate");
+  });
+
+  test("empty completion is retried even when the text looks provider-level", () => {
+    // The message deliberately contains no model-not-found markers, which is
+    // exactly why the empty flag must drive the decision on its own.
+    expect(decideAfterFailedAttempt("provider returned nothing", true)).toBe(
+      "next_candidate",
+    );
+  });
+
+  test("retired model → next candidate model", () => {
+    expect(
+      decideAfterFailedAttempt("model_not_found: no such model", false),
+    ).toBe("next_candidate");
+  });
+
+  test("credentials/quota/network → next provider", () => {
+    expect(decideAfterFailedAttempt("error 401: invalid api key", false)).toBe(
+      "next_provider",
+    );
+    expect(decideAfterFailedAttempt("429 insufficient_quota", false)).toBe(
+      "next_provider",
+    );
+    expect(decideAfterFailedAttempt("ECONNREFUSED", false)).toBe(
+      "next_provider",
+    );
   });
 });
 

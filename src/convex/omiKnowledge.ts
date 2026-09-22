@@ -1,21 +1,22 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { internalQuery, mutation, query } from "./_generated/server";
 import { v } from "convex/values";
-import { retrieve, type RetrievalMode } from "./searchEngine/retrieval";
+import { retrieve, parseRetrievalMode } from "./searchEngine/retrieval";
 
 /**
  * Omi Knowledge — Phase 3 local knowledge base (master plan).
  *
- * Documents are stored in Convex and retrieved with the local BM25 ranking
+ * Documents are stored in Convex and retrieved with the local hybrid ranking
  * engine (searchEngine/retrieval.ts) — ZERO per-query cost: no vector
  * database, no paid embedding API, no OpenSearch/FAISS hosting required.
  * The engine lives behind the provider-neutral retriever seam, so a
  * self-hosted semantic index can be swapped in later without touching the
  * chat runtime or the UI.
  *
- * Scoring: BM25 — inverse document frequency, length normalization and term
- * saturation, with a full-phrase bonus. Deterministic, explainable, and
- * free. The legacy keyword scorer remains available via `retrievalMode`.
+ * Scoring: BM25 (inverse document frequency, length normalization, term
+ * saturation, full-phrase bonus) PLUS field weighting, typo tolerance and
+ * proximity — deterministic, explainable and free. `retrievalMode` selects
+ * `hybrid` (default), plain `bm25`, or the legacy keyword scorer.
  */
 
 const MAX_CONTENT_CHARS = 60_000;
@@ -59,8 +60,12 @@ export const search = query({
       .query("omiDocuments")
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .take(200);
-    const mode: RetrievalMode = retrievalMode === "legacy" ? "legacy" : "bm25";
-    return retrieve(query, docs, Math.min(limit ?? 6, 12), mode);
+    return retrieve(
+      query,
+      docs,
+      Math.min(limit ?? 6, 12),
+      parseRetrievalMode(retrievalMode),
+    );
   },
 });
 
@@ -117,7 +122,6 @@ export const searchInternal = internalQuery({
       .query("omiDocuments")
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .take(200);
-    const mode: RetrievalMode = retrievalMode === "legacy" ? "legacy" : "bm25";
-    return retrieve(query, docs, limit, mode);
+    return retrieve(query, docs, limit, parseRetrievalMode(retrievalMode));
   },
 });

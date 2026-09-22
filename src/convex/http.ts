@@ -4,6 +4,7 @@ import { auth } from "./auth";
 import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
 import { getProviderStatus } from "./searchProviders";
+import { runSelfTest } from "./omiSelfTest";
 import {
   CREATOR_STATEMENT,
   OMI_CREATOR,
@@ -29,9 +30,12 @@ auth.addHttpRoutes(http);
  * The AI/search catalogs already expose `configured: boolean` + public model
  * labels + honest cost strings; that is the maximum disclosed here.
  *
- * `/`       → plain-text summary, readable by any agent or browser tool
- * `/health` → minimal liveness probe (status + time)
- * `/status` → full machine-readable capability snapshot
+ * `/`         → plain-text summary, readable by any agent or browser tool
+ * `/health`   → minimal liveness probe (status + time)
+ * `/status`   → full machine-readable capability snapshot
+ * `/selftest` → LIVE end-to-end probe (real retrieval + real AI call),
+ *               per-stage pass/fail. Cached 5 min; the probe query is fixed
+ *               so this is not an open search/AI proxy.
  */
 
 const CORS_HEADERS: Record<string, string> = {
@@ -73,6 +77,11 @@ function statusSnapshot() {
     status: "ok",
     time: new Date().toISOString(),
     ai: {
+      // CONFIGURATION only: a provider key can be present and still be
+      // rejected upstream (expired key, exhausted quota). /selftest makes a
+      // real call and is the only place that reports VERIFIED availability.
+      configured: ai.activeProvider !== null,
+      verifiedBy: "/selftest",
       available: ai.activeProvider !== null,
       activeProvider: ai.activeProvider,
       activeLabel: ai.activeLabel,
@@ -141,6 +150,7 @@ http.route({
       ...ready.map((p) => `  - ${p.label}: ${p.ready ? "ready" : "unavailable"} (${p.cost})`),
       "",
       "Machine-readable status: /health, /status",
+      "Live end-to-end self-test: /selftest",
     ];
     return textResponse(lines.join("\n"));
   }),
@@ -164,8 +174,17 @@ http.route({
   handler: httpAction(async () => jsonResponse(statusSnapshot())),
 });
 
+http.route({
+  path: "/selftest",
+  method: "GET",
+  handler: httpAction(async () => {
+    const report = await runSelfTest();
+    return jsonResponse(report, report.status === "down" ? 503 : 200);
+  }),
+});
+
 // CORS preflight for browser-based agents fetching the routes above.
-for (const path of ["/", "/health", "/status"]) {
+for (const path of ["/", "/health", "/status", "/selftest"]) {
   http.route({ path, method: "OPTIONS", handler: httpAction(async () => preflightResponse()) });
 }
 

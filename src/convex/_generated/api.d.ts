@@ -44,6 +44,7 @@ import type * as omiKnowledge from "../omiKnowledge.js";
 import type * as omiMemories from "../omiMemories.js";
 import type * as omiMessages from "../omiMessages.js";
 import type * as omiMultimodal from "../omiMultimodal.js";
+import type * as omiSelfTest from "../omiSelfTest.js";
 import type * as omiTasks from "../omiTasks.js";
 import type * as omiToolRuns from "../omiToolRuns.js";
 import type * as omiTools_executor from "../omiTools/executor.js";
@@ -130,6 +131,7 @@ declare const fullApi: ApiFromModules<{
   omiMemories: typeof omiMemories;
   omiMessages: typeof omiMessages;
   omiMultimodal: typeof omiMultimodal;
+  omiSelfTest: typeof omiSelfTest;
   omiTasks: typeof omiTasks;
   omiToolRuns: typeof omiToolRuns;
   "omiTools/executor": typeof omiTools_executor;

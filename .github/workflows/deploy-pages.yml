@@ -42,6 +42,15 @@ jobs:
       - name: Install dependencies (frozen lockfile)
         run: bun install --frozen-lockfile
 
+      # Gates below: a broken commit must never reach the live site. These run
+      # BEFORE the build so failures are unambiguous, and they need no network
+      # or Convex credentials (the suite is pure — bun:test only).
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Test suite
+        run: bun run test
+
       - name: Build production bundle
         env:
           # Public backend connection string (NOT a secret). Resolution order:
