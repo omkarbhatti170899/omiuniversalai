@@ -10,6 +10,8 @@ import { toolCatalogPrompt, parseToolCall } from "./omiTools/registry";
 import { specialtyProfile, allowedToolIds } from "./omiTools/specialties";
 import { executeTool } from "./omiTools/executor";
 import { verifyResult, correctiveRetry } from "./verification";
+// §45 — single source of truth for product identity, shared by every surface.
+import { creatorIdentityBlock } from "./omiIdentity";
 
 /** AI plans the steps for an objective. Creates the task awaiting human approval. */
 export const planTask = action({
@@ -34,6 +36,7 @@ export const planTask = action({
         {
           role: "system",
           content: [
+            creatorIdentityBlock(),
             'You are Omi\'s agent planner. Break the objective into 2-4 concrete, sequential steps. Respond with ONLY a JSON array of short step descriptions, e.g. ["Step one","Step two"]. No commentary. When research or live facts are involved, plan a step that uses the available tools (web search, page reading).',
             profile.planning,
           ].join("\n\n"),
@@ -109,7 +112,7 @@ export const runTask = action({
           messages: [
             {
               role: "system",
-              content: `You are Omi's ${profile.label.toLowerCase()} agent executing one step of a multi-step task. Produce the concrete output for this step only: concise, actionable, under 150 words. No preamble.\n\n${profile.execution}\n\n${toolCatalogPrompt(allowed)}`,
+              content: `${creatorIdentityBlock()}\n\nYou are Omi's ${profile.label.toLowerCase()} agent executing one step of a multi-step task. Produce the concrete output for this step only: concise, actionable, under 150 words. No preamble.\n\n${profile.execution}\n\n${toolCatalogPrompt(allowed)}`,
             },
             {
               role: "user",
@@ -189,7 +192,8 @@ export const runTask = action({
           {
             role: "system",
             content:
-              "You are Omi. Summarize the completed agent work into a clear final answer for the user: what was done, key findings, and the recommended next action. Under 180 words. No preamble.",
+              creatorIdentityBlock() +
+              "\n\nYou are Omi. Summarize the completed agent work into a clear final answer for the user: what was done, key findings, and the recommended next action. Under 180 words. No preamble.",
           },
           {
             role: "user",

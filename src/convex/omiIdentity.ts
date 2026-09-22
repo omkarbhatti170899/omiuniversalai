@@ -16,6 +16,7 @@
  */
 
 export const OMI_PRODUCT_NAME = "Omi Universal AI";
+// NOTE: injected into every AI surface via creatorIdentityBlock().
 export const OMI_CREATOR = "Mr. Omkar Prakash Bhatti";
 export const OMI_ECOSYSTEM = "Ominnovations Intelligence";
 

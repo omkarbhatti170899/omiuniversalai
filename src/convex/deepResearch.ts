@@ -27,6 +27,8 @@ import {
 } from "./searchEngine/evidence";
 import type { WebCitation } from "./searchProviders/types";
 import { complete } from "./aiProviders";
+// §45 — single source of truth for product identity, shared by every surface.
+import { creatorIdentityBlock } from "./omiIdentity";
 
 const MAX_SEARCHES = 4; // stop condition: hard cap
 const MIN_EVIDENCE_FOR_EARLY_STOP = 12; // unique citations across searches
@@ -71,7 +73,8 @@ export async function planSubqueries(query: string): Promise<string[]> {
         {
           role: "system",
           content:
-            "You are Omi's research planner. Break the user's question into 2-4 focused web-search subqueries that together fully answer it. Prefer official sources for pricing/limits. Return ONLY a JSON array of strings, no other text.",
+            creatorIdentityBlock() +
+            "\n\nYou are Omi's research planner. Break the user's question into 2-4 focused web-search subqueries that together fully answer it. Prefer official sources for pricing/limits. Return ONLY a JSON array of strings, no other text.",
         },
         { role: "user", content: query },
       ],

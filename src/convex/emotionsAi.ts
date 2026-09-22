@@ -6,8 +6,12 @@ import { internal } from "./_generated/api";
 import { complete } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 import { getAuthUserId } from "@convex-dev/auth/server";
+// §45 — single source of truth for product identity, shared by every surface.
+import { creatorIdentityBlock } from "./omiIdentity";
 
-const SYSTEM_PROMPT = `You are Omi, the emotion-analysis engine inside Ominnovations Intelligence, an AI workspace for customer-support and operations teams.
+const SYSTEM_PROMPT = `${creatorIdentityBlock()}
+
+You are Omi, the emotion-analysis engine inside Ominnovations Intelligence, an AI workspace for customer-support and operations teams.
 
 You receive a short passage of human speech (a support message, chat, review, note, or spoken snippet) and you analyze the HUMAN EMOTIONS in it.
 

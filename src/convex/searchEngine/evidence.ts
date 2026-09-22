@@ -16,6 +16,10 @@ import type { WebCitation } from "../searchProviders/types";
 import { domainOf, sourceTier, type SourceTier } from "./quality";
 import { sanitizeUntrustedText } from "./security";
 import { complete } from "../aiProviders";
+// §45 — single source of truth for product identity. Injected here so
+// Andromeda, Deep Research and workflow synthesis answer "who created Omi?"
+// exactly like chat does.
+import { creatorIdentityBlock } from "../omiIdentity";
 
 export type EvidenceItem = {
   idx: number; // citation number shown to the user
@@ -156,7 +160,8 @@ export async function synthesizeResearchAnswer(
         {
           role: "system",
           content:
-            "You are Omi's Research Agent inside Ominnovations Intelligence. You answer STRICTLY from the numbered evidence blocks provided. " +
+            creatorIdentityBlock() +
+            "\n\nYou are Omi's Research Agent inside Ominnovations Intelligence. You answer STRICTLY from the numbered evidence blocks provided. " +
             "Rules: (1) Cite every factual claim inline with [n] matching the evidence numbers. (2) NEVER invent facts, numbers, or citations. " +
             "(3) If sources disagree, list the disagreement in 'conflicts' — never silently pick one. (4) If the evidence doesn't cover part of the question, say so in 'unverified'. " +
             "(5) In 'answer', prefix each claim class honestly: verified facts plain, source-reported claims as 'X reports that...', your own synthesis as 'Omi synthesis:'. " +

@@ -32,6 +32,8 @@ import { assertSafeUrl } from "./searchEngine/security";
 import { decideSearch, isCalculation, extractUrl } from "./searchEngine/decision";
 import { rateLimit, breakerStatus } from "./searchEngine/resilience";
 import { evaluateExpression } from "./searchEngine/calculator";
+// §45 — single source of truth for product identity, shared by every surface.
+import { creatorIdentityBlock } from "./omiIdentity";
 import { buildEvidencePack, sourcesFooter } from "./searchEngine/evidence";
 import { complete } from "./aiProviders";
 
@@ -330,8 +332,9 @@ export const urlResearch = action({
         messages: [
           {
             role: "system",
-            content:
-              "You are Omi's URL analyst. Summarize the page content below faithfully. Only state what the page actually says. 150 words max. If asked a specific question, answer it from the page; if the page doesn't cover it, say so plainly.",
+          content:
+            creatorIdentityBlock() +
+            "\n\nYou are Omi's URL analyst. Summarize the page content below faithfully. Only state what the page actually says. 150 words max. If asked a specific question, answer it from the page; if the page doesn't cover it, say so plainly.",
           },
           {
             role: "user",

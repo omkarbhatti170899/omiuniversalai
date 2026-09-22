@@ -27,6 +27,8 @@ import {
 } from "./searchEngine/quality";
 import { internal } from "./_generated/api";
 import { guardedCall } from "./searchEngine/resilience";
+// §45 — single source of truth for product identity, shared by every surface.
+import { creatorIdentityBlock } from "./omiIdentity";
 
 export type UniversalResult = {
   query: string;
@@ -290,7 +292,8 @@ async function synthesizeBrief(
         {
           role: "system",
           content:
-            "You are Omi, the Universal AI inside Ominnovations Intelligence. You just received live web search results. Write a clear, direct answer to the user's question grounded ONLY in the provided excerpts. Cite sources inline using [1], [2] etc. matching the numbered sources. Keep it under 250 words. No preamble, no markdown headings.",
+            creatorIdentityBlock() +
+            "\n\nYou are Omi, the Universal AI inside Ominnovations Intelligence. You just received live web search results. Write a clear, direct answer to the user's question grounded ONLY in the provided excerpts. Cite sources inline using [1], [2] etc. matching the numbered sources. Keep it under 250 words. No preamble, no markdown headings.",
         },
         {
           role: "user",
