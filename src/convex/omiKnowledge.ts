@@ -1,6 +1,7 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { internalQuery, mutation, query } from "./_generated/server";
 import { v } from "convex/values";
+import type { Id } from "./_generated/dataModel";
 import { retrieve, parseRetrievalMode } from "./searchEngine/retrieval";
 
 /**
@@ -27,6 +28,23 @@ export type KnowledgePassage = {
   snippet: string;
   score: number;
 };
+
+/**
+ * §5 Projects — the context-isolation rule for knowledge retrieval, pure so
+ * it is unit-tested rather than buried in a query handler:
+ *
+ *   • projectId set  → ONLY documents scoped to that project. Project context
+ *     never mixes across projects.
+ *   • projectId unset → only PERSONAL documents (no projectId). Personal chat
+ *     does not silently absorb project files either — scoping cuts both ways.
+ */
+export function scopeDocumentsToProject<
+  T extends { projectId?: Id<"omiProjects"> },
+>(docs: T[], projectId?: Id<"omiProjects">): T[] {
+  return projectId
+    ? docs.filter((d) => d.projectId === projectId)
+    : docs.filter((d) => d.projectId === undefined);
+}
 
 // --- User-facing queries/mutations ------------------------------------------
 
@@ -116,12 +134,24 @@ export const searchInternal = internalQuery({
     query: v.string(),
     limit: v.number(),
     retrievalMode: v.optional(v.string()),
+    /**
+     * §5 Projects: when set, retrieval searches ONLY documents scoped to
+     * that project — project context never mixes across projects. When
+     * unset, all of the user's personal knowledge is searched (documents
+     * with no projectId), exactly as before this field existed.
+     */
+    projectId: v.optional(v.id("omiProjects")),
   },
-  handler: async (ctx, { userId, query, limit, retrievalMode }) => {
+  handler: async (ctx, { userId, query, limit, retrievalMode, projectId }) => {
     const docs = await ctx.db
       .query("omiDocuments")
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .take(200);
-    return retrieve(query, docs, limit, parseRetrievalMode(retrievalMode));
+    return retrieve(
+      query,
+      scopeDocumentsToProject(docs, projectId),
+      limit,
+      parseRetrievalMode(retrievalMode),
+    );
   },
 });

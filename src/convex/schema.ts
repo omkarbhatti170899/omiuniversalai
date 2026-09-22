@@ -153,6 +153,9 @@ const schema = defineSchema(
     omiConversations: defineTable({
       userId: v.id("users"),
       title: v.string(),
+      // §5 Projects: optional parent project. Unset = personal/global chat
+      // (pre-Projects conversations keep working unchanged — no migration).
+      projectId: v.optional(v.id("omiProjects")),
     }).index("by_user", ["userId"]),
 
     // Omi Assistant — messages (reasoning = Omi's transparent "why this answer" summary)
@@ -205,6 +208,20 @@ const schema = defineSchema(
       fileId: v.optional(v.id("_storage")),
       fileType: v.optional(v.string()),
       fileSize: v.optional(v.number()),
+      // §5 Projects: documents can belong to a project's context. Unset =
+      // personal knowledge, visible in every project (backward compatible).
+      projectId: v.optional(v.id("omiProjects")),
+    }).index("by_user", ["userId"]),
+
+    // §5 Projects — the container that scopes conversations, files, research
+    // and instructions. Project context never mixes across projects.
+    omiProjects: defineTable({
+      userId: v.id("users"),
+      name: v.string(),
+      // Standing instructions for Omi inside THIS project only (§5).
+      instructions: v.string(),
+      createdAt: v.number(),
+      updatedAt: v.number(),
     }).index("by_user", ["userId"]),
 
     // Omi Agents — specialized agents owned by the user

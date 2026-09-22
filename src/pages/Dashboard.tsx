@@ -4,6 +4,7 @@ import { HomeView } from "@/components/workspace/HomeView";
 import { MemoryView } from "@/components/workspace/MemoryView";
 import { KnowledgeView } from "@/components/workspace/KnowledgeView";
 import { FilesView } from "@/components/workspace/FilesView";
+import { ProjectsView } from "@/components/workspace/ProjectsView";
 import { SettingsView } from "@/components/workspace/SettingsView";
 import { EmotionsView } from "@/components/workspace/EmotionsView";
 import { AutomationView } from "@/components/workspace/AutomationView";
@@ -11,6 +12,7 @@ import { OmiSearchPanel } from "@/components/OmiSearchPanel";
 import { OmiAssistantPanel } from "@/components/OmiAssistantPanel";
 import { OmiAgentsPanel } from "@/components/OmiAgentsPanel";
 import { useState } from "react";
+import type { Id } from "@/convex/_generated/dataModel";
 
 export default function Dashboard() {
   const [view, setView] = useState<WorkspaceView>("home");
@@ -18,6 +20,10 @@ export default function Dashboard() {
     undefined,
   );
   const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);
+  /** §5 Projects: the project whose context the chat view operates in. */
+  const [chatProjectId, setChatProjectId] = useState<Id<"omiProjects"> | null>(
+    null,
+  );
 
   const navigate = (next: WorkspaceView) => {
     setView(next);
@@ -55,8 +61,21 @@ export default function Dashboard() {
 
       {view === "chat" && (
         <div className="mx-auto max-w-5xl">
-          <OmiAssistantPanel initialDraft={assistantDraft} />
+          <OmiAssistantPanel
+            initialDraft={assistantDraft}
+            projectId={chatProjectId}
+          />
         </div>
+      )}
+
+      {view === "projects" && (
+        <ProjectsView
+          onChatInProject={(projectId) => {
+            setChatProjectId(projectId);
+            setAssistantDraft(undefined);
+            setView("chat");
+          }}
+        />
       )}
 
       {view === "agents" && (
@@ -76,6 +95,8 @@ export default function Dashboard() {
           <OmiSearchPanel initialQuery={searchQuery} />
         </div>
       )}
+
+      {view === "projects" && <ProjectsView />}
 
       {view === "memory" && <MemoryView />}
 

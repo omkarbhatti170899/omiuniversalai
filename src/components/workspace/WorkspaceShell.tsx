@@ -23,6 +23,7 @@ import {
   Settings,
   Sparkles,
   Workflow,
+  FolderKanban,
 } from "lucide-react";
 
 export type WorkspaceView =
@@ -50,6 +51,7 @@ type NavItem = {
 const NAV: NavItem[] = [
   { id: "home", label: "Home", icon: Home, ready: true },
   { id: "chat", label: "Chat with Omi", icon: MessageSquare, ready: true },
+  { id: "projects", label: "Projects", icon: FolderKanban, ready: true },
   { id: "agents", label: "Agents", icon: Bot, ready: true },
   { id: "research", label: "Research", icon: Globe, ready: true },
   { id: "memory", label: "Memory", icon: Brain, ready: true },

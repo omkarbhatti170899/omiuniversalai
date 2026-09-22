@@ -253,7 +253,18 @@ export const send = action({
     // 1c) If anything below fails, the live message must never stay stuck
     //    in "streaming" — finalize it with an honest error (§35).
     try {
-    // 2) Ground Omi: persistent memory + knowledge base + recent context
+    // 2) Ground Omi: project context + memory + knowledge + recent history.
+    //    §5 Projects: the conversation's optional projectId scopes BOTH the
+    //    standing instructions and the knowledge search — project context
+    //    never mixes across projects.
+    const project =
+      conversation.projectId !== undefined
+        ? await ctx.runQuery(internal.omiProjects.groundInternal, {
+            userId,
+            projectId: conversation.projectId,
+          })
+        : null;
+
     const [memories, recent, knowledge] = await Promise.all([
       ctx.runQuery(internal.omiMemories.listInternal, { userId, limit: 40 }),
       ctx.runQuery(internal.omiMessages.recentInternal, {
@@ -264,8 +275,15 @@ export const send = action({
         userId,
         query: trimmed,
         limit: 4,
+        projectId: conversation.projectId,
       }),
     ]);
+
+    // §5: standing instructions for THIS project only — injected ahead of the
+    // user's own memories so project behaviour is deterministic in-project.
+    const projectBlock = project
+      ? `PROJECT: ${project.name}\nThe user's standing instructions for this project (follow them throughout):\n${project.instructions}`
+      : "";
 
     const memoryBlock =
       memories.length > 0
@@ -380,6 +398,7 @@ export const send = action({
     const chat: ChatMsg[] = [
       { role: "system", content: OMI_SYSTEM },
     ];
+    if (projectBlock) chat.push({ role: "system", content: projectBlock });
     if (memoryBlock) chat.push({ role: "system", content: memoryBlock });
     if (knowledgeBlock) chat.push({ role: "system", content: knowledgeBlock });
     if (attachmentBlock) chat.push({ role: "system", content: attachmentBlock });

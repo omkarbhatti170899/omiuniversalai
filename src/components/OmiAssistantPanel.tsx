@@ -58,6 +58,7 @@ import {
   validateForUpload,
   type AttachmentState,
 } from "@/lib/attachmentUpload";
+import { FolderKanban } from "lucide-react";
 
 type OmiMessage = {
   _id: Id<"omiMessages">;
@@ -77,6 +78,8 @@ type Conversation = {
   _id: Id<"omiConversations">;
   title: string;
   _creationTime: number;
+  /** §5 Projects: set when the chat belongs to a project. */
+  projectId?: Id<"omiProjects">;
 };
 
 type Memory = {
@@ -87,11 +90,19 @@ type Memory = {
 
 export function OmiAssistantPanel({
   initialDraft,
+  /** §5 Projects: when set, new chats belong to this project and ground ONLY from its files + instructions. */
+  projectId,
 }: {
   initialDraft?: string;
+  projectId?: Id<"omiProjects"> | null;
 } = {}) {
   const conversations = useQuery(api.omiConversations.listMine);
   const memories = useQuery(api.omiMemories.listMine);
+  // §5 Projects: project name for the in-chat banner (ownership-checked read).
+  const project = useQuery(
+    api.omiProjects.listMine,
+    projectId ? {} : "skip",
+  )?.find((p) => p._id === projectId);
 
   const [activeId, setActiveId] = useState<Id<"omiConversations"> | null>(null);
   const [draft, setDraft] = useState(initialDraft ?? "");
@@ -192,16 +203,23 @@ export function OmiAssistantPanel({
   };
   // --- end attachments ---
 
+  // §5 Projects: the sidebar shows only conversations in the current scope —
+  // a project's chats never mix with personal ones.
+  const visibleConversations = (conversations ?? []).filter((c) =>
+    projectId ? c.projectId === projectId : c.projectId === undefined,
+  );
+
   // Auto-select the newest conversation on first load.
   useEffect(() => {
-    if (conversations && !activeId && conversations.length > 0) {
-      setActiveId(conversations[0]._id);
+    if (visibleConversations.length > 0 && !activeId) {
+      setActiveId(visibleConversations[0]._id);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conversations, activeId]);
 
   const handleNewConversation = async () => {
     try {
-      const id = await createConversation({});
+      const id = await createConversation({ projectId: projectId ?? undefined });
       setActiveId(id);
     } catch {
       toast.error("Couldn't start a new conversation.");
@@ -218,7 +236,10 @@ export function OmiAssistantPanel({
     let convId = activeId;
     if (!convId) {
       try {
-        convId = await createConversation({ title: text.slice(0, 60) });
+        convId = await createConversation({
+          title: text.slice(0, 60),
+          projectId: projectId ?? undefined,
+        });
         setActiveId(convId);
       } catch {
         toast.error("Couldn't start a conversation.");
@@ -326,20 +347,22 @@ export function OmiAssistantPanel({
         <div>
           <p className="mb-2 flex items-center gap-1.5 px-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <History className="size-3.5" />
-            Conversations
+            {projectId ? "Project conversations" : "Conversations"}
           </p>
           {conversations === undefined ? (
             <div className="space-y-2">
               <Skeleton className="h-10 w-full" />
               <Skeleton className="h-10 w-full" />
             </div>
-          ) : conversations.length === 0 ? (
+          ) : visibleConversations.length === 0 ? (
             <p className="px-1 text-xs text-muted-foreground">
-              No conversations yet.
+              {projectId
+                ? "No conversations in this project yet."
+                : "No conversations yet."}
             </p>
           ) : (
             <div className="space-y-1.5">
-              {conversations.map((c: Conversation) => (
+              {visibleConversations.map((c: Conversation) => (
                 <div
                   key={c._id}
                   className={`group flex items-center rounded-lg border px-3 py-2 text-sm transition-colors ${
@@ -354,6 +377,14 @@ export function OmiAssistantPanel({
                     onClick={() => setActiveId(c._id)}
                   >
                     {c.title}
+                    {c.projectId !== undefined && (
+                      <span
+                        className="ml-2 inline-flex items-center rounded-full border border-border/70 px-1.5 py-0.5 align-middle text-[10px] text-muted-foreground"
+                        title="This conversation belongs to a project"
+                      >
+                        project
+                      </span>
+                    )}
                   </button>
                   <button
                     type="button"
@@ -380,7 +411,15 @@ export function OmiAssistantPanel({
               : "Start a conversation"}
           </CardTitle>
           <CardDescription>
-            Omi plans, reasons, and explains — grounded in your approved memory.
+            {project ? (
+              <span className="inline-flex flex-wrap items-center gap-1.5">
+                <FolderKanban className="size-3.5 text-primary" />
+                Grounded in project “{project.name}” — its instructions and
+                files only.
+              </span>
+            ) : (
+              "Omi plans, reasons, and explains — grounded in your approved memory."
+            )}
           </CardDescription>
         </CardHeader>
 

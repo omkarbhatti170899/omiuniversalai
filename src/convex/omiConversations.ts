@@ -18,14 +18,26 @@ export const listMine = query({
 });
 
 export const create = mutation({
-  args: { title: v.optional(v.string()) },
-  handler: async (ctx, { title }) => {
+  args: {
+    title: v.optional(v.string()),
+    /** §5 Projects: create the conversation inside a project (ownership-checked). */
+    projectId: v.optional(v.id("omiProjects")),
+  },
+  handler: async (ctx, { title, projectId }) => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Not authenticated");
+
+    if (projectId !== undefined) {
+      const project = await ctx.db.get(projectId);
+      if (!project || project.userId !== userId) {
+        throw new Error("Not your project");
+      }
+    }
 
     return await ctx.db.insert("omiConversations", {
       userId,
       title: title?.trim().slice(0, 80) || "New conversation",
+      projectId,
     });
   },
 });
