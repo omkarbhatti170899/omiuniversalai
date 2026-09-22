@@ -1,4 +1,4 @@
-import { useConvexClient as useReactConvexClient } from "convex/react";
+import { useConvex } from "convex/react";
 
 /**
  * Typed accessor for the raw Convex client. Needed when a plain helper
@@ -6,5 +6,5 @@ import { useConvexClient as useReactConvexClient } from "convex/react";
  * which runs inside async loops and can't call useMutation per file.
  */
 export function useConvexClient() {
-  return useReactConvexClient();
+  return useConvex();
 }

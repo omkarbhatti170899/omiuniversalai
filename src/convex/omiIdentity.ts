@@ -41,20 +41,22 @@ export function isCreatorQuestion(text: string): IdentityQuestionKind | null {
   const mentionsCreatorName = /omkar|bhatti/.test(t);
   const mentionsYou = /\byou\b|\byour\b|\byourself\b/.test(t);
 
+  // "Who is Mr. Omkar Prakash Bhatti?" — asking about the person. Checked
+  // BEFORE the product-verb gate below: the phrasing names a human, so none of
+  // the "who created/built/founded…" patterns would ever match it.
+  if (mentionsCreatorName && /who\s+(is|was|'s|are|r)\b/.test(t)) {
+    return "who_is_creator_person";
+  }
+
   const creatorVerb =
     /who\s+(created|made|built|developed|designed|founded|invented|programmed|trained)/.test(t) ||
-    /who('s| is| was)?\s+(the\s+)?(creator|founder|developer|maker|author|architect|inventor|owner)/.test(t) ||
+    /who('s| is| was)?\s+(the\s+)?(creator|founder|developer|maker|author|architect|inventor|owner|owns?)/.test(t) ||
     /who\s+(is|was)\s+behind/.test(t) ||
     /\bcreated\s+by\b|\bmade\s+by\b|\bfounded\s+by\b|\bdeveloped\s+by\b/.test(t) ||
     /tell\s+me\s+about\s+(your|the)\s+creator/.test(t) ||
     /who\s+(are|r)\s+you\b|what\s+are\s+you\b/.test(t);
 
   if (!creatorVerb) return null;
-
-  // "Who is Mr. Omkar Prakash Bhatti?" — asking about the person.
-  if (mentionsCreatorName && /who\s+(is|was|'s)\b/.test(t)) {
-    return "who_is_creator_person";
-  }
 
   // "Who created Omi…?" / "Who made you?" / "Who is behind Omi?"
   if (mentionsOmi || mentionsYou) {

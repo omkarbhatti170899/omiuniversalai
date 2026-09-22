@@ -49,9 +49,16 @@ export type IngestOutcome =
   | { ok: true; documentId: string; truncated: boolean }
   | { ok: false; error: string };
 
+/**
+ * Structural subset of the Convex client this module needs. Deliberately
+ * permissive in the `ref`/`args` positions so BOTH the real
+ * `ConvexReactClient` returned by `useConvexClient()` and lightweight fakes in
+ * unit tests satisfy it (the real client's `mutation`/`action` are generic over
+ * `FunctionReference`, which no narrow signature can express structurally).
+ */
 type ConvexLike = {
-  mutation: (ref: unknown, args: unknown) => Promise<unknown>;
-  action: (ref: unknown, args: unknown) => Promise<unknown>;
+  mutation: (ref: any, args?: any) => Promise<any>;
+  action: (ref: any, args?: any) => Promise<any>;
 };
 
 const IMAGE_NAME_RE = /\.(png|jpe?g|webp|gif)$/i;
