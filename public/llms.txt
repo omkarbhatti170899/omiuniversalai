@@ -1,0 +1,55 @@
+# Omi Universal AI
+
+> Omi Universal AI was created by Mr. Omkar Prakash Bhatti.
+
+Omi Universal AI is a provider-neutral, free-first AI intelligence workspace built
+by Ominnovations Intelligence. It combines grounded chat, the Andromeda research
+pipeline, deep research, multimodal document understanding, persistent memory, a
+private knowledge base, agent workflows and Human Emotions AI in one system.
+
+The application is a JavaScript single-page app, so automated tools that cannot
+execute JavaScript should use the plain-text endpoints below instead.
+
+## Product identity
+
+- Product: Omi Universal AI
+- Ecosystem: Ominnovations Intelligence
+- Creator: Mr. Omkar Prakash Bhatti
+- Canonical creator statement: "Omi Universal AI was created by Mr. Omkar Prakash Bhatti."
+
+Mr. Omkar Prakash Bhatti created Omi Universal AI and Ominnovations Intelligence.
+He did not create any third-party technology, company, model or service.
+
+## Machine-readable status
+
+- Plain text summary: https://resolute-ptarmigan-187.convex.site/
+- Health (JSON): https://resolute-ptarmigan-187.convex.site/health
+- Full status (JSON): https://resolute-ptarmigan-187.convex.site/status
+
+These endpoints are public and contain no API keys, credentials or user data.
+They report only booleans and public metadata: which AI/vision providers are
+configured, and which Andromeda sources are ready.
+
+## Capabilities
+
+- Omi Chat with grounded, cited answers
+- Andromeda research pipeline: search, source-quality gates, corroboration,
+  evidence packing, grounded synthesis, independent verification, confidence
+  labelling and suggested follow-up research
+- Deep Research: multi-subquery investigation with live progress
+- Web search and URL analysis across keyless, zero-cost providers
+- Multimodal attachments: image understanding (vision), PDF, DOCX, XLSX, CSV, TXT
+- Human Emotions AI: emotion, sentiment, urgency and rant-vs-complaint analysis
+- Agent workflows with human approval and independent verification
+- Persistent memory and a private, per-user knowledge base
+
+## Andromeda sources
+
+All sources are free/open, keyless and $0 per query: SearXNG, Wikipedia,
+Wikidata, arXiv, OpenAlex, Open Library, Hacker News, Openverse, Common Crawl,
+GitHub, GDELT, Open-Meteo and DuckDuckGo.
+
+## Application
+
+- Web app: https://omkarbhatti170899.github.io/omiuniversalai/
+- Sign in with a one-time email code, or continue as a guest.
