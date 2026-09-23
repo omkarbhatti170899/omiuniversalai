@@ -8,6 +8,7 @@ import { ProjectsView } from "@/components/workspace/ProjectsView";
 import { SettingsView } from "@/components/workspace/SettingsView";
 import { EmotionsView } from "@/components/workspace/EmotionsView";
 import { AutomationView } from "@/components/workspace/AutomationView";
+import { ImageStudioView } from "@/components/workspace/ImageStudioView";
 import { OmiSearchPanel } from "@/components/OmiSearchPanel";
 import { OmiAssistantPanel } from "@/components/OmiAssistantPanel";
 import { OmiAgentsPanel } from "@/components/OmiAgentsPanel";
@@ -24,12 +25,19 @@ export default function Dashboard() {
   const [chatProjectId, setChatProjectId] = useState<Id<"omiProjects"> | null>(
     null,
   );
+  /** Image Studio: which mode the studio opens in (Home shortcuts seed this). */
+  const [imageMode, setImageMode] = useState<"generate" | "edit">("generate");
 
   const navigate = (next: WorkspaceView) => {
     setView(next);
     // Clear one-shot seeds once consumed by their target view.
     if (next !== "chat") setAssistantDraft(undefined);
     if (next !== "search") setSearchQuery(undefined);
+  };
+
+  const openImageStudio = (mode: "generate" | "edit") => {
+    setImageMode(mode);
+    navigate("image");
   };
 
   const handleSearchSubmit = (query: string) => {
@@ -57,7 +65,17 @@ export default function Dashboard() {
       onNavigate={navigate}
       onSearchSubmit={handleSearchSubmit}
     >
-      {view === "home" && <HomeView onNavigate={navigate} onAskOmi={handleAskOmi} />}
+      {view === "home" && (
+        <HomeView
+          onNavigate={navigate}
+          onAskOmi={handleAskOmi}
+          onOpenImageStudio={openImageStudio}
+        />
+      )}
+
+      {view === "image" && (
+        <ImageStudioView key={imageMode} initialMode={imageMode} />
+      )}
 
       {view === "chat" && (
         <div className="mx-auto max-w-5xl">
@@ -95,8 +113,6 @@ export default function Dashboard() {
           <OmiSearchPanel initialQuery={searchQuery} />
         </div>
       )}
-
-      {view === "projects" && <ProjectsView />}
 
       {view === "memory" && <MemoryView />}
 

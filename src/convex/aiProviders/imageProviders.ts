@@ -90,7 +90,7 @@ export async function runImageOp(args: {
       return {
         ok: true,
         bytes: res.bytes,
-        mimeType: res.mimeType,
+        mimeType: res.mimeType ?? "image/png",
         provider: p.id,
         model,
         width: res.w ?? w,

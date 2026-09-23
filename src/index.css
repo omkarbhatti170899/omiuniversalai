@@ -78,38 +78,85 @@
   --sidebar-ring: oklch(0.62 0.12 262);
 }
 
+/*
+ * "Omi Dark Intelligence" — the product theme (dark-first).
+ * Deep near-black canvas, premium graphite panels, thin low-contrast
+ * borders, one restrained blue-violet accent. No heavy gradients.
+ */
 .dark {
-  --background: oklch(0.17 0.028 265);
-  --foreground: oklch(0.93 0.012 250);
-  --card: oklch(0.215 0.032 264);
-  --card-foreground: oklch(0.93 0.012 250);
-  --popover: oklch(0.215 0.032 264);
-  --popover-foreground: oklch(0.93 0.012 250);
-  --primary: oklch(0.68 0.15 262);
-  --primary-foreground: oklch(0.16 0.04 264);
-  --secondary: oklch(0.27 0.035 263);
-  --secondary-foreground: oklch(0.93 0.012 250);
-  --muted: oklch(0.27 0.035 263);
-  --muted-foreground: oklch(0.7 0.025 256);
-  --accent: oklch(0.29 0.045 264);
-  --accent-foreground: oklch(0.93 0.012 250);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.68 0.15 262);
+  --background: oklch(0.135 0.012 268);
+  --foreground: oklch(0.945 0.007 260);
+  --card: oklch(0.178 0.014 266);
+  --card-foreground: oklch(0.945 0.007 260);
+  --popover: oklch(0.172 0.014 266);
+  --popover-foreground: oklch(0.945 0.007 260);
+  --primary: oklch(0.7 0.145 272);
+  --primary-foreground: oklch(0.15 0.03 268);
+  --secondary: oklch(0.225 0.015 266);
+  --secondary-foreground: oklch(0.93 0.007 260);
+  --muted: oklch(0.205 0.014 266);
+  --muted-foreground: oklch(0.665 0.018 262);
+  --accent: oklch(0.245 0.028 272);
+  --accent-foreground: oklch(0.95 0.007 260);
+  --destructive: oklch(0.68 0.19 22.216);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.62 0.13 272);
   --chart-1: oklch(0.72 0.17 162);
   --chart-2: oklch(0.62 0.19 30);
   --chart-3: oklch(0.68 0.14 55);
   --chart-4: oklch(0.56 0.22 303);
   --chart-5: oklch(0.6 0.12 250);
-  --sidebar: oklch(0.2 0.03 264);
-  --sidebar-foreground: oklch(0.93 0.012 250);
-  --sidebar-primary: oklch(0.68 0.15 262);
-  --sidebar-primary-foreground: oklch(0.16 0.04 264);
-  --sidebar-accent: oklch(0.29 0.045 264);
-  --sidebar-accent-foreground: oklch(0.93 0.012 250);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.68 0.15 262);
+  --sidebar: oklch(0.152 0.012 267);
+  --sidebar-foreground: oklch(0.9 0.007 260);
+  --sidebar-primary: oklch(0.7 0.145 272);
+  --sidebar-primary-foreground: oklch(0.15 0.03 268);
+  --sidebar-accent: oklch(0.235 0.02 268);
+  --sidebar-accent-foreground: oklch(0.95 0.007 260);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --sidebar-ring: oklch(0.62 0.13 272);
+}
+
+/*
+ * Ambient light — the only decoration Omi allows on a dark surface:
+ * two very low-opacity blue/violet blooms. Applied to page shells, not to
+ * every card, so hierarchy stays readable.
+ */
+@layer utilities {
+  .omi-ambient {
+    background-image:
+      radial-gradient(
+        760px 380px at 8% -10%,
+        oklch(0.62 0.19 268 / 0.13),
+        transparent 65%
+      ),
+      radial-gradient(
+        680px 340px at 92% 2%,
+        oklch(0.6 0.2 300 / 0.09),
+        transparent 62%
+      );
+  }
+
+  .omi-panel {
+    background-color: color-mix(in oklab, var(--card) 82%, transparent);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+  }
+
+  .omi-hairline {
+    box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 4%);
+  }
+
+  .omi-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(1 0 0 / 12%) transparent;
+  }
+}
+
+@layer base {
+  ::selection {
+    background: oklch(0.7 0.145 272 / 0.28);
+  }
 }
 
 @layer base {

@@ -324,9 +324,14 @@ export const send = action({
 
     // Image-Studio context: which attached files are images, and what Omi
     // produced earlier in THIS conversation (multi-turn editing memory).
+    //
+    // These are DOCUMENT ids (omiDocuments rows), not storage ids: the image
+    // engine re-reads the blob through an ownership-checked query, so passing
+    // a storage id here (as this once did) surfaced as "an attached image
+    // isn't available" on every "edit this image" request.
     const imageAttachmentIds = attachments
       .filter((a) => a.fileType?.startsWith("image/") && a.fileId !== undefined)
-      .map((a) => a.fileId as unknown as Id<"omiImages">);
+      .map((a) => a._id);
     const prevImage = await ctx.runQuery(internal.omiImages.latestForConversation, {
       userId,
       conversationId,
@@ -346,14 +351,6 @@ export const send = action({
     if (imageIntent.kind !== "none") {
       await patchStreaming({ content: "Omi is working on the image…" });
       const latestImage: Id<"omiImages"> | null = latestOmiImageId;
-      const sourceIds =
-        imageIntent.kind === "image-edit"
-          ? imageAttachmentIds.length > 0
-            ? imageAttachmentIds
-            : latestImage !== null
-              ? [latestImage]
-          : []
-        : [];
       const imgResult = await ctx.runAction(internal.omiImages.runInternal, {
         userId,
         op: imageIntent.kind === "generate" ? "generate" : imageIntent.op,

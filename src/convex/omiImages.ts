@@ -163,6 +163,13 @@ export const run = action({
     transparent: v.optional(v.boolean()),
     /** Gallery IDs of input image(s) for edit-family ops (ownership-checked). */
     sourceImageIds: v.optional(v.array(v.id("omiImages"))),
+    /**
+     * Uploaded-image attachments (omiDocuments) as inputs — what the Studio's
+     * upload button produces. Same ownership check as sourceImageIds: an
+     * unknown or foreign document fails closed, so a user can never edit (or
+     * even read) another user's upload.
+     */
+    sourceDocumentIds: v.optional(v.array(v.id("omiDocuments"))),
     seed: v.optional(v.number()),
     /** Multi-turn lineage: the image this op edits/extends. */
     parentId: v.optional(v.id("omiImages")),
@@ -184,6 +191,7 @@ export const run = action({
       aspectRatio: args.aspectRatio,
       transparent: args.transparent,
       sourceImageIds: args.sourceImageIds,
+      sourceDocumentIds: args.sourceDocumentIds,
       seed: args.seed,
       parentId: args.parentId,
     });

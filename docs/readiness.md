@@ -1,6 +1,6 @@
 # Omi Universal AI — Production Report
 
-**Verified:** 2026-09-22 · **Live app:** https://omkarbhatti170899.github.io/omiuniversalai/
+**Verified:** 2026-09-23 · **Live app:** https://omkarbhatti170899.github.io/omiuniversalai/
 **Backend:** https://resolute-ptarmigan-187.convex.site · **Health:** `/selftest`
 **Last verified commit:** `6bfaa98` (this pass's changes commit on turn end)
 
@@ -32,6 +32,7 @@ key, token, env var name, or any user data.
 | UNIVERSAL SEARCH | **PASS** | Real keyless retrieval call (Wikipedia, ~300 ms) |
 | DEEP RESEARCH | **CONFIGURED** | Pipeline + `researchRuns` persistence deployed (table read passes); run needs sign-in |
 | IMAGE UPLOAD | **PASS (unit)** | Upload path + server-side ownership enforced; browser→storage leg needs a session |
+| IMAGE STUDIO | **PASS (unit)** | Six modes wired to the provider-neutral image router; generation runs keyless today, edit-family ops need an image-input key and say so instead of failing silently |
 | VISION | **PASS** | Real image read end-to-end — Groq `qwen/qwen3.8-27b` answered "red" for a synthetic 64×64 PNG in 337 ms (`/selftest`). Free-tier token caps can make this `unverified` under load, never a false FAIL |
 | PDF | **PASS (unit)** | `pdf.js` + OCR fallback path; **no dedicated unit test** (gap) |
 | DOC/DOCX | **PASS (unit)** | `docExtract.test.ts`: paragraph order, honest failure |
@@ -54,7 +55,7 @@ key, token, env var name, or any user data.
 | GITHUB ACTIONS | **PASS** | Current artifact live via pipeline; workflow now gates on typecheck + tests |
 | LIVE DEPLOYMENT | **PASS** | `llms.txt` served → proves the *current* build, not a cached one |
 
-Suite: **325 tests / 0 fail / 971 assertions** across 26 files · `tsc` clean ·
+Suite: **353 tests / 0 fail / 1041 assertions** across 29 files · `tsc` clean ·
 CI-shaped `vite build` green · base path + backend-URL tripwire verified.
 
 ## §13 live test suite
@@ -70,6 +71,55 @@ CI-shaped `vite build` green · base path + backend-URL tripwire verified.
 | 7 | Simple question | **PASS** | Economic route | calculator/local, no provider call | n/a |
 
 ## What this pass found and fixed
+
+### 2026-09-23 — "Omi Dark Intelligence" redesign, and two latent bugs it surfaced
+
+**The interface.** The workspace was a single dark-ish surface with an
+un-grouped nav, a card grid for a Home page, and no image surface at all. It is
+now one system, defined once in `src/index.css` as the **"Omi Dark
+Intelligence"** theme (dark-first: `class="dark"` on `<html>`, near-black
+canvas, graphite panels, 8 %-opacity hairlines, one restrained blue-violet
+accent, two very low-opacity ambient blooms). The shell gained grouped
+navigation (Create / Intelligence / System), an active-state accent rail, a
+command bar that keeps Ctrl/Cmd+K, a notifications + account menu, and — for
+the first time — **mobile navigation**: the nav was previously `hidden md:flex`,
+so a phone had no way to reach any view except Home.
+
+Home is now the "What can Omi do for you?" hub (Chat, Andromeda, Create image,
+Edit image, Research, Code, Files, Projects) instead of a grid of cards, and the
+**Image Studio** exists as a real surface: Generate, Edit, Enhance,
+Background, Upscale and Variations, with upload, multi-image references,
+aspect ratios, transparency, a private gallery, download and multi-turn
+editing (the image Omi just produced becomes the next operation's input).
+Nothing in it is simulated: each mode calls the provider-neutral image router,
+and when no configured provider implements an operation the router's real error
+is what the user sees. Generate works today on the keyless free provider;
+edit-family ops need an image-input key, and the Studio says exactly that
+instead of showing a spinner that never resolves.
+
+**Two bugs the compiler was the first to see.** `convex dev --once` re-checked
+the deployment and refused both of these — they had been sitting in the tree
+because incremental builds never re-checked those files:
+
+- **Chat could never edit an attached image.** `omiChat` cast each attachment's
+  **storage** id to `Id<"omiImages">` and passed it as `sourceDocumentIds`. The
+  engine re-reads sources through an ownership-checked `omiDocuments` lookup,
+  so every "edit this image" request died with *"an attached image isn't
+  available"*. It now maps the document row id (`a._id`), which is the id space
+  the engine's check can actually resolve. A dead `sourceIds` binding beside it
+  was removed.
+- **A provider reply with no `content-type` crashed the adapter's contract.**
+  `ImageGenResult.mimeType` is required; the adapter assigned the optional
+  value straight through. Now falls back to `image/png`.
+
+Both are pinned by `tests/omiImageContract.test.ts`, which asserts the wiring
+that broke (document ids, never storage ids; the Studio's upload path; the
+mimeType fallback) rather than re-implementing it.
+
+**Verification for this pass:** `tsc -b --noEmit` clean, `convex dev --once`
+clean (functions deployed), suite green, production `vite build` green. Still
+unverified end-to-end: a signed-in click-through of the Studio, and mobile on a
+real device.
 
 **1. §13 TEST 1 failed outright — the calculator never saw the query.** The
 plan's own example, `"What's 25 × 48?"`, could not work:
