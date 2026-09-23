@@ -105,3 +105,58 @@ around the same deployed frontend; every provider secret stays server-side in
 the Convex deployment and is never bundled — the built client was scanned for
 key material during QA and contains none (only the *names* of env vars, inside
 the setup hints shown in Settings).
+
+## Capacitor path (config already committed)
+
+`capacitor.config.ts` is committed and ready. It is **inert for the web build**
+— nothing in `src/` imports it and Vite ignores it — so the working web app is
+unaffected whether or not Capacitor is ever installed.
+
+Already configured there: application name `Omi Universal AI`, package id
+`com.ominnovations.omi`, `webDir: dist` (the same production bundle Pages
+serves), `androidScheme: "https"`, and mixed content disabled.
+
+### Steps
+
+```bash
+bun add -d @capacitor/cli && bun add @capacitor/core @capacitor/android
+npx cap add android
+# icons/splash: drop a 1024×1024 PNG at resources/icon.png, then
+npx @capacitor/assets generate --android
+bun run build && npx cap sync android
+npx cap open android        # requires JDK + Android SDK
+```
+
+### Permissions to declare in `android/app/src/main/AndroidManifest.xml`
+
+The features Omi actually uses, and nothing speculative:
+
+| Permission | Why |
+|---|---|
+| `android.permission.INTERNET` | The app is a WebView over the deployed frontend and backend |
+| `android.permission.RECORD_AUDIO` | Voice input — the on-device Web Speech API |
+| `android.permission.CAMERA` | Only if camera capture is exposed to the file picker |
+| `android.permission.READ_MEDIA_IMAGES` (API 33+) | Image/attachment picking |
+
+Use `<uses-feature android:required="false">` for camera and microphone, so a
+device without them can still install Omi.
+
+Two Android behaviours need explicit handling in the shell:
+
+- **Back button.** Capacitor maps hardware back to WebView history by default,
+  which matches the SPA router. Verify on device that back from `/dashboard`
+  returns to the landing page instead of closing the app, and that the auth
+  redirect does not create a back-button loop.
+- **File picker.** Attachments use a standard `<input type="file">`. Confirm the
+  Android chooser returns content URIs correctly for PDF/DOCX/XLSX and images,
+  and that the on-device extraction path (which reads the file in the WebView)
+  still works — this is the single most likely place for a WebView-only bug.
+
+### Environment blocker for the native build
+
+A native build cannot be produced or verified in this environment: **no JDK,
+no Gradle and no Android SDK are installed** (verified — `java` is not found).
+Capacitor's `npx cap add android`, `assets generate` and the Gradle build all
+require a JDK. So the Android build is **not** claimed as passing; the config,
+permissions and steps above are prepared and the remaining work needs a machine
+with the Android toolchain.

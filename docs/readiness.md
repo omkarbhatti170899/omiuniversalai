@@ -64,6 +64,8 @@ Suite: **388 tests / 0 fail** across 31 files · `tsc` clean ·
 CI-shaped `vite build` green · base path + backend-URL tripwire verified.
 
 Full QA pass with PASS/FAIL/FIXED/BLOCKED verdicts: `docs/qa-report.md`.
+Final app-readiness pass (✅/🟡/🟠/🔴, incl. mobile + Android prep):
+`docs/app-readiness-report.md`.
 
 ## §13 live test suite
 
