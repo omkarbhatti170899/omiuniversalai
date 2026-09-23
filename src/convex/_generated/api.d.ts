@@ -10,6 +10,9 @@
 
 import type * as aiErrors from "../aiErrors.js";
 import type * as aiProviders_catalog from "../aiProviders/catalog.js";
+import type * as aiProviders_imageCatalog from "../aiProviders/imageCatalog.js";
+import type * as aiProviders_imageIntent from "../aiProviders/imageIntent.js";
+import type * as aiProviders_imageProviders from "../aiProviders/imageProviders.js";
 import type * as aiProviders_index from "../aiProviders/index.js";
 import type * as aiProviders_modelDiscovery from "../aiProviders/modelDiscovery.js";
 import type * as aiProviders_openaiCompat from "../aiProviders/openaiCompat.js";
@@ -40,6 +43,7 @@ import type * as omiConversations from "../omiConversations.js";
 import type * as omiFiles from "../omiFiles.js";
 import type * as omiHealth from "../omiHealth.js";
 import type * as omiIdentity from "../omiIdentity.js";
+import type * as omiImages from "../omiImages.js";
 import type * as omiImprove from "../omiImprove.js";
 import type * as omiKnowledge from "../omiKnowledge.js";
 import type * as omiMemories from "../omiMemories.js";
@@ -99,6 +103,9 @@ import type {
 declare const fullApi: ApiFromModules<{
   aiErrors: typeof aiErrors;
   "aiProviders/catalog": typeof aiProviders_catalog;
+  "aiProviders/imageCatalog": typeof aiProviders_imageCatalog;
+  "aiProviders/imageIntent": typeof aiProviders_imageIntent;
+  "aiProviders/imageProviders": typeof aiProviders_imageProviders;
   "aiProviders/index": typeof aiProviders_index;
   "aiProviders/modelDiscovery": typeof aiProviders_modelDiscovery;
   "aiProviders/openaiCompat": typeof aiProviders_openaiCompat;
@@ -129,6 +136,7 @@ declare const fullApi: ApiFromModules<{
   omiFiles: typeof omiFiles;
   omiHealth: typeof omiHealth;
   omiIdentity: typeof omiIdentity;
+  omiImages: typeof omiImages;
   omiImprove: typeof omiImprove;
   omiKnowledge: typeof omiKnowledge;
   omiMemories: typeof omiMemories;

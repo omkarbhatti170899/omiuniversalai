@@ -16,6 +16,8 @@ import { fetchPageText } from "./searchProviders/pageFetcher";
 import { sanitizeUntrustedText } from "./searchEngine/security";
 import { describeImage } from "./aiProviders/vision";
 import { hasVisionProvider } from "./aiProviders/visionCatalog";
+import { classifyImageIntent } from "./aiProviders/imageIntent";
+import { IMAGE_PROVIDERS } from "./aiProviders/imageCatalog";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -319,8 +321,76 @@ export const send = action({
     // 2c) PRIORITY 1 — attached images: re-described THROUGH this turn's
     //    question via the vision chain (honest when no vision key exists).
     const vision = await visionAttachmentBlock(ctx, userId, attachments, trimmed);
+
+    // Image-Studio context: which attached files are images, and what Omi
+    // produced earlier in THIS conversation (multi-turn editing memory).
+    const imageAttachmentIds = attachments
+      .filter((a) => a.fileType?.startsWith("image/") && a.fileId !== undefined)
+      .map((a) => a.fileId as unknown as Id<"omiImages">);
+    const prevImage = await ctx.runQuery(internal.omiImages.latestForConversation, {
+      userId,
+      conversationId,
+    });
+    const latestOmiImageId: Id<"omiImages"> | null = prevImage;
+    const imageIntent = classifyImageIntent(
+      trimmed,
+      imageAttachmentIds.length > 0 || latestOmiImageId !== null,
+    );
     if (vision.note) orchestratorNote = orchestratorNote ? `${orchestratorNote} ${vision.note}` : vision.note;
     const imageVisionBlock = vision.block;
+
+    // 2d) IMAGE STUDIO INTENT (master plan §10): before search routing —
+    // "Generate…", "Edit this…", "Remove…", "Change…", "Make it…",
+    // "Combine these…" route straight to the image engine. Context image =
+    // attached this turn OR produced by an earlier Omi reply (multi-turn).
+    if (imageIntent.kind !== "none") {
+      await patchStreaming({ content: "Omi is working on the image…" });
+      const latestImage: Id<"omiImages"> | null = latestOmiImageId;
+      const sourceIds =
+        imageIntent.kind === "image-edit"
+          ? imageAttachmentIds.length > 0
+            ? imageAttachmentIds
+            : latestImage !== null
+              ? [latestImage]
+          : []
+        : [];
+      const imgResult = await ctx.runAction(internal.omiImages.runInternal, {
+        userId,
+        op: imageIntent.kind === "generate" ? "generate" : imageIntent.op,
+        prompt: imageIntent.prompt,
+        aspectRatio: imageIntent.kind === "generate" ? imageIntent.aspectRatio : undefined,
+        transparent: imageIntent.kind === "generate" ? imageIntent.transparent : false,
+        sourceDocumentIds:
+          imageIntent.kind === "image-edit" && imageAttachmentIds.length > 0
+            ? imageAttachmentIds
+            : undefined,
+        sourceImageIds:
+          imageIntent.kind === "image-edit" && imageAttachmentIds.length === 0 && latestImage !== null
+            ? [latestImage]
+            : undefined,
+        seed: undefined,
+        parentId: latestImage ?? undefined,
+        conversationId,
+      });
+      if (imgResult.ok) {
+        await ctx.runMutation(internal.omiImages.attachToMessage, {
+          messageId: omiMessageId,
+          imageIds: [imgResult.imageId as Id<"omiImages">],
+        });
+        await patchStreaming({
+          content:
+            imageIntent.kind === "generate"
+              ? "Here's what Omi generated. Ask for edits, changes or variations right here — the image is in your Studio gallery too."
+              : "Done — here's the edited image. Ask for more changes in this chat, or open Image Studio for the full gallery.",
+          reasoning: `Image op ${imageIntent.kind === "generate" ? "generate" : imageIntent.op} via ${imgResult.provider} (${imgResult.model}).`,
+          status: "final",
+        });
+        return { userMessageId, omiMessageId };
+      }
+      // Honest failure: tell the user why, then fall through to normal chat
+      // so the turn still gets an answer.
+      orchestratorNote = `Image request failed: ${imgResult.error.slice(0, 160)}`;
+    }
 
     // 3) UNIVERSAL ORCHESTRATION (master plan §5/§14): classify the turn
     // BEFORE any network call — only invoke the capability the request needs.

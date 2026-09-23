@@ -171,6 +171,11 @@ const schema = defineSchema(
       status: v.optional(
         v.union(v.literal("streaming"), v.literal("final")),
       ),
+      // Image Studio in chat: images Omi generated/edited for THIS reply.
+      // Ownership is guaranteed server-side (the action that saved them is
+      // the same one that attaches them), so the gallery query is the only
+      // read path and it is per-user.
+      images: v.optional(v.array(v.id("omiImages"))),
       // Phase 4 (multimodal): files/images attached to this message by its
       // author — ownership-checked before persisting. Images carry their
       // original blob; documents carry extracted text in omiDocuments.
@@ -344,6 +349,40 @@ const schema = defineSchema(
       event: v.string(),
       detail: v.optional(v.string()),
     }).index("by_user", ["userId"]),
+
+    // Image Studio — one row per generated/edited image. Private per user.
+    // `parentId` links multi-turn edit chains; `sourceImageIds` lists the
+    // input image(s) an edit/variation/combine op was derived from, so a
+    // user can revisit the full lineage in the gallery.
+    omiImages: defineTable({
+      userId: v.id("users"),
+      op: v.union(
+        v.literal("generate"),
+        v.literal("edit"),
+        v.literal("remove"),
+        v.literal("replace"),
+        v.literal("background"),
+        v.literal("style"),
+        v.literal("upscale"),
+        v.literal("variation"),
+        v.literal("combine"),
+      ),
+      prompt: v.string(),
+      fileId: v.id("_storage"), // generated image blob (private storage)
+      provider: v.string(),
+      model: v.string(),
+      width: v.number(),
+      height: v.number(),
+      transparent: v.optional(v.boolean()),
+      parentId: v.optional(v.id("omiImages")),
+      sourceImageIds: v.optional(v.array(v.id("omiImages"))),
+      // Conversation the image was produced in — enables multi-turn editing
+      // ("now make it bluer" finds the previous image without a re-upload).
+      conversationId: v.optional(v.id("omiConversations")),
+      createdAt: v.number(),
+    })
+      .index("by_user", ["userId"])
+      .index("by_conversation", ["conversationId"]),
 
     // OMI Tool Registry — every tool execution for observability + the
     // Phase 11 self-improvement loop (what ran, with what, and whether it
