@@ -1,4 +1,4 @@
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 
 
@@ -8,23 +8,62 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
 import { useAuth } from "@/hooks/use-auth";
 import {
   Activity,
   Bot,
   Brain,
   Globe,
+  Heart,
   MessageSquare,
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router";
+import { toast } from "sonner";
 
 export function SettingsView() {
   const { user, isLoading } = useAuth();
   const providerStatus = useQuery(api.searchStatus.status);
   const health = useQuery(api.omiHealth.workspaceHealth);
   const ecosystem = useQuery(api.ecosystemStatus.status);
+
+  // Human Emotions AI — the user's own on/off control for automatic tone reads.
+  const settings = useQuery(api.omiSettings.get);
+  const updateSettings = useMutation(api.omiSettings.update);
+  const [savingEmotion, setSavingEmotion] = useState(false);
+
+  const setEmotionSetting = async (
+    patch: { emotionAware?: boolean; emotionHistory?: boolean },
+  ) => {
+    setSavingEmotion(true);
+    try {
+      await updateSettings(patch);
+      if (patch.emotionAware !== undefined) {
+        toast.success(
+          patch.emotionAware
+            ? "Emotion-aware mode on — Omi will adapt its tone."
+            : "Emotion-aware mode off — Omi answers plainly.",
+        );
+      } else if (patch.emotionHistory !== undefined) {
+        toast.success(
+          patch.emotionHistory
+            ? "Omi will save emotion read-outs to your history."
+            : "Emotion read-outs are no longer saved automatically.",
+        );
+      }
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't save that preference.");
+    } finally {
+      setSavingEmotion(false);
+    }
+  };
+
+  const emotionAware = settings?.emotionAware ?? true;
+  const emotionHistory = settings?.emotionHistory ?? false;
+  const emotionControlsDisabled = settings === undefined || savingEmotion;
 
   const searchReady =
     providerStatus !== undefined && providerStatus.some((p) => p.ready);
@@ -66,6 +105,83 @@ export function SettingsView() {
             <Badge variant="outline" className="shrink-0">
               {user?.isAnonymous ? "Guest" : "Member"}
             </Badge>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Human Emotions AI — automatic tone awareness, under the user's control */}
+      <Card>
+        <CardContent className="p-5">
+          <div className="flex items-center gap-3">
+            <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <Heart className="size-5" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold">Human Emotions AI</p>
+              <p className="text-xs text-muted-foreground">
+                Omi reads the emotional signals in your wording and adapts how
+                it replies.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4 space-y-4">
+            <div className="flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <p className="text-sm font-medium">Emotion-aware mode</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  Each message is read for tone (frustration, sadness, anger,
+                  excitement, confusion, urgency) and Omi adjusts its style —
+                  short and concrete when you sound frustrated, gentle when you
+                  sound disappointed, calm and ordered when something reads as
+                  anxious. This is an inference from your words, not knowledge
+                  of how you feel, and it never changes <em>what</em> Omi
+                  answers.
+                </p>
+              </div>
+              <Switch
+                checked={emotionAware}
+                disabled={emotionControlsDisabled}
+                onCheckedChange={(next) =>
+                  void setEmotionSetting({ emotionAware: next })
+                }
+                aria-label="Emotion-aware mode"
+              />
+            </div>
+
+            <Separator />
+
+            <div className="flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <p className="text-sm font-medium">
+                  Save emotion read-outs to history
+                  <span className="ml-2 align-middle text-[10px] font-normal uppercase tracking-wider text-muted-foreground">
+                    off by default
+                  </span>
+                </p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  Inferred emotional data is sensitive, so automatic read-outs
+                  are not stored. Turn this on to keep them in{" "}
+                  <span className="text-foreground">Emotions AI → History</span>.
+                  Manual analyses you run there are always saved, and you can
+                  delete any entry at any time.
+                </p>
+              </div>
+              <Switch
+                checked={emotionHistory}
+                disabled={emotionControlsDisabled || !emotionAware}
+                onCheckedChange={(next) =>
+                  void setEmotionSetting({ emotionHistory: next })
+                }
+                aria-label="Save emotion read-outs to history"
+              />
+            </div>
+            {!emotionAware && (
+              <p className="text-[11px] text-muted-foreground">
+                Emotion-aware mode is off, so Omi is not reading tone at all and
+                nothing can be saved.
+              </p>
+            )}
           </div>
         </CardContent>
       </Card>

@@ -34,6 +34,7 @@ import type * as ecosystem from "../ecosystem.js";
 import type * as ecosystemStatus from "../ecosystemStatus.js";
 import type * as emotions from "../emotions.js";
 import type * as emotionsAi from "../emotionsAi.js";
+import type * as emotionsEngine from "../emotionsEngine.js";
 import type * as http from "../http.js";
 import type * as omiAgentRuntime from "../omiAgentRuntime.js";
 import type * as omiAgents from "../omiAgents.js";
@@ -128,6 +129,7 @@ declare const fullApi: ApiFromModules<{
   ecosystemStatus: typeof ecosystemStatus;
   emotions: typeof emotions;
   emotionsAi: typeof emotionsAi;
+  emotionsEngine: typeof emotionsEngine;
   http: typeof http;
   omiAgentRuntime: typeof omiAgentRuntime;
   omiAgents: typeof omiAgents;

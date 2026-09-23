@@ -47,6 +47,8 @@ const schema = defineSchema(
       signalFields: v.optional(v.string()),
       advice: v.optional(v.string()),
       omiNote: v.optional(v.string()),
+      // "ai" | "heuristic" — how the read was produced (honesty in the history list).
+      source: v.optional(v.string()),
     }).index("by_user", ["userId"]),
 
     // Omi Search — saved web searches with Omi's cited answer
@@ -160,6 +162,10 @@ const schema = defineSchema(
       voiceLang: v.optional(v.string()),
       imageAspectRatio: v.optional(v.string()),
       reduceMotion: v.optional(v.boolean()),
+      /** Human Emotions AI: read tone automatically each turn and adapt replies. */
+      emotionAware: v.optional(v.boolean()),
+      /** Explicit opt-in (default OFF): also keep auto read-outs in the history. */
+      emotionHistory: v.optional(v.boolean()),
     }).index("by_user", ["userId"]),
 
     // Omi Assistant — conversations

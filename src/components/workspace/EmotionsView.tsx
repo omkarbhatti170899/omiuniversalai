@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -39,8 +40,28 @@ type EmotionAnalysis = {
   signalFields?: string;
   advice?: string;
   omiNote?: string;
+  /** "ai" = classification model read · "heuristic" = local word/punctuation read */
+  source?: string;
   _creationTime: number;
 };
+
+/** How a read-out was produced — shown honestly on every history entry. */
+function ReadSourceBadge({ source }: { source?: string }) {
+  if (!source) return null;
+  const isAi = source === "ai";
+  return (
+    <Badge
+      variant="outline"
+      title={
+        isAi
+          ? "Read by a classification model through Omi's provider router."
+          : "Read locally from word and punctuation signals — no model call."
+      }
+    >
+      {isAi ? "model read" : "local read"}
+    </Badge>
+  );
+}
 
 const EXAMPLES = [
   "This is the third time I've contacted you and the deadline is tomorrow. I'm honestly exhausted.",
@@ -81,6 +102,28 @@ export function EmotionsView() {
   const analyze = useAction(api.emotionsAi.analyze);
   const removeAnalysis = useMutation(api.emotions.remove);
 
+  // Same single source of truth as Settings: Emotion-aware mode is one setting.
+  const settings = useQuery(api.omiSettings.get);
+  const updateSettings = useMutation(api.omiSettings.update);
+  const [savingMode, setSavingMode] = useState(false);
+  const emotionAware = settings?.emotionAware ?? true;
+
+  const toggleEmotionAware = async (next: boolean) => {
+    setSavingMode(true);
+    try {
+      await updateSettings({ emotionAware: next });
+      toast.success(
+        next
+          ? "Emotion-aware mode on — Omi adapts its tone in chat."
+          : "Emotion-aware mode off — Omi answers plainly.",
+      );
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't save that preference.");
+    } finally {
+      setSavingMode(false);
+    }
+  };
+
   const [text, setText] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
@@ -113,6 +156,49 @@ export function EmotionsView() {
 
   return (
     <div className="space-y-8">
+      {/* Emotion-aware mode — automatic tone reads in chat, user-controlled. */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Card className="border-border/70 bg-card/60">
+          <CardContent className="p-5">
+            <div className="flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <p className="flex items-center gap-2 text-sm font-semibold">
+                  <Activity className="size-4 text-primary" />
+                  Emotion-aware mode
+                  <Badge
+                    variant="outline"
+                    className={
+                      emotionAware
+                        ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                        : "border-border bg-muted text-muted-foreground"
+                    }
+                  >
+                    {emotionAware ? "Active" : "Off"}
+                  </Badge>
+                </p>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                  When active, Omi reads the emotional signals in each chat
+                  message and adapts its tone — without changing what it
+                  answers. Read-outs are inferences from your wording (emotion,
+                  sentiment, urgency), never knowledge of your inner state, and
+                  they are not stored anywhere unless you opt in from Settings.
+                </p>
+              </div>
+              <Switch
+                checked={emotionAware}
+                disabled={settings === undefined || savingMode}
+                onCheckedChange={(next) => void toggleEmotionAware(next)}
+                aria-label="Emotion-aware mode"
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
       {/* Analyzer */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -129,7 +215,8 @@ export function EmotionsView() {
                 <CardTitle>Analyze a message</CardTitle>
                 <CardDescription>
                   Omi detects emotion, sentiment, urgency, and rant level —
-                  with a recommended next action.
+                  with a recommended next action. An analysis you run here is
+                  always saved to your history below.
                 </CardDescription>
               </div>
               <Activity className="ml-auto hidden size-5 text-muted-foreground/60 sm:block" />
@@ -235,8 +322,9 @@ export function EmotionsView() {
               <BrainCircuit className="size-8 text-muted-foreground/50" />
               <p className="mt-4 font-semibold">No analyses yet</p>
               <p className="mt-1 max-w-sm text-sm text-muted-foreground">
-                Run your first read-out above — Omi will save every analysis
-                here so your team can review it later.
+                Run your first read-out above — Omi will save every analysis you
+                run here. Automatic chat read-outs appear here only if you turn
+                on “Save emotion read-outs to history” in Settings.
               </p>
             </CardContent>
           </Card>
@@ -266,6 +354,7 @@ export function EmotionsView() {
                         rant {Math.round(a.rantScore)}/100
                       </Badge>
                     )}
+                    <ReadSourceBadge source={a.source} />
                     <span className="ml-auto text-xs text-muted-foreground">
                       {Math.round((a.confidence ?? 0) * 100)}% confidence
                     </span>

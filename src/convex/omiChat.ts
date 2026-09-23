@@ -23,6 +23,11 @@ import {
   isCreatorQuestion,
   creatorDirectReply,
 } from "./omiIdentity";
+import {
+  emotionAwarenessBlock,
+  shouldAnalyzeEmotion,
+  type EmotionRead,
+} from "./emotionsEngine";
 import type { ActionCtx } from "./_generated/server";
 import type { Id } from "./_generated/dataModel";
 
@@ -35,6 +40,7 @@ Rules:
 4. If the user's approved memories are provided, use them as personal context and respect them. If knowledge-base passages are provided, ground your answer in them first — they are the user's own documents.
 5. If live web search results are provided, ground factual claims in them and cite them inline using [1], [2] etc.
 6. Never invent facts. If you are uncertain or lack information, say so plainly and suggest what would help.
+7. If an emotion-aware tone signal for this turn is provided, adapt your TONE and pacing to it exactly as that block instructs: it is an inference from the user's wording, never knowledge of their feelings, it must not change WHAT you answer, and it must never be asserted as fact.
 
 ${creatorIdentityBlock()}`;
 
@@ -177,7 +183,23 @@ export const send = action({
   handler: async (
     ctx,
     { conversationId, message, documentIds },
-  ): Promise<{ userMessageId: string; omiMessageId: string }> => {
+  ): Promise<{
+    userMessageId: string;
+    omiMessageId: string;
+    /**
+     * The emotional read behind this reply, when emotion-aware mode is on.
+     * Returned to the client for a transient, honest "this is an inference"
+     * indicator — deliberately NOT written to any durable record unless the
+     * user opted into emotion history.
+     */
+    emotion?: {
+      emotion: string;
+      confidence: number;
+      sentiment: string;
+      urgency: string;
+      source: string;
+    };
+  }> => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to talk with Omi.");
 
@@ -255,6 +277,62 @@ export const send = action({
     // 1c) If anything below fails, the live message must never stay stuck
     //    in "streaming" — finalize it with an honest error (§35).
     try {
+    // 1e) HUMAN EMOTIONS AI — automatic tone read for THIS turn.
+    //
+    //     This is the wiring that was missing: the emotion engine existed but
+    //     only the Emotions screen could reach it, so Omi never adapted to how
+    //     a message was written. It now runs on eligible turns, is switchable
+    //     off per user, is skipped on trivial turns ("hi", "thanks") so it
+    //     costs nothing where there is nothing to read, and is wrapped so an
+    //     analyzer outage can only ever mean "no tone signal this turn".
+    const settings = await ctx.runQuery(internal.omiSettings.getInternal, {
+      userId,
+    });
+    let emotionRead: EmotionRead | null = null;
+    if (settings.emotionAware && shouldAnalyzeEmotion(trimmed)) {
+      try {
+        emotionRead = await ctx.runAction(internal.emotionsAi.inferInternal, {
+          text: trimmed,
+        });
+      } catch {
+        emotionRead = null; // graceful fallback: answer without a tone read
+      }
+    }
+    // Privacy (§Human Emotions 9): inferred emotional data is only persisted
+    // when the user explicitly opts in; otherwise it lives for this turn only.
+    if (emotionRead && settings.emotionHistory) {
+      try {
+        await ctx.runMutation(internal.emotions.saveAnalysis, {
+          userId,
+          text: trimmed,
+          emotion: emotionRead.emotion,
+          confidence: emotionRead.confidence,
+          rantScore: emotionRead.rantScore,
+          rantInterpretation: emotionRead.rantInterpretation,
+          sentiment: emotionRead.sentiment,
+          sentimentScore: emotionRead.sentimentScore,
+          urgency: emotionRead.urgency,
+          urgencyScore: emotionRead.urgencyScore,
+          signalFields: emotionRead.signalFields,
+          advice: emotionRead.advice,
+          omiNote: emotionRead.omiNote,
+          source: emotionRead.source,
+        });
+      } catch {
+        // History is best-effort — never fail a reply over a saved read-out.
+      }
+    }
+    const emotionBlock = emotionRead ? emotionAwarenessBlock(emotionRead) : "";
+    const emotionSummary = emotionRead
+      ? {
+          emotion: emotionRead.emotion,
+          confidence: emotionRead.confidence,
+          sentiment: emotionRead.sentiment,
+          urgency: emotionRead.urgency,
+          source: emotionRead.source,
+        }
+      : undefined;
+
     // 2) Ground Omi: project context + memory + knowledge + recent history.
     //    §5 Projects: the conversation's optional projectId scopes BOTH the
     //    standing instructions and the knowledge search — project context
@@ -382,7 +460,7 @@ export const send = action({
           reasoning: `Image op ${imageIntent.kind === "generate" ? "generate" : imageIntent.op} via ${imgResult.provider} (${imgResult.model}).`,
           status: "final",
         });
-        return { userMessageId, omiMessageId };
+        return { userMessageId, omiMessageId, emotion: emotionSummary };
       }
       // Honest failure: tell the user why, then fall through to normal chat
       // so the turn still gets an answer.
@@ -408,7 +486,7 @@ export const send = action({
         reasoning: "Handled locally by Omi's sandboxed arithmetic engine — no search needed.",
         status: "final",
       });
-      return { userMessageId, omiMessageId };
+      return { userMessageId, omiMessageId, emotion: emotionSummary };
     }
 
     if (decision.intent === "conversational" && trimmed.length < 80) {
@@ -467,6 +545,7 @@ export const send = action({
     ];
     if (projectBlock) chat.push({ role: "system", content: projectBlock });
     if (memoryBlock) chat.push({ role: "system", content: memoryBlock });
+    if (emotionBlock) chat.push({ role: "system", content: emotionBlock });
     if (knowledgeBlock) chat.push({ role: "system", content: knowledgeBlock });
     if (attachmentBlock) chat.push({ role: "system", content: attachmentBlock });
     if (imageVisionBlock) {
@@ -541,14 +620,14 @@ export const send = action({
         content: "I hit an empty answer from the AI layer. Please try again.",
         status: "final",
       });
-      return { userMessageId, omiMessageId };
+      return { userMessageId, omiMessageId, emotion: emotionSummary };
     }
 
     // 6b) Finalize the SAME streaming message — the whole reply was one
     // live document, no stuck placeholders.
     await patchStreaming({ content, reasoning, status: "final" });
 
-    return { userMessageId, omiMessageId };
+    return { userMessageId, omiMessageId, emotion: emotionSummary };
     } catch (e) {
       const message = e instanceof Error ? e.message : String(e);
       await patchStreaming({

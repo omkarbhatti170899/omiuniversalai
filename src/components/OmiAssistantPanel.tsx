@@ -42,6 +42,7 @@ import {
   Pencil,
   Plus,
   Send,
+  Sparkles,
   Square,
   Trash2,
   Volume2,
@@ -130,6 +131,16 @@ export function OmiAssistantPanel({
 
   // --- Attachments (PRIORITY 1: upload → extract → knowledge → answer) ---
   const [attachments, setAttachments] = useState<AttachmentState[]>([]);
+  // Human Emotions AI — the read behind the LAST reply. Held in component
+  // state on purpose: it is shown as an honest, dismissible inference and is
+  // never written to memory unless the user opted into emotion history.
+  const [lastEmotion, setLastEmotion] = useState<{
+    emotion: string;
+    confidence: number;
+    sentiment: string;
+    urgency: string;
+    source: string;
+  } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const uploadQueue = useRef(0);
   const [uploadingCount, setUploadingCount] = useState(0);
@@ -250,7 +261,14 @@ export function OmiAssistantPanel({
     const ready = attachments.filter((a) => a.state === "ready");
     const documentIds = ready.map((a) => a.documentId as never);
     try {
-      await sendMessage({ conversationId: convId, message: text, documentIds: documentIds.length > 0 ? documentIds : undefined });
+      const result = await sendMessage({
+        conversationId: convId,
+        message: text,
+        documentIds: documentIds.length > 0 ? documentIds : undefined,
+      });
+      // Emotion-aware mode returns the read it used (undefined when the mode is
+      // off or the turn was too trivial to read).
+      setLastEmotion(result?.emotion ?? null);
       setDraft("");
       // Attachments sent: clear chips (their docs stay in the knowledge base).
       setAttachments((prev) => {
@@ -520,6 +538,35 @@ export function OmiAssistantPanel({
           </div>
 
           <div className="mt-4 border-t border-border/60 pt-4">
+            {/* Emotion-aware read (inference, dismissible, not stored) */}
+            {lastEmotion && (
+              <div className="mb-2 flex items-start gap-2 rounded-lg border border-border/60 bg-white/[0.02] px-3 py-2">
+                <Sparkles className="mt-0.5 size-3.5 shrink-0 text-primary" />
+                <p className="min-w-0 flex-1 text-xs leading-relaxed text-muted-foreground">
+                  <span className="font-medium text-foreground">
+                    Emotion-aware
+                  </span>{" "}
+                  — Omi read this message as{" "}
+                  <span className="text-foreground">{lastEmotion.emotion}</span>{" "}
+                  ({Math.round(lastEmotion.confidence * 100)}% confidence
+                  {lastEmotion.urgency !== "low"
+                    ? `, ${lastEmotion.urgency} urgency`
+                    : ""}
+                  {lastEmotion.source === "heuristic" ? ", local read" : ""}).
+                  That's an inference from your wording, not knowledge of how
+                  you feel, and it only changed Omi's tone — not the answer.
+                  Turn this off any time in Settings → Human Emotions AI.
+                </p>
+                <button
+                  type="button"
+                  aria-label="Dismiss emotion read-out"
+                  className="shrink-0 cursor-pointer text-muted-foreground transition-colors hover:text-foreground"
+                  onClick={() => setLastEmotion(null)}
+                >
+                  <X className="size-3.5" />
+                </button>
+              </div>
+            )}
             {/* Attachment chips */}
             {attachments.length > 0 && (
               <div className="mb-2 flex flex-wrap gap-2">

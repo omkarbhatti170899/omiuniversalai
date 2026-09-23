@@ -47,6 +47,8 @@ export const saveAnalysis = internalMutation({
     signalFields: v.optional(v.string()),
     advice: v.optional(v.string()),
     omiNote: v.optional(v.string()),
+    /** "ai" (model classification) or "heuristic" (local word/punctuation read). */
+    source: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     return await ctx.db.insert("emotionAnalyses", args);
