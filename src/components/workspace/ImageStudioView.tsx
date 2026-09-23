@@ -205,6 +205,14 @@ export function ImageStudioView({
     [modeId],
   );
 
+  /**
+   * Edit-family modes (everything the keyless provider cannot do) that just
+   * failed: drives the honest "why, and what still works" hint under the error
+   * instead of leaving the user at a dead end.
+   */
+  const editFamilyEmpty =
+    attempts.length > 0 && modeId !== "generate" && modeId !== "variation";
+
   const readyInputs = inputs.filter((i) => i.status === "ready");
   const sourceImageIds = readyInputs
     .filter((i) => i.kind === "gallery" && i.imageId)
@@ -663,20 +671,45 @@ export function ImageStudioView({
           {/* Result / errors */}
           {error && (
             <Card className="border-destructive/40 bg-destructive/5">
-              <CardContent className="space-y-2 p-4">
-                <p className="flex items-center gap-2 text-sm font-medium text-destructive">
-                  <TriangleAlert className="size-4" />
-                  {error}
-                </p>
-                {attempts.length > 0 && (
-                  <ul className="space-y-0.5 text-[11px] text-muted-foreground">
-                    {attempts.map((a, i) => (
-                      <li key={`${a.provider}-${i}`}>
-                        {a.provider}: {a.error ?? "unavailable"}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              <CardContent className="p-4">
+                <div className="flex items-start gap-2">
+                  <TriangleAlert className="mt-0.5 size-4 shrink-0 text-destructive" />
+                  <div className="min-w-0 flex-1 space-y-1.5">
+                    {/*
+                     * When a per-provider breakdown exists it IS the reason:
+                     * `error` is that same list joined into one line, so
+                     * rendering both repeated a wall of red text on a phone.
+                     * The headline states the outcome; the list states why.
+                     */}
+                    <p className="text-sm font-medium text-destructive">
+                      {attempts.length > 0
+                        ? "No provider could complete this operation."
+                        : error}
+                    </p>
+                    {attempts.length > 0 && (
+                      <ul className="space-y-0.5 text-[11px] text-muted-foreground">
+                        {attempts.map((a, i) => (
+                          <li key={`${a.provider}-${i}`} className="break-words">
+                            <span className="font-medium text-foreground/80">
+                              {a.provider}
+                            </span>
+                            {": "}
+                            {a.error ?? "unavailable"}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {editFamilyEmpty && (
+                      <p className="text-[11px] leading-relaxed text-muted-foreground">
+                        Generating an image from text is free and works now.
+                        Editing needs a provider that accepts an image input
+                        with billing enabled, so these modes stay unavailable
+                        until one is configured — Omi reports the real reason
+                        rather than returning a fake image.
+                      </p>
+                    )}
+                  </div>
+                </div>
               </CardContent>
             </Card>
           )}

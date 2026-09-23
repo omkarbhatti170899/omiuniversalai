@@ -46,6 +46,68 @@ function dimsFor(aspect: AspectRatio): { w: number; h: number } {
 }
 
 /**
+ * Turn a provider's raw failure into ONE short, human sentence.
+ *
+ * This is the deepest point in the product where a third party's error text
+ * would otherwise reach a user. A 429 body is multi-line JSON, so rendering it
+ * verbatim put a wall of escaped braces, a quote cut off mid-string and a
+ * vendor billing URL across the middle of Image Studio — seen on a phone. The
+ * provider's identity and the actual REASON still reach the caller; the
+ * serialized object does not.
+ *
+ * Deliberately ordered and specific: OpenAI answers "no credits remaining" and
+ * Gemini answers "exceeded your current quota … billing details", and both are
+ * prefixed "error 429:" by the adapters — so a generic 429 test would describe
+ * both as the same problem. Credits are matched on words that only the credits
+ * message uses.
+ *
+ * PURE and exported so the mapping is unit-tested rather than eyeballed.
+ */
+export function humanizeImageError(raw: string): string {
+  const text = (raw ?? "").trim();
+  if (text.length === 0) return "no response from the provider";
+
+  // Router-produced structural refusals are already human and precise.
+  if (text === "op not supported by provider") return text;
+  if (text.startsWith("op needs image input")) {
+    return "this provider only generates from text, so it cannot edit an image";
+  }
+
+  const flat = text.replace(/\s+/g, " ");
+  const lower = flat.toLowerCase();
+
+  if (/no credits remaining|insufficient (credits?|funds|balance)|no credit/.test(lower)) {
+    return "the account has no remaining credits — billing must be enabled";
+  }
+  if (/quota|rate limit|429|too many requests|resource_exhausted|overloaded/.test(lower)) {
+    return "free-tier quota is exhausted right now — retry later or enable billing";
+  }
+  if (/401|403|unauthorized|api key not valid|invalid api key|permission denied|forbidden/.test(lower)) {
+    return "the provider rejected the configured credential";
+  }
+  if (/timed out|timeout|aborted|deadline exceeded/.test(lower)) {
+    return "the provider timed out";
+  }
+  if (/safety|content policy|prohibited|blocked/.test(lower)) {
+    return "the provider refused this prompt under its content policy";
+  }
+  if (/not found|does not exist|404|no longer available|deprecated|shut down|decommission/.test(lower)) {
+    return "the configured model is no longer available at that provider";
+  }
+
+  // Unknown failure: keep the provider's own words, but strip JSON punctuation
+  // so it reads as a sentence instead of a serialized object.
+  const stripped = text
+    .replace(/[{}[\]"]/g, " ")
+    .replace(/\b(code|message|error|status|type)\b\s*:?/gi, " ")
+    .replace(/\s+/g, " ")
+    .replace(/[,;]+\s*$/, "")
+    .trim();
+  if (stripped.length === 0) return "the provider returned an error";
+  return stripped.length > 140 ? `${stripped.slice(0, 140)}…` : stripped;
+}
+
+/**
  * Run ONE operation through the provider chain. `sources` are input images
  * (data URLs) for edit-family ops; providers that can't accept image input
  * are skipped by the router, not faked here.
@@ -102,7 +164,7 @@ export async function runImageOp(args: {
     attempts.push({
       provider: p.id,
       model,
-      error: (res.error ?? "failed").slice(0, 200),
+      error: humanizeImageError(res.error ?? "failed"),
     });
   }
 
