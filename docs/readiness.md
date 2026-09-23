@@ -32,7 +32,9 @@ key, token, env var name, or any user data.
 | UNIVERSAL SEARCH | **PASS** | Real keyless retrieval call (Wikipedia, ~300 ms) |
 | DEEP RESEARCH | **CONFIGURED** | Pipeline + `researchRuns` persistence deployed (table read passes); run needs sign-in |
 | IMAGE UPLOAD | **PASS (unit)** | Upload path + server-side ownership enforced; browser→storage leg needs a session |
-| IMAGE STUDIO | **PASS (unit)** | Six modes wired to the provider-neutral image router; generation runs keyless today, edit-family ops need an image-input key and say so instead of failing silently |
+| IMAGE STUDIO | **PASS (unit)** | Six modes wired to the provider-neutral image router |
+| IMAGE GENERATION | **PASS** | Live: generated a real image via keyless `pollinations` (`sana`), 32,970 bytes at 1024×1024 (`/selftest`). Previously hidden — generation and editing shared one verdict, so a working capability reported as "unverified" |
+| IMAGE EDITING | **BLOCKED** | Every edit-capable provider refuses upstream: Gemini image models `429` (project without billing), OpenAI `429` (no credits). The router quotes the real error; the Studio never fakes an image |
 | VISION | **PASS** | Real image read end-to-end — Groq `qwen/qwen3.8-27b` answered "red" for a synthetic 64×64 PNG in 337 ms (`/selftest`). Free-tier token caps can make this `unverified` under load, never a false FAIL |
 | PDF | **PASS (unit)** | `pdf.js` + OCR fallback path; **no dedicated unit test** (gap) |
 | DOC/DOCX | **PASS (unit)** | `docExtract.test.ts`: paragraph order, honest failure |
@@ -55,8 +57,13 @@ key, token, env var name, or any user data.
 | GITHUB ACTIONS | **PASS** | Current artifact live via pipeline; workflow now gates on typecheck + tests |
 | LIVE DEPLOYMENT | **PASS** | `llms.txt` served → proves the *current* build, not a cached one |
 
-Suite: **353 tests / 0 fail / 1041 assertions** across 29 files · `tsc` clean ·
+| RATE LIMITING | **PASS (unit)** | Per-user buckets on every expensive surface — chat 20/min, search 20, URL read 30, research 5, images 12, file ingest 20, projects 10, tools 20, workflows 6. Chat was the one gap and is now limited; `tests/omiRateLimit.test.ts` pins allowance, isolation and retry-hint behaviour |
+| PWA / ANDROID PACKAGING | **BLOCKED** | Installable on the web today (manifest, service worker, offline shell, standalone display). Store packaging needs PNG icons (192/192/512 maskable); no rasterizer installed — see `docs/android-packaging.md` |
+
+Suite: **388 tests / 0 fail** across 31 files · `tsc` clean ·
 CI-shaped `vite build` green · base path + backend-URL tripwire verified.
+
+Full QA pass with PASS/FAIL/FIXED/BLOCKED verdicts: `docs/qa-report.md`.
 
 ## §13 live test suite
 

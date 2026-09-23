@@ -4,6 +4,8 @@ import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
+// Per-user request limiting (shared implementation with search/files/images).
+import { rateLimit } from "./searchEngine/resilience";
 import { complete, hasAiProvider } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
@@ -202,6 +204,19 @@ export const send = action({
   }> => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to talk with Omi.");
+
+    // Per-user limit on the most expensive path in the product: each turn can
+    // cost a search fan-out, a vision call, an emotion classification and a
+    // synthesis call. Every other costly surface already has one (search 20,
+    // deep research 5, images 12, workflows 6) — chat was the gap. Generous
+    // enough for normal conversation and deliberate multi-turn work, strict
+    // enough that one account cannot burn the shared free-tier quota.
+    const rl = rateLimit(`chat:${userId}`, 20);
+    if (!rl.ok) {
+      throw new Error(
+        `Too many messages in a row — retry in ${Math.ceil(rl.retryAfterMs / 1000)}s.`,
+      );
+    }
 
     // Fail fast with an actionable message when no AI provider is configured
     // (provider-neutral check — any registered provider unlocks full reasoning).

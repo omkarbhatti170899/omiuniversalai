@@ -456,22 +456,75 @@ async function checkVision(): Promise<SubsystemCheck> {
 }
 
 /**
- * Image engine — a REAL image-editing call.
+ * Image GENERATION — a REAL text-to-image call.
  *
- * Generation is keyless and cheap; EDITING is the capability that depends on a
- * key-bearing image-input provider. Reporting that from env-var presence alone
- * is exactly the trap the vision probe was built to close (a provider can be
- * "configured" and still be rejected, expired or retired), so this pushes the
- * same tiny synthetic PNG the vision probe uses through the production edit
- * path — no upload, no storage, nobody's file.
+ * Generation and editing are separate capabilities with separate provider
+ * requirements: generation runs keyless and free, editing needs a key-bearing
+ * provider that accepts an image input. Grading them as one verdict hid a
+ * working capability behind a blocked one — the report said only "unverified"
+ * while generation was in fact live. Two probes, two evidence-backed verdicts.
+ *
+ * The prompt is FIXED, so this can never be steered into an open image proxy.
+ */
+async function checkImageGeneration(): Promise<SubsystemCheck> {
+  return check("image generation", async () => {
+    const configured = getImageProviderStatus().filter((p) => p.configured);
+    const canGenerate = configured.filter((p) => p.ops.includes("generate"));
+
+    if (canGenerate.length === 0) {
+      return {
+        status: "fail",
+        detail: `No configured image provider declares generation support (${configured.map((p) => p.id).join(", ") || "none configured"}) — Image Studio reports the router's real error rather than a fake image`,
+      };
+    }
+
+    const res = await withTimeout(
+      runImageOp({
+        op: "generate",
+        prompt: "A single flat blue square centred on a plain white background, minimal, no text.",
+        aspectRatio: "1:1",
+        transparent: false,
+        sources: [],
+      }),
+      IMAGE_TIMEOUT_MS,
+      "selftest image generate",
+    );
+
+    if (!res.ok || !res.bytes || res.bytes.length === 0) {
+      const tried =
+        res.attempts.map((a) => `${a.provider}/${a.model}`).join(" → ") || "none";
+      const verdict = classifyProviderFailure(res.attempts);
+      return {
+        status: verdict,
+        detail:
+          verdict === "unverified"
+            ? `Image generation could not be checked right now — upstream rate/tier/quota limit, not a defect (${res.error ?? "unknown"}); tried ${tried}`
+            : `Image generation failed: ${res.error ?? "unknown error"}; tried ${tried}`,
+      };
+    }
+
+    return {
+      status: "pass",
+      detail: `Generated a real image via ${res.provider} (${res.model}) — ${res.bytes.length} bytes at ${res.width}×${res.height}`,
+    };
+  });
+}
+
+/**
+ * Image EDITING — a REAL edit-family call.
+ *
+ * Reporting this from env-var presence alone is exactly the trap the vision
+ * probe was built to close (a provider can be "configured" and still be
+ * rejected, expired or retired), so this pushes the same tiny synthetic PNG the
+ * vision probe uses through the production edit path — no upload, no storage,
+ * nobody's file.
  *
  * Env var NAMES are deliberately not named here: this endpoint is public, and
  * its safety contract forbids disclosing them (see http.ts).
  */
-async function checkImages(): Promise<SubsystemCheck> {
-  return check("image engine", async () => {
-    const providers = getImageProviderStatus();
-    const configured = providers.filter((p) => p.configured);
+async function checkImageEditing(): Promise<SubsystemCheck> {
+  return check("image editing", async () => {
+    const configured = getImageProviderStatus().filter((p) => p.configured);
     const canGenerate = configured.filter((p) => p.ops.includes("generate"));
     const canEdit = configured.filter((p) => p.ops.includes("edit"));
 
@@ -564,7 +617,8 @@ export async function runSelfTest(ctx: QueryRunner): Promise<SelfTestReport> {
     checkSynthesis(),
     checkSecondaryProvider(),
     checkVision(),
-    checkImages(),
+    checkImageGeneration(),
+    checkImageEditing(),
     checkFileProcessing(),
     checkDeepResearch(),
   ]);

@@ -6,6 +6,11 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["productivity", "utilities", "education"],
   "background_color": "#121216",
   "theme_color": "#121216",
   "icons": [
@@ -14,6 +19,34 @@
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Open Omi workspace",
+      "short_name": "Workspace",
+      "description": "Chat, Image Studio, Projects, Agents and Andromeda.",
+      "url": "./dashboard",
+      "icons": [
+        {
+          "src": "logo.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Sign in",
+      "short_name": "Sign in",
+      "description": "Sign in to Omi Universal AI.",
+      "url": "./auth",
+      "icons": [
+        {
+          "src": "logo.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ]
 }
