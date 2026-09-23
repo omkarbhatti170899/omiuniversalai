@@ -64,7 +64,35 @@ export type CompleteArgs = CompletionRequest & {
    * could otherwise be used to probe a provider the router would not pick.
    */
   onlyProvider?: ProviderDescriptor["id"];
+  /**
+   * §12 Settings — the user's provider preference ("auto" = router order).
+   * Order-only, never a filter: the preference moves a CONFIGURED provider to
+   * the front of the chain, and every other configured provider still follows
+   * as fallback, so a preference can never take Omi's AI offline. Because it
+   * only reorders what the environment already allows, it exposes nothing a
+   * user could not already learn from the routing status in Settings.
+   */
+  preferProvider?: ProviderPreference;
 };
+
+/** "auto" means: leave the catalog's free-first order untouched. */
+export type ProviderPreference = string;
+
+/**
+ * Move the preferred provider to the front of the chain (pure + unit-tested).
+ * An unknown, unconfigured or already-first preference is a no-op — the
+ * preference is a hint, never a precondition, and it can never remove a
+ * fallback.
+ */
+export function orderByPreference<T extends { id: string }>(
+  providers: T[],
+  prefer?: ProviderPreference,
+): T[] {
+  if (!prefer || prefer === "auto") return providers;
+  const index = providers.findIndex((p) => p.id === prefer);
+  if (index <= 0) return providers;
+  return [providers[index], ...providers.filter((_, i) => i !== index)];
+}
 
 export type AttemptDecision = "next_candidate" | "next_provider";
 
@@ -182,7 +210,7 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
   };
   const attempts: AiAttempt[] = [];
 
-  const configured = getConfiguredAiProviders();
+  const configured = orderByPreference(getConfiguredAiProviders(), args.preferProvider);
   // `onlyProvider` narrows the chain to a single provider (self-test probe).
   // Filtering BEFORE the circuit check keeps the call path otherwise identical.
   const providers = args.onlyProvider

@@ -88,6 +88,82 @@ export const patchInternal = internalMutation({
   },
 });
 
+/**
+ * §10 Regenerate: the user turn a re-run should repeat. Ownership is implied
+ * by the caller (the chat action resolves the conversation first), but the
+ * conversation id is still matched here so a stale id can't cross threads.
+ */
+export const lastUserInternal = internalQuery({
+  args: { conversationId: v.id("omiConversations") },
+  handler: async (ctx, { conversationId }) => {
+    const recent = await ctx.db
+      .query("omiMessages")
+      .withIndex("by_conversation", (q) => q.eq("conversationId", conversationId))
+      .order("desc")
+      .take(20);
+    return recent.find((m) => m.role === "user") ?? null;
+  },
+});
+
+/**
+ * §10 Edit/regenerate: drop everything that came after a user turn before
+ * answering again, so a re-run never leaves two competing replies (or a
+ * half-finished streaming placeholder) in the transcript.
+ */
+export const deleteAfterInternal = internalMutation({
+  args: {
+    conversationId: v.id("omiConversations"),
+    afterMessageId: v.id("omiMessages"),
+  },
+  handler: async (ctx, { conversationId, afterMessageId }) => {
+    const anchor = await ctx.db.get(afterMessageId);
+    if (!anchor || anchor.conversationId !== conversationId) return 0;
+
+    const all = await ctx.db
+      .query("omiMessages")
+      .withIndex("by_conversation", (q) => q.eq("conversationId", conversationId))
+      .collect();
+    let removed = 0;
+    for (const m of all) {
+      if (m._id === afterMessageId) continue;
+      if (m._creationTime >= anchor._creationTime) {
+        await ctx.db.delete(m._id);
+        removed += 1;
+      }
+    }
+    return removed;
+  },
+});
+
+/**
+ * §10 Edit message: rewrite a user turn in place (content and, when new
+ * attachments are supplied, its attachment list). Only the author's own user
+ * messages are ever patched — an Omi reply is not editable.
+ */
+export const patchUserInternal = internalMutation({
+  args: {
+    messageId: v.id("omiMessages"),
+    actingUserId: v.id("users"),
+    content: v.optional(v.string()),
+    attachments: v.optional(
+      v.array(
+        v.object({
+          documentId: v.id("omiDocuments"),
+          title: v.string(),
+          kind: v.union(v.literal("image"), v.literal("file")),
+        }),
+      ),
+    ),
+  },
+  handler: async (ctx, { messageId, actingUserId, ...patch }) => {
+    const doc = await ctx.db.get(messageId);
+    if (!doc || doc.userId !== actingUserId) return false;
+    if (doc.role !== "user") return false;
+    await ctx.db.patch(messageId, patch);
+    return true;
+  },
+});
+
 /** Internal read of recent context for the chat action. */
 export const recentInternal = internalQuery({
   args: { conversationId: v.id("omiConversations"), limit: v.number() },

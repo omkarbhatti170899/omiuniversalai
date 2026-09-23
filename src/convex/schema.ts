@@ -149,6 +149,19 @@ const schema = defineSchema(
       completedAt: v.optional(v.number()),
     }).index("by_user", ["userId"]),
 
+    // §12 Settings — one row per user (defaults documented in omiSettings.ts).
+    // Only preferences live here: never a key, token or credential.
+    omiSettings: defineTable({
+      userId: v.id("users"),
+      providerPreference: v.optional(v.string()),
+      memoryEnabled: v.optional(v.boolean()),
+      alwaysSearch: v.optional(v.boolean()),
+      autoSpeak: v.optional(v.boolean()),
+      voiceLang: v.optional(v.string()),
+      imageAspectRatio: v.optional(v.string()),
+      reduceMotion: v.optional(v.boolean()),
+    }).index("by_user", ["userId"]),
+
     // Omi Assistant — conversations
     omiConversations: defineTable({
       userId: v.id("users"),
@@ -156,6 +169,11 @@ const schema = defineSchema(
       // §5 Projects: optional parent project. Unset = personal/global chat
       // (pre-Projects conversations keep working unchanged — no migration).
       projectId: v.optional(v.id("omiProjects")),
+      // §10 Stop generation: set by the Stop button while a turn is running.
+      // The chat action checks it at stage boundaries and finalizes honestly
+      // with whatever it had — an in-flight provider HTTP call cannot be
+      // interrupted, so this is a cooperative cancel, not a fake one.
+      stopRequestedAt: v.optional(v.number()),
     }).index("by_user", ["userId"]),
 
     // Omi Assistant — messages (reasoning = Omi's transparent "why this answer" summary)
@@ -188,7 +206,15 @@ const schema = defineSchema(
           }),
         ),
       ),
-    }).index("by_conversation", ["conversationId"]),
+    })
+      .index("by_conversation", ["conversationId"])
+      // §10 "search conversations": message-content search, scoped to the
+      // searcher's own messages via the userId filter field, so one user's
+      // search can never surface another user's text.
+      .searchIndex("search_content", {
+        searchField: "content",
+        filterFields: ["userId"],
+      }),
 
     // Omi persistent memory — user-controlled (view/edit/delete in the UI)
     omiMemories: defineTable({
