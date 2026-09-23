@@ -100,9 +100,16 @@ export const IMAGE_PROVIDERS: ImageProviderDescriptor[] = [
   },
   {
     id: "gemini",
-    label: "Google Gemini Image (free tier)",
+    label: "Google Gemini Image",
     envKeys: ["GEMINI_API_KEY"],
-    cost: "free tier, rate-limited",
+    // Measured 2026-09-23 with a real key: TEXT on this provider is free-tier,
+    // but every image model (gemini-2.5-flash-image, gemini-3.1-flash-image,
+    // gemini-3.1-flash-image-preview, gemini-3.1-flash-lite-image,
+    // gemini-3-pro-image) answered 429 "exceeded your current quota". A
+    // configured key is therefore NOT a working image editor — the router
+    // surfaces that exact error, and /selftest's `image engine` probe is what
+    // distinguishes the two.
+    cost: "text is free-tier; image generation requires billing enabled on the project",
     ops: [
       "generate",
       "edit",

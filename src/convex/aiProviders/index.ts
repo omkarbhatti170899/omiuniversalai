@@ -54,7 +54,17 @@ export type AiCompletionResult = {
   error?: string;
 };
 
-export type CompleteArgs = CompletionRequest & { task?: AiTask };
+export type CompleteArgs = CompletionRequest & {
+  task?: AiTask;
+  /**
+   * Pin the request to ONE provider — deliberately bypassing the routing
+   * order so a health check can verify a specific provider (a self-test
+   * proving the SECONDARY provider is genuinely working, not just
+   * configured). Server-side callers only; never wired to user input, which
+   * could otherwise be used to probe a provider the router would not pick.
+   */
+  onlyProvider?: ProviderDescriptor["id"];
+};
 
 export type AttemptDecision = "next_candidate" | "next_provider";
 
@@ -172,7 +182,12 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
   };
   const attempts: AiAttempt[] = [];
 
-  const providers = getConfiguredAiProviders();
+  const configured = getConfiguredAiProviders();
+  // `onlyProvider` narrows the chain to a single provider (self-test probe).
+  // Filtering BEFORE the circuit check keeps the call path otherwise identical.
+  const providers = args.onlyProvider
+    ? configured.filter((p) => p.id === args.onlyProvider)
+    : configured;
   if (providers.length === 0) {
     return {
       ok: false,
@@ -180,8 +195,9 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
       provider: null,
       model: null,
       attempts,
-      error:
-        "no AI provider is configured: add GROQ_API_KEY (free) or OPENAI_API_KEY in the project's API Keys tab",
+      error: args.onlyProvider
+        ? `provider ${args.onlyProvider} is not configured`
+        : "no AI provider is configured: add GROQ_API_KEY (free) or OPENAI_API_KEY in the project's API Keys tab",
     };
   }
 

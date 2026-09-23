@@ -3,6 +3,7 @@ import { httpAction } from "./_generated/server";
 import { auth } from "./auth";
 import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
+import { getImageProviderStatus } from "./aiProviders/imageCatalog";
 import { getProviderStatus } from "./searchProviders";
 import { runSelfTest } from "./omiSelfTest";
 import { breakerStatus } from "./searchEngine/resilience";
@@ -69,7 +70,17 @@ function preflightResponse(): Response {
 function statusSnapshot() {
   const ai = getAiStatus();
   const vision = getVisionStatus();
+  const imageProviders = getImageProviderStatus();
   const sources = getProviderStatus();
+
+  // Which image OPS a configured provider actually declares — capability, not
+  // a vendor list. An op missing here is one Omi will refuse honestly rather
+  // than pretend to run.
+  const imageOps = [
+    ...new Set(
+      imageProviders.filter((p) => p.configured).flatMap((p) => p.ops),
+    ),
+  ].sort();
 
   return {
     service: OMI_PRODUCT_NAME,
@@ -118,6 +129,20 @@ function statusSnapshot() {
         cost: p.cost,
       })),
     },
+    images: {
+      // CONFIGURATION + declared capability only; /selftest performs a real
+      // edit through the same router a user's request takes.
+      verifiedBy: "/selftest",
+      operationsAvailable: imageOps,
+      providers: imageProviders.map((p) => ({
+        id: p.id,
+        label: p.label,
+        configured: p.configured,
+        cost: p.cost,
+        ops: p.ops,
+        transparentBackground: p.transparentBackground,
+      })),
+    },
     andromeda: {
       sourcesTotal: sources.length,
       sourcesReady: sources.filter((s) => s.ready).length,
@@ -135,6 +160,7 @@ function statusSnapshot() {
       "Deep Research multi-subquery investigation",
       "Web + URL search across keyless providers",
       "Multimodal attachments (image understanding, PDF, DOCX, XLSX, CSV, TXT)",
+      "Image Studio — generate, edit, background, enhance, upscale, variations",
       "Human Emotions AI",
       "Agent workflows with human approval + independent verification",
       "Persistent memory and a private knowledge base",
@@ -157,6 +183,7 @@ http.route({
       "",
       `AI synthesis:    ${s.ai.available ? `available via ${s.ai.activeLabel}` : "not configured (extractive floor active — Omi still answers from sources)"}`,
       `Image vision:    ${s.vision.available ? `available via ${s.vision.activeProvider}` : "not configured (uploaded images are stored; description needs a vision key)"}`,
+      `Image Studio:    ${s.images.operationsAvailable.length > 0 ? `${s.images.operationsAvailable.join(", ")} (${s.images.operationsAvailable.includes("edit") ? "generation + editing" : "generation only"})` : "no image provider configured"}`,
       `Andromeda sources ready: ${s.andromeda.sourcesReady}/${s.andromeda.sourcesTotal} (${s.andromeda.cost})`,
       "",
       "Capabilities:",

@@ -38,6 +38,19 @@ const RETIRED_GROQ_MODELS = [
   "groq/compound-mini", // 2026-09-21
 ];
 
+/**
+ * Gemini models an account can no longer call. Google still LISTS these, so
+ * discovery (which filters against /models) happily keeps them — the failure
+ * only appears as a 404 at call time: "no longer available to new users".
+ * Probed live 2026-09-23: gemini-2.5-flash and gemini-2.5-flash-lite 404,
+ * while gemini-flash-latest and gemini-3.8-flash answered 200.
+ */
+const RETIRED_GEMINI_MODELS = [
+  "gemini-2.5-flash",
+  "gemini-2.5-flash-lite",
+  "gemini-2.0-flash",
+];
+
 const realFetch = globalThis.fetch;
 let fetchCalls: string[] = [];
 
@@ -200,6 +213,30 @@ describe("catalogues contain no model the provider has retired", () => {
 
   test("vision points at the multimodal model Groq currently serves", () => {
     expect(GROQ_VISION_MODEL).toBe("qwen/qwen3.8-27b");
+  });
+
+  test("no Gemini model an account can no longer call is configured for text", () => {
+    const gemini = AI_PROVIDERS.find((p) => p.id === "gemini");
+    expect(gemini).toBeDefined();
+    const configured = [
+      ...Object.values(gemini!.taskModels),
+      ...gemini!.fallbackModels,
+    ];
+    for (const dead of RETIRED_GEMINI_MODELS) {
+      expect(configured).not.toContain(dead);
+    }
+  });
+
+  test("no Gemini model an account can no longer call is configured for vision", () => {
+    const gemini = VISION_PROVIDERS.find((p) => p.id === "gemini");
+    expect(gemini).toBeDefined();
+    const configured = [
+      ...Object.values(gemini!.taskModels),
+      ...gemini!.fallbackModels,
+    ];
+    for (const dead of RETIRED_GEMINI_MODELS) {
+      expect(configured).not.toContain(dead);
+    }
   });
 });
 

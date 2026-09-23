@@ -33,11 +33,14 @@ import { complete } from "./aiProviders";
 import { getAiStatus } from "./aiProviders/catalog";
 import { describeImage } from "./aiProviders/vision";
 import { classifyProviderFailure } from "./aiProviders/openaiCompat";
+import { getConfiguredAiProviders } from "./aiProviders/catalog";
 import {
   getVisionStatus,
   VISION_PROBE_IMAGE,
   VISION_PROBE_PROMPT,
 } from "./aiProviders/visionCatalog";
+import { getImageProviderStatus } from "./aiProviders/imageCatalog";
+import { runImageOp } from "./aiProviders/imageProviders";
 import { getConfiguredProviders } from "./searchProviders";
 import { withTimeout } from "./searchEngine/resilience";
 import { planQuery } from "./andromeda/query";
@@ -87,6 +90,8 @@ const NET_TIMEOUT_MS = 12_000;
 const AI_TIMEOUT_MS = 20_000;
 /** Vision models may reason before answering, so it gets a larger budget. */
 const VISION_TIMEOUT_MS = 30_000;
+/** Image models return bytes, not tokens, and take longer than a chat turn. */
+const IMAGE_TIMEOUT_MS = 60_000;
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
 type QueryRunner = { runQuery: (...args: any[]) => Promise<any> };
@@ -316,6 +321,70 @@ async function checkSynthesis(): Promise<SubsystemCheck> {
   });
 }
 
+/**
+ * Secondary AI provider — a REAL call to the provider the router uses as its
+ * fallback, with routing pinned to it (`onlyProvider`).
+ *
+ * "Configured" is not "working": a key can be present and rejected, expired,
+ * or out of quota, and the primary provider answering says nothing about the
+ * one that is supposed to cover it. This probe forces the second provider to
+ * answer, so an independent fallback is a verified PASS rather than a claim.
+ * A rate/tier limit reports `unverified` (not a defect); an auth or quota
+ * rejection reports `fail`.
+ */
+async function checkSecondaryProvider(): Promise<SubsystemCheck> {
+  return check("ai fallback", async () => {
+    const configured = getConfiguredAiProviders();
+    const secondary = configured[1];
+    if (!secondary) {
+      return {
+        status: "configured",
+        detail:
+          configured.length === 1
+            ? `Only one AI provider is configured (${configured[0].id}) — there is no independent fallback, so a rate limit or outage on it degrades answers with nothing to fall back to`
+            : "No AI provider configured — extractive mode is active",
+      };
+    }
+
+    const res = await withTimeout(
+      complete({
+        task: "classification",
+        onlyProvider: secondary.id,
+        messages: [
+          {
+            role: "system",
+            content: "Reply with exactly the single word: READY. Nothing else.",
+          },
+          { role: "user", content: "status check" },
+        ],
+        temperature: 0,
+        maxTokens: 128,
+      }),
+      AI_TIMEOUT_MS,
+      "selftest fallback",
+    );
+
+    if (!res.ok || res.content.trim().length === 0) {
+      const tried =
+        res.attempts.map((a) => `${a.provider}/${a.model}`).join(" → ") ||
+        secondary.id;
+      const verdict = classifyProviderFailure(res.attempts);
+      return {
+        status: verdict,
+        detail:
+          verdict === "unverified"
+            ? `Fallback provider ${secondary.id} could not be checked right now — upstream rate/tier limit, not a defect (${res.error ?? "empty response"}); tried ${tried}`
+            : `Fallback provider ${secondary.id} failed: ${res.error ?? "empty response"}; tried ${tried}`,
+      };
+    }
+
+    return {
+      status: "pass",
+      detail: `Independent fallback answered via ${res.provider} (${res.model}) — chain: ${configured.map((p) => p.id).join(" → ")}`,
+    };
+  });
+}
+
 /** Database — a real read proving schema + connectivity. */
 async function checkDatabase(ctx: QueryRunner): Promise<SubsystemCheck> {
   return check("database", async () => {
@@ -387,6 +456,69 @@ async function checkVision(): Promise<SubsystemCheck> {
 }
 
 /**
+ * Image engine — a REAL image-editing call.
+ *
+ * Generation is keyless and cheap; EDITING is the capability that depends on a
+ * key-bearing image-input provider. Reporting that from env-var presence alone
+ * is exactly the trap the vision probe was built to close (a provider can be
+ * "configured" and still be rejected, expired or retired), so this pushes the
+ * same tiny synthetic PNG the vision probe uses through the production edit
+ * path — no upload, no storage, nobody's file.
+ *
+ * Env var NAMES are deliberately not named here: this endpoint is public, and
+ * its safety contract forbids disclosing them (see http.ts).
+ */
+async function checkImages(): Promise<SubsystemCheck> {
+  return check("image engine", async () => {
+    const providers = getImageProviderStatus();
+    const configured = providers.filter((p) => p.configured);
+    const canGenerate = configured.filter((p) => p.ops.includes("generate"));
+    const canEdit = configured.filter((p) => p.ops.includes("edit"));
+
+    if (canEdit.length === 0) {
+      return {
+        status: "configured",
+        detail:
+          canGenerate.length > 0
+            ? `Generation is live via ${canGenerate.map((p) => p.id).join(", ")}; edit/background/enhance/upscale need an image-input provider key, which is not configured — those modes show the router's real error instead of a fake image`
+            : "No image provider configured — image operations report an honest routing error",
+      };
+    }
+
+    const res = await withTimeout(
+      runImageOp({
+        op: "edit",
+        prompt:
+          "Recolour this image to a single flat blue. Return only the edited image.",
+        aspectRatio: "1:1",
+        transparent: false,
+        sources: [VISION_PROBE_IMAGE],
+      }),
+      IMAGE_TIMEOUT_MS,
+      "selftest image edit",
+    );
+
+    if (!res.ok || !res.bytes || res.bytes.length === 0) {
+      const tried =
+        res.attempts.map((a) => `${a.provider}/${a.model}`).join(" → ") || "none";
+      const verdict = classifyProviderFailure(res.attempts);
+      return {
+        status: verdict,
+        detail:
+          verdict === "unverified"
+            ? `Image editing could not be checked right now — upstream rate/tier/quota limit (a 429 covers a spent free-tier quota or a project without billing), not a defect (${res.error ?? "unknown"}); tried ${tried}`
+            : `Image edit failed: ${res.error ?? "unknown error"}; tried ${tried}`,
+      };
+    }
+
+    return {
+      status: "pass",
+      detail: `Edited a real image via ${res.provider} (${res.model}) — returned ${res.bytes.length} bytes at ${res.width}×${res.height}`,
+    };
+  });
+}
+
+/**
  * File processing and deep research are the two subsystems whose end-to-end
  * paths need an upload or a signed-in session, which this unauthenticated
  * endpoint cannot supply. Reported honestly as `configured` rather than
@@ -430,7 +562,9 @@ export async function runSelfTest(ctx: QueryRunner): Promise<SelfTestReport> {
     checkAndromedaPlanner(),
     checkRetrieval(),
     checkSynthesis(),
+    checkSecondaryProvider(),
     checkVision(),
+    checkImages(),
     checkFileProcessing(),
     checkDeepResearch(),
   ]);

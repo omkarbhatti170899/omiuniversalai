@@ -105,18 +105,24 @@ export const AI_PROVIDERS: ProviderDescriptor[] = [
     // is the whole point of this slot — one provider's 429 no longer means
     // every capability stalls.
     cost: "free tier, rate-limited",
+    // The `-latest` aliases are deliberate. gemini-2.5-flash and
+    // gemini-2.5-flash-lite are still LISTED by the API but answer 404 "no
+    // longer available to new users" — probed live on 2026-09-23, and the
+    // reason the forced-fallback self-test exists (a listing is a superset of
+    // what an account may call). gemini-3.8-flash and gemini-flash-lite-latest
+    // both answered 200 in the same probe.
     taskModels: {
-      conversational: "gemini-2.5-flash",
-      reasoning: "gemini-2.5-flash",
-      summarization: "gemini-2.5-flash",
-      extraction: "gemini-2.5-flash",
-      classification: "gemini-2.5-flash",
-      coding: "gemini-2.5-flash",
-      research: "gemini-2.5-flash",
+      conversational: "gemini-flash-latest",
+      reasoning: "gemini-flash-latest",
+      summarization: "gemini-flash-latest",
+      extraction: "gemini-flash-latest",
+      classification: "gemini-flash-lite-latest",
+      coding: "gemini-3.8-flash",
+      research: "gemini-3.8-flash",
     },
     // Verified against the provider's own /models list before use
     // (modelDiscovery.ts), so a retired entry costs zero round-trips.
-    fallbackModels: ["gemini-2.5-flash-lite", "gemini-2.0-flash"],
+    fallbackModels: ["gemini-3.8-flash", "gemini-flash-lite-latest"],
     hint: "Add a free GEMINI_API_KEY (aistudio.google.com → Get API key) in the project's API Keys tab.",
   },
   {

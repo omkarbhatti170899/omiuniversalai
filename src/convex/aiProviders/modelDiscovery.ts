@@ -13,6 +13,13 @@
  * unexpected response shape) fails OPEN and returns the candidates unchanged,
  * so a hiccup in the listing endpoint can never disable a model that works.
  *
+ * Known limitation (measured 2026-09-23): a provider's list is a SUPERSET of
+ * what an account may actually call. Google still lists `gemini-2.5-flash`
+ * while answering 404 "no longer available to new users" for it. Discovery
+ * therefore narrows the candidates; it does not prove they work. The live
+ * probe in omiSelfTest (`ai fallback`) is what turns that into a verified
+ * PASS — see the docs for the incident.
+ *
  * No node imports: importable from V8 actions, the HTTP router and tests.
  */
 

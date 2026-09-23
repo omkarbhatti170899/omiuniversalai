@@ -74,12 +74,16 @@ export const VISION_PROVIDERS: VisionProviderDescriptor[] = [
     label: "Google Gemini Vision (free tier)",
     envKeys: ["GEMINI_API_KEY"],
     cost: "free tier, rate-limited",
+    // Same 2026-09-23 probe as the text catalog: gemini-2.5-flash is listed
+    // but 404s for new accounts, while the `-latest` alias and gemini-3.8-flash
+    // answered. A vision fallback that 404s is worse than none, because it
+    // hides the real failure behind a second round-trip.
     taskModels: {
-      describe: "gemini-2.5-flash",
-      extract: "gemini-2.5-flash",
-      answer: "gemini-2.5-flash",
+      describe: "gemini-flash-latest",
+      extract: "gemini-flash-latest",
+      answer: "gemini-flash-latest",
     },
-    fallbackModels: ["gemini-2.5-flash-lite", "gemini-2.0-flash"],
+    fallbackModels: ["gemini-3.8-flash", "gemini-flash-lite-latest"],
     hint: "Add a free GEMINI_API_KEY (aistudio.google.com → Get API key) in the project's API Keys tab.",
   },
   {
