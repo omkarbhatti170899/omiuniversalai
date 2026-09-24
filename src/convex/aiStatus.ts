@@ -1,6 +1,9 @@
 import { query } from "./_generated/server";
 import { getAiStatus } from "./aiProviders/catalog";
-import { getImageProviderStatus } from "./aiProviders/imageCatalog";
+import {
+  getImageCapabilityReport,
+  getImageProviderStatus,
+} from "./aiProviders/imageCatalog";
 
 /**
  * Which AI provider is actually active and how each task routes to a model
@@ -13,6 +16,12 @@ import { getImageProviderStatus } from "./aiProviders/imageCatalog";
 export const status = query({
   args: {},
   handler: async () => {
-    return { ...getAiStatus(), imageProviders: getImageProviderStatus() };
+    return {
+      ...getAiStatus(),
+      imageProviders: getImageProviderStatus(),
+      // Static capability truth (configured + declares the op). A live run may
+      // still fail; the self-test / run result reports that separately.
+      imageCapabilities: getImageCapabilityReport(),
+    };
   },
 });

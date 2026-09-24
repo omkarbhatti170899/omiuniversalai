@@ -396,10 +396,19 @@ const schema = defineSchema(
         v.literal("background"),
         v.literal("style"),
         v.literal("upscale"),
+        v.literal("enhance"),
         v.literal("variation"),
         v.literal("combine"),
+        v.literal("outpaint"),
       ),
       prompt: v.string(),
+      // The structured, preservation-aware prompt actually sent to the
+      // provider (the raw `prompt` is kept for the transcript). Optional so
+      // legacy rows without it still validate.
+      normalizedPrompt: v.optional(v.string()),
+      // True only when real image bytes passed format verification before
+      // storage — a row can never exist for a fake/empty provider response.
+      verified: v.optional(v.boolean()),
       fileId: v.id("_storage"), // generated image blob (private storage)
       provider: v.string(),
       model: v.string(),

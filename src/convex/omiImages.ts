@@ -25,10 +25,19 @@ import { rateLimit } from "./searchEngine/resilience";
 import {
   ASPECT_RATIOS,
   IMAGE_OPS,
+  capabilityForOp,
+  opNeedsImage,
+  opNeedsMultiple,
   type AspectRatio,
   type ImageOp,
 } from "./aiProviders/imageCatalog";
 import { runImageOp } from "./aiProviders/imageProviders";
+import { healthSentence, type ProviderHealth } from "./aiProviders/imageRouter";
+import { normalizeImageRequest, type NormalizedImageRequest } from "./aiProviders/imageNormalize";
+import {
+  classifyImageIntent,
+  resolveReferenceIndices,
+} from "./aiProviders/imageIntent";
 import type { Id } from "./_generated/dataModel";
 import type { ActionCtx } from "./_generated/server";
 
@@ -38,7 +47,15 @@ const MAX_GALLERY_ROWS = 100;
 
 export type ImageOpResult =
   | { ok: true; imageId: string; provider: string; model: string; width: number; height: number }
-  | { ok: false; error: string; attempts: Array<{ provider: string; model: string; error?: string }> };
+  | {
+      ok: false;
+      error: string;
+      attempts: Array<{ provider: string; model: string; error?: string; state?: ProviderHealth }>;
+      /** Honest overall health (rate_limited, auth_error, …) when available. */
+      health?: ProviderHealth;
+      /** The capability the request needed, for a precise message. */
+      capability?: string;
+    };
 
 /**
  * Shared core for `run` (Studio, auth + rate-limit preamble) and
@@ -103,14 +120,34 @@ async function runImageCore(
     sources.push(await blobToDataUrl(blob, doc.fileType ?? null));
   }
 
-  const needsSources = args.op !== "generate" && args.op !== "variation";
-  if (needsSources && sources.length === 0) {
-    return { ok: false, error: "This operation edits an image — add or pick one first.", attempts: [] };
+  // Capability preconditions, enforced before any provider call. A missing
+  // input is a user-fixable condition, not a provider failure.
+  if (opNeedsImage(args.op) && sources.length === 0) {
+    return {
+      ok: false,
+      error: `${capitalize(capabilityForOp(args.op))} works on an image — add or pick one first.`,
+      attempts: [],
+      capability: capabilityForOp(args.op),
+    };
   }
+  if (opNeedsMultiple(args.op) && sources.length < 2) {
+    return {
+      ok: false,
+      error: "Combining needs at least two images — add another first.",
+      attempts: [],
+      capability: capabilityForOp(args.op),
+    };
+  }
+
+  // NORMALIZE: turn the natural sentence into structured instructions with an
+  // explicit preservation clause for edits, then send THAT to the provider
+  // instead of the raw user sentence. The raw prompt is still stored for the
+  // transcript; the normalized one is what keeps an edit an edit.
+  const normalized: NormalizedImageRequest = normalizeImageRequest(args.op, prompt, aspectRatio);
 
   const result = await runImageOp({
     op: args.op,
-    prompt,
+    prompt: normalized.prompt,
     aspectRatio,
     transparent: args.transparent ?? false,
     sources: sources.length > 0 ? sources : undefined,
@@ -118,7 +155,13 @@ async function runImageCore(
   });
 
   if (!result.ok || !result.bytes) {
-    return { ok: false, error: result.error ?? "Image generation failed.", attempts: result.attempts };
+    return {
+      ok: false,
+      error: result.error ?? healthSentence(result.health ?? "unavailable", args.op),
+      attempts: result.attempts,
+      health: result.health,
+      capability: capabilityForOp(args.op),
+    };
   }
   if (result.bytes.length > MAX_IMAGE_BYTES) {
     return { ok: false, error: "The generated image was too large to store — try a smaller size.", attempts: result.attempts };
@@ -131,6 +174,7 @@ async function runImageCore(
     userId,
     op: args.op,
     prompt,
+    normalizedPrompt: normalized.prompt,
     fileId,
     provider: result.provider ?? "unknown",
     model: result.model ?? "unknown",
@@ -195,6 +239,53 @@ export const run = action({
       seed: args.seed,
       parentId: args.parentId,
     });
+  },
+});
+
+/**
+ * Interpret a natural-language request for the Studio's "auto" mode: classify
+ * the operation, resolve which image the user means, and return the
+ * normalized request. Pure compute (no provider call), so the UI can show
+ * "Omi will edit this image" BEFORE spending a request.
+ */
+export const interpret = action({
+  args: {
+    prompt: v.string(),
+    hasImageContext: v.boolean(),
+    imageCount: v.optional(v.number()),
+  },
+  handler: async (ctx, { prompt, hasImageContext, imageCount }) => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) throw new Error("Sign in to use Image Studio.");
+    const count = imageCount ?? (hasImageContext ? 1 : 0);
+    const intent = classifyImageIntent(prompt, hasImageContext, count);
+
+    if (intent.kind === "none") return { kind: "none" as const };
+    if (intent.kind === "image-understanding") {
+      return { kind: "image-understanding" as const };
+    }
+    if (intent.kind === "generate") {
+      const normalized = normalizeImageRequest("generate", intent.prompt, intent.aspectRatio);
+      return {
+        kind: "generate" as const,
+        op: "generate" as const,
+        aspectRatio: intent.aspectRatio ?? null,
+        transparent: intent.transparent,
+        capability: capabilityForOp("generate"),
+        references: resolveReferenceIndices(intent.references, count),
+        normalized,
+      };
+    }
+    const normalized = normalizeImageRequest(intent.op, intent.prompt);
+    return {
+      kind: "image-edit" as const,
+      op: intent.op,
+      needsImage: intent.needsImage,
+      needsMultiple: intent.needsMultiple,
+      capability: capabilityForOp(intent.op),
+      references: resolveReferenceIndices(intent.references, count),
+      normalized,
+    };
   },
 });
 
@@ -291,6 +382,11 @@ export const remove = mutation({
 
 // ---- internal helpers ----------------------------------------------------
 
+/** "image editing" → "Image editing" (sentence start in honest messages). */
+function capitalize(s: string): string {
+  return s.length === 0 ? s : s[0].toUpperCase() + s.slice(1);
+}
+
 async function blobToDataUrl(
   blob: Blob,
   mimeType: string | null,
@@ -339,6 +435,8 @@ export const insert = internalMutation({
     userId: v.id("users"),
     op: v.string(),
     prompt: v.string(),
+    /** The structured prompt actually sent to the provider (provenance). */
+    normalizedPrompt: v.optional(v.string()),
     fileId: v.id("_storage"),
     provider: v.string(),
     model: v.string(),
@@ -354,6 +452,7 @@ export const insert = internalMutation({
       userId: args.userId,
       op: args.op as never,
       prompt: args.prompt,
+      normalizedPrompt: args.normalizedPrompt,
       fileId: args.fileId,
       provider: args.provider,
       model: args.model,
@@ -363,6 +462,9 @@ export const insert = internalMutation({
       parentId: args.parentId,
       sourceImageIds: args.sourceImageIds,
       conversationId: args.conversationId,
+      // Verified extra means this row only exists because real image bytes
+      // passed format verification before storage.
+      verified: true,
       createdAt: Date.now(),
     });
   },

@@ -2,6 +2,13 @@
  * Image generation/editing adapters — the ImageProvider transport layer
  * (mirrors vision.ts conventions). Never throws; reports every attempt.
  *
+ * Routing is delegated to imageRouter (capability-based): an edit-family op
+ * only ever reaches a provider that declares it AND accepts image input, so
+ * a text-to-image provider can never answer an edit. Every successful body is
+ * verified by imageVerify before it is accepted — a provider that returns an
+ * HTML error page or an empty body is reported as a failed attempt, never as
+ * a successful image.
+ *
  * Verified transports (checked live before this module existed):
  *  • Pollinations GET /prompt/{text}?width&height&seed — keyless, returns
  *    image bytes directly. /models serves ["sana"] (text-to-image only).
@@ -11,12 +18,25 @@
  */
 
 import {
-  IMAGE_PROVIDERS,
+  ASPECT_RATIOS,
   type AspectRatio,
   type ImageOp,
 } from "./imageCatalog";
-import { ASPECT_RATIOS } from "./imageCatalog";
-import { GEMINI_URL, isProviderDisabled } from "./catalog";
+import {
+  classifyFailure,
+  overallHealth,
+  providersForOp,
+  type ProviderHealth,
+} from "./imageRouter";
+import { verifyImageBytes } from "./imageVerify";
+
+export type ImageAttempt = {
+  provider: string;
+  model: string;
+  error?: string;
+  /** Health state for this attempt (rate_limited, auth_error, …). */
+  state?: ProviderHealth;
+};
 
 export type ImageGenResult = {
   ok: boolean;
@@ -28,7 +48,9 @@ export type ImageGenResult = {
   width: number;
   height: number;
   transparent: boolean;
-  attempts: Array<{ provider: string; model: string; error?: string }>;
+  attempts: ImageAttempt[];
+  /** Honest overall health when ok is false. */
+  health?: ProviderHealth;
   error?: string;
 };
 
@@ -51,15 +73,14 @@ function dimsFor(aspect: AspectRatio): { w: number; h: number } {
  * This is the deepest point in the product where a third party's error text
  * would otherwise reach a user. A 429 body is multi-line JSON, so rendering it
  * verbatim put a wall of escaped braces, a quote cut off mid-string and a
- * vendor billing URL across the middle of Image Studio — seen on a phone. The
- * provider's identity and the actual REASON still reach the caller; the
- * serialized object does not.
+ * vendor billing URL across the middle of Image Studio. The provider's
+ * identity and the actual REASON still reach the caller; the serialized
+ * object does not.
  *
  * Deliberately ordered and specific: OpenAI answers "no credits remaining" and
  * Gemini answers "exceeded your current quota … billing details", and both are
  * prefixed "error 429:" by the adapters — so a generic 429 test would describe
- * both as the same problem. Credits are matched on words that only the credits
- * message uses.
+ * both as the same problem.
  *
  * PURE and exported so the mapping is unit-tested rather than eyeballed.
  */
@@ -94,6 +115,9 @@ export function humanizeImageError(raw: string): string {
   if (/not found|does not exist|404|no longer available|deprecated|shut down|decommission/.test(lower)) {
     return "the configured model is no longer available at that provider";
   }
+  if (/empty|not a recognised image|not a recognized image|data payload instead|html page/.test(lower)) {
+    return "the provider did not return a usable image";
+  }
 
   // Unknown failure: keep the provider's own words, but strip JSON punctuation
   // so it reads as a sentence instead of a serialized object.
@@ -108,9 +132,9 @@ export function humanizeImageError(raw: string): string {
 }
 
 /**
- * Run ONE operation through the provider chain. `sources` are input images
- * (data URLs) for edit-family ops; providers that can't accept image input
- * are skipped by the router, not faked here.
+ * Run ONE operation through the capability-filtered provider chain. `sources`
+ * are input images (data URLs) for edit-family ops; providers that can't
+ * accept image input are skipped by the router, not faked here.
  */
 export async function runImageOp(args: {
   op: ImageOp;
@@ -123,51 +147,68 @@ export async function runImageOp(args: {
 }): Promise<ImageGenResult> {
   const { op, prompt, aspectRatio, transparent, sources } = args;
   const needsInput = sources !== undefined && sources.length > 0;
-  const attempts: ImageGenResult["attempts"] = [];
+  const attempts: ImageAttempt[] = [];
   const { w, h } = dimsFor(aspectRatio);
 
-  for (const p of IMAGE_PROVIDERS) {
-    if (isProviderDisabled(p.id)) continue;
-    if (!p.ops.includes(op)) {
-      attempts.push({ provider: p.id, model: "—", error: "op not supported by provider" });
-      continue;
-    }
-    if (needsInput && !p.supportsImageInput) {
-      attempts.push({ provider: p.id, model: "—", error: "op needs image input, provider is text-to-image only" });
-      continue;
-    }
+  const eligible = providersForOp(op, needsInput);
+  if (eligible.length === 0) {
+    // No eligible provider at all — report honestly, with no fake result.
+    const declared = providersForOp(op, false);
+    return {
+      ok: false,
+      bytes: null,
+      mimeType: "image/png",
+      provider: null,
+      model: null,
+      width: w,
+      height: h,
+      transparent: false,
+      attempts,
+      health: "not_configured",
+      error:
+        declared.length > 0 && !needsInput
+          ? "no image provider configured for this operation"
+          : `no provider is configured for this operation (${op})`,
+    };
+  }
 
-    const key = p.envKeys.map((k) => process.env[k] ?? "").find((v) => v.length > 0) ?? "";
-    if (p.envKeys.length > 0 && key === "") continue; // silently skip unconfigured
-
+  for (const p of eligible) {
     const model: string = MODEL_BY_PROVIDER[p.id] ?? "unknown";
     const res =
       p.id === "pollinations"
         ? await pollinationsGenerate({ prompt, w, h, seed: args.seed })
         : p.id === "gemini"
-          ? await geminiImage({ key, model, prompt, sources })
-          : await openaiImage({ key, model, prompt, sources, w, h });
+          ? await geminiImage({ key: envKeyFor(p), model, prompt, sources })
+          : await openaiImage({ key: envKeyFor(p), model, prompt, sources, w, h });
 
     if (res.ok && res.bytes) {
+      // VERIFY: bytes must be a real image, not an error page.
+      const verified = verifyImageBytes(res.bytes, res.mimeType);
+      if (!verified.ok) {
+        const reason = verified.reason;
+        attempts.push({ provider: p.id, model, error: humanizeImageError(reason), state: "unavailable" });
+        continue;
+      }
+      const width = verified.width ?? res.w ?? w;
+      const height = verified.height ?? res.h ?? h;
       return {
         ok: true,
         bytes: res.bytes,
-        mimeType: res.mimeType ?? "image/png",
+        mimeType: verified.mimeType,
         provider: p.id,
         model,
-        width: res.w ?? w,
-        height: res.h ?? h,
+        width,
+        height,
         transparent: transparent && p.supportsTransparency,
         attempts,
       };
     }
-    attempts.push({
-      provider: p.id,
-      model,
-      error: humanizeImageError(res.error ?? "failed"),
-    });
+
+    const reason = res.error ?? "failed";
+    attempts.push({ provider: p.id, model, error: humanizeImageError(reason), state: classifyFailure(reason) });
   }
 
+  const health = overallHealth(attempts);
   return {
     ok: false,
     bytes: null,
@@ -178,12 +219,18 @@ export async function runImageOp(args: {
     height: h,
     transparent: false,
     attempts,
+    health,
     error:
       attempts
         .map((a) => `${a.provider}: ${a.error}`)
         .join(" | ")
         .slice(0, 400) || "no image provider configured for this operation",
   };
+}
+
+/** First configured env value for a provider (never logged or returned). */
+function envKeyFor(p: { envKeys: string[] }): string {
+  return p.envKeys.map((k) => process.env[k] ?? "").find((v) => v.length > 0) ?? "";
 }
 
 type Raw = { ok: boolean; bytes?: Uint8Array; mimeType?: string; w?: number; h?: number; error?: string };

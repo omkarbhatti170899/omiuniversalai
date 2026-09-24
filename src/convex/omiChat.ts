@@ -433,6 +433,7 @@ export const send = action({
     const imageIntent = classifyImageIntent(
       trimmed,
       imageAttachmentIds.length > 0 || latestOmiImageId !== null,
+      imageAttachmentIds.length + (latestOmiImageId !== null ? 1 : 0),
     );
     if (vision.note) orchestratorNote = orchestratorNote ? `${orchestratorNote} ${vision.note}` : vision.note;
     const imageVisionBlock = vision.block;
@@ -441,7 +442,11 @@ export const send = action({
     // "Generate…", "Edit this…", "Remove…", "Change…", "Make it…",
     // "Combine these…" route straight to the image engine. Context image =
     // attached this turn OR produced by an earlier Omi reply (multi-turn).
-    if (imageIntent.kind !== "none") {
+    //
+    // "image-understanding" ("what's in this picture?") is deliberately NOT
+    // an image-engine op — it is answered by the vision pass above, so the
+    // turn falls through to normal chat instead of hitting the paint engine.
+    if (imageIntent.kind === "generate" || imageIntent.kind === "image-edit") {
       await patchStreaming({ content: "Omi is working on the image…" });
       const latestImage: Id<"omiImages"> | null = latestOmiImageId;
       const imgResult = await ctx.runAction(internal.omiImages.runInternal, {
