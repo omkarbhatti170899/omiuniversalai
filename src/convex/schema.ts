@@ -425,6 +425,20 @@ const schema = defineSchema(
       .index("by_user", ["userId"])
       .index("by_conversation", ["conversationId"]),
 
+    // Last-known IMAGE PROVIDER health, from REAL attempts only (Studio runs
+    // and the self-test). Deployment-global, one row per provider, no user
+    // data. This is what lets the UI say "rate limited" instead of a green
+    // "configured" for a key that exists but is out of quota — presence of a
+    // key is not evidence that the capability works.
+    omiImageProviderHealth: defineTable({
+      provider: v.string(), // "gemini" | "openai" | "pollinations"
+      // ProviderHealth vocabulary (imageRouter): available | unavailable |
+      // rate_limited | auth_error | capability_unsupported.
+      state: v.string(),
+      error: v.optional(v.string()),
+      updatedAt: v.number(),
+    }).index("by_provider", ["provider"]),
+
     // OMI Tool Registry — every tool execution for observability + the
     // Phase 11 self-improvement loop (what ran, with what, and whether it
     // succeeded). Args are summarized, never stored raw with secrets.

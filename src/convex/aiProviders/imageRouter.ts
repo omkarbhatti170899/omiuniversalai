@@ -155,6 +155,60 @@ export function overallHealth(
   return states.length > 0 ? "unavailable" : "not_configured";
 }
 
+/**
+ * How long a recorded attempt stays meaningful. A run from last week does not
+ * describe the provider right now, and a stale "rate limited" would be just as
+ * dishonest as a green check nobody verified.
+ */
+export const HEALTH_MAX_AGE_MS = 6 * 60 * 60 * 1000;
+
+/** Is a recorded health observation still recent enough to show? (pure) */
+export function isHealthFresh(
+  updatedAt: number | undefined,
+  now: number,
+  maxAgeMs: number = HEALTH_MAX_AGE_MS,
+): boolean {
+  if (updatedAt === undefined || !Number.isFinite(updatedAt)) return false;
+  const age = now - updatedAt;
+  return age >= 0 && age <= maxAgeMs;
+}
+
+export type HealthTone = "ok" | "warn" | "bad" | "muted";
+
+/**
+ * The label a provider badge may honestly show, given whether a credential
+ * exists and what the LAST REAL attempt did. Pure and unit-tested: this is the
+ * difference between "a key is present" and "this capability works".
+ *
+ *  configured + available            → verified working   (ok)
+ *  configured + rate_limited         → rate limited       (warn)
+ *  configured + auth_error           → credential rejected(bad)
+ *  configured + unavailable          → unavailable        (bad)
+ *  configured + capability_unsupported → capability unsupported (muted)
+ *  configured + no fresh observation → configured, untested (muted)
+ *  no credential                     → not configured     (muted)
+ */
+export function providerHealthLabel(
+  configured: boolean,
+  health: ProviderHealth | undefined,
+): { label: string; tone: HealthTone } {
+  if (!configured) return { label: "not configured", tone: "muted" };
+  switch (health) {
+    case "available":
+      return { label: "verified working", tone: "ok" };
+    case "rate_limited":
+      return { label: "rate limited", tone: "warn" };
+    case "auth_error":
+      return { label: "credential rejected", tone: "bad" };
+    case "unavailable":
+      return { label: "unavailable", tone: "bad" };
+    case "capability_unsupported":
+      return { label: "capability unsupported", tone: "muted" };
+    default:
+      return { label: "configured, not tested yet", tone: "muted" };
+  }
+}
+
 /** One-line, user-facing summary for a failed operation. */
 export function healthSentence(health: ProviderHealth, op: ImageOp): string {
   const cap = IMAGE_OP_META[op].capability;

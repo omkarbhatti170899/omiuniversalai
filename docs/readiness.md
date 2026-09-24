@@ -81,6 +81,40 @@ Final app-readiness pass (✅/🟡/🟠/🔴, incl. mobile + Android prep):
 
 ## What this pass found and fixed
 
+### 2026-09-24 — Image engine overhaul: capability routing, intent, preservation
+
+**The bug class.** The Studio's free provider (Pollinations, model `sana`) is
+text-to-image only. Before this pass an *edit* request could reach it and come
+back as a brand-new random image that looked like a (bad) edit — "put me in
+Paris" returned a stranger in Paris. Nothing in the UI could fix that, because
+the mistake happened where the provider was chosen.
+
+**What was built (all provider-neutral, all pure and unit-tested):**
+
+| Module | Responsibility |
+|---|---|
+| `aiProviders/imageIntent.ts` | Classifies one request: generate · edit · remove/replace background · style · upscale · enhance · variation · combine · outpaint · image-understanding. Chat keeps a strict "image verb + image noun" rule so "generate a report" never reaches the paint engine; Image Studio classifies the same sentence in **studio** context, where an unclaimed description *is* generation and an edit-shaped ask is still an edit (never a fresh image). |
+| `aiProviders/imageNormalize.ts` | Turns the sentence into structured instructions (subject, action, environment, style, lighting, camera, aspect, required, forbidden) and, for every edit, an explicit **preservation clause**: identity, hair, pose, clothing, non-target objects, lighting, camera, composition, plus the background *unless the request targets it*. Placement edits ("put me in Tokyo") are recognised as background changes even though the word never appears. |
+| `aiProviders/imageRouter.ts` | Capability-based selection. An edit-family op is only ever routed to a provider that declares it **and** accepts image input; fallback happens between providers of the same class and never crosses editing → generation. Health vocabulary is not one flat state: `rate_limited` (429/quota), `auth_error`, `capability_unsupported`, `not_configured`, `unavailable`. |
+| `aiProviders/imageVerify.ts` | An operation is not successful unless real image bytes came back: empty/HTML/JSON/truncated bodies are refused and the mime type is taken from the magic bytes, not from a provider header that may be absent or wrong. |
+| `omiSelfTest.ts` | Probes each capability independently (generation, editing, background removal/replacement, variation, combination, upscaling, enhancement, transparency), so a working text-to-image provider can no longer make the whole engine read as unverified. |
+
+**Also fixed in the Studio.** Background removal now routes as `remove` rather
+than a generic background edit; Auto mode can no longer fall through to a
+silent generic `edit` (an unclassified request disables the button and says
+why); and the Studio's own placeholder ("create a cyberpunk Mumbai at night")
+now actually generates instead of answering "Omi isn't sure this is an image
+request".
+
+**Verification:** `tsc -b --noEmit` clean, `bun test tests/` **437 pass / 0
+fail** (image intent, normalizer, router/health and byte-verification were the
+untested half of this engine — 35 new tests). Not verifiable from here: a live
+signed-in edit run. **Image editing remains externally BLOCKED** — every
+edit-capable provider still refuses (Gemini image models `429` without billing
+on the project, OpenAI `429` without credits). Generation stays PASS on the
+keyless free provider; when an image-input key with working quota is present,
+editing becomes live with no code change.
+
 ### 2026-09-23 — "Omi Dark Intelligence" redesign, and two latent bugs it surfaced
 
 **The interface.** The workspace was a single dark-ish surface with an

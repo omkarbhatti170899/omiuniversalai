@@ -31,8 +31,12 @@ import {
   type AspectRatio,
   type ImageOp,
 } from "./aiProviders/imageCatalog";
-import { runImageOp } from "./aiProviders/imageProviders";
-import { healthSentence, type ProviderHealth } from "./aiProviders/imageRouter";
+import { runImageOp, type ImageGenResult } from "./aiProviders/imageProviders";
+import {
+  classifyFailure,
+  healthSentence,
+  type ProviderHealth,
+} from "./aiProviders/imageRouter";
 import { normalizeImageRequest, type NormalizedImageRequest } from "./aiProviders/imageNormalize";
 import {
   classifyImageIntent,
@@ -154,6 +158,11 @@ async function runImageCore(
     seed: args.seed,
   });
 
+  // Record what this attempt PROVED about each provider (see
+  // omiImageProviderHealth). A configured key that answers 429 must surface as
+  // "rate limited" in the UI rather than as a green "configured" badge.
+  await recordAttemptHealth(ctx, result);
+
   if (!result.ok || !result.bytes) {
     return {
       ok: false,
@@ -258,7 +267,11 @@ export const interpret = action({
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to use Image Studio.");
     const count = imageCount ?? (hasImageContext ? 1 : 0);
-    const intent = classifyImageIntent(prompt, hasImageContext, count);
+    // This action backs the Studio's auto mode, so the request is classified
+    // in STUDIO context: a description nothing else claimed is a generation
+    // request rather than "none". Chat classifies the same sentence with the
+    // strict chat rules (see omiChat.ts).
+    const intent = classifyImageIntent(prompt, hasImageContext, count, "studio");
 
     if (intent.kind === "none") return { kind: "none" as const };
     if (intent.kind === "image-understanding") {
@@ -382,6 +395,35 @@ export const remove = mutation({
 
 // ---- internal helpers ----------------------------------------------------
 
+/**
+ * Persist the outcome of a real attempt per provider. Best effort by design:
+ * observability must never turn a rendered image into an error, so a failed
+ * health write is swallowed (the run result is what the user is waiting for).
+ */
+async function recordAttemptHealth(ctx: ActionCtx, result: ImageGenResult): Promise<void> {
+  const rows: Array<{ provider: string; state: ProviderHealth; error?: string }> = [];
+  if (result.ok && result.provider) {
+    rows.push({ provider: result.provider, state: "available" });
+  }
+  for (const attempt of result.attempts) {
+    rows.push({
+      provider: attempt.provider,
+      state: attempt.state ?? classifyFailure(attempt.error),
+      error: attempt.error?.slice(0, 200),
+    });
+  }
+  const seen = new Set<string>();
+  for (const row of rows) {
+    if (seen.has(row.provider)) continue;
+    seen.add(row.provider);
+    try {
+      await ctx.runMutation(internal.omiImages.recordProviderHealth, row);
+    } catch {
+      // ignore — health is diagnostics, not the feature
+    }
+  }
+}
+
 /** "image editing" → "Image editing" (sentence start in honest messages). */
 function capitalize(s: string): string {
   return s.length === 0 ? s : s[0].toUpperCase() + s.slice(1);
@@ -418,6 +460,36 @@ export const latestForConversation = internalQuery({
       .first();
     if (!row || row.userId !== userId) return null;
     return row._id;
+  },
+});
+
+/**
+ * Upsert one provider's last-known health. Writes only what a REAL attempt
+ * proved (`available` is written only after bytes passed verification), so the
+ * Studio can distinguish "key present" from "capability works".
+ */
+export const recordProviderHealth = internalMutation({
+  args: {
+    provider: v.string(),
+    state: v.string(),
+    error: v.optional(v.string()),
+  },
+  handler: async (ctx, { provider, state, error }) => {
+    const existing = await ctx.db
+      .query("omiImageProviderHealth")
+      .withIndex("by_provider", (q) => q.eq("provider", provider))
+      .first();
+    const updatedAt = Date.now();
+    if (existing) {
+      await ctx.db.patch(existing._id, { state, error, updatedAt });
+      return;
+    }
+    await ctx.db.insert("omiImageProviderHealth", {
+      provider,
+      state,
+      error,
+      updatedAt,
+    });
   },
 });
 

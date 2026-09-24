@@ -24,6 +24,11 @@
  *
  * IMAGE UNDERSTANDING is classified explicitly so it is never mistaken for an
  * edit: "what is in this picture" belongs to vision, not to the paint engine.
+ *
+ * The caller declares WHERE the request came from (`chat` | `studio`): chat
+ * keeps the strict "verb + image noun" rule, while Image Studio treats an
+ * unclaimed description as generation, because the user is already inside an
+ * image surface. Text-only asks stay refused in both.
  */
 
 import { IMAGE_OP_META, ASPECT_RATIOS, type AspectRatio, type ImageOp } from "./imageCatalog";
@@ -68,6 +73,26 @@ const IMAGE_NOUNS =
 /** Questions ABOUT an image → image understanding (vision), not an edit. */
 const UNDERSTANDING_Q =
   /\b(what('s| is)? (in|on) (this|the|that)|describe (this|the|that)|what does (this|it) (show|depict)|transcribe|read the text|what text|who is in (this|the)|identify (this|the)|explain (this|the) (image|picture|photo))\b/i;
+
+/**
+ * Nouns that mean the user wants TEXT back, not a picture. Used ONLY in the
+ * studio context's fallback (see classifyImageIntent): inside Image Studio a
+ * plain description is a generation request, but "write me a report" is still
+ * not something the paint engine should answer.
+ */
+const DOCUMENT_NOUNS =
+  /\b(report|summary|essay|email|e-mail|letter|code|function|spreadsheet|slides?|presentation|document|pdf|csv|table|paragraph|translation)\b/i;
+
+/**
+ * Where the request was typed. The SAME sentence means different things in
+ * different surfaces: in Chat, "a cyberpunk Mumbai at night" is chat (nothing
+ * asks for an image), while in Image Studio the user is already inside an
+ * image surface, so a bare description is a generation request — that is the
+ * Studio's own placeholder text and must not answer "Omi isn't sure this is an
+ * image request". The conservative noun requirement therefore applies to chat,
+ * and the studio context only adds a document-noun guard on top of it.
+ */
+export type ImageAskContext = "chat" | "studio";
 
 /** Explicit edit verbs — with image context these never mean "generate". */
 const EDIT_WORDS = {
@@ -190,13 +215,16 @@ export function resolveReferenceIndices(
 }
 
 /**
- * Classify one chat turn against whether an image exists in context
- * (attached this turn OR produced earlier in the conversation).
+ * Classify one request against whether an image exists in context (attached
+ * this turn OR produced earlier). `context` defaults to `chat` so every
+ * existing call site keeps the conservative behaviour that protects ordinary
+ * conversation; `studio` opts into the Image Studio fallback.
  */
 export function classifyImageIntent(
   message: string,
   hasImageContext: boolean,
   imageCount = hasImageContext ? 1 : 0,
+  context: ImageAskContext = "chat",
 ): ImageIntent {
   const text = message.trim();
   if (text.length === 0) return { kind: "none" };
@@ -235,7 +263,14 @@ export function classifyImageIntent(
   }
 
   // ---- Edit-shaped request with nothing to edit: ask for the image.
-  if (!hasImageContext && editOpFor(text) !== null && ANAPHORA.test(text)) {
+  //  The image has to be referred to — by anaphora ("this", "it") or by an
+  //  image noun ("photo", "logo") — so a stray edit verb in ordinary text
+  //  work cannot be hijacked into "add an image first".
+  if (
+    !hasImageContext &&
+    (ANAPHORA.test(text) || IMAGE_NOUNS.test(text)) &&
+    editOpFor(text) !== null
+  ) {
     const op = editOpFor(text)!;
     return {
       kind: "image-edit",
@@ -245,6 +280,31 @@ export function classifyImageIntent(
       needsMultiple: IMAGE_OP_META[op].needsMultipleInputs,
       references: [{ kind: "context" }],
     };
+  }
+
+  // ---- Studio fallback: the user is already inside an image surface.
+  if (context === "studio") {
+    //  An edit-shaped ask with no image is still an EDIT — the Studio must ask
+    //  for the image, never quietly generate a fresh one. This is the exact
+    //  confusion the capability router exists to prevent, one layer up.
+    const op = editOpFor(text);
+    if (op !== null) {
+      return {
+        kind: "image-edit",
+        op,
+        prompt: text,
+        needsImage: true,
+        needsMultiple: IMAGE_OP_META[op].needsMultipleInputs,
+        references: [{ kind: "context" }],
+      };
+    }
+    //  A description no rule claimed is a generation request ("create a
+    //  cyberpunk Mumbai at night" — the Studio's own placeholder — must
+    //  generate, not report that Omi isn't sure). Text-only asks stay refused
+    //  so report/code work is done in Chat.
+    if (!DOCUMENT_NOUNS.test(text)) {
+      return { kind: "generate", prompt: text, aspectRatio: aspect, transparent, references };
+    }
   }
 
   return { kind: "none" };

@@ -255,6 +255,31 @@ type ImageCapability = {
   providers: string[];
 };
 
+/**
+ * Provider status as `aiStatus.status` reports it: static configuration facts
+ * PLUS the last-known live health from a real attempt. The two are different
+ * things and the badge shows the honest one — a key that exists but returned
+ * 429 reads "rate limited", never a green check.
+ */
+type ImageProviderStatus = {
+  id: string;
+  label: string;
+  configured: boolean;
+  ops: string[];
+  health: string | null;
+  healthLabel: string;
+  healthTone: "ok" | "warn" | "bad" | "muted";
+  healthError: string | null;
+};
+
+/** Badge treatment per honest health tone (metadata only — never a claim). */
+const HEALTH_TONE_CLASS: Record<string, string> = {
+  ok: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
+  warn: "border-amber-500/30 bg-amber-500/10 text-amber-400",
+  bad: "border-red-500/30 bg-red-500/10 text-red-400",
+  muted: "border-border text-muted-foreground",
+};
+
 const OP_LABELS: Record<string, string> = {
   generate: "create a new image",
   edit: "edit this image",
@@ -324,13 +349,17 @@ export function ImageStudioView({
 
   /** The op the run will use: auto resolves it, explicit modes are fixed. */
   const resolvedOp: Op | null = useMemo(() => {
+    // Background has two DIFFERENT capabilities behind one mode. Removal has
+    // its own op, so the router receives the real one instead of a generic
+    // background edit; replacement maps to `replace`.
+    if (modeId === "background") return bgAction === "remove" ? "remove" : "replace";
     if (modeId !== "auto") {
       return mode.op;
     }
     if (interpretation && interpretation.kind === "generate") return "generate";
     if (interpretation && interpretation.kind === "image-edit") return interpretation.op;
     return null;
-  }, [interpretation, mode.op, modeId]);
+  }, [bgAction, interpretation, mode.op, modeId]);
 
   const autoEditNeedsImage =
     modeId === "auto" &&
@@ -343,11 +372,20 @@ export function ImageStudioView({
   const minInputs = mode.minInputs ?? (mode.needsInput ? 1 : 0);
   const missingInput = minInputs > 0 && readyInputCount < minInputs;
 
+  /**
+   * Auto mode must never fall through to a guess: if the request could not be
+   * classified there is no capability to run, so the button stays disabled and
+   * the line above explains why. Silently sending a generic `edit` instead is
+   * what produced the confusing "works on an image" error the user hit.
+   */
+  const autoUnresolved = modeId === "auto" && resolvedOp === null;
+
   const canRun =
     !running &&
     effectivePrompt.trim().length >= 2 &&
     !missingInput &&
     !autoEditNeedsImage &&
+    !autoUnresolved &&
     !inputs.some((i) => i.status === "uploading");
 
   /** Auto mode: classify the request (pure compute — no provider call). */
@@ -446,16 +484,22 @@ export function ImageStudioView({
     setError(null);
     setAttempts([]);
     try {
-      const op: Op =
-        resolvedOp ?? (modeId === "background" && bgAction === "replace" ? "replace" : "edit");
+      // canRun guarantees an op in every mode; this guard keeps a programmatic
+      // call (or a fast mode switch) from sending an unclassified request.
+      const op: Op | null = resolvedOp;
+      if (op === null) {
+        setError(
+          "Omi couldn't tell what to do with this request — describe it differently, or pick a mode above.",
+        );
+        return;
+      }
       const res = (await runImage({
         op,
         prompt: effectivePrompt.trim().slice(0, 1000),
         aspectRatio,
-        transparent:
-          op === "generate"
-            ? transparent
-            : op === "background" && bgAction === "remove",
+        // Transparency is a generation/removal request, independent of which
+        // op string the router receives (background removal routes as `remove`).
+        transparent: op === "generate" ? transparent : modeId === "background" && bgAction === "remove",
         sourceImageIds: sourceImageIds.length > 0 ? sourceImageIds : undefined,
         sourceDocumentIds: sourceDocumentIds.length > 0 ? sourceDocumentIds : undefined,
         // Multi-turn lineage: the image Omi edits becomes the parent, so the
@@ -519,7 +563,7 @@ export function ImageStudioView({
 
   const statusShape = aiStatus as
     | {
-        imageProviders?: Array<{ id: string; label: string; configured: boolean; ops: string[] }>;
+        imageProviders?: ImageProviderStatus[];
         imageCapabilities?: ImageCapability[];
       }
     | undefined;
@@ -547,15 +591,13 @@ export function ImageStudioView({
               <Badge
                 key={p.id}
                 variant="outline"
+                title={p.healthError ?? undefined}
                 className={cn(
                   "text-[10px] font-normal",
-                  p.configured
-                    ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
-                    : "border-border text-muted-foreground",
+                  HEALTH_TONE_CLASS[p.healthTone] ?? HEALTH_TONE_CLASS.muted,
                 )}
               >
-                {p.label}
-                {p.configured ? "" : " · not configured"}
+                {p.label} · {p.healthLabel}
               </Badge>
             ))}
           </div>
