@@ -263,7 +263,14 @@ export function editOpFor(text: string): ImageOp | null {
   if (EDIT_WORDS.style.test(text)) return "style";
   if (EDIT_WORDS.background.test(text)) return "background";
   if (EDIT_WORDS.remove.test(text)) return "remove";
-  if (EDIT_WORDS.replace.test(text)) return "replace";
+  // A lone "replace" verb with no background or other specific target is a
+  // generic SUBJECT edit ("replace the shirt with a jacket"), not background
+  // replacement. "replace" as a dedicated op means the background itself
+  // (the replace+background phrasing caught above, and the Studio's
+  // Replace-background mode, which sends `op: "replace"` directly). Returning
+  // "replace" here made the normalizer tell the model to preserve the very
+  // background it had just been asked to change.
+  if (EDIT_WORDS.replace.test(text)) return "edit";
   if (EDIT_WORDS.genericEdit.test(text)) return "edit";
   return null;
 }

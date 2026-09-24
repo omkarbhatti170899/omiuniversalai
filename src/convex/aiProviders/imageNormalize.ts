@@ -70,6 +70,15 @@ const CHANGE_VERBS =
 const ASPECT_RE = /\b(1:1|16:9|9:16|4:3|3:4|3:2|2:3)\b/;
 
 /**
+ * A placement edit — "put me in Tokyo", "place the subject on a beach".
+ * Combined with a known place name (ENVIRONMENT_WORDS) this changes the
+ * SETTING, so the background is the target even though the word "background"
+ * never appears.
+ */
+const PLACEMENT_RE =
+  /\b(put|place|move|set|transport|teleport)\b[\s\S]{0,40}?\b(in|into|on|onto|to|at)\b/i;
+
+/**
  * Which parts of the image the operation is allowed to touch. Everything else
  * is preserved. This is the list that stops an edit from drifting.
  */
@@ -100,19 +109,41 @@ const ALWAYS_PRESERVE = [
 ];
 
 /**
+ * Does this request target the BACKGROUND itself?
+ *
+ * The op alone is not enough. `remove` covers BOTH "remove the background"
+ * (the background IS the target) and "remove the person on the left" (the
+ * background must be preserved), and a placement edit like "put me in Tokyo"
+ * changes the setting without ever naming the background. Preserving the
+ * background in those cases would instruct the model to keep the exact thing
+ * the user asked to change, so the user's own words decide — with the two
+ * background-dedicated ops as a floor.
+ */
+export function targetsBackground(op: ImageOp, raw: string): boolean {
+  if (op === "background" || op === "replace") return true;
+  if (/\b(background|backdrop)\b/i.test(raw)) return true;
+  return PLACEMENT_RE.test(raw) && ENVIRONMENT_WORDS.test(raw);
+}
+
+/**
  * The preservation clause for an op — the human sentence that goes into the
  * prompt AND the structured list the caller can display. For ops that
  * inherently change the whole frame (upscale/enhance keep content; style
  * changes rendering only), the list is narrowed accordingly.
+ *
+ * `backgroundTargeted` is supplied by the caller (see `targetsBackground`) so
+ * this stays a pure function of its inputs and remains trivially testable.
  */
-export function preserveDefaults(op: ImageOp): string[] {
+export function preserveDefaults(op: ImageOp, backgroundTargeted = false): string[] {
   const meta = IMAGE_OP_META[op];
   if (!meta.needsImageInput) return [];
   const targets = OP_TARGETS[op].join(" ").toLowerCase();
   const list = [...ALWAYS_PRESERVE];
   const extra: string[] = [];
-  // Background is preserved unless the op itself is about the background.
-  if (!targets.includes("background")) extra.push("the background");
+  // Background is preserved unless THIS request is about the background.
+  if (!targets.includes("background") && !backgroundTargeted) {
+    extra.push("the background");
+  }
   if (op === "upscale" || op === "enhance") {
     extra.push("all content, colours and detail (only clarity/resolution improves)");
   }
@@ -160,7 +191,8 @@ export function normalizeImageRequest(
   const meta = IMAGE_OP_META[op];
   const preservation = meta.needsImageInput;
 
-  const preserve = preservation ? preserveDefaults(op) : [];
+  const backgroundTargeted = targetsBackground(op, raw);
+  const preserve = preservation ? preserveDefaults(op, backgroundTargeted) : [];
   const negative = preservation
     ? ["do not add objects or people that were not requested", "do not alter anything outside the requested change"]
     : [];

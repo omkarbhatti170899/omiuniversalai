@@ -76,9 +76,24 @@ describe("Image Studio → image engine: uploads are editable", () => {
 
 describe("image adapters report a usable mime type", () => {
   const providers = read("aiProviders/imageProviders.ts");
+  const verify = read("aiProviders/imageVerify.ts");
 
-  test("a provider response without a content-type still yields a mimeType", () => {
-    // Adapter results carry an optional mimeType; ImageGenResult requires one.
-    expect(providers).toMatch(/mimeType: res\.mimeType \?\? "image\/png"/);
+  test("an accepted result's mimeType comes from byte verification, not the provider header", () => {
+    // A provider may omit a content-type entirely (Pollinations' raw-bytes
+    // endpoint) or send a wrong one. Trusting the header would let a result be
+    // stored with no/incorrect type; the adapter therefore takes the mime type
+    // from verifyImageBytes, which sniffs the magic bytes and always yields a
+    // real image type on success.
+    expect(providers).toMatch(/mimeType: verified\.mimeType/);
+    expect(verify).toMatch(
+      /mimeType: claimed\.startsWith\("image\/"\) \? claimed : MIME_BY_FORMAT\[format\]/,
+    );
+  });
+
+  test("a raw-bytes provider without a content-type header still reports a default", () => {
+    // The transport never hands back an undefined mime type either.
+    expect(providers).toMatch(
+      /res\.headers\.get\("content-type"\) \?\? "image\/jpeg"/,
+    );
   });
 });
