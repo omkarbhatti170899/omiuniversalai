@@ -1,295 +1,166 @@
-## Overview
+# Omi Universal AI
 
-This project uses the following tech stack:
-- Vite
-- Typescript
-- React Router v7 (all imports from `react-router` instead of `react-router-dom`)
-- React 19 (for frontend components)
-- Tailwind v4 (for styling)
-- Shadcn UI (for UI components library)
-- Lucide Icons (for icons)
-- Convex (for backend & database)
-- Convex Auth (for authentication)
-- Framer Motion (for animations)
-- Three js (for 3d models)
+Omi is a provider-neutral AI workspace built with React, Vite, Tailwind CSS, shadcn/ui, Framer Motion, Bun, and Convex. It combines chat, web research, files, image tools, vision, user-approved memory, workflows, and conservative emotion-aware communication behind authenticated, user-scoped Convex functions.
 
-All relevant files live in the 'src' directory.
+## Current status
 
-Use bun for the package manager.
+The web application and Convex development deployment build successfully. Core provider routing, Gemini fallback, Andromeda search, image generation, vision, Human Emotions AI, file extraction, memory isolation, workflow approvals, PWA behavior, and security contracts are covered by automated tests.
+
+Two requested chat capabilities are not implemented: token streaming and per-message regenerate. Image editing is implemented but currently blocked by upstream provider quota/credit failures. Signed-in journeys and native Android behavior still require a real account/device and Android SDK. See [`docs/final-completion-report.md`](docs/final-completion-report.md) for the exact readiness assessment.
+
+## Architecture
+
+```text
+React routes and workspace UI
+        │
+        ├── Convex Auth / protected routes
+        ├── Convex queries and mutations (user-scoped data)
+        └── Convex actions (provider/tool calls)
+                    │
+                    ├── AI router → Groq / Gemini / OpenAI-compatible providers
+                    ├── Andromeda → multi-source search → evidence → citations
+                    ├── Image router → capability-based generation/edit providers
+                    ├── Vision router → multimodal image understanding
+                    ├── File ingestion → storage → extraction → knowledge retrieval
+                    └── Tools/workflows → calculator, web, memory, approvals
+```
+
+Important locations:
+
+- `src/main.tsx` — React bootstrap, router, auth redirects, service-worker registration
+- `src/pages/` — landing, authentication, and protected dashboard
+- `src/components/workspace/` — dashboard and feature views
+- `src/convex/aiProviders/` — provider-neutral AI, image, and vision routing
+- `src/convex/andromeda/` — research planning and orchestration
+- `src/convex/searchEngine/` — security, quality, evidence, routing, resilience
+- `src/convex/searchProviders/` — individual search sources
+- `src/convex/omi*.ts` — authenticated product domains and persistence
+- `tests/` — Bun unit, contract, security, routing, and PWA tests
+- `public/sw.js` and `public/manifest.webmanifest` — installable PWA shell
+
+## Requirements
+
+- Bun
+- A Convex deployment
+- Node/browser support for the Vite toolchain
 
 ## Setup
 
-This project is set up already and running on a cloud environment, as well as a convex development in the sandbox.
-
-## Environment Variables
-
-The project is set up with project specific CONVEX_DEPLOYMENT and VITE_CONVEX_URL environment variables on the client side.
-
-The convex server has a separate set of environment variables that are accessible by the convex backend.
-
-Currently, these variables include auth-specific keys: JWKS, JWT_PRIVATE_KEY, and SITE_URL.
-
-## Required API Keys (project)
-
-**Zero-cost by default.** Omi Search, the knowledge base, file ingest and the
-Human Emotions AI all run with no keys at all. Optional keys only unlock
-upgrades:
-
-| Key | Required by | How to get it |
-|-----|-------------|---------------|
-| `GROQ_API_KEY` (optional) | Full AI reasoning in chat / deep research (free tier) | [console.groq.com](https://console.groq.com) → API Keys. Add via the project's **API Keys tab**. |
-| `OPENAI_API_KEY` (optional) | Alternative AI provider | [platform.openai.com](https://platform.openai.com) |
-| `SEARXNG_BASE_URL` (optional) | Your own self-hosted SearXNG instance for Omi Search | Your deployment's public JSON-API URL |
-
-**Omi Search is 100% free per query** (`src/convex/searchProviders/`): the
-primary engine is SearXNG (self-hosted when `SEARXNG_BASE_URL` is set, public
-instances otherwise) with keyless Wikipedia and DuckDuckGo fallbacks. No
-metered search API (Exa, Tavily, Brave, OpenAI) is registered. Without any AI
-key, Omi still answers from live sources via extractive briefs and the local
-heuristic emotions engine — features never dead-end.
-
-To add another free/open search source, implement `SearchProvider` in
-`src/convex/searchProviders/` and register it in `index.ts` — no app code
-changes needed.
-
-
-# Using Authentication (Important!)
-
-You must follow these conventions when using authentication.
-
-## Auth is already set up.
-
-All convex authentication functions are already set up. The auth currently uses email OTP and anonymous users, but can support more.
-
-The email OTP configuration is defined in `src/convex/auth/emailOtp.ts`. DO NOT MODIFY THIS FILE.
-
-Also, DO NOT MODIFY THESE AUTH FILES: `src/convex/auth.config.ts` and `src/convex/auth.ts`.
-
-## Using Convex Auth on the backend
-
-On the `src/convex/users.ts` file, you can use the `getCurrentUser` function to get the current user's data.
-
-## Using Convex Auth on the frontend
-
-The `/auth` page is already set up to use auth. Navigate to `/auth` for all log in / sign up sequences.
-
-You MUST use this hook to get user data. Never do this yourself without the hook:
-```typescript
-import { useAuth } from "@/hooks/use-auth";
-
-const { isLoading, isAuthenticated, user, signIn, signOut } = useAuth();
+```bash
+bun install
+bun run typecheck
+bun test tests/
+bun run lint
+bun run build
 ```
 
-## Protected Routes
+For a connected development environment, Convex codegen is run with:
 
-The starter `/dashboard` route is protected with `RequireAuth`, which sends
-signed-out users to `/auth?returnTo=<current route>`. Extend that page for the
-product's authenticated experience, and reuse `RequireAuth` when adding another
-protected route.
-
-## Auth Page
-
-The auth page is defined in `src/pages/Auth.tsx`. Send sign-in and sign-up actions
-to `/auth`.
-
-## Authorization
-
-You can perform authorization checks on the frontend and backend.
-
-On the frontend, you can use the `useAuth` hook to get the current user's data and authentication state.
-
-You should also be protecting queries, mutations, and actions at the base level, checking for authorization securely.
-
-## Adding a redirect after auth
-
-The `/auth` route in `src/main.tsx` redirects to `/dashboard` by default. If the
-product's main authenticated route is different, update `redirectAfterAuth` to
-that route. A validated same-origin `returnTo` query parameter takes priority so
-users can resume the protected page they originally requested. Never leave an
-authenticated product redirecting back to the public landing page.
-
-## Complete authenticated products
-
-When the requested product implies accounts, a workspace, a dashboard, or other
-signed-in functionality, the task is not complete with only a landing page and
-auth form. Build the main authenticated experience, protect its route, and verify
-that signing in reaches it.
-
-# Frontend Conventions
-
-You will be using the Vite frontend with React 19, Tailwind v4, and Shadcn UI.
-
-Generally, pages should be in the `src/pages` folder, and components should be in the `src/components` folder.
-
-Shadcn primitives are located in the `src/components/ui` folder and should be used by default.
-
-## Page routing
-
-Your page component should go under the `src/pages` folder.
-
-When adding a page, update the react router configuration in `src/main.tsx` to include the new route you just added.
-
-## Shad CN conventions
-
-Follow these conventions when using Shad CN components, which you should use by default.
-- Remember to use "cursor-pointer" to make the element clickable
-- For title text, use the "tracking-tight font-bold" class to make the text more readable
-- Always make apps MOBILE RESPONSIVE. This is important
-- AVOID NESTED CARDS. Try and not to nest cards, borders, components, etc. Nested cards add clutter and make the app look messy.
-- AVOID SHADOWS. Avoid adding any shadows to components. stick with a thin border without the shadow.
-- Avoid skeletons; instead, use the loader2 component to show a spinning loading state when loading data.
-
-
-## Landing Pages
-
-You must always create good-looking designer-level styles to your application. 
-- Make it well animated and fit a certain "theme", ie neo brutalist, retro, neumorphism, glass morphism, etc
-
-Use known images and emojis from online.
-
-If the user is logged in already, show the get started button to say "Dashboard" or "Profile" instead to take them there.
-
-## Responsiveness and formatting
-
-Make sure pages are wrapped in a container to prevent the width stretching out on wide screens. Always make sure they are centered aligned and not off-center.
-
-Always make sure that your designs are mobile responsive. Verify the formatting to ensure it has correct max and min widths as well as mobile responsiveness.
-
-- Always create sidebars for protected dashboard pages and navigate between pages
-- Always create navbars for landing pages
-- On these bars, the created logo should be clickable and redirect to the index page
-
-## Animating with Framer Motion
-
-You must add animations to components using Framer Motion. It is already installed and configured in the project.
-
-To use it, import the `motion` component from `framer-motion` and use it to wrap the component you want to animate.
-
-
-### Other Items to animate
-- Fade in and Fade Out
-- Slide in and Slide Out animations
-- Rendering animations
-- Button clicks and UI elements
-
-Animate for all components, including on landing page and app pages.
-
-## Three JS Graphics
-
-Your app comes with three js by default. You can use it to create 3D graphics for landing pages, games, etc.
-
-
-## Colors
-
-You can override colors in: `src/index.css`
-
-This uses the oklch color format for tailwind v4.
-
-Always use these color variable names.
-
-Make sure all ui components are set up to be mobile responsive and compatible with both light and dark mode.
-
-Set theme using `dark` or `light` variables at the parent className.
-
-## Styling and Theming
-
-When changing the theme, always change the underlying theme of the shad cn components app-wide under `src/components/ui` and the colors in the index.css file.
-
-Avoid hardcoding in colors unless necessary for a use case, and properly implement themes through the underlying shad cn ui components.
-
-When styling, ensure buttons and clickable items have pointer-click on them (don't by default).
-
-Always follow a set theme style and ensure it is tuned to the user's liking.
-
-## Toasts
-
-You should always use toasts to display results to the user, such as confirmations, results, errors, etc.
-
-Use the shad cn Sonner component as the toaster. For example:
-
-```
-import { toast } from "sonner"
-
-import { Button } from "@/components/ui/button"
-export function SonnerDemo() {
-  return (
-    <Button
-      variant="outline"
-      onClick={() =>
-        toast("Event has been created", {
-          description: "Sunday, December 03, 2023 at 9:00 AM",
-          action: {
-            label: "Undo",
-            onClick: () => console.log("Undo"),
-          },
-        })
-      }
-    >
-      Show Toast
-    </Button>
-  )
-}
+```bash
+bun convex dev --once
 ```
 
-Remember to import { toast } from "sonner". Usage: `toast("Event has been created.")`
+Do not use an interactive `convex dev` process in automation. Never place provider credentials in `VITE_*` variables.
 
-## Dialogs
+## Environment variables
 
-Always ensure your larger dialogs have a scroll in its content to ensure that its content fits the screen size. Make sure that the content is not cut off from the screen.
+### Frontend (public, non-secret)
 
-Ideally, instead of using a new page, use a Dialog instead. 
+| Variable | Required | Purpose |
+|---|---:|---|
+| `VITE_CONVEX_URL` | Yes | Public Convex client connection URL |
+| `VITE_BASE_PATH` | Deployment-specific | Optional Vite base path, e.g. `/omiuniversalai/` |
 
-# Using the Convex backend
+`VITE_*` values are embedded in the browser bundle. Never put an AI/search/storage secret there.
 
-You will be implementing the convex backend. Follow your knowledge of convex and the documentation to implement the backend.
+### Convex backend (secret)
 
-## The Convex Schema
+| Variable | Required | Purpose |
+|---|---:|---|
+| `GEMINI_API_KEY` | Optional | Gemini text, vision, and image capabilities |
+| `GROQ_API_KEY` | Optional | Primary free-tier AI and vision provider |
+| `OPENAI_API_KEY` | Optional | Additional AI/image fallback |
+| `DEEPSEEK_API_KEY` | Optional | Optional compatible provider |
+| `SEARXNG_BASE_URL` | Optional | Self-hosted SearXNG endpoint |
+| `RATE_LIMIT_PER_MIN` | Optional | Deployment-wide per-user rate-limit override |
+| `SEARCH_PROVIDER_TIMEOUT_MS` | Optional | Search-provider timeout |
+| `OMI_DISABLE_PROVIDERS` | Optional | Comma-separated deployment kill switch |
 
-You must correctly follow the convex schema implementation.
+Add credentials through the project's API Keys UI or Convex environment settings. Do not edit `.env` files or commit credentials.
 
-The schema is defined in `src/convex/schema.ts`.
+## Authentication and authorization
 
-Do not include the `_id` and `_creationTime` fields in your queries (it is included by default for each table).
-Do not index `_creationTime` as it is indexed for you. Never have duplicate indexes.
+Convex Auth protects the product workspace. The frontend uses `RequireAuth`; signed-out users are redirected to `/auth?returnTo=...`, and successful authentication returns to the requested protected route.
 
+Backend queries, mutations, and actions enforce authentication and ownership. User files, conversations, projects, memories, images, workflows, and research records are scoped by user/project ID. Uploads and attachment references fail closed when ownership cannot be proven.
 
-## Convex Actions: Using CRUD operations
+## AI providers and routing
 
-When running anything that involves external connections, you must use a convex action with "use node" at the top of the file.
+Call sites request a task, not a vendor. The AI router selects a healthy configured provider, retries compatible model fallbacks, applies timeouts/circuit breakers, and reports actionable failures. Gemini is interchangeable with the other providers and uses only `GEMINI_API_KEY` on the server.
 
-You cannot have queries or mutations in the same file as a "use node" action file. Thus, you must use pre-built queries and mutations in other files.
+To add a provider:
 
-You can also use the pre-installed internal crud functions for the database:
+1. Add a descriptor to `src/convex/aiProviders/catalog.ts` with environment variable **names**, never values.
+2. Implement the compatible transport or adapter.
+3. Add task models, fallback models, timeout behavior, and health classification.
+4. Add routing, failure, and secret-hygiene tests.
 
-```ts
-// in convex/users.ts
-import { crud } from "convex-helpers/server/crud";
-import schema from "./schema.ts";
+## Image engine
 
-export const { create, read, update, destroy } = crud(schema, "users");
+Image requests are classified as generation, edit, background removal/replacement, style transfer, upscale, enhance, variation, combine, outpaint, or understanding. The router selects only providers declaring the requested capability. Text-to-image providers never receive edit requests, and failed edits never return a newly generated unrelated image.
 
-// in some file, in an action:
-const user = await ctx.runQuery(internal.users.read, { id: userId });
+Generation is available through the keyless provider. Editing requires an image-input-capable provider and currently depends on external provider quota/billing.
 
-await ctx.runMutation(internal.users.update, {
-  id: userId,
-  patch: {
-    status: "inactive",
-  },
-});
+## Andromeda and research
+
+Andromeda plans the query, fans out across scoped search sources, deduplicates results, ranks source quality and freshness, reads pages, extracts evidence, maps claims to citations, detects conflicts/thin evidence, synthesizes an answer, and runs verification gates. Current/temporal queries bypass stale caching. Deep Research persists progress/results in `researchRuns`.
+
+See [`docs/andromeda.md`](docs/andromeda.md) for pipeline details.
+
+## Human Emotions AI
+
+Emotion handling is conservative inference from conversational signals, not a claim to know a person's internal state. It is bounded by the user's actual request, can be disabled per user, falls back to a local heuristic when the model is unavailable, and does not persist chat emotion reads unless the user explicitly chooses to save an analysis.
+
+## Files and knowledge
+
+Supported paths include PDF, DOCX, TXT, CSV, XLSX, and images. Uploads are size/type validated, stored privately, extracted on-device where practical, ingested into owned document records, and retrieved through project/user-scoped hybrid search. Invalid and oversized files fail with explicit errors.
+
+## Security model
+
+- Provider credentials remain in Convex server environment variables.
+- Web pages and documents are treated as untrusted data.
+- SSRF checks reject local/private destinations.
+- Prompt-injection and tool-call smuggling are sanitized and allowlisted.
+- Upload validation, ownership checks, and rate limits protect expensive surfaces.
+- Public health endpoints expose status/counts, not secrets or stack traces.
+- CI rejects frontend builds that do not contain the configured backend URL.
+
+## Testing and quality gates
+
+```bash
+bun tsc -b --noEmit       # TypeScript
+bun test tests/           # 437 tests
+bun run lint              # ESLint
+bun run build             # Convex codegen + TypeScript + Vite production bundle
 ```
 
+The suite covers Andromeda planning/evidence/citations, calculator sandboxing, DOCX/XLSX extraction, emotion scenarios and fallback, image intent/routing/errors/contracts, vision validation, provider fallback and model discovery, rate limiting, workflow approvals, project isolation, injection/SSRF defenses, and service-worker behavior.
 
-## Common Convex Mistakes To Avoid
+## Deployment
 
-When using convex, make sure:
-- Document IDs are referenced as `_id` field, not `id`.
-- Document ID types are referenced as `Id<"TableName">`, not `string`.
-- Document object types are referenced as `Doc<"TableName">`.
-- Keep schemaValidation to false in the schema file.
-- You must correctly type your code so that it passes the type checker.
-- You must handle null / undefined cases of your convex queries for both frontend and backend, or else it will throw an error that your data could be null or undefined.
-- Always use the `@/folder` path, with `@/convex/folder/file.ts` syntax for importing convex files.
-- This includes importing generated files like `@/convex/_generated/server`, `@/convex/_generated/api`
-- Remember to import functions like useQuery, useMutation, useAction, etc. from `convex/react`
-- NEVER have return type validators.
+`.github/workflows/deploy-pages.yml` installs with a frozen Bun lockfile, runs typecheck/tests/build, verifies `VITE_CONVEX_URL` is present in the bundle, and deploys `dist/` to GitHub Pages. The Convex backend is deployed separately; AI credentials stay in that deployment.
+
+The current public web deployment and backend coordinates are recorded in [`docs/qa-report.md`](docs/qa-report.md).
+
+## PWA and Android preparation
+
+The web app includes a dark manifest, scoped start URL, service worker, offline fallback, standalone display mode, and production-only registration. `capacitor.config.ts` uses `com.ominnovations.omi`, the `dist` web directory, HTTPS, and no local backend. Native packaging instructions and current blockers are documented in [`docs/android-packaging.md`](docs/android-packaging.md).
+
+## Troubleshooting
+
+- **Blank preview:** verify `VITE_CONVEX_URL`, run `bun tsc -b --noEmit`, and inspect the root error boundary.
+- **Convex binding errors:** run `bun convex dev --once`, then typecheck again. Do not edit `src/convex/_generated/*` manually.
+- **Provider unavailable:** inspect the self-test/provider status; distinguish not configured, auth failure, quota/rate limit, timeout, and unsupported capability.
+- **Image edit unavailable:** an edit-capable provider must be configured and funded; the router will not substitute generation.
+- **Emotion indicator missing:** check the per-user emotion-aware setting and ensure normal chat still works when disabled.
+- **PWA not updating:** rebuild with the deployment base path and verify `sw.js` scope; Convex/API calls intentionally remain network-only.

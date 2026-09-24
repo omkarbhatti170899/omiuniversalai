@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- Convex's generic references require this structural client/fake boundary. */
 /**
  * Chat attachment upload (PRIORITY 1 — multimodal).
  *

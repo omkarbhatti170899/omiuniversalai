@@ -15,7 +15,6 @@ import {
   AI_PROVIDERS,
   GEMINI_URL,
   isProviderDisabled,
-  type ProviderDescriptor,
 } from "../src/convex/aiProviders/catalog";
 import { decideAfterFailedAttempt } from "../src/convex/aiProviders";
 
@@ -26,25 +25,6 @@ afterEach(() => {
   else process.env["OMI_DISABLE_PROVIDERS"] = prevDisable;
 });
 
-function makeProvider(id: string, envKeys: string[]): ProviderDescriptor {
-  return {
-    id: id as ProviderDescriptor["id"],
-    label: id,
-    envKeys,
-    cost: "",
-    taskModels: {
-      conversational: "m",
-      reasoning: "m",
-      summarization: "m",
-      extraction: "m",
-      classification: "m",
-      coding: "m",
-      research: "m",
-    },
-    fallbackModels: [],
-    hint: "",
-  };
-}
 
 describe("OMI_DISABLE_PROVIDERS — the kill switch", () => {
   test("an unset flag disables nothing", () => {

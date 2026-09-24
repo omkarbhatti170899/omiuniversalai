@@ -79,7 +79,7 @@ function buildZip(files: Array<{ name: string; data: Uint8Array; store?: boolean
 
 function docxXml(paragraphs: string[]): string {
   const body = paragraphs
-    .map((p) => `<w:p><w:r><w:t xml:space=\"preserve\">${p}</w:t></w:r></w:p>`)
+    .map((p) => `<w:p><w:r><w:t xml:space="preserve">${p}</w:t></w:r></w:p>`)
     .join("");
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">

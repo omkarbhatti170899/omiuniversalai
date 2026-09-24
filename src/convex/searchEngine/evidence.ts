@@ -90,14 +90,17 @@ export type ResearchAnswer = {
 };
 
 /** Tolerant JSON extraction — models sometimes wrap JSON in prose/fences. */
-function extractJson(text: string): any | null {
+function extractJson(text: string): Record<string, unknown> | null {
   const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
   const candidate = fenced ? fenced[1] : text;
   const start = candidate.indexOf("{");
   const end = candidate.lastIndexOf("}");
   if (start === -1 || end <= start) return null;
   try {
-    return JSON.parse(candidate.slice(start, end + 1));
+    const value: unknown = JSON.parse(candidate.slice(start, end + 1));
+    return typeof value === "object" && value !== null
+      ? (value as Record<string, unknown>)
+      : null;
   } catch {
     return null;
   }

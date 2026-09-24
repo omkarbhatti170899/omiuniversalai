@@ -29,6 +29,7 @@ import { internal } from "./_generated/api";
 import { guardedCall } from "./searchEngine/resilience";
 // §45 — single source of truth for product identity, shared by every surface.
 import { creatorIdentityBlock } from "./omiIdentity";
+import type { ActionCtx } from "./_generated/server";
 
 export type UniversalResult = {
   query: string;
@@ -50,7 +51,7 @@ const MAX_CITATIONS = 8;
  * snippets are thin.
  */
 export async function runUniversalSearch(
-  ctx: any,
+  ctx: ActionCtx,
   query: string,
   opts?: SearchOptions & {
     perEngineLimit?: number;
@@ -257,7 +258,7 @@ export async function runUniversalSearch(
 
   // --- Brief: AI synthesis preferred, extractive fallback ----------------
   const brief =
-    (await synthesizeBrief(ctx, query, citations)) ??
+    (await synthesizeBrief(query, citations)) ??
     extractiveBrief(query, citations);
 
   return {
@@ -272,11 +273,9 @@ export async function runUniversalSearch(
 }
 
 async function synthesizeBrief(
-  ctx: any,
   query: string,
   citations: WebCitation[],
 ): Promise<string | null> {
-  void ctx;
   try {
     const sourcesBlock = citations
       .map(

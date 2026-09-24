@@ -48,6 +48,7 @@ export function useVoiceInput(opts?: { lang?: string }) {
     setListening(false);
   }, []);
 
+  const language = opts?.lang ?? "en-US";
   const start = useCallback(
     (onFinal: (text: string) => void) => {
       const Ctor = getRecognitionCtor();
@@ -60,7 +61,7 @@ export function useVoiceInput(opts?: { lang?: string }) {
 
       try {
         const rec = new Ctor();
-        rec.lang = opts?.lang ?? "en-US";
+        rec.lang = language;
         rec.continuous = false;
         rec.interimResults = true;
 
@@ -98,7 +99,7 @@ export function useVoiceInput(opts?: { lang?: string }) {
         setListening(false);
       }
     },
-    [opts?.lang],
+    [language],
   );
 
   useEffect(

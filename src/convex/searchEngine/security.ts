@@ -122,6 +122,7 @@ export function assertSafeUrl(rawUrl: string): URL {
 /** Strips control characters and caps length on user queries. */
 export function sanitizeQuery(input: string, maxLen = 500): string {
   return input
+    // eslint-disable-next-line no-control-regex -- stripping control bytes is intentional
     .replace(/[\u0000-\u001f\u007f]/g, " ")
     .replace(/\s+/g, " ")
     .trim()
@@ -191,6 +192,7 @@ function redactEncodedSteering(input: string): string {
     try {
       const bin = atob(tok);
       if (bin.length < 8) return tok;
+      // eslint-disable-next-line no-control-regex -- inspect decoded untrusted bytes
       const decoded = bin.replace(/[\u0000-\u001f\u007f]/g, " ");
       return looksLikeInjection(decoded)
         ? "[encoded injection attempt redacted]"
@@ -261,6 +263,7 @@ export function sanitizeUntrustedText(input: string, maxLen = 4000): string {
     // Tool-syntax smuggling: untrusted text must never carry executable
     // Omi tool-call syntax into a prompt.
     .replace(/\bTOOL\s+[A-Za-z_][A-Za-z0-9_]*\s*\{/g, "[tool call syntax redacted]")
+    // eslint-disable-next-line no-control-regex -- strip control bytes before prompting
     .replace(/[\u0000-\u001f\u007f]/g, " ")
     .replace(/\s{3,}/g, "  ")
     .trim()

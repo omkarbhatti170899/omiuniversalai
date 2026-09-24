@@ -1,6 +1,6 @@
 # Omi Universal AI — APP READINESS REPORT
 
-**Date:** 2026-09-23
+**Date:** 2026-09-24
 **Live web app:** https://omkarbhatti170899.github.io/omiuniversalai/
 **Backend:** https://resolute-ptarmigan-187.convex.site
 **Accessible health/status URL:** https://resolute-ptarmigan-187.convex.site/selftest
@@ -32,9 +32,10 @@ Everything else below was actually run.
 ## Machine verification (this pass)
 
 ```
-bunx convex dev --once   → deployed to resolute-ptarmigan-187
-bunx tsc -b --noEmit     → 0 errors
-bun test                 → 388 pass / 0 fail (31 files)
+bun convex dev --once    → deployed to resolute-ptarmigan-187
+bun tsc -b --noEmit      → 0 errors
+bun test tests/          → 437 pass / 0 fail (34 files, 1,359 assertions)
+bun run lint             → 0 errors (18 non-blocking warnings)
 bun run build            → green
 GET /selftest            → ok · 12 pass · 0 fail · 2 configured · 1 unverified
 ```
@@ -192,7 +193,8 @@ microphone behaviour must be confirmed on hardware before claiming them.
 | Check | Result | Evidence |
 |---|---|---|
 | TypeScript clean | ✅ PASS | `tsc -b --noEmit` → 0 errors |
-| Tests pass | ✅ PASS | 388 / 0 fail, 31 files |
+| Lint clean | ✅ PASS | `eslint .` → 0 errors; warnings are generated-code directives and shadcn/Fast Refresh conventions |
+| Tests pass | ✅ PASS | 437 / 0 fail, 34 files, 1,359 assertions |
 | Production build | ✅ PASS | `vite build` green |
 | Backend deployment | ✅ PASS | `convex dev --once` deployed; codegen needs no committed credential |
 | No localhost URLs | ✅ PASS | No app-configured localhost URL anywhere. A `dist/` grep for `localhost` matches only **library boilerplate** — the Convex client and react-router use `location.href ?? "http://localhost/"` as a URL-base fallback and in HTTP-error message construction, never as the backend address. So an auditor grepping the bundle will find them and can discount them; the real backend URL comes from the build-time Convex URL, and the app throws immediately if it is unset. The only hits in `src/` are the SSRF blocklist |

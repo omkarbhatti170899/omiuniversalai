@@ -49,7 +49,8 @@ import { runImageOp } from "./aiProviders/imageProviders";
 import { getConfiguredProviders } from "./searchProviders";
 import { withTimeout } from "./searchEngine/resilience";
 import { planQuery } from "./andromeda/query";
-import { isCalculation, decideSearch } from "./searchEngine/decision";
+import type { ActionCtx } from "./_generated/server";
+import { decideSearch } from "./searchEngine/decision";
 import {
   evaluateExpression,
   extractMathExpression,
@@ -99,7 +100,7 @@ const VISION_TIMEOUT_MS = 30_000;
 const IMAGE_TIMEOUT_MS = 60_000;
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
-type QueryRunner = { runQuery: (...args: any[]) => Promise<any> };
+type QueryRunner = Pick<ActionCtx, "runQuery">;
 
 let cached: { at: number; report: Omit<SelfTestReport, "cached"> } | null = null;
 

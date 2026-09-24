@@ -23,7 +23,6 @@ import {
   type ProviderDescriptor,
 } from "./catalog";
 import {
-  isCredentialish,
   isModelSpecific,
   openAiCompatibleCompletion,
 } from "./openaiCompat";

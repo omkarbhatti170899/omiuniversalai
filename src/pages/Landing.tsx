@@ -38,7 +38,7 @@ const signals = [
 ];
 
 export default function Landing() {
-  const { isLoading, isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   const primaryHref = isAuthenticated ? "/dashboard" : "/auth";
   const primaryLabel = isAuthenticated ? "Open your workspace" : "Start free";

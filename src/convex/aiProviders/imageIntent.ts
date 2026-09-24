@@ -228,6 +228,7 @@ export function classifyImageIntent(
 ): ImageIntent {
   const text = message.trim();
   if (text.length === 0) return { kind: "none" };
+  const usableImageContext = hasImageContext && imageCount > 0;
 
   const aspect = extractAspectRatio(text);
   const transparent = wantsTransparent(text);
@@ -235,12 +236,12 @@ export function classifyImageIntent(
 
   // Questions ABOUT an image are understanding, not editing — they go to
   // vision. Classified explicitly so they can never reach the paint engine.
-  if (hasImageContext && UNDERSTANDING_Q.test(text) && editOpFor(text) === null) {
+  if (usableImageContext && UNDERSTANDING_Q.test(text) && editOpFor(text) === null) {
     return { kind: "image-understanding", prompt: text };
   }
 
   // ---- Edit family first: with an image present, edit verbs always win.
-  if (hasImageContext) {
+  if (usableImageContext) {
     const op = editOpFor(text);
     if (op !== null) {
       return {
@@ -267,7 +268,7 @@ export function classifyImageIntent(
   //  image noun ("photo", "logo") — so a stray edit verb in ordinary text
   //  work cannot be hijacked into "add an image first".
   if (
-    !hasImageContext &&
+    !usableImageContext &&
     (ANAPHORA.test(text) || IMAGE_NOUNS.test(text)) &&
     editOpFor(text) !== null
   ) {

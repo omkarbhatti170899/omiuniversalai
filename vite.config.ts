@@ -9,7 +9,7 @@ import { defineConfig } from "vite";
 // under /omiuniversalai/ (VITE_BASE_PATH=/omiuniversalai/ in CI), while the
 // managed dev/preview environment builds with the default "/" — one codebase,
 // both hosts, nothing hardcoded.
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   base: process.env.VITE_BASE_PATH || "/",
   plugins: [react(), vlyPlugin(), tailwindcss()],
   resolve: {
@@ -102,4 +102,4 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-}));
+});

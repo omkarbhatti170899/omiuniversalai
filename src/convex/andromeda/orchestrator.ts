@@ -126,7 +126,11 @@ export async function runAndromeda(
   const objective = opts?.focus?.trim()
     ? `${plan.cleanedQuery} (focus: ${opts.focus.trim().slice(0, 120)})`
     : plan.cleanedQuery;
-  mark("query understanding", `${plan.kind} · ${plan.subqueries.length} angle(s) · freshness=${plan.freshnessMatters}`, s);
+  mark(
+    "query understanding",
+    `${plan.kind} · ${plan.subqueries.length} angle(s) · freshness=${plan.freshnessMatters} · goal=${objective}`,
+    s,
+  );
 
   // --- 2. Parallel retrieval — internal knowledge FIRST, then the world ------
   s = Date.now();

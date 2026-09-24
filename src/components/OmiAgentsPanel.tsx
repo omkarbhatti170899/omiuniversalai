@@ -52,13 +52,6 @@ type Agent = {
   specialty: string;
 };
 
-type TaskStep = {
-  _id: Id<"omiTaskSteps">;
-  index: number;
-  description: string;
-  output?: string;
-};
-
 type Task = {
   _id: Id<"omiTasks">;
   _creationTime: number;
@@ -123,7 +116,6 @@ export function OmiAgentsPanel() {
   );
 
   const createAgent = useMutation(api.omiAgents.create);
-  const removeAgent = useMutation(api.omiAgents.remove);
   const approveTask = useMutation(api.omiTasks.approve);
   const cancelTask = useMutation(api.omiTasks.cancel);
   const removeTask = useMutation(api.omiTasks.remove);

@@ -19,7 +19,6 @@ import { sanitizeUntrustedText } from "./searchEngine/security";
 import { describeImage } from "./aiProviders/vision";
 import { hasVisionProvider } from "./aiProviders/visionCatalog";
 import { classifyImageIntent } from "./aiProviders/imageIntent";
-import { IMAGE_PROVIDERS } from "./aiProviders/imageCatalog";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,

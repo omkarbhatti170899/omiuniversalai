@@ -8,7 +8,7 @@
  * Also: manifest/icon/registration-gating checks so installability can't
  * silently regress.
  */
-import { describe, test, expect, beforeAll, afterAll } from "bun:test";
+import { describe, test, expect } from "bun:test";
 import { readFileSync, existsSync } from "node:fs";
 
 const SW_PATH = new URL("../public/sw.js", import.meta.url).pathname;
@@ -82,7 +82,6 @@ async function loadServiceWorker(opts: {
   const handlers: Record<string, Handler[]> = {};
   const cacheStore = new Map<string, Map<string, Response>>();
   const fetchLog: string[] = [];
-  const listeners: Array<(n: string) => void> = [];
 
   // The SW derives APP_BASE/OFFLINE_URL from registration.scope — real
   // service workers ALWAYS have a scope (default: the SW's directory), so

@@ -6,8 +6,6 @@
  */
 import { describe, test, expect } from "bun:test";
 import {
-  breakerAllow,
-  breakerRecord,
   breakerStatus,
   guardedCall,
   withTimeout,

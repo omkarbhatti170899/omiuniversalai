@@ -1,6 +1,6 @@
 # Omi Universal AI — Production QA & Bug-Fix Report
 
-**Date:** 2026-09-23
+**Date:** 2026-09-24
 **Live app:** https://omkarbhatti170899.github.io/omiuniversalai/
 **Backend:** https://resolute-ptarmigan-187.convex.site
 **Machine-readable health:** `/health` · `/status` · `/selftest`
@@ -22,9 +22,10 @@ a working product, and "configured" is not "working".
 ## Headline result
 
 ```
-bunx convex dev --once   → functions deployed to resolute-ptarmigan-187
-bunx tsc -b --noEmit     → clean (0 errors)
-bun test                 → 388 pass / 0 fail  (31 files)
+bun convex dev --once    → functions deployed to resolute-ptarmigan-187
+bun tsc -b --noEmit      → clean (0 errors)
+bun test tests/          → 437 pass / 0 fail (34 files, 1,359 assertions)
+bun run lint             → 0 errors (18 non-blocking generated/shadcn warnings)
 bun run build            → production build green
 GET /selftest            → status: ok · 12 pass · 0 fail · 2 configured · 1 unverified
 ```
@@ -33,7 +34,7 @@ GET /selftest            → status: ok · 12 pass · 0 fail · 2 configured · 
 
 | # | Area | Verdict | Evidence |
 |---|---|---|---|
-| 1 | Production build | **PASS** | `bun run build` clean; dist artifact published by the Actions → Pages pipeline (run #17) |
+| 1 | Production build | **PASS** | `bun run build` clean; CI also gates typecheck + 437 tests before Pages deploy |
 | 2 | Frontend errors | **PASS** | Live shell served (HTTP 200, Omi marker present); root + toolbar error boundaries in `main.tsx` so a crash renders a message, never a blank page |
 | 3 | Backend / API errors | **PASS** | 12 live subsystem probes green; adapters report every attempt and never throw into a user path |
 | 4 | Environment variables | **PASS** | `VITE_CONVEX_URL` is the only client var and fails loudly if unset; no provider key is read outside `src/convex/` |

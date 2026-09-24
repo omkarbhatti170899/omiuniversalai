@@ -48,7 +48,7 @@ import {
   Volume2,
   X,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { useSpeechOutput } from "@/hooks/useSpeechOutput";
 import { useConvexClient } from "@/hooks/useConvexClient";
@@ -106,6 +106,19 @@ export function OmiAssistantPanel({
   )?.find((p) => p._id === projectId);
 
   const [activeId, setActiveId] = useState<Id<"omiConversations"> | null>(null);
+
+  // §5 Projects: the sidebar shows only conversations in the current scope —
+  // a project's chats never mix with personal ones. Derive the selection from
+  // existing state so loading a new conversation does not require an
+  // effect-driven state update.
+  const visibleConversations = (conversations ?? []).filter((c) =>
+    projectId ? c.projectId === projectId : c.projectId === undefined,
+  );
+  const selectedConversationId =
+    activeId && visibleConversations.some((c) => c._id === activeId)
+      ? activeId
+      : visibleConversations[0]?._id ?? null;
+
   const [draft, setDraft] = useState(initialDraft ?? "");
   const [isSending, setIsSending] = useState(false);
   const [memoryOpen, setMemoryOpen] = useState(false);
@@ -116,7 +129,7 @@ export function OmiAssistantPanel({
 
   const messages = useQuery(
     api.omiMessages.listByConversation,
-    activeId ? { conversationId: activeId } : "skip",
+    selectedConversationId ? { conversationId: selectedConversationId } : "skip",
   );
 
   const createConversation = useMutation(api.omiConversations.create);
@@ -145,7 +158,6 @@ export function OmiAssistantPanel({
   const uploadQueue = useRef(0);
   const [uploadingCount, setUploadingCount] = useState(0);
 
-  const pendingAttachments = attachments.filter((a) => a.state === "ready");
   const hasUploading = uploadingCount > 0;
 
   const handleFilesChosen = (list: FileList | null) => {
@@ -214,20 +226,6 @@ export function OmiAssistantPanel({
   };
   // --- end attachments ---
 
-  // §5 Projects: the sidebar shows only conversations in the current scope —
-  // a project's chats never mix with personal ones.
-  const visibleConversations = (conversations ?? []).filter((c) =>
-    projectId ? c.projectId === projectId : c.projectId === undefined,
-  );
-
-  // Auto-select the newest conversation on first load.
-  useEffect(() => {
-    if (visibleConversations.length > 0 && !activeId) {
-      setActiveId(visibleConversations[0]._id);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [conversations, activeId]);
-
   const handleNewConversation = async () => {
     try {
       const id = await createConversation({ projectId: projectId ?? undefined });
@@ -244,7 +242,7 @@ export function OmiAssistantPanel({
       toast.error("Hold on — Omi is still reading your attachment(s).");
       return;
     }
-    let convId = activeId;
+    let convId = selectedConversationId;
     if (!convId) {
       try {
         convId = await createConversation({
@@ -315,7 +313,7 @@ export function OmiAssistantPanel({
   const handleDeleteConversation = async (id: Id<"omiConversations">) => {
     try {
       await removeConversation({ id });
-      if (activeId === id) {
+      if (selectedConversationId === id) {
         const remaining = (conversations ?? []).filter((c) => c._id !== id);
         setActiveId(remaining.length > 0 ? remaining[0]._id : null);
       }
@@ -384,7 +382,7 @@ export function OmiAssistantPanel({
                 <div
                   key={c._id}
                   className={`group flex items-center rounded-lg border px-3 py-2 text-sm transition-colors ${
-                    activeId === c._id
+                    selectedConversationId === c._id
                       ? "border-primary/50 bg-primary/10"
                       : "border-border/60 hover:border-primary/30"
                   }`}
@@ -423,8 +421,8 @@ export function OmiAssistantPanel({
       <Card className="flex min-h-[520px] flex-col">
         <CardHeader className="pb-3">
           <CardTitle className="text-base">
-            {activeId
-              ? ((conversations ?? []).find((c) => c._id === activeId)?.title ??
+            {selectedConversationId
+              ? ((conversations ?? []).find((c) => c._id === selectedConversationId)?.title ??
                 "Conversation")
               : "Start a conversation"}
           </CardTitle>
@@ -443,7 +441,7 @@ export function OmiAssistantPanel({
 
         <CardContent className="flex flex-1 flex-col">
           <div className="flex-1 space-y-4 overflow-y-auto pr-1">
-            {messages === undefined && activeId ? (
+            {messages === undefined && selectedConversationId ? (
               <div className="space-y-3">
                 <Skeleton className="h-12 w-3/4" />
                 <Skeleton className="ml-auto h-12 w-2/3" />

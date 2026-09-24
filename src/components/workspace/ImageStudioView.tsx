@@ -347,6 +347,11 @@ export function ImageStudioView({
     return prompt.trim() || mode.defaultPrompt || "";
   }, [bgAction, mode.defaultPrompt, modeId, prompt]);
 
+  // Interpretations belong only to Auto mode. Keeping this derived prevents a
+  // previous Auto request from leaking into an explicit mode while the debounce
+  // effect catches up.
+  const activeInterpretation = modeId === "auto" ? interpretation : null;
+
   /** The op the run will use: auto resolves it, explicit modes are fixed. */
   const resolvedOp: Op | null = useMemo(() => {
     // Background has two DIFFERENT capabilities behind one mode. Removal has
@@ -356,18 +361,18 @@ export function ImageStudioView({
     if (modeId !== "auto") {
       return mode.op;
     }
-    if (interpretation && interpretation.kind === "generate") return "generate";
-    if (interpretation && interpretation.kind === "image-edit") return interpretation.op;
+    if (activeInterpretation?.kind === "generate") return "generate";
+    if (activeInterpretation?.kind === "image-edit") return activeInterpretation.op;
     return null;
-  }, [bgAction, interpretation, mode.op, modeId]);
+  }, [activeInterpretation, bgAction, mode.op, modeId]);
 
   const autoEditNeedsImage =
     modeId === "auto" &&
-    interpretation?.kind === "image-edit" &&
-    interpretation.needsImage &&
+    activeInterpretation?.kind === "image-edit" &&
+    activeInterpretation.needsImage &&
     !hasInputs;
-  const autoIsUnderstanding = modeId === "auto" && interpretation?.kind === "image-understanding";
-  const autoIsNone = modeId === "auto" && interpretation?.kind === "none";
+  const autoIsUnderstanding = modeId === "auto" && activeInterpretation?.kind === "image-understanding";
+  const autoIsNone = modeId === "auto" && activeInterpretation?.kind === "none";
 
   const minInputs = mode.minInputs ?? (mode.needsInput ? 1 : 0);
   const missingInput = minInputs > 0 && readyInputCount < minInputs;
@@ -378,7 +383,8 @@ export function ImageStudioView({
    * the line above explains why. Silently sending a generic `edit` instead is
    * what produced the confusing "works on an image" error the user hit.
    */
-  const autoUnresolved = modeId === "auto" && resolvedOp === null;
+  const autoUnresolved =
+    modeId === "auto" && (interpreting || resolvedOp === null);
 
   const canRun =
     !running &&
@@ -390,17 +396,19 @@ export function ImageStudioView({
 
   /** Auto mode: classify the request (pure compute — no provider call). */
   useEffect(() => {
-    if (modeId !== "auto") {
-      setInterpretation(null);
-      return;
-    }
+    if (modeId !== "auto") return;
     const text = prompt.trim();
     if (text.length < 3) {
-      setInterpretation(null);
+      queueMicrotask(() => {
+        setInterpretation(null);
+        setInterpreting(false);
+      });
       return;
     }
     let cancelled = false;
-    setInterpreting(true);
+    queueMicrotask(() => {
+      if (!cancelled) setInterpreting(true);
+    });
     const timer = setTimeout(() => {
       void (async () => {
         try {
@@ -572,7 +580,7 @@ export function ImageStudioView({
   const editCapable = imageProviders?.some((p) => p.configured && p.ops.includes("edit"));
 
   const preservePreview =
-    interpretation?.kind === "image-edit" ? interpretation.normalized.preserve : [];
+    activeInterpretation?.kind === "image-edit" ? activeInterpretation.normalized.preserve : [];
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
@@ -816,8 +824,8 @@ export function ImageStudioView({
                       <Badge variant="outline" className="border-primary/40 bg-primary/10 text-primary">
                         Omi will {OP_LABELS[resolvedOp] ?? resolvedOp}
                       </Badge>
-                      {interpretation?.kind === "image-edit" &&
-                        interpretation.needsMultiple &&
+                      {activeInterpretation?.kind === "image-edit" &&
+                        activeInterpretation.needsMultiple &&
                         readyInputCount < 2 && (
                           <span className="text-amber-400/90">needs at least two images</span>
                         )}

@@ -201,7 +201,7 @@ export async function extractXlsx(
   }
 
   // Shared strings may be absent for inline-string workbooks.
-  let shared: string[] = [];
+  const shared: string[] = [];
   const sharedXml = await unzipEntry(data, "xl/sharedStrings.xml");
   if (sharedXml) {
     for (const si of findElements(new TextDecoder().decode(sharedXml), "si")) {
