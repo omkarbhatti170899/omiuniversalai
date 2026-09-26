@@ -1,6 +1,7 @@
 import '@vly-ai/integrations';
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
+import { MotionConfig } from "framer-motion";
 import { RequireAuth } from "@/components/RequireAuth";
 import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
@@ -148,6 +149,9 @@ createRoot(document.getElementById("root")!).render(
       <ToolbarErrorBoundary>
         <VlyToolbar />
       </ToolbarErrorBoundary>
+      {/* §22/§27: every Framer Motion animation respects the OS
+          prefers-reduced-motion setting — user choice wins over decoration. */}
+      <MotionConfig reducedMotion="user">
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
@@ -180,6 +184,7 @@ createRoot(document.getElementById("root")!).render(
           <Toaster />
         </ConvexAuthProvider>
       </ThemeProvider>
+      </MotionConfig>
     </RootErrorBoundary>
   </StrictMode>,
 );

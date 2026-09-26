@@ -161,6 +161,69 @@
 - **RESULT:** All automated gates are green; the `/selftest` harness covers AI/fallback/search/vision/image/db/auth probes server-side.
 - **REMAINING BLOCKER:** The signed-in end-to-end journeys (AUTH→CHAT→STREAMING→STOP→REGENERATE→SEARCH→RESEARCH→IMAGE→FILES→MEMORY→PROJECTS→WORKFLOWS→PWA→MOBILE) could not be executed in a browser session here.
 
+### 28. Intelligence orchestrator + answer-quality engine
+
+- **FEATURE:** One intelligence layer (intent → classify → route → execute → verify → respond), plus a quality gate that checks evidence sufficiency, currency, source authority/disagreement and overclaiming before a sourced answer is returned.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `src/convex/omiChat.ts` orchestrates intent (`decideSearch`), task routing (`completeStream`/`complete`), tools (calculator, vision, image, search), grounding and persistence. Search decisions and evidence gates live in `src/convex/searchEngine/decision.ts`, `evidence.ts`, `quality.ts`, `verification.ts`.
+- **TEST PERFORMED:** `omiOrchestration.test.ts`, `andromedaGates.test.ts`, `omiCalculator.test.ts`, `omiSpecialties.test.ts`.
+- **RESULT:** PASS at the routing/decision level. Reasoning summaries are exposed; raw chain-of-thought is not.
+- **REMAINING BLOCKER:** A full live intent-classification → verify → answer trace across every capability in one signed-in session was not executed here.
+
+### 29. Andromeda PhD-style research + research critic
+
+- **FEATURE:** Rigorous multi-stage research (question → subquestions → search → primary sources → evidence → conflicts → gaps → synthesis → limitations → references), plus an independent critique pass that can trigger re-research.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `src/convex/deepResearch.ts`, `andromeda/*`, `src/convex/omiWorkflows.ts` (`startResearchReport`), `andromeda/orchestrator.ts` stages and `evidence.ts` claim mapping. Conflict/insufficiency detection and citations exist.
+- **TEST PERFORMED:** `andromeda*.test.ts`, `omiCorpus.test.ts`, `omiInjectionEvals.test.ts`.
+- **RESULT:** The research pipeline, evidence mapping, conflict and insufficiency handling pass automated checks.
+- **REMAINING BLOCKER:** A dedicated **independent critic** stage that critiques a research draft and forces a revise loop is **NOT IMPLEMENTED** as a separate pass; the existing verification gates are not presented as a substitute.
+
+### 30. Omi Agent Mode
+
+- **FEATURE:** Multi-step plan → execute → observe → verify → continue → complete, with approval for consequential actions and pause/cancel/retry/approve/reject.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `src/convex/omiAgents.ts` (agent records), `src/convex/omiAgentRuntime.ts` (`planTask`, `runTask`), `src/convex/omiTasks.ts` (approve/cancel/remove + step tracking), `src/components/OmiAgentsPanel.tsx`, `omis/agent` UI.
+- **TEST PERFORMED:** `omiToolsRegistry.test.ts`, `omiWorkflows.test.ts`, `omiWorkflowApproval.test.ts`.
+- **RESULT:** Planning, task lifecycle and approval gating exist and are tested; no autonomous action bypasses approval.
+- **REMAINING BLOCKER:** Specialized agent types (research/coding/file-analysis) are not yet distinct end-to-end personas; live signed-in agent run unverified here.
+
+### 31. Omi Canvas
+
+- **FEATURE:** Interactive workspace for documents/reports/code/tables/plans with chat → canvas continuity.
+- **STATUS:** NOT IMPLEMENTED
+- **IMPLEMENTATION:** none.
+- **TEST PERFORMED:** repository search (no canvas surface exists).
+- **RESULT:** Confirmed absent; not represented as working.
+- **REMAINING BLOCKER:** Requires a new workspace surface and persistence model.
+
+### 32. Universal tool architecture + automation
+
+- **FEATURE:** Modular tools with permission boundaries, validation, error handling and audit; recurring/conditional automation with enable/disable/edit/delete/history.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `src/convex/omiTools/registry.ts` (tool descriptors, `ARG_LIMITS`), `executor.ts`, `specialties.ts`; audit via `omiAudit.ts`; workflow runs and task approvals.
+- **TEST PERFORMED:** `omiToolsRegistry.test.ts`, `omiWorkflows.test.ts`.
+- **RESULT:** The tool registry, argument limits, execution seam and audit trail are in place.
+- **REMAINING BLOCKER:** A **scheduler** for recurring/conditional triggers is **NOT IMPLEMENTED** (workflows are run-initiated, not cron-driven); external connectors (email/calendar/cloud/maps/finance) are not wired.
+
+### 33. Observability + final audit (§29/§32)
+
+- **FEATURE:** Production diagnostics without leaking secrets/private content; repository audit for TODO/FIXME/placeholder/mock/fake/dead routes/console noise.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `src/instrumentation.tsx` error reporting, `omiAudit.ts`, workflow/task audits; `console.*` cleanup in `Auth.tsx` (removed happy-path debug logs and a raw `JSON.stringify(error)`).
+- **TEST PERFORMED:** repo scan for `TODO|FIXME|PLACEHOLDER|XXX|HACK`, `mock|fake|dummy|stub`, and stray `console.*`.
+- **RESULT:** PASS — no unfinished markers or mock production paths in `src` (matches are doc comments asserting the *no-fake* policy, or `placeholder` prop names). Console noise reduced.
+- **REMAINING BLOCKER:** No structured server-side metrics/alerting sink wired.
+
+### 34. Accessibility + reduced motion
+
+- **FEATURE:** Keyboard/focus/ARIA/contrast/reduced-motion.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `<MotionConfig reducedMotion="user">` wraps the app (`src/main.tsx`) so every Framer Motion animation respects the OS setting; a global `@media (prefers-reduced-motion: reduce)` rule in `src/index.css` neutralizes CSS transitions/spinners.
+- **TEST PERFORMED:** typecheck, lint, build.
+- **RESULT:** Motion now respects user preference at both the JS and CSS layers.
+- **REMAINING BLOCKER:** A screen-reader/focus-trap/keyboard audit was not completed.
+
 ---
 
 ## Final report
