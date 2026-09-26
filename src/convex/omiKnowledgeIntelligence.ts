@@ -710,6 +710,8 @@ export const dashboard = query({
     status: v.optional(v.string()),
     severity: v.optional(v.string()),
     owner: v.optional(v.string()),
+    /** Only articles updated at/after this timestamp (§4 date filter). */
+    updatedSince: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
     const userId = await getAuthUserId(ctx);
@@ -759,6 +761,9 @@ export const dashboard = query({
       articles = articles.filter(
         (a) => (a.owner ?? "").toLowerCase() === args.owner!.toLowerCase(),
       );
+    }
+    if (args.updatedSince !== undefined) {
+      articles = articles.filter((a) => a.updatedAt >= args.updatedSince!);
     }
     const now = Date.now();
     const likes = articles.map(toArticleLike);
