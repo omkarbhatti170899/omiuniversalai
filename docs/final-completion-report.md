@@ -1,5 +1,13 @@
 # Omi Universal AI — Final Completion Report
 
+> **Superseded in part.** The 12-phase *FINAL COMPLETION + QUALITY* pass
+> (real-device QA, mobile, performance, AI quality, knowledge, images, search,
+> security, error recovery, app readiness, observability, regression) is
+> reported in **[`final-quality-report.md`](./final-quality-report.md)**. That
+> document carries the current numbers (701 tests, 46 files) and the current
+> AREA / STATUS / TESTED / ISSUES / RESULT table. This file remains the
+> feature-by-feature record of the earlier completion passes.
+
 **Date:** 2026-09-26  
 **Web:** https://omkarbhatti170899.github.io/omiuniversalai/  
 **Convex development backend:** https://resolute-ptarmigan-187.convex.cloud  
