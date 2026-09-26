@@ -23,6 +23,18 @@
 | `bun run lint` | 0 errors / 18 warnings (pre-existing, non-blocking) |
 | `bun run build` | Green (convex codegen + tsc + vite build) |
 
+### Live deployment self-test
+
+`GET https://resolute-ptarmigan-187.convex.site/selftest` (2026-09-26) — run against the **live** deployment, not mocks.
+
+**Result: 14 PASS / 6 FAIL / 5 CONFIGURED** (status `degraded`).
+
+- **PASS (live):** frontend shell, published artifact, Convex, database read, auth guard, request routing (calculator intent), Andromeda planning (13 sources ready), universal search (Wikipedia), AI providers (groq), AI fallback (`groq → gemini → openai`), vision (groq, answered "Red"), image generation (pollinations sana, 33 KB @1024²), image transparency, image variation.
+- **FAIL (live — one external cause):** image editing, background removal, background replacement, image combination, upscaling, image enhancement. Every edit path is refused by the two configured edit providers — Gemini *"free-tier quota is exhausted"* and OpenAI *"no remaining credits"* — and `pollinations-edit` is **not configured** (no `POLLINATIONS_API_KEY`).
+- **CONFIGURED (need a signed-in session):** image upload, image storage, image retrieval, file processing, deep research.
+
+**Bug this live run caught and this pass fixed:** OpenAI rejected the multipart field name `image` (`400 Invalid parameter: 'image'`). The field is now provider-specific — `image` for Pollinations, `image[]` for OpenAI — and the failure changed to the honest credit error. Live passes went 13 → 14.
+
 ---
 
 ## Feature-by-feature
@@ -61,7 +73,7 @@
 - **IMPLEMENTATION:** `src/convex/aiProviders/image*`, `src/convex/omiImages.ts`, `src/components/workspace/ImageStudioView.tsx`. Edit-family intents route ONLY to image-input-capable providers; a missing edit provider fails honestly and never silently becomes text-to-image. A new **Pollinations Image Edits** provider (`pollinations-edit`, model `kontext`) adds a **free-tier, OpenAI Images-Edits-compatible** editing path that requires only a `POLLINATIONS_API_KEY` — no billing. The OpenAI images transport was generalized to serve both OpenAI and the Pollinations edits endpoint, and now also accepts raw-image responses.
 - **TEST PERFORMED:** `tests/omiImageContract.test.ts`, `omiImageIntent`, `omiImageRouting`, `omiImageErrors`, `omiImageEditing.test.ts` (new: routing excludes the text-to-image provider for edits; capability report flags editing available; the adapter POSTs to the edits endpoint and returns a verified image; an edit with no key calls NO provider).
 - **RESULT:** Generation verified working (keyless path, real PNG bytes). Edit routing is correct and honest, and the free-tier edit adapter is exercised end-to-end against a mocked transport.
-- **REMAINING BLOCKER:** A live edit needs `POLLINATIONS_API_KEY` (free) — or Gemini billing / OpenAI credits. Without a key the op fails honestly; it is never downgraded to generation.
+- **REMAINING BLOCKER:** A live edit needs `POLLINATIONS_API_KEY` (free) — or Gemini billing / OpenAI credits. Confirmed live: all six edit-family probes fail only on that external cause. Without a key the op fails honestly; it is never downgraded to generation.
 
 ### 5. Vision
 

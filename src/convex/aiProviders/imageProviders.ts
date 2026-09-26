@@ -186,6 +186,9 @@ export async function runImageOp(args: {
         ? await openAiImages({
             generationsUrl: OPENAI_IMAGES_URL,
             editsUrl: POLLINATIONS_EDITS_URL,
+            // Pollinations documents the singular `image` field; OpenAI
+            // requires `image[]` (its live API answers 400 for `image`).
+            imageField: "image",
             key: envKeyFor(p),
             model,
             prompt,
@@ -200,6 +203,7 @@ export async function runImageOp(args: {
             : await openAiImages({
                 generationsUrl: OPENAI_IMAGES_URL,
                 editsUrl: OPENAI_EDITS_URL,
+                imageField: "image[]",
                 key: envKeyFor(p),
                 model,
                 prompt,
@@ -354,6 +358,8 @@ async function geminiImage(args: {
 async function openAiImages(args: {
   generationsUrl: string;
   editsUrl: string;
+  /** Multipart field name for input images — provider-specific. */
+  imageField: "image" | "image[]";
   key: string;
   model: string;
   prompt: string;
@@ -374,7 +380,7 @@ async function openAiImages(args: {
         if (!m) continue;
         const bytes = base64ToBytes(m[2]);
         form.append(
-          i === 0 ? "image" : "image[]",
+          args.imageField,
           new Blob([bytes.buffer as ArrayBuffer], { type: m[1] }),
           `ref-${i}.png`,
         );

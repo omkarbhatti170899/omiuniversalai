@@ -85,9 +85,36 @@ describe("Pollinations edits adapter (OpenAI Images-Edits-compatible)", () => {
       calls.some((u) => u.includes("gen.pollinations.ai/v1/images/edits")),
     ).toBe(true);
     expect(bodies[0]).toBeInstanceOf(FormData);
+    // Pollinations documents the singular `image` multipart field.
+    expect([...(bodies[0] as FormData).keys()]).toContain("image");
     expect(res.ok).toBe(true);
     expect(res.provider).toBe("pollinations-edit");
     expect(res.mimeType.startsWith("image/")).toBe(true);
+  });
+
+  test("the OpenAI edits path uses the image[] field it requires", async () => {
+    clearKeys();
+    process.env.OPENAI_API_KEY = "test-openai";
+    const bodies: unknown[] = [];
+    globalThis.fetch = (async (_input: RequestInfo | URL, init?: RequestInit) => {
+      bodies.push(init?.body);
+      return new Response(pngBytes(), {
+        status: 200,
+        headers: { "content-type": "image/png" },
+      });
+    }) as typeof fetch;
+
+    await runImageOp({
+      op: "edit",
+      prompt: "add a hat",
+      aspectRatio: "1:1",
+      transparent: false,
+      sources: [PNG_DATA_URL],
+    });
+
+    expect(bodies[0]).toBeInstanceOf(FormData);
+    // OpenAI answers 400 `Invalid parameter: 'image'` — it needs `image[]`.
+    expect([...(bodies[0] as FormData).keys()]).toContain("image[]");
   });
 
   test("an edit with no edit-capable key fails honestly and calls no provider", async () => {
