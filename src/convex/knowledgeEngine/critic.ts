@@ -19,7 +19,13 @@ export type CriticCode =
   | "missing_review"
   | "stale_draft";
 
-export type CriticSeverity = "high" | "medium" | "low";
+/**
+ * Finding severity. CRITICAL is reserved for states that make an ANSWER
+ * unsafe right now — an authoritative article past its expiration, or a family
+ * with more than one currently-effective version — because those can put an
+ * obsolete or ambiguous procedure in front of a user.
+ */
+export type CriticSeverity = "critical" | "high" | "medium" | "low";
 
 export type CriticFlag = {
   code: CriticCode;
@@ -64,7 +70,7 @@ export function critiqueKnowledge(args: {
       if (a.expirationDate <= args.now) {
         flags.push({
           code: "outdated",
-          severity: "high",
+          severity: "critical",
           message: `"${a.title}" v${a.version} is past its expiration date but still marked ${a.status}.`,
           articleId: a._id,
           familyId: a.familyId,
@@ -140,7 +146,7 @@ export function critiqueKnowledge(args: {
     if (active.length > 1) {
       flags.push({
         code: "conflicting_versions",
-        severity: "high",
+        severity: "critical",
         message: `A family has ${active.length} currently-effective versions — procedures may be ambiguous.`,
         familyId: group[0].familyId,
       });
@@ -179,13 +185,18 @@ export function critiqueKnowledge(args: {
 }
 
 export function countBySeverity(flags: CriticFlag[]): {
+  critical: number;
   high: number;
   medium: number;
   low: number;
 } {
   return {
+    critical: flags.filter((f) => f.severity === "critical").length,
     high: flags.filter((f) => f.severity === "high").length,
     medium: flags.filter((f) => f.severity === "medium").length,
     low: flags.filter((f) => f.severity === "low").length,
   };
 }
+
+/** Ordering for a "worst first" dashboard. */
+export const SEVERITY_ORDER: CriticSeverity[] = ["critical", "high", "medium", "low"];

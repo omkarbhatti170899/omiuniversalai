@@ -20,19 +20,41 @@ import {
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import {
+  Activity,
   AlertTriangle,
   BookMarked,
   CheckCircle2,
   FileCheck2,
   FilePlus2,
+  GitCompare,
+  Info,
   Lightbulb,
   Loader2,
+  Save,
   Search,
   ShieldCheck,
   ThumbsDown,
   ThumbsUp,
+  Trash2,
   TrendingUp,
 } from "lucide-react";
+
+/** Structured provenance returned alongside a grounded answer (§8). */
+type WhyThisAnswer = {
+  sources: Array<{
+    articleId: string;
+    title: string;
+    version: number;
+    status: string;
+    sourceType: "internal" | "external";
+    effectiveDate?: number;
+    score: number;
+  }>;
+  conflicts: string[];
+  grounded: boolean;
+  retrieval: "hybrid" | "keyword";
+};
+
 
 type Status =
   | "draft"
@@ -108,9 +130,11 @@ const EMPTY_EDITOR: EditorState = {
 
 export function KnowledgeIntelligenceView() {
   const ask = useAction(api.omiKnowledgeIntelligence.ask);
-  const dashboard = useQuery(api.omiKnowledgeIntelligence.dashboard);
+  const dashboard = useQuery(api.omiKnowledgeIntelligence.dashboard, {});
   const articles = useQuery(api.omiKnowledgeIntelligence.listArticles, {});
   const gaps = useQuery(api.omiKnowledgeIntelligence.listGaps);
+  const artifacts = useQuery(api.omiKnowledgeIntelligence.listArtifacts);
+  const findings = useQuery(api.omiKnowledgeIntelligence.listFindings, { status: "open" });
 
   const createDraft = useMutation(api.omiKnowledgeIntelligence.createDraft);
   const updateArticle = useMutation(api.omiKnowledgeIntelligence.updateArticle);
@@ -122,6 +146,19 @@ export function KnowledgeIntelligenceView() {
   const removeArticle = useMutation(api.omiKnowledgeIntelligence.removeArticle);
   const sendFeedback = useMutation(api.omiKnowledgeIntelligence.submitFeedback);
   const setGapStatus = useMutation(api.omiKnowledgeIntelligence.setGapStatus);
+  const setFindingStatus = useMutation(api.omiKnowledgeIntelligence.setFindingStatus);
+  const removeArtifact = useMutation(api.omiKnowledgeIntelligence.removeArtifact);
+  const saveArtifact = useAction(api.omiKnowledgeIntelligence.saveArtifact);
+  const runCriticNow = useAction(api.omiKnowledgeIntelligence.runCriticNow);
+  const [compareIds, setCompareIds] = useState<{
+    beforeId: Id<"omiKnowledgeArticles">;
+    afterId: Id<"omiKnowledgeArticles">;
+    title: string;
+  } | null>(null);
+  const comparison = useQuery(
+    api.omiKnowledgeIntelligence.compareVersionsQuery,
+    compareIds ? { beforeId: compareIds.beforeId, afterId: compareIds.afterId } : "skip",
+  );
 
   const [question, setQuestion] = useState("");
   const [asking, setAsking] = useState(false);
@@ -143,6 +180,13 @@ export function KnowledgeIntelligenceView() {
     conflicts: string[];
     note?: string;
   } | null>(null);
+  const [why, setWhy] = useState<WhyThisAnswer | null>(null);
+  const [showWhy, setShowWhy] = useState(false);
+  const [savingArtifact, setSavingArtifact] = useState(false);
+  const [artifactPreview, setArtifactPreview] = useState<
+    { title: string; markdown: string } | null
+  >(null);
+  const [criticRunning, setCriticRunning] = useState(false);
 
   const [statusFilter, setStatusFilter] = useState<Status | "all">("all");
   const [editorOpen, setEditorOpen] = useState(false);
@@ -161,10 +205,56 @@ export function KnowledgeIntelligenceView() {
     try {
       const res = await ask({ question: q });
       setAnswer(res.answer);
+      setWhy(res.why);
+      setShowWhy(false);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Knowledge lookup failed.");
     } finally {
       setAsking(false);
+    }
+  };
+
+  /** §5 — turn the grounded answer into a Procedure/Checklist/SOP/etc. */
+  const handleSaveArtifact = async (kind: string) => {
+    const q = question.trim();
+    if (q.length < 2) {
+      toast.error("Ask a question first.");
+      return;
+    }
+    setSavingArtifact(true);
+    try {
+      await saveArtifact({ question: q, kind });
+      toast(`Saved a ${kind} with its source attribution.`);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't save the artifact.");
+    } finally {
+      setSavingArtifact(false);
+    }
+  };
+
+  /** §9 — compare an article against the previous version in its family. */
+  const handleCompare = (id: Id<"omiKnowledgeArticles">) => {
+    const current = (articles ?? []).find((a) => a._id === id);
+    if (!current) return;
+    const previous = (articles ?? [])
+      .filter((a) => a.familyId === current.familyId && a.version < current.version)
+      .sort((a, b) => b.version - a.version)[0];
+    if (!previous) {
+      toast.error("No previous version to compare with.");
+      return;
+    }
+    setCompareIds({ beforeId: previous._id, afterId: id, title: current.title });
+  };
+
+  const handleRunCritic = async () => {
+    setCriticRunning(true);
+    try {
+      const res = await runCriticNow({});
+      toast(`Critic ran — ${res.count ?? 0} finding(s). Flags only, nothing was changed.`);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Critic run failed.");
+    } finally {
+      setCriticRunning(false);
     }
   };
 
@@ -472,7 +562,71 @@ export function KnowledgeIntelligenceView() {
                 <Button size="sm" variant="ghost" className="cursor-pointer" onClick={() => void handleFeedback("missing")}>
                   Missing info
                 </Button>
+
+                {/* §8 — "Why this answer?" — provenance, never chain-of-thought. */}
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="cursor-pointer"
+                  aria-expanded={showWhy}
+                  onClick={() => setShowWhy((v) => !v)}
+                >
+                  <Info className="mr-1 size-3.5" /> Why this answer?
+                </Button>
               </div>
+
+              {showWhy && why && (
+                <div className="space-y-2 rounded-lg border border-border/60 bg-background/40 p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Why this answer
+                  </p>
+                  <p className="text-[11px] text-muted-foreground">
+                    Retrieval: {why.retrieval === "hybrid" ? "keyword + semantic" : "keyword (no embedding provider configured)"} ·{" "}
+                    {why.grounded ? "evidence met the confidence floor" : "no evidence met the floor, so nothing was asserted"}
+                  </p>
+                  {why.sources.length === 0 ? (
+                    <p className="text-xs text-muted-foreground">No approved source matched.</p>
+                  ) : (
+                    <ul className="space-y-1">
+                      {why.sources.map((s) => (
+                        <li key={s.articleId} className="flex flex-wrap items-center gap-2 text-xs">
+                          <span className="font-medium">{s.title}</span>
+                          <Badge variant="secondary" className="text-[10px]">v{s.version}</Badge>
+                          <Badge variant="outline" className="text-[10px]">{s.status}</Badge>
+                          <Badge variant="outline" className="text-[10px]">
+                            {s.sourceType === "internal" ? "INTERNAL" : "EXTERNAL"}
+                          </Badge>
+                          <span className="text-muted-foreground">score {s.score.toFixed(2)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {why.conflicts.length > 0 && (
+                    <p className="rounded border border-destructive/40 bg-destructive/10 p-2 text-[11px] text-destructive">
+                      Conflicting approved knowledge: {why.conflicts.join(" ")}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* §5 — turn the answer into a durable artifact, attribution kept. */}
+              {answer.answered && (
+                <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                  <span className="text-xs text-muted-foreground">Save as:</span>
+                  {(["procedure", "checklist", "sop", "training", "report"] as const).map((kind) => (
+                    <Button
+                      key={kind}
+                      size="sm"
+                      variant="outline"
+                      className="cursor-pointer capitalize"
+                      disabled={savingArtifact}
+                      onClick={() => void handleSaveArtifact(kind)}
+                    >
+                      <Save className="mr-1 size-3.5" /> {kind}
+                    </Button>
+                  ))}
+                </div>
+              )}
             </motion.div>
           )}
         </CardContent>
@@ -483,6 +637,7 @@ export function KnowledgeIntelligenceView() {
           <TabsTrigger value="library">Library</TabsTrigger>
           <TabsTrigger value="review">Review</TabsTrigger>
           <TabsTrigger value="gaps">Gaps</TabsTrigger>
+          <TabsTrigger value="artifacts">Artifacts</TabsTrigger>
           <TabsTrigger value="insights">Insights</TabsTrigger>
         </TabsList>
 
@@ -573,6 +728,9 @@ export function KnowledgeIntelligenceView() {
                             return id;
                           }, "New draft version created.")}>
                             New version
+                          </Button>
+                          <Button size="sm" variant="outline" className="cursor-pointer" onClick={() => handleCompare(a._id)}>
+                            <GitCompare className="mr-1.5 size-3.5" /> What changed?
                           </Button>
                           <Button size="sm" variant="outline" className="cursor-pointer" onClick={() => void run(() => archive({ id: a._id }), "Archived.")}>
                             Archive
@@ -700,35 +858,121 @@ export function KnowledgeIntelligenceView() {
               </div>
 
               <Card>
-                <CardHeader className="pb-2">
+                <CardHeader className="flex-row items-center justify-between gap-2 pb-2">
                   <CardTitle className="flex items-center gap-2 text-base">
                     <TrendingUp className="size-4 text-primary" /> Knowledge Critic
                   </CardTitle>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="outline" className="text-[10px]">
+                      {dashboard.flagCounts.critical} critical · {dashboard.flagCounts.high} high
+                    </Badge>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="cursor-pointer"
+                      disabled={criticRunning}
+                      onClick={() => void handleRunCritic()}
+                    >
+                      {criticRunning ? (
+                        <Loader2 className="mr-1.5 size-3.5 animate-spin" />
+                      ) : (
+                        <Activity className="mr-1.5 size-3.5" />
+                      )}
+                      Run critic now
+                    </Button>
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-2">
+                  <p className="text-[11px] text-muted-foreground">
+                    Retrieval: {dashboard.embeddingProviderConfigured ? "keyword + semantic" : "keyword only (no embedding provider configured)"}. The critic flags only — it never edits, merges or publishes.
+                  </p>
                   {dashboard.flags.length === 0 ? (
                     <p className="text-sm text-muted-foreground">
-                      No problems detected. The critic flags only — it never edits
-                      or publishes knowledge.
+                      No problems detected in the live critique.
                     </p>
                   ) : (
                     dashboard.flags.slice(0, 20).map((f, i) => (
                       <div key={i} className="flex items-start gap-2 text-sm">
                         <AlertTriangle
                           className={`mt-0.5 size-3.5 shrink-0 ${
-                            f.severity === "high"
+                            f.severity === "critical" || f.severity === "high"
                               ? "text-destructive"
                               : f.severity === "medium"
                                 ? "text-amber-400"
                                 : "text-muted-foreground"
                           }`}
                         />
-                        <span className="text-muted-foreground">{f.message}</span>
+                        <span className="text-muted-foreground">
+                          <span className="mr-1 font-medium uppercase text-foreground">
+                            {f.severity}
+                          </span>
+                          {f.message}
+                        </span>
                       </div>
                     ))
                   )}
+
+                  {/* Persisted findings from the scheduled sweep (§3). */}
+                  {(findings ?? []).length > 0 && (
+                    <div className="space-y-1.5 border-t border-border/60 pt-2">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        Open findings (persisted)
+                      </p>
+                      {(findings ?? []).slice(0, 20).map((f) => (
+                        <div key={f._id} className="flex items-start gap-2 text-xs">
+                          <Badge
+                            variant="outline"
+                            className={`text-[10px] uppercase ${
+                              f.severity === "critical"
+                                ? "border-destructive/40 text-destructive"
+                                : ""
+                            }`}
+                          >
+                            {f.severity}
+                          </Badge>
+                          <span className="flex-1 text-muted-foreground">{f.message}</span>
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            className="h-6 cursor-pointer px-2 text-[10px]"
+                            onClick={() =>
+                              void run(
+                                () => setFindingStatus({ id: f._id, status: "acknowledged" }),
+                                "Finding acknowledged.",
+                              )
+                            }
+                          >
+                            Acknowledge
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
+
+              {/* §16 — the requested health-dashboard counts. */}
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {[
+                  { label: "Critical findings", value: dashboard.flagCounts.critical },
+                  { label: "High findings", value: dashboard.flagCounts.high },
+                  { label: "In review", value: dashboard.analytics.byStatus.in_review },
+                  { label: "Expired", value: dashboard.analytics.expired },
+                  { label: "No-answer rate", value: `${Math.round(dashboard.analytics.noAnswerRate * 100)}%` },
+                  { label: "Failed searches", value: dashboard.analytics.failedSearches.length },
+                  { label: "Feedback", value: Object.values(dashboard.analytics.feedback).reduce((a, b) => a + b, 0) },
+                  { label: "Artifacts", value: (artifacts ?? []).length },
+                ].map((m) => (
+                  <Card key={m.label} className="bg-card/60">
+                    <CardContent className="p-4">
+                      <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                        {m.label}
+                      </p>
+                      <p className="mt-1 text-xl font-semibold">{m.value}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
 
               {dashboard.analytics.failedSearches.length > 0 && (
                 <Card>
@@ -747,7 +991,164 @@ export function KnowledgeIntelligenceView() {
             </>
           )}
         </TabsContent>
+
+        {/* Artifacts (§5) — grounded answers saved as durable documents. */}
+        <TabsContent value="artifacts" className="space-y-3">
+          {artifacts === undefined ? (
+            <Skeleton className="h-20 w-full" />
+          ) : artifacts.length === 0 ? (
+            <p className="text-sm text-muted-foreground">
+              No artifacts yet. Ask a question above and use “Save as” to turn the
+              grounded answer into a procedure, checklist, SOP, training guide or
+              report — the source attribution is always kept.
+            </p>
+          ) : (
+            artifacts.map((a) => (
+              <Card key={a._id} className="bg-card/60">
+                <CardContent className="flex flex-wrap items-center gap-3 p-4">
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-semibold capitalize">{a.title}</p>
+                    <p className="truncate text-xs text-muted-foreground">
+                      {a.kind}
+                      {a.articleTitle ? ` · ${a.articleTitle}` : ""}
+                      {a.version !== undefined ? ` · v${a.version}` : ""}
+                      {" · "}
+                      {new Date(a.createdAt).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <div className="flex gap-1.5">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="cursor-pointer"
+                      onClick={() => setArtifactPreview({ title: a.title, markdown: a.markdown })}
+                    >
+                      View
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="cursor-pointer text-destructive"
+                      onClick={() => void run(() => removeArtifact({ id: a._id }), "Artifact deleted.")}
+                    >
+                      <Trash2 className="size-3.5" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))
+          )}
+        </TabsContent>
       </Tabs>
+
+      {/* §9 — version comparison (“What changed?”) */}
+      <Dialog open={compareIds !== null} onOpenChange={(open) => !open && setCompareIds(null)}>
+        <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>
+              What changed{compareIds ? ` — ${compareIds.title}` : ""}
+            </DialogTitle>
+          </DialogHeader>
+          {comparison === undefined ? (
+            <Skeleton className="h-32 w-full" />
+          ) : comparison === null ? (
+            <p className="text-sm text-muted-foreground">
+              This comparison isn't available for your role or these versions.
+            </p>
+          ) : (
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                v{comparison.fromVersion} → v{comparison.toVersion}
+                {comparison.toEffective
+                  ? ` · effective ${fromTs(comparison.toEffective)}`
+                  : ""}
+              </p>
+              {comparison.fields.length > 0 && (
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Metadata
+                  </p>
+                  {comparison.fields.map((f) => (
+                    <p key={f.field} className="text-xs">
+                      <span className="font-medium capitalize">{f.field}</span>:{" "}
+                      <span className="text-muted-foreground line-through">{f.from}</span> →{" "}
+                      <span>{f.to}</span>
+                    </p>
+                  ))}
+                </div>
+              )}
+              {comparison.lines.changed.length > 0 && (
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Changed
+                  </p>
+                  {comparison.lines.changed.map((c, i) => (
+                    <div key={i} className="space-y-0.5 text-xs">
+                      <p className="rounded bg-destructive/10 px-2 py-1 text-destructive line-through">
+                        {c.from}
+                      </p>
+                      <p className="rounded bg-emerald-500/10 px-2 py-1 text-emerald-400">
+                        {c.to}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {comparison.lines.added.length > 0 && (
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Added
+                  </p>
+                  {comparison.lines.added.map((l, i) => (
+                    <p key={i} className="rounded bg-emerald-500/10 px-2 py-1 text-xs text-emerald-400">
+                      + {l}
+                    </p>
+                  ))}
+                </div>
+              )}
+              {comparison.lines.removed.length > 0 && (
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Removed
+                  </p>
+                  {comparison.lines.removed.map((l, i) => (
+                    <p key={i} className="rounded bg-destructive/10 px-2 py-1 text-xs text-destructive">
+                      − {l}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Artifact preview */}
+      <Dialog
+        open={artifactPreview !== null}
+        onOpenChange={(open) => !open && setArtifactPreview(null)}
+      >
+        <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="capitalize">{artifactPreview?.title}</DialogTitle>
+          </DialogHeader>
+          <pre className="max-h-[60vh] overflow-auto whitespace-pre-wrap rounded-lg border border-border/60 bg-muted/30 p-3 text-xs">
+            {artifactPreview?.markdown}
+          </pre>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              className="cursor-pointer"
+              onClick={() => {
+                if (artifactPreview) void navigator.clipboard.writeText(artifactPreview.markdown);
+                toast("Copied.");
+              }}
+            >
+              Copy
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Editor */}
       <Dialog open={editorOpen} onOpenChange={setEditorOpen}>

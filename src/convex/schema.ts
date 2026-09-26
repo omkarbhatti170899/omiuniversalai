@@ -166,6 +166,12 @@ const schema = defineSchema(
       emotionAware: v.optional(v.boolean()),
       /** Explicit opt-in (default OFF): also keep auto read-outs in the history. */
       emotionHistory: v.optional(v.boolean()),
+      /**
+       * Knowledge Intelligence routing: off | prefer | only | research.
+       * "only" is the enterprise APPROVED-KNOWLEDGE-ONLY lock (no web search);
+       * "research" is KNOWLEDGE + RESEARCH (internal first, then Andromeda).
+       */
+      knowledgeMode: v.optional(v.string()),
     }).index("by_user", ["userId"]),
 
     // Omi Assistant — conversations
@@ -462,8 +468,35 @@ const schema = defineSchema(
     // authoritative — a draft can never silently become trusted knowledge.
     // Kept separate from `omiDocuments` (the free-form personal knowledge
     // base) so the existing subsystem is untouched.
+    /**
+     * An organization (tenant). Knowledge is scoped to a tenant as well as a
+     * user, so a shared/enterprise knowledge base can exist without any row
+     * ever becoming visible across tenants (§2 isolation).
+     */
+    omiTenants: defineTable({
+      name: v.string(),
+      /** The user who created the tenant (its first knowledge manager). */
+      ownerUserId: v.id("users"),
+      createdAt: v.number(),
+    }).index("by_owner", ["ownerUserId"]),
+
+    /** Tenant membership — the ONLY way a viewer sees a non-personal tenant. */
+    omiTenantMembers: defineTable({
+      tenantId: v.string(),
+      userId: v.id("users"),
+      role: v.string(),
+      createdAt: v.number(),
+    })
+      .index("by_user", ["userId"])
+      .index("by_tenant", ["tenantId"]),
+
     omiKnowledgeArticles: defineTable({
       userId: v.id("users"),
+      /**
+       * Organization scope. Absent = the user's personal tenant, so no row is
+       * ever unscoped. Every read filters on this before anything else.
+       */
+      tenantId: v.optional(v.string()),
       /** Stable id shared by every version of the same article. */
       familyId: v.string(),
       title: v.string(),
@@ -498,6 +531,14 @@ const schema = defineSchema(
       approvedBy: v.optional(v.string()),
       publishedAt: v.optional(v.number()),
       reviewNotes: v.optional(v.string()),
+      /**
+       * Semantic vector + the model that produced it. Optional and derived —
+       * retrieval falls back to BM25 whenever this is absent, so a deployment
+       * with no embedding provider loses nothing.
+       */
+      embedding: v.optional(v.array(v.number())),
+      embeddingModel: v.optional(v.string()),
+      embeddedAt: v.optional(v.number()),
     })
       .index("by_user", ["userId"])
       .index("by_family", ["familyId"])
@@ -506,6 +547,7 @@ const schema = defineSchema(
     /** Immutable change history — one row per version-affecting edit. */
     omiKnowledgeRevisions: defineTable({
       userId: v.id("users"),
+      tenantId: v.optional(v.string()),
       articleId: v.id("omiKnowledgeArticles"),
       familyId: v.string(),
       version: v.number(),
@@ -522,6 +564,7 @@ const schema = defineSchema(
     /** Recurring unanswered questions — the knowledge-gap engine. */
     omiKnowledgeGaps: defineTable({
       userId: v.id("users"),
+      tenantId: v.optional(v.string()),
       /** Normalized question key (stable across phrasings). */
       key: v.string(),
       question: v.string(),
@@ -542,6 +585,7 @@ const schema = defineSchema(
     /** Reader feedback on knowledge answers (never auto-rewrites knowledge). */
     omiKnowledgeFeedback: defineTable({
       userId: v.id("users"),
+      tenantId: v.optional(v.string()),
       articleId: v.optional(v.id("omiKnowledgeArticles")),
       verdict: v.union(
         v.literal("correct"),
@@ -560,12 +604,63 @@ const schema = defineSchema(
     /** Anonymized, aggregate query log (no content beyond the query itself). */
     omiKnowledgeQueryLog: defineTable({
       userId: v.id("users"),
+      tenantId: v.optional(v.string()),
       query: v.string(),
       answered: v.boolean(),
       topArticleId: v.optional(v.id("omiKnowledgeArticles")),
       latencyMs: v.number(),
       createdAt: v.number(),
     }).index("by_user", ["userId"]),
+
+    /**
+     * A scheduled Knowledge Critic run. Findings are FLAGS for a human — the
+     * critic never publishes, merges or rewrites anything (§3 of the spec).
+     * Severity is CRITICAL / HIGH / MEDIUM / LOW.
+     */
+    omiKnowledgeCriticFindings: defineTable({
+      userId: v.id("users"),
+      tenantId: v.optional(v.string()),
+      code: v.string(),
+      severity: v.union(
+        v.literal("critical"),
+        v.literal("high"),
+        v.literal("medium"),
+        v.literal("low"),
+      ),
+      message: v.string(),
+      articleId: v.optional(v.id("omiKnowledgeArticles")),
+      familyId: v.optional(v.string()),
+      gapKey: v.optional(v.string()),
+      status: v.union(
+        v.literal("open"),
+        v.literal("acknowledged"),
+        v.literal("resolved"),
+      ),
+      detectedAt: v.number(),
+    })
+      .index("by_user", ["userId"])
+      .index("by_user_status", ["userId", "status"]),
+
+    /**
+     * Knowledge artifacts — a grounded answer turned into a Procedure /
+     * Checklist / SOP / Training guide / Report, always carrying its source
+     * attribution. This is the "send to Canvas" payload (§5).
+     */
+    omiKnowledgeArtifacts: defineTable({
+      userId: v.id("users"),
+      tenantId: v.optional(v.string()),
+      kind: v.string(),
+      title: v.string(),
+      markdown: v.string(),
+      articleId: v.optional(v.id("omiKnowledgeArticles")),
+      articleTitle: v.optional(v.string()),
+      version: v.optional(v.number()),
+      question: v.optional(v.string()),
+      projectId: v.optional(v.id("omiProjects")),
+      createdAt: v.number(),
+    })
+      .index("by_user", ["userId"])
+      .index("by_user_kind", ["userId", "kind"]),
 
     // add other tables here
 

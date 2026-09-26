@@ -10,6 +10,7 @@
 
 import type * as aiErrors from "../aiErrors.js";
 import type * as aiProviders_catalog from "../aiProviders/catalog.js";
+import type * as aiProviders_embeddings from "../aiProviders/embeddings.js";
 import type * as aiProviders_imageCatalog from "../aiProviders/imageCatalog.js";
 import type * as aiProviders_imageIntent from "../aiProviders/imageIntent.js";
 import type * as aiProviders_imageNormalize from "../aiProviders/imageNormalize.js";
@@ -31,6 +32,7 @@ import type * as andromeda_orchestrator from "../andromeda/orchestrator.js";
 import type * as andromeda_query from "../andromeda/query.js";
 import type * as auth from "../auth.js";
 import type * as auth_emailOtp from "../auth/emailOtp.js";
+import type * as crons from "../crons.js";
 import type * as deepResearch from "../deepResearch.js";
 import type * as deepResearchRuns from "../deepResearchRuns.js";
 import type * as ecosystem from "../ecosystem.js";
@@ -40,10 +42,15 @@ import type * as emotionsAi from "../emotionsAi.js";
 import type * as emotionsEngine from "../emotionsEngine.js";
 import type * as http from "../http.js";
 import type * as knowledgeEngine_analytics from "../knowledgeEngine/analytics.js";
+import type * as knowledgeEngine_artifact from "../knowledgeEngine/artifact.js";
 import type * as knowledgeEngine_critic from "../knowledgeEngine/critic.js";
+import type * as knowledgeEngine_diff from "../knowledgeEngine/diff.js";
+import type * as knowledgeEngine_embedding from "../knowledgeEngine/embedding.js";
 import type * as knowledgeEngine_governance from "../knowledgeEngine/governance.js";
 import type * as knowledgeEngine_grounding from "../knowledgeEngine/grounding.js";
+import type * as knowledgeEngine_mode from "../knowledgeEngine/mode.js";
 import type * as knowledgeEngine_select from "../knowledgeEngine/select.js";
+import type * as knowledgeEngine_tenant from "../knowledgeEngine/tenant.js";
 import type * as omiAgentRuntime from "../omiAgentRuntime.js";
 import type * as omiAgents from "../omiAgents.js";
 import type * as omiAudit from "../omiAudit.js";
@@ -114,6 +121,7 @@ import type {
 declare const fullApi: ApiFromModules<{
   aiErrors: typeof aiErrors;
   "aiProviders/catalog": typeof aiProviders_catalog;
+  "aiProviders/embeddings": typeof aiProviders_embeddings;
   "aiProviders/imageCatalog": typeof aiProviders_imageCatalog;
   "aiProviders/imageIntent": typeof aiProviders_imageIntent;
   "aiProviders/imageNormalize": typeof aiProviders_imageNormalize;
@@ -135,6 +143,7 @@ declare const fullApi: ApiFromModules<{
   "andromeda/query": typeof andromeda_query;
   auth: typeof auth;
   "auth/emailOtp": typeof auth_emailOtp;
+  crons: typeof crons;
   deepResearch: typeof deepResearch;
   deepResearchRuns: typeof deepResearchRuns;
   ecosystem: typeof ecosystem;
@@ -144,10 +153,15 @@ declare const fullApi: ApiFromModules<{
   emotionsEngine: typeof emotionsEngine;
   http: typeof http;
   "knowledgeEngine/analytics": typeof knowledgeEngine_analytics;
+  "knowledgeEngine/artifact": typeof knowledgeEngine_artifact;
   "knowledgeEngine/critic": typeof knowledgeEngine_critic;
+  "knowledgeEngine/diff": typeof knowledgeEngine_diff;
+  "knowledgeEngine/embedding": typeof knowledgeEngine_embedding;
   "knowledgeEngine/governance": typeof knowledgeEngine_governance;
   "knowledgeEngine/grounding": typeof knowledgeEngine_grounding;
+  "knowledgeEngine/mode": typeof knowledgeEngine_mode;
   "knowledgeEngine/select": typeof knowledgeEngine_select;
+  "knowledgeEngine/tenant": typeof knowledgeEngine_tenant;
   omiAgentRuntime: typeof omiAgentRuntime;
   omiAgents: typeof omiAgents;
   omiAudit: typeof omiAudit;

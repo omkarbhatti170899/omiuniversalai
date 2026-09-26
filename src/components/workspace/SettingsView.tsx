@@ -34,6 +34,45 @@ export function SettingsView() {
   const settings = useQuery(api.omiSettings.get);
   const updateSettings = useMutation(api.omiSettings.update);
   const [savingEmotion, setSavingEmotion] = useState(false);
+  const [savingKnowledge, setSavingKnowledge] = useState(false);
+
+  /** §10/§11 — how chat consults the approved knowledge base. */
+  const KNOWLEDGE_MODE_OPTIONS = [
+    {
+      id: "off",
+      label: "Off",
+      desc: "Chat ignores the knowledge base and uses general AI + web.",
+    },
+    {
+      id: "prefer",
+      label: "Prefer knowledge",
+      desc: "Approved knowledge answers first; the web is used only when it can't.",
+    },
+    {
+      id: "only",
+      label: "🔒 Approved knowledge only",
+      desc: "Answers come ONLY from approved internal knowledge. No web search; if evidence is missing, Omi says so and logs a gap.",
+    },
+    {
+      id: "research",
+      label: "🔎 Knowledge + research",
+      desc: "Internal knowledge first, then Andromeda fills the gaps — always labelled INTERNAL vs EXTERNAL.",
+    },
+  ] as const;
+
+  const setKnowledgeMode = async (mode: string) => {
+    setSavingKnowledge(true);
+    try {
+      await updateSettings({ knowledgeMode: mode });
+      toast.success(`Knowledge mode set to “${mode}”.`);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't save that preference.");
+    } finally {
+      setSavingKnowledge(false);
+    }
+  };
+
+  const knowledgeMode = settings?.knowledgeMode ?? "prefer";
 
   const setEmotionSetting = async (
     patch: { emotionAware?: boolean; emotionHistory?: boolean },
@@ -183,6 +222,52 @@ export function SettingsView() {
               </p>
             )}
           </div>
+        </CardContent>
+      </Card>
+
+      {/* Knowledge Intelligence mode (§10/§11) */}
+      <Card>
+        <CardContent className="p-5">
+          <div className="flex items-center gap-3">
+            <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <ShieldCheck className="size-5" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold">Knowledge Intelligence</p>
+              <p className="text-xs text-muted-foreground">
+                How ordinary chat questions consult the approved knowledge base.
+                Source types are always labelled — internal and external are
+                never blended silently.
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 grid gap-2 sm:grid-cols-2">
+            {KNOWLEDGE_MODE_OPTIONS.map((o) => {
+              const active = knowledgeMode === o.id;
+              return (
+                <button
+                  key={o.id}
+                  type="button"
+                  disabled={settings === undefined || savingKnowledge}
+                  onClick={() => void setKnowledgeMode(o.id)}
+                  aria-pressed={active}
+                  className={`cursor-pointer rounded-lg border p-3 text-left transition-colors disabled:opacity-60 ${
+                    active
+                      ? "border-primary/50 bg-primary/10"
+                      : "border-border/60 hover:border-border"
+                  }`}
+                >
+                  <p className="text-sm font-medium">{o.label}</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">{o.desc}</p>
+                </button>
+              );
+            })}
+          </div>
+          <p className="mt-3 text-[11px] text-muted-foreground">
+            Semantic retrieval is an enhancement, not a requirement: without a
+            configured embedding provider Omi uses keyword (BM25) search and says
+            so — it never fakes a vector.
+          </p>
         </CardContent>
       </Card>
 

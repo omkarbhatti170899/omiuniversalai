@@ -20,6 +20,7 @@ import { describeImage } from "./aiProviders/vision";
 import { hasVisionProvider } from "./aiProviders/visionCatalog";
 import { classifyImageIntent } from "./aiProviders/imageIntent";
 import { formatActionPlan } from "./knowledgeEngine/grounding";
+import { parseKnowledgeMode, routeKnowledge, knowledgeOnlyRefusal } from "./knowledgeEngine/mode";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -517,26 +518,33 @@ async function runTurn(
 
     // 2e) OMI KNOWLEDGE INTELLIGENCE — approved knowledge is the highest-trust
     //     source, consulted BEFORE the web and clearly labelled. Internal and
-    //     external information are never silently mixed (§12).
+    //     external information are never silently mixed (§12). The user's
+    //     knowledge mode (§10/§11) decides whether knowledge is consulted at
+    //     all and whether the web may run alongside it.
+    const knowledgeMode = parseKnowledgeMode(settings.knowledgeMode);
     let approvedKnowledgeBlock = "";
-    try {
-      const kb = await ctx.runAction(
-        internal.omiKnowledgeIntelligence.askInternal,
-        { userId, question: trimmed, projectId },
-      );
-      if (kb.answer.answered) {
-        await patchStreaming({ content: "Omi is checking approved knowledge…" });
-        approvedKnowledgeBlock =
-          "APPROVED KNOWLEDGE (Omi's own organization's approved knowledge — the highest-trust source). " +
-          "Turn this into an ACTION PLAN the user can follow: keep the DIRECT ANSWER, the numbered WHAT TO DO steps, " +
-          "REQUIRED INFORMATION, IMPORTANT CHECKS, EXCEPTIONS, WHEN TO ESCALATE, SOURCE ARTICLE, VERSION and EVIDENCE. " +
-          "NEVER invent procedural steps — use only the steps and evidence given here; if none are listed, say so. " +
-          "Do NOT blend external claims into it, and if two procedures conflict, ask for human review instead of choosing:\n" +
-          formatActionPlan(kb.answer);
+    let knowledgeAnswered = false;
+    if (knowledgeMode !== "off") {
+      try {
+        const kb = await ctx.runAction(
+          internal.omiKnowledgeIntelligence.askInternal,
+          { userId, question: trimmed, projectId },
+        );
+        knowledgeAnswered = kb.answer.answered;
+        if (kb.answer.answered) {
+          await patchStreaming({ content: "Omi is checking approved knowledge…" });
+          approvedKnowledgeBlock =
+            "APPROVED KNOWLEDGE (Omi's own organization's approved knowledge — the highest-trust source). " +
+            "Turn this into an ACTION PLAN the user can follow: keep the DIRECT ANSWER, the numbered WHAT TO DO steps, " +
+            "REQUIRED INFORMATION, IMPORTANT CHECKS, EXCEPTIONS, WHEN TO ESCALATE, SOURCE ARTICLE, VERSION and EVIDENCE. " +
+            "NEVER invent procedural steps — use only the steps and evidence given here; if none are listed, say so. " +
+            "Do NOT blend external claims into it, and if two procedures conflict, ask for human review instead of choosing:\n" +
+            formatActionPlan(kb.answer);
+        }
+      } catch {
+        // A knowledge lookup must never break a chat turn.
+        approvedKnowledgeBlock = "";
       }
-    } catch {
-      // A knowledge lookup must never break a chat turn.
-      approvedKnowledgeBlock = "";
     }
 
     // 3) UNIVERSAL ORCHESTRATION (master plan §5/§14): classify the turn
@@ -546,6 +554,26 @@ async function runTurn(
     //   url            → read THAT page instead of engine spam
     //   knowledge/current/news/research → Andromeda multi-source search
     const decision = decideSearch(trimmed);
+
+    // §10/§11 knowledge routing — one pure decision for the whole turn.
+    const knowledgeUse = routeKnowledge({
+      mode: knowledgeMode,
+      knowledgeAnswered,
+      intentNeedsSearch: decision.needsSearch || decision.intent === "research",
+    });
+
+    // 🔒 APPROVED KNOWLEDGE ONLY: never search the web. If approved knowledge
+    // answered, the injected block below covers it; otherwise refuse honestly
+    // and point at the gap + escalation path instead of guessing.
+    if (knowledgeUse.knowledgeOnly && !knowledgeAnswered) {
+      await patchStreaming({
+        content: knowledgeOnlyRefusal(trimmed),
+        reasoning:
+          "Approved-knowledge-only mode: no sufficient approved source, so no answer was generated and no web search was run.",
+        status: "final",
+      });
+      return { userMessageId, omiMessageId, emotion: emotionSummary };
+    }
 
     if (decision.intent === "calculation") {
       const expr = extractMathExpression(trimmed);
@@ -578,7 +606,7 @@ async function runTurn(
         }
       }
     } else if (
-      approvedKnowledgeBlock.length === 0 &&
+      knowledgeUse.allowExternalSearch &&
       (decision.needsSearch || decision.intent === "research")
     ) {
       try {
@@ -592,7 +620,10 @@ async function runTurn(
           content: `Reading ${universal.citations.length} sources…`,
         });
         searchBlock =
-          "Live web search results (cite them inline as [1], [2] … where used):\n" +
+          (knowledgeUse.blendWithResearch
+            ? "EXTERNAL RESEARCH (live web — clearly SEPARATE from the approved internal knowledge above; " +
+              "never present an external claim as internal policy). Cite inline as [1], [2] … where used:\n"
+            : "Live web search results (cite them inline as [1], [2] … where used):\n") +
           universal.citations
             .map(
               (c, i) =>

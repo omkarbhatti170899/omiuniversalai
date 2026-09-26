@@ -18,6 +18,11 @@ import { getAuthUserId } from "@convex-dev/auth/server";
 import { internalQuery, mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 import { ASPECT_RATIOS } from "./aiProviders/imageCatalog";
+import {
+  DEFAULT_KNOWLEDGE_MODE,
+  parseKnowledgeMode,
+  type KnowledgeMode,
+} from "./knowledgeEngine/mode";
 
 export const PROVIDER_PREFERENCES = [
   "auto",
@@ -51,6 +56,12 @@ export type OmiSettings = {
    * conversation itself, because inferred emotional data is sensitive.
    */
   emotionHistory: boolean;
+  /**
+   * Knowledge Intelligence routing (§10/§11): off | prefer | only | research.
+   * "only" makes approved internal knowledge the ONLY source (no web search);
+   * "research" pairs internal knowledge with Andromeda, always labelled.
+   */
+  knowledgeMode: KnowledgeMode;
 };
 
 /** Defaults are the documented product behaviour — never a null state. */
@@ -66,6 +77,7 @@ export const DEFAULT_SETTINGS: OmiSettings = {
   // exists so a user can switch it off entirely (it is never forced).
   emotionAware: true,
   emotionHistory: false,
+  knowledgeMode: DEFAULT_KNOWLEDGE_MODE,
 };
 
 const LANG_RE = /^[a-z]{2}(-[A-Z]{2})?$/;
@@ -87,6 +99,7 @@ export type OmiSettingsRow = {
   reduceMotion?: boolean;
   emotionAware?: boolean;
   emotionHistory?: boolean;
+  knowledgeMode?: string;
 };
 
 /** Merge a stored row over the defaults — unknown/legacy values fall back. */
@@ -112,6 +125,7 @@ export function withDefaults(row: OmiSettingsRow | null | undefined): OmiSetting
     reduceMotion: row.reduceMotion ?? DEFAULT_SETTINGS.reduceMotion,
     emotionAware: row.emotionAware ?? DEFAULT_SETTINGS.emotionAware,
     emotionHistory: row.emotionHistory ?? DEFAULT_SETTINGS.emotionHistory,
+    knowledgeMode: parseKnowledgeMode(row.knowledgeMode),
   };
 }
 
@@ -157,6 +171,7 @@ export const update = mutation({
     reduceMotion: v.optional(v.boolean()),
     emotionAware: v.optional(v.boolean()),
     emotionHistory: v.optional(v.boolean()),
+    knowledgeMode: v.optional(v.string()),
   },
   handler: async (ctx, args): Promise<OmiSettings> => {
     const userId = await getAuthUserId(ctx);
@@ -185,6 +200,14 @@ export const update = mutation({
     if (args.reduceMotion !== undefined) patch.reduceMotion = args.reduceMotion;
     if (args.emotionAware !== undefined) patch.emotionAware = args.emotionAware;
     if (args.emotionHistory !== undefined) patch.emotionHistory = args.emotionHistory;
+    if (args.knowledgeMode !== undefined) {
+      // Validate (not just parse): an unknown value is a client bug, not a
+      // silent downgrade to the default.
+      if (parseKnowledgeMode(args.knowledgeMode) !== args.knowledgeMode) {
+        throw new Error("Unknown knowledge mode.");
+      }
+      patch.knowledgeMode = args.knowledgeMode as KnowledgeMode;
+    }
 
     const existing = await ctx.db
       .query("omiSettings")
