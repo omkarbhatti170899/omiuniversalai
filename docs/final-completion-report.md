@@ -19,7 +19,7 @@
 | --- | --- |
 | `bun convex dev --once` | Deployed cleanly to `resolute-ptarmigan-187` |
 | `bun tsc -b --noEmit` | 0 errors |
-| `bun test tests/` | **467 pass / 0 fail** (37 files) |
+| `bun test tests/` | **474 pass / 0 fail** (37 files) |
 | `bun run lint` | 0 errors / 18 warnings (pre-existing, non-blocking) |
 | `bun run build` | Green (convex codegen + tsc + vite build) |
 
@@ -244,11 +244,13 @@
   - **Schema (5 new tables):** `omiKnowledgeArticles` (lifecycle status, version, effective/review/expiration dates, audience, provenance), `omiKnowledgeRevisions` (change history), `omiKnowledgeGaps`, `omiKnowledgeFeedback`, `omiKnowledgeQueryLog`.
   - **Engine (pure, `src/convex/knowledgeEngine/`):** `governance.ts` (status transitions, publish-requires-approval, version bump, role mapping), `select.ts` (currently-effective version wins — old/new procedures are never mixed; role visibility; metadata filters), `grounding.ts` (structured answer with source/version/effective/evidence/exceptions/escalate, and a hard evidence floor that refuses to invent), `critic.ts` (flags outdated/expiring/duplicate/conflicting-version/gap; never mutates), `analytics.ts` (counts, success/no-answer rates, top + failed searches, latency).
   - **Functions (`omiKnowledgeIntelligence.ts`):** ownership- and role-checked create/update/submit/approve/publish/expire/archive/reopen/new-version/feedback/gap-status; retrieval reuses the existing BM25 hybrid scorer; `ask` logs the query and opens a gap when unanswered.
-  - **Chat integration:** `omiChat` consults approved knowledge BEFORE the web, injects it as the highest-trust, clearly-labelled block (INTERNAL vs EXTERNAL), and skips web search when knowledge answers — internal and external are never silently blended.
+  - **Actionable answers (mandatory):** `buildActionPlan` / `formatActionPlan` turn a procedural answer into `DIRECT ANSWER → WHAT TO DO (numbered steps) → REQUIRED INFORMATION → IMPORTANT CHECKS → EXCEPTIONS → WHEN TO ESCALATE → SOURCE → VERSION/EFFECTIVE → EVIDENCE`, with a troubleshooting variant. **Steps are extracted ONLY from the article text** — when none are listed, the plan says so and invents nothing; close-scoring procedures from different families raise a "human review required" conflict instead of a silent choice.
+  - **Chat integration:** `omiChat` consults approved knowledge BEFORE the web, injects it as the highest-trust, clearly-labelled block (INTERNAL vs EXTERNAL), instructs Omi to answer as an ACTION PLAN without inventing steps, and skips web search when knowledge answers — internal and external are never silently blended.
+  - **Roadmap:** the locked free/open-source architecture (Knowledge Router, optional BookStack/Wiki.js/DokuWiki/MediaWiki/Docusaurus/Git connectors, planned semantic retrieval, cost principle) is documented in `docs/knowledge-intelligence-roadmap.md`. SearXNG is already an optional Andromeda search provider (`SEARXNG_BASE_URL`), used for web discovery only.
   - **UI:** new workspace view `KnowledgeIntelligenceView` (Ask + grounded answer card with feedback, Library with status filters and lifecycle actions, Review queue, Gaps, Insights dashboard with critic flags), wired into the sidebar as "Knowledge AI".
-- **TEST PERFORMED:** `tests/omiKnowledgeIntelligence.test.ts` (21 tests) covering governance, version selection, role visibility, grounding refusal, exceptions/escalation, gap keys, critic, and analytics. Full suite 467 pass / 0 fail; typecheck, lint, build all green; live `/selftest` unchanged (14 pass / 6 external image-edit fails).
+- **TEST PERFORMED:** `tests/omiKnowledgeIntelligence.test.ts` (28 tests) covering governance, version selection, role visibility, grounding refusal, exceptions/escalation, gap keys, critic, analytics, **action steps / no-invention**, troubleshooting shape, and conflict detection. Full suite 474 pass / 0 fail; typecheck, lint, build all green; live `/selftest` unchanged (14 pass / 6 external image-edit fails).
 - **RESULT:** The full flow CREATE → APPROVE → PUBLISH → INDEX → SEARCH → RETRIEVE → ANSWER → CITE → FEEDBACK → GAP works in code and is engine-tested.
-- **REMAINING BLOCKER:** No signed-in browser run of the UI flow here; cross-tenant isolation is per-user only (no multi-tenant org model yet); the Knowledge Critic flags but has no scheduled sweep; Canvas integration and a real semantic (embedding) retriever are not implemented.
+- **REMAINING BLOCKER:** No signed-in browser run of the UI flow here; cross-tenant isolation is per-user only (no multi-tenant org model yet); the optional KB connectors and the extracted Knowledge Router are planned, not built; the Critic has no scheduled sweep; Canvas integration and semantic (embedding) retrieval are not implemented.
 
 ---
 
@@ -269,7 +271,7 @@
 - Removed hardcoded `dark` from `Landing.tsx`/`WorkspaceShell.tsx` that would have defeated light mode.
 
 ### 3. What was tested
-`bun convex dev --once`, `bun tsc -b --noEmit`, `bun test tests/` (**467 pass / 0 fail**, 37 files), `bun run lint` (0 errors), `bun run build` (green), the live `/selftest` (14 pass / 6 external image-edit fails), plus new `tests/omiStreaming.test.ts`, `tests/omiImageEditing.test.ts`, and `tests/omiKnowledgeIntelligence.test.ts`.
+`bun convex dev --once`, `bun tsc -b --noEmit`, `bun test tests/` (**474 pass / 0 fail**, 37 files), `bun run lint` (0 errors), `bun run build` (green), the live `/selftest` (14 pass / 6 external image-edit fails), plus new `tests/omiStreaming.test.ts`, `tests/omiImageEditing.test.ts`, and `tests/omiKnowledgeIntelligence.test.ts`.
 
 ### 4. What remains blocked
 - Image **editing** live verification: a free `POLLINATIONS_API_KEY` (or Gemini billing / OpenAI credits) is required to exercise a real edit; the adapter and routing are wired and unit-tested.

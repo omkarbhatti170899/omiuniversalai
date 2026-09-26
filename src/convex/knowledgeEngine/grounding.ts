@@ -1,10 +1,13 @@
 /**
- * Omi Knowledge Intelligence — grounded-answer construction (pure).
+ * Omi Knowledge Intelligence — grounded answers + ACTION PLANS (pure).
  *
- * The product principle (§21): SEARCH → RETRIEVE → VERIFY → ANSWER → CITE.
- * NOT: ASK AI → GUESS → ANSWER. This module never invents an answer: if the
- * approved evidence is below the confidence floor it says so plainly, and the
- * caller escalates (web research or human review) instead.
+ * Product principle (§21): SEARCH → RETRIEVE → VERIFY → ANSWER → CITE.
+ * NOT: ASK AI → GUESS → ANSWER.
+ *
+ * And the newer rule: don't just tell the user the answer — show what to do
+ * next. Every procedural answer becomes an ACTION PLAN derived STRICTLY from
+ * the retrieved authoritative article text. If the article lists no explicit
+ * steps, no steps are invented — the plan says so and points at the evidence.
  */
 
 export type KnowledgePassage = {
@@ -42,8 +45,31 @@ export type GroundedAnswer = {
   score: number;
 };
 
+export type TroubleshootingStep = {
+  problem: string;
+  action: string;
+  escalate: boolean;
+};
+
+export type ActionPlan = GroundedAnswer & {
+  mode: "procedure" | "troubleshooting" | "workflow" | "general";
+  /** Numbered steps, extracted verbatim from the approved article only. */
+  steps: string[];
+  /** False when the article lists no explicit steps (nothing was invented). */
+  stepsSupported: boolean;
+  requiredInfo: string[];
+  checks: string[];
+  troubleshooting: TroubleshootingStep[];
+  /** Descriptions of conflicting matched procedures (never auto-resolved). */
+  conflicts: string[];
+  note?: string;
+};
+
 /** Below this BM25 score the answer is not supported well enough to give. */
 export const GROUNDING_MIN_SCORE = 1.5;
+/** Two procedures this close in score are treated as a conflict, not a pick. */
+export const CONFLICT_DOMINANCE_RATIO = 1.3;
+export const MAX_STEPS = 15;
 
 const STOP = new Set([
   "how", "do", "i", "the", "a", "an", "to", "for", "of", "in", "on", "is",
@@ -53,8 +79,7 @@ const STOP = new Set([
 
 /**
  * A stable key grouping phrasings of the same gap: lowercase, punctuation
- * stripped, stopwords removed, first significant tokens kept. "How do I handle
- * procedure X?" and "procedure X handling" collapse to the same key.
+ * stripped, stopwords removed, first significant tokens kept.
  */
 export function normalizeQuestionKey(question: string): string {
   const tokens = question
@@ -110,6 +135,99 @@ export function extractExceptions(content: string): string[] {
 
 export function extractEscalations(content: string): string[] {
   return lines(content).filter((l) => ESCALATE_RE.test(l)).slice(0, 4);
+}
+
+// --- Action-plan extraction (STRICTLY from the article) ---------------------
+
+/**
+ * Ordered steps that the article itself enumerates. Recognises `1.`, `1)`,
+ * `Step N`, and `-`/`*`/`•` list items. Returns [] when the article lists no
+ * steps — the caller must NOT fabricate any.
+ */
+export function extractSteps(content: string): string[] {
+  const out: string[] = [];
+  for (const raw of content.split("\n")) {
+    const line = raw.trim();
+    if (line.length === 0) continue;
+    const numbered = /^(?:step\s*)?(\d{1,2})[.)]\s+(.+)$/i.exec(line);
+    if (numbered) {
+      out.push(numbered[2].trim());
+      continue;
+    }
+    const bulleted = /^[-*•]\s+(.+)$/.exec(line);
+    if (bulleted && bulleted[1].trim().length > 0) {
+      out.push(bulleted[1].trim());
+    }
+  }
+  return out.filter((s) => s.length > 2).slice(0, MAX_STEPS);
+}
+
+const REQUIRED_RE =
+  /\b(must provide|must include|required (?:information|document|documents|details|field)|need(?:ed)? to (?:provide|attach|supply)|provide the following|attach(?:ed)?|upload(?:ed)?|documents? required)\b/i;
+const CHECK_RE = /\b(check|verify|ensure|confirm|validate|double[- ]check|review)\b/i;
+const IF_THEN_RE = /^if\b.*\b(then|,|→)\b/i;
+const PROBLEM_RE = /\b(error|fails?|failed|not working|broken|issue|problem|unable|cannot|can't|won't|rejected|declined)\b/i;
+
+export function extractRequiredInfo(content: string): string[] {
+  return lines(content).filter((l) => REQUIRED_RE.test(l)).slice(0, 6);
+}
+
+export function extractChecks(content: string): string[] {
+  return lines(content).filter((l) => CHECK_RE.test(l)).slice(0, 6);
+}
+
+/** Trouble-shooting pairs derived from "If <problem>, <action>" lines. */
+export function extractTroubleshooting(content: string): TroubleshootingStep[] {
+  const out: TroubleshootingStep[] = [];
+  for (const line of lines(content)) {
+    if (!IF_THEN_RE.test(line) && !PROBLEM_RE.test(line)) continue;
+    const m = /^if\b([\s\S]*?)(?:,|\bthen\b|→)\s*(.+)$/i.exec(line);
+    const problem = m ? m[1].trim() : line;
+    const action = m ? m[2].trim() : "";
+    if (problem.length === 0) continue;
+    out.push({ problem, action, escalate: ESCALATE_RE.test(line) });
+    if (out.length >= 5) break;
+  }
+  return out;
+}
+
+export function detectMode(
+  question: string,
+  content: string,
+  steps: string[],
+): ActionPlan["mode"] {
+  const q = question.toLowerCase();
+  const c = content.toLowerCase();
+  if (
+    /\b(error|not working|fails?|failed|broken|troubleshoot|problem|issue|can'?t|cannot|won'?t|rejected|declined)\b/.test(q) ||
+    PROBLEM_RE.test(c)
+  ) {
+    return "troubleshooting";
+  }
+  if (/\b(workflow|end[- ]to[- ]end|decision point|sign[- ]?off)\b/.test(q + " " + c)) {
+    return "workflow";
+  }
+  if (steps.length > 0) return "procedure";
+  return "general";
+}
+
+/**
+ * Conflicting approved procedures: two strong matches from DIFFERENT families
+ * whose scores are close. Omi never silently picks one — it reports both.
+ */
+export function detectConflicts(
+  passages: KnowledgePassage[],
+  minScore = GROUNDING_MIN_SCORE,
+  ratio = CONFLICT_DOMINANCE_RATIO,
+): string[] {
+  const strong = passages.filter((p) => p.score >= minScore);
+  if (strong.length < 2) return [];
+  const [a, b] = strong;
+  if (a.familyId === b.familyId) return [];
+  if (b.score < a.score / ratio) return [];
+  return [
+    `Two approved procedures match this question closely: "${a.title}" (v${a.version}) and "${b.title}" (v${b.version}).`,
+  ];
 }
 
 /** Detect a markdown heading nearest to the evidence line (best effort). */
@@ -184,6 +302,63 @@ export function buildGroundedAnswer(
   };
 }
 
+/**
+ * Build the ACTION PLAN. Steps/checks/required-info/troubleshooting come ONLY
+ * from the authoritative article's own text; when the article lists nothing,
+ * the plan states that explicitly instead of inventing steps.
+ */
+export function buildActionPlan(
+  question: string,
+  passages: KnowledgePassage[],
+  opts: { minScore?: number } = {},
+): ActionPlan {
+  const base = buildGroundedAnswer(question, passages, opts);
+  const conflicts = detectConflicts(passages, opts.minScore ?? GROUNDING_MIN_SCORE);
+
+  if (!base.answered) {
+    return {
+      ...base,
+      mode: "general",
+      steps: [],
+      stepsSupported: false,
+      requiredInfo: [],
+      checks: [],
+      troubleshooting: [],
+      conflicts,
+      note: undefined,
+    };
+  }
+
+  const top = passages[0];
+  const steps = extractSteps(top.content);
+  const mode = detectMode(question, top.content, steps);
+  const troubleshooting = mode === "troubleshooting" ? extractTroubleshooting(top.content) : [];
+  const requiredInfo = extractRequiredInfo(top.content);
+  const checks = extractChecks(top.content);
+
+  const notes: string[] = [];
+  if (steps.length === 0) {
+    notes.push(
+      "The approved article does not list explicit steps, so none were invented — see the evidence below.",
+    );
+  }
+  if (conflicts.length > 0) {
+    notes.push("More than one approved procedure may apply — human review is requested rather than a silent choice.");
+  }
+
+  return {
+    ...base,
+    mode,
+    steps,
+    stepsSupported: steps.length > 0,
+    requiredInfo,
+    checks,
+    troubleshooting,
+    conflicts,
+    note: notes.length > 0 ? notes.join(" ") : undefined,
+  };
+}
+
 /** Render a grounded answer as the human-facing block (§3 format). */
 export function formatGroundedAnswer(a: GroundedAnswer): string {
   if (!a.answered || !a.source) return a.answer;
@@ -197,9 +372,65 @@ export function formatGroundedAnswer(a: GroundedAnswer): string {
     a.relevantSection ? `RELEVANT SECTION\n${a.relevantSection}` : null,
     a.evidence.length > 1 ? `EVIDENCE\n${a.evidence.slice(1).join("\n")}` : null,
     a.exceptions.length > 0 ? `EXCEPTIONS\n${a.exceptions.join("\n")}` : null,
-    a.escalateWhen.length > 0
-      ? `ESCALATE WHEN\n${a.escalateWhen.join("\n")}`
-      : null,
+    a.escalateWhen.length > 0 ? `ESCALATE WHEN\n${a.escalateWhen.join("\n")}` : null,
   ];
+  return parts.filter(Boolean).join("\n\n");
+}
+
+/** Render an ACTION PLAN in the 9-part structure Omi shows the user. */
+export function formatActionPlan(p: ActionPlan): string {
+  if (!p.answered || !p.source) return p.answer;
+
+  const parts: Array<string | null> = [`DIRECT ANSWER\n${p.answer}`];
+
+  if (p.mode === "troubleshooting" && p.troubleshooting.length > 0) {
+    parts.push(
+      `WHAT TO DO\n${p.troubleshooting
+        .map(
+          (t, i) =>
+            `${i + 1}. PROBLEM: ${t.problem}\n   CHECK: ${t.action || "see the article"}${
+              t.escalate ? "\n   ESCALATE: yes — this condition requires human review" : ""
+            }`,
+        )
+        .join("\n")}`,
+    );
+  } else if (p.stepsSupported) {
+    parts.push(`WHAT TO DO\n${p.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}`);
+  } else {
+    parts.push(
+      `WHAT TO DO\nNo explicit steps are listed in the approved article, so Omi will not invent any. Use the evidence below, or ask a knowledge owner to add step-by-step instructions.`,
+    );
+  }
+
+  if (p.requiredInfo.length > 0) {
+    parts.push(`REQUIRED INFORMATION / DOCUMENTS\n${p.requiredInfo.map((r) => `• ${r}`).join("\n")}`);
+  }
+  if (p.checks.length > 0) {
+    parts.push(`IMPORTANT CHECKS\n${p.checks.map((c) => `• ${c}`).join("\n")}`);
+  }
+  if (p.exceptions.length > 0) {
+    parts.push(`EXCEPTIONS / EDGE CASES\n${p.exceptions.map((e) => `• ${e}`).join("\n")}`);
+  }
+  if (p.escalateWhen.length > 0) {
+    parts.push(`WHEN TO ESCALATE\n${p.escalateWhen.map((e) => `• ${e}`).join("\n")}`);
+  } else {
+    parts.push(`WHEN TO ESCALATE\n• If anything is unclear or the situation is not covered above — request human review.`);
+  }
+  parts.push(`SOURCE ARTICLE\n${p.source.title}`);
+  parts.push(
+    `VERSION / EFFECTIVE DATE\nv${p.source.version}${
+      p.source.effectiveDate
+        ? ` · effective ${new Date(p.source.effectiveDate).toISOString().slice(0, 10)}`
+        : ""
+    }`,
+  );
+  if (p.evidence.length > 0) {
+    parts.push(`SUPPORTING EVIDENCE\n${p.evidence.map((e) => `• ${e}`).join("\n")}`);
+  }
+  if (p.conflicts.length > 0) {
+    parts.push(`CONFLICT — HUMAN REVIEW REQUIRED\n${p.conflicts.map((c) => `• ${c}`).join("\n")}`);
+  }
+  if (p.note) parts.push(`IMPORTANT\n${p.note}`);
+
   return parts.filter(Boolean).join("\n\n");
 }

@@ -33,9 +33,9 @@ import {
   type MetadataFilter,
 } from "./knowledgeEngine/select";
 import {
-  buildGroundedAnswer,
+  buildActionPlan,
   normalizeQuestionKey,
-  type GroundedAnswer,
+  type ActionPlan,
   type KnowledgePassage,
 } from "./knowledgeEngine/grounding";
 import { critiqueKnowledge, countBySeverity } from "./knowledgeEngine/critic";
@@ -265,12 +265,12 @@ export const askInternal = internalAction({
   handler: async (
     ctx,
     { userId, question, projectId, limit },
-  ): Promise<{ answer: GroundedAnswer; passages: KnowledgePassage[] }> => {
+  ): Promise<{ answer: ActionPlan; passages: KnowledgePassage[] }> => {
     const { passages } = await ctx.runQuery(
       internal.omiKnowledgeIntelligence.retrieveInternal,
       { userId, question, limit: limit ?? 4 },
     );
-    const answer = buildGroundedAnswer(question, passages);
+    const answer = buildActionPlan(question, passages);
     if (!answer.answered) {
       await ctx.runMutation(internal.omiKnowledgeIntelligence.recordGapInternal, {
         userId,
@@ -456,7 +456,7 @@ export const ask = action({
     question: v.string(),
     limit: v.optional(v.number()),
   },
-  handler: async (ctx, { question, limit }): Promise<{ answer: GroundedAnswer }> => {
+  handler: async (ctx, { question, limit }): Promise<{ answer: ActionPlan }> => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Sign in to ask knowledge.");
     const q = question.trim().slice(0, 500);

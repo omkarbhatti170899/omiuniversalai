@@ -25,9 +25,17 @@ import {
 } from "../src/convex/knowledgeEngine/select";
 import {
   buildGroundedAnswer,
-  normalizeQuestionKey,
+  buildActionPlan,
+  formatActionPlan,
   extractExceptions,
   extractEscalations,
+  extractSteps,
+  extractRequiredInfo,
+  extractChecks,
+  extractTroubleshooting,
+  detectMode,
+  detectConflicts,
+  normalizeQuestionKey,
   labelSourceKind,
   type KnowledgePassage,
 } from "../src/convex/knowledgeEngine/grounding";
@@ -204,6 +212,103 @@ describe("grounded answers (§3, §21)", () => {
   test("source kinds are labelled explicitly", () => {
     expect(labelSourceKind("internal")).toBe("INTERNAL KNOWLEDGE");
     expect(labelSourceKind("external")).toBe("EXTERNAL RESEARCH");
+  });
+});
+
+describe("actionable answers — never invent steps", () => {
+  const proc = (over: Partial<KnowledgePassage> = {}): KnowledgePassage => ({
+    articleId: "a1",
+    familyId: "fam1",
+    title: "Claims Procedure",
+    version: 4,
+    status: "published",
+    effectiveDate: NOW - DAY,
+    sourceType: "internal",
+    snippet: "File within 30 days.",
+    content:
+      "## Overview\nFile the claim promptly.\n\n## Steps\n1. Open the claim.\n2. Verify the required information and documents.\n3. Apply the approved procedure.\n4. Document the action.\n\nExceptions: catastrophe claims are exempt.\nEscalate to a supervisor if the claim exceeds 100,000.",
+    score: 6,
+    ...over,
+  });
+
+  test("steps come only from the article's own numbered list", () => {
+    const steps = extractSteps(proc().content);
+    expect(steps).toEqual([
+      "Open the claim.",
+      "Verify the required information and documents.",
+      "Apply the approved procedure.",
+      "Document the action.",
+    ]);
+  });
+
+  test("prose with no list yields NO steps (nothing invented)", () => {
+    const content = "Claims are filed by the intake team using the standard form.";
+    expect(extractSteps(content)).toEqual([]);
+    const plan = buildActionPlan("How do I file a claim?", [proc({ content })]);
+    expect(plan.answered).toBe(true);
+    expect(plan.steps).toEqual([]);
+    expect(plan.stepsSupported).toBe(false);
+    expect(plan.note).toMatch(/none were invented/i);
+    expect(formatActionPlan(plan)).toMatch(/will not invent/i);
+  });
+
+  test("a supported plan renders the full action structure", () => {
+    const plan = buildActionPlan("How do I process a claim within 30 days?", [proc()]);
+    expect(plan.mode).toBe("procedure");
+    expect(plan.stepsSupported).toBe(true);
+    expect(plan.requiredInfo.join(" ")).toMatch(/required information/i);
+    const text = formatActionPlan(plan);
+    expect(text).toMatch(/DIRECT ANSWER/);
+    expect(text).toMatch(/WHAT TO DO/);
+    expect(text).toMatch(/1\. Open the claim\./);
+    expect(text).toMatch(/SOURCE ARTICLE/);
+    expect(text).toMatch(/VERSION \/ EFFECTIVE DATE/);
+    expect(text).toMatch(/WHEN TO ESCALATE/);
+  });
+
+  test("troubleshooting questions use the problem/check/escalate shape", () => {
+    const plan = buildActionPlan("The claim upload is not working", [
+      proc({
+        content:
+          "If the upload is rejected, check the file type and size.\nIf it still fails, escalate to a supervisor.",
+      }),
+    ]);
+    expect(plan.mode).toBe("troubleshooting");
+    expect(plan.troubleshooting.length).toBeGreaterThan(0);
+    expect(plan.troubleshooting.some((t) => t.escalate)).toBe(true);
+    expect(
+      extractTroubleshooting("If the upload is rejected, check the file type.").length,
+    ).toBeGreaterThan(0);
+    expect(detectMode("normal question", "1. Do x", ["Do x"])).toBe("procedure");
+  });
+
+  test("checks and required-info are extracted from article lines", () => {
+    const content =
+      "You must provide the policy number.\nCheck the claimant's identity before proceeding.";
+    expect(extractRequiredInfo(content).length).toBe(1);
+    expect(extractChecks(content).length).toBe(1);
+  });
+
+  test("conflicting procedures are surfaced, never silently chosen", () => {
+    const a = proc({ articleId: "a", familyId: "FA", title: "Procedure A", score: 6 });
+    const b = proc({ articleId: "b", familyId: "FB", title: "Procedure B", score: 5.5 });
+    const conflicts = detectConflicts([a, b]);
+    expect(conflicts).toHaveLength(1);
+    expect(conflicts[0]).toMatch(/Procedure A/);
+    const plan = buildActionPlan("How do I process this?", [a, b]);
+    expect(plan.conflicts.length).toBe(1);
+    expect(formatActionPlan(plan)).toMatch(/HUMAN REVIEW REQUIRED/);
+
+    // A clearly dominant procedure is not a conflict.
+    const far = proc({ articleId: "c", familyId: "FC", title: "Procedure C", score: 2 });
+    expect(detectConflicts([a, far])).toEqual([]);
+  });
+
+  test("insufficient evidence yields no plan and no steps", () => {
+    const plan = buildActionPlan("What is the moon made of?", []);
+    expect(plan.answered).toBe(false);
+    expect(plan.steps).toEqual([]);
+    expect(formatActionPlan(plan)).toMatch(/sufficient information/i);
   });
 });
 

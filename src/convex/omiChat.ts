@@ -19,7 +19,7 @@ import { sanitizeUntrustedText } from "./searchEngine/security";
 import { describeImage } from "./aiProviders/vision";
 import { hasVisionProvider } from "./aiProviders/visionCatalog";
 import { classifyImageIntent } from "./aiProviders/imageIntent";
-import { formatGroundedAnswer } from "./knowledgeEngine/grounding";
+import { formatActionPlan } from "./knowledgeEngine/grounding";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -528,9 +528,11 @@ async function runTurn(
         await patchStreaming({ content: "Omi is checking approved knowledge…" });
         approvedKnowledgeBlock =
           "APPROVED KNOWLEDGE (Omi's own organization's approved knowledge — the highest-trust source). " +
-          "Answer FROM this, cite it as the source, and do not contradict it. " +
-          "Do NOT blend external claims into it; if the question is not covered, say so plainly:\n" +
-          formatGroundedAnswer(kb.answer);
+          "Turn this into an ACTION PLAN the user can follow: keep the DIRECT ANSWER, the numbered WHAT TO DO steps, " +
+          "REQUIRED INFORMATION, IMPORTANT CHECKS, EXCEPTIONS, WHEN TO ESCALATE, SOURCE ARTICLE, VERSION and EVIDENCE. " +
+          "NEVER invent procedural steps — use only the steps and evidence given here; if none are listed, say so. " +
+          "Do NOT blend external claims into it, and if two procedures conflict, ask for human review instead of choosing:\n" +
+          formatActionPlan(kb.answer);
       }
     } catch {
       // A knowledge lookup must never break a chat turn.

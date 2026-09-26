@@ -134,6 +134,14 @@ export function KnowledgeIntelligenceView() {
     evidence: string[];
     exceptions: string[];
     escalateWhen: string[];
+    mode: "procedure" | "troubleshooting" | "workflow" | "general";
+    steps: string[];
+    stepsSupported: boolean;
+    requiredInfo: string[];
+    checks: string[];
+    troubleshooting: Array<{ problem: string; action: string; escalate: boolean }>;
+    conflicts: string[];
+    note?: string;
   } | null>(null);
 
   const [statusFilter, setStatusFilter] = useState<Status | "all">("all");
@@ -334,6 +342,81 @@ export function KnowledgeIntelligenceView() {
                 </Badge>
               </div>
               <p className="text-sm leading-relaxed">{answer.answer}</p>
+
+              {/* What to do — steps are only ever those the article lists. */}
+              {answer.mode === "troubleshooting" && answer.troubleshooting.length > 0 ? (
+                <div className="space-y-1.5">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    What to do
+                  </p>
+                  <ol className="space-y-1.5">
+                    {answer.troubleshooting.map((t, i) => (
+                      <li key={i} className="text-sm">
+                        <span className="font-medium">{i + 1}. Problem:</span> {t.problem}
+                        {t.action && (
+                          <span className="block pl-4 text-xs text-muted-foreground">
+                            Check / action: {t.action}
+                          </span>
+                        )}
+                        {t.escalate && (
+                          <span className="block pl-4 text-xs text-destructive">
+                            Escalate — human review required
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ) : answer.stepsSupported ? (
+                <div className="space-y-1.5">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    What to do
+                  </p>
+                  <ol className="ml-4 list-decimal space-y-0.5 text-sm">
+                    {answer.steps.map((s, i) => (
+                      <li key={i}>{s}</li>
+                    ))}
+                  </ol>
+                </div>
+              ) : answer.answered ? (
+                <p className="text-xs text-amber-400">
+                  The approved article lists no explicit steps, so none were
+                  invented — use the evidence below or ask a knowledge owner to add
+                  step-by-step instructions.
+                </p>
+              ) : null}
+
+              {answer.requiredInfo.length > 0 && (
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Required information / documents
+                  </p>
+                  <ul className="ml-4 list-disc space-y-0.5 text-xs text-muted-foreground">
+                    {answer.requiredInfo.map((r, i) => (
+                      <li key={i}>{r}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {answer.checks.length > 0 && (
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Important checks
+                  </p>
+                  <ul className="ml-4 list-disc space-y-0.5 text-xs text-muted-foreground">
+                    {answer.checks.map((c, i) => (
+                      <li key={i}>{c}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {answer.conflicts.length > 0 && (
+                <p className="rounded-lg border border-destructive/40 bg-destructive/10 p-2 text-xs text-destructive">
+                  {answer.conflicts.join(" ")} Human review required.
+                </p>
+              )}
 
               {answer.source && (
                 <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs text-muted-foreground">
