@@ -129,7 +129,11 @@ export type ImageCapabilityFlags = {
 };
 
 export type ImageProviderDescriptor = {
-  id: Extract<ProviderId, "gemini" | "openai"> | "pollinations";
+  id:
+    | Extract<ProviderId, "gemini" | "openai">
+    | "pollinations"
+    /** Pollinations' OpenAI Images-Edits-compatible endpoint (model: kontext). */
+    | "pollinations-edit";
   label: string;
   /** Every env var here must be set for the provider to activate ([] = keyless). */
   envKeys: string[];
@@ -188,6 +192,37 @@ function flagsFromOps(
  * descriptor here + an adapter in imageProviders.ts. No call-site changes.
  */
 export const IMAGE_PROVIDERS: ImageProviderDescriptor[] = [
+  {
+    id: "pollinations-edit",
+    label: "Pollinations Image Edits (kontext)",
+    envKeys: ["POLLINATIONS_API_KEY"],
+    // A free Pollinations key (enter.pollinations.ai) enables editing through
+    // the OpenAI Images-Edits-compatible endpoint (model `kontext`), which
+    // accepts reference-image input — the free-tier route to real editing.
+    // Declares NO generation: generation stays on the keyless provider, so an
+    // edit can never fall through to a text-to-image model.
+    cost: "free tier with a Pollinations key (POLLINATIONS_API_KEY)",
+    ops: [
+      "edit",
+      "remove",
+      "replace",
+      "background",
+      "style",
+      "enhance",
+      "upscale",
+      "combine",
+      "outpaint",
+    ],
+    capabilities: flagsFromOps(
+      ["edit", "remove", "replace", "background", "style", "enhance", "upscale", "combine", "outpaint"],
+      { imageInput: true, transparency: false, authRequired: true },
+    ),
+    supportsImageInput: true,
+    supportsTransparency: false,
+    supportsSizeControl: true,
+    resolutions: [1024],
+    hint: "Add a POLLINATIONS_API_KEY (enter.pollinations.ai) to enable image editing — OpenAI Images Edits-compatible (model: kontext).",
+  },
   {
     id: "pollinations",
     label: "Pollinations (free, keyless)",

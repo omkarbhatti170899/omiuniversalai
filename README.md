@@ -80,6 +80,7 @@ Do not use an interactive `convex dev` process in automation. Never place provid
 | `GEMINI_API_KEY` | Optional | Gemini text, vision, and image capabilities |
 | `GROQ_API_KEY` | Optional | Primary free-tier AI and vision provider |
 | `OPENAI_API_KEY` | Optional | Additional AI/image fallback |
+| `POLLINATIONS_API_KEY` | Optional | Free-tier **image editing** (OpenAI Images-Edits-compatible, model `kontext`) — the no-billing route to real edit ops |
 | `DEEPSEEK_API_KEY` | Optional | Optional compatible provider |
 | `SEARXNG_BASE_URL` | Optional | Self-hosted SearXNG endpoint |
 | `RATE_LIMIT_PER_MIN` | Optional | Deployment-wide per-user rate-limit override |

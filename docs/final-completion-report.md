@@ -58,10 +58,10 @@
 
 - **FEATURE:** Text-to-image, image-to-image, editing, background/object/style, enhancement, upscaling, variations, outpainting, understanding.
 - **STATUS:** PARTIAL (generation works; editing BLOCKED externally)
-- **IMPLEMENTATION:** `src/convex/aiProviders/image*`, `src/convex/omiImages.ts`, `src/components/workspace/ImageStudioView.tsx`. Edit-family intents route ONLY to image-input-capable providers; a missing edit provider fails honestly and never silently becomes text-to-image.
-- **TEST PERFORMED:** `tests/omiImageContract.test.ts`, `omiImageIntent`, `omiImageRouting`, `omiImageErrors`, `omiWorkflowApproval`.
-- **RESULT:** Generation verified working (keyless path, real PNG bytes). Edit routing is correct and honest.
-- **REMAINING BLOCKER:** All edit-capable upstreams refuse the request in this environment (Gemini image 429 no-billing tier, OpenAI 429 no credits). Editing therefore cannot be exercised end-to-end here.
+- **IMPLEMENTATION:** `src/convex/aiProviders/image*`, `src/convex/omiImages.ts`, `src/components/workspace/ImageStudioView.tsx`. Edit-family intents route ONLY to image-input-capable providers; a missing edit provider fails honestly and never silently becomes text-to-image. A new **Pollinations Image Edits** provider (`pollinations-edit`, model `kontext`) adds a **free-tier, OpenAI Images-Edits-compatible** editing path that requires only a `POLLINATIONS_API_KEY` — no billing. The OpenAI images transport was generalized to serve both OpenAI and the Pollinations edits endpoint, and now also accepts raw-image responses.
+- **TEST PERFORMED:** `tests/omiImageContract.test.ts`, `omiImageIntent`, `omiImageRouting`, `omiImageErrors`, `omiImageEditing.test.ts` (new: routing excludes the text-to-image provider for edits; capability report flags editing available; the adapter POSTs to the edits endpoint and returns a verified image; an edit with no key calls NO provider).
+- **RESULT:** Generation verified working (keyless path, real PNG bytes). Edit routing is correct and honest, and the free-tier edit adapter is exercised end-to-end against a mocked transport.
+- **REMAINING BLOCKER:** A live edit needs `POLLINATIONS_API_KEY` (free) — or Gemini billing / OpenAI credits. Without a key the op fails honestly; it is never downgraded to generation.
 
 ### 5. Vision
 
@@ -136,7 +136,7 @@
 - **IMPLEMENTATION:** responsive shell, `public/manifest.webmanifest`, `public/sw.js` (production-only, scoped), `capacitor.config.ts` (appId `com.ominnovations.omi`, https scheme, `dist`).
 - **TEST PERFORMED:** `tests/pwaServiceWorker.test.ts`; build.
 - **RESULT:** PWA wiring PASS at unit/build level.
-- **REMAINING BLOCKER:** Store-grade 192/512 PNG + maskable icons are still outstanding (only an SVG logo exists); no JDK/Gradle/Android SDK in this environment, so no APK/AAB could be produced or device-tested.
+- **REMAINING BLOCKER:** A **maskable** icon (`public/icon-maskable.svg`, declared in the manifest) was added; raster **192/512 PNG** icons remain outstanding (binary assets could not be emitted here). No JDK/Gradle/Android SDK in this environment, so no APK/AAB could be produced or device-tested.
 
 ### 21. Performance
 
@@ -244,14 +244,14 @@
 `bun convex dev --once`, `bun tsc -b --noEmit`, `bun test tests/` (441 pass / 0 fail), `bun run lint` (0 errors), `bun run build` (green), plus the new `tests/omiStreaming.test.ts`.
 
 ### 4. What remains blocked
-- Image **editing**: upstream providers refuse (Gemini 429 no-billing, OpenAI 429 no credits).
+- Image **editing** live verification: a free `POLLINATIONS_API_KEY` (or Gemini billing / OpenAI credits) is required to exercise a real edit; the adapter and routing are wired and unit-tested.
 - **Android** APK/AAB and real-device QA: no JDK/Gradle/Android SDK, no device.
 - Signed-in **end-to-end** journeys and real mobile browser QA: no session/device in this environment.
-- Store-grade PNG/maskable **PWA icons**.
+- Store-grade **192/512 PNG** PWA icons (a maskable SVG icon now exists).
 
 ### 5. External API/provider requirements
 - A free `GROQ_API_KEY` (primary) and/or `GEMINI_API_KEY` (independent fallback) unlock chat/reasoning/vision/search synthesis. `OPENAI_API_KEY` / `DEEPSEEK_API_KEY` are optional adapters. Keys go in the Keys/API Keys tab and are used server-side only — never in `VITE_*`.
-- Image editing additionally requires a provider with image-input capability and available quota/billing.
+- Image editing requires an image-input-capable provider: a free `POLLINATIONS_API_KEY` (enter.pollinations.ai — model `kontext`) is the no-billing route, or Gemini billing / OpenAI credits.
 
 ### 6. Web deployment status
 - CI (`deploy-pages.yml`) runs typecheck + tests + build with `VITE_BASE_PATH=/omiuniversalai/` and `VITE_CONVEX_URL`, verifies the URL is compiled into the bundle, and deploys to GitHub Pages. Live: https://omkarbhatti170899.github.io/omiuniversalai/

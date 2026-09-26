@@ -96,7 +96,7 @@ export function describeUnavailable(op: ImageOp): string {
   }
   // Declared + configured, but none accepts image input where input is needed.
   if (meta.needsImageInput) {
-    return `${meta.capability} needs a provider that accepts an image input; none of the configured providers does. Add a GEMINI_API_KEY or OPENAI_API_KEY in the Keys tab.`;
+    return `${meta.capability} needs a provider that accepts an image input; none of the configured providers does. Add a POLLINATIONS_API_KEY (free), GEMINI_API_KEY or OPENAI_API_KEY in the Keys tab.`;
   }
   return `${meta.capability} is currently unavailable — no eligible provider could be selected.`;
 }

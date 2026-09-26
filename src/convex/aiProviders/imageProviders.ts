@@ -56,9 +56,16 @@ export type ImageGenResult = {
 
 const TIMEOUT_MS = 90_000;
 const POLLINATIONS_URL = "https://image.pollinations.ai/prompt";
+// OpenAI Images-Edits-compatible endpoints. Pollinations exposes the SAME
+// protocol (multipart image + prompt) at this base URL, which is the free-tier
+// route to real image editing (model: kontext).
+const OPENAI_IMAGES_URL = "https://api.openai.com/v1/images/generations";
+const OPENAI_EDITS_URL = "https://api.openai.com/v1/images/edits";
+const POLLINATIONS_EDITS_URL = "https://gen.pollinations.ai/v1/images/edits";
 
 const MODEL_BY_PROVIDER: Record<string, string> = {
   pollinations: "sana",
+  "pollinations-edit": "kontext",
   gemini: "gemini-2.5-flash-image",
   openai: "gpt-image-1",
 };
@@ -175,11 +182,31 @@ export async function runImageOp(args: {
   for (const p of eligible) {
     const model: string = MODEL_BY_PROVIDER[p.id] ?? "unknown";
     const res =
-      p.id === "pollinations"
-        ? await pollinationsGenerate({ prompt, w, h, seed: args.seed })
-        : p.id === "gemini"
-          ? await geminiImage({ key: envKeyFor(p), model, prompt, sources })
-          : await openaiImage({ key: envKeyFor(p), model, prompt, sources, w, h });
+      p.id === "pollinations-edit"
+        ? await openAiImages({
+            generationsUrl: OPENAI_IMAGES_URL,
+            editsUrl: POLLINATIONS_EDITS_URL,
+            key: envKeyFor(p),
+            model,
+            prompt,
+            sources,
+            w,
+            h,
+          })
+        : p.id === "pollinations"
+          ? await pollinationsGenerate({ prompt, w, h, seed: args.seed })
+          : p.id === "gemini"
+            ? await geminiImage({ key: envKeyFor(p), model, prompt, sources })
+            : await openAiImages({
+                generationsUrl: OPENAI_IMAGES_URL,
+                editsUrl: OPENAI_EDITS_URL,
+                key: envKeyFor(p),
+                model,
+                prompt,
+                sources,
+                w,
+                h,
+              });
 
     if (res.ok && res.bytes) {
       // VERIFY: bytes must be a real image, not an error page.
@@ -319,8 +346,14 @@ async function geminiImage(args: {
   }
 }
 
-/** OpenAI Images API — optional paid adapter (generations + edits). */
-async function openaiImage(args: {
+/**
+ * OpenAI Images transport, shared by the OpenAI adapter AND the
+ * OpenAI-compatible Pollinations edits endpoint. `sources` present → multipart
+ * edit request; absent → JSON generation request. Never throws.
+ */
+async function openAiImages(args: {
+  generationsUrl: string;
+  editsUrl: string;
   key: string;
   model: string;
   prompt: string;
@@ -337,26 +370,26 @@ async function openaiImage(args: {
       form.append("size", size);
       let i = 0;
       for (const src of args.sources.slice(0, 4)) {
-        const m = src.match(/^data:(image\/[a-z+]+);base64,(.+)$/);
-        if (m) {
-          const bytes = base64ToBytes(m[2]);
-          form.append(
-            i === 0 ? "image[]" : `image[${i}]`,
-            new Blob([bytes.buffer as ArrayBuffer], { type: m[1] }),
-            `ref-${i}.png`,
-          );
-        }
+        const m = src.match(/^data:(image\/[a-z0-9.+-]+);base64,(.+)$/i);
+        if (!m) continue;
+        const bytes = base64ToBytes(m[2]);
+        form.append(
+          i === 0 ? "image" : "image[]",
+          new Blob([bytes.buffer as ArrayBuffer], { type: m[1] }),
+          `ref-${i}.png`,
+        );
         i += 1;
       }
-      const res = await fetch("https://api.openai.com/v1/images/edits", {
+      if (i === 0) return { ok: false, error: "source image was not a valid data URL" };
+      const res = await fetch(args.editsUrl, {
         method: "POST",
         headers: { Authorization: `Bearer ${args.key}` },
         body: form,
         signal: AbortSignal.timeout(TIMEOUT_MS),
       });
-      return await parseOpenAiImages(res, size);
+      return await parseImageResponse(res, size);
     }
-    const res = await fetch("https://api.openai.com/v1/images/generations", {
+    const res = await fetch(args.generationsUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -365,33 +398,47 @@ async function openaiImage(args: {
       body: JSON.stringify({ model: args.model, prompt: args.prompt, size, n: 1 }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
-    return await parseOpenAiImages(res, size);
+    return await parseImageResponse(res, size);
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
 }
 
-async function parseOpenAiImages(res: Response, size: string): Promise<Raw> {
-  const bodyText = await res.text();
-  if (!res.ok) return { ok: false, error: `error ${res.status}: ${bodyText.slice(0, 160)}` };
-  const parsed = JSON.parse(bodyText) as {
-    data?: Array<{ b64_json?: string; url?: string }>;
-  };
-  const item = parsed.data?.[0];
-  if (item?.b64_json) {
-    const [w, h] = size.split("x").map(Number);
+/**
+ * Parse an image response that may be raw image bytes OR JSON ({data:[{b64_json
+ * | url}]}). Pollinations can answer either; OpenAI answers JSON. A non-image
+ * body (HTML error page) is refused honestly.
+ */
+async function parseImageResponse(res: Response, size: string): Promise<Raw> {
+  const [w, h] = size.split("x").map(Number);
+  const contentType = res.headers.get("content-type") ?? "";
+  if (!res.ok) {
+    const bodyText = await res.text().catch(() => "");
+    return { ok: false, error: `error ${res.status}: ${bodyText.slice(0, 160)}` };
+  }
+  if (contentType.startsWith("image/")) {
     return {
       ok: true,
-      bytes: base64ToBytes(item.b64_json),
-      mimeType: "image/png",
+      bytes: new Uint8Array(await res.arrayBuffer()),
+      mimeType: contentType,
       w,
       h,
     };
   }
+  const bodyText = await res.text();
+  let parsed: { data?: Array<{ b64_json?: string; url?: string }> };
+  try {
+    parsed = JSON.parse(bodyText);
+  } catch {
+    return { ok: false, error: "response was not an image" };
+  }
+  const item = parsed.data?.[0];
+  if (item?.b64_json) {
+    return { ok: true, bytes: base64ToBytes(item.b64_json), mimeType: "image/png", w, h };
+  }
   if (item?.url) {
     const imgRes = await fetch(item.url, { signal: AbortSignal.timeout(TIMEOUT_MS) });
     if (imgRes.ok) {
-      const [w, h] = size.split("x").map(Number);
       return {
         ok: true,
         bytes: new Uint8Array(await imgRes.arrayBuffer()),
