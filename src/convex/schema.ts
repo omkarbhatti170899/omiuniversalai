@@ -684,6 +684,21 @@ const schema = defineSchema(
       .index("by_subsystem", ["subsystem"])
       .index("by_created", ["createdAt"]),
 
+    // Rate-limit counters.
+    //
+    // A table, not `ctx.storage`: Convex file storage rejects arbitrary string
+    // keys (verified on the deployed backend — it demands a `_storage` Id or a
+    // UUID), and a module-level Map is per-instance, so it resets on every
+    // cold start and is sidestepped by being routed elsewhere. One row per
+    // (limiter, caller), rewritten when the window rolls over so the table does
+    // not grow without bound. See `rateLimits.ts`.
+    rateLimitWindows: defineTable({
+      name: v.string(),
+      key: v.string(),
+      startedAt: v.number(),
+      count: v.number(),
+    }).index("by_name_key", ["name", "key"]),
+
     // add other tables here
 
     // tableName: defineTable({

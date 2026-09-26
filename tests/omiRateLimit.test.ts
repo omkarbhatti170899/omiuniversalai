@@ -1,103 +1,132 @@
 /**
- * Rate-limit contract tests (master plan §28 — abuse/cost control).
+ * RATE LIMITING — the limiter must actually limit.
  *
- * `rateLimit` is the single gate in front of every expensive surface in the
- * product: chat turns, search fan-outs, deep research, file/image ingest,
- * agent tools and workflow runs. Until this file existed it was the one
- * resilience primitive with no test, which meant a change to it could silently
- * remove the only thing standing between one account and the shared free-tier
- * quota.
+ * Regression guard for a measured P0, found twice:
  *
- * The properties that actually matter:
- *   • a bucket allows exactly `maxPerMinute` calls, then refuses
- *   • refusal carries a usable retry hint (never 0, never longer than a window)
- *   • buckets are per-key, so one user cannot spend another user's allowance
- *     (every call site keys on `surface:${userId}`)
- *   • once full, a bucket does not quietly start allowing calls again
+ *  1. The original limiter kept counters in a module-level `Map`. Convex
+ *     function instances are ephemeral and independently scheduled, so that
+ *     counter reset on every cold start and could be sidestepped by being
+ *     routed to a different instance. It looked like a rate limit and was not.
  *
- * Keys are unique per test: bucket state is per-process, so sharing a key
- * across tests would couple them.
+ *  2. The obvious replacement, `ctx.storage`, also does not work — verified on
+ *     the deployed backend, not assumed:
+ *       "Invalid argument `storageId` for `storage.getMetadata`: Invalid
+ *        storage ID: \"rl:public-diagnostic\". Storage ID should be an Id of
+ *        '_storage' table, or a UUID string."
+ *     Convex file storage only accepts real storage IDs, so it cannot serve as
+ *     a general key-value counter.
+ *
+ * The fix is a real TABLE (`rateLimitWindows`) written through an internal
+ * mutation, so every instance shares one counter. The window arithmetic is
+ * pure and lives in `planLimit`, which is what these tests cover.
  */
-import { describe, expect, test } from "bun:test";
-import { rateLimit } from "../src/convex/searchEngine/resilience";
+import { describe, expect, it } from "bun:test";
+import { planLimit, type WindowRow } from "../src/convex/rateLimits";
+import { clientKeyFrom } from "../src/convex/searchEngine/limits";
 
-/** Fresh key per assertion — never share bucket state between tests. */
-function freshKey(label: string): string {
-  return `test:${label}:${Math.random().toString(36).slice(2)}`;
+/** Drive the limiter the way the mutation does: read plan, persist `next`. */
+function run(
+  state: { row: WindowRow | null },
+  now: number,
+  max: number,
+  windowMs = 60_000,
+) {
+  const plan = planLimit(state.row, now, max, windowMs);
+  state.row = plan.next;
+  return plan;
 }
 
-describe("rateLimit — allowance", () => {
-  test("allows exactly maxPerMinute calls, then refuses", () => {
-    const key = freshKey("allowance");
-    for (let i = 0; i < 5; i++) {
-      expect(rateLimit(key, 5).ok).toBe(true);
-    }
-    expect(rateLimit(key, 5).ok).toBe(false);
+describe("fixed-window rate limiting", () => {
+  it("allows exactly `max` hits, then refuses", () => {
+    const s: { row: WindowRow | null } = { row: null };
+    const t0 = 1_000_000;
+    const oks = [0, 1, 2, 3, 4].map((i) => run(s, t0 + i, 3).ok);
+    expect(oks).toEqual([true, true, true, false, false]);
   });
 
-  test("a limit of 1 allows one call and refuses the second", () => {
-    const key = freshKey("single");
-    expect(rateLimit(key, 1).ok).toBe(true);
-    expect(rateLimit(key, 1).ok).toBe(false);
+  it("counts down `remaining` as quota is consumed", () => {
+    const s: { row: WindowRow | null } = { row: null };
+    expect(run(s, 1000, 3).remaining).toBe(2);
+    expect(run(s, 1001, 3).remaining).toBe(1);
+    expect(run(s, 1002, 3).remaining).toBe(0);
   });
 
-  test("stays refused while the bucket is full — no allowance leak", () => {
-    const key = freshKey("sustained");
-    for (let i = 0; i < 3; i++) rateLimit(key, 3);
-    // Repeated hammering must not earn extra calls.
-    for (let i = 0; i < 10; i++) {
-      expect(rateLimit(key, 3).ok).toBe(false);
-    }
+  it("starts a fresh window once the old one expires", () => {
+    const s: { row: WindowRow | null } = { row: null };
+    const t0 = 1_000_000;
+    run(s, t0, 1);
+    expect(run(s, t0 + 1, 1).ok).toBe(false);
+    // Just inside the window is still refused...
+    expect(run(s, t0 + 59_999, 1).ok).toBe(false);
+    // ...and at the boundary it resets.
+    expect(run(s, t0 + 60_000, 1).ok).toBe(true);
   });
-});
 
-describe("rateLimit — retry hint", () => {
-  test("a refusal reports a retry delay inside the one-minute window", () => {
-    const key = freshKey("hint");
-    rateLimit(key, 1);
-    const blocked = rateLimit(key, 1);
+  it("reuses the row on rollover so the table cannot grow without bound", () => {
+    const s: { row: WindowRow | null } = { row: null };
+    run(s, 0, 1);
+    const afterFirst = s.row!;
+    run(s, 60_000, 1);
+    // Same logical row, new window — not an additional row.
+    expect(s.row!.startedAt).toBe(60_000);
+    expect(s.row!.count).toBe(1);
+    expect(afterFirst.startedAt).toBe(0);
+  });
+
+  it("tells the caller how long to wait", () => {
+    const s: { row: WindowRow | null } = { row: null };
+    const t0 = 1_000_000;
+    run(s, t0, 1);
+    const blocked = run(s, t0 + 5_000, 1);
     expect(blocked.ok).toBe(false);
-    // Callers render this as "retry in Ns" — 0 would read as "retry now",
-    // and anything over the window would be a lie.
-    expect(blocked.retryAfterMs).toBeGreaterThan(0);
-    expect(blocked.retryAfterMs).toBeLessThanOrEqual(60_000);
+    expect(blocked.retryAfterMs).toBe(55_000);
   });
 
-  test("an allowed call reports no pending delay", () => {
-    const key = freshKey("nodelay");
-    expect(rateLimit(key, 2).retryAfterMs).toBe(0);
+  it("never reports a negative wait, even for a corrupt future timestamp", () => {
+    // A clock that jumped backwards must not produce retryAfterMs <= 0.
+    const s: { row: WindowRow | null } = { row: null };
+    run(s, 1_000_000, 1);
+    const blocked = run(s, 500_000, 1);
+    expect(blocked.ok).toBe(false);
+    expect(blocked.retryAfterMs).toBeGreaterThan(0);
+  });
+
+  it("treats a missing or malformed row as a fresh window rather than crashing", () => {
+    for (const bad of [null, undefined, { startedAt: "x", count: "y" } as unknown as WindowRow]) {
+      const plan = planLimit(bad, 1_000, 2, 60_000);
+      expect(plan.ok).toBe(true);
+      expect(plan.next).toEqual({ startedAt: 1_000, count: 1 });
+    }
+  });
+
+  it("a blocked hit does not consume extra quota", () => {
+    const s: { row: WindowRow | null } = { row: null };
+    run(s, 0, 1);
+    run(s, 1, 1);
+    const before = s.row!.count;
+    run(s, 2, 1);
+    expect(s.row!.count).toBe(before);
   });
 });
 
-describe("rateLimit — isolation between keys", () => {
-  test("one key's usage never consumes another key's allowance", () => {
-    const a = freshKey("user-a");
-    const b = freshKey("user-b");
-    for (let i = 0; i < 3; i++) rateLimit(a, 3);
+describe("clientKeyFrom", () => {
+  const req = (headers: Record<string, string>) => new Request("https://x.test/", { headers });
 
-    expect(rateLimit(a, 3).ok).toBe(false);
-    // Same limit, different key: untouched — this is what makes
-    // `chat:${userId}` a per-user limit rather than a global one.
-    expect(rateLimit(b, 3).ok).toBe(true);
+  it("uses the first x-forwarded-for hop", () => {
+    expect(clientKeyFrom(req({ "x-forwarded-for": "9.9.9.9, 10.0.0.1" }))).toBe("9.9.9.9");
   });
 
-  test("different surfaces for the same user are independent buckets", () => {
-    const who = Math.random().toString(36).slice(2);
-    const chat = `chat:${who}`;
-    const search = `search:${who}`;
-    rateLimit(chat, 2);
-    rateLimit(chat, 2);
-
-    expect(rateLimit(chat, 2).ok).toBe(false);
-    // The user spent their chat allowance, not their search allowance.
-    expect(rateLimit(search, 2).ok).toBe(true);
+  it("normalises the IPv4-mapped IPv6 form so one client cannot cycle spellings", () => {
+    expect(clientKeyFrom(req({ "x-forwarded-for": "::ffff:203.0.113.9" }))).toBe("203.0.113.9");
+    expect(clientKeyFrom(req({ "x-forwarded-for": "203.0.113.9" }))).toBe("203.0.113.9");
   });
 
-  test("a higher limit on the same key admits more calls", () => {
-    const key = freshKey("widen");
-    for (let i = 0; i < 4; i++) rateLimit(key, 4);
-    expect(rateLimit(key, 4).ok).toBe(false);
-    // Raising the ceiling reflects the extra calls already recorded.
-    expect(rateLimit(key, 10).ok).toBe(true);
+  it("falls back rather than producing an empty bucket key", () => {
+    expect(clientKeyFrom(req({}))).toBe("unknown");
+  });
+
+  it("bounds the key length so a hostile header cannot bloat the row", () => {
+    const long = clientKeyFrom(req({ "x-forwarded-for": "a".repeat(5_000) }));
+    expect(long.length).toBeLessThanOrEqual(64);
   });
 });

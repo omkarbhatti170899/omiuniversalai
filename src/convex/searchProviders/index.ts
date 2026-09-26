@@ -14,6 +14,7 @@ import { createGdeltProvider } from "./gdelt";
 import { createOpenMeteoProvider } from "./openmeteo";
 import { createWikipediaCurrentEventsProvider } from "./wikipediaCurrentEvents";
 import { createMarketRatesProvider } from "./markets";
+import { createSportsProvider } from "./sports";
 
 export type {
   WebCitation,
@@ -64,6 +65,8 @@ export type ProviderStatus = {
  *   Wikipedia Current Events — today's dated news, keyless, the reliable
  *                  current-events floor when the general-web floor is unavailable
  *   Open-Meteo   — weather/structured open data (scope-gated, CC-BY attribution)
+ *   Market rates — live FX (scope-gated, not financial advice)
+ *   Sports DB    — live scorelines (scope-gated to the sports vertical)
  *   DuckDuckGo   — keyless last-resort web floor
  *
  * MEASURED 2026-09-26 against the live endpoints: the general-web floor is NOT
@@ -100,6 +103,7 @@ const REGISTRY: SearchProvider[] = [
   createGdeltProvider(),
   createOpenMeteoProvider(),
   createMarketRatesProvider(),
+  createSportsProvider(),
   createKeylessProvider(),
 ];
 

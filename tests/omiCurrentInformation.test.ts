@@ -253,7 +253,11 @@ describe("current info — Omi refuses rather than answering from memory", () =>
   it("never names a vertical it cannot serve", () => {
     expect(noVerificationMessage("weather", "weather")).toMatch(/which city|location/i);
     expect(noVerificationMessage("rate", "markets")).toMatch(/currency pair|USD to INR/i);
-    expect(noVerificationMessage("score", "sports")).toMatch(/no live score feed/i);
+    // Sports now has a real score feed, so the honest message is "the feed did
+    // not answer", plus the input that would let it answer next time.
+    expect(noVerificationMessage("score", "sports")).toMatch(/live score feed/i);
+    expect(noVerificationMessage("score", "sports")).toMatch(/will not invent a scoreline/i);
+    expect(noVerificationMessage("score", "sports")).toMatch(/Retry Search/i);
   });
 
   it("asks for a location instead of guessing one", () => {

@@ -75,6 +75,15 @@ export async function runUniversalSearch(
      * catalogue. `undefined` keeps the full fan-out (the old behaviour).
      */
     preferredProviders?: string[];
+    /**
+     * When true, `preferredProviders` is a hard constraint: if none of them
+     * answer, the search FAILS honestly instead of falling back to the full
+     * fan-out. Without this, "today's weather" could be answered by a news
+     * index and "what's the score" by a news article — precisely the
+     * "ordinary web search is not a real-time database" failure the current
+     * information contract forbids.
+     */
+    strictVertical?: boolean;
   },
 ): Promise<UniversalResult> {
   const perEngine = opts?.perEngineLimit ?? PER_ENGINE_LIMIT;
@@ -96,6 +105,14 @@ export async function runUniversalSearch(
     ? allProviders.filter((p) => preferred.includes(p.id))
     : allProviders;
   if (providers.length === 0) {
+    // A strict vertical (weather, a requested scoreline) has exactly one
+    // honest source type. If it is not available, say so — do not let a
+    // different vertical answer in its place.
+    if (opts?.strictVertical) {
+      throw new Error(
+        `No source that can serve a ${opts.preferredProviders?.join("/") ?? "current"} answer is available right now.`,
+      );
+    }
     // A vertical-specific filter that matches nothing must fall back to the
     // full fan-out rather than silently returning "no results" — the engines
     // that do exist may still answer, and an empty list is not evidence.

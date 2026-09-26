@@ -270,6 +270,7 @@ export async function probeCurrentInfo(
         timeRange: policy.timeRange ?? decision.timeRange,
         skipCache: true,
         freshnessMatters: policy.requiresFreshness,
+        strictVertical: policy.requiresFreshness ? policy.strict : false,
         preferredProviders: policy.requiresFreshness
           ? policy.preferredProviders
           : undefined,
@@ -326,6 +327,26 @@ export async function probeCurrentInfo(
   }
 }
 
+/**
+ * The current-information suite is reachable from a PUBLIC, unauthenticated
+ * HTTP route, and every scenario performs real searches against shared
+ * third-party feeds (GDELT, TheSportsDB, SearXNG, Open-Meteo). Without a
+ * cache, an unauthenticated caller could loop this route and burn the shared
+ * free-tier quota — using Omi as a proxy to hammer somebody else's service,
+ * which is exactly what this file's safety contract forbids. Caching keeps the
+ * diagnostic value and removes the abuse.
+ */
+const CURRENT_INFO_CACHE_TTL_MS = 90_000;
+let currentInfoCache: {
+  at: number;
+  suite: {
+    total: number;
+    passed: number;
+    failed: number;
+    rows: CurrentInfoRow[];
+  };
+} | null = null;
+
 /** Run all 10 scenarios and summarise, for the deployed report. */
 export async function probeCurrentInfoSuite(
   ctx: QueryRunner,
@@ -334,7 +355,11 @@ export async function probeCurrentInfoSuite(
   passed: number;
   failed: number;
   rows: CurrentInfoRow[];
+  cached: boolean;
 }> {
+  if (currentInfoCache && Date.now() - currentInfoCache.at < CURRENT_INFO_CACHE_TTL_MS) {
+    return { ...currentInfoCache.suite, cached: true };
+  }
   const rows: CurrentInfoRow[] = [];
   // Sequential on purpose: several open sources rate-limit aggressively
   // (GDELT allows one request per 5s), and a parallel fan-out would turn a
@@ -343,12 +368,14 @@ export async function probeCurrentInfoSuite(
     rows.push(await probeCurrentInfo(ctx, s.query));
   }
   const passed = rows.filter((r) => r.status === "pass").length;
-  return {
+  const suite = {
     total: rows.length,
     passed,
     failed: rows.length - passed,
     rows,
   };
+  currentInfoCache = { at: Date.now(), suite };
+  return { ...suite, cached: false };
 }
 
 // --- Subsystem checks --------------------------------------------------------
@@ -886,7 +913,6 @@ async function checkDeepResearch(): Promise<SubsystemCheck> {
 
 // --- Entry point -------------------------------------------------------------
 
-/** Run every probe (or return the cached report). Never throws. */
 export async function runSelfTest(ctx: QueryRunner): Promise<SelfTestReport> {
   if (cached && Date.now() - cached.at < CACHE_TTL_MS) {
     return { ...cached.report, cached: true };

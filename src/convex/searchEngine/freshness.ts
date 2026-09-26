@@ -42,7 +42,49 @@ export type FreshnessPolicy = {
   label: string;
   /** Providers that genuinely serve this vertical. */
   preferredProviders: string[];
+  /**
+   * When true, the vertical filter is a HARD constraint: if none of the
+   * preferred providers answer, Omi fails honestly rather than quietly
+   * falling back to the full fan-out. This is what stops a news article from
+   * being served as a scoreline or a forecast.
+   */
+  strict: boolean;
 };
+
+/**
+ * Pure: is this a request for LIVE conditions rather than a general question
+ * about meteorology?
+ *
+ * "what's the weather" / "will it rain tomorrow" can never be answered from
+ * model memory, so they must reach the weather feed. "what causes rain" is a
+ * science question and must NOT — routing it to a forecast API would be as
+ * wrong as answering a forecast from a book catalogue. The causal/explanatory
+ * guard is what separates them.
+ */
+export function isLiveWeatherRequest(query: string): boolean {
+  const q = query ?? "";
+  if (!/\b(weather|forecast|temperature|rain|raining|snow|snowing|humidity|wind|storm|cyclone|hot|cold|warm|chilly)\b/i.test(q)) {
+    return false;
+  }
+  if (/\b(cause[sd]?|why (?:do|does|is|are)|how (?:do|does|is|are)|what (?:causes|makes)|explain|learn about|history of|types? of|meaning of|difference between)\b/i.test(q)) {
+    return false;
+  }
+  return /\b(what'?s|what is|whats|how (?:hot|cold|warm)|how much|will it|is it|do i need|am i|check|forecast|today|tonight|tomorrow|now|current)\b/i.test(
+    q,
+  );
+}
+
+/**
+ * Pure: is the user actually asking for a SCORE/result (not a news story about
+ * a match)? "Live sports score" and "what's the Arsenal result" want the
+ * scoreboard. "Latest news on the World Cup final" wants reporting, and news
+ * sources are a legitimate answer for that.
+ */
+export function scoreDemanded(query: string): boolean {
+  return /\b(score|scores|scoreline|scorelines|result|results|final|standings|table|fixture|fixtures|who won|how many goals)\b/i.test(
+    query ?? "",
+  );
+}
 
 // --- Natural-language current detection ------------------------------------
 //
@@ -66,8 +108,14 @@ const CURRENCY_CODE_RE =
   /\b(usd|eur|gbp|inr|jpy|aud|cad|chf|cny|sgd|aed|sar|hkd|nzd|zar|brl|mxn|rub|krw|try|idr|php|myr|thb|ils|pkr|bdt|lkr|kes|ghs|isk|uah)\b/i;
 
 /** "as of today", "right now", "at the moment", "these days", "so far today". */
+// The bare words "live", "current" and "now" are in the current-information
+// keyword list but were NOT matched here — freshness only worked because the
+// intent classifier happened to label those queries "current". A caller that
+// asks without an intent (any future call site, or a regression) would have
+// silently answered "live score" from model memory. Defence in depth: this
+// predicate now stands on its own.
 const NOW_RE =
-  /\b(right now|at the moment|at this moment|as of (?:today|now)|so far today|this (?:minute|hour)|as of \d|just now|currently|these days|this (?:evening|morning|afternoon)|today'?s)\b/i;
+  /\b(right now|at the moment|at this moment|as of (?:today|now)|so far today|this (?:minute|hour)|as of \d|just now|currently|these days|this (?:evening|morning|afternoon)|today'?s|live|breaking|current|now)\b/i;
 
 /**
  * A relative window, as in "the last 3 hours" or — very commonly — the
@@ -96,6 +144,10 @@ export function detectVertical(query: string): Vertical {
   const codes = [...new Set(q.toLowerCase().match(new RegExp(CURRENCY_CODE_RE, "gi")) ?? [])];
   if (codes.length >= 2) return "markets";
   if (SPORTS_RE.test(q)) return "sports";
+  // "Arsenal vs Chelsea result" names no sport at all, but "vs" plus a
+  // score word is unambiguously a fixture question. Without this it fell
+  // through to "general" and was answered from a book catalogue.
+  if (scoreDemanded(q) && /\bvs\.?\b|\bagainst\b/i.test(q)) return "sports";
   if (NEWS_RE.test(q)) return "news";
   return "general";
 }
@@ -117,7 +169,47 @@ export function requiresFreshness(query: string, intent?: string): boolean {
   if (/\bwhat(?:'s| is| was)?\s+(?:happen(?:ing|ed)?|going on|new)\b/i.test(q)) {
     return true;
   }
+  // A live forecast request carries no time word ("what's the weather") but
+  // still cannot be answered from memory, so it must reach the weather feed.
+  if (isLiveWeatherRequest(q)) return true;
+  // Asking for a live DATASET implies freshness on its own. "Arsenal score",
+  // "1 USD to INR" and "will it rain tomorrow" name no time word at all, yet
+  // each is only answerable from a live feed. Without this, such a query
+  // looked "not current", lost its vertical routing, fell through the general
+  // fan-out, and was answered with whatever an academic-paper engine returned.
+  if (demandIsInherentlyLive(q)) return true;
   return false;
+}
+
+/**
+ * True when the query asks for a value that only a live data feed can supply,
+ * independent of any time word. Deliberately narrow: a question that merely
+ * MENTIONS a domain ("what caused the 2008 crash", "explain offside") is not
+ * a live-data request and must not be routed to a scoreboard or a ticker.
+ */
+function demandIsInherentlyLive(query: string): boolean {
+  const q = query ?? "";
+  const vertical = detectVertical(q);
+  if (vertical === "sports" && scoreDemanded(q)) return true;
+  if (vertical === "weather" && isLiveWeatherRequest(q)) return true;
+  if (vertical !== "markets") return false;
+  return marketValueDemanded(q);
+}
+
+/**
+ * Pure: does the wording ask for the NUMBER itself, rather than discussing the
+ * market? Markets is the broadest vertical — "what is a stock market?" is a
+ * definition question — so a live read is only claimed when the user is asking
+ * for a value or a conversion.
+ */
+export function marketValueDemanded(query: string): boolean {
+  const q = query ?? "";
+  return (
+    /\b(rate|rate s|price|prices|trading|quote|worth|cost|conversion|convert|exchange|market cap)\b/i.test(q) ||
+    // "1 usd to inr", "100 eur in gbp" — a pair plus a numeral is a conversion.
+    /\b\d+(?:\.\d+)?\s*(usd|inr|eur|gbp|jpy|aud|cad|chf|sgd|aed)\b/i.test(q) ||
+    /\b(usd|inr|eur|gbp|jpy|aud|cad|chf|sgd|aed)\s*(to|in|into|against)\s*(usd|inr|eur|gbp|jpy|aud|cad|chf|sgd|aed)\b/i.test(q)
+  );
 }
 
 /** Time filter implied by the user's own wording. */
@@ -159,6 +251,8 @@ export function freshnessPolicyFor(
       maxAgeDays: 3650,
       label: "Web search",
       preferredProviders: ["wikipedia", "wikidata"],
+      // Not a current-information question, so there is nothing to fail hard on.
+      strict: false,
     };
   }
 
@@ -167,12 +261,20 @@ export function freshnessPolicyFor(
   const hardWindow = /\b(?:last|past)\s+(?:\d+\s+)?(minute|hour)/i.test(query ?? "");
   const maxAgeDays = hardWindow ? 1 : vertical === "markets" ? 7 : 14;
 
+  const scoreAsked = vertical === "sports" ? scoreDemanded(query) : false;
+  // A straight rate/price read has exactly one honest source. "Why did the
+  // rupee move?" is a different question and keeps its news backstop.
+  const valueAsked = vertical === "markets" && marketValueDemanded(query);
+
   const preferred: Record<Vertical, string[]> = {
     news: ["wikipedia-current-events", "gdelt", "hackernews", "searxng"],
-    // Sports has no keyless live score feed. Omi will not dress a news
-    // article up as a scoreline, so only genuinely-dated news sources run and
-    // the answer says plainly that no live score feed is configured.
-    sports: ["gdelt", "wikipedia-current-events", "searxng"],
+    // A scoreline must come from a scoreboard, never from a news article
+    // saying "Arsenal beat Chelsea 2-1". When a score is actually being asked
+    // for, ONLY the live score feed may answer; when the user merely wants
+    // reporting about a match, news is a legitimate answer.
+    sports: scoreAsked
+      ? ["sports-scores"]
+      : ["sports-scores", "gdelt", "wikipedia-current-events", "searxng"],
     weather: ["openmeteo"],
     // Real rate data, with a news backstop for "why did the rupee move".
     markets: ["market-rates", "gdelt", "searxng"],
@@ -186,6 +288,10 @@ export function freshnessPolicyFor(
     maxAgeDays,
     label: VERTICAL_LABEL[vertical],
     preferredProviders: preferred[vertical],
+    // Weather, an explicitly-requested score, and a straight rate/price read
+    // each have exactly one honest source type. If it is down, the correct
+    // behaviour is to say so rather than substituting an unrelated engine.
+    strict: vertical === "weather" || scoreAsked || valueAsked,
   };
 }
 
@@ -302,7 +408,7 @@ export function noVerificationMessage(query: string, vertical: Vertical): string
       : vertical === "markets"
         ? " Omi can quote live currency rates if you name the pair (for example \"USD to INR\"). It will not guess an equity, crypto or commodity price."
         : vertical === "sports"
-          ? " Omi has no live score feed configured, so it will not invent a scoreline. Retry, or add a sports provider in Settings."
+          ? " Omi could not reach a live score feed just now, so it will not invent a scoreline. Name the team or competition (for example \"Mumbai Indians score\" or \"Premier League scores today\") and press Retry Search."
           : " Press Retry Search to try again, or switch a search provider in Settings.";
   return head + next;
 }

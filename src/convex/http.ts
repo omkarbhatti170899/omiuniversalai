@@ -1,5 +1,7 @@
 import { httpRouter } from "convex/server";
 import { httpAction } from "./_generated/server";
+import { clientKeyFrom } from "./searchEngine/limits";
+import { consumeFromCtx } from "./rateLimits";
 import { auth } from "./auth";
 import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
@@ -228,6 +230,24 @@ http.route({
  * The query is a fixed, non-personal probe when omitted, and user-supplied
  * queries are length-capped and never persisted. No auth, no user data.
  */
+/**
+ * Public, unauthenticated diagnostic route cooldown.
+ *
+ * The ad-hoc `?query=` form is a genuine open search proxy: anyone on the
+ * internet could make Omi issue live searches against GDELT, TheSportsDB,
+ * SearXNG and Open-Meteo, spending shared free-tier quota and using Omi's
+ * egress IP to hammer third parties. It stays available for debugging, but at
+ * a bounded rate. The fixed 10-scenario suite is separately cached.
+ *
+ * The counter lives in a real Convex TABLE (`rateLimits.ts`), not a module-level
+ * array: Convex instances are ephemeral and independently scheduled, so an
+ * in-process counter resets on every cold start and can be sidestepped by being
+ * routed to a different instance. `ctx.storage` is not a substitute — it
+ * rejects arbitrary string keys and only accepts file IDs.
+ */
+const CURRENT_INFO_ADHOC_MAX = 8;
+const CURRENT_INFO_ADHOC_WINDOW_MS = 60_000;
+
 http.route({
   path: "/currentinfo",
   method: "GET",
@@ -235,8 +255,34 @@ http.route({
     const url = new URL(request.url);
     const q = url.searchParams.get("query")?.slice(0, 200);
     if (q) {
+      const limit = await consumeFromCtx(
+        ctx,
+        "public-diagnostic",
+        clientKeyFrom(request),
+        CURRENT_INFO_ADHOC_MAX,
+        CURRENT_INFO_ADHOC_WINDOW_MS,
+      );
+      if (!limit.ok) {
+        return jsonResponse(
+          {
+            error:
+              "Too many ad-hoc diagnostic queries. The current-information suite (no ?query=) stays available.",
+            retryAfterSeconds: Math.ceil(limit.retryAfterMs / 1000),
+          },
+          429,
+        );
+      }
       const row = await probeCurrentInfo(ctx, q);
-      return jsonResponse(row, row.status === "pass" ? 200 : 503);
+      // Report the limiter's own view alongside the result. A cooldown that
+      // silently fails open looks identical to a cooldown that is working, and
+      // the only way to tell them apart is to say which one happened.
+      return jsonResponse(
+        {
+          ...row,
+          rateLimit: { ok: limit.ok, remaining: limit.remaining, degraded: limit.degraded },
+        },
+        row.status === "pass" ? 200 : 503,
+      );
     }
     const suite = await probeCurrentInfoSuite(ctx);
     return jsonResponse(

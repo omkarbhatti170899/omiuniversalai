@@ -5,7 +5,7 @@ import { action } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 // Per-user request limiting (shared implementation with search/files/images).
-import { rateLimit } from "./searchEngine/resilience";
+import { consumeFromCtx } from "./rateLimits";
 import { completeStream, hasAiProvider } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 // Phase 9 — one recovery contract for every user-visible failure, shared with
@@ -666,6 +666,7 @@ async function runTurn(
           // Recency dominates ranking for a current question.
           freshnessMatters: policy.requiresFreshness,
           // Only run engines that genuinely serve this vertical.
+          strictVertical: policy.requiresFreshness ? policy.strict : false,
           preferredProviders: policy.requiresFreshness
             ? policy.preferredProviders
             : undefined,
@@ -968,7 +969,12 @@ async function preflight(
   // deep research 5, images 12, workflows 6) — chat was the gap. Generous
   // enough for normal conversation and deliberate multi-turn work, strict
   // enough that one account cannot burn the shared free-tier quota.
-  const rl = rateLimit(`chat:${userId}`, 20);
+  //
+  // The counter is in a real Convex TABLE, not an in-process Map: Convex
+  // instances are ephemeral and independently scheduled, so a module-level
+  // bucket reset on every cold start and could be sidestepped by being routed
+  // elsewhere. See `rateLimits.ts`.
+  const rl = await consumeFromCtx(ctx, "chat-turn", userId, 20, 60_000);
   if (!rl.ok) {
     throw new Error(
       `Too many messages in a row — retry in ${Math.ceil(rl.retryAfterMs / 1000)}s.`,

@@ -265,8 +265,11 @@ describe("security — server-side validation of user input (Phase 8)", () => {
 });
 
 describe("security — rate limiting on the costly paths (Phase 8)", () => {
+  // A surface counts as rate limited if it uses EITHER the in-memory bucket OR
+  // the storage-backed limiter. The latter is strictly better; this assertion
+  // is about coverage, not about which mechanism is used.
   const costly: Array<[string, RegExp]> = [
-    ["omiChat.ts (chat turns)", /rateLimit\(`chat:/],
+    ["omiChat.ts (chat turns)", /rateLimit\(`chat:|consumeFromCtx\([\s\S]{0,80}"chat-turn"/],
     ["search.ts (web search)", /rateLimit\(`search:/],
     ["search.ts (page reads)", /rateLimit\(`read:/],
     ["search.ts (suggestions)", /rateLimit\(`suggest:/],
@@ -280,6 +283,59 @@ describe("security — rate limiting on the costly paths (Phase 8)", () => {
       expect(`${label}: ${pattern.test(src)}`).toContain("true");
     });
   }
+});
+
+describe("security — the rate limiter must survive a Convex instance change", () => {
+  // Regression guard for a measured P0, found twice.
+  //
+  // 1. `resilience.rateLimit()` stores its buckets in a module-level Map. Convex
+  //    function instances are ephemeral and independently scheduled, so that
+  //    counter resets on every cold start and is sidestepped by being routed to
+  //    a different instance: it stops double-clicks but does not limit an
+  //    attacker.
+  // 2. `ctx.storage` is not a substitute. Verified on the deployed backend, it
+  //    rejects arbitrary string keys:
+  //      "Invalid argument `storageId` for `storage.getMetadata`: Invalid
+  //       storage ID: \"rl:...\". Storage ID should be an Id of '_storage'
+  //       table, or a UUID string."
+  //
+  // Only a real TABLE is shared by every instance, so that is what both the
+  // chat path and the public diagnostic route must use.
+  it("the chat turn limit is table-backed, not an in-process Map", () => {
+    const src = read(join(CONVEX, "omiChat.ts"));
+    expect(src).toMatch(/consumeFromCtx\(/);
+    expect(src).toMatch(/"chat-turn"/);
+    // The old per-instance call must be gone from the chat path.
+    expect(src).not.toMatch(/rateLimit\(`chat:/);
+  });
+
+  it("the public diagnostic route is table-backed and cannot be an open proxy", () => {
+    const src = read(join(CONVEX, "http.ts"));
+    expect(src).toMatch(/consumeFromCtx\(/);
+    expect(src).toMatch(/"public-diagnostic"/);
+    expect(src).toMatch(/clientKeyFrom\(request\)/);
+    expect(src).toMatch(/429/);
+  });
+
+  it("the limiter counts in a table, and does not keep a local Map", () => {
+    const src = read(join(CONVEX, "rateLimits.ts"));
+    expect(src).toMatch(/rateLimitWindows/);
+    expect(src).toMatch(/internalMutation/);
+    expect(src).not.toMatch(/new Map\(/);
+  });
+
+  it("the counter table exists in the schema, keyed by limiter and caller", () => {
+    const schema = read(join(CONVEX, "schema.ts"));
+    expect(schema).toMatch(/rateLimitWindows: defineTable/);
+    expect(schema).toMatch(/by_name_key/);
+  });
+
+  it("a limiter failure is reported, never silently swallowed", () => {
+    const src = read(join(CONVEX, "rateLimits.ts"));
+    // Failing open is the right availability trade-off, but it must be visible
+    // or a no-op limiter looks exactly like a working one.
+    expect(src).toMatch(/degraded: true/);
+  });
 });
 
 describe("security — multi-tenant isolation fails closed (Phase 8)", () => {
