@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useKeyboardViewport } from "@/hooks/useKeyboardViewport";
 import { Link } from "react-router";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -217,6 +218,9 @@ export function WorkspaceShell({
   const [collapsed, setCollapsed] = useState(false);
   const [globalQuery, setGlobalQuery] = useState("");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  // Phase 2 — safe-area insets, so the top bar clears a notch and the bottom
+  // of the shell clears the Android gesture bar / iPhone home indicator.
+  const viewport = useKeyboardViewport();
 
   // Ctrl/Cmd + K focuses the global search input.
   useEffect(() => {
@@ -248,12 +252,15 @@ export function WorkspaceShell({
   }, [user]);
 
   return (
-    <div className="omi-ambient min-h-screen bg-background text-foreground">
-      <div className="flex min-h-screen">
+    <div
+      className="omi-ambient min-h-dvh bg-background text-foreground"
+      style={{ paddingTop: viewport.safeArea.top }}
+    >
+      <div className="flex min-h-dvh">
         {/* Sidebar (desktop) */}
         <aside
           className={cn(
-            "sticky top-0 hidden h-screen shrink-0 flex-col border-r border-sidebar-border bg-sidebar/80 backdrop-blur-xl transition-[width] duration-200 ease-out md:flex",
+            "sticky top-0 hidden h-dvh shrink-0 flex-col border-r border-sidebar-border bg-sidebar/80 backdrop-blur-xl transition-[width] duration-200 ease-out md:flex",
             collapsed ? "w-[68px]" : "w-[248px]",
           )}
         >
@@ -341,6 +348,7 @@ export function WorkspaceShell({
                 <SheetContent
                   side="left"
                   className="w-[268px] border-sidebar-border bg-sidebar p-0"
+                  style={{ paddingTop: viewport.safeArea.top, paddingBottom: viewport.safeArea.bottom }}
                 >
                   <SheetHeader className="px-4 pb-2 pt-5">
                     <SheetTitle className="flex items-center gap-3 text-left text-[13px] font-semibold tracking-[0.18em]">
@@ -496,7 +504,10 @@ export function WorkspaceShell({
           {/* Content */}
           <main className="flex-1 px-4 py-6 sm:px-6 lg:px-8">{children}</main>
 
-          <footer className="border-t border-border/60 px-4 py-4 text-center text-[11px] text-muted-foreground/70 sm:px-6">
+          <footer
+            className="border-t border-border/60 px-4 py-4 text-center text-[11px] text-muted-foreground/70 sm:px-6"
+            style={{ paddingBottom: Math.max(16, viewport.safeArea.bottom) }}
+          >
             Omi Universal AI · created by Mr. Omkar Prakash Bhatti ·{" "}
             <Link to="/" className="transition-colors hover:text-foreground">
               Ominnovations

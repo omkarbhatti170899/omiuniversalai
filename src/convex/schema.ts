@@ -662,6 +662,28 @@ const schema = defineSchema(
       .index("by_user", ["userId"])
       .index("by_user_kind", ["userId", "kind"]),
 
+    // Phase 11 observability — one row per subsystem event. Deliberately
+    // narrow: no prompt text, no document content, no secrets (the writer in
+    // omiTelemetry.ts redacts and truncates every field).
+    omiTelemetry: defineTable({
+      userId: v.optional(v.id("users")),
+      subsystem: v.string(),
+      event: v.string(),
+      ok: v.optional(v.boolean()),
+      ms: v.optional(v.number()),
+      code: v.optional(v.string()),
+      context: v.optional(v.record(v.string(), v.number())),
+      error: v.optional(v.string()),
+      // Shape of the user's prompt only — never the text itself.
+      prompt: v.optional(
+        v.object({ length: v.number(), words: v.number(), hash: v.string() }),
+      ),
+      createdAt: v.number(),
+    })
+      .index("by_user", ["userId"])
+      .index("by_subsystem", ["subsystem"])
+      .index("by_created", ["createdAt"]),
+
     // add other tables here
 
     // tableName: defineTable({

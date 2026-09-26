@@ -23,6 +23,8 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { classifyFailure, recoveryToast } from "@/lib/failureRecovery";
+import { recordSubsystemEvent } from "@/lib/observability";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import {
@@ -478,11 +480,19 @@ export function ImageStudioView({
           ),
         );
       } catch (e) {
-        const message = e instanceof Error ? e.message : "Upload failed.";
+        // Phase 9 — an upload failure gets WHAT HAPPENED + WHAT TO DO NEXT,
+        // and the chip keeps the detail so it is still readable after the
+        // toast disappears.
+        const recovery = classifyFailure({ dependency: "upload", error: e });
+        recordSubsystemEvent("image", "upload.failed", { code: recovery.code });
         setInputs((prev) =>
-          prev.map((i) => (i.key === key ? { ...i, status: "failed", error: message } : i)),
+          prev.map((i) =>
+            i.key === key
+              ? { ...i, status: "failed", error: `${recovery.whatHappened} ${recovery.whatToDoNext}` }
+              : i,
+          ),
         );
-        toast.error(message);
+        toast.error(recoveryToast(recovery), { duration: 7000 });
       }
     }
   };
@@ -530,11 +540,26 @@ export function ImageStudioView({
         ]);
         toast.success(`Rendered by ${res.provider} · ${res.model}`);
       } else {
-        setError(res.error);
+        // The provider returned a structured failure (every provider in the
+        // chain declined). Same treatment: what happened, what to do next.
+        const recovery = classifyFailure({
+          dependency: "image",
+          error: res.error,
+        });
+        recordSubsystemEvent("image", "request.declined", { code: recovery.code });
+        setError(`${recovery.whatHappened} ${recovery.whatToDoNext}`);
         setAttempts(res.attempts ?? []);
       }
     } catch (e) {
-      setError(e instanceof Error ? e.message : "The image request failed.");
+      // Phase 6/9 — never substitute an unrelated image for a failed one, and
+      // never leave the studio blank: explain and offer the next step.
+      const recovery = classifyFailure({ dependency: "image", error: e });
+      recordSubsystemEvent("image", "request.failed", {
+        code: recovery.code,
+        mode,
+        retryable: recovery.retryable,
+      });
+      setError(`${recovery.whatHappened} ${recovery.whatToDoNext}`);
     } finally {
       setRunning(false);
     }
@@ -547,7 +572,9 @@ export function ImageStudioView({
       if (resultId === id) setResultId(null);
       toast.success("Image deleted.");
     } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Couldn't delete that image.");
+      toast.error(
+        recoveryToast(classifyFailure({ dependency: "database", error: e })),
+      );
     }
   };
 
@@ -563,6 +590,8 @@ export function ImageStudioView({
       a.click();
       URL.revokeObjectURL(url);
     } catch {
+      // A cross-origin blob fetch can be blocked; falling back to a plain
+      // open is better than a dead button.
       window.open(image.url, "_blank", "noopener");
     }
   };

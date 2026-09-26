@@ -241,7 +241,22 @@ export const searchWeb = action({
 
 export const suggest = action({
   args: { query: v.string() },
-  handler: async (_ctx, { query }) => {
+  handler: async (ctx, { query }) => {
+    // Phase 8 — this action fans out to a third-party search API. It was
+    // reachable without a session and without a rate limit, which made it an
+    // open relay: anyone could loop it and burn the shared free-tier quota.
+    // Every other costly path in the product is already gated, and this one
+    // now matches them.
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) throw new Error("Sign in first.");
+
+    const rl = rateLimit(`suggest:${userId}`, 30);
+    if (!rl.ok) {
+      throw new Error(
+        `Too many suggestions — retry in ${Math.ceil(rl.retryAfterMs / 1000)}s.`,
+      );
+    }
+
     const q = query.trim().slice(0, 100);
     if (q.length < 2) return { suggestions: [] as string[] };
     const suggestions = await searxSuggestions(q);

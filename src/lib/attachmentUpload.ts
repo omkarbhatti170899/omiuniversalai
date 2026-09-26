@@ -81,7 +81,57 @@ export function validateForUpload(f: File): { ok: true } | { ok: false; error: s
         : `"${f.name}" is too large — Omi reads files up to 2 MB.`,
     };
   }
+  // Phase 9 — reject an unsupported type HERE, with the same answer the
+  // server would give, so the user learns it immediately instead of after an
+  // upload round-trip. The server check (omiFiles.ts) is the real gate; this
+  // one is UX, and the two lists are kept identical on purpose.
+  if (!isSupportedUpload(f)) {
+    return {
+      ok: false,
+      error: `Omi reads text-based files (txt, md, csv, json, html, code), Word (.docx), Excel (.xlsx), text-based PDFs and images. "${f.name}" isn't supported yet.`,
+    };
+  }
   return { ok: true };
+}
+
+/** Mime types the server accepts for a non-image upload. */
+const ALLOWED_UPLOAD_TYPES = new Set([
+  "application/json",
+  "application/xml",
+  "application/x-yaml",
+  "application/yaml",
+  "application/x-sh",
+  "application/javascript",
+  "application/typescript",
+]);
+
+/** Extensions the server accepts (mirrors TEXTUAL_NAME_RE in omiFiles.ts). */
+const ALLOWED_UPLOAD_EXTENSIONS = new Set([
+  "txt", "md", "markdown", "csv", "tsv", "json", "log", "html", "htm", "xml",
+  "yml", "yaml", "ts", "tsx", "js", "jsx", "py", "sh", "sql", "pdf", "docx",
+  "xlsx",
+]);
+
+const ALLOWED_IMAGE_MIMES = new Set([
+  "image/png",
+  "image/jpeg",
+  "image/webp",
+  "image/gif",
+]);
+
+/** True when the server would accept this file. Never widens the server rule. */
+export function isSupportedUpload(f: File): boolean {
+  const mime = (f.type ?? "").toLowerCase();
+  const ext = f.name.toLowerCase().split(".").pop() ?? "";
+  if (ALLOWED_IMAGE_MIMES.has(mime)) return true;
+  if (ALLOWED_UPLOAD_TYPES.has(mime)) return true;
+  if (mime.startsWith("text/")) return true;
+  // An empty mime is common for code files dragged from a file manager; the
+  // extension is the honest signal in that case, and the server re-checks.
+  if (mime === "" || mime === "application/octet-stream") {
+    return ALLOWED_UPLOAD_EXTENSIONS.has(ext);
+  }
+  return ALLOWED_UPLOAD_EXTENSIONS.has(ext);
 }
 
 /**

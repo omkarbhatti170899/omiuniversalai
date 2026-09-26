@@ -8,6 +8,10 @@ import { getAuthUserId } from "@convex-dev/auth/server";
 import { rateLimit } from "./searchEngine/resilience";
 import { completeStream, hasAiProvider } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
+// Phase 9 — one recovery contract for every user-visible failure, shared with
+// the client so the wording cannot drift between surfaces.
+import { classifyFailure } from "../lib/failureRecovery";
+import { summarize } from "../lib/observability";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
 import { decideSearch, extractUrl } from "./searchEngine/decision";
 import {
@@ -746,9 +750,20 @@ async function runTurn(
     }
 
     if (!content) {
-      // Never leave a streaming message stuck: finalize honestly.
+      // Never leave a streaming message stuck: finalize honestly, with the
+      // same WHAT HAPPENED / WHAT TO DO NEXT shape as every other failure.
+      const recovery = classifyFailure({
+        dependency: "ai",
+        error: "empty answer from the AI layer",
+      });
+      await recordTurn(ctx, {
+        subsystem: "ai",
+        event: "empty_answer",
+        ok: false,
+        code: recovery.code,
+      });
       await patchStreaming({
-        content: "I hit an empty answer from the AI layer. Please try again.",
+        content: `${recovery.whatHappened} ${recovery.whatToDoNext}`,
         status: "final",
       });
       return { userMessageId, omiMessageId, emotion: emotionSummary };
@@ -761,11 +776,56 @@ async function runTurn(
     return { userMessageId, omiMessageId, emotion: emotionSummary };
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
+    // Phase 9/11 — the user gets WHAT HAPPENED + WHAT TO DO NEXT, never a raw
+    // provider or stack message pasted into the transcript, and the operator
+    // gets a redacted, content-free telemetry row.
+    const recovery = classifyFailure({ dependency: "ai", error: message });
+    await recordTurn(ctx, {
+      subsystem: "ai",
+      event: "turn.failed",
+      ok: false,
+      code: recovery.code,
+      error: message,
+      prompt: summarize(typeof trimmed === "string" ? trimmed : ""),
+    });
     await patchStreaming({
-      content: `Something went wrong mid-answer: ${message.slice(0, 200)}`,
+      content: `${recovery.whatHappened} ${recovery.whatToDoNext}`,
       status: "final",
     });
     throw e;
+  }
+}
+
+/**
+ * Best-effort telemetry write. Telemetry must never turn a handled error into
+ * a second, more confusing one, so any failure here is swallowed.
+ */
+async function recordTurn(
+  ctx: ActionCtx,
+  row: {
+    subsystem: string;
+    event: string;
+    ok?: boolean;
+    ms?: number;
+    code?: string;
+    error?: string;
+    prompt?: { length: number; words: number; hash: string };
+  },
+): Promise<void> {
+  try {
+    const userId = await getAuthUserId(ctx);
+    await ctx.runMutation(internal.omiTelemetry.record, {
+      userId: userId ?? undefined,
+      subsystem: row.subsystem,
+      event: row.event,
+      ok: row.ok,
+      ms: row.ms,
+      code: row.code,
+      error: row.error,
+      prompt: row.prompt,
+    });
+  } catch {
+    /* observability is best-effort and must never surface to a user */
   }
 }
 

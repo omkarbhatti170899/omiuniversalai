@@ -44,7 +44,7 @@ import {
   Volume2,
   X,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { useSpeechOutput } from "@/hooks/useSpeechOutput";
 import { useConvexClient } from "@/hooks/useConvexClient";
@@ -65,6 +65,16 @@ import {
   PROGRESS_STAGES,
   stageForStatus,
 } from "@/lib/answerShape";
+import {
+  composerBottomInset,
+  initialThreadBudget,
+  nextThreadBudget,
+  threadHeightFor,
+  windowThread,
+} from "@/lib/mobileLayout";
+import { useKeyboardViewport } from "@/hooks/useKeyboardViewport";
+import { classifyFailure, recoveryToast } from "@/lib/failureRecovery";
+import { recordSubsystemEvent, summarize } from "@/lib/observability";
 import { cn } from "@/lib/utils";
 
 type OmiMessage = {
@@ -126,6 +136,19 @@ export function OmiAssistantPanel({
       : visibleConversations[0]?._id ?? null;
 
   const [draft, setDraft] = useState(initialDraft ?? "");
+  // Phase 2 — the on-screen keyboard inset, the device class and the safe
+  // areas. The composer is positioned against these, not against guessed
+  // breakpoints, so it is never hidden behind the Android keyboard or the
+  // home indicator.
+  const viewport = useKeyboardViewport();
+  // Phase 3 — a 50+ message thread is windowed so first paint and every
+  // streaming tick stay cheap. The budget grows on demand via "show earlier".
+  const [threadBudget, setThreadBudget] = useState(() =>
+    initialThreadBudget(typeof window === "undefined" ? 1440 : window.innerWidth),
+  );
+  const threadRef = useRef<HTMLDivElement>(null);
+  /** True while the user is at the bottom, so auto-scroll never fights them. */
+  const stickToBottom = useRef(true);
   const [isSending, setIsSending] = useState(false);
   const [memoryOpen, setMemoryOpen] = useState(false);
   const [memoryDraft, setMemoryDraft] = useState("");
@@ -277,6 +300,7 @@ export function OmiAssistantPanel({
     setIsSending(true);
     const ready = attachments.filter((a) => a.state === "ready");
     const documentIds = ready.map((a) => a.documentId as never);
+    const startedAt = Date.now();
     try {
       const result = await sendMessage({
         conversationId: convId,
@@ -292,8 +316,23 @@ export function OmiAssistantPanel({
         for (const a of prev) if (a.previewUrl) URL.revokeObjectURL(a.previewUrl);
         return [];
       });
+      // Phase 11 — latency, never the prompt text itself.
+      recordSubsystemEvent("ai", "answer", {
+        ms: Date.now() - startedAt,
+        attachments: ready.length,
+        prompt: summarize(text),
+      });
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Omi couldn't respond.");
+      // Phase 9 — every failure gets WHAT HAPPENED + WHAT TO DO NEXT.
+      const recovery = classifyFailure({ dependency: "ai", error: err });
+      recordSubsystemEvent("ai", "answer.failed", {
+        ms: Date.now() - startedAt,
+        code: recovery.code,
+        retryable: recovery.retryable,
+        error: err instanceof Error ? err.message : String(err),
+      });
+      toast.error(recoveryToast(recovery), { duration: 7000 });
+      // The draft is deliberately NOT cleared, so a retry needs no retyping.
     } finally {
       setIsSending(false);
     }
@@ -323,7 +362,9 @@ export function OmiAssistantPanel({
       const result = await regenerate({ conversationId: convId });
       setLastEmotion(result?.emotion ?? null);
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Omi couldn't regenerate.");
+      const recovery = classifyFailure({ dependency: "ai", error: err });
+      recordSubsystemEvent("ai", "regenerate.failed", { code: recovery.code });
+      toast.error(recoveryToast(recovery), { duration: 7000 });
     } finally {
       setRegenerating(false);
     }
@@ -387,10 +428,76 @@ export function OmiAssistantPanel({
         const remaining = (conversations ?? []).filter((c) => c._id !== id);
         setActiveId(remaining.length > 0 ? remaining[0]._id : null);
       }
-    } catch {
-      toast.error("Couldn't delete conversation.");
+    } catch (err) {
+      toast.error(
+        recoveryToast(classifyFailure({ dependency: "database", error: err })),
+      );
     }
   };
+
+  // --- Phase 3 — long-conversation windowing -------------------------------
+
+  // Memoized, not inline: `(messages ?? [])` allocates a new array every
+  // render, which would invalidate the windowing and lastOmiId memos below on
+  // every single render — including every streaming token.
+  const allMessages = useMemo(
+    () => (messages ?? []) as OmiMessage[],
+    [messages],
+  );
+  // A streaming reply is pinned: windowing it out would make a live stream
+  // look frozen, which is the worst possible symptom in a chat.
+  const streamingId = allMessages.find((m) => m.status === "streaming")?._id;
+  const windowed = useMemo(
+    () =>
+      windowThread<OmiMessage>({
+        messages: allMessages,
+        budget: threadBudget,
+        keyOf: (m) => m._id,
+        pinnedKeys: streamingId ? [streamingId] : [],
+      }),
+    [allMessages, threadBudget, streamingId],
+  );
+  // `isLast` decides which reply shows the Regenerate action, and it must be
+  // computed against the FULL thread, not the rendered slice.
+  const lastOmiId = useMemo(() => {
+    for (let i = allMessages.length - 1; i >= 0; i--) {
+      if (allMessages[i].role === "omi") return allMessages[i]._id;
+    }
+    return null;
+  }, [allMessages]);
+
+  // Auto-scroll only while the user is already at the bottom. Yanking the
+  // view down while they are reading earlier messages is a classic chat bug.
+  useEffect(() => {
+    const el = threadRef.current;
+    if (!el || !stickToBottom.current) return;
+    el.scrollTop = el.scrollHeight;
+  }, [windowed.rendered, viewport.inset]);
+
+  const onThreadScroll = useCallback(() => {
+    const el = threadRef.current;
+    if (!el) return;
+    const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
+    stickToBottom.current = distance < 80;
+  }, []);
+
+  const showEarlier = useCallback(() => {
+    const el = threadRef.current;
+    const prevHeight = el?.scrollHeight ?? 0;
+    setThreadBudget((b) => nextThreadBudget(b, viewport.isNarrow ? 390 : window.innerWidth));
+    // Preserve the reading position: the scroll container grew upwards, so
+    // restore the previous height difference on the next paint.
+    requestAnimationFrame(() => {
+      if (el) el.scrollTop = el.scrollHeight - prevHeight;
+      stickToBottom.current = false;
+    });
+  }, [viewport.isNarrow]);
+
+  const threadMaxHeight =
+    viewport.isNarrow || viewport.open
+      ? threadHeightFor({ viewportHeight: window.innerHeight, keyboardInset: viewport.inset })
+      : undefined;
+  const composerInset = composerBottomInset(viewport.safeArea.bottom, viewport.inset);
 
   return (
     <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
@@ -510,7 +617,12 @@ export function OmiAssistantPanel({
         </CardHeader>
 
         <CardContent className="flex flex-1 flex-col">
-          <div className="flex-1 space-y-4 overflow-y-auto pr-1">
+          <div
+            ref={threadRef}
+            onScroll={onThreadScroll}
+            className="omi-scroll flex-1 space-y-4 overflow-y-auto pr-1"
+            style={threadMaxHeight ? { maxHeight: threadMaxHeight } : undefined}
+          >
             {messages === undefined && selectedConversationId ? (
               <div className="space-y-3">
                 <Skeleton className="h-12 w-3/4" />
@@ -550,15 +662,29 @@ export function OmiAssistantPanel({
                 </div>
               </div>
             ) : (
-              (messages as OmiMessage[]).map((m, idx, arr) => (
+              <>
+                {windowed.hasEarlier && (
+                  <div className="flex justify-center pb-1">
+                    <button
+                      type="button"
+                      onClick={showEarlier}
+                      className="cursor-pointer rounded-full border border-border/60 bg-muted/30 px-3.5 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                    >
+                      Show {Math.min(50, windowed.hiddenCount)} earlier message
+                      {windowed.hiddenCount > 50 ? "s" : ""}
+                    </button>
+                  </div>
+                )}
+                {windowed.rendered.map((m) => (
                 <motion.div
                   key={m._id}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className={
-                    m.role === "user" ? "flex justify-end" : "flex justify-start"
-                  }
+                  className={cn(
+                    "omi-windowed",
+                    m.role === "user" ? "flex justify-end" : "flex justify-start",
+                  )}
                 >
                   <div
                     className={`max-w-[88%] rounded-2xl border px-4 py-3 text-sm leading-relaxed sm:max-w-[80%] ${
@@ -680,7 +806,7 @@ export function OmiAssistantPanel({
                             )}
                           </button>
                         )}
-                        {idx === arr.length - 1 && (
+                        {m._id === lastOmiId && (
                           <button
                             type="button"
                             disabled={isSending || regenerating}
@@ -703,12 +829,18 @@ export function OmiAssistantPanel({
                     )}
                   </div>
                 </motion.div>
-              ))
+                ))}
+              </>
             )}
           </div>
 
           <div
             className="mt-4 border-t border-border/60 pt-4"
+            style={
+              viewport.isNarrow
+                ? { paddingBottom: Math.max(composerInset, 8) }
+                : undefined
+            }
             onDragOver={(e) => {
               if (e.dataTransfer.types.includes("Files")) {
                 e.preventDefault();
@@ -816,9 +948,10 @@ export function OmiAssistantPanel({
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 placeholder="Ask Omi anything — or drop files here"
-                className="omi-composer-input min-h-16 resize-y border-0 bg-transparent focus-visible:ring-0"
+                className="omi-composer-input min-h-16 resize-y border-0 bg-transparent text-base focus-visible:ring-0 sm:text-sm"
                 maxLength={4000}
                 aria-label="Message Omi"
+                enterKeyHint="send"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
                     e.preventDefault();
@@ -839,7 +972,7 @@ export function OmiAssistantPanel({
                 />
                 <button
                   type="button"
-                  className="flex size-9 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  className="flex size-11 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40 sm:size-9"
                   title="Attach files or images (read on-device, stored privately)"
                   aria-label="Attach files or images"
                   disabled={isSending || attachments.length >= MAX_ATTACHMENTS}
@@ -851,7 +984,7 @@ export function OmiAssistantPanel({
                   <button
                     type="button"
                     className={cn(
-                      "flex size-9 cursor-pointer items-center justify-center rounded-lg transition-colors",
+                      "flex size-11 cursor-pointer items-center justify-center rounded-lg transition-colors sm:size-9",
                       voice.listening
                         ? "bg-primary/15 text-primary"
                         : "text-muted-foreground hover:bg-muted hover:text-foreground",

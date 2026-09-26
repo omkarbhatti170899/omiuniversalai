@@ -2,19 +2,84 @@ import { WorkspaceShell } from "@/components/workspace/WorkspaceShell";
 import type { WorkspaceView } from "@/components/workspace/WorkspaceShell";
 import { HomeView } from "@/components/workspace/HomeView";
 import { MemoryView } from "@/components/workspace/MemoryView";
-import { KnowledgeView } from "@/components/workspace/KnowledgeView";
-import { KnowledgeIntelligenceView } from "@/components/workspace/KnowledgeIntelligenceView";
-import { FilesView } from "@/components/workspace/FilesView";
-import { ProjectsView } from "@/components/workspace/ProjectsView";
-import { SettingsView } from "@/components/workspace/SettingsView";
-import { EmotionsView } from "@/components/workspace/EmotionsView";
-import { AutomationView } from "@/components/workspace/AutomationView";
-import { ImageStudioView } from "@/components/workspace/ImageStudioView";
 import { OmiSearchPanel } from "@/components/OmiSearchPanel";
-import { OmiAssistantPanel } from "@/components/OmiAssistantPanel";
-import { OmiAgentsPanel } from "@/components/OmiAgentsPanel";
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
+import { Loader2 } from "lucide-react";
 import type { Id } from "@/convex/_generated/dataModel";
+
+/**
+ * Phase 3 — code splitting by view.
+ *
+ * Only Home ships in the dashboard entry chunk. Every other workspace surface
+ * is fetched the first time it is opened, so signing in and landing on Home
+ * no longer downloads the image studio, the knowledge intelligence console,
+ * the agents panel and the automation view up front. The user pays for a view
+ * only when they ask for it — functionality is not reduced, only deferred.
+ */
+const KnowledgeView = lazy(() =>
+  import("@/components/workspace/KnowledgeView").then((m) => ({
+    default: m.KnowledgeView,
+  })),
+);
+const KnowledgeIntelligenceView = lazy(() =>
+  import("@/components/workspace/KnowledgeIntelligenceView").then((m) => ({
+    default: m.KnowledgeIntelligenceView,
+  })),
+);
+const FilesView = lazy(() =>
+  import("@/components/workspace/FilesView").then((m) => ({ default: m.FilesView })),
+);
+const ProjectsView = lazy(() =>
+  import("@/components/workspace/ProjectsView").then((m) => ({
+    default: m.ProjectsView,
+  })),
+);
+const SettingsView = lazy(() =>
+  import("@/components/workspace/SettingsView").then((m) => ({
+    default: m.SettingsView,
+  })),
+);
+const EmotionsView = lazy(() =>
+  import("@/components/workspace/EmotionsView").then((m) => ({
+    default: m.EmotionsView,
+  })),
+);
+const AutomationView = lazy(() =>
+  import("@/components/workspace/AutomationView").then((m) => ({
+    default: m.AutomationView,
+  })),
+);
+const ImageStudioView = lazy(() =>
+  import("@/components/workspace/ImageStudioView").then((m) => ({
+    default: m.ImageStudioView,
+  })),
+);
+const OmiAssistantPanel = lazy(() =>
+  import("@/components/OmiAssistantPanel").then((m) => ({
+    default: m.OmiAssistantPanel,
+  })),
+);
+const OmiAgentsPanel = lazy(() =>
+  import("@/components/OmiAgentsPanel").then((m) => ({ default: m.OmiAgentsPanel })),
+);
+
+/**
+ * The one loading affordance for the whole workspace: a real spinner with a
+ * spoken status, not a skeleton that mimics content and jumps when the real
+ * layout arrives.
+ */
+function ViewFallback({ label }: { label: string }) {
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      className="flex min-h-[60vh] flex-col items-center justify-center gap-3 text-muted-foreground"
+    >
+      <Loader2 className="size-5 animate-spin text-primary" />
+      <p className="text-sm">Loading {label}…</p>
+    </div>
+  );
+}
 
 export default function Dashboard() {
   const [view, setView] = useState<WorkspaceView>("home");
@@ -66,77 +131,97 @@ export default function Dashboard() {
       onNavigate={navigate}
       onSearchSubmit={handleSearchSubmit}
     >
-      {view === "home" && (
-        <HomeView
-          onNavigate={navigate}
-          onAskOmi={handleAskOmi}
-          onOpenImageStudio={openImageStudio}
-        />
-      )}
-
-      {view === "image" && (
-        <ImageStudioView key={imageMode} initialMode={imageMode} />
-      )}
-
-      {view === "chat" && (
-        <div className="mx-auto max-w-5xl">
-          <OmiAssistantPanel
-            initialDraft={assistantDraft}
-            projectId={chatProjectId}
+      <Suspense fallback={<ViewFallback label={VIEW_FALLBACK_LABELS[view]} />}>
+        {view === "home" && (
+          <HomeView
+            onNavigate={navigate}
+            onAskOmi={handleAskOmi}
+            onOpenImageStudio={openImageStudio}
           />
-        </div>
-      )}
+        )}
 
-      {view === "projects" && (
-        <ProjectsView
-          onChatInProject={(projectId) => {
-            setChatProjectId(projectId);
-            setAssistantDraft(undefined);
-            setView("chat");
-          }}
-        />
-      )}
+        {view === "image" && (
+          <ImageStudioView key={imageMode} initialMode={imageMode} />
+        )}
 
-      {view === "agents" && (
-        <div className="mx-auto max-w-5xl">
-          <OmiAgentsPanel />
-        </div>
-      )}
+        {view === "chat" && (
+          <div className="mx-auto max-w-5xl">
+            <OmiAssistantPanel
+              initialDraft={assistantDraft}
+              projectId={chatProjectId}
+            />
+          </div>
+        )}
 
-      {view === "research" && (
-        <div className="mx-auto max-w-4xl">
-          <OmiSearchPanel initialQuery={searchQuery} />
-        </div>
-      )}
+        {view === "projects" && (
+          <ProjectsView
+            onChatInProject={(projectId) => {
+              setChatProjectId(projectId);
+              setAssistantDraft(undefined);
+              setView("chat");
+            }}
+          />
+        )}
 
-      {view === "search" && (
-        <div className="mx-auto max-w-4xl">
-          <OmiSearchPanel initialQuery={searchQuery} />
-        </div>
-      )}
+        {view === "agents" && (
+          <div className="mx-auto max-w-5xl">
+            <OmiAgentsPanel />
+          </div>
+        )}
 
-      {view === "memory" && <MemoryView />}
+        {view === "research" && (
+          <div className="mx-auto max-w-4xl">
+            <OmiSearchPanel initialQuery={searchQuery} />
+          </div>
+        )}
 
-      {view === "knowledge" && <KnowledgeView />}
-      {view === "knowledge-intelligence" && <KnowledgeIntelligenceView />}
+        {view === "search" && (
+          <div className="mx-auto max-w-4xl">
+            <OmiSearchPanel initialQuery={searchQuery} />
+          </div>
+        )}
 
-      {view === "files" && <FilesView />}
+        {view === "memory" && <MemoryView />}
 
-      {view === "emotions" && (
-        <div className="mx-auto max-w-4xl">
-          <EmotionsView />
-        </div>
-      )}
+        {view === "knowledge" && <KnowledgeView />}
+        {view === "knowledge-intelligence" && <KnowledgeIntelligenceView />}
 
-      {view === "tasks" && (
-        <div className="mx-auto max-w-5xl">
-          <OmiAgentsPanel />
-        </div>
-      )}
+        {view === "files" && <FilesView />}
 
-      {view === "automation" && <AutomationView />}
+        {view === "emotions" && (
+          <div className="mx-auto max-w-4xl">
+            <EmotionsView />
+          </div>
+        )}
 
-      {view === "settings" && <SettingsView />}
+        {view === "tasks" && (
+          <div className="mx-auto max-w-5xl">
+            <OmiAgentsPanel />
+          </div>
+        )}
+
+        {view === "automation" && <AutomationView />}
+
+        {view === "settings" && <SettingsView />}
+      </Suspense>
     </WorkspaceShell>
   );
 }
+
+const VIEW_FALLBACK_LABELS: Record<WorkspaceView, string> = {
+  home: "Home",
+  chat: "Chat with Omi",
+  image: "Image Studio",
+  projects: "Projects",
+  agents: "Agents",
+  research: "Research",
+  knowledge: "Knowledge",
+  "knowledge-intelligence": "Knowledge AI",
+  memory: "Memory",
+  files: "Files",
+  tasks: "Tasks",
+  automation: "Automation",
+  emotions: "Emotions AI",
+  search: "Andromeda",
+  settings: "Settings",
+};

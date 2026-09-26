@@ -26,6 +26,8 @@ import {
 } from "lucide-react";
 import { ShieldCheck, Workflow } from "lucide-react";
 import { useState } from "react";
+import { classifyFailure, recoveryToast } from "@/lib/failureRecovery";
+import { recordSubsystemEvent, summarize } from "@/lib/observability";
 
 // --- Andromeda full-pipeline card (deep research mode) -----------------------
 
@@ -63,14 +65,24 @@ function AndromedaPipelineCard() {
     if (running || question.trim().length < 8) return;
     setRunning(true);
     setResult(null);
+    const startedAt = Date.now();
     try {
       const r = (await research({
         query: question.trim(),
         focus: focus.trim() || undefined,
       })) as PipelineResult;
       setResult(r);
+      // Phase 11 — never the query text, only its shape.
+      recordSubsystemEvent("search", "research", {
+        ms: Date.now() - startedAt,
+        query: summarize(question),
+        citations: r?.citations?.length ?? 0,
+      });
     } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Andromeda research failed.");
+      // Phase 7/9 — a failed search must never read like a verified answer.
+      const recovery = classifyFailure({ dependency: "search", error: e });
+      recordSubsystemEvent("search", "research.failed", { code: recovery.code });
+      toast.error(recoveryToast(recovery), { duration: 7000 });
     } finally {
       setRunning(false);
     }
@@ -348,12 +360,17 @@ export function OmiSearchPanel({
   const handleSearch = async () => {
     if (query.trim().length < 2 || isSearching) return;
     setIsSearching(true);
+    const startedAt = Date.now();
     try {
       await searchWeb({ query });
+      recordSubsystemEvent("search", "web", {
+        ms: Date.now() - startedAt,
+        query: summarize(query),
+      });
     } catch (err) {
-      toast.error(
-        err instanceof Error ? err.message : "Omi Search failed. Try again.",
-      );
+      const recovery = classifyFailure({ dependency: "search", error: err });
+      recordSubsystemEvent("search", "web.failed", { code: recovery.code });
+      toast.error(recoveryToast(recovery), { duration: 7000 });
     } finally {
       setIsSearching(false);
     }
@@ -363,8 +380,10 @@ export function OmiSearchPanel({
     try {
       await removeSearch({ id });
       toast("Search removed.");
-    } catch {
-      toast.error("Couldn't remove that search.");
+    } catch (err) {
+      toast.error(
+        recoveryToast(classifyFailure({ dependency: "database", error: err })),
+      );
     }
   };
 
