@@ -10,6 +10,143 @@ import type {
   CompletionResult,
 } from "../../lib/vly-integrations";
 
+/**
+ * Combine a caller's cancel signal with the provider deadline, without
+ * depending on `AbortSignal.any` (not available on every runtime we target).
+ * Aborting the returned controller aborts the underlying fetch.
+ */
+function combineSignals(
+  external: AbortSignal | undefined,
+  timeoutMs: number,
+): { signal: AbortSignal; timeout: AbortSignal } {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  if (!external) return { signal: timeout, timeout };
+  const controller = new AbortController();
+  const onAbort = () => controller.abort();
+  if (external.aborted || timeout.aborted) {
+    controller.abort();
+  } else {
+    external.addEventListener("abort", onAbort, { once: true });
+    timeout.addEventListener("abort", onAbort, { once: true });
+  }
+  return { signal: controller.signal, timeout };
+}
+
+/** Outcome of one streaming attempt. Never throws. */
+export type StreamOutcome = {
+  success: boolean;
+  /** Text accumulated so far (partial text is preserved on abort/failure). */
+  content: string;
+  /** True when at least one token reached the caller. */
+  emitted: boolean;
+  /** True when the caller's cancel signal stopped the stream. */
+  aborted: boolean;
+  error?: string;
+};
+
+/**
+ * Streaming variant of the OpenAI-compatible transport: reads the SSE body
+ * token by token and hands each delta to `onToken`. Partial text survives a
+ * mid-stream failure or a user Stop, which is what lets the chat layer show
+ * honest progressive output instead of discarding work or hanging.
+ */
+export async function openAiCompatibleStream(
+  url: string,
+  apiKey: string,
+  model: string,
+  req: CompletionRequest,
+  label: string,
+  onToken: (delta: string, full: string) => void | Promise<void>,
+  external?: AbortSignal,
+): Promise<StreamOutcome> {
+  const timeoutMs = Number(process.env.AI_PROVIDER_TIMEOUT_MS ?? 45_000);
+  const { signal } = combineSignals(external, timeoutMs);
+  let full = "";
+  let emitted = false;
+
+  const finish = (over: Partial<StreamOutcome>): StreamOutcome => ({
+    success: over.success ?? false,
+    content: full,
+    emitted,
+    aborted: over.aborted ?? false,
+    ...(over.error ? { error: over.error } : {}),
+  });
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+        Accept: "text/event-stream",
+      },
+      body: JSON.stringify({
+        model,
+        messages: req.messages,
+        temperature: req.temperature,
+        max_tokens: req.maxTokens,
+        stream: true,
+      }),
+      signal,
+    });
+
+    if (!res.ok || !res.body) {
+      const bodyText = await res.text().catch(() => "");
+      return finish({
+        error: `${label} error ${res.status}: ${bodyText.slice(0, 160)}`,
+      });
+    }
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    stream: for (;;) {
+      if (external?.aborted) break;
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      // Keep the last (possibly incomplete) line for the next chunk.
+      buffer = lines.pop() ?? "";
+      for (const line of lines) {
+        // A Stop must not wait for buffered tokens to drain.
+        if (external?.aborted) break stream;
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data:")) continue;
+        const data = trimmed.slice(5).trim();
+        if (data.length === 0 || data === "[DONE]") continue;
+        try {
+          const json = JSON.parse(data) as {
+            choices?: Array<{ delta?: { content?: string } }>;
+          };
+          const delta = json.choices?.[0]?.delta?.content;
+          if (typeof delta === "string" && delta.length > 0) {
+            full += delta;
+            emitted = true;
+            await onToken(delta, full);
+            if (external?.aborted) break stream;
+          }
+        } catch {
+          // A malformed / keep-alive SSE line is not a stream failure.
+        }
+      }
+    }
+
+    if (external?.aborted) return finish({ success: true, aborted: true });
+    return finish({ success: true });
+  } catch (e) {
+    const raw = e instanceof Error ? e.message : String(e);
+    // A user Stop surfaces as an AbortError — report it as a clean stop, not
+    // a provider failure, and keep whatever was already streamed.
+    if (external?.aborted) return finish({ success: true, aborted: true });
+    const msg = /abort|timeout|timed out/i.test(raw)
+      ? `${label} timed out after ${Math.round(timeoutMs / 1000)}s`
+      : `${label} failed: ${raw}`;
+    return finish({ error: msg });
+  }
+}
+
 export async function openAiCompatibleCompletion(
   url: string,
   apiKey: string,

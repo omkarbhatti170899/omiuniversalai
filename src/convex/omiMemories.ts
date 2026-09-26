@@ -67,6 +67,26 @@ export const remove = mutation({
   },
 });
 
+/**
+ * "Clear all" — deletes every memory the signed-in user owns in one action.
+ * Scoped strictly to the caller's own rows (the by_user index), so one user's
+ * wipe can never touch another user's memory. Returns the number removed.
+ */
+export const clearAll = mutation({
+  args: {},
+  handler: async (ctx) => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) throw new Error("Not authenticated");
+
+    const mine = await ctx.db
+      .query("omiMemories")
+      .withIndex("by_user", (q) => q.eq("userId", userId))
+      .collect();
+    for (const m of mine) await ctx.db.delete(m._id);
+    return mine.length;
+  },
+});
+
 /** Internal create used by the OMI tool executor (memory_save tool). */
 export const createInternal = internalMutation({
   args: {

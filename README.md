@@ -6,7 +6,7 @@ Omi is a provider-neutral AI workspace built with React, Vite, Tailwind CSS, sha
 
 The web application and Convex development deployment build successfully. Core provider routing, Gemini fallback, Andromeda search, image generation, vision, Human Emotions AI, file extraction, memory isolation, workflow approvals, PWA behavior, and security contracts are covered by automated tests.
 
-Two requested chat capabilities are not implemented: token streaming and per-message regenerate. Image editing is implemented but currently blocked by upstream provider quota/credit failures. Signed-in journeys and native Android behavior still require a real account/device and Android SDK. See [`docs/final-completion-report.md`](docs/final-completion-report.md) for the exact readiness assessment.
+Token streaming, Stop, and per-message Regenerate/Retry are implemented through the provider-neutral router, with fallback-safe streaming (a provider that fails before emitting is skipped; one that emits is committed). A dark/light/system theme system is wired through `next-themes` and persists the user's choice. Image editing is implemented but currently blocked by upstream provider quota/credit failures. Signed-in end-to-end journeys and native Android behavior still require a real account/device and Android SDK. See [`docs/final-completion-report.md`](docs/final-completion-report.md) for the exact feature-by-feature readiness assessment.
 
 ## Architecture
 

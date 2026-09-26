@@ -6,7 +6,7 @@ import { internal } from "./_generated/api";
 import { getAuthUserId } from "@convex-dev/auth/server";
 // Per-user request limiting (shared implementation with search/files/images).
 import { rateLimit } from "./searchEngine/resilience";
-import { complete, hasAiProvider } from "./aiProviders";
+import { completeStream, hasAiProvider } from "./aiProviders";
 import { friendlyAiError } from "./aiErrors";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
 import { decideSearch, extractUrl } from "./searchEngine/decision";
@@ -46,6 +46,19 @@ Rules:
 ${creatorIdentityBlock()}`;
 
 type ChatMsg = { role: "system" | "user" | "assistant"; content: string };
+
+/** The public shape every chat turn (send OR regenerate) returns to the UI. */
+export type ChatTurnResult = {
+  userMessageId: string;
+  omiMessageId: string;
+  emotion?: {
+    emotion: string;
+    confidence: number;
+    sentiment: string;
+    urgency: string;
+    source: string;
+  };
+};
 
 // --- Chat attachments (PRIORITY 1 — multimodal) -----------------------------
 
@@ -174,123 +187,138 @@ function splitReasoning(raw: string): { content: string; reasoning: string } {
   };
 }
 
-export const send = action({
-  args: {
-    conversationId: v.id("omiConversations"),
-    message: v.string(),
-    /** Knowledge-document IDs (already ingested via Files) attached this turn. */
-    documentIds: v.optional(v.array(v.id("omiDocuments"))),
-  },
-  handler: async (
-    ctx,
-    { conversationId, message, documentIds },
-  ): Promise<{
-    userMessageId: string;
-    omiMessageId: string;
-    /**
-     * The emotional read behind this reply, when emotion-aware mode is on.
-     * Returned to the client for a transient, honest "this is an inference"
-     * indicator — deliberately NOT written to any durable record unless the
-     * user opted into emotion history.
-     */
-    emotion?: {
-      emotion: string;
-      confidence: number;
-      sentiment: string;
-      urgency: string;
-      source: string;
-    };
-  }> => {
-    const userId = await getAuthUserId(ctx);
-    if (userId === null) throw new Error("Sign in to talk with Omi.");
+/**
+ * One complete chat turn: grounding + streaming completion + persistence.
+ *
+ * Shared by `send` (a new user message) and `regenerate` (re-run of the last
+ * user message) so the two paths can never drift — the streaming, stop and
+ * fallback behaviour is identical for both.
+ *
+ * Streaming contract: tokens are flushed onto the SAME `omiMessages` document
+ * the client is already subscribed to (throttled to ~14/s so a fast provider
+ * cannot produce a mutation storm), so the UI renders real token-by-token
+ * output against the reactive query. The document is always finalized — an
+ * error, an empty answer, or a Stop can never leave it stuck in "streaming".
+ */
+async function runTurn(
+  ctx: ActionCtx,
+  userId: Id<"users">,
+  conversationId: Id<"omiConversations">,
+  projectId: Id<"omiProjects"> | undefined,
+  message: string,
+  documentIds: Id<"omiDocuments">[] | undefined,
+): Promise<ChatTurnResult> {
+  const trimmed = message;
 
-    // Per-user limit on the most expensive path in the product: each turn can
-    // cost a search fan-out, a vision call, an emotion classification and a
-    // synthesis call. Every other costly surface already has one (search 20,
-    // deep research 5, images 12, workflows 6) — chat was the gap. Generous
-    // enough for normal conversation and deliberate multi-turn work, strict
-    // enough that one account cannot burn the shared free-tier quota.
-    const rl = rateLimit(`chat:${userId}`, 20);
-    if (!rl.ok) {
-      throw new Error(
-        `Too many messages in a row — retry in ${Math.ceil(rl.retryAfterMs / 1000)}s.`,
-      );
-    }
+  // A previous Stop must never kill THIS turn.
+  await ctx.runMutation(internal.omiConversations.clearStopInternal, {
+    id: conversationId,
+  });
 
-    // Fail fast with an actionable message when no AI provider is configured
-    // (provider-neutral check — any registered provider unlocks full reasoning).
-    if (!hasAiProvider()) {
-      throw new Error(
-        "Omi's AI layer has no provider configured. Add a free Groq key (GROQ_API_KEY) " +
-        "in the Keys/API Keys tab — or OPENAI_API_KEY — then try again."
-      );
-    }
+  // 1) Resolve attachments FIRST (ownership-filtered) so only IDs the
+  //    user actually owns are persisted or grounded (PRIORITY 2).
+  const attachments = await resolveAttachments(ctx, userId, documentIds ?? []);
 
-    const trimmed = message.trim().slice(0, 4000);
-    if (trimmed.length < 1) throw new Error("Type a message first.");
+  // 1) Save the user's message — with the ownership-checked attachment
+  //    list, so the transcript shows exactly what Omi was given.
+  const userMessageId = await ctx.runMutation(internal.omiMessages.saveInternal, {
+    userId,
+    conversationId,
+    role: "user",
+    content: trimmed,
+    attachments: attachments.map((a) => ({
+      documentId: a._id,
+      title: a.title,
+      kind: a.fileType?.startsWith("image/") ? ("image" as const) : ("file" as const),
+    })),
+  });
 
-    // Verify the conversation belongs to this user.
-    const conversation = await ctx.runQuery(internal.omiConversations.getInternal, {
-      id: conversationId,
-    });
-    if (!conversation || conversation.userId !== userId) {
-      throw new Error("Not your conversation.");
-    }
-
-    // 1) Resolve attachments FIRST (ownership-filtered) so only IDs the
-    //    user actually owns are persisted or grounded (PRIORITY 2).
-    const attachments = await resolveAttachments(ctx, userId, documentIds ?? []);
-
-    // 1) Save the user's message — with the ownership-checked attachment
-    //    list, so the transcript shows exactly what Omi was given.
-    const userMessageId = await ctx.runMutation(internal.omiMessages.saveInternal, {
-      userId,
-      conversationId,
-      role: "user",
-      content: trimmed,
-      attachments: attachments.map((a) => ({
-        documentId: a._id,
-        title: a.title,
-        kind: a.fileType?.startsWith("image/") ? ("image" as const) : ("file" as const),
-      })),
+  // 1b) Progressive response (§40): create Omi's message document FIRST as
+  // a live placeholder so the UI reacts to each stage instead of a spinner.
+  const omiMessageId = await ctx.runMutation(internal.omiMessages.saveInternal, {
+    userId,
+    conversationId,
+    role: "omi",
+    content: "Omi is thinking…",
+    status: "streaming",
+  });
+  const patchStreaming = (patch: {
+    content?: string;
+    reasoning?: string;
+    status?: "streaming" | "final";
+  }) =>
+    ctx.runMutation(internal.omiMessages.patchInternal, {
+      messageId: omiMessageId,
+      actingUserId: userId,
+      ...patch,
     });
 
-    // 1b) Progressive response (§40): create Omi's message document FIRST as
-    // a live placeholder so the UI reacts to each stage instead of a spinner.
-    const omiMessageId = await ctx.runMutation(internal.omiMessages.saveInternal, {
-      userId,
-      conversationId,
-      role: "omi",
-      content: "Omi is thinking…",
-      status: "streaming",
-    });
-    const patchStreaming = (patch: {
-      content?: string;
-      reasoning?: string;
-      status?: "streaming" | "final";
-    }) =>
-      ctx.runMutation(internal.omiMessages.patchInternal, {
-        messageId: omiMessageId,
-        actingUserId: userId,
-        ...patch,
-      });
-
-    // 1d) Identity fast-path: product-identity questions are static product
-    //     facts — answer the canonical sentence directly (zero model calls,
-    //     zero search) and still show attachment chips honestly.
-    const identityKind = isCreatorQuestion(trimmed);
-    if (identityKind && attachments.length === 0) {
-      await patchStreaming({
-        content: creatorDirectReply(identityKind),
-        reasoning: `Product identity fact — answered from Omi's static identity record; no model call needed.`,
-        status: "final",
-      });
-      return { userMessageId, omiMessageId };
-    }
-
-    // 1c) If anything below fails, the live message must never stay stuck
-    //    in "streaming" — finalize it with an honest error (§35).
+  // --- Cooperative stop (§10) ---------------------------------------------
+  // The Stop button sets a flag on the conversation. We poll it at most once
+  // per 800ms and abort the in-flight provider request, keeping whatever text
+  // already streamed. This is honest: an in-flight token cannot be unsent,
+  // but the answer finalizes immediately with the partial text.
+  let stopRequested = false;
+  let lastStopCheck = 0;
+  const controller = new AbortController();
+  const checkStop = async (): Promise<boolean> => {
+    if (stopRequested) return true;
+    const now = Date.now();
+    if (now - lastStopCheck < 800) return false;
+    lastStopCheck = now;
     try {
+      const fresh = await ctx.runQuery(internal.omiConversations.getInternal, {
+        id: conversationId,
+      });
+      if (fresh?.stopRequestedAt) {
+        stopRequested = true;
+        controller.abort();
+        return true;
+      }
+    } catch {
+      /* a failed stop-check must never break the turn */
+    }
+    return false;
+  };
+
+  // Streaming accumulator: the latest full text and a throttled flusher.
+  let streamed = "";
+  let lastFlush = 0;
+  const onToken = async (_delta: string, full: string) => {
+    streamed = full;
+    const now = Date.now();
+    if (now - lastFlush >= 70) {
+      lastFlush = now;
+      await patchStreaming({ content: full });
+    }
+    await checkStop();
+  };
+  const finalizeStopped = async () =>
+    patchStreaming({
+      content: streamed.trim().length > 0 ? streamed.trim() : "Stopped.",
+      reasoning:
+        streamed.trim().length > 0
+          ? "You stopped Omi mid-answer, so this reply is partial."
+          : "You stopped Omi before it answered.",
+      status: "final",
+    });
+
+  // 1d) Identity fast-path: product-identity questions are static product
+  //     facts — answer the canonical sentence directly (zero model calls,
+  //     zero search) and still show attachment chips honestly.
+  const identityKind = isCreatorQuestion(trimmed);
+  if (identityKind && attachments.length === 0) {
+    await patchStreaming({
+      content: creatorDirectReply(identityKind),
+      reasoning: `Product identity fact — answered from Omi's static identity record; no model call needed.`,
+      status: "final",
+    });
+    return { userMessageId, omiMessageId };
+  }
+
+  // 1c) If anything below fails, the live message must never stay stuck
+  //    in "streaming" — finalize it with an honest error (§35).
+  try {
     // 1e) HUMAN EMOTIONS AI — automatic tone read for THIS turn.
     //
     //     This is the wiring that was missing: the emotion engine existed but
@@ -352,10 +380,10 @@ export const send = action({
     //    standing instructions and the knowledge search — project context
     //    never mixes across projects.
     const project =
-      conversation.projectId !== undefined
+      projectId !== undefined
         ? await ctx.runQuery(internal.omiProjects.groundInternal, {
             userId,
-            projectId: conversation.projectId,
+            projectId,
           })
         : null;
 
@@ -369,7 +397,7 @@ export const send = action({
         userId,
         query: trimmed,
         limit: 4,
-        projectId: conversation.projectId,
+        projectId,
       }),
     ]);
 
@@ -558,6 +586,13 @@ export const send = action({
       }
     }
 
+    // A Stop during the (potentially slow) search/grounding phase still ends
+    // the turn cleanly instead of silently continuing.
+    if (await checkStop()) {
+      await finalizeStopped();
+      return { userMessageId, omiMessageId, emotion: emotionSummary };
+    }
+
     // 4) Build the conversation for the model
     const chat: ChatMsg[] = [
       { role: "system", content: OMI_SYSTEM },
@@ -594,14 +629,23 @@ export const send = action({
     }
 
     // 5) Reason + answer — routed as a reasoning task (transparent thinking
-    //    before acting), on whichever provider is active.
+    //    before acting), on whichever provider is active. Tokens are streamed
+    //    onto the live message document as they arrive.
     await patchStreaming({ content: "Omi is reasoning…" });
-    const result = await complete({
+    const result = await completeStream({
       task: "reasoning",
       messages: chat,
       temperature: 0.4,
       maxTokens: 900,
+      onToken,
+      signal: controller.signal,
     });
+
+    // 5a) Stop: finalize with whatever streamed — never leave it hanging.
+    if (result.stopped) {
+      await finalizeStopped();
+      return { userMessageId, omiMessageId, emotion: emotionSummary };
+    }
 
     // 6) Save Omi's reply — with a graceful sourced reply if the AI is
     //    unreachable, so conversations never dead-end.
@@ -612,6 +656,12 @@ export const send = action({
       const split = splitReasoning(result.content);
       content = split.content;
       reasoning = split.reasoning;
+      // A provider that died mid-stream kept its partial answer: say so
+      // plainly instead of passing off a truncated reply as complete.
+      if (result.partial) {
+        content = `${content}\n\nThe connection to the AI provider dropped mid-answer, so this reply may be incomplete. Ask again to continue.`;
+        reasoning = reasoning ? `${reasoning} (partial stream)` : "Partial stream — the provider disconnected.";
+      }
     } else {
       if (fallbackAnswer) {
         // Clean, cited, relevance-ranked answer built from live sources.
@@ -647,13 +697,126 @@ export const send = action({
     await patchStreaming({ content, reasoning, status: "final" });
 
     return { userMessageId, omiMessageId, emotion: emotionSummary };
-    } catch (e) {
-      const message = e instanceof Error ? e.message : String(e);
-      await patchStreaming({
-        content: `Something went wrong mid-answer: ${message.slice(0, 200)}`,
-        status: "final",
-      });
-      throw e;
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    await patchStreaming({
+      content: `Something went wrong mid-answer: ${message.slice(0, 200)}`,
+      status: "final",
+    });
+    throw e;
+  }
+}
+
+/** Shared per-turn preflight: auth, rate limit, provider availability. */
+async function preflight(
+  ctx: ActionCtx,
+): Promise<Id<"users">> {
+  const userId = await getAuthUserId(ctx);
+  if (userId === null) throw new Error("Sign in to talk with Omi.");
+
+  // Per-user limit on the most expensive path in the product: each turn can
+  // cost a search fan-out, a vision call, an emotion classification and a
+  // synthesis call. Every other costly surface already has one (search 20,
+  // deep research 5, images 12, workflows 6) — chat was the gap. Generous
+  // enough for normal conversation and deliberate multi-turn work, strict
+  // enough that one account cannot burn the shared free-tier quota.
+  const rl = rateLimit(`chat:${userId}`, 20);
+  if (!rl.ok) {
+    throw new Error(
+      `Too many messages in a row — retry in ${Math.ceil(rl.retryAfterMs / 1000)}s.`,
+    );
+  }
+
+  // Fail fast with an actionable message when no AI provider is configured
+  // (provider-neutral check — any registered provider unlocks full reasoning).
+  if (!hasAiProvider()) {
+    throw new Error(
+      "Omi's AI layer has no provider configured. Add a free Groq key (GROQ_API_KEY) " +
+      "in the Keys/API Keys tab — or OPENAI_API_KEY — then try again."
+    );
+  }
+
+  return userId;
+}
+
+export const send = action({
+  args: {
+    conversationId: v.id("omiConversations"),
+    message: v.string(),
+    /** Knowledge-document IDs (already ingested via Files) attached this turn. */
+    documentIds: v.optional(v.array(v.id("omiDocuments"))),
+  },
+  handler: async (
+    ctx,
+    { conversationId, message, documentIds },
+  ): Promise<ChatTurnResult> => {
+    const userId = await preflight(ctx);
+
+    const trimmed = message.trim().slice(0, 4000);
+    if (trimmed.length < 1) throw new Error("Type a message first.");
+
+    // Verify the conversation belongs to this user.
+    const conversation = await ctx.runQuery(internal.omiConversations.getInternal, {
+      id: conversationId,
+    });
+    if (!conversation || conversation.userId !== userId) {
+      throw new Error("Not your conversation.");
     }
+
+    return await runTurn(
+      ctx,
+      userId,
+      conversationId,
+      conversation.projectId,
+      trimmed,
+      documentIds,
+    );
+  },
+});
+
+/**
+ * §10 Regenerate / Retry — re-run the most recent user turn.
+ *
+ * Not just "ask the model again": the previous reply (and the anchor user
+ * message) are deleted first, then the FULL turn runs again through the same
+ * pipeline as `send` — fresh search, memory, knowledge and streaming. This is
+ * what makes Retry meaningful after a failed or unhelpful response, and it is
+ * also how a user retries a turn that errored mid-stream.
+ */
+export const regenerate = action({
+  args: { conversationId: v.id("omiConversations") },
+  handler: async (ctx, { conversationId }): Promise<ChatTurnResult> => {
+    const userId = await preflight(ctx);
+
+    const conversation = await ctx.runQuery(internal.omiConversations.getInternal, {
+      id: conversationId,
+    });
+    if (!conversation || conversation.userId !== userId) {
+      throw new Error("Not your conversation.");
+    }
+
+    const lastUser = await ctx.runQuery(internal.omiMessages.lastUserInternal, {
+      conversationId,
+    });
+    if (!lastUser) throw new Error("There's nothing to regenerate yet.");
+
+    const documentIds = (lastUser.attachments ?? []).map((a) => a.documentId);
+
+    // Drop the previous reply AND the anchor user turn so the re-run leaves
+    // exactly one clean transcript (no duplicate user message, no stale
+    // half-finished placeholder).
+    await ctx.runMutation(internal.omiMessages.deleteFromInternal, {
+      conversationId,
+      fromMessageId: lastUser._id,
+    });
+
+    return await runTurn(
+      ctx,
+      userId,
+      conversationId,
+      conversation.projectId,
+      lastUser.content,
+      documentIds.length > 0 ? documentIds : undefined,
+    );
   },
 });

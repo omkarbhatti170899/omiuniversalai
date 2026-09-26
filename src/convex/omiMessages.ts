@@ -136,6 +136,37 @@ export const deleteAfterInternal = internalMutation({
 });
 
 /**
+ * §10 Regenerate: delete a user turn AND everything after it (inclusive),
+ * so re-running the turn produces exactly one clean transcript instead of a
+ * duplicated user message next to two competing Omi replies. Ownership is
+ * enforced by the caller (regenerate resolves the conversation first) and the
+ * conversation id is matched here so a stale id can never cross threads.
+ */
+export const deleteFromInternal = internalMutation({
+  args: {
+    conversationId: v.id("omiConversations"),
+    fromMessageId: v.id("omiMessages"),
+  },
+  handler: async (ctx, { conversationId, fromMessageId }) => {
+    const anchor = await ctx.db.get(fromMessageId);
+    if (!anchor || anchor.conversationId !== conversationId) return 0;
+
+    const all = await ctx.db
+      .query("omiMessages")
+      .withIndex("by_conversation", (q) => q.eq("conversationId", conversationId))
+      .collect();
+    let removed = 0;
+    for (const m of all) {
+      if (m._creationTime >= anchor._creationTime) {
+        await ctx.db.delete(m._id);
+        removed += 1;
+      }
+    }
+    return removed;
+  },
+});
+
+/**
  * §10 Edit message: rewrite a user turn in place (content and, when new
  * attachments are supplied, its attachment list). Only the author's own user
  * messages are ever patched — an Omi reply is not editable.

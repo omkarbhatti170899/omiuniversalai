@@ -23,10 +23,12 @@ export function MemoryView() {
   const createMemory = useMutation(api.omiMemories.create);
   const updateMemory = useMutation(api.omiMemories.update);
   const removeMemory = useMutation(api.omiMemories.remove);
+  const clearMemories = useMutation(api.omiMemories.clearAll);
 
   const [draft, setDraft] = useState("");
   const [editingId, setEditingId] = useState<Id<"omiMemories"> | null>(null);
   const [saving, setSaving] = useState(false);
+  const [confirmingClear, setConfirmingClear] = useState(false);
 
   const handleSave = async () => {
     const text = draft.trim();
@@ -61,17 +63,62 @@ export function MemoryView() {
     }
   };
 
+  const handleClearAll = async () => {
+    try {
+      const removed = await clearMemories({});
+      toast(removed > 0 ? `Cleared ${removed} memories.` : "No memories to clear.");
+    } catch {
+      toast.error("Couldn't clear memories.");
+    } finally {
+      setConfirmingClear(false);
+    }
+  };
+
   return (
     <div className="mx-auto max-w-3xl space-y-6">
-      <div>
-        <h1 className="flex items-center gap-2 text-2xl font-bold tracking-tight">
-          <Brain className="size-6 text-primary" />
-          Memory
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Context Omi remembers across every conversation and device. You
-          control it fully: add, edit, or delete anything.
-        </p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h1 className="flex items-center gap-2 text-2xl font-bold tracking-tight">
+            <Brain className="size-6 text-primary" />
+            Memory
+          </h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Context Omi remembers across every conversation and device. You
+            control it fully: add, edit, or delete anything.
+          </p>
+        </div>
+        {(memories?.length ?? 0) > 0 &&
+          (confirmingClear ? (
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-destructive">Delete all memories?</span>
+              <Button
+                variant="destructive"
+                size="sm"
+                className="cursor-pointer"
+                onClick={() => void handleClearAll()}
+              >
+                Yes, clear all
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="cursor-pointer"
+                onClick={() => setConfirmingClear(false)}
+              >
+                Cancel
+              </Button>
+            </div>
+          ) : (
+            <Button
+              variant="outline"
+              size="sm"
+              className="cursor-pointer text-destructive hover:text-destructive"
+              onClick={() => setConfirmingClear(true)}
+            >
+              <Trash2 className="mr-1.5 size-4" />
+              Clear all
+            </Button>
+          ))}
       </div>
 
       <Card>

@@ -31,7 +31,9 @@ import { motion } from "framer-motion";
 import {
   BrainCircuit,
   Brain,
+  Check,
   ChevronDown,
+  Copy,
   History,
   Loader2,
   MessageSquarePlus,
@@ -41,6 +43,7 @@ import {
   FileImage,
   Pencil,
   Plus,
+  RefreshCw,
   Send,
   Sparkles,
   Square,
@@ -60,6 +63,7 @@ import {
   type AttachmentState,
 } from "@/lib/attachmentUpload";
 import { FolderKanban } from "lucide-react";
+import { MarkdownMessage } from "@/components/MarkdownMessage";
 
 type OmiMessage = {
   _id: Id<"omiMessages">;
@@ -138,9 +142,19 @@ export function OmiAssistantPanel({
   const createMemory = useMutation(api.omiMemories.create);
   const updateMemory = useMutation(api.omiMemories.update);
   const removeMemory = useMutation(api.omiMemories.remove);
+  const requestStop = useMutation(api.omiConversations.requestStop);
+  const regenerate = useAction(api.omiChat.regenerate);
+  const clearMemories = useMutation(api.omiMemories.clearAll);
   const voice = useVoiceInput();
   const tts = useSpeechOutput();
   const convex = useConvexClient();
+
+  // Transient UI state for the streaming/stop/copy affordances. None of this
+  // is durable — the message document itself is the single source of truth.
+  const [stopping, setStopping] = useState(false);
+  const [regenerating, setRegenerating] = useState(false);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [confirmingClear, setConfirmingClear] = useState(false);
 
   // --- Attachments (PRIORITY 1: upload → extract → knowledge → answer) ---
   const [attachments, setAttachments] = useState<AttachmentState[]>([]);
@@ -277,6 +291,57 @@ export function OmiAssistantPanel({
       toast.error(err instanceof Error ? err.message : "Omi couldn't respond.");
     } finally {
       setIsSending(false);
+    }
+  };
+
+  // --- Streaming controls (§1): stop, regenerate, copy -------------------
+
+  /** Ask the running turn to stop. Cooperative — the turn finalizes with
+   *  whatever it already streamed, and the ephemeral button state resets. */
+  const handleStop = async () => {
+    if (!selectedConversationId || stopping) return;
+    setStopping(true);
+    try {
+      await requestStop({ conversationId: selectedConversationId });
+    } catch {
+      toast.error("Couldn't stop generation.");
+      setStopping(false);
+    }
+  };
+
+  /** Re-run the last user turn end-to-end (fresh search/memory + streaming). */
+  const handleRegenerate = async () => {
+    const convId = selectedConversationId;
+    if (!convId || isSending || regenerating) return;
+    setRegenerating(true);
+    try {
+      const result = await regenerate({ conversationId: convId });
+      setLastEmotion(result?.emotion ?? null);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Omi couldn't regenerate.");
+    } finally {
+      setRegenerating(false);
+    }
+  };
+
+  const handleCopyResponse = async (id: string, text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedId(id);
+      window.setTimeout(() => setCopiedId((c) => (c === id ? null : c)), 1500);
+    } catch {
+      toast.error("Couldn't copy to the clipboard.");
+    }
+  };
+
+  const handleClearAllMemories = async () => {
+    try {
+      const removed = await clearMemories({});
+      toast(removed > 0 ? `Cleared ${removed} memories.` : "No memories to clear.");
+    } catch {
+      toast.error("Couldn't clear memories.");
+    } finally {
+      setConfirmingClear(false);
     }
   };
 
@@ -456,7 +521,7 @@ export function OmiAssistantPanel({
                 </p>
               </div>
             ) : (
-              (messages as OmiMessage[]).map((m) => (
+              (messages as OmiMessage[]).map((m, idx, arr) => (
                 <motion.div
                   key={m._id}
                   initial={{ opacity: 0, y: 8 }}
@@ -492,29 +557,71 @@ export function OmiAssistantPanel({
                         ))}
                       </div>
                     )}
-                    <p className="whitespace-pre-wrap">
-                      {m.status === "streaming" && (
-                        <span className="mr-2 inline-flex size-2 animate-pulse rounded-full bg-primary align-middle" />
-                      )}
-                      {m.content}
-                    </p>
-                    {m.role !== "user" && tts.supported && (
-                      <button
-                        type="button"
-                        onClick={() => (tts.speaking ? tts.stop() : tts.speak(m.content))}
-                        className="mt-2 flex cursor-pointer items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
-                        title="Read aloud (on-device, free)"
-                      >
-                        {tts.speaking ? (
-                          <>
-                            <Square className="size-3" /> Stop
-                          </>
-                        ) : (
-                          <>
-                            <Volume2 className="size-3" /> Listen
-                          </>
+                    {m.role === "user" ? (
+                      <p className="whitespace-pre-wrap">{m.content}</p>
+                    ) : m.status === "streaming" ? (
+                      <div className="flex items-start gap-2">
+                        <span className="mt-1.5 inline-flex size-2 shrink-0 animate-pulse rounded-full bg-primary" />
+                        <MarkdownMessage content={m.content} className="flex-1" />
+                      </div>
+                    ) : (
+                      <MarkdownMessage content={m.content} />
+                    )}
+                    {m.role !== "user" && (
+                      <div className="mt-2 flex flex-wrap items-center gap-3">
+                        {tts.supported && (
+                          <button
+                            type="button"
+                            onClick={() => (tts.speaking ? tts.stop() : tts.speak(m.content))}
+                            className="flex cursor-pointer items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
+                            title="Read aloud (on-device, free)"
+                          >
+                            {tts.speaking ? (
+                              <>
+                                <Square className="size-3" /> Stop
+                              </>
+                            ) : (
+                              <>
+                                <Volume2 className="size-3" /> Listen
+                              </>
+                            )}
+                          </button>
                         )}
-                      </button>
+                        {m.status !== "streaming" && (
+                          <button
+                            type="button"
+                            onClick={() => void handleCopyResponse(m._id, m.content)}
+                            className="flex cursor-pointer items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
+                            title="Copy response"
+                          >
+                            {copiedId === m._id ? (
+                              <>
+                                <Check className="size-3" /> Copied
+                              </>
+                            ) : (
+                              <>
+                                <Copy className="size-3" /> Copy
+                              </>
+                            )}
+                          </button>
+                        )}
+                        {idx === arr.length - 1 && (
+                          <button
+                            type="button"
+                            disabled={isSending || regenerating}
+                            onClick={() => void handleRegenerate()}
+                            className="flex cursor-pointer items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                            title="Regenerate this reply"
+                          >
+                            {regenerating ? (
+                              <Loader2 className="size-3 animate-spin" />
+                            ) : (
+                              <RefreshCw className="size-3" />
+                            )}
+                            Regenerate
+                          </button>
+                        )}
+                      </div>
                     )}
                     {m.reasoning && (
                       <Collapsible className="mt-3 border-t border-border/60 pt-2">
@@ -613,7 +720,6 @@ export function OmiAssistantPanel({
               placeholder="Ask Omi anything — attach files or images with the paperclip"
               className="min-h-20 resize-y"
               maxLength={4000}
-              disabled={isSending}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
                   e.preventDefault();
@@ -674,18 +780,31 @@ export function OmiAssistantPanel({
                     }
                   </Button>
                 )}
-                <Button
-                  className="cursor-pointer"
-                  onClick={() => void handleSend()}
-                  disabled={isSending || draft.trim().length === 0}
-                >
-                  {isSending ? (
-                    <Loader2 className="mr-2 size-4 animate-spin" />
-                  ) : (
+                {isSending ? (
+                  <Button
+                    variant="outline"
+                    className="cursor-pointer"
+                    onClick={() => void handleStop()}
+                    disabled={stopping}
+                    title="Stop generating"
+                  >
+                    {stopping ? (
+                      <Loader2 className="mr-2 size-4 animate-spin" />
+                    ) : (
+                      <Square className="mr-2 size-4" />
+                    )}
+                    {stopping ? "Stopping…" : "Stop"}
+                  </Button>
+                ) : (
+                  <Button
+                    className="cursor-pointer"
+                    onClick={() => void handleSend()}
+                    disabled={draft.trim().length === 0}
+                  >
                     <Send className="mr-2 size-4" />
-                  )}
-                  Send
-                </Button>
+                    Send
+                  </Button>
+                )}
               </div>
             </div>
             {voice.error && (
@@ -741,9 +860,43 @@ export function OmiAssistantPanel({
           </div>
 
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Saved memories ({memories?.length ?? 0})
-            </p>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Saved memories ({memories?.length ?? 0})
+              </p>
+              {(memories?.length ?? 0) > 0 &&
+                (confirmingClear ? (
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-destructive">Delete all memories?</span>
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      className="cursor-pointer"
+                      onClick={() => void handleClearAllMemories()}
+                    >
+                      Yes, clear all
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="cursor-pointer"
+                      onClick={() => setConfirmingClear(false)}
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="cursor-pointer text-destructive hover:text-destructive"
+                    onClick={() => setConfirmingClear(true)}
+                  >
+                    <Trash2 className="mr-1 size-3.5" />
+                    Clear all
+                  </Button>
+                ))}
+            </div>
             {memories === undefined ? (
               <Skeleton className="h-16 w-full" />
             ) : memories.length === 0 ? (

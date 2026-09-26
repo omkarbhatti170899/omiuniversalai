@@ -122,7 +122,50 @@ export const remove = mutation({
     if (!doc) return;
     if (doc.userId !== userId) throw new Error("Not your document");
 
+    // Stored blobs are deleted with their row so "clear" never leaves
+    // orphaned uploads behind (same contract as omiFiles.remove).
+    if (doc.fileId) await ctx.storage.delete(doc.fileId);
     await ctx.db.delete(id);
+  },
+});
+
+/** Rename a document (or uploaded file) — the user's own label, editable. */
+export const rename = mutation({
+  args: { id: v.id("omiDocuments"), title: v.string() },
+  handler: async (ctx, { id, title }) => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) throw new Error("Not authenticated");
+
+    const doc = await ctx.db.get(id);
+    if (!doc) return;
+    if (doc.userId !== userId) throw new Error("Not your document");
+
+    const clean = title.trim().slice(0, 200);
+    if (clean.length < 1) throw new Error("Give it a name.");
+    await ctx.db.patch(id, { title: clean });
+  },
+});
+
+/**
+ * "Clear all" knowledge — deletes every document AND stored file the caller
+ * owns. Scoped strictly to the caller's own rows via the by_user index, so one
+ * user's wipe can never touch another user's knowledge.
+ */
+export const clearAll = mutation({
+  args: {},
+  handler: async (ctx) => {
+    const userId = await getAuthUserId(ctx);
+    if (userId === null) throw new Error("Not authenticated");
+
+    const mine = await ctx.db
+      .query("omiDocuments")
+      .withIndex("by_user", (q) => q.eq("userId", userId))
+      .collect();
+    for (const d of mine) {
+      if (d.fileId) await ctx.storage.delete(d.fileId);
+      await ctx.db.delete(d._id);
+    }
+    return mine.length;
   },
 });
 

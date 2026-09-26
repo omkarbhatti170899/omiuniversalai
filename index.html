@@ -1,15 +1,32 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" suppresshydrationwarning="true">
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    // Theme bootstrap (§13): apply the saved dark/light/system choice before
+    // first paint so switching themes can never flash the wrong one. Dark is
+    // the default identity. Kept tiny and inline on purpose — a separate file
+    // would race the first render.
+    (function () {
+      try {
+        var stored = localStorage.getItem("omi-theme");
+        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        var dark = stored === "dark" || (stored !== "light" && !prefersLight);
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      } catch (e) {
+        /* storage blocked — keep the dark default from the html class */
+      }
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="./logo.svg" />
   <link rel="manifest" href="./manifest.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Omi Universal AI + Andromeda universal search — provider-neutral, free-first intelligence by Ominnovations." />
-  <!-- Dark-first by design ("Omi Dark Intelligence") — the app is dark everywhere. -->
+  <!-- Dark-first by design ("Omi Dark Intelligence") — the app defaults to dark. -->
   <meta name="theme-color" content="#121216" />
-  <meta name="color-scheme" content="dark" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Omi" />

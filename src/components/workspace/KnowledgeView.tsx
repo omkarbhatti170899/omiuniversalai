@@ -15,9 +15,11 @@ import {
   BookOpen,
   FileText,
   Loader2,
+  Pencil,
   Plus,
   Search,
   Trash2,
+  X,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -39,11 +41,18 @@ export function KnowledgeView() {
   const documents = useQuery(api.omiKnowledge.listMine);
   const createDoc = useMutation(api.omiKnowledge.create);
   const removeDoc = useMutation(api.omiKnowledge.remove);
+  const clearDocs = useMutation(api.omiKnowledge.clearAll);
+  const renameDoc = useMutation(api.omiKnowledge.rename);
 
   // Add-document form
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [saving, setSaving] = useState(false);
+
+  // "Clear all" + inline rename (user-controlled organisation).
+  const [confirmingClear, setConfirmingClear] = useState(false);
+  const [renamingId, setRenamingId] = useState<Id<"omiDocuments"> | null>(null);
+  const [renameDraft, setRenameDraft] = useState("");
 
   // Search: committed on submit so typing doesn't spam reactive queries.
   const [searchInput, setSearchInput] = useState("");
@@ -82,6 +91,27 @@ export function KnowledgeView() {
     }
   };
 
+  const handleClearAll = async () => {
+    try {
+      const removed = await clearDocs({});
+      toast(removed > 0 ? `Cleared ${removed} documents.` : "Nothing to clear.");
+    } catch {
+      toast.error("Couldn't clear your knowledge base.");
+    } finally {
+      setConfirmingClear(false);
+    }
+  };
+
+  const handleRename = async (id: Id<"omiDocuments">) => {
+    try {
+      await renameDoc({ id, title: renameDraft });
+      toast("Renamed.");
+      setRenamingId(null);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't rename it.");
+    }
+  };
+
   const handleSearch = () => {
     const q = searchInput.trim();
     if (q.length < 2) {
@@ -96,21 +126,55 @@ export function KnowledgeView() {
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
-      <div>
-        <h1 className="flex items-center gap-2 text-2xl font-bold tracking-tight">
-          <BookOpen className="size-6 text-primary" />
-          Knowledge
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Your private knowledge base. Save documents once — Omi retrieves the
-          relevant passages locally (zero cost) and grounds its answers in them.
-        </p>
-        {documents !== undefined && documents.length > 0 && (
-          <p className="mt-2 text-xs text-muted-foreground">
-            {documents.length} document{documents.length === 1 ? "" : "s"} ·{" "}
-            {totalWords.toLocaleString()} words indexed
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h1 className="flex items-center gap-2 text-2xl font-bold tracking-tight">
+            <BookOpen className="size-6 text-primary" />
+            Knowledge
+          </h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Your private knowledge base. Save documents once — Omi retrieves the
+            relevant passages locally (zero cost) and grounds its answers in them.
           </p>
-        )}
+          {documents !== undefined && documents.length > 0 && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              {documents.length} document{documents.length === 1 ? "" : "s"} ·{" "}
+              {totalWords.toLocaleString()} words indexed
+            </p>
+          )}
+        </div>
+        {(documents?.length ?? 0) > 0 &&
+          (confirmingClear ? (
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-destructive">Delete everything?</span>
+              <Button
+                variant="destructive"
+                size="sm"
+                className="cursor-pointer"
+                onClick={() => void handleClearAll()}
+              >
+                Yes, clear all
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="cursor-pointer"
+                onClick={() => setConfirmingClear(false)}
+              >
+                Cancel
+              </Button>
+            </div>
+          ) : (
+            <Button
+              variant="outline"
+              size="sm"
+              className="cursor-pointer text-destructive hover:text-destructive"
+              onClick={() => setConfirmingClear(true)}
+            >
+              <Trash2 className="mr-1.5 size-4" />
+              Clear all
+            </Button>
+          ))}
       </div>
 
       {/* Search */}
@@ -256,12 +320,55 @@ export function KnowledgeView() {
                   <FileText className="size-4" />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold">{d.title}</p>
+                  {renamingId === d._id ? (
+                    <div className="flex items-center gap-2">
+                      <Input
+                        value={renameDraft}
+                        onChange={(e) => setRenameDraft(e.target.value)}
+                        maxLength={200}
+                        aria-label="New document name"
+                        className="h-8"
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") void handleRename(d._id);
+                          if (e.key === "Escape") setRenamingId(null);
+                        }}
+                      />
+                      <Button
+                        size="sm"
+                        className="cursor-pointer"
+                        onClick={() => void handleRename(d._id)}
+                      >
+                        Save
+                      </Button>
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="size-8 cursor-pointer"
+                        aria-label="Cancel rename"
+                        onClick={() => setRenamingId(null)}
+                      >
+                        <X className="size-4" />
+                      </Button>
+                    </div>
+                  ) : (
+                    <p className="truncate text-sm font-semibold">{d.title}</p>
+                  )}
                   <p className="text-xs text-muted-foreground">
                     {d.wordCount.toLocaleString()} words ·{" "}
                     {format(new Date(d._creationTime), "MMM d, yyyy")}
                   </p>
                 </div>
+                <button
+                  type="button"
+                  aria-label="Rename document"
+                  className="cursor-pointer text-muted-foreground transition-colors hover:text-foreground"
+                  onClick={() => {
+                    setRenamingId(d._id);
+                    setRenameDraft(d.title);
+                  }}
+                >
+                  <Pencil className="size-4" />
+                </button>
                 <button
                   type="button"
                   aria-label="Delete document"

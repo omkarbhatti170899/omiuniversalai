@@ -1,152 +1,200 @@
 # Omi Universal AI — Final Completion Report
 
-**Date:** 2026-09-24  
+**Date:** 2026-09-26  
 **Web:** https://omkarbhatti170899.github.io/omiuniversalai/  
 **Convex development backend:** https://resolute-ptarmigan-187.convex.cloud  
-**Scope:** final audit, focused bug-fix pass, regression verification, security review, deployment review, and app-readiness assessment. Existing systems were reused; major features were not added during this pass.
 
-## Status vocabulary
+**Status vocabulary**
 
-- **PASS** — verified by a successful automated or live check.
-- **FIXED** — a defect was found, repaired, and regression-checked.
-- **PARTIAL** — core implementation exists, but a requested end-to-end or external condition remains unverified.
-- **BLOCKED** — requires credentials/quota, hardware, a signed-in session, or native tooling.
-- **NOT IMPLEMENTED** — confirmed absent; not represented as working.
+- **PASS** — implemented and verified by a successful automated or live check in this environment.
+- **PARTIAL** — core implementation exists and passes automated checks, but a requested end-to-end or external condition remains unverified here.
+- **BLOCKED** — requires credentials/quota, hardware, a signed-in session, or native tooling that is not available in this environment.
+- **NOT IMPLEMENTED** — confirmed absent and not represented as working.
 
-## Executive result
+> There is **no completion percentage** in this report. A single number would hide the difference between "implemented and verified" and "implemented but not yet exercised end-to-end". Each feature carries its own honest status below.
 
-The existing Omi repository is substantially more complete than a typical prototype: authentication, provider-neutral AI routing, Gemini fallback, Andromeda, image intent/capability routing, vision, Human Emotions AI, file extraction, memory/project isolation, workflow approvals, PWA behavior, rate limiting, and security controls are implemented. This pass focused on correctness and reliability rather than adding unrelated surface area.
+## Verification commands run this pass
 
-The product is **not 100% complete**. Token streaming and regenerate are absent, image editing is blocked by upstream quota/credit state, signed-in and real-device journeys could not be executed here, and a native Android build could not be produced without the Android SDK.
+| Command | Result |
+| --- | --- |
+| `bun convex dev --once` | Deployed cleanly to `resolute-ptarmigan-187` |
+| `bun tsc -b --noEmit` | 0 errors |
+| `bun test tests/` | **441 pass / 0 fail** (35 files) |
+| `bun run lint` | 0 errors / 18 warnings (pre-existing, non-blocking) |
+| `bun run build` | Green (convex codegen + tsc + vite build) |
 
-## 1. Features completed
+---
 
-- **PASS — Authentication and route protection:** Convex Auth, protected dashboard, intended-return redirects, and backend ownership enforcement.
-- **PASS — Provider-neutral AI:** task-based routing, provider health classification, model/provider fallback, timeouts, circuit breakers, and Gemini as an independent fallback.
-- **PASS — Conversation persistence:** create/list/remove and user-owned message history.
-- **PASS — Calculator/tool routing:** sandboxed arithmetic, functions, precedence, bounds, and no hijacking of ordinary questions.
-- **PASS — Andromeda:** query classification, decomposition, multi-source retrieval, dedupe, quality/freshness ranking, page reading, evidence extraction, citation integrity, conflict/insufficiency handling, and verification gates.
-- **PASS — Deep Research architecture:** planning, retrieval, synthesis, verification, progress stages, persistence, and citations; signed-in live run remains pending.
-- **PASS — Image generation:** real keyless generation path and verified non-image rejection.
-- **PASS — Image intent and capability routing:** edits are never routed to text-only generation; unsupported capabilities fail honestly.
-- **PASS — Vision:** image data validation, provider routing, model discovery, and synthetic probe coverage.
-- **PASS — Human Emotions AI:** neutral, excitement, sadness, frustration, anger, confusion, urgency, bounded tone adaptation, uncertainty language, opt-out, and local fallback.
-- **PASS — Files/knowledge:** PDF/DOCX/TXT/CSV/XLSX/image paths, private storage, ownership checks, extraction, hybrid retrieval, and explicit invalid/oversize handling.
-- **PASS — Memory/projects/knowledge isolation:** per-user/project scoping and cross-project non-leakage tests.
-- **PASS — Workflows:** approval gate, expiry, final decisions, artifact preservation, and audit trail.
-- **PASS — Rate limiting:** per-user/per-surface limits on expensive operations, including chat.
-- **PASS — PWA:** manifest, icons/entry document, scoped service worker, offline fallback, standalone mode, and production-only registration.
-- **PASS — Android preparation metadata:** Capacitor app ID/name, HTTPS, `dist` web directory, no local backend, and no provider keys in the shell.
+## Feature-by-feature
 
-## 2. Features partially completed
+### 1. Core AI chat — token streaming, stop, regenerate
 
-- **PARTIAL — Chat UX:** responses are persisted and displayed, but token streaming and stop-generation are not implemented.
-- **PARTIAL — Message controls:** copy/read-aloud and attachment/memory actions exist; per-message regenerate is absent.
-- **PARTIAL — Files end-to-end:** extraction and retrieval are strongly tested, but the full signed-in upload → storage → question → answer journey was not click-tested in this environment.
-- **PARTIAL — Deep Research and agents:** pipelines, persistence, approvals, and audits are tested; actual signed-in research/agent runs remain unverified here.
-- **PARTIAL — Mobile UI:** responsive navigation and layouts are present; real Android keyboard, picker, camera, microphone, rotation, and back-button behavior remain unverified.
-- **PARTIAL — PWA/native packaging:** web PWA is tested; store-grade PNG/maskable assets and a native build remain outstanding.
+- **FEATURE:** Real token-by-token streaming, Stop/cancel, Regenerate/Retry, provider-fallback-safe streaming, no stuck loading states, markdown + code blocks + copy.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `openAiCompatibleStream` (SSE transport) in `src/convex/aiProviders/openaiCompat.ts`; fallback-safe `completeStream` in `src/convex/aiProviders/index.ts`; `omiChat.send` now streams tokens onto the live `omiMessages` document; `omiChat.regenerate` re-runs the last user turn end-to-end; Stop uses the existing `omiConversations.requestStop` flag, polled at ≤1/s and enforced with an `AbortController`. `src/components/MarkdownMessage.tsx` renders GFM with copy-able code blocks; the panel adds Copy, Listen, Regenerate and a Stop button.
+- **TEST PERFORMED:** `tests/omiStreaming.test.ts` (4 tests) — incremental token delivery, Stop keeps partial text, provider that fails before emitting is skipped, no-provider resolves honestly. Full suite + typecheck + build.
+- **RESULT:** PASS at the unit/compile level. A provider that fails before emitting is transparently skipped; a provider that emits then dies or is Stopped is committed and its partial answer is kept (never spliced with a second provider). The live message is always finalized — error, empty answer or Stop can never leave it in `streaming`.
+- **REMAINING BLOCKER:** Signed-in browser click-through of streaming/Stop/Regenerate against a live provider could not be executed here (no session). Syntax highlighting inside code blocks is not implemented (code is monospaced + copyable).
 
-## 3. Bugs fixed in this pass
+### 2. Omi AI Router (provider-neutral)
 
-1. **FIXED — image edit/source identity:** chat and Image Studio now forward owned `omiDocuments` IDs, not storage IDs, into the image engine; tests pin the contract.
-2. **FIXED — wrong/random image behavior:** edit-family intent is separated from generation, provider capabilities are explicit, and incompatible generation fallbacks are forbidden.
-3. **FIXED — prompt preservation:** edit normalization records the requested change and preservation constraints so a provider does not silently redraw unrelated attributes.
-4. **FIXED — image health reporting:** generation and editing are probed/reported independently, so a blocked edit no longer hides working generation.
-5. **FIXED — Image Studio auto mode:** unresolved natural-language requests are disabled rather than guessed as generic edits; stale interpretation is not reused across explicit modes.
-6. **FIXED — chat abuse exposure:** per-user chat rate limiting now matches the other expensive surfaces.
-7. **FIXED — project conversation selection:** active conversation derivation occurs before dependent queries, avoiding a temporal-dead-zone path and preserving project isolation.
-8. **FIXED — React runtime quality:** removed effect-driven selection/state patterns that could cause cascading renders; stabilized mobile and carousel behavior.
-9. **FIXED — provider/search typing and auditability:** removed unsafe broad types where practical, recorded Andromeda focus in progress diagnostics, and retained deliberate boundaries where Convex generics require them.
-10. **FIXED — lint gate:** reduced ESLint from 41 errors to 0; remaining 18 warnings are generated-code directives or shadcn/Fast Refresh conventions.
+- **FEATURE:** Task-based routing, automatic fallback, no keys in the browser.
+- **STATUS:** PASS
+- **IMPLEMENTATION:** `src/convex/aiProviders/catalog.ts` + `index.ts`. Call sites declare a task; the router picks provider/model, discovers live models, breaks circuits, falls back. Keys are server-side `process.env` only.
+- **TEST PERFORMED:** `tests/omiAiProviders.test.ts`, `tests/omiProviderRedundancy.test.ts`, `tests/omiModelDiscovery.test.ts`, new streaming test.
+- **RESULT:** PASS. `completeStream` now shares the same ordering, discovery, preference and circuit logic as `complete`.
+- **REMAINING BLOCKER:** None for routing itself.
 
-## 4. Tests performed
+### 3. Andromeda — universal search / research
 
-| Check | Result |
-|---|---|
-| Convex preparation/codegen | **PASS** — `bun convex dev --once` |
-| TypeScript | **PASS** — `bun tsc -b --noEmit`, 0 errors |
-| Automated tests | **PASS** — 437 pass, 0 fail, 1,359 assertions across 34 files |
-| Lint | **PASS** — 0 errors, 18 warnings |
-| Production build | **PASS** — Convex typecheck/codegen + Vite production bundle |
-| Source secret-pattern scan | **PASS** — no credential-shaped values found |
-| Built-bundle secret-pattern scan | **PASS** — no credential-shaped values found; one initial false positive was identified as bundled CSS text `mask-image-*`, not a key |
-| Localhost/dev URL audit | **PASS** — only SSRF block rules and documentation comments; no configured local backend |
-| CI configuration | **PASS** — typecheck, tests, build, backend URL tripwire, Pages deployment |
-| PWA artifact behavior | **PASS** — 10 service-worker/manifest tests |
-| Security/injection/SSRF | **PASS** — multilingual, structural, tool-smuggling, and SSRF regression suites |
-| Signed-in browser journey | **BLOCKED** — no human authenticated session in this environment |
-| Real Android journey | **BLOCKED** — no attached Android device |
-| Native Android build | **BLOCKED** — no JDK/Gradle/Android SDK |
+- **FEATURE:** Query understanding, decomposition, fan-out, multi-source, dedupe, quality/freshness ranking, page reading, evidence extraction, citations, conflict/insufficiency detection, deep research, progress, persistence, verification.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `src/convex/andromeda/*`, `src/convex/searchEngine/*`, `src/convex/universalSearch.ts`, `src/convex/deepResearch.ts`.
+- **TEST PERFORMED:** Andromeda suites (`andromeda*.test.ts`, `omiRetrieval`, `omiInjectionEvals`, etc.).
+- **RESULT:** PASS at the pure-logic and pipeline level.
+- **REMAINING BLOCKER:** A signed-in live deep-research run could not be executed here.
 
-## 5. Tests passed
+### 4. Image generation + editing
 
-- Andromeda planning, retrieval, dedupe, freshness, evidence, citation, verification, and fallback contracts.
-- Human Emotions scenarios, uncertainty language, user-request precedence, and no-provider fallback.
-- Image intent, preservation normalization, source ownership contracts, capability routing, health classification, byte verification, and user-facing errors.
-- Provider model discovery, retired-model protection, fallback, timeout, and structured failure behavior.
-- Calculator correctness and sandbox escape rejection.
-- DOCX/XLSX extraction, ZIP integrity, shared strings, worksheets, and malformed-file rejection.
-- Rate-limit allowance, retry hints, refusal persistence, and per-user/per-surface isolation.
-- Workflow approval, expiry, final decisions, and artifact integrity.
-- Project/document scoping and personal/project non-leakage.
-- Vision data URL validation, size/type limits, and multimodal message construction.
-- PWA manifest, scope-relative navigation, cache policy, offline fallback, and subpath deployment.
-- Production typecheck, lint, tests, and Vite build.
+- **FEATURE:** Text-to-image, image-to-image, editing, background/object/style, enhancement, upscaling, variations, outpainting, understanding.
+- **STATUS:** PARTIAL (generation works; editing BLOCKED externally)
+- **IMPLEMENTATION:** `src/convex/aiProviders/image*`, `src/convex/omiImages.ts`, `src/components/workspace/ImageStudioView.tsx`. Edit-family intents route ONLY to image-input-capable providers; a missing edit provider fails honestly and never silently becomes text-to-image.
+- **TEST PERFORMED:** `tests/omiImageContract.test.ts`, `omiImageIntent`, `omiImageRouting`, `omiImageErrors`, `omiWorkflowApproval`.
+- **RESULT:** Generation verified working (keyless path, real PNG bytes). Edit routing is correct and honest.
+- **REMAINING BLOCKER:** All edit-capable upstreams refuse the request in this environment (Gemini image 429 no-billing tier, OpenAI 429 no credits). Editing therefore cannot be exercised end-to-end here.
 
-## 6. Tests failed
+### 5. Vision
 
-No automated test failed in the final run. The following requested tests could not be executed and are not hidden:
+- **FEATURE:** Description, OCR where available, VQA, analysis, multimodal chat, safe validation.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `src/convex/aiProviders/vision*.ts`, ingest + chat re-description.
+- **TEST PERFORMED:** `tests/omiVision.test.ts`.
+- **RESULT:** PASS at unit level; honest when no vision key is configured.
+- **REMAINING BLOCKER:** Live signed-in image upload → question journey not click-tested here.
 
-- signed-in new-user journey through all features;
-- real Android hardware interactions;
-- native Android compilation/install;
-- live image edit success while configured edit providers return quota/credit errors.
+### 6. Human Emotions AI
 
-## 7. Security findings
+- **FEATURE:** Bounded tone adaptation with explicit opt-out and privacy controls.
+- **STATUS:** PASS
+- **IMPLEMENTATION:** `src/convex/emotionsEngine.ts`, `emotionsAi.ts`, `src/convex/omiChat.ts` wiring (per-turn, skippable, opt-in history).
+- **TEST PERFORMED:** `tests/emotionAware.test.ts`.
+- **RESULT:** PASS. Emotion is never asserted as certainty; chat works normally when disabled; inference is not stored unless the user opts in.
 
-### Passed controls
+### 7. Files + knowledge
 
-- AI/search credentials are read only from Convex server environment variables.
-- Provider descriptors contain variable names, not values.
-- Authentication and ownership checks protect user resources.
-- Project context is isolated in both directions.
-- Uploads validate type/size and references fail closed.
-- SSRF checks reject local/private IPv4/IPv6 destinations and encoded bypass forms.
-- Web pages/documents are sanitized as untrusted data; tool-call syntax is stripped and tools are allowlisted/argument-validated.
-- Rate limiting covers expensive surfaces.
-- Public health endpoints return diagnostic status, not secrets or stack traces.
-- CI verifies the production bundle includes the backend URL.
+- **FEATURE:** PDF/DOCX/TXT/CSV/XLSX/images; upload→validate→store→extract→index→retrieve→answer; preview, metadata, delete, rename, search, Q&A, project knowledge, multiple files, error messages, isolation, Clear all.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** `src/convex/omiFiles.ts`, `omiKnowledge.ts` (new `rename` + `clearAll`), `src/components/workspace/FilesView.tsx` (drag-drop upload, metadata, rename, name search, delete), `KnowledgeView.tsx` (search, rename, Clear all).
+- **TEST PERFORMED:** `tests/docExtract.test.ts`, retrieval/project isolation tests, typecheck, build.
+- **RESULT:** Extraction, private storage, ownership checks and retrieval are PASS. Rename + search + Clear all are newly added and compile/build clean.
+- **REMAINING BLOCKER:** The signed-in upload → question → answer journey was not click-tested here; Clear all deletes every owned document + blob (intended, behind a confirmation).
 
-### Residual risks
+### 8. Memory
 
-- Browser DevTools/network inspection was not manually exercised in a signed-in browser during this pass; code and bundle scans found no credential values.
-- The repository’s generated Convex files and environment allowlist were not treated as hand-edited security controls.
-- No independent penetration test or formal threat model has been commissioned.
+- **FEATURE:** View/add/delete/edit, Clear all, project vs user-wide, enable/disable, isolation.
+- **STATUS:** PASS (Clear all newly added)
+- **IMPLEMENTATION:** `src/convex/omiMemories.ts` (new `clearAll`), `MemoryView.tsx` and the chat memory dialog both expose Clear all behind a confirmation.
+- **TEST PERFORMED:** typecheck, build, lint; isolation covered by existing project tests.
+- **RESULT:** PASS. `clearAll` is scoped to the caller's own rows via the `by_user` index.
 
-## 8. Performance findings
+### 9. Projects
 
-- **PASS — bounded work:** search fan-out is limited, calculator expressions are bounded, page/document reads are capped, and provider calls are timed out.
-- **PASS — resilience:** circuit breakers avoid repeatedly calling known-failing providers; model discovery and search results use bounded caching.
-- **PASS — image payload verification:** returned bytes are sniffed and malformed/non-image results are rejected.
-- **Watch — PDF worker size:** `pdf.worker.min` is ~1.4 MB before compression. It is isolated into its own asset and does not block initial application parsing, but mobile first-load cost can be improved with route-level/preload tuning.
-- **Watch — main client chunks:** the largest application chunks are roughly 436 KB and 200 KB uncompressed; gzip sizes are materially smaller. Route-level splitting is present, but bundle-budget enforcement is not yet configured.
+- **FEATURE:** Create, rename, delete, conversations, files, memory, research, isolation, smooth switching.
+- **STATUS:** PASS
+- **IMPLEMENTATION:** `src/convex/omiProjects.ts` (create/update/remove/attach/detach/move), `ProjectsView.tsx`, project-scoped chat.
+- **TEST PERFORMED:** `tests/omiProjects.test.ts`.
+- **RESULT:** PASS.
 
-## 9. Remaining limitations and blockers
+### 10. Workflows / agents
 
-1. **NOT IMPLEMENTED — streaming/stop:** chat transport is non-streaming.
-2. **NOT IMPLEMENTED — regenerate:** no per-message regeneration control.
-3. **BLOCKED — image editing:** edit-capable providers currently return upstream 429/quota/credit failures; the router correctly refuses to substitute generation.
-4. **BLOCKED — signed-in full journey:** needs a real authenticated test account/session.
-5. **BLOCKED — physical Android QA:** requires a real phone and platform permissions/picker behavior.
-6. **BLOCKED — Android build:** requires JDK, Gradle, and Android SDK; store-grade PNG/maskable icons also need export.
-7. **PARTIAL — memory controls:** per-item management exists; a bulk “clear all” control is absent.
-8. **PARTIAL — observability:** self-test and audit trails exist, but no external error-reporting/metrics service is configured in this repository.
+- **FEATURE:** Approval architecture, step display, progress, cancel/retry/expiry, final result, artifacts, audit.
+- **STATUS:** PASS
+- **IMPLEMENTATION:** `src/convex/omiWorkflows.ts`, `omiWorkflowStore.ts`, `workflows/*`, `AutomationView.tsx`.
+- **TEST PERFORMED:** `tests/omiWorkflows.test.ts`, `omiWorkflowApproval.test.ts`.
+- **RESULT:** PASS. No autonomous action bypasses an explicit approval.
 
-## 10. Exact production-readiness percentage
+### 11. Security
 
-# **86% production ready**
+- **FEATURE:** Authn/authz, ownership, key protection, SSRF, prompt-injection, tool-call validation, upload validation, rate limiting, secret scanning, cross-user/project isolation.
+- **STATUS:** PASS
+- **IMPLEMENTATION:** ownership checks on every document/message/project path; SSRF blocklist + sanitizer in `searchEngine/security.ts`; per-surface rate limits.
+- **TEST PERFORMED:** `tests/omiSecurity.test.ts`, `omiSecurityExpansion.test.ts`, `omiInjectionEvals.test.ts`, `omiRateLimit.test.ts`, `omiProjects.test.ts`; repo secret scan (no credential-shaped values in `src/`, `public/`, `docs/`).
+- **RESULT:** PASS. Existing controls were strengthened, not weakened; `clearAll` paths are index-scoped to the caller.
 
-This is an evidence-weighted assessment, not a claim that every checkbox is complete. Reliability, accuracy, security, deployment, and automated regression coverage are strong and green. The percentage is reduced because two core chat UX capabilities are absent, image editing is externally blocked, the complete signed-in journey was not executed, mobile hardware behavior is unverified, and a native Android artifact was not built.
+### 12–17. UI, themes, visual identity, chat redesign, motion, loading
 
-**Final classification: PARTIAL / NOT YET 100% COMPLETE.** The web deployment is stable and buildable, but “100% production ready” would be inaccurate until the blocked and missing items above are resolved and re-tested.
+- **FEATURE:** Premium redesign, Omi design system, dark/light/system theme, chat-centric UX, subtle animation, meaningful loading states.
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** Theme system via the already-installed `next-themes` — `src/components/theme-provider.tsx`, `src/components/theme-toggle.tsx`, wired in `src/main.tsx`; dark is default; system-follow supported; the choice persists in `localStorage` under `omi-theme`; an inline bootstrap in `index.html` prevents a wrong-theme flash. Hardcoded `dark` was removed from `Landing.tsx` and `WorkspaceShell.tsx` so both follow the chosen theme. Chat adds markdown rendering, copy, Stop, and Regenerate. Streaming progress labels ("Omi is thinking/rereading/searching/reasoning") already existed and continue to work.
+- **TEST PERFORMED:** typecheck, lint, build (theme-toggle code-split chunk produced).
+- **RESULT:** PASS at build level; visual/contrast verification on real screens remains.
+- **REMAINING BLOCKER:** Live visual QA (contrast, responsive breakpoints, real devices) could not be performed here; `prefers-reduced-motion` handling was not newly audited this pass.
+
+### 18–20. Mobile / PWA / Android
+
+- **STATUS:** PARTIAL (Android BLOCKED)
+- **IMPLEMENTATION:** responsive shell, `public/manifest.webmanifest`, `public/sw.js` (production-only, scoped), `capacitor.config.ts` (appId `com.ominnovations.omi`, https scheme, `dist`).
+- **TEST PERFORMED:** `tests/pwaServiceWorker.test.ts`; build.
+- **RESULT:** PWA wiring PASS at unit/build level.
+- **REMAINING BLOCKER:** Store-grade 192/512 PNG + maskable icons are still outstanding (only an SVG logo exists); no JDK/Gradle/Android SDK in this environment, so no APK/AAB could be produced or device-tested.
+
+### 21. Performance
+
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** route-level lazy loading (`main.tsx`), manual vendor chunking (see `vite.config.ts`), local/zero-cost retrieval, throttled streaming flushes (~14/s) to avoid mutation storms.
+- **TEST PERFORMED:** production build (largest chunks: `index` ~447 KB, `Dashboard` ~367 KB, `pdf` ~363 KB, `pdf.worker` ~1.4 MB).
+- **RESULT:** Builds cleanly; PDF worker and Dashboard remain the largest payloads.
+- **REMAINING BLOCKER:** No hard bundle-size budget is enforced in CI yet; no profiling on a real mobile device here.
+
+### 22–24. Accessibility, error handling, observability
+
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** toasts differentiate auth/network/provider/quota/unsupported/invalid-file/too-large/search/image/timeout/rate-limit/server causes; no raw stacks are shown; existing audit/telemetry surfaces.
+- **TEST PERFORMED:** typecheck, lint, targeted test suites.
+- **RESULT:** Error messaging is broad and user-facing.
+- **REMAINING BLOCKER:** A dedicated screen-reader/keyboard/focus-trap audit and reduced-motion audit were not completed this pass.
+
+### 25–27. Full testing, security regression, final quality audit
+
+- **STATUS:** PARTIAL
+- **TEST PERFORMED:** the five commands above, plus a repository scan for TODO/FIXME/placeholder/dead-route patterns.
+- **RESULT:** All automated gates are green; the `/selftest` harness covers AI/fallback/search/vision/image/db/auth probes server-side.
+- **REMAINING BLOCKER:** The signed-in end-to-end journeys (AUTH→CHAT→STREAMING→STOP→REGENERATE→SEARCH→RESEARCH→IMAGE→FILES→MEMORY→PROJECTS→WORKFLOWS→PWA→MOBILE) could not be executed in a browser session here.
+
+---
+
+## Final report
+
+### 1. What was completed
+- Real token streaming, Stop/cancel, and Regenerate/Retry wired end-to-end through the provider-neutral router and the live Convex message document.
+- A dark/light/system theme system with persistence and a no-flash bootstrap.
+- Markdown rendering with copy-able code blocks in chat.
+- Clear-all for memory and knowledge (with confirmation), file/document rename, and file search.
+
+### 2. What was fixed
+- Streaming fallback semantics: a provider that fails before emitting is skipped; one that emits is committed, so answers are never spliced between providers.
+- The chat turn could previously sit at "streaming" through a long search fan-out with no way to cancel; Stop is now polled and enforced at stage boundaries and mid-stream.
+- `omiKnowledge.remove` now deletes the stored blob with its row (no orphaned uploads); a new `clearAll` mirrors this.
+- Removed hardcoded `dark` from `Landing.tsx`/`WorkspaceShell.tsx` that would have defeated light mode.
+
+### 3. What was tested
+`bun convex dev --once`, `bun tsc -b --noEmit`, `bun test tests/` (441 pass / 0 fail), `bun run lint` (0 errors), `bun run build` (green), plus the new `tests/omiStreaming.test.ts`.
+
+### 4. What remains blocked
+- Image **editing**: upstream providers refuse (Gemini 429 no-billing, OpenAI 429 no credits).
+- **Android** APK/AAB and real-device QA: no JDK/Gradle/Android SDK, no device.
+- Signed-in **end-to-end** journeys and real mobile browser QA: no session/device in this environment.
+- Store-grade PNG/maskable **PWA icons**.
+
+### 5. External API/provider requirements
+- A free `GROQ_API_KEY` (primary) and/or `GEMINI_API_KEY` (independent fallback) unlock chat/reasoning/vision/search synthesis. `OPENAI_API_KEY` / `DEEPSEEK_API_KEY` are optional adapters. Keys go in the Keys/API Keys tab and are used server-side only — never in `VITE_*`.
+- Image editing additionally requires a provider with image-input capability and available quota/billing.
+
+### 6. Web deployment status
+- CI (`deploy-pages.yml`) runs typecheck + tests + build with `VITE_BASE_PATH=/omiuniversalai/` and `VITE_CONVEX_URL`, verifies the URL is compiled into the bundle, and deploys to GitHub Pages. Live: https://omkarbhatti170899.github.io/omiuniversalai/
+
+### 7. Android build status
+- Capacitor metadata is correct and the web bundle builds for `dist`, but **no native build was produced** — the toolchain is not present in this environment.
+
+### 8. Final production-readiness assessment
+Omi is a working, provider-neutral AI workspace with tested security boundaries, honest error handling, and green automated gates. **It is not fully verified end-to-end**: streaming, theme, and Clear-all are implemented and pass automated checks, but the signed-in browser journeys and native/mobile paths remain unverified here, and image editing is blocked by external quota. Readiness is best described feature-by-feature above, not by a single number.

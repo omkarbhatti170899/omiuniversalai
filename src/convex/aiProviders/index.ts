@@ -25,6 +25,7 @@ import {
 import {
   isModelSpecific,
   openAiCompatibleCompletion,
+  openAiCompatibleStream,
 } from "./openaiCompat";
 import { vlyCompletion } from "./vly";
 import { filterToAvailableModels } from "./modelDiscovery";
@@ -51,6 +52,20 @@ export type AiCompletionResult = {
   /** Every attempt made, in order — for observability and debugging. */
   attempts: AiAttempt[];
   error?: string;
+};
+
+export type StreamArgs = CompleteArgs & {
+  /** Called for every token delta with (delta, fullTextSoFar). */
+  onToken: (delta: string, full: string) => void | Promise<void>;
+  /** Cooperative cancel — aborts the in-flight provider request. */
+  signal?: AbortSignal;
+};
+
+export type AiStreamResult = AiCompletionResult & {
+  /** True when the caller's Stop signal ended the stream (partial kept). */
+  stopped?: boolean;
+  /** True when a provider failed AFTER emitting tokens (partial kept). */
+  partial?: boolean;
 };
 
 export type CompleteArgs = CompletionRequest & {
@@ -295,6 +310,165 @@ export async function complete(args: CompleteArgs): Promise<AiCompletionResult> 
     }
 
     // Reached only when no candidate produced content → provider-level failure.
+    breakerRecord(`ai:${p.id}`, false);
+  }
+
+  return {
+    ok: false,
+    content: "",
+    provider: null,
+    model: null,
+    attempts,
+    error:
+      attempts
+        .map((a) => `${a.provider}: ${a.error}`)
+        .join(" | ")
+        .slice(0, 400) || "all AI providers failed",
+  };
+}
+
+/**
+ * Streaming twin of `complete`. Same provider ordering, model discovery,
+ * preference handling and circuit breaking — the ONLY difference is that
+ * tokens are handed to `onToken` as they arrive instead of being returned
+ * whole.
+ *
+ * Fallback semantics (the part that must be right):
+ *   • A provider that fails BEFORE emitting any token is transparently
+ *     skipped — the next model/provider answers, and the user never sees the
+ *     failed attempt.
+ *   • A provider that emits tokens and then dies or is Stopped is COMMITTED:
+ *     we keep its partial text and stop. Silently restarting the answer on a
+ *     different provider would splice two different responses together, which
+ *     is worse than honest partial output.
+ *   • Zero tokens after a successful stream is an empty completion and is
+ *     treated as a candidate-level failure (same as the non-streaming path).
+ */
+export async function completeStream(
+  args: StreamArgs,
+): Promise<AiStreamResult> {
+  const task: AiTask = args.task ?? "conversational";
+  const req: CompletionRequest = {
+    messages: args.messages,
+    temperature: args.temperature,
+    maxTokens: args.maxTokens,
+  };
+  const attempts: AiAttempt[] = [];
+
+  const configured = orderByPreference(
+    getConfiguredAiProviders(),
+    args.preferProvider,
+  );
+  const providers = args.onlyProvider
+    ? configured.filter((p) => p.id === args.onlyProvider)
+    : configured;
+  if (providers.length === 0) {
+    return {
+      ok: false,
+      content: "",
+      provider: null,
+      model: null,
+      attempts,
+      error: args.onlyProvider
+        ? `provider ${args.onlyProvider} is not configured`
+        : "no AI provider is configured: add GROQ_API_KEY (free) or OPENAI_API_KEY in the project's API Keys tab",
+    };
+  }
+
+  const override = args.model?.trim();
+  const circuits = providers.filter((p) => breakerAllow(`ai:${p.id}`));
+  const ordered = circuits.length > 0 ? circuits : providers;
+
+  for (const p of ordered) {
+    const primary =
+      override || p.taskModels[task] || p.taskModels.conversational;
+    const preferred = [primary, ...p.fallbackModels.filter((m) => m !== primary)];
+    const transport = transportFor(p);
+    const candidates =
+      override || transport === null
+        ? preferred
+        : await filterToAvailableModels(
+            p.id,
+            transport.url,
+            transport.key,
+            preferred,
+          );
+    let lastError = "";
+
+    for (const model of candidates) {
+      if (args.signal?.aborted) {
+        // Stopped before this candidate started — nothing was shown.
+        return {
+          ok: false,
+          content: "",
+          provider: null,
+          model: null,
+          attempts,
+          stopped: true,
+        };
+      }
+
+      if (transport === null) {
+        // Non-streaming transport (workspace gateway): run it whole, then
+        // emit the finished text as a single token so the caller's contract
+        // ("onToken is called with content") holds for every provider.
+        const result = await adapterFor(p)(model, req);
+        if (result.success && result.data) {
+          const content = (
+            result.data.choices?.[0]?.message?.content ?? ""
+          ).trim();
+          if (content.length > 0) {
+            breakerRecord(`ai:${p.id}`, true);
+            await args.onToken(content, content);
+            return { ok: true, content, provider: p.id, model, attempts };
+          }
+          lastError = `${p.id} (${model}) returned an empty completion`;
+          attempts.push({ provider: p.id, model, error: lastError.slice(0, 200) });
+          if (decideAfterFailedAttempt(lastError, true) === "next_provider") break;
+          continue;
+        }
+        lastError = result.error ?? `${p.id} failed`;
+        attempts.push({ provider: p.id, model, error: lastError.slice(0, 200) });
+        if (decideAfterFailedAttempt(lastError, false) === "next_provider") break;
+        continue;
+      }
+
+      const outcome = await openAiCompatibleStream(
+        transport.url,
+        transport.key,
+        model,
+        req,
+        `${p.label}(${model})`,
+        args.onToken,
+        args.signal,
+      );
+
+      if (outcome.emitted) {
+        // Committed: tokens are already visible. Keep the partial answer.
+        breakerRecord(`ai:${p.id}`, true);
+        return {
+          ok: true,
+          content: outcome.content,
+          provider: p.id,
+          model,
+          attempts,
+          ...(outcome.aborted ? { stopped: true } : {}),
+          ...(outcome.success ? {} : { partial: true, error: outcome.error }),
+        };
+      }
+
+      if (outcome.success) {
+        lastError = `${p.id} (${model}) returned an empty completion`;
+        attempts.push({ provider: p.id, model, error: lastError.slice(0, 200) });
+        if (decideAfterFailedAttempt(lastError, true) === "next_provider") break;
+        continue;
+      }
+
+      lastError = outcome.error ?? `${p.id} failed`;
+      attempts.push({ provider: p.id, model, error: lastError.slice(0, 200) });
+      if (decideAfterFailedAttempt(lastError, false) === "next_provider") break;
+    }
+
     breakerRecord(`ai:${p.id}`, false);
   }
 

@@ -49,8 +49,8 @@ GET /selftest            → ok · 12 pass · 0 fail · 2 configured · 1 unveri
 | Test performed | Result | Notes |
 |---|---|---|
 | Chat | 🟠 PENDING | Provider chain live-verified; the signed-in conversational turn is not claimed |
-| **Streaming** | 🔴 **FAIL** | **Token streaming does not exist.** The transport sends a normal (non-streamed) request in `aiProviders/openaiCompat.ts`; the answer is persisted and rendered whole. Users see a spinner, then the complete reply. Not a regression — the capability was never built |
-| **Regenerate** | 🔴 **FAIL** | **No per-message regenerate/retry affordance.** Grepped every component: message actions are delete conversation, read-aloud, dismiss emotion, attach, memory edit/delete. A user who dislikes an answer must retype the prompt |
+| **Streaming** | 🟠 **PARTIAL** *(updated 2026-09-26)* | **Now implemented.** SSE token streaming (`openAiCompatibleStream` → fallback-safe `completeStream`) patches the live `omiMessages` document; `tests/omiStreaming.test.ts` passes. The earlier FAIL described the pre-streaming transport. Live signed-in click-through remains unverified here |
+| **Regenerate** | 🟠 **PARTIAL** *(updated 2026-09-26)* | **Now implemented.** `omiChat.regenerate` re-runs the last user turn end-to-end; the chat panel shows a per-message Regenerate/Retry button plus a Stop button. Live signed-in click-through remains unverified here |
 | Conversation history | ✅ PASS | Ownership checked before every turn; a foreign conversation id throws |
 | New conversations | ✅ PASS | Create/list/delete present with per-user scoping |
 | Provider routing | ✅ PASS | `/selftest` pins a *specific* provider and gets an answer — real routing, not a config read |
@@ -239,8 +239,8 @@ allowance accuracy, retry-hint bounds, refusal persistence and per-key isolation
 
 | # | Blocker | Type | Unblocked by |
 |---|---|---|---|
-| 1 | Token streaming absent | 🔴 capability | Building it (deferred — feature freeze) |
-| 2 | Regenerate absent | 🔴 capability | Building it (deferred — feature freeze) |
+| 1 | Token streaming built but live-verified only in unit tests | 🟠 access | A signed-in browser session + a working provider |
+| 2 | Code-block syntax highlighting not implemented | 🟡 capability | A lightweight highlighter choice |
 | 3 | Image editing blocked | 🟡 external | Gemini project with billing, or OpenAI credits |
 | 4 | Android build unverifiable | 🟡 environment | A machine with JDK + Android SDK |
 | 5 | PNG app icons | 🟡 asset | 1024×1024 PNG brand source |

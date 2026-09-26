@@ -11,6 +11,7 @@ import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/use-auth";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -44,7 +45,7 @@ export default function Landing() {
   const primaryLabel = isAuthenticated ? "Open your workspace" : "Start free";
 
   return (
-    <div className="dark min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Navbar */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
@@ -65,9 +66,12 @@ export default function Landing() {
               Meet Omi
             </a>
           </nav>
-          <Button asChild className="cursor-pointer">
-            <Link to={primaryHref}>{primaryLabel}</Link>
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button asChild className="cursor-pointer">
+              <Link to={primaryHref}>{primaryLabel}</Link>
+            </Button>
+          </div>
         </div>
       </header>
 

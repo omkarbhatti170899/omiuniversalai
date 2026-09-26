@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Bell,
   BookOpen,
@@ -243,7 +244,7 @@ export function WorkspaceShell({
   }, [user]);
 
   return (
-    <div className="dark omi-ambient min-h-screen bg-background text-foreground">
+    <div className="omi-ambient min-h-screen bg-background text-foreground">
       <div className="flex min-h-screen">
         {/* Sidebar (desktop) */}
         <aside
@@ -389,6 +390,7 @@ export function WorkspaceShell({
               </div>
 
               <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
+                <ThemeToggle className="text-muted-foreground hover:text-foreground" />
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button

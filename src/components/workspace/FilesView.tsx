@@ -2,12 +2,25 @@ import { useAction, useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import type { Id } from "@/convex/_generated/dataModel";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { FileImage, FileSpreadsheet, FileText, Files, Loader2, Trash2, Upload } from "lucide-react";
+import {
+  FileImage,
+  FileSpreadsheet,
+  FileText,
+  Files,
+  Loader2,
+  Pencil,
+  Search,
+  Trash2,
+  Upload,
+  X,
+} from "lucide-react";
 import { useRef, useState } from "react";
 import { extractDocx, extractXlsx } from "@/lib/docExtract";
 import { extractPdf } from "@/lib/pdfExtract";
@@ -38,8 +51,12 @@ export function FilesView() {
   const ingestFile = useAction(api.omiFiles.ingestFile);
   const ingestImage = useAction(api.omiFiles.ingestImage);
   const removeFile = useMutation(api.omiFiles.remove);
+  const renameDoc = useMutation(api.omiKnowledge.rename);
 
   const [uploading, setUploading] = useState(false);
+  const [filter, setFilter] = useState("");
+  const [renamingId, setRenamingId] = useState<Id<"omiDocuments"> | null>(null);
+  const [renameDraft, setRenameDraft] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFiles = async (list: FileList | null) => {
@@ -131,6 +148,21 @@ export function FilesView() {
     }
   };
 
+  const handleRename = async (id: Id<"omiDocuments">) => {
+    try {
+      await renameDoc({ id, title: renameDraft });
+      toast("File renamed.");
+      setRenamingId(null);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't rename that file.");
+    }
+  };
+
+  const needle = filter.trim().toLowerCase();
+  const visibleFiles = (fileDocs ?? []).filter((d) =>
+    needle.length === 0 ? true : d.title.toLowerCase().includes(needle),
+  );
+
   const totalWords = (fileDocs ?? []).reduce((sum, d) => sum + d.wordCount, 0);
 
   return (
@@ -198,6 +230,20 @@ export function FilesView() {
         </CardContent>
       </Card>
 
+      {/* Search */}
+      {(fileDocs?.length ?? 0) > 0 && (
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            placeholder="Search your files by name…"
+            aria-label="Search your files by name"
+            className="pl-9"
+          />
+        </div>
+      )}
+
       {/* File list */}
       {fileDocs === undefined ? (
         <div className="space-y-3">
@@ -215,13 +261,17 @@ export function FilesView() {
             </p>
           </CardContent>
         </Card>
+      ) : visibleFiles.length === 0 ? (
+        <p className="text-sm text-muted-foreground">
+          No files match “{filter.trim()}”.
+        </p>
       ) : (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="space-y-2"
         >
-          {fileDocs.map((d: FileDoc) => (
+          {visibleFiles.map((d: FileDoc) => (
             <Card key={d._id} className="bg-card/60">
               <CardContent className="flex items-start gap-3 p-4">
                 <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -234,7 +284,39 @@ export function FilesView() {
                   )}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold">{d.title}</p>
+                  {renamingId === d._id ? (
+                    <div className="flex items-center gap-2">
+                      <Input
+                        value={renameDraft}
+                        onChange={(e) => setRenameDraft(e.target.value)}
+                        maxLength={200}
+                        aria-label="New file name"
+                        className="h-8"
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") void handleRename(d._id);
+                          if (e.key === "Escape") setRenamingId(null);
+                        }}
+                      />
+                      <Button
+                        size="sm"
+                        className="cursor-pointer"
+                        onClick={() => void handleRename(d._id)}
+                      >
+                        Save
+                      </Button>
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="size-8 cursor-pointer"
+                        aria-label="Cancel rename"
+                        onClick={() => setRenamingId(null)}
+                      >
+                        <X className="size-4" />
+                      </Button>
+                    </div>
+                  ) : (
+                    <p className="truncate text-sm font-semibold">{d.title}</p>
+                  )}
                   <p className="text-xs text-muted-foreground">
                     {d.wordCount.toLocaleString()} words ·{" "}
                     {d.fileSize !== undefined && formatBytes(d.fileSize)} ·{" "}
@@ -246,6 +328,17 @@ export function FilesView() {
                     {d.fileType.split("/").pop()?.slice(0, 10)}
                   </Badge>
                 )}
+                <button
+                  type="button"
+                  aria-label="Rename file"
+                  className="cursor-pointer text-muted-foreground transition-colors hover:text-foreground"
+                  onClick={() => {
+                    setRenamingId(d._id);
+                    setRenameDraft(d.title);
+                  }}
+                >
+                  <Pencil className="size-4" />
+                </button>
                 <button
                   type="button"
                   aria-label="Delete file"
