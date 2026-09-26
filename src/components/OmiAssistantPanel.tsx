@@ -11,11 +11,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -32,13 +27,11 @@ import {
   BrainCircuit,
   Brain,
   Check,
-  ChevronDown,
   Copy,
   History,
   Loader2,
   MessageSquarePlus,
   Mic,
-  MicOff,
   Paperclip,
   FileImage,
   Pencil,
@@ -64,6 +57,15 @@ import {
 } from "@/lib/attachmentUpload";
 import { FolderKanban } from "lucide-react";
 import { MarkdownMessage } from "@/components/MarkdownMessage";
+import {
+  AnswerRenderer,
+  AnswerDetails,
+} from "@/components/answer/AnswerRenderer";
+import {
+  PROGRESS_STAGES,
+  stageForStatus,
+} from "@/lib/answerShape";
+import { cn } from "@/lib/utils";
 
 type OmiMessage = {
   _id: Id<"omiMessages">;
@@ -130,6 +132,9 @@ export function OmiAssistantPanel({
   const [editingMemoryId, setEditingMemoryId] = useState<Id<"omiMemories"> | null>(
     null,
   );
+  // §6/§10 — drag-and-drop files onto the composer (desktop nicety; mobile
+  // keeps the file picker via the attach button).
+  const [dragging, setDragging] = useState(false);
 
   const messages = useQuery(
     api.omiMessages.listByConversation,
@@ -513,12 +518,36 @@ export function OmiAssistantPanel({
               </div>
             ) : !messages || messages.length === 0 ? (
               <div className="flex h-full flex-col items-center justify-center py-12 text-center">
-                <BrainCircuit className="size-10 text-muted-foreground/40" />
-                <p className="mt-4 font-semibold">Talk to Omi</p>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25 }}
+                  className="flex size-14 items-center justify-center rounded-2xl border border-border/60 bg-muted/30"
+                >
+                  <BrainCircuit className="size-7 text-primary/70" />
+                </motion.div>
+                <p className="mt-4 font-semibold">What should Omi look into?</p>
                 <p className="mt-1 max-w-sm text-sm text-muted-foreground">
-                  Ask anything. Omi breaks down the problem, reasons through it,
-                  and shows you a "Why this answer" trail.
+                  Ask a question, drop in files, or request research. Answers
+                  arrive as structured cards — steps, sources and evidence, not
+                  walls of text.
                 </p>
+                <div className="mt-5 grid w-full max-w-md gap-2 sm:grid-cols-3">
+                  {[
+                    "Research a topic",
+                    "Explain a file",
+                    "Plan a task",
+                  ].map((hint) => (
+                    <button
+                      key={hint}
+                      type="button"
+                      className="cursor-pointer rounded-lg border border-border/60 bg-muted/20 px-3 py-2 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                      onClick={() => setDraft(hint)}
+                    >
+                      {hint}
+                    </button>
+                  ))}
+                </div>
               </div>
             ) : (
               (messages as OmiMessage[]).map((m, idx, arr) => (
@@ -532,12 +561,12 @@ export function OmiAssistantPanel({
                   }
                 >
                   <div
-                    className={`max-w-[85%] rounded-xl border px-4 py-3 text-sm leading-relaxed ${
+                    className={`max-w-[88%] rounded-2xl border px-4 py-3 text-sm leading-relaxed sm:max-w-[80%] ${
                       m.role === "user"
-                        ? "border-primary/40 bg-primary/10"
+                        ? "rounded-br-md border-primary/40 bg-primary/10"
                         : m.status === "streaming"
-                          ? "border-primary/40 bg-primary/5"
-                          : "border-border/60 bg-muted/40"
+                          ? "omi-streaming rounded-bl-md border-primary/40 bg-primary/5"
+                          : "omi-answer rounded-bl-md border-border/60 bg-card/80"
                     }`}
                   >
                     {m.role === "user" && m.attachments && m.attachments.length > 0 && (
@@ -545,14 +574,14 @@ export function OmiAssistantPanel({
                         {m.attachments.map((att) => (
                           <span
                             key={att.documentId}
-                            className="flex items-center gap-1 rounded-md border border-border/60 bg-background/60 px-1.5 py-0.5 text-[11px] text-muted-foreground"
+                            className="flex items-center gap-1 rounded-lg border border-border/60 bg-background/70 px-2 py-1 text-[11px] text-muted-foreground"
                           >
                             {att.kind === "image" ? (
-                              <FileImage className="size-3" />
+                              <FileImage className="size-3 text-primary/70" />
                             ) : (
-                              <Paperclip className="size-3" />
+                              <Paperclip className="size-3 text-primary/70" />
                             )}
-                            {att.title}
+                            <span className="max-w-36 truncate">{att.title}</span>
                           </span>
                         ))}
                       </div>
@@ -560,12 +589,58 @@ export function OmiAssistantPanel({
                     {m.role === "user" ? (
                       <p className="whitespace-pre-wrap">{m.content}</p>
                     ) : m.status === "streaming" ? (
-                      <div className="flex items-start gap-2">
-                        <span className="mt-1.5 inline-flex size-2 shrink-0 animate-pulse rounded-full bg-primary" />
-                        <MarkdownMessage content={m.content} className="flex-1" />
+                      <div className="space-y-3">
+                        {/* §3 — visible stage ladder, not chain-of-thought. */}
+                        <ol
+                          className="flex flex-wrap items-center gap-x-2 gap-y-1"
+                          aria-label="Omi is working"
+                        >
+                          {PROGRESS_STAGES.map((stage, i) => {
+                            const current = stageForStatus(
+                              m.content || m.reasoning,
+                            );
+                            const stageIdx = PROGRESS_STAGES.indexOf(current);
+                            const done = i < stageIdx;
+                            const active = i === stageIdx;
+                            return (
+                              <li
+                                key={stage}
+                                className={cn(
+                                  "flex items-center gap-1 text-[11px] transition-colors",
+                                  done
+                                    ? "text-muted-foreground/70"
+                                    : active
+                                      ? "font-medium text-primary"
+                                      : "text-muted-foreground/40",
+                                )}
+                              >
+                                {active ? (
+                                  <Loader2 className="size-3 shrink-0 animate-spin" />
+                                ) : (
+                                  <span
+                                    aria-hidden
+                                    className={cn(
+                                      "size-1.5 rounded-full",
+                                      done ? "bg-primary/60" : "bg-muted-foreground/30",
+                                    )}
+                                  />
+                                )}
+                                {stage.charAt(0) + stage.slice(1).toLowerCase()}
+                                {i < PROGRESS_STAGES.length - 1 && (
+                                  <span aria-hidden className="ml-1 text-muted-foreground/30">
+                                    ·
+                                  </span>
+                                )}
+                              </li>
+                            );
+                          })}
+                        </ol>
+                        {m.content && (
+                          <MarkdownMessage content={m.content} className="flex-1" />
+                        )}
                       </div>
                     ) : (
-                      <MarkdownMessage content={m.content} />
+                      <AnswerRenderer content={m.content} />
                     )}
                     {m.role !== "user" && (
                       <div className="mt-2 flex flex-wrap items-center gap-3">
@@ -623,18 +698,8 @@ export function OmiAssistantPanel({
                         )}
                       </div>
                     )}
-                    {m.reasoning && (
-                      <Collapsible className="mt-3 border-t border-border/60 pt-2">
-                        <CollapsibleTrigger className="flex cursor-pointer items-center gap-1 text-xs font-medium text-primary">
-                          <ChevronDown className="size-3.5" />
-                          Why this answer
-                        </CollapsibleTrigger>
-                        <CollapsibleContent>
-                          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                            {m.reasoning}
-                          </p>
-                        </CollapsibleContent>
-                      </Collapsible>
+                    {m.reasoning && m.status !== "streaming" && (
+                      <AnswerDetails reasoning={m.reasoning} />
                     )}
                   </div>
                 </motion.div>
@@ -642,7 +707,34 @@ export function OmiAssistantPanel({
             )}
           </div>
 
-          <div className="mt-4 border-t border-border/60 pt-4">
+          <div
+            className="mt-4 border-t border-border/60 pt-4"
+            onDragOver={(e) => {
+              if (e.dataTransfer.types.includes("Files")) {
+                e.preventDefault();
+                setDragging(true);
+              }
+            }}
+            onDragLeave={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node)) setDragging(false);
+            }}
+            onDrop={(e) => {
+              if (e.dataTransfer.files.length > 0) {
+                e.preventDefault();
+                handleFilesChosen(e.dataTransfer.files);
+              }
+              setDragging(false);
+            }}
+          >
+            {/* §10 — drop zone affordance while files are dragged over. */}
+            {dragging && (
+              <div
+                aria-hidden
+                className="mb-2 rounded-lg border-2 border-dashed border-primary/50 bg-primary/5 px-4 py-6 text-center text-xs text-primary"
+              >
+                Drop files or images to attach
+              </div>
+            )}
             {/* Emotion-aware read (inference, dismissible, not stored) */}
             {lastEmotion && (
               <div className="mb-2 flex items-start gap-2 rounded-lg border border-border/60 bg-white/[0.02] px-3 py-2">
@@ -714,24 +806,29 @@ export function OmiAssistantPanel({
                 ))}
               </div>
             )}
-            <Textarea
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              placeholder="Ask Omi anything — attach files or images with the paperclip"
-              className="min-h-20 resize-y"
-              maxLength={4000}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
-                  e.preventDefault();
-                  void handleSend();
-                }
-              }}
-            />
-            <div className="mt-2 flex items-center justify-between">
-              <span className="text-xs text-muted-foreground">
-                ⌘/Ctrl + Enter to send
-              </span>
-              <div className="flex items-center gap-2">
+            <div
+              className={cn(
+                "omi-composer rounded-xl border bg-background/60 transition-colors",
+                dragging ? "border-primary/60" : "border-border/70 focus-within:border-primary/50",
+              )}
+            >
+              <Textarea
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                placeholder="Ask Omi anything — or drop files here"
+                className="omi-composer-input min-h-16 resize-y border-0 bg-transparent focus-visible:ring-0"
+                maxLength={4000}
+                aria-label="Message Omi"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+                    e.preventDefault();
+                    void handleSend();
+                  }
+                }}
+              />
+              {/* Contextual control row (§6): quiet icons, never a wall of
+                  buttons. Voice only appears when the browser supports it. */}
+              <div className="flex items-center gap-1 border-t border-border/60 px-2 py-1.5">
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -740,27 +837,27 @@ export function OmiAssistantPanel({
                   className="hidden"
                   onChange={(e) => handleFilesChosen(e.target.files)}
                 />
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="cursor-pointer"
+                <button
+                  type="button"
+                  className="flex size-9 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   title="Attach files or images (read on-device, stored privately)"
+                  aria-label="Attach files or images"
                   disabled={isSending || attachments.length >= MAX_ATTACHMENTS}
                   onClick={() => fileInputRef.current?.click()}
                 >
-                  <Paperclip className="mr-1.5 size-4" />
-                  Attach
-                </Button>
+                  <Paperclip className="size-4" />
+                </button>
                 {voice.supported && (
-                  <Button
-                    variant={voice.listening ? "default" : "outline"}
-                    size="sm"
-                    className="cursor-pointer"
-                    title={
+                  <button
+                    type="button"
+                    className={cn(
+                      "flex size-9 cursor-pointer items-center justify-center rounded-lg transition-colors",
                       voice.listening
-                        ? "Stop listening"
-                        : "Speak to Omi (on-device, free)"
-                    }
+                        ? "bg-primary/15 text-primary"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                    )}
+                    title={voice.listening ? "Stop listening" : "Speak to Omi (on-device, free)"}
+                    aria-label={voice.listening ? "Stop voice input" : "Start voice input"}
                     onClick={() => {
                       if (voice.listening) {
                         voice.stop();
@@ -770,38 +867,40 @@ export function OmiAssistantPanel({
                     }}
                   >
                     {voice.listening ? (
-                      <>
-                        <Mic className="mr-1.5 size-4 animate-pulse" />
-                        Listening…
-                      </>
+                      <Mic className="size-4 animate-pulse" />
                     ) : (
-                      <MicOff className="size-4" />
-                    )
-                    }
-                  </Button>
+                      <Mic className="size-4" />
+                    )}
+                  </button>
                 )}
+                <span className="ml-auto hidden text-[11px] text-muted-foreground sm:block">
+                  ⌘/Ctrl + Enter
+                </span>
                 {isSending ? (
                   <Button
                     variant="outline"
+                    size="sm"
                     className="cursor-pointer"
                     onClick={() => void handleStop()}
                     disabled={stopping}
                     title="Stop generating"
                   >
                     {stopping ? (
-                      <Loader2 className="mr-2 size-4 animate-spin" />
+                      <Loader2 className="mr-1.5 size-3.5 animate-spin" />
                     ) : (
-                      <Square className="mr-2 size-4" />
+                      <Square className="mr-1.5 size-3.5" />
                     )}
-                    {stopping ? "Stopping…" : "Stop"}
+                    Stop
                   </Button>
                 ) : (
                   <Button
+                    size="sm"
                     className="cursor-pointer"
                     onClick={() => void handleSend()}
                     disabled={draft.trim().length === 0}
+                    aria-label="Send message"
                   >
-                    <Send className="mr-2 size-4" />
+                    <Send className="mr-1.5 size-3.5" />
                     Send
                   </Button>
                 )}

@@ -123,6 +123,36 @@
  * every card, so hierarchy stays readable.
  */
 @layer utilities {
+  /*
+   * Answer surface tokens (modern answer rendering pass).
+   * Quiet elevation only — a hairline border, a slightly lifted surface and a
+   * restrained shadow. No glow, no neon: hierarchy comes from structure.
+   */
+  .omi-answer,
+  .omi-answer-card {
+    box-shadow:
+      0 1px 2px oklch(0 0 0 / 0.04),
+      0 4px 12px oklch(0 0 0 / 0.04);
+  }
+
+  .omi-answer-key {
+    border-left: 2px solid oklch(from var(--primary) l c h / 0.55);
+  }
+
+  /* Streaming: a soft breathing border so activity is visible without
+     motion sickness — replaced by the reduced-motion rule below. */
+  .omi-streaming {
+    animation: omi-stream-pulse 2.4s ease-in-out infinite;
+  }
+
+  /* Composer: one raised surface containing input + controls. */
+  .omi-composer {
+    box-shadow: 0 1px 2px oklch(0 0 0 / 0.05), 0 6px 18px oklch(0 0 0 / 0.06);
+  }
+  .omi-composer-input:focus {
+    outline: none;
+  }
+
   .omi-ambient {
     background-image:
       radial-gradient(
@@ -156,6 +186,16 @@
 @layer base {
   ::selection {
     background: oklch(0.7 0.145 272 / 0.28);
+  }
+}
+
+@keyframes omi-stream-pulse {
+  0%,
+  100% {
+    border-color: oklch(from var(--primary) l c h / 0.4);
+  }
+  50% {
+    border-color: oklch(from var(--primary) l c h / 0.75);
   }
 }
 

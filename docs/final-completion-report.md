@@ -227,7 +227,20 @@
 - **RESULT:** PASS — no unfinished markers or mock production paths in `src` (matches are doc comments asserting the *no-fake* policy, or `placeholder` prop names). Console noise reduced.
 - **REMAINING BLOCKER:** No structured server-side metrics/alerting sink wired.
 
-### 34. Accessibility + reduced motion
+### 34a. Answer-experience modernization (presentation layer)
+
+- **FEATURE:** Structured answer rendering — answers arrive as adaptive cards (knowledge, steps, checklist, comparison, research, warning), never one pasted text wall.
+- **STATUS:** PARTIAL (implemented + unit-tested; visual QA needs the signed-in browser session)
+- **IMPLEMENTATION:** presentation-only; no backend change.
+  - `src/lib/answerShape.ts` (pure, unit-tested): detects the answer's shape from the finished text — knowledge plan sections, numbered procedures, checklists, tables, `[n]` web citations, human-review headlines — and extracts the structured parts (steps, checklist items, deduped citation chips, section bodies). Conservative by design: a section card renders only when the text contains it.
+  - `src/components/answer/AnswerRenderer.tsx`: renders each shape as a dedicated card — **Knowledge card** (key answer highlighted, WHAT TO DO as numbered steps with circled indices, required-info/checks/exceptions/escalate sections with icons, source + version header, CONFLICT box), **Step card**, **Checklist card**, **Comparison table** with expand overflow, **Research** with clickable **source chips** opening a source panel, and a **Warning card**. Plain answers keep clean markdown.
+  - **Progressive response experience (§3):** streaming turns show the stage ladder UNDERSTANDING → SEARCHING → ANALYZING → VERIFYING → PREPARING ANSWER (mapped from the status text Omi already patches into the live message — high-level activity only, never chain-of-thought), with the partial answer below it and a soft breathing border; reduced-motion neutralizes the animation via the existing global rule.
+  - **Composer (§6/§10):** one raised surface (`.omi-composer`) with the input and a quiet contextual control row — attach icon, voice icon (only when the browser supports it), hint, Send/Stop; **drag-and-drop files** with a visible drop zone; mobile-first sizing (larger touch targets, responsive widths).
+  - **Conversation (§2/§11):** user messages are right-aligned bubbles, Omi replies are left-aligned answer cards; attachments render as labelled chips with icons; "Why this answer" is a collapsible evidence drawer; empty state offers starter prompts; long answers fall back to markdown so nothing is lost.
+  - **Design tokens:** `.omi-answer`, `.omi-answer-card`, `.omi-answer-key`, `.omi-streaming`, `.omi-composer` in `src/index.css` — quiet elevation (hairline border + restrained shadow), no neon/glow, both themes via existing oklch tokens.
+- **TEST PERFORMED:** `tests/omiAnswerShape.test.ts` (16 tests: shape detection for every renderer, section parsing incl. the lone-SOURCE guard, citation dedup/hint extraction, verbatim steps, checklist state, stage mapping). Full suite **526 pass / 0 fail (40 files)**; typecheck 0 errors; lint 0 errors; production build green.
+- **RESULT:** shape detection, parsing and rendering are verified by tests; the composer/stepper/cards compile into the chat panel.
+- **REMAINING BLOCKER:** the mandatory signed-in visual walkthrough (desktop + Android, dark/light, long conversations) — same environment blocker as §12; mid-range-device performance profiling not run here.
 
 - **FEATURE:** Keyboard/focus/ARIA/contrast/reduced-motion.
 - **STATUS:** PARTIAL
