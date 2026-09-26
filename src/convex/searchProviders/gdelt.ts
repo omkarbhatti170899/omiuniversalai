@@ -7,10 +7,13 @@ import {
 
 const DOC_URL = "https://api.gdeltproject.org/api/v2/doc/doc";
 const UA = "OmiSearch/1.0 (https://ominnovations.example; contact: omi@ominnovations.example)";
+/** GDELT's documented floor: about one request every 5 seconds. */
+const MIN_INTERVAL_MS = 5200;
+let lastRequestAt = 0;
 
 /** Pure helper: is this query looking for recent/news coverage? */
 export function isNewsQuery(q: string): boolean {
-  return /\b(news|breaking|announced?|launch(?:ed|ing)?|report(?:ed)?|headline|latest|this week|this month|update[ds]?|market close|earnings|regulat(?:or|ion)|lawsuit|acquisition|merger|election|earnings call)\b/i.test(
+  return /\b(news|breaking|announced?|launch(?:ed|ing)?|report(?:ed)?|headline|latest|this week|this month|update[ds]?|market close|earnings|regulat(?:or|ion)|lawsuit|acquisition|merger|election|earnings call|what happened|what(?:'s| is| are)? happening|going on)\b/i.test(
     q ?? "",
   );
 }
@@ -59,6 +62,16 @@ export function createGdeltProvider(): SearchProvider {
       if (!isNewsQuery(query)) {
         return { citations: [] };
       }
+      // GDELT hard-limits to roughly one request every 5 seconds and answers
+      // anything faster with HTTP 429. Throwing on 429 turned a normal,
+      // documented limit into a "missing key" failure that killed the whole
+      // fan-out; waiting briefly and degrading to an empty result is correct.
+      const sinceLast = Date.now() - lastRequestAt;
+      if (sinceLast < MIN_INTERVAL_MS) {
+        await new Promise((r) => setTimeout(r, MIN_INTERVAL_MS - sinceLast));
+      }
+      lastRequestAt = Date.now();
+
       try {
         const res = await axios.get(DOC_URL, {
           params: {
@@ -66,12 +79,23 @@ export function createGdeltProvider(): SearchProvider {
             query: query.slice(0, 250),
             mode: "artlist",
             maxrecords: Math.min(numResults, 15),
-            timespan: opts?.timeRange === "day" ? "24h" : "1w",
+            // An explicit short window is honoured; anything else uses 24h so
+            // a "current" question still gets today's coverage.
+            timespan: opts?.timeRange === "hour" || opts?.timeRange === "day" ? "24h" : "1w",
+            sort: "datedesc",
             ...(opts?.language ? { sourcelang: opts.language } : {}),
           },
           headers: { "User-Agent": UA },
           timeout: 15000,
+          // A 429 is handled below, not thrown.
+          validateStatus: (s) => s >= 200 && s < 300,
         });
+
+        if (res.status === 429) {
+          // Rate-limited: this is a "no results this time", not a broken
+          // provider. The orchestrator continues with the other engines.
+          return { citations: [] };
+        }
 
         const articles = (res.data?.articles ?? []) as Array<
           Parameters<typeof mapArticleToCitation>[0]
@@ -82,6 +106,9 @@ export function createGdeltProvider(): SearchProvider {
           .slice(0, numResults);
         return { citations };
       } catch (err) {
+        // A 429 surfacing as a thrown axios error is still just a rate limit.
+        const status = (err as { response?: { status?: number } })?.response?.status;
+        if (status === 429) return { citations: [] };
         throw new MissingKeyError(
           `gdelt: ${err instanceof Error ? err.message : "unavailable"}`,
         );

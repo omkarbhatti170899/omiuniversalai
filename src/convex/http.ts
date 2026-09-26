@@ -5,7 +5,7 @@ import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
 import { getImageProviderStatus } from "./aiProviders/imageCatalog";
 import { getProviderStatus } from "./searchProviders";
-import { runSelfTest } from "./omiSelfTest";
+import { runSelfTest, probeCurrentInfo, probeCurrentInfoSuite } from "./omiSelfTest";
 import { breakerStatus } from "./searchEngine/resilience";
 import { modelDiscoveryStatus } from "./aiProviders/modelDiscovery";
 import {
@@ -211,6 +211,46 @@ http.route({
   }),
 });
 
+/**
+ * CURRENT-INFORMATION END-TO-END PROBE (public, read-only).
+ *
+ * `/currentinfo?query=…`  — one question, the whole chain, every link named:
+ *   current intent → search trigger → provider → results → freshness →
+ *   answer → sources.
+ *
+ * `/currentinfo`           — the full 10-scenario suite.
+ *
+ * This exists because "current information is not working" is not diagnosable
+ * from a boolean. Each row says which engine ran, how many results came back,
+ * how many were recent enough to be evidence, what the answer was and which
+ * URLs backed it — so a failure names the broken link.
+ *
+ * The query is a fixed, non-personal probe when omitted, and user-supplied
+ * queries are length-capped and never persisted. No auth, no user data.
+ */
+http.route({
+  path: "/currentinfo",
+  method: "GET",
+  handler: httpAction(async (ctx, request) => {
+    const url = new URL(request.url);
+    const q = url.searchParams.get("query")?.slice(0, 200);
+    if (q) {
+      const row = await probeCurrentInfo(ctx, q);
+      return jsonResponse(row, row.status === "pass" ? 200 : 503);
+    }
+    const suite = await probeCurrentInfoSuite(ctx);
+    return jsonResponse(
+      {
+        service: `${OMI_PRODUCT_NAME} — current information`,
+        time: new Date().toISOString(),
+        summary: { total: suite.total, passed: suite.passed, failed: suite.failed },
+        scenarios: suite.rows,
+      },
+      suite.failed === 0 ? 200 : 503,
+    );
+  }),
+});
+
 http.route({
   path: "/status",
   method: "GET",
@@ -227,7 +267,7 @@ http.route({
 });
 
 // CORS preflight for browser-based agents fetching the routes above.
-for (const path of ["/", "/health", "/status", "/selftest"]) {
+for (const path of ["/", "/health", "/status", "/selftest", "/currentinfo"]) {
   http.route({ path, method: "OPTIONS", handler: httpAction(async () => preflightResponse()) });
 }
 

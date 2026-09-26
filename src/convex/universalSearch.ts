@@ -39,6 +39,14 @@ export type UniversalResult = {
   cached: boolean;
   page: number;
   totalPages: number;
+  /** Engines that ran, for observability. */
+  enginesTried?: string[];
+  /** Engines that returned at least one result. */
+  enginesWithResults?: string[];
+  /** Engines that were called and failed. */
+  failedEngines?: string[];
+  /** Total wall-clock ms of the fan-out. */
+  searchMs?: number;
 };
 
 const PER_ENGINE_LIMIT = 6;
@@ -60,6 +68,13 @@ export async function runUniversalSearch(
     skipCache?: boolean;
     /** Freshness-sensitive queries rank recency higher and skip cache. */
     freshnessMatters?: boolean;
+    /**
+     * When a current-information question is asked, only engines that can
+     * actually serve that vertical are run. Weather must not be answered by a
+     * general web index, and a market question should not be routed to a book
+     * catalogue. `undefined` keeps the full fan-out (the old behaviour).
+     */
+    preferredProviders?: string[];
   },
 ): Promise<UniversalResult> {
   const perEngine = opts?.perEngineLimit ?? PER_ENGINE_LIMIT;
@@ -75,8 +90,18 @@ export async function runUniversalSearch(
     page,
   };
 
-  const providers = getConfiguredProviders();
+  const allProviders = getConfiguredProviders();
+  const preferred = opts?.preferredProviders;
+  const providers = preferred
+    ? allProviders.filter((p) => preferred.includes(p.id))
+    : allProviders;
   if (providers.length === 0) {
+    // A vertical-specific filter that matches nothing must fall back to the
+    // full fan-out rather than silently returning "no results" — the engines
+    // that do exist may still answer, and an empty list is not evidence.
+    if (allProviders.length > 0) {
+      return runUniversalSearch(ctx, query, { ...opts, preferredProviders: undefined });
+    }
     throw new Error("No search engines are available right now.");
   }
 
@@ -104,6 +129,7 @@ export async function runUniversalSearch(
   }
 
   // --- Multi-engine fan-out ----------------------------------------------
+  const fanOutStarted = Date.now();
   const keywords = keywordSet(query);
 
   // Resilience (§7/§30): every provider call is (1) circuit-broken — a
@@ -164,10 +190,12 @@ export async function runUniversalSearch(
   }
 
   if (merged.length === 0) {
+    // The failure detail matters: an operator reading this needs to know WHICH
+    // engines were tried, not just that "search failed".
     throw new Error(
-      `All search engines failed for this query. ${failures
-        .join(" | ")
-        .slice(0, 260)}`,
+      `All search engines failed for this query. Tried: ${providers
+        .map((p) => p.id)
+        .join(", ")}${failures.length > 0 ? ` | ${failures.join(" | ").slice(0, 260)}` : ""}`,
     );
   }
 
@@ -269,6 +297,13 @@ export async function runUniversalSearch(
     cached: false,
     page,
     totalPages: page + 1, // assume more pages exist; UI decides
+    // Observability (current-info fix): which engines ran, which produced
+    // results and which failed. Without these, "search returned nothing" is
+    // undiagnosable — which is exactly why this bug took a full bug report.
+    enginesTried: providers.map((p) => p.id),
+    enginesWithResults: enginesUsed,
+    failedEngines: failures.map((f) => f.slice(0, 120)),
+    searchMs: Date.now() - fanOutStarted,
   };
 }
 

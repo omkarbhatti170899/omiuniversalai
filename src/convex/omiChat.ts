@@ -24,6 +24,15 @@ import { describeImage } from "./aiProviders/vision";
 import { hasVisionProvider } from "./aiProviders/visionCatalog";
 import { classifyImageIntent } from "./aiProviders/imageIntent";
 import { formatActionPlan } from "./knowledgeEngine/grounding";
+import {
+  clarifyForMissingInput,
+  formatSourceLine,
+  freshnessInstruction,
+  freshnessPolicyFor,
+  freshnessStatement,
+  noVerificationMessage,
+  splitByFreshness,
+} from "./searchEngine/freshness";
 import { parseKnowledgeMode, routeKnowledge, knowledgeOnlyRefusal } from "./knowledgeEngine/mode";
 import {
   creatorIdentityBlock,
@@ -613,39 +622,116 @@ async function runTurn(
       knowledgeUse.allowExternalSearch &&
       (decision.needsSearch || decision.intent === "research")
     ) {
-      try {
-      await patchStreaming({ content: "Omi is searching the web…" });
-      const universal = await runUniversalSearch(ctx, trimmed, {
-        perEngineLimit: 3,
-        maxCitations: 4,
-      });
-      if (universal.citations.length > 0) {
-        await patchStreaming({
-          content: `Reading ${universal.citations.length} sources…`,
-        });
-        searchBlock =
-          (knowledgeUse.blendWithResearch
-            ? "EXTERNAL RESEARCH (live web — clearly SEPARATE from the approved internal knowledge above; " +
-              "never present an external claim as internal policy). Cite inline as [1], [2] … where used:\n"
-            : "Live web search results (cite them inline as [1], [2] … where used):\n") +
-          universal.citations
-            .map(
-              (c, i) =>
-                `[${i + 1}] ${c.title}\nURL: ${c.url}\nEXCERPT: ${c.snippet ?? ""}`,
-            )
-            .join("\n\n");
-        // Pre-build the no-AI fallback answer from the same sources so it's
-        // ready if every AI provider is unreachable.
-        fallbackAnswer = extractiveBrief(trimmed, universal.citations);
+      // Freshness policy for THIS turn. This is the fix for "current/live
+      // information is not working reliably": the decision engine already knew
+      // the query was time-sensitive, but that knowledge was never passed to
+      // the search layer, so engines were asked without a time filter, the
+      // cache was not bypassed, and a week-old cached result could answer
+      // "what's the latest news".
+      const policy = freshnessPolicyFor(trimmed, decision.intent);
+
+      // A current question missing a required input (a city for weather, a
+      // pair for a rate) is answered with ONE precise question, not a search
+      // that fails and reports "all engines failed".
+      const clarify = policy.requiresFreshness
+        ? clarifyForMissingInput(trimmed, policy.vertical)
+        : null;
+      if (clarify) {
+        await patchStreaming({ content: clarify, status: "final" });
+        return { userMessageId, omiMessageId, emotion: emotionSummary };
       }
-      } catch {
-        // Search failure must never break the conversation (§30) — Omi
-        // answers from memory/knowledge/reasoning and says so. With
-        // attachments present, Omi answers from those files and says so.
+
+      const searchStarted = Date.now();
+      recordSearchTelemetry(ctx, {
+        phase: "start",
+        vertical: policy.vertical,
+        requiresFreshness: policy.requiresFreshness,
+        timeRange: policy.timeRange,
+        intent: decision.intent,
+      });
+      try {
+        await patchStreaming({
+          content: policy.requiresFreshness
+            ? `Omi is looking up ${policy.label.toLowerCase()}…`
+            : "Omi is searching the web…",
+        });
+        const universal = await runUniversalSearch(ctx, trimmed, {
+          perEngineLimit: policy.requiresFreshness ? 4 : 3,
+          maxCitations: policy.requiresFreshness ? 5 : 4,
+          // The three parameters the search layer was never given before.
+          category: decision.category,
+          timeRange: policy.timeRange ?? decision.timeRange,
+          // A current question must never be served from cache.
+          skipCache: decision.skipCache || policy.requiresFreshness,
+          // Recency dominates ranking for a current question.
+          freshnessMatters: policy.requiresFreshness,
+          // Only run engines that genuinely serve this vertical.
+          preferredProviders: policy.requiresFreshness
+            ? policy.preferredProviders
+            : undefined,
+        });
+        if (universal.citations.length > 0) {
+          // Drop results that are too old (or undated) to be evidence for a
+          // current question. Keeping them would be the same bug in a new form.
+          const usable = policy.requiresFreshness
+            ? splitByFreshness(universal.citations, policy.maxAgeDays).fresh
+            : universal.citations;
+          await patchStreaming({
+            content: `Reading ${usable.length} sources…`,
+          });
+          recordSearchTelemetry(ctx, {
+            phase: "done",
+            vertical: policy.vertical,
+            engine: universal.engine,
+            results: universal.citations.length,
+            usable: usable.length,
+            ms: Date.now() - searchStarted,
+            cached: universal.cached,
+          });
+          if (usable.length === 0) {
+            // Results came back but none were recent enough to be evidence.
+            // Say exactly that rather than answering from memory.
+            searchBlock = "";
+            orchestratorNote = `NO_VERIFIED_RESULTS ${noVerificationMessage(trimmed, policy.vertical)}`;
+          } else {
+            const statement = policy.requiresFreshness
+              ? freshnessStatement(usable, policy.maxAgeDays)
+              : null;
+            searchBlock =
+              (knowledgeUse.blendWithResearch
+                ? "EXTERNAL RESEARCH (live web — clearly SEPARATE from the approved internal knowledge above; " +
+                  "never present an external claim as internal policy). Cite inline as [1], [2] … where used:\n"
+                : "") +
+              freshnessInstruction(policy) +
+              (statement ? `\n${statement}\n` : "") +
+              "\n" +
+              usable
+                .map((c, i) => `${formatSourceLine(c, i + 1)}\nEXCERPT: ${c.snippet ?? ""}`)
+                .join("\n\n");
+            // Pre-build the no-AI fallback answer from the same sources so it's
+            // ready if every AI provider is unreachable.
+            fallbackAnswer = extractiveBrief(trimmed, usable);
+          }
+        }
+      } catch (e) {
+        // Search failure must never break the conversation — but for a
+        // CURRENT question it must also never be papered over with model
+        // memory presented as fact.
+        recordSearchTelemetry(ctx, {
+          phase: "failed",
+          vertical: policy.vertical,
+          ms: Date.now() - searchStarted,
+          error: e instanceof Error ? e.message : String(e),
+        });
         searchBlock = "";
-        orchestratorNote = attachmentBlock
-          ? "Live web search was unavailable; answer from the attached files and memory, and say you could not verify online."
-          : "Live web search was unavailable for this turn; answer from your own knowledge and say you could not verify online.";
+        orchestratorNote = policy.requiresFreshness
+          ? `NO_VERIFIED_RESULTS ${noVerificationMessage(trimmed, policy.vertical)}` +
+            (attachmentBlock
+              ? " The attached file(s) below are still reliable context; use them and say where the current information came from."
+              : "")
+          : attachmentBlock
+            ? "Live web search was unavailable; answer from the attached files and memory, and say you could not verify online."
+            : "Live web search was unavailable for this turn; answer from your own knowledge and say you could not verify online.";
       }
     }
 
@@ -793,6 +879,46 @@ async function runTurn(
       status: "final",
     });
     throw e;
+  }
+}
+
+/**
+ * Best-effort search telemetry (observability for the "current info is
+ * broken" class of bug). Records WHAT was searched, WHICH engines ran, how
+ * many results came back, how many were fresh enough to use, and how long it
+ * took — never the user's query text itself, only its shape.
+ */
+async function recordSearchTelemetry(
+  ctx: ActionCtx,
+  row: {
+    phase: "start" | "done" | "failed" | "no-results";
+    vertical: string;
+    intent?: string;
+    engine?: string;
+    timeRange?: string;
+    requiresFreshness?: boolean;
+    results?: number;
+    usable?: number;
+    ms?: number;
+    cached?: boolean;
+    error?: string;
+  },
+): Promise<void> {
+  try {
+    const userId = await getAuthUserId(ctx);
+    await ctx.runMutation(internal.searchTelemetry.write, {
+      userId: userId ?? undefined,
+      query: `[${row.vertical}/${row.phase}]`,
+      mode: `intent=${row.intent ?? "-"} freshness=${row.requiresFreshness ? "on" : "off"} timeRange=${row.timeRange ?? "-"}`,
+      engines: row.engine ? [row.engine] : [],
+      failedEngines: row.phase === "failed" ? [row.error?.slice(0, 120) ?? "unknown"] : [],
+      resultCount: row.usable ?? row.results ?? 0,
+      cacheHit: row.cached ?? false,
+      searchMs: row.ms ?? 0,
+      error: row.error,
+    });
+  } catch {
+    /* observability is best-effort */
   }
 }
 

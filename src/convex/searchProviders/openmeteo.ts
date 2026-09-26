@@ -59,7 +59,8 @@ const WMO: Record<number, string> = {
 export function composeWeatherCitation(
   place: WeatherRow,
   fx: ForecastRow,
-): { title: string; url: string; snippet: string } | null {
+  now = Date.now(),
+): { title: string; url: string; snippet: string; publishedAt: string } | null {
   if (
     typeof place.latitude !== "number" ||
     typeof place.longitude !== "number" ||
@@ -84,7 +85,15 @@ export function composeWeatherCitation(
   return {
     title: `Current weather — ${label}`,
     url,
-    snippet: `${parts.join(", ")}. Data: Open-Meteo.com (open data, CC-BY 4.0). Retrieved ${new Date().toISOString().slice(0, 16)} UTC.`,
+    snippet: `${parts.join(", ")}. Data: Open-Meteo.com (open data, CC-BY 4.0). Retrieved ${new Date(now).toISOString().slice(0, 16)} UTC.`,
+    /**
+     * A live observation's publish time IS the moment it was retrieved. The
+     * citation previously carried no timestamp, so the freshness gate — which
+     * correctly treats an undated result as NOT current — was discarding real,
+     * live weather data. This is an observation, not an article, so the
+     * retrieval time is the honest timestamp.
+     */
+    publishedAt: new Date(now).toISOString(),
   };
 }
 

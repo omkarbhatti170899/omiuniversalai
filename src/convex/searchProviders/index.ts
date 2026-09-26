@@ -12,6 +12,8 @@ import { createGitHubProvider } from "./github";
 import { createGdeltProvider } from "./gdelt";
 import { createOpenMeteoProvider } from "./openmeteo";
 import { createKeylessProvider } from "./keyless";
+import { createWikipediaCurrentEventsProvider } from "./wikipediaCurrentEvents";
+import { createMarketRatesProvider } from "./markets";
 
 export type {
   WebCitation,
@@ -59,8 +61,17 @@ export type ProviderStatus = {
  *   Common Crawl — open web index metadata (AWS open data; provenance/diversity)
  *   GitHub       — public repository search, tech queries only (keyless 10/min)
  *   GDELT        — global news index (scope-gated to news-phrased queries)
+ *   Wikipedia Current Events — today's dated news, keyless, the reliable
+ *                  current-events floor when the general-web floor is unavailable
  *   Open-Meteo   — weather/structured open data (scope-gated, CC-BY attribution)
  *   DuckDuckGo   — keyless last-resort web floor
+ *
+ * MEASURED 2026-09-26: the general-web floor is NOT reliable. All four public
+ * SearXNG instances answer HTTP 200 with an HTML body (their JSON format is
+ * disabled by default) and DuckDuckGo's keyless endpoint answers a bot
+ * challenge. SearXNG is therefore reported as `ready: false` with a real
+ * reachability probe rather than a hardcoded `true`, and current-information
+ * questions route to sources that genuinely carry dates. See searxng.ts.
  *
  * Every source runs in parallel under Promise.allSettled in the orchestrator
  * (universalSearch.ts) with its own timeout and error isolation — a slow or
@@ -71,6 +82,7 @@ export type ProviderStatus = {
  */
 const REGISTRY: SearchProvider[] = [
   createSearxProvider(),
+  createWikipediaCurrentEventsProvider(),
   createWikipediaProvider(),
   createWikidataProvider(),
   createArxivProvider(),
@@ -82,6 +94,7 @@ const REGISTRY: SearchProvider[] = [
   createGitHubProvider(),
   createGdeltProvider(),
   createOpenMeteoProvider(),
+  createMarketRatesProvider(),
   createKeylessProvider(),
 ];
 

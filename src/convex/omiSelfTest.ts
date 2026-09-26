@@ -56,7 +56,9 @@ import {
   extractMathExpression,
 } from "./searchEngine/calculator";
 import { CREATOR_STATEMENT, OMI_PRODUCT_NAME } from "./omiIdentity";
-
+import { freshnessPolicyFor, freshnessStatement, splitByFreshness, clarifyForMissingInput, noVerificationMessage } from "./searchEngine/freshness";
+import { runUniversalSearch, extractiveBrief } from "./universalSearch";
+import { searxngHealth } from "./searchProviders/searxng";
 export type SubsystemStatus = "pass" | "fail" | "configured" | "unverified";
 
 export type SubsystemCheck = {
@@ -155,6 +157,197 @@ async function check(
       ms: Date.now() - t0,
     };
   }
+}
+
+// --- Current-information end-to-end probe ----------------------------------
+
+/**
+ * The exact 10 scenarios from the "current/live information is broken" bug
+ * report, run against the LIVE pipeline. This is the deployed proof that
+ * current information actually works end to end, not a unit-level assertion.
+ */
+export const CURRENT_INFO_SCENARIOS: Array<{ query: string; expectFresh: boolean }> = [
+  { query: "What is the latest news in India?", expectFresh: true },
+  { query: "What happened in the world today?", expectFresh: true },
+  { query: "What is happening right now?", expectFresh: true },
+  { query: "Latest technology news", expectFresh: true },
+  { query: "Latest AI news", expectFresh: true },
+  { query: "Today's weather", expectFresh: false },
+  { query: "Current USD/INR rate", expectFresh: true },
+  { query: "Live sports score", expectFresh: true },
+  { query: "Latest announcements", expectFresh: true },
+  { query: "News from the last hour", expectFresh: true },
+];
+
+export type CurrentInfoRow = {
+  query: string;
+  searchTriggered: boolean;
+  vertical: string;
+  requiresFreshness: boolean;
+  intent: string;
+  timeRange: string | null;
+  enginesTried: string[];
+  enginesWithResults: string[];
+  failedEngines: string[];
+  resultsFound: number;
+  freshResults: number;
+  freshness: string | null;
+  answer: string;
+  sources: Array<{ title: string; url: string; publishedAt: string | null }>;
+  searchMs: number;
+  status: "pass" | "fail";
+  detail: string;
+  /** Exactly what Omi would say to the user for this outcome. */
+  userMessage?: string;
+};
+
+/**
+ * Run ONE current-information question through the real pipeline and return
+ * every link in the chain, so a failure names the link that broke.
+ */
+export async function probeCurrentInfo(
+  ctx: QueryRunner,
+  query: string,
+): Promise<CurrentInfoRow> {
+  const t0 = Date.now();
+  const decision = decideSearch(query);
+  const policy = freshnessPolicyFor(query, decision.intent);
+
+  const base: CurrentInfoRow = {
+    query,
+    searchTriggered: false,
+    vertical: policy.vertical,
+    requiresFreshness: policy.requiresFreshness,
+    intent: decision.intent,
+    timeRange: policy.timeRange ?? null,
+    enginesTried: [],
+    enginesWithResults: [],
+    failedEngines: [],
+    resultsFound: 0,
+    freshResults: 0,
+    freshness: null,
+    answer: "",
+    sources: [],
+    searchMs: 0,
+    status: "fail",
+    detail: "",
+  };
+
+  if (!decision.needsSearch) {
+    return {
+      ...base,
+      searchMs: Date.now() - t0,
+      detail: `intent "${decision.intent}" did not trigger a search for a current-information question`,
+    };
+  }
+
+  // A question missing a required input is answered by asking for it, not by
+  // running a search that cannot succeed.
+  const clarify = clarifyForMissingInput(query, policy.vertical);
+  if (policy.requiresFreshness && clarify) {
+    return {
+      ...base,
+      searchMs: Date.now() - t0,
+      status: "pass",
+      detail: `Omi correctly asks for the missing input instead of guessing or failing: "${clarify.slice(0, 90)}"`,
+      answer: clarify,
+    };
+  }
+
+  try {
+    // `searchTriggered` is set as soon as we enter the search path, not only
+    // on success — "the search ran and returned nothing" is a different failure
+    // from "the search never ran", and conflating them hides the real defect.
+    const searching = { ...base, searchTriggered: true };
+    const result = await runUniversalSearch(
+      ctx as never,
+      query,
+      {
+        perEngineLimit: 4,
+        maxCitations: 5,
+        category: decision.category,
+        timeRange: policy.timeRange ?? decision.timeRange,
+        skipCache: true,
+        freshnessMatters: policy.requiresFreshness,
+        preferredProviders: policy.requiresFreshness
+          ? policy.preferredProviders
+          : undefined,
+      },
+    );
+
+    const split = policy.requiresFreshness
+      ? splitByFreshness(result.citations, policy.maxAgeDays)
+      : { fresh: result.citations, undated: [], stale: [] };
+
+    const row: CurrentInfoRow = {
+      ...searching,
+      enginesTried: result.enginesTried ?? [],
+      enginesWithResults: result.enginesWithResults ?? [],
+      failedEngines: result.failedEngines ?? [],
+      resultsFound: result.citations.length,
+      freshResults: split.fresh.length,
+      freshness: freshnessStatement(split.fresh, policy.maxAgeDays),
+      answer: extractiveBrief(query, split.fresh),
+      sources: split.fresh.slice(0, 5).map((c) => ({
+        title: c.title,
+        url: c.url,
+        publishedAt: c.publishedAt ?? null,
+      })),
+      searchMs: result.searchMs ?? Date.now() - t0,
+    };
+
+    if (split.fresh.length === 0) {
+      return {
+        ...row,
+        status: "fail",
+        userMessage: noVerificationMessage(query, policy.vertical),
+        detail:
+          `Search ran (${row.resultsFound} raw result(s)) but none were recent enough to be evidence ` +
+          `within ${policy.maxAgeDays} day(s). Omi would refuse to answer rather than use stale data.`,
+      };
+    }
+    return {
+      ...row,
+      status: "pass",
+      detail:
+        `${split.fresh.length} fresh result(s) from ${row.enginesWithResults.length} source(s) ` +
+        `in ${row.searchMs}ms${row.failedEngines.length > 0 ? `; failed engines: ${row.failedEngines.join(", ")}` : ""}`,
+    };
+  } catch (err) {
+    return {
+      ...base,
+      searchTriggered: true,
+      searchMs: Date.now() - t0,
+      // The user never sees the raw error — they see the recovery contract.
+      userMessage: noVerificationMessage(query, policy.vertical),
+      detail: `search failed: ${err instanceof Error ? err.message : String(err)}`,
+    };
+  }
+}
+
+/** Run all 10 scenarios and summarise, for the deployed report. */
+export async function probeCurrentInfoSuite(
+  ctx: QueryRunner,
+): Promise<{
+  total: number;
+  passed: number;
+  failed: number;
+  rows: CurrentInfoRow[];
+}> {
+  const rows: CurrentInfoRow[] = [];
+  // Sequential on purpose: several open sources rate-limit aggressively
+  // (GDELT allows one request per 5s), and a parallel fan-out would turn a
+  // working suite into a false-negative.
+  for (const s of CURRENT_INFO_SCENARIOS) {
+    rows.push(await probeCurrentInfo(ctx, s.query));
+  }
+  const passed = rows.filter((r) => r.status === "pass").length;
+  return {
+    total: rows.length,
+    passed,
+    failed: rows.length - passed,
+    rows,
+  };
 }
 
 // --- Subsystem checks --------------------------------------------------------
@@ -710,6 +903,28 @@ export async function runSelfTest(ctx: QueryRunner): Promise<SelfTestReport> {
     checkAuth(ctx),
     checkRouting(),
     checkAndromedaPlanner(),
+    check("searxng reachability", async () => {
+      // A real probe: the previous status was a hardcoded `true` while every
+      // public instance actually returned HTML instead of JSON.
+      const health = await searxngHealth();
+      return {
+        status: (health.healthy ? "pass" : "configured") as SubsystemStatus,
+        detail: health.detail.slice(0, 400),
+      };
+    }),
+    check("current information", async () => {
+      const suite = await probeCurrentInfoSuite(ctx);
+      return {
+        status: (suite.passed === suite.total ? "pass" : "fail") as SubsystemStatus,
+        detail:
+          `${suite.passed}/${suite.total} live current-information scenarios returned fresh, dated sources. ` +
+          suite.rows
+            .filter((r) => r.status === "pass")
+            .slice(0, 4)
+            .map((r) => `"${r.query}" → ${r.freshResults} fresh from ${r.enginesWithResults.join("+") || "?"}`)
+            .join("; "),
+      };
+    }),
     checkRetrieval(),
     checkSynthesis(),
     checkSecondaryProvider(),

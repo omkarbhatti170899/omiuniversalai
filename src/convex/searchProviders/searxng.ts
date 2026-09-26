@@ -31,6 +31,17 @@ const SEARX_ENDPOINT = "/search";
  * each in order and moves on at the first failure — instances rate-limit
  * aggressively, so this list is a floor, not a dependency.
  */
+/**
+ * Public instances that have historically served JSON. The router tries
+ * each in order and moves on at the first failure — instances rate-limit
+ * aggressively, so this list is a floor, not a dependency.
+ *
+ * MEASURED 2026-09-26: every one of these returns HTTP 200 with an HTML body
+ * when `format=json` is requested, because SearXNG ships with the JSON format
+ * disabled by default. The provider therefore cannot rely on the public
+ * floor and must treat "reachable but not JSON" as a hard failure, not as
+ * "no results". See `probeInstance` below and `SEARXNG_FLOOR_HEALTHY`.
+ */
 const PUBLIC_INSTANCES = [
   "https://searx.be",
   "https://search.inetol.net",
@@ -38,7 +49,24 @@ const PUBLIC_INSTANCES = [
   "https://search.hbubli.cc",
 ];
 
-/** One SearXNG attempt, fully parameterized. */
+/**
+ * Set SEARXNG_BASE_URL to your own instance — that is the only configuration
+ * in which this provider is expected to work:
+ *   docker run -d -p 8080:8080 searxng/searxng
+ *   settings.yml → search.formats: [html, json]
+ * Without it, Omi probes the public floor once and reports the result
+ * honestly instead of claiming to be ready.
+ */
+const SEARXNG_FLOOR_HEALTHY = false;
+
+/** Cached reachability verdict, so the status page never probes on a render. */
+type ProbeResult = { healthy: boolean; checkedAt: number; detail: string };
+let lastProbe: ProbeResult | null = null;
+const PROBE_TTL_MS = 5 * 60_000;
+
+/**
+ * One SearXNG attempt, fully parameterized.
+ */
 type SearxParams = {
   base: string;
   query: string;
@@ -108,6 +136,84 @@ export async function searxSuggestions(query: string): Promise<string[]> {
   return [];
 }
 
+/**
+ * Actually check whether a base URL serves the JSON API.
+ *
+ * This exists because the previous version reported SearXNG as "ready"
+ * unconditionally (`isConfigured: () => true`) while every call returned
+ * HTML — so the status page, the Settings UI and the self-test all reported
+ * a working search engine that could never return a result. Reachability is
+ * now measured, cached for five minutes, and surfaced honestly.
+ */
+export async function probeInstance(
+  base: string,
+  timeoutMs = 8000,
+): Promise<{ healthy: boolean; detail: string }> {
+  try {
+    const res = await axios.get(base + SEARX_ENDPOINT, {
+      params: { q: "omi health probe", format: "json" },
+      timeout: timeoutMs,
+      headers: {
+        Accept: "application/json",
+        "User-Agent":
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 OmiSearch/1.0",
+      },
+      // 200 is not success: a JSON-disabled instance answers 200 + HTML.
+      validateStatus: () => true,
+    });
+    const contentType = String(res.headers?.["content-type"] ?? "");
+    const body = res.data;
+    if (typeof body === "object" && body !== null && Array.isArray(body.results)) {
+      return {
+        healthy: true,
+        detail: `JSON API reachable (${(body.results as unknown[]).length} probe results, ${contentType || "unknown content-type"})`,
+      };
+    }
+    if (contentType.includes("json")) {
+      return { healthy: false, detail: `JSON API returned ${contentType} without a results array` };
+    }
+    return {
+      healthy: false,
+      detail:
+        `Endpoint answered ${res.status} with ${contentType || "an unknown content-type"} instead of JSON — ` +
+        `this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an instance that has.`,
+    };
+  } catch (err) {
+    return {
+      healthy: false,
+      detail: `unreachable: ${err instanceof Error ? err.message : "unknown error"}`,
+    };
+  }
+}
+
+/** Cached, honest reachability verdict for the status surface. */
+export async function searxngHealth(): Promise<ProbeResult> {
+  if (lastProbe && Date.now() - lastProbe.checkedAt < PROBE_TTL_MS) return lastProbe;
+  const configuredBase = process.env.SEARXNG_BASE_URL?.replace(/\/+$/, "");
+  const targets = configuredBase ? [configuredBase] : PUBLIC_INSTANCES;
+  const findings: string[] = [];
+  let healthy = false;
+  for (const base of targets) {
+    const r = await probeInstance(base);
+    findings.push(`${base}: ${r.healthy ? "OK" : r.detail}`);
+    if (r.healthy) {
+      healthy = true;
+      break;
+    }
+  }
+  lastProbe = {
+    healthy,
+    checkedAt: Date.now(),
+    detail: findings.join(" | "),
+  };
+  return lastProbe;
+}
+
+/** Synchronous, never-blocking health for the reactive status query. */
+export function searxngHealthCached(): ProbeResult | null {
+  return lastProbe;
+}
+
 async function fetchInstance(
   base: string,
   params: Record<string, string>,
@@ -129,7 +235,23 @@ async function fetchInstance(
   });
 
   const json = res.data as { results?: SearxResultItem[] };
-  const items = Array.isArray(json?.results) ? json.results : [];
+  const items = Array.isArray(json?.results) ? json.results : null;
+
+  // A 200 with no `results` array is NOT an empty result set — it is almost
+  // always an HTML body from an instance with the JSON format disabled. The
+  // old code treated it as "no results", moved on, and after every instance
+  // failed threw a misleading "missing key" error, so a configuration problem
+  // looked like a quota problem.
+  if (items === null) {
+    const contentType = String(res.headers?.["content-type"] ?? "");
+    if (!contentType.includes("json")) {
+      throw new Error(
+        `${base} answered ${res.status} with ${contentType || "non-JSON"} — its JSON API is disabled ` +
+          `(settings.yml → search.formats must include "json"). Set SEARXNG_BASE_URL to an instance that has it.`,
+      );
+    }
+    throw new Error(`${base} returned JSON without a results array`);
+  }
 
   return items
     .filter((r) => typeof r.url === "string" && r.url.startsWith("http"))
@@ -153,8 +275,16 @@ export function createSearxProvider(): SearchProvider {
     label: "SearXNG",
     missingKeyHint: configuredBase
       ? ""
-      : "Set SEARXNG_BASE_URL to your self-hosted SearXNG instance (docker run -d -p 8080:8080 searxng/searxng, JSON format enabled). Until then Omi tries public SearXNG instances at zero cost.",
-    isConfigured: () => true, // always available: own instance or public floor
+      : "Set SEARXNG_BASE_URL to your own SearXNG instance with the JSON format enabled (settings.yml → search.formats: [html, json]). The public instances were measured on 2026-09-26 and all return HTML instead of JSON, so Omi does not count them as a working general-web source.",
+    /**
+     * HONEST readiness. The previous value was `() => true`, which made the
+     * status page, the Settings UI and the self-test all report a working
+     * general-web engine that could never return a single result. Readiness
+     * now means "either you configured your own instance, or a probe has
+     * confirmed a public instance actually serves JSON".
+     */
+    isConfigured: () =>
+      configuredBase !== undefined || SEARXNG_FLOOR_HEALTHY || (lastProbe?.healthy ?? false),
 
     async search(
       query,

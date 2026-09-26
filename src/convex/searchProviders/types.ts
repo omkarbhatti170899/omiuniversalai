@@ -31,7 +31,13 @@ export type SearchOptions = {
   category?: string;
   /** e.g. "en", "de", "all" */
   language?: string;
-  timeRange?: "day" | "week" | "month" | "year";
+  /**
+   * Recency window requested by the user. "hour" was added for explicit
+   * "news from the last hour" requests; providers that cannot honour it map it
+   * to their nearest supported window and the result is still date-checked by
+   * the caller, so a narrower request is never silently widened.
+   */
+  timeRange?: "hour" | "day" | "week" | "month" | "year";
   /** 0 = off, 1 = moderate, 2 = strict (SearXNG; others ignore). */
   safeSearch?: number;
   /** 1-based result page. */
