@@ -24,6 +24,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Bell,
+  BookMarked,
   BookOpen,
   Bot,
   Brain,
@@ -52,6 +53,7 @@ export type WorkspaceView =
   | "agents"
   | "research"
   | "knowledge"
+  | "knowledge-intelligence"
   | "memory"
   | "files"
   | "tasks"
@@ -85,6 +87,7 @@ const NAV_GROUPS: Array<{ label: string; items: NavItem[] }> = [
     label: "Intelligence",
     items: [
       { id: "search", label: "Andromeda", icon: Search, ready: true },
+      { id: "knowledge-intelligence", label: "Knowledge AI", icon: BookMarked, ready: true },
       { id: "research", label: "Research", icon: Globe, ready: true },
       { id: "agents", label: "Agents", icon: Bot, ready: true },
       { id: "memory", label: "Memory", icon: Brain, ready: true },
@@ -111,6 +114,7 @@ const VIEW_TITLES: Record<WorkspaceView, string> = {
   agents: "Agents",
   research: "Research",
   knowledge: "Knowledge",
+  "knowledge-intelligence": "Knowledge Intelligence",
   memory: "Memory",
   files: "Files",
   tasks: "Tasks",

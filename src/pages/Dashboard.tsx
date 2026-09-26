@@ -3,6 +3,7 @@ import type { WorkspaceView } from "@/components/workspace/WorkspaceShell";
 import { HomeView } from "@/components/workspace/HomeView";
 import { MemoryView } from "@/components/workspace/MemoryView";
 import { KnowledgeView } from "@/components/workspace/KnowledgeView";
+import { KnowledgeIntelligenceView } from "@/components/workspace/KnowledgeIntelligenceView";
 import { FilesView } from "@/components/workspace/FilesView";
 import { ProjectsView } from "@/components/workspace/ProjectsView";
 import { SettingsView } from "@/components/workspace/SettingsView";
@@ -117,6 +118,7 @@ export default function Dashboard() {
       {view === "memory" && <MemoryView />}
 
       {view === "knowledge" && <KnowledgeView />}
+      {view === "knowledge-intelligence" && <KnowledgeIntelligenceView />}
 
       {view === "files" && <FilesView />}
 

@@ -19,7 +19,7 @@
 | --- | --- |
 | `bun convex dev --once` | Deployed cleanly to `resolute-ptarmigan-187` |
 | `bun tsc -b --noEmit` | 0 errors |
-| `bun test tests/` | **441 pass / 0 fail** (35 files) |
+| `bun test tests/` | **467 pass / 0 fail** (37 files) |
 | `bun run lint` | 0 errors / 18 warnings (pre-existing, non-blocking) |
 | `bun run build` | Green (convex codegen + tsc + vite build) |
 
@@ -236,6 +236,20 @@
 - **RESULT:** Motion now respects user preference at both the JS and CSS layers.
 - **REMAINING BLOCKER:** A screen-reader/focus-trap/keyboard audit was not completed.
 
+### 35. Omi Knowledge Intelligence (new subsystem)
+
+- **FEATURE:** Governance-first, version-aware knowledge base with grounded, cited answers — SEARCH → RETRIEVE → VERIFY → ANSWER → CITE (never guess).
+- **STATUS:** PARTIAL
+- **IMPLEMENTATION:** additive and isolated from the existing `omiKnowledge` document base.
+  - **Schema (5 new tables):** `omiKnowledgeArticles` (lifecycle status, version, effective/review/expiration dates, audience, provenance), `omiKnowledgeRevisions` (change history), `omiKnowledgeGaps`, `omiKnowledgeFeedback`, `omiKnowledgeQueryLog`.
+  - **Engine (pure, `src/convex/knowledgeEngine/`):** `governance.ts` (status transitions, publish-requires-approval, version bump, role mapping), `select.ts` (currently-effective version wins — old/new procedures are never mixed; role visibility; metadata filters), `grounding.ts` (structured answer with source/version/effective/evidence/exceptions/escalate, and a hard evidence floor that refuses to invent), `critic.ts` (flags outdated/expiring/duplicate/conflicting-version/gap; never mutates), `analytics.ts` (counts, success/no-answer rates, top + failed searches, latency).
+  - **Functions (`omiKnowledgeIntelligence.ts`):** ownership- and role-checked create/update/submit/approve/publish/expire/archive/reopen/new-version/feedback/gap-status; retrieval reuses the existing BM25 hybrid scorer; `ask` logs the query and opens a gap when unanswered.
+  - **Chat integration:** `omiChat` consults approved knowledge BEFORE the web, injects it as the highest-trust, clearly-labelled block (INTERNAL vs EXTERNAL), and skips web search when knowledge answers — internal and external are never silently blended.
+  - **UI:** new workspace view `KnowledgeIntelligenceView` (Ask + grounded answer card with feedback, Library with status filters and lifecycle actions, Review queue, Gaps, Insights dashboard with critic flags), wired into the sidebar as "Knowledge AI".
+- **TEST PERFORMED:** `tests/omiKnowledgeIntelligence.test.ts` (21 tests) covering governance, version selection, role visibility, grounding refusal, exceptions/escalation, gap keys, critic, and analytics. Full suite 467 pass / 0 fail; typecheck, lint, build all green; live `/selftest` unchanged (14 pass / 6 external image-edit fails).
+- **RESULT:** The full flow CREATE → APPROVE → PUBLISH → INDEX → SEARCH → RETRIEVE → ANSWER → CITE → FEEDBACK → GAP works in code and is engine-tested.
+- **REMAINING BLOCKER:** No signed-in browser run of the UI flow here; cross-tenant isolation is per-user only (no multi-tenant org model yet); the Knowledge Critic flags but has no scheduled sweep; Canvas integration and a real semantic (embedding) retriever are not implemented.
+
 ---
 
 ## Final report
@@ -245,6 +259,8 @@
 - A dark/light/system theme system with persistence and a no-flash bootstrap.
 - Markdown rendering with copy-able code blocks in chat.
 - Clear-all for memory and knowledge (with confirmation), file/document rename, and file search.
+- **Omi Knowledge Intelligence** — a new governance-first, version-aware knowledge subsystem (5 tables, pure engine, chat integration, workspace UI) with grounded cited answers that never guess.
+- A free-tier **image-editing** provider (Pollinations `kontext`) and a maskable PWA icon; debug console noise removed from auth; reduced-motion support.
 
 ### 2. What was fixed
 - Streaming fallback semantics: a provider that fails before emitting is skipped; one that emits is committed, so answers are never spliced between providers.
@@ -253,7 +269,7 @@
 - Removed hardcoded `dark` from `Landing.tsx`/`WorkspaceShell.tsx` that would have defeated light mode.
 
 ### 3. What was tested
-`bun convex dev --once`, `bun tsc -b --noEmit`, `bun test tests/` (441 pass / 0 fail), `bun run lint` (0 errors), `bun run build` (green), plus the new `tests/omiStreaming.test.ts`.
+`bun convex dev --once`, `bun tsc -b --noEmit`, `bun test tests/` (**467 pass / 0 fail**, 37 files), `bun run lint` (0 errors), `bun run build` (green), the live `/selftest` (14 pass / 6 external image-edit fails), plus new `tests/omiStreaming.test.ts`, `tests/omiImageEditing.test.ts`, and `tests/omiKnowledgeIntelligence.test.ts`.
 
 ### 4. What remains blocked
 - Image **editing** live verification: a free `POLLINATIONS_API_KEY` (or Gemini billing / OpenAI credits) is required to exercise a real edit; the adapter and routing are wired and unit-tested.

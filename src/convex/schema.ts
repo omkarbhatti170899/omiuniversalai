@@ -454,6 +454,119 @@ const schema = defineSchema(
       durationMs: v.number(),
     }).index("by_user", ["userId"]).index("by_task", ["taskId"]),
 
+    // ===== OMI KNOWLEDGE INTELLIGENCE =====
+    //
+    // A governance-first knowledge base: articles carry a lifecycle status, a
+    // version, effective/review/expiration dates and an audience. Retrieval
+    // only ever treats approved/published, currently-effective articles as
+    // authoritative — a draft can never silently become trusted knowledge.
+    // Kept separate from `omiDocuments` (the free-form personal knowledge
+    // base) so the existing subsystem is untouched.
+    omiKnowledgeArticles: defineTable({
+      userId: v.id("users"),
+      /** Stable id shared by every version of the same article. */
+      familyId: v.string(),
+      title: v.string(),
+      content: v.string(),
+      category: v.optional(v.string()),
+      tags: v.optional(v.array(v.string())),
+      product: v.optional(v.string()),
+      department: v.optional(v.string()),
+      region: v.optional(v.string()),
+      owner: v.optional(v.string()),
+      status: v.union(
+        v.literal("draft"),
+        v.literal("in_review"),
+        v.literal("approved"),
+        v.literal("published"),
+        v.literal("expired"),
+        v.literal("archived"),
+      ),
+      /** Major version; increments when a draft of an existing family is published. */
+      version: v.number(),
+      effectiveDate: v.optional(v.number()),
+      reviewDate: v.optional(v.number()),
+      expirationDate: v.optional(v.number()),
+      /** Provenance: internal (approved by this org) vs external (imported). */
+      sourceType: v.union(v.literal("internal"), v.literal("external")),
+      sourceRef: v.optional(v.string()),
+      /** Knowledge roles allowed to see this article; empty/absent = everyone. */
+      audience: v.optional(v.array(v.string())),
+      projectId: v.optional(v.id("omiProjects")),
+      createdAt: v.number(),
+      updatedAt: v.number(),
+      approvedBy: v.optional(v.string()),
+      publishedAt: v.optional(v.number()),
+      reviewNotes: v.optional(v.string()),
+    })
+      .index("by_user", ["userId"])
+      .index("by_family", ["familyId"])
+      .index("by_owner_status", ["userId", "status"]),
+
+    /** Immutable change history — one row per version-affecting edit. */
+    omiKnowledgeRevisions: defineTable({
+      userId: v.id("users"),
+      articleId: v.id("omiKnowledgeArticles"),
+      familyId: v.string(),
+      version: v.number(),
+      status: v.string(),
+      title: v.string(),
+      content: v.string(),
+      changedFields: v.array(v.string()),
+      note: v.optional(v.string()),
+      at: v.number(),
+    })
+      .index("by_article", ["articleId"])
+      .index("by_family", ["familyId"]),
+
+    /** Recurring unanswered questions — the knowledge-gap engine. */
+    omiKnowledgeGaps: defineTable({
+      userId: v.id("users"),
+      /** Normalized question key (stable across phrasings). */
+      key: v.string(),
+      question: v.string(),
+      count: v.number(),
+      suggestedTitle: v.string(),
+      status: v.union(
+        v.literal("open"),
+        v.literal("in_progress"),
+        v.literal("resolved"),
+      ),
+      projectId: v.optional(v.id("omiProjects")),
+      firstSeenAt: v.number(),
+      lastSeenAt: v.number(),
+    })
+      .index("by_user", ["userId"])
+      .index("by_user_key", ["userId", "key"]),
+
+    /** Reader feedback on knowledge answers (never auto-rewrites knowledge). */
+    omiKnowledgeFeedback: defineTable({
+      userId: v.id("users"),
+      articleId: v.optional(v.id("omiKnowledgeArticles")),
+      verdict: v.union(
+        v.literal("correct"),
+        v.literal("incorrect"),
+        v.literal("outdated"),
+        v.literal("missing"),
+        v.literal("improvement"),
+      ),
+      question: v.optional(v.string()),
+      note: v.optional(v.string()),
+      createdAt: v.number(),
+    })
+      .index("by_user", ["userId"])
+      .index("by_article", ["articleId"]),
+
+    /** Anonymized, aggregate query log (no content beyond the query itself). */
+    omiKnowledgeQueryLog: defineTable({
+      userId: v.id("users"),
+      query: v.string(),
+      answered: v.boolean(),
+      topArticleId: v.optional(v.id("omiKnowledgeArticles")),
+      latencyMs: v.number(),
+      createdAt: v.number(),
+    }).index("by_user", ["userId"]),
+
     // add other tables here
 
     // tableName: defineTable({

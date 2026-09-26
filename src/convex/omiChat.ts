@@ -19,6 +19,7 @@ import { sanitizeUntrustedText } from "./searchEngine/security";
 import { describeImage } from "./aiProviders/vision";
 import { hasVisionProvider } from "./aiProviders/visionCatalog";
 import { classifyImageIntent } from "./aiProviders/imageIntent";
+import { formatGroundedAnswer } from "./knowledgeEngine/grounding";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -514,6 +515,28 @@ async function runTurn(
       orchestratorNote = `Image request failed: ${imgResult.error.slice(0, 160)}`;
     }
 
+    // 2e) OMI KNOWLEDGE INTELLIGENCE — approved knowledge is the highest-trust
+    //     source, consulted BEFORE the web and clearly labelled. Internal and
+    //     external information are never silently mixed (§12).
+    let approvedKnowledgeBlock = "";
+    try {
+      const kb = await ctx.runAction(
+        internal.omiKnowledgeIntelligence.askInternal,
+        { userId, question: trimmed, projectId },
+      );
+      if (kb.answer.answered) {
+        await patchStreaming({ content: "Omi is checking approved knowledge…" });
+        approvedKnowledgeBlock =
+          "APPROVED KNOWLEDGE (Omi's own organization's approved knowledge — the highest-trust source). " +
+          "Answer FROM this, cite it as the source, and do not contradict it. " +
+          "Do NOT blend external claims into it; if the question is not covered, say so plainly:\n" +
+          formatGroundedAnswer(kb.answer);
+      }
+    } catch {
+      // A knowledge lookup must never break a chat turn.
+      approvedKnowledgeBlock = "";
+    }
+
     // 3) UNIVERSAL ORCHESTRATION (master plan §5/§14): classify the turn
     // BEFORE any network call — only invoke the capability the request needs.
     //   calculation    → sandboxed local engine, zero network
@@ -552,7 +575,10 @@ async function runTurn(
           orchestratorNote = `The page could not be retrieved (${page.error}). Offer to help another way.`;
         }
       }
-    } else if (decision.needsSearch || decision.intent === "research") {
+    } else if (
+      approvedKnowledgeBlock.length === 0 &&
+      (decision.needsSearch || decision.intent === "research")
+    ) {
       try {
       await patchStreaming({ content: "Omi is searching the web…" });
       const universal = await runUniversalSearch(ctx, trimmed, {
@@ -601,6 +627,9 @@ async function runTurn(
     if (memoryBlock) chat.push({ role: "system", content: memoryBlock });
     if (emotionBlock) chat.push({ role: "system", content: emotionBlock });
     if (knowledgeBlock) chat.push({ role: "system", content: knowledgeBlock });
+    if (approvedKnowledgeBlock) {
+      chat.push({ role: "system", content: approvedKnowledgeBlock });
+    }
     if (attachmentBlock) chat.push({ role: "system", content: attachmentBlock });
     if (imageVisionBlock) {
       chat.push({
