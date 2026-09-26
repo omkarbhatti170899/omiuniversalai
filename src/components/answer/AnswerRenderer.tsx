@@ -28,6 +28,7 @@ import {
   type Citation,
 } from "@/lib/answerShape";
 import { cn } from "@/lib/utils";
+import { SourceCardList } from "@/components/answer/SourceCards";
 import { MarkdownMessage } from "@/components/MarkdownMessage";
 
 /**
@@ -278,12 +279,78 @@ function WarningCard({ text }: { text: string }) {
 
 function ResearchCard({ text }: { text: string }) {
   const citations = useMemo(() => extractCitations(text), [text]);
+  // A current-information answer must let the user judge freshness, so a real
+  // URL extracted from the answer becomes a clickable, dated source card.
+  // A bare "[3]" marker with no URL stays a chip — inventing a link for it
+  // would be exactly the fabrication this product forbids.
+  const linkable = useMemo(
+    () =>
+      citations
+        .map((c) => ({ ...c, url: urlForMarker(text, c.n) }))
+        .filter((c): c is Citation & { url: string } => typeof c.url === "string"),
+    [citations, text],
+  );
   return (
     <div className="space-y-3">
       <MarkdownMessage content={text} />
-      {citations.length > 0 && <SourceChips citations={citations} />}
+      {linkable.length > 0 ? (
+        <SourceCardList
+          sources={linkable.map((c) => ({
+            idx: c.n,
+            title: c.hint || `Source ${c.n}`,
+            url: c.url,
+          }))}
+          title="Sources"
+        />
+      ) : (
+        citations.length > 0 && <SourceChips citations={citations} />
+      )}
     </div>
   );
+}
+
+/**
+ * The URL that belongs to citation marker `[n]`.
+ *
+ * Two shapes are supported, and only these two — the function never guesses:
+ *   1. The inline form: a URL appearing after `[n]` and before the next marker.
+ *   2. The source-block form Omi emits: a line beginning `[n] …` that carries a
+ *      `URL:` on that line or the next one.
+ * Anything else returns null, so a marker with no real link stays a chip rather
+ * than acquiring an invented destination.
+ */
+export function urlForMarker(text: string, n: number): string | null {
+  const clean = (raw: string): string => raw.replace(/[.,;:]+$/, "");
+
+  // 1) Inline: first URL after this marker, up to the next marker.
+  const re = /\[(\d+)\]/g;
+  let m: RegExpExecArray | null;
+  let start = -1;
+  let end = text.length;
+  while ((m = re.exec(text)) !== null) {
+    if (start === -1 && m[0] === `[${n}]`) {
+      start = m.index + m[0].length;
+      continue;
+    }
+    if (start !== -1) {
+      end = m.index;
+      break;
+    }
+  }
+  if (start !== -1) {
+    const inline = /https?:\/\/[^\s)\]"'<>]+/i.exec(text.slice(start, end));
+    if (inline) return clean(inline[0]);
+  }
+
+  // 2) Source block: a line that starts with this marker, or the line after it.
+  const lines = text.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    if (!new RegExp(`^\\s*\\[${n}\\]\\s`).test(lines[i])) continue;
+    const window = `${lines[i]}\n${lines[i + 1] ?? ""}`;
+    const url = /https?:\/\/[^\s)\]"'<>]+/i.exec(window);
+    if (url) return clean(url[0]);
+  }
+  return null;
 }
 
 // --- Comparison (table) -----------------------------------------------------

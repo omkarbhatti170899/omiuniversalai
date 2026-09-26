@@ -4,7 +4,7 @@ import { auth } from "./auth";
 import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
 import { getImageProviderStatus } from "./aiProviders/imageCatalog";
-import { getProviderStatus } from "./searchProviders";
+import { getProviderStatus, warmGeneralWebHealth } from "./searchProviders";
 import { runSelfTest, probeCurrentInfo, probeCurrentInfoSuite } from "./omiSelfTest";
 import { breakerStatus } from "./searchEngine/resilience";
 import { modelDiscoveryStatus } from "./aiProviders/modelDiscovery";
@@ -254,7 +254,12 @@ http.route({
 http.route({
   path: "/status",
   method: "GET",
-  handler: httpAction(async () => jsonResponse(statusSnapshot())),
+  handler: httpAction(async () => {
+    // Readiness of the general-web floor is MEASURED, not assumed (§3). The
+    // probe is cached, so a repeated /status costs one request, not N.
+    await warmGeneralWebHealth();
+    return jsonResponse(statusSnapshot());
+  }),
 });
 
 http.route({

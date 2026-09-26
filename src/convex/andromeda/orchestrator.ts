@@ -73,7 +73,18 @@ export type AndromedaResult = {
   /** The synthesized (or extractive-floor) answer with citations. */
   answer: string;
   summary: string;
-  citations: Array<{ idx: number; title: string; url: string; domain: string }>;
+  /**
+   * `publishedAt` is preserved end-to-end so the UI can show how fresh each
+   * source actually is. Dropping it turned a dated news source into an
+   * undated link, which is what made "current" answers unjudgeable.
+   */
+  citations: Array<{
+    idx: number;
+    title: string;
+    url: string;
+    domain: string;
+    publishedAt?: string;
+  }>;
   sourcesFooter: string;
   /** Independent verification verdict on the final answer. */
   verification: { verdict: string; notes: string[] };
@@ -261,6 +272,7 @@ export async function runAndromeda(
       title: e.title,
       url: e.url,
       domain: e.domain,
+      publishedAt: e.publishedAt,
     })),
     sourcesFooter: footer,
     verification: { verdict: verification.verdict, notes: verification.notes },

@@ -24,9 +24,10 @@ import {
   Sparkles,
   Trash2,
 } from "lucide-react";
-import { ShieldCheck, Workflow } from "lucide-react";
+import { Workflow } from "lucide-react";
 import { useState } from "react";
 import { classifyFailure, recoveryToast } from "@/lib/failureRecovery";
+import { SourceCardList } from "@/components/answer/SourceCards";
 import { recordSubsystemEvent, summarize } from "@/lib/observability";
 
 // --- Andromeda full-pipeline card (deep research mode) -----------------------
@@ -35,7 +36,14 @@ type PipelineResult = {
   answer: string;
   summary: string;
   plan?: { kind: string };
-  citations: Array<{ idx: number; title: string; url: string; domain: string }>;
+  /** `publishedAt` is carried through so each source shows how fresh it is. */
+  citations: Array<{
+    idx: number;
+    title: string;
+    url: string;
+    domain: string;
+    publishedAt?: string;
+  }>;
   sourcesFooter: string;
   verification: { verdict: string; notes: string[] };
   usedAi: boolean;
@@ -250,22 +258,16 @@ function AndromedaPipelineCard() {
             </div>
 
             {result.citations.length > 0 && (
-              <div className="space-y-1.5">
-                <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
-                  <ShieldCheck className="size-3.5" /> Sources
-                </p>
-                {result.citations.map((c) => (
-                  <a
-                    key={c.idx}
-                    href={c.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block truncate rounded-md border border-border/60 px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
-                  >
-                    [{c.idx}] {c.title} — {c.domain}
-                  </a>
-                ))}
-              </div>
+              <SourceCardList
+                sources={result.citations.map((c) => ({
+                  idx: c.idx,
+                  title: c.title,
+                  url: c.url,
+                  domain: c.domain,
+                  publishedAt: c.publishedAt,
+                }))}
+                title="Sources"
+              />
             )}
 
             <details className="rounded-lg border border-border/60 p-3">

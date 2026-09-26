@@ -1,5 +1,6 @@
 import { type SearchProvider } from "./types";
-import { createSearxProvider } from "./searxng";
+import { createSearxProvider, searxngHealth } from "./searxng";
+import { createKeylessProvider, duckduckgoHealthCached } from "./keyless";
 import { createWikipediaProvider } from "./wikipedia";
 import { createWikidataProvider } from "./wikidata";
 import { createArxivProvider } from "./arxiv";
@@ -11,7 +12,6 @@ import { createCommonCrawlProvider } from "./commoncrawl";
 import { createGitHubProvider } from "./github";
 import { createGdeltProvider } from "./gdelt";
 import { createOpenMeteoProvider } from "./openmeteo";
-import { createKeylessProvider } from "./keyless";
 import { createWikipediaCurrentEventsProvider } from "./wikipediaCurrentEvents";
 import { createMarketRatesProvider } from "./markets";
 
@@ -66,12 +66,17 @@ export type ProviderStatus = {
  *   Open-Meteo   — weather/structured open data (scope-gated, CC-BY attribution)
  *   DuckDuckGo   — keyless last-resort web floor
  *
- * MEASURED 2026-09-26: the general-web floor is NOT reliable. All four public
- * SearXNG instances answer HTTP 200 with an HTML body (their JSON format is
- * disabled by default) and DuckDuckGo's keyless endpoint answers a bot
- * challenge. SearXNG is therefore reported as `ready: false` with a real
+ * MEASURED 2026-09-26 against the live endpoints: the general-web floor is NOT
+ * reliable. All four public SearXNG instances answer HTTP 200 with an HTML body
+ * (their JSON format is disabled by default), and DuckDuckGo's keyless endpoint
+ * answers HTTP 202 with an "anomaly"/"challenge" body and zero results — twice,
+ * reproducibly. Both are therefore reported as `ready: false` from a real
  * reachability probe rather than a hardcoded `true`, and current-information
- * questions route to sources that genuinely carry dates. See searxng.ts.
+ * questions route to sources that genuinely carry dates. See searxng.ts and
+ * keyless.ts. Set SEARXNG_BASE_URL to fix the general-web floor.
+ *
+ * This is the §3 rule in code: a provider that exists in the registry is not
+ * evidence that it works. Readiness is measured, cached, and reported.
  *
  * Every source runs in parallel under Promise.allSettled in the orchestrator
  * (universalSearch.ts) with its own timeout and error isolation — a slow or
@@ -113,6 +118,16 @@ export function getActiveProvider(): SearchProvider | null {
  * registered at all, so none can be silently enabled. Openverse's honest
  * note: anonymous access is rate-limited by the upstream API (still free).
  */
+/**
+ * Measure the two general-web providers (the ones that were previously
+ * reporting themselves ready without ever being reachable) and warm their
+ * caches. Cheap: each is one request, both are cached for 5-10 minutes, and
+ * callers (the /status and /selftest surfaces) are rare. Never throws.
+ */
+export async function warmGeneralWebHealth(): Promise<void> {
+  await Promise.allSettled([searxngHealth(), duckduckgoHealthCached()]);
+}
+
 export function getProviderStatus(): ProviderStatus[] {
   return REGISTRY.map((p) => ({
     id: p.id,
