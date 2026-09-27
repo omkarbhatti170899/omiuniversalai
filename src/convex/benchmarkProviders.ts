@@ -138,6 +138,37 @@ async function runOne(p: SearchProvider, c: (typeof CASES)[number]): Promise<Row
   }
 }
 
+/**
+ * Why a provider produced no measurement.
+ *
+ * HONESTY: these are three different situations and collapsing them into one
+ * "not configured" string misleads an operator reading the report. A provider
+ * with no credential is a setup task; an instance that is configured and was
+ * PROBED UNREACHABLE is an outage, and the most urgent of the three. Saying
+ * "not configured" about a reachable-config-but-timing-out instance sends
+ * someone to set an environment variable that is already set.
+ */
+function unmeasuredReason(
+  id: string,
+  envPresence: {
+    LANGSEARCH_API_KEY_present: boolean;
+    SEARXNG_BASE_URL_present: boolean;
+  },
+  searxDetail: string,
+): string {
+  if (id === "langsearch") {
+    return envPresence.LANGSEARCH_API_KEY_present
+      ? "production adapter reports unconfigured despite a present key — investigate the enable flag"
+      : "needs LANGSEARCH_API_KEY (not set)";
+  }
+  if (id === "searxng") {
+    return envPresence.SEARXNG_BASE_URL_present
+      ? `configured but PROBED UNREACHABLE — an outage, not a setup gap (${String(searxDetail).slice(0, 160)})`
+      : "needs SEARXNG_BASE_URL (not set)";
+  }
+  return "not configured";
+}
+
 export const runProviderBenchmark = internalAction({
   args: {},
   handler: async () => {
@@ -148,6 +179,10 @@ export const runProviderBenchmark = internalAction({
       SEARXNG_BASE_URL_present: Boolean(process.env.SEARXNG_BASE_URL?.trim()),
     };
 
+    // Constructed once and reused: `isConfigured()` reads live probe state, and
+    // the decision below must not flip between building the list and running it.
+    const langSearchProduction = createLangSearchProvider();
+
     const candidates: Array<{
       id: string;
       p: SearchProvider;
@@ -156,20 +191,27 @@ export const runProviderBenchmark = internalAction({
       evalOnly?: SearchProvider;
     }> = [
       { id: "searxng", p: createSearxProvider() },
-      // EVALUATION BYPASS, deliberately narrow: the production adapter is
-      // feature-gated OFF until ENABLE_LANGSEARCH=true is set, and that gate
-      // stays closed. But the whole point of this benchmark is to measure
-      // whether LangSearch earns that flag, and a benchmark that refuses to
-      // measure a candidate because it is not yet enabled can never answer the
-      // question. So the measurement uses a provider constructed with the gate
-      // open, and the report labels it as evaluation-only. The production
-      // path in searchProviders/langsearch.ts is untouched.
+      // EVALUATION BYPASS, deliberately narrow and now CONDITIONAL.
+      //
+      // It used to be unconditional whenever a key was present, so every run
+      // reported `evaluationOnly: true` and measured a provider that the
+      // production pipeline never used. That is the wrong instrument for the
+      // question now being asked: LangSearch is ENABLED in production
+      // (LANGSEARCH_ENABLED = true in searchProviders/langsearch.ts), so the
+      // benchmark must exercise that exact adapter — the production path a user
+      // query actually takes.
+      //
+      // The bypass therefore applies only when the production adapter reports
+      // itself unconfigured, i.e. the gate is genuinely closed or the key is
+      // genuinely absent. That is the one case where measuring the candidate
+      // is still worth doing, and the report labels it `evaluationOnly: true`
+      // so it can never be mistaken for a production measurement.
       {
         id: "langsearch",
-        p: createLangSearchProvider(),
-        evalOnly: process.env.LANGSEARCH_API_KEY?.trim()
-          ? createLangSearchEvaluationProvider()
-          : undefined,
+        p: langSearchProduction,
+        evalOnly: langSearchProduction.isConfigured()
+          ? undefined
+          : createLangSearchEvaluationProvider(),
       },
       { id: "mwmbl", p: createMwmblProvider() },
       { id: "duckduckgo-instant", p: createDuckDuckGoInstantProvider() },
@@ -190,10 +232,7 @@ export const runProviderBenchmark = internalAction({
         out.push({
           provider: id,
           measured: false,
-          reason:
-            id === "langsearch"
-              ? `needs LANGSEARCH_API_KEY (key present: ${envPresence.LANGSEARCH_API_KEY_present}, production flag: ${envPresence.ENABLE_LANGSEARCH})`
-              : "not configured",
+          reason: unmeasuredReason(id, envPresence, searx.detail),
           n: 0,
         });
         continue;

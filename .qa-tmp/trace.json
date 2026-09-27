@@ -1,0 +1,138 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": "All search engines failed for this query. Tried: searxng, wikipedia-current-events, gdelt | SearXNG timed out after 12000ms | SearXNG timed out after 12000ms | SearXNG timed out after 12000ms | SearXNG timed out after 12000ms",
+  "refusal": "I could not find any live sources for \"Indian contingent medals tally in Asian Games 2026\", so I can't verify a current answer.\n\nI am deliberately not filling this in from my training data — my knowledge has a cutoff and is not a live feed, so a figure I recalled could easily be out of date, and a plausible-looking but unverified number is worse than none. Press Retry Search, or switch a search provider in Settings.",
+  "retrievalPlan": {
+    "notes": [
+      "event \"asian games\" already named in the query",
+      "no sports terms added — the query already expresses that",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "Indian contingent medals tally in Asian Games 2026 today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl"
+    ],
+    "variants": [
+      "Indian contingent medals tally in Asian Games 2026 today latest",
+      "Indian contingent medals tally in Asian Games 2026 2026-09-27",
+      "Indian contingent medals tally in Asian Games 2026"
+    ]
+  },
+  "retrievalQuery": "Indian contingent medals tally in Asian Games 2026 today",
+  "summary": "[search] \"Indian contingent medals tally in Asian Games 2026\" intent=knowledge fresh=true vertical=sports years=2026 raw=0 kept=0 stale-rejected=0 domains=0 conflicts=0 verdict=refuse searchMs=12029 totalMs=12029",
+  "trace": {
+    "askedEvent": "asian games",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [],
+    "dedupedCount": 0,
+    "freshnessReasons": [
+      "names the current year (2026)",
+      "asks for a live value (\"tally\")"
+    ],
+    "independentDomains": 0,
+    "intent": "knowledge",
+    "liveData": "tally",
+    "providersFailed": [],
+    "providersSearched": [
+      "gdelt",
+      "wikipedia-current-events",
+      "searxng"
+    ],
+    "query": "Indian contingent medals tally in Asian Games 2026",
+    "rawCount": 0,
+    "rejectedStale": [],
+    "rejectedStaleCount": 0,
+    "requiresFreshness": true,
+    "searchMs": 12029,
+    "selectedCount": 0,
+    "sources": [],
+    "totalMs": 12029,
+    "verification": {
+      "failedChecks": [
+        "relevance",
+        "year",
+        "event",
+        "recency",
+        "authority",
+        "corroboration",
+        "timestamp"
+      ],
+      "passRate": 0,
+      "unverifiable": [
+        "No source clearly answers the question as asked.",
+        "No source confirms coverage of 2026; anything available may describe a different year.",
+        "None of the results cover the \"asian games\" — they appear to be about a different event.",
+        "No source recent enough to speak to the current situation was found.",
+        "No primary or reputable source was found.",
+        "No sources were retrieved, so there is nothing to corroborate.",
+        "None of the sources showed a date, so their currency is unknown."
+      ],
+      "verdict": "refuse"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "no retrieved source directly addresses the question",
+        "id": "relevance",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source states which year it covers",
+        "id": "year",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source names the \"asian games\" — the results are about something else",
+        "id": "event",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source carries a date, so recency is unverifiable",
+        "id": "recency",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no sources were retrieved at all",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no source carries a publication date",
+        "id": "timestamp",
+        "passed": false
+      }
+    ],
+    "datedSources": 0,
+    "independentDomains": 0,
+    "passRate": 0,
+    "unverifiable": [
+      "No source clearly answers the question as asked.",
+      "No source confirms coverage of 2026; anything available may describe a different year.",
+      "None of the results cover the \"asian games\" — they appear to be about a different event.",
+      "No source recent enough to speak to the current situation was found.",
+      "No primary or reputable source was found.",
+      "No sources were retrieved, so there is nothing to corroborate.",
+      "None of the sources showed a date, so their currency is unknown."
+    ],
+    "verdict": "refuse"
+  }
+}

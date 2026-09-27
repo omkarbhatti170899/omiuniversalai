@@ -27,6 +27,7 @@ import {
   createLangSearchEvaluationProvider,
   isLangSearchEnabled,
   isLangSearchConfigured,
+  LANGSEARCH_ENABLED,
   toLangSearchFreshness,
   normalizeDatePublished,
 } from "../src/convex/searchProviders/langsearch";
@@ -50,43 +51,68 @@ afterEach(() => {
   else process.env.ENABLE_LANGSEARCH = savedFlag;
 });
 
-describe("langsearch — off by default", () => {
-  it("is disabled with no env at all", () => {
+describe("langsearch — enabled by owner decision, gated on the key", () => {
+  it("the feature flag is ON (owner instruction, recorded in versioned code)", () => {
+    expect(LANGSEARCH_ENABLED).toBe(true);
+    expect(isLangSearchEnabled()).toBe(true);
+  });
+
+  it("ENABLE_LANGSEARCH=false is an emergency kill switch", () => {
+    process.env.ENABLE_LANGSEARCH = "false";
     expect(isLangSearchEnabled()).toBe(false);
+    expect(createLangSearchProvider().isConfigured()).toBe(false);
+  });
+
+  it("any other env value does NOT disable it", () => {
+    // Only the exact string "false" is a kill switch. Anything else (unset,
+    // "true", "0", garbage) leaves the owner's decision in force.
+    for (const v of [undefined, "true", "0", "1", "yes"]) {
+      if (v === undefined) delete process.env.ENABLE_LANGSEARCH;
+      else process.env.ENABLE_LANGSEARCH = v;
+      expect(isLangSearchEnabled()).toBe(true);
+    }
+  });
+
+  it("enabled is NOT enough — a key is still required to be ready", () => {
     expect(isLangSearchConfigured()).toBe(false);
     expect(createLangSearchProvider().isConfigured()).toBe(false);
   });
 
-  it("a key ALONE does not enable it — the flag is required too", () => {
-    // This is the important one: a stray secret in the deployment must not
-    // silently turn on a metered provider in the production search path.
-    process.env.LANGSEARCH_API_KEY = KEY;
-    expect(isLangSearchEnabled()).toBe(false);
-    expect(isLangSearchConfigured()).toBe(false);
-  });
-
-  it("the flag ALONE does not enable it either — a key is still required", () => {
-    process.env.ENABLE_LANGSEARCH = "true";
-    expect(isLangSearchConfigured()).toBe(false);
-  });
-
-  it("only both together enable it", () => {
-    process.env.ENABLE_LANGSEARCH = "true";
+  it("with the key present it reports ready", () => {
     process.env.LANGSEARCH_API_KEY = KEY;
     expect(isLangSearchConfigured()).toBe(true);
     expect(createLangSearchProvider().isConfigured()).toBe(true);
   });
 
-  it("any value other than the exact string 'true' leaves it off", () => {
-    process.env.LANGSEARCH_API_KEY = KEY;
-    for (const v of ["1", "yes", "TRUE", "on", ""]) {
-      process.env.ENABLE_LANGSEARCH = v;
-      expect(isLangSearchEnabled()).toBe(false);
-    }
-  });
-
   it("refuses to search rather than searching without a key", async () => {
     await expect(createLangSearchProvider().search("q", 3)).rejects.toThrow(/disabled/i);
+  });
+});
+
+describe("langsearch — the provider stays enabled (regression)", () => {
+  it("REMAINS enabled by default — a future refactor must not silently disable it", () => {
+    // The owner's instruction was to enable LangSearch. If a later change
+    // flips the constant or the enablement logic, this fails loudly.
+    delete process.env.LANGSEARCH_API_KEY;
+    delete process.env.ENABLE_LANGSEARCH;
+    expect(LANGSEARCH_ENABLED).toBe(true);
+    expect(isLangSearchEnabled()).toBe(true);
+  });
+
+  it("the status surface reports enabled/configured/ready distinctly", () => {
+    process.env.LANGSEARCH_API_KEY = KEY;
+    const s = getProviderStatus().find((p) => p.id === "langsearch");
+    expect(s).toBeDefined();
+    expect(s!.enabled).toBe(true);
+    expect(s!.configured).toBe(true);
+    expect(s!.ready).toBe(true);
+  });
+
+  it("with the key removed it is enabled but NOT ready (distinguishable)", () => {
+    delete process.env.LANGSEARCH_API_KEY;
+    const s = getProviderStatus().find((p) => p.id === "langsearch")!;
+    expect(s.enabled).toBe(true);
+    expect(s.ready).toBe(false);
   });
 });
 
@@ -161,7 +187,7 @@ describe("langsearch — the evaluation bypass is not a production path", () => 
     expect(indexSrc).toContain("createLangSearchProvider");
   });
 
-  it("the production factory is still disabled without the flag", () => {
+  it("the production factory is still disabled without a key", () => {
     expect(createLangSearchProvider().isConfigured()).toBe(false);
   });
 

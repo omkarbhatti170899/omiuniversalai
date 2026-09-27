@@ -18,6 +18,7 @@ import { describe, expect, it } from "bun:test";
 import { planRetrieval, providersForVariant, GENERAL_WEB_PROVIDERS } from "../src/convex/searchEngine/rewrite";
 import { classifyCurrentIntent, retrievalQuery, namesEvent } from "../src/convex/searchEngine/intent";
 import { freshnessPolicyFor } from "../src/convex/searchEngine/freshness";
+import { getProviderStatus } from "../src/convex/searchProviders";
 
 const NOW = Date.parse("2026-09-27T12:00:00Z");
 const plan = (q: string) => planRetrieval(q, classifyCurrentIntent(q, undefined, NOW));
@@ -141,9 +142,24 @@ describe("query rewriting — only general-web providers see the variants", () =
   });
 
   it("names no provider that is not a registered general-web source", () => {
+    // The invariant is what matters: every variant target must be a provider
+    // that actually exists in the registry, or a rewrite is spent on a fan-out
+    // leg that can never return anything. Asserted against the real registry
+    // rather than a second hardcoded list, which is how a genuine provider
+    // addition (langsearch) previously broke this test while the product
+    // worked correctly.
+    const registered = new Set(getProviderStatus().map((p) => p.id));
     for (const id of GENERAL_WEB_PROVIDERS) {
-      expect(["searxng", "gdelt", "commoncrawl"]).toContain(id);
+      expect(registered.has(id)).toBe(true);
     }
+  });
+
+  it("routes variants to langsearch — it is the only dated general-web index", () => {
+    // LangSearch returned a publication date on 100% of benchmark results
+    // against SearXNG's 5%. Excluding it from the variant fan-out would mean
+    // a single phrasing decided whether the dated index was ever asked.
+    const p = plan("current USD INR rate");
+    expect(providersForVariant("langsearch", p)).toBe(true);
   });
 });
 

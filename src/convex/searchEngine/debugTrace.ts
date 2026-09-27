@@ -37,6 +37,16 @@ export type SourceDecision = {
   selected: boolean;
   reason: string;
   score?: number;
+  /**
+   * Which provider(s) actually returned this URL.
+   *
+   * Without this the trace can only say WHICH ENGINES RAN, never whether a
+   * given engine contributed anything to the answer — so "LangSearch is
+   * enabled" and "LangSearch is in the answer" were indistinguishable, and the
+   * second claim could not be audited. Attribution is carried on the citation
+   * by the provider adapter itself; this only surfaces it.
+   */
+  providers?: string[];
 };
 
 export type SearchDebugTrace = {
@@ -60,6 +70,17 @@ export type SearchDebugTrace = {
   rejectedStaleCount: number;
   rejectedStale: Array<{ domain: string; url: string; reason: string; ageDays: number | null }>;
   independentDomains: number;
+  /**
+   * How many RETRIEVED results and how many KEPT citations each provider
+   * contributed. This is the difference between "the provider ran" and "the
+   * provider is in the answer" — a provider can be searched, return nothing
+   * usable, and be dropped by the freshness gate, and only this says so.
+   */
+  contributionsByProvider: Array<{
+    provider: string;
+    retrieved: number;
+    kept: number;
+  }>;
   searchMs: number;
   totalMs: number;
   conflicts: string[];
@@ -89,6 +110,32 @@ export type TraceInput = {
   now?: number;
 };
 
+/**
+ * Per-provider retrieved/kept counts.
+ *
+ * A URL can be returned by more than one provider (dedupe merges them), so
+ * both totals can exceed the result count — that is intentional. Reporting
+ * only one number would hide the case where an engine contributes nothing that
+ * survives gating, which is the exact failure this whole engine is built to
+ * detect.
+ */
+function providerContributions(
+  candidates: Array<{ citation: { providers?: string[] }; selected: boolean }>,
+): Array<{ provider: string; retrieved: number; kept: number }> {
+  const byProvider = new Map<string, { retrieved: number; kept: number }>();
+  for (const { citation, selected } of candidates) {
+    for (const p of citation.providers ?? []) {
+      const row = byProvider.get(p) ?? { retrieved: 0, kept: 0 };
+      row.retrieved += 1;
+      if (selected) row.kept += 1;
+      byProvider.set(p, row);
+    }
+  }
+  return [...byProvider.entries()]
+    .map(([provider, r]) => ({ provider, ...r }))
+    .sort((a, b) => b.kept - a.kept || b.retrieved - a.retrieved);
+}
+
 /** Build the trace. Pure — no clock read beyond the injected `now`. */
 export function buildSearchTrace(input: TraceInput): SearchDebugTrace {
   const now = input.now ?? Date.now();
@@ -102,6 +149,7 @@ export function buildSearchTrace(input: TraceInput): SearchDebugTrace {
     selected,
     reason,
     score,
+    providers: citation.providers,
   }));
 
   // "Stale" for debugging means "dropped for a time or year reason" — that is
@@ -129,6 +177,7 @@ export function buildSearchTrace(input: TraceInput): SearchDebugTrace {
     rawCount: input.rawCount,
     dedupedCount: input.dedupedCount,
     sources,
+    contributionsByProvider: providerContributions(input.candidates),
     selectedCount: input.candidates.filter((c) => c.selected).length,
     rejectedStaleCount: rejectedStale.length,
     rejectedStale,

@@ -2,7 +2,7 @@ import { type SearchProvider } from "./types";
 import { createSearxProvider, searxngHealth, searxngHealthCached } from "./searxng";
 import { createMwmblProvider } from "./mwmbl";
 import { createDuckDuckGoInstantProvider } from "./duckduckgoInstant";
-import { createLangSearchProvider } from "./langsearch";
+import { createLangSearchProvider, isLangSearchEnabled } from "./langsearch";
 import { createWikipediaProvider } from "./wikipedia";
 import { createWikidataProvider } from "./wikidata";
 import { createArxivProvider } from "./arxiv";
@@ -41,6 +41,8 @@ export type ProviderStatus = {
   ready: boolean;
   /** Always-on vs optional. */
   enabled: boolean;
+  /** The provider is switched on by its feature flag, independent of config. */
+  configured: boolean;
   /** Cost transparency: all registered providers are free per-search. */
   cost: string;
   /** Requires an env key to be useful? */
@@ -205,7 +207,11 @@ export function getProviderStatus(): ProviderStatus[] {
     // searx.tiekoetter.com answers 403). The probe cache is warmed before this
     // snapshot is built (see /status → warmGeneralWebHealth).
     ready: p.id === "searxng" ? (searxngHealthCached()?.healthy ?? false) : p.isConfigured(),
-    enabled: true,
+    // `enabled` is the provider's own feature flag, not a hardcoded true. A
+    // provider switched off must SAY it is off, or an operator reading /status
+    // cannot tell "disabled" from "enabled but missing credentials".
+    enabled: p.id === "langsearch" ? isLangSearchEnabled() : true,
+    configured: p.isConfigured(),
     cost: PROVIDER_COST[idOf(p)] ?? "$0 per query",
     // MEASURED GAP FIXED: this used to be hardcoded to SearXNG, so a
     // key-gated provider reported requiresKey:false in the status surface —

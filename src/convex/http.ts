@@ -148,11 +148,22 @@ function statusSnapshot() {
     andromeda: {
       sourcesTotal: sources.length,
       sourcesReady: sources.filter((s) => s.ready).length,
+      // Enabled vs configured is reported separately, not folded into `ready`.
+      // Collapsing them makes a provider that is switched OFF
+      // indistinguishable from one that is on but missing credentials — the
+      // single most misleading thing a status page can do. `enabled` is the
+      // owner's feature decision, `configured` is "a credential is present",
+      // `ready` is "can serve right now".
+      sourcesEnabled: sources.filter((s) => s.enabled).length,
+      sourcesConfigured: sources.filter((s) => s.configured).length,
       cost: "$0 per query — keyless free/open sources only",
       sources: sources.map((s) => ({
         id: s.id,
         label: s.label,
+        enabled: s.enabled,
+        configured: s.configured,
         ready: s.ready,
+        requiresKey: s.requiresKey,
         cost: s.cost,
       })),
     },
