@@ -16,7 +16,7 @@
 
 import { internalAction } from "./_generated/server";
 import { verifyImageBytes } from "./aiProviders/imageVerify";
-import { probeInstance, searxngHealth } from "./searchProviders/searxng";
+import { createSearxProvider, probeInstance, searxngHealth } from "./searchProviders/searxng";
 
 const EDITS_URL = "https://gen.pollinations.ai/v1/images/edits";
 const GEN_URL = "https://gen.pollinations.ai/v1/images/generations";
@@ -112,6 +112,52 @@ async function accountProbe(path: string, key: string) {
     return { path, status: -1, body: `network: ${e instanceof Error ? e.message : "error"}` };
   }
 }
+
+/**
+ * Stress-test the configured SearXNG inside the Convex runtime: latency,
+ * failures, result counts and empty-set behaviour across repeated real
+ * queries. Used to decide whether the community instance is reliable enough
+ * to keep, or whether self-hosting is warranted.
+ */
+export const stressSearxng = internalAction({
+  args: {},
+  handler: async () => {
+    const queries = [
+      "latest AI news",
+      "who is the CEO of Nvidia",
+      "python 3.13 release notes",
+      "best laptops 2026",
+      "USD to JPY exchange rate",
+    ];
+    const provider = createSearxProvider();
+    const runs: Array<{ query: string; attempt: number; ok: boolean; ms: number; results: number; error: string }> = [];
+    for (const query of queries) {
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        const t0 = Date.now();
+        try {
+          const res = await provider.search(query, 5, {});
+          const n = res.citations.length;
+          runs.push({ query, attempt, ok: n > 0, ms: Date.now() - t0, results: n, error: n > 0 ? "" : "empty result set" });
+        } catch (e) {
+          runs.push({ query, attempt, ok: false, ms: Date.now() - t0, results: 0, error: e instanceof Error ? e.message.slice(0, 120) : "error" });
+        }
+      }
+    }
+    const okRuns = runs.filter((r) => r.ok);
+    const ms = okRuns.map((r) => r.ms).sort((a, b) => a - b);
+    const pct = (p: number) => (ms.length === 0 ? null : ms[Math.min(ms.length - 1, Math.floor((p / 100) * ms.length))]);
+    return {
+      total: runs.length,
+      succeeded: okRuns.length,
+      failed: runs.length - okRuns.length,
+      successRate: Math.round((okRuns.length / runs.length) * 100) + "%",
+      latencyMs: { min: ms[0] ?? null, median: pct(50), p95: pct(95), max: ms[ms.length - 1] ?? null },
+      averageResults: okRuns.length === 0 ? 0 : Math.round((okRuns.reduce((s, r) => s + r.results, 0) / okRuns.length) * 10) / 10,
+      isConfigured: provider.isConfigured(),
+      runs,
+    };
+  },
+});
 
 /**
  * Probe the configured SearXNG base URL FROM the Convex runtime, so a

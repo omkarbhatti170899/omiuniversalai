@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import { MotionConfig } from "framer-motion";
 import { RequireAuth } from "@/components/RequireAuth";
+import { NetworkStatusBar } from "@/components/NetworkStatusBar";
 import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { ConvexReactClient } from "convex/react";
@@ -160,6 +161,9 @@ createRoot(document.getElementById("root")!).render(
         storageKey="omi-theme"
       >
         <ConvexAuthProvider client={convex}>
+          {/* §18: app-wide connectivity state, on every route (landing, auth,
+              dashboard). Never renders while online. */}
+          <NetworkStatusBar />
           <BrowserRouter basename={import.meta.env.BASE_URL}>
             <RouteSyncer />
             <Suspense fallback={<RouteLoading />}>

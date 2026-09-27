@@ -187,7 +187,7 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Andromeda search / deep research / current info | **READY** (10/10 deployed) for news, markets, sports, weather |
 | Knowledge base | **READY in code**; live upload pending a signed-in session |
 | Emotions | **READY** |
-| UI/UX | **READY** |
+| UI/UX | **READY (code)** — loading/skeleton/empty/error-recovery states, reduced motion, and a new app-wide offline bar (`NetworkStatusBar`); human visual pass pending |
 | Image generation | **READY** |
 | Image editing | **BLOCKED** — enable image-model permissions on the existing Pollinations key |
 | General web search | **READY (measured)** — JSON-enabled instance configured |

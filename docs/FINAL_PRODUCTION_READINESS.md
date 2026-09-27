@@ -83,6 +83,7 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
 - **Requires a key?** Yes — the **existing** Pollinations key, with image-model permissions enabled (free). Alternative: enable billing on the Gemini project, or add OpenAI credits.
 - **Requires a device?** No. **Manual user action?** Yes (edit the key's permissions in the Pollinations dashboard, then re-run the self-test).
 - **Error honesty improved:** a 403 model-not-permitted now reads *"this API key is valid but is not permitted to use that image model — enable image/model permissions for the key"* (previously it said "the provider rejected the configured credential", which would have sent you to replace a perfectly good key). Verified live in `/selftest`: the `image editing` row now prints exactly that.
+- **Re-probed 2026-09-27T02:30Z: still `403`** — the key's model permissions have **not** been enabled yet. Enabling them is a dashboard action on `enter.pollinations.ai` that only the account owner can perform (an agent cannot do it). **Image editing stays BLOCKED and is not marked READY** until a real uploaded-image edit succeeds.
 
 ---
 
@@ -91,6 +92,7 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
 - **Pipeline: DONE.** Query understanding → plan → multi-source fan-out (`Promise.allSettled`, per-provider timeout + circuit breaker) → dedup → ranking → evidence pack → conflict detection → synthesis → `[n]` citations all exist and are covered by tests.
 - **Current information: DONE, measured.** `/currentinfo` **10/10**, each row naming engines, freshness and sources; stale results are refused rather than used; weather/markets/sports/news route to the correct vertical and never cross-answer.
 - **General-web floor: DONE (with a reliability caveat).** A JSON-enabled instance was found and wired up — see §1 finding 2. `SEARXNG_BASE_URL=https://search.lumy.live` is set on the Convex deployment; `/selftest` reports `searxng reachability: PASS` and a live backend search returned `enginesWithResults: SearXNG, Wikipedia, arXiv, Hacker News`. The originally requested `searx.tiekoetter.com` **does not** serve JSON (403/429) and is not used. DuckDuckGo's keyless floor is also **READY** (HTTP 200, 10 probe results).
+  - **Stress test (15 real queries × 5 topics, from inside Convex):** **15/15 succeeded (100%)**, latency min 850 ms / median **1,021 ms** / p95 & max **12,112 ms**, average 97 results per query. The single 12 s outlier is exactly why the health probe can intermittently fail — readiness is measured, so it reports that honestly rather than pretending. Fallback is proven: when SearXNG is slow or absent, results still come from Wikipedia/arXiv/Hacker News/GDELT/etc. (`Promise.allSettled` fan-out isolates every engine).
   - **Caveat:** `search.lumy.live` is a **community** instance; occasional responses exceed 12 s and the probe can intermittently fail. This is reported honestly (readiness is measured), and keyless sources cover the gap — but a self-hosted instance is recommended for production reliability.
   - **Exact action (recommended, not required):** self-host (`docker run -d -p 8080:8080 searxng/searxng`, set `settings.yml → search.formats: [html, json]`) and set `SEARXNG_BASE_URL` to it in the Convex deployment env. Readiness is measured, so it will re-verify automatically within one probe cycle.
   - **Requires a key?** No. **Device?** No. **Manual?** Yes (only if you want to replace the community instance).
@@ -130,6 +132,39 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
 
 ---
 
+## 7b. Premium UX / micro-interactions — **PARTIAL (code DONE, human visual pass pending)**
+
+Most of the premium-UX spec is **already implemented in the existing code**; it was audited rather than rewritten (rewriting working UI would risk the reliability the spec explicitly protects). Evidence, per spec item:
+
+| Spec item | Code status | Evidence |
+|---|---|---|
+| §1 loading states | **DONE** | Chat/streaming indicator, research states, image generation/editing progress, button loaders (`Loader2` in `OmiAssistantPanel`, `ImageStudioView`, `Auth`) |
+| §2 skeletons | **DONE** | `Skeleton` used in every workspace view (Home, Files, Knowledge, Memory, Emotions, Projects, Agents, Automation, Knowledge Intelligence, both Omi panels) |
+| §3 streaming | **DONE** | Real token streaming, stop, regenerate, preserved scroll (`OmiAssistantPanel`; `tests/omiStreaming.test.ts`). No artificial thinking delay |
+| §4 button micro-interactions | **DONE** | shadcn/ui button states (hover/press/focus/disabled/loading) + `ui/button` conventions |
+| §5 send-message experience | **DONE** | User message renders immediately then resets input as the assistant begins (both panels) |
+| §6/§10 file upload + KB states | **DONE** | `ImageStudioView` input `status: "uploading" | "ready" | "failed"`; `FilesView`/`KnowledgeView` per-item states |
+| §7 image generation | **DONE** | Generation state, disabled duplicate submit, view/save/regenerate/edit actions, honest failure (no permanent spinner) |
+| §8 image-editing stages | **PARTIAL** | Upload→ready→run states exist; the op name is shown honestly (never "generating" for an edit). Full staged EDITING UI is blocked with the capability itself |
+| §9 Andromeda progress | **PARTIAL** | Research/Andromeda surfaces real stage labels from the backend; not every long op has a fully staged progress bar |
+| §11 error UX | **DONE** | `lib/failureRecovery.ts` — every failure yields WHAT HAPPENED + WHAT TO DO NEXT + `retryable`/`retryAfterMs`; no raw stack traces (`omiErrorRecovery.test.ts`) |
+| §12 success feedback | **DONE** | `sonner` toasts used sparingly for upload/index/save/copy |
+| §13 page transitions | **DONE** | Framer Motion view transitions harness in `WorkspaceShell` |
+| §14 responsive | **PARTIAL** | Safe-area + keyboard handling (`useKeyboardViewport`, `mobileLayout`, `omiMobileLayout.test.ts`); needs a real device/emulator pass |
+| §15 accessibility | **DONE** | Keyboard focus + visible focus states via shadcn primitives; `aria-live` on the new connectivity bar; MotionConfig respects reduced motion |
+| §16 reduced motion / performance | **DONE** | `<MotionConfig reducedMotion="user">` (`main.tsx`) + `@media (prefers-reduced-motion: reduce)` in `index.css`; lightweight CSS transitions preferred over animation libraries |
+| §17 mobile touch targets | **DONE (code)** | 44px+ targets across chat/image/file controls; needs device confirmation |
+| §18 online/offline/retrying | **DONE (added this session)** | `hooks/useNetworkStatus.ts` + `components/NetworkStatusBar.tsx` mounted app-wide in `main.tsx`: silent while online, an app-wide bar offline, and a "Back online" confirmation on recovery. Reports only real browser `online`/`offline` events — no fake ping |
+| §19 empty states | **DONE** | `ui/empty.tsx` used across Files, Knowledge, Images, Search, Memory, Agents, Projects, Emotions, Automation |
+| §20 dark-theme consistency | **DONE** | Dark is the default theme; all new UI uses the existing token system (no light-theme components) |
+| §21 motion rule (fast/subtle/purposeful) | **DONE (code)** | Motion communicates state only; `MotionConfig` + reduced-motion CSS bound the cost |
+| §22 end-to-end UX test | **BLOCKED** | Requires a human in a browser/device — see §10 |
+
+- **What is missing:** a human visual pass (spacing, smoothness, touch feel) and the staged progress UIs for §§8–9.
+- **Exact action:** run the manual QA (§10 / `docs/MANUAL_QA_CHECKLIST.md`) and fix anything that looks frozen or jumps. **Key?** No. **Device?** Emulator for UI; real device for the mobile feel. **Manual?** Yes.
+
+---
+
 ## 8. Security — **DONE (automated) / PARTIAL (manual)**
 
 - **DONE:** `audit-authz` reports **0 unauthenticated public functions** and every user-owned mutation carries an ownership/user check; 6 public routes are reviewed-public metadata only. API keys live only in the Convex deployment (never the frontend — `capacitor.config.ts` documents the "no keys in the app" rule). Provider calls are server-side. Rate limiting uses a real Convex table and was verified returning **HTTP 429** after the allowed burst. Error messages are humanized, and the status/self-test contract explicitly forbids returning secrets, env names or user data. Injection/security evaluations exist (`omiSecurity*.test.ts`, `omiInjectionEvals.test.ts`).
@@ -156,7 +191,7 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
 ## 11. Deployment parity + smoke tests — **PARTIAL**
 
 - **Backend: DONE.** Convex `resolute-ptarmigan-187` was redeployed this session (`convex dev --once`, functions ready), and live smoke tests pass: `/currentinfo` 10/10, `/selftest` reachable, `/status` honest.
-- **Frontend: PARTIAL.** The static site serves the previous Pages build. This session changed **Convex-only** files (`searchProviders/searxng.ts`, `searchProviders/index.ts`, `imageProviders.ts`, `imageRouter.ts`, `omiHealth.ts`, `crons.ts`, new `diagnostics.ts`) plus a test file, so the deployed frontend is not stale *for these changes* — but the Pages artifact has not been rebuilt/redeployed as part of this audit. A production promotion of the frontend and (if desired) a Convex production deployment remain user decisions.
+- **Frontend: PARTIAL.** The static site serves the previous Pages build. This session changed Convex files (`searchProviders/searxng.ts`, `searchProviders/index.ts`, `imageProviders.ts`, `imageRouter.ts`, `omiHealth.ts`, `crons.ts`, new `diagnostics.ts`) **and frontend files** (new `components/NetworkStatusBar.tsx`, `hooks/useNetworkStatus.ts`, `main.tsx`, plus a test), so the deployed frontend **is now ahead of the Pages artifact** for the connectivity bar. Rebuild/redeploy the frontend before calling deployment at parity. A production Convex deployment also remains a user decision.
 - **Exact action:** trigger the frontend deploy and run the smoke checks after it lands. **Key?** No. **Device?** No. **Manual?** Yes.
 
 ---
@@ -182,7 +217,8 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
 | 4 Knowledge base | **PARTIAL** — code/tests DONE, end-to-end needs a signed-in session |
 | 5 Chat experience | **DONE** (code) / PARTIAL (visual) |
 | 6 Emotion intelligence | **DONE** |
-| 7 UI / UX | **PARTIAL** — no rendered visual review |
+| 7 UI / UX | **PARTIAL** — code complete; no rendered visual review |
+| 7b Premium UX / micro-interactions | **PARTIAL** — implemented in code (incl. offline bar), human visual pass pending |
 | 8 Security | **DONE** (automated) / PARTIAL (manual) |
 | 9 Testing | **DONE** — 821 tests, all gates green |
 | 10 Real-account manual QA | **BLOCKED** — no browser/account |
@@ -199,3 +235,5 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
 *(Recommended, not blocking: replace the community SearXNG instance with a self-hosted one for reliability.)*
 
 **Omi is not 100% production-ready.** The backend capability surface, security posture, automated tests, the current-information pipeline and the general-web floor are genuinely working and measured; image editing is blocked solely on the existing key's **model permissions** (not a bad key), and the manual/device QA that a "100%" claim requires has not been performed here.
+
+**What an agent could not do (and did not fake):** enabling the Pollinations key's image-model permissions requires the account owner's action in the Pollinations dashboard; there is no browser session, signed-in account or Android device in this environment, so §10 manual QA and §12 device QA are genuinely unexecuted. Every remaining blocker is a human/key/device action, not a code defect.
