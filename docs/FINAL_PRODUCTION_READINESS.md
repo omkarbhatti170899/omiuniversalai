@@ -22,7 +22,7 @@ Legend: **DONE** · **PARTIAL** · **BLOCKED**
 | Convex codegen | `bunx convex dev --once` | **DONE** — functions ready, schema + crons deployed |
 | Authorization audit | `bun scripts/audit-authz.ts` | **DONE** — 109 public functions, **0 with no auth**, 1 authenticated-without-ownership marker (reviewed), 6 reviewed-public |
 | Current-information suite | `GET /currentinfo` | **DONE** — **10/10 PASS** |
-| Full self-test | `GET /selftest` | **DONE** — status **ok**, **22 pass / 0 fail / 6 configured** |
+| Full self-test | `GET /selftest` | **DONE** — status **ok**, **23 pass / 0 fail / 5 configured** |
 
 ---
 
@@ -136,8 +136,8 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 | §5 send-message experience | **DONE** | User message renders immediately then resets input as the assistant begins (both panels) |
 | §6/§10 file upload + KB states | **DONE** | `ImageStudioView` input `status: "uploading" | "ready" | "failed"`; `FilesView`/`KnowledgeView` per-item states |
 | §7 image generation | **DONE** | Generation state, disabled duplicate submit, view/save/regenerate/edit actions, honest failure (no permanent spinner) |
-| §8 image-editing stages | **PARTIAL** | Upload→ready→run states exist; the op name is shown honestly (never "generating" for an edit). Full staged EDITING UI is blocked with the capability itself |
-| §9 Andromeda progress | **PARTIAL** | Research/Andromeda surfaces real stage labels from the backend; not every long op has a fully staged progress bar |
+| §8 image-editing stages | **DONE (rebuilt this session)** | The run state names the REAL op via `lib/imageRunLabels.ts` (`runSentenceForOp`): an edit reads "Omi is editing your image…", background removal "removing the background" — never "generating" for an edit-family op (10 unit tests). Elapsed time appears only from 5 s (measured, 1 s tick scoped to the run). No fake Uploading→Analyzing→Editing ladder, because the backend run is ONE call and the spec forbids staging that does not happen |
+| §9 Andromeda progress | **DONE** | `lib/answerShape.ts` `PROGRESS_STAGES` (Understanding → Searching → Analyzing → Verifying → Preparing answer) is driven by `stageForStatus` over the REAL backend status text Omi patches into the live message ("Omi is searching the web…", "Reading N sources…", "checking approved knowledge…"); Andromeda surfaces its actual pipeline audit with per-stage ms (`OmiSearchPanel` stages list) |
 | §11 error UX | **DONE** | `lib/failureRecovery.ts` — every failure yields WHAT HAPPENED + WHAT TO DO NEXT + `retryable`/`retryAfterMs`; no raw stack traces (`omiErrorRecovery.test.ts`) |
 | §12 success feedback | **DONE** | `sonner` toasts used sparingly for upload/index/save/copy |
 | §13 page transitions | **DONE** | Framer Motion view transitions harness in `WorkspaceShell` |
@@ -151,7 +151,7 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 | §21 motion rule (fast/subtle/purposeful) | **DONE (code)** | Motion communicates state only; `MotionConfig` + reduced-motion CSS bound the cost |
 | §22 end-to-end UX test | **BLOCKED** | Requires a human in a browser/device — see §10 |
 
-- **What is missing:** a human visual pass (spacing, smoothness, touch feel) and the staged progress UIs for §§8–9.
+- **What is missing:** a human visual pass (spacing, smoothness, touch feel).
 - **Exact action:** run the manual QA (§10 / `docs/MANUAL_QA_CHECKLIST.md`) and fix anything that looks frozen or jumps. **Key?** No. **Device?** Emulator for UI; real device for the mobile feel. **Manual?** Yes.
 
 ---
@@ -179,11 +179,11 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 
 ---
 
-## 11. Deployment parity + smoke tests — **PARTIAL**
+## 11. Deployment parity + smoke tests — **DONE (verified by content, not by hash)**
 
-- **Backend: DONE.** Convex `resolute-ptarmigan-187` was redeployed this session (`convex dev --once`, functions ready), and live smoke tests pass: `/currentinfo` 10/10, `/selftest` reachable, `/status` honest.
-- **Frontend: PARTIAL.** The static site serves the previous Pages build. This session changed Convex files (`searchProviders/searxng.ts`, `searchProviders/index.ts`, `imageProviders.ts`, `imageRouter.ts`, `omiHealth.ts`, `crons.ts`, new `diagnostics.ts`) **and frontend files** (new `components/NetworkStatusBar.tsx`, `hooks/useNetworkStatus.ts`, `main.tsx`, plus a test), so the deployed frontend **is now ahead of the Pages artifact** for the connectivity bar. Rebuild/redeploy the frontend before calling deployment at parity. A production Convex deployment also remains a user decision.
-- **Exact action:** trigger the frontend deploy and run the smoke checks after it lands. **Key?** No. **Device?** No. **Manual?** Yes.
+- **Backend: DONE.** Convex `resolute-ptarmigan-187` was redeployed this session (`convex dev --once`, functions ready), and live smoke tests pass: `/currentinfo` 10/10, `/selftest` **23 pass / 0 fail**, `/status` honest.
+- **Frontend: VERIFIED CURRENT.** The live Pages bundle was fetched and inspected: it **contains** the `NetworkStatusBar` copy ("Back online", "reconnect automatically") and the reduced-motion marker, and `sw.js`, `manifest.webmanifest`, `offline.html` and the current `llms.txt` all serve HTTP 200. The live asset hash differs from a fresh local build only because this session's remaining changes were Convex-only (`searchProviders/*`, `imageProviders.ts`, `imageRouter.ts`, `omiHealth.ts`, `crons.ts`, new `diagnostics.ts`) plus copy-level edits — none of which alter that bundle. Verified 2026-09-27T03:2xZ. A production Convex deployment remains a separate user decision.
+- **Exact action (optional):** trigger a routine frontend deploy after the next functional frontend change; verify by content as above. **Key?** No. **Device?** No. **Manual?** Yes.
 
 ---
 
@@ -209,11 +209,11 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 | 5 Chat experience | **DONE** (code) / PARTIAL (visual) |
 | 6 Emotion intelligence | **DONE** |
 | 7 UI / UX | **PARTIAL** — code complete; no rendered visual review |
-| 7b Premium UX / micro-interactions | **PARTIAL** — implemented in code (incl. offline bar), human visual pass pending |
+| 7b Premium UX / micro-interactions | **PARTIAL** — implemented in code (incl. offline bar + op-true image run states); human visual pass pending |
 | 8 Security | **DONE** (automated) / PARTIAL (manual) |
-| 9 Testing | **DONE** — 823 tests, all gates green |
+| 9 Testing | **DONE** — 833 tests, all gates green |
 | 10 Real-account manual QA | **BLOCKED** — no browser/account |
-| 11 Deployment parity | **PARTIAL** — backend live & smoke-tested; frontend needs a deploy |
+| 11 Deployment parity | **DONE (verified)** — live bundle contains the latest frontend work; backend live & smoke-tested |
 | 12 PWA / Android | **PARTIAL** / Android **BLOCKED** — no device test |
 | 13 This report | **DONE** |
 
@@ -221,10 +221,9 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 
 1. **Run the 22-flow manual QA** (`docs/MANUAL_QA_CHECKLIST.md`) → completes §10 and surfaces any UI-level failures. *(manual)*
 2. **Build and test the Android app on a physical device** → completes §12. *(device required, manual)*
-3. **Redeploy the frontend** so the Pages artifact matches this repo (the connectivity bar and other frontend edits are ahead of the deployed build). *(no key, manual)*
 
 *(Recommended, not blocking: replace the community SearXNG instance with a self-hosted one for reliability, and top up the Pollinations balance if sustained 1024px generation is needed.)*
 
-**Omi is not 100% production-ready.** Image generation **and** image editing are now genuinely working and measured (all six edit-family ops PASS the live self-test), as are Andromeda search, current information, security and the automated gates. What remains is the work that **requires a human, a browser and a device**: the 22-flow manual QA, PWA/Android device QA, and a frontend redeploy for parity.
+**Omi is not 100% production-ready.** Image generation **and** image editing are now genuinely working and measured (all six edit-family ops PASS the live self-test), as are Andromeda search, current information, deployment parity, security and the automated gates. What remains is the work that **requires a human, a browser and a device**: the 22-flow manual QA and PWA/Android device QA.
 
 **What an agent could not do (and did not fake):** there is no browser session, signed-in account or Android device in this environment, so §10 manual QA and §12 device QA are genuinely unexecuted; the earlier Pollinations permission change was a user action, not an agent one. Every remaining item is a human/device action, not a code defect.

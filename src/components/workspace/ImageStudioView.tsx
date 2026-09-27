@@ -24,6 +24,7 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { classifyFailure, recoveryToast } from "@/lib/failureRecovery";
+import { runSentenceForOp } from "@/lib/imageRunLabels";
 import { recordSubsystemEvent } from "@/lib/observability";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -317,6 +318,20 @@ export function ImageStudioView({
   const [bgAction, setBgAction] = useState<"remove" | "replace">("remove");
   const [inputs, setInputs] = useState<StudioInput[]>([]);
   const [running, setRunning] = useState(false);
+  /** Wall-clock time of the current run — shown only once it exceeds 5 s. */
+  const [runStart, setRunStart] = useState<number | null>(null);
+  const [elapsedMs, setElapsedMs] = useState(0);
+
+  // A 1-second tick ONLY while a run is in flight: the elapsed counter stays
+  // live without any timer existing between runs (no background work, no
+  // battery cost — the interval is cleared the moment the run ends). The reset
+  // to zero happens in the run's own start/finally paths, never as a
+  // synchronous setState inside this effect.
+  useEffect(() => {
+    if (!running || runStart === null) return;
+    const id = setInterval(() => setElapsedMs(Date.now() - runStart), 1_000);
+    return () => clearInterval(id);
+  }, [running, runStart]);
   const [error, setError] = useState<string | null>(null);
   const [attempts, setAttempts] = useState<Array<Attempt>>([]);
   const [resultId, setResultId] = useState<string | null>(null);
@@ -499,6 +514,8 @@ export function ImageStudioView({
 
   const handleRun = async () => {
     setRunning(true);
+    setRunStart(Date.now());
+    setElapsedMs(0);
     setError(null);
     setAttempts([]);
     try {
@@ -562,6 +579,8 @@ export function ImageStudioView({
       setError(`${recovery.whatHappened} ${recovery.whatToDoNext}`);
     } finally {
       setRunning(false);
+      setRunStart(null);
+      setElapsedMs(0);
     }
   };
 
@@ -920,7 +939,9 @@ export function ImageStudioView({
                 <Button className="cursor-pointer" disabled={!canRun} onClick={() => void handleRun()}>
                   {running ? <Loader2 className="size-4 animate-spin" /> : <Sparkles className="size-4" />}
                   {running
-                    ? "Omi is rendering…"
+                    ? // Names the REAL op (an edit never says "generating"), with
+                      // measured elapsed time once the run is genuinely slow.
+                      runSentenceForOp(resolvedOp, elapsedMs)
                     : modeId === "auto"
                       ? resolvedOp
                         ? `Run · ${OP_LABELS[resolvedOp] ?? resolvedOp}`
@@ -959,9 +980,10 @@ export function ImageStudioView({
                     )}
                     {modeId !== "generate" && modeId !== "variation" && attempts.length > 0 && (
                       <p className="text-[11px] leading-relaxed text-muted-foreground">
-                        Generating an image from text works now. Editing needs a provider that
-                        accepts an image input, so those modes stay unavailable until one is
-                        configured — Omi reports the real reason rather than returning a fake image.
+                        Generation from text works now, and so does editing when a provider is
+                        reachable. If every provider in the chain declined, Omi reports the real
+                        reason above rather than returning a fake image — fix the stated cause
+                        (credits, quota, permissions) or try again.
                       </p>
                     )}
                   </div>

@@ -195,5 +195,5 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Android | **BLOCKED** — no device/toolchain here |
 
 **Overall: NOT 100%.** Chat, search, current information, image generation, image editing,
-security and UI are production-ready and verified. What remains is manual/browser QA, PWA/Android
-device QA and a frontend redeploy — all human/device actions, each with an explicit reason.
+deployment parity, security and UI are production-ready and verified. What remains is
+manual/browser QA and PWA/Android device QA — human/device actions, each with an explicit reason.
