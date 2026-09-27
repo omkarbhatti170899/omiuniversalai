@@ -299,7 +299,27 @@ export function freshnessWindowFor(
   }
 }
 
-/** Time filter implied by the user's own wording. */
+/**
+ * Wording that means "right now", as opposed to "recently".
+ *
+ * The distinction matters because the ENGINE filter is coarse: SearXNG's own
+ * granularity stops at `day`. Measured 2026-09-27 on the configured instance,
+ * passing `time_range` took the date yield from 21% to 100% — because the
+ * filter makes the metasearch restrict itself to engines that can honour dates
+ * (yandex) instead of mixing in ones that cannot (seznam, mwmbl). So asking
+ * for `day` is not a cosmetic tightening; it is what switches on dated
+ * retrieval at all.
+ *
+ * Deliberately NOT included: "recent", "this week", "2026", "current" — those
+ * are handled by the freshness TIER, and forcing a day filter on them would
+ * throw away genuinely current-but-not-today material.
+ */
+const STRONG_NOW_RE =
+  /(?<![\p{L}\p{N}])(today|tonight|right\s+now|as\s+of\s+now|just\s+now|breaking|just\s+announced|this\s+morning|this\s+afternoon|this\s+evening|in\s+the\s+last\s+few\s+hours)(?![\p{L}\p{N}])/iu;
+
+/** A year that is clearly in the past must never get a one-day filter. */
+const HISTORICAL_YEAR_RE = /(?<![\d])((?:19|20)\d{2})(?![\d])/;
+
 export function timeRangeFor(query: string, intent?: string): FreshnessPolicy["timeRange"] {
   const explicit = LAST_N_RE.exec(query ?? "");
   if (explicit) {
@@ -311,6 +331,16 @@ export function timeRangeFor(query: string, intent?: string): FreshnessPolicy["t
     if (unit.startsWith("hour") || unit === "hr") return n <= 1 ? "hour" : "day";
     if (unit.startsWith("day")) return n <= 1 ? "day" : "week";
     return "week";
+  }
+  // "today"/"breaking"/"right now" ask for the current day specifically.
+  // Guarded against historical framing so "the 2018 Asian Games medal tally
+  // today" is not answered with a one-day filter that cannot possibly hold
+  // the answer.
+  if (STRONG_NOW_RE.test(query ?? "")) {
+    const years = (query ?? "").match(HISTORICAL_YEAR_RE);
+    const onlyPastYears =
+      years !== null && years.every((y) => Number(y) < new Date().getUTCFullYear());
+    if (!onlyPastYears) return "day";
   }
   if (intent === "news") return "week";
   // A generic "current" previously widened the engine-level filter to a

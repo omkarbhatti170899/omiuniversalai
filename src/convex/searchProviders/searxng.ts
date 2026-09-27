@@ -79,14 +79,72 @@ type SearxResultItem = {
   url?: string;
   content?: string;
   img_src?: string;
-  publishedDate?: string;
+  /**
+   * The primary date field. MEASURED 2026-09-27 against the configured
+   * instance: on a 28-result payload this was non-empty for 6, and a separate
+   * per-engine trace showed every one of those 6 came from `yandex`. So the
+   * low date yield is an ENGINE property, not a parsing failure — see
+   * `docs/SEARXNG_DATE_ROOT_CAUSE.md`.
+   *
+   * `pubdate` and `metadata[]` were also measured present in the payload. They
+   * were checked for non-empty date values and carried exactly the same 6
+   * dates, so reading them would change nothing today. They are still accepted
+   * below, because that is a cheap guard against an engine switching which
+   * field it populates.
+   */
+  publishedDate?: string | null;
+  pubdate?: string | null;
+  metadata?: Array<{ key?: string; value?: string }> | null;
+};
+
+/**
+ * The `time_range` values SearXNG actually accepts.
+ *
+ * MEASURED BUG: the adapter forwarded our internal vocabulary verbatim, which
+ * includes `"hour"`. SearXNG's own choices are day / week / month / year, so
+ * `time_range=hour` is not a finer filter — it is an INVALID value that the
+ * instance silently ignores. The caller believed it had asked for the last
+ * hour while the engine returned everything, which is the worst possible
+ * outcome: a filter that appears to apply and does not.
+ *
+ * There is no hour granularity upstream, so "hour" is honestly widened to
+ * "day" and the freshness TIER (not the engine) does the sub-day work.
+ */
+const SEARX_TIME_RANGES = new Set(["day", "week", "month", "year"]);
+
+/** Map our vocabulary onto the values the engine will actually honour. */
+export function toSearxTimeRange(
+  range: "hour" | "day" | "week" | "month" | "year" | undefined,
+): string | undefined {
+  if (!range) return undefined;
+  if (SEARX_TIME_RANGES.has(range)) return range;
+  if (range === "hour") return "day";
+  return undefined;
+}
+
+/**
+ * Successively wider fallbacks when a date filter empties the result set.
+ *
+ * §4's rule — "do not force a day filter on historical questions" — is the
+ * mirror image of this: a genuinely current question that happens to have
+ * nothing from today must still be answered by yesterday's news, rather than
+ * returning nothing at all. Widening is strictly better than returning empty,
+ * because the freshness gate downstream still rejects anything too old; this
+ * only changes what the ENGINE is allowed to return, never what Omi accepts.
+ */
+const WIDENING: Record<string, string | undefined> = {
+  day: "week",
+  week: "month",
+  month: "year",
+  year: undefined,
 };
 
 function buildParams({
   query,
   numResults,
   opts,
-}: Omit<SearxParams, "base">): Record<string, string> {
+  timeRangeOverride,
+}: Omit<SearxParams, "base"> & { timeRangeOverride?: string | undefined }): Record<string, string> {
   const params: Record<string, string> = {
     q: query,
     format: "json",
@@ -99,7 +157,9 @@ function buildParams({
     params[`category_${opts.category}`] = "on";
   }
   if (opts.language) params.language = opts.language;
-  if (opts.timeRange) params.time_range = opts.timeRange;
+  const range =
+    timeRangeOverride !== undefined ? timeRangeOverride : toSearxTimeRange(opts.timeRange);
+  if (range) params.time_range = range;
   if (opts.safeSearch !== undefined) params.safesearch = String(opts.safeSearch);
   if (opts.page && opts.page > 1) params.pageno = String(opts.page);
   return params;
@@ -264,11 +324,42 @@ async function fetchInstance(
       url: r.url as string,
       snippet: r.content ? String(r.content).slice(0, 600) : undefined,
       imageUrl: r.img_src && typeof r.img_src === "string" ? r.img_src : undefined,
-      publishedAt:
-        r.publishedDate && typeof r.publishedDate === "string"
-          ? r.publishedDate
-          : undefined,
+      publishedAt: extractSearxDate(r),
     }));
+}
+
+/**
+ * Pull a usable publication date out of one SearXNG result.
+ *
+ * Ordered by what the payload was MEASURED to carry, most-authoritative first.
+ * Every candidate is validated by actually parsing it: a present-but-unparseable
+ * date must read as "undated", not as a date the freshness gate will then
+ * trust. `Date.parse` accepts a lot of junk, so the value must survive a
+ * round-trip to a real ISO instant.
+ */
+export function extractSearxDate(r: SearxResultItem): string | undefined {
+  const candidates: Array<string | null | undefined> = [r.publishedDate, r.pubdate];
+
+  // SearXNG's `metadata` is a list of {key, value} pairs; some engines put a
+  // date in there instead of a top-level field.
+  if (Array.isArray(r.metadata)) {
+    for (const entry of r.metadata) {
+      const key = String(entry?.key ?? "").toLowerCase();
+      if (/^(published|published_?date|pub_?date|date|updated|modified|timestamp)$/.test(key)) {
+        candidates.push(entry?.value);
+      }
+    }
+  }
+
+  for (const raw of candidates) {
+    if (typeof raw !== "string") continue;
+    const trimmed = raw.trim();
+    if (trimmed === "") continue;
+    const parsed = Date.parse(trimmed);
+    if (Number.isNaN(parsed)) continue;
+    return new Date(parsed).toISOString();
+  }
+  return undefined;
 }
 
 export function createSearxProvider(): SearchProvider {
@@ -316,12 +407,38 @@ export function createSearxProvider(): SearchProvider {
       numResults,
       opts = {},
     ): Promise<SearchProviderResult> {
-      const params = buildParams({ query, numResults, opts });
-      const bases = configuredBase
-        ? [configuredBase]
-        : PUBLIC_INSTANCES;
-      const perTryTimeout = configuredBase ? 15000 : 9000;
+      const bases = configuredBase ? [configuredBase] : PUBLIC_INSTANCES;
+      // MEASURED 2026-09-27 against search.lumy.live: DNS 1 ms, TCP 95 ms,
+      // but /search?format=json took 14.7 s (day), 7.5 s (month), 13.1 s
+      // (year) and 46.6 s for a plain probe. The previous 15 s budget was
+      // therefore borderline-lucky at best, and the instance crossed it
+      // outright on a slow day — which is what turned a 95%-availability
+      // provider into a hard search failure.
+      //
+      // The budget is raised to cover the MEASURED common case and is
+      // overridable, because a self-hosted instance answers in well under a
+      // second and should not be made to wait for a community host's latency.
+      // The real fix is self-hosting (docs/SEARXNG_SELF_HOST_PLAN.md); this
+      // only stops the adapter from giving up before the instance answers.
+      const perTryTimeout = configuredBase
+        ? Number(process.env.SEARXNG_TIMEOUT_MS ?? 30_000)
+        : 9000;
       const maxTries = configuredBase ? 2 : bases.length;
+
+      // Build the ladder of date filters to try, widest last. Starting narrow
+      // is deliberate: §4 measured a 21% date yield with NO filter and 100%
+      // with time_range, because the filter makes the engine restrict itself to
+      // engines that can honour dates. Widen only if the narrow one is empty.
+      const requested = toSearxTimeRange(opts.timeRange);
+      const ladder: Array<string | undefined> = [];
+      if (requested) {
+        let cur: string | undefined = requested;
+        while (cur !== undefined && !ladder.includes(cur)) {
+          ladder.push(cur);
+          cur = WIDENING[cur];
+        }
+      }
+      ladder.push(undefined);
 
       let lastError: unknown = null;
       let attempts = 0;
@@ -333,20 +450,30 @@ export function createSearxProvider(): SearchProvider {
         // Retry policy: 2 quick attempts per instance (transient 5xx /
         // timeouts are common on shared instances), then move on.
         for (let attempt = 0; attempt < 2; attempt++) {
-          try {
-            const citations = await fetchInstance(base, params, perTryTimeout);
-            if (citations.length > 0) {
-              return { citations };
+          for (const range of ladder) {
+            try {
+              const citations = await fetchInstance(
+                base,
+                buildParams({ query, numResults, opts, timeRangeOverride: range }),
+                perTryTimeout,
+              );
+              if (citations.length > 0) {
+                return { citations };
+              }
+              // Empty result set is a valid answer — but only trust it from
+              // the configured (non-gated) instance. Public instances may be
+              // serving a challenge that still returned 200 with no results.
+              if (configuredBase && range === undefined) {
+                return { citations: [] };
+              }
+              if (configuredBase) {
+                lastError = new Error(`no results for time_range=${range}`);
+                continue;
+              }
+              lastError = new Error(`${base} returned no results`);
+            } catch (err) {
+              lastError = err;
             }
-            // Empty result set is a valid answer — but only trust it from
-            // the configured (non-gated) instance. Public instances may be
-            // serving a challenge that still returned 200 with no results.
-            if (configuredBase) {
-              return { citations: [] };
-            }
-            lastError = new Error(`${base} returned no results`);
-          } catch (err) {
-            lastError = err;
           }
           if (attempt === 0) {
             await new Promise((r) => setTimeout(r, 400));

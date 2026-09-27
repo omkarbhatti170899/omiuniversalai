@@ -35,7 +35,7 @@ import { createGdeltProvider } from "./searchProviders/gdelt";
 import { createHackerNewsProvider } from "./searchProviders/hackernews";
 import type { SearchProvider, SearchOptions } from "./searchProviders/types";
 
-const TIMEOUT_MS = 15_000;
+const TIMEOUT_MS = 30_000;
 
 /** Shared query set. Same shape as scripts/providerBenchmark.ts. */
 const CASES: Array<{ category: string; query: string; opts?: SearchOptions }> = [
@@ -110,6 +110,12 @@ async function runOne(p: SearchProvider, c: (typeof CASES)[number]): Promise<Row
     const result = await Promise.race([
       p.search(c.query, 5, c.opts),
       new Promise<never>((_, rej) => {
+        // The harness budget must be at least as generous as the slowest
+        // provider's own ceiling, or the benchmark measures the HARNESS rather
+        // than the provider. It was 15 s while searxng needs 14.7–46.6 s and
+        // gdelt 10.3–13.2 s (both MEASURED), so a provider that demonstrably
+        // answers was being recorded as `timedOut` and reported as having 0%
+        // availability. 30 s matches the production per-provider ceilings.
         timer = setTimeout(() => rej(new Error("timeout")), TIMEOUT_MS);
       }),
     ]);

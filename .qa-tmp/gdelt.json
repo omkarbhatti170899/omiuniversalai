@@ -1,0 +1,29 @@
+{
+  "call": {
+    "error": "fetch failed",
+    "ms": 10498,
+    "ok": false,
+    "status": 0,
+    "timedOut": false
+  },
+  "dns": {
+    "addresses": [
+      "104.197.47.124"
+    ],
+    "ms": 7,
+    "ok": true
+  },
+  "root": {
+    "error": "fetch failed",
+    "ms": 10492,
+    "ok": false,
+    "status": 0,
+    "timedOut": false
+  },
+  "tcp": {
+    "ms": 35,
+    "ok": true
+  },
+  "url": "https://api.gdeltproject.org/api/v2/doc/doc",
+  "verdict": "DNS resolves and TCP is attempted but nothing answers — an upstream outage or an egress restriction."
+}

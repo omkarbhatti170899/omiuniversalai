@@ -1,0 +1,43 @@
+{
+  "control": {
+    "bodyPrefix": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <meta name=\"robots\" content=\"noindex, nofollow\" />",
+    "bytes": 11324,
+    "contentType": "text/html",
+    "isJson": false,
+    "ms": 224,
+    "ok": true,
+    "status": 200
+  },
+  "dns": {
+    "addresses": [
+      "2a01:4f8:1c1a:1ecb::1",
+      "178.105.236.18"
+    ],
+    "ms": 1,
+    "ok": true
+  },
+  "host": "search.lumy.live",
+  "hostname": "search.lumy.live",
+  "json60s": {
+    "bodyPrefix": "",
+    "bytes": 18654,
+    "contentType": "application/json",
+    "isJson": true,
+    "ms": 46629,
+    "ok": true,
+    "status": 200
+  },
+  "root": {
+    "error": "The operation was aborted due to timeout",
+    "ms": 20002,
+    "ok": false,
+    "status": 0,
+    "timedOut": true
+  },
+  "tcp": {
+    "ms": 95,
+    "note": "TCP 443 accepted",
+    "ok": true
+  },
+  "verdict": "The host DOES answer — see root/json60s for which endpoint and how slowly."
+}

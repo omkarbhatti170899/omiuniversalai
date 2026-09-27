@@ -1,0 +1,22 @@
+{
+  "configured": {
+    "hasQueryString": false,
+    "host": "search.lumy.live",
+    "present": true,
+    "queryStringHoldsSecret": false,
+    "redacted": "https://search.lumy.live/"
+  },
+  "jsonFormatEnabled": false,
+  "query": "Indian contingent medals tally Asian Games 2026",
+  "raw": {
+    "bodyPrefix": "",
+    "contentType": "",
+    "error": "The operation was aborted due to timeout",
+    "isJson": false,
+    "ms": 20004,
+    "status": 0,
+    "url": "https://search.lumy.live/search?q=Indian+contingent+medals+tally+Asian+Games+2026&format=json&results_on_page=20"
+  },
+  "unresponsiveEngines": [],
+  "verdict": "UNREACHABLE: The operation was aborted due to timeout"
+}
