@@ -22,14 +22,18 @@ exact unblock actions) lives in **[docs/FINAL_PRODUCTION_READINESS.md](docs/FINA
 |---|---|---|
 | Typecheck | `bunx tsc -b --noEmit` | **0 errors** |
 | Lint | `bunx eslint .` | **0 errors**, 21 warnings (react-refresh in shadcn files + unused eslint-disable in generated files) |
-| Unit/integration tests | `bun test tests/` | **821 pass / 0 fail** (49 files, 3162 assertions) |
-| Build | `bun run build` | clean, ~14 s |
-| Convex codegen | `bunx convex dev --once` | clean |
+| Unit/integration tests | `bun test tests/` | **833 pass / 0 fail** (50 files, 3252 assertions) |
+| Build | `bun run build` | clean, 13.11 s |
+| Convex codegen | `bunx convex dev --once` | clean, 14.16 s |
+| Authorization audit | `bun scripts/audit-authz.ts` | 109 public functions, **0 with no auth** |
 | Deployed current-info probe | `GET /currentinfo` | **10 / 10 scenarios PASS** |
-| Deployed self-test | `GET /selftest` | 16 pass / 6 fail / 6 configured |
+| Deployed self-test | `GET /selftest` | **status ok — 23 pass / 0 fail / 5 configured** |
+| Authenticated end-to-end (guest session) | 16 flows via the production API | **15 PASS / 1 FAIL** |
+| **Real browser QA** | — | **NOT RUN** — no browser in this environment |
+| **Human visual UX pass** | — | **NOT RUN** — needs a human looking at the screen |
+| **Android / PWA device test** | — | **NOT RUN** — no device, no JDK/Gradle |
 
-The 6 self-test failures are the image-**editing** family (see §4). They are provider-quota
-failures, reported explicitly, not silently fabricated.
+The last three rows are empty on purpose — they are the gap that keeps Omi off 100%.
 
 ---
 
@@ -68,7 +72,7 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Large files / multiple documents | **DONE** | Size/type validation, chunked storage, thread windowing. |
 | Clear instructions when a document can't be processed | **DONE** | `failureRecovery.ts` maps dependency failures to "what happened + what to do next". |
 
-## 4. IMAGE GENERATION + EDITING — **PARTIAL / BLOCKED on provider keys**
+## 4. IMAGE GENERATION + EDITING — **VERIFIED** (full-size editing needs a provider balance top-up)
 
 | Requirement | Status | Evidence |
 |---|---|---|
@@ -178,22 +182,26 @@ See `docs/current-information-report.md` for the full deployed test table.
 3. **Live sports** returns in-play matches plus, for a named team not playing today, its own
    **next fixture** explicitly labelled as unplayed — it never invents a scoreline.
 4. **On-device/mobile QA** and **Android build** could not be executed here.
+5. **MANUAL VERIFIED = 0.** No flow has been verified by a human in a browser or on a device.
+   Real browser QA, the human UX pass and the Android/PWA device test were requested and are
+   genuinely unexecuted — this environment has no browser, no human viewer and no device. The
+   exact flows to run are in `docs/FINAL_PRODUCTION_READINESS.md` §14.
 
 ## Production-readiness status
 
 | Area | Status |
 |---|---|
 | Security, authz, isolation, rate limiting | **READY** |
-| Chat core (streaming, regenerate, stop, fallback) | **READY** |
+| Chat core (streaming, regenerate, stop, fallback) | **READY (API-verified)** |
 | Andromeda search / deep research / current info | **READY** (10/10 deployed) for news, markets, sports, weather |
-| Knowledge base | **READY in code**; live upload pending a signed-in session |
+| Knowledge base | **READY in code**; TXT + PNG verified end-to-end, PDF/DOCX/XLSX/OCR need a human with real files |
 | Emotions | **READY** |
-| UI/UX | **READY (code)** — loading/skeleton/empty/error-recovery states, reduced motion, and a new app-wide offline bar (`NetworkStatusBar`); human visual pass pending |
+| UI/UX | **READY (code)** — loading/skeleton/empty/error-recovery states, reduced motion, and an app-wide offline bar (`NetworkStatusBar`); **never rendered to a human eye** |
 | Image generation | **READY** |
-| Image editing | **READY (verified)** — real edit via `pollinations-edit (kontext)`, 1024×1024 |
-| General web search | **READY (measured)** — JSON-enabled instance configured |
-| Android | **BLOCKED** — no device/toolchain here |
+| Image editing | **READY (verified)** — all six edit-family ops PASS live via `pollinations-edit (kontext)`; full 1024×1024-**input** edits need a Pollinations balance top-up |
+| General web search | **READY (measured)** — JSON-enabled instance configured and stress-tested 15/15 |
+| Android / PWA | **BLOCKED** — no device, no JDK/Gradle |
 
-**Overall: NOT 100%.** Chat, search, current information, image generation, image editing,
-deployment parity, security and UI are production-ready and verified. What remains is
-manual/browser QA and PWA/Android device QA — human/device actions, each with an explicit reason.
+**Verdict buckets:** **VERIFIED** (measured here) · **MANUAL VERIFIED = 0, this bucket is empty** · **PARTIAL** (visual UX, PWA install/offline, full-size editing pending balance, multi-format KB end-to-end) · **BLOCKED** (real browser QA, human UX pass, Android/PWA device test).
+
+**Overall: NOT 100%.** Chat, search, current information, image generation, image editing, deployment parity, security and the automated gates are genuinely verified — including a real authenticated session completing 15 of 16 production flows. But **not a single flow has been manually verified by a human in a browser or on a device**, and the three QA activities explicitly requested (real browser QA, human UX pass, Android/PWA device test) could not be executed here. Omi reaches 100% only when that MANUAL VERIFIED bucket is non-empty.

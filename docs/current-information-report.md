@@ -118,13 +118,13 @@ Plus the two discoveries that made current information work at all:
 
 | Check | Result |
 |---|---|
-| `bun test tests/` | **821 pass / 0 fail** (49 files, 3162 assertions) |
+| `bun test tests/` | **833 pass / 0 fail** (50 files, 3252 assertions) |
 | `tsc -b --noEmit` | **0 errors** |
 | `eslint .` | **0 errors**, 21 warnings (all `react-refresh` in shadcn files + unused eslint-disable in generated files) |
 | `convex dev --once` | clean |
 | `bun run build` | clean (~14 s) |
 | Deployed `/currentinfo` | **10 / 10** |
-| Deployed `/selftest` | 16 pass / 6 fail / 6 configured — the 6 failures are the image-**editing** family (provider quota/keys), unrelated to search |
+| Deployed `/selftest` | **status ok — 23 pass / 0 fail / 5 configured**; the earlier image-**editing** failures are resolved (`kontext` now permitted on the key) |
 
 ## 6. Honest capability gaps
 

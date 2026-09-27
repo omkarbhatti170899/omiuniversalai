@@ -5,9 +5,16 @@
 **Frontend:** `https://omkarbhatti170899.github.io/omiuniversalai/`
 **Method:** every verdict below is backed by a *measured* result — a live HTTP probe, a real self-test row, a compiler/linter/test run, or an authorization scan. Nothing is graded "ready" because a key exists.
 
-**Overall: NOT 100%.** Build, tests, security and the backend capability surface are strong and genuinely working. Image **generation and editing are now VERIFIED working** (all six edit-family ops PASS the live self-test; the earlier blocker was the key's model permissions, now enabled by the owner), and the general-web floor works via a JSON-enabled SearXNG instance found and verified from the backend. What remains is **BLOCKED by this environment, not by code**: real-account manual QA (no browser session / signed-in account), mobile/PWA and Android device QA (no device), and a frontend redeploy for parity.
+**Overall: NOT 100%.** Every automated gate is green and the backend capability surface is genuinely working — image **generation and editing are VERIFIED** (all six edit-family ops PASS the live self-test; the earlier blocker was the key's model permissions, now enabled by the owner), Andromeda/current-information return fresh dated sources, security scans are clean, and 833 tests pass. What remains is **not code**: it needs **a human, a browser and a physical device**. This report is therefore split into four buckets, and the second one is deliberately empty:
 
-Legend: **DONE** · **PARTIAL** · **BLOCKED**
+| Bucket | Meaning | Count |
+|---|---|---|
+| **VERIFIED** | Executed and measured here — a live probe, a real self-test row, a compiler/linter/test run, or an authorization scan | 9 areas |
+| **MANUAL VERIFIED** | Executed **by a human in a browser/on a device** and recorded | **0 — none yet** |
+| **PARTIAL** | Code is complete and tested, but a real-world condition (credits, or a human pass) is outstanding | 5 items |
+| **BLOCKED** | Cannot be executed in this environment at all: no browser session, no signed-in account, no physical device, no JDK/Gradle | 3 items |
+
+**The honest headline: Omi is not 100% production-ready, and it will not be until the MANUAL VERIFIED bucket is non-empty.** The user asked for a real browser QA pass, a human UX pass, and a real Android/PWA device test. None of those three can be performed from this environment, and none of them is claimed as done. See §10, §12 and §14 for the exact flows to run.
 
 ---
 
@@ -15,15 +22,20 @@ Legend: **DONE** · **PARTIAL** · **BLOCKED**
 
 | Gate | Command | Result |
 |---|---|---|
-| Build | `bun run build` | **DONE** — built in 12.22 s, no errors |
-| Typecheck | `bunx tsc -b --noEmit` | **DONE** — 0 errors |
-| Lint | `bunx eslint .` | **DONE** — 0 errors / 21 warnings (baseline: react-refresh in `ui/`, unused `eslint-disable` in `_generated/*` + `retrieval.ts`) |
-| Unit/integration tests | `bun test tests/` | **DONE** — **822 pass / 0 fail**, 49 files, 3164 assertions |
-| Convex codegen | `bunx convex dev --once` | **DONE** — functions ready, schema + crons deployed |
-| Authorization audit | `bun scripts/audit-authz.ts` | **DONE** — 109 public functions, **0 with no auth**, 1 authenticated-without-ownership marker (reviewed), 6 reviewed-public |
-| Current-information suite | `GET /currentinfo` | **DONE** — **10/10 PASS** |
-| Full self-test | `GET /selftest` | **DONE** — status **ok**, **23 pass / 0 fail / 5 configured** (fresh, after all changes) |
+| Build | `bun run build` | **PASS** — built in 13.11 s, no errors |
+| Typecheck | `bunx tsc -b --noEmit` | **PASS** — 0 errors |
+| Lint | `bunx eslint .` | **PASS** — 0 errors / 21 warnings (baseline: react-refresh in `ui/`, unused `eslint-disable` in `_generated/*` + `retrieval.ts`) |
+| Unit/integration tests | `bun test tests/` | **PASS** — **833 pass / 0 fail**, 50 files, 3252 assertions |
+| Convex codegen | `bunx convex dev --once` | **PASS** — functions ready in 14.16 s, schema + crons deployed |
+| Authorization audit | `bun scripts/audit-authz.ts` | **PASS** — 109 public functions, **0 with no auth**, 1 authenticated-without-ownership marker (reviewed), 6 reviewed-public |
+| Current-information suite | `GET /currentinfo` | **PASS** — **10/10**, 0 failed |
+| Full self-test | `GET /selftest` | **PASS** — status **ok**, **23 pass / 0 fail / 5 configured** (re-confirmed 2026-09-27T04:21Z) |
 | Authenticated end-to-end QA (guest session) | 16 flows via the production API | **15 PASS / 1 FAIL** (image editing on a full-size input: free-tier balance) |
+| **Real browser QA** | — | **NOT RUN** — no browser in this environment |
+| **Human visual UX pass** | — | **NOT RUN** — needs a human looking at the screen |
+| **Android / PWA device test** | — | **NOT RUN** — no device, no JDK/Gradle |
+
+The last three rows are empty on purpose. They are the gap that keeps Omi off 100%.
 
 ---
 
@@ -75,6 +87,20 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
   3. **Verification** — every returned body is byte-checked by `imageVerify` before acceptance; a non-image body is reported as a failed attempt, never as a result.
 - **Error honesty improved:** a 403 model-not-permitted reads *"this API key is valid but is not permitted to use that image model — enable image/model permissions for the key"*, and a 402 reads *"the account has no remaining credits or balance — add credits for this provider"*. Both mappings are unit-tested.
 - **Operational note (measured, not a code fault):** under heavy repeated test generation, individual `kontext` calls intermittently returned **HTTP 402 (payment required)** while the deployed self-test's own 1024×1024 edits succeeded in the same period. 512px requests were consistently accepted. This is a free-tier balance/rate condition at Pollinations: if a user sees a credits message, the account balance needs topping up (free Pollen via Quests, or budget).
+
+**Provider balance required for sustained full-size editing (the exact answer to "what does full-size editing need?")**
+
+Measured behaviour of the current key on the current free tier:
+
+| Request shape | Result | Why |
+|---|---|---|
+| Text-to-image generation (1024×1024 output) | **PASS** | 32,970 B real image |
+| Edit with a **small input** (64×64 source) | **PASS** | input upscaling dominates cost, not output size |
+| Edit with a **full 1024×1024 input** | **402 — `no remaining credits or balance`** | the account's free Pollen balance is exhausted |
+
+- **The code is correct and was deliberately left unchanged.** The 402 is a billing condition at the provider, not a defect: the router selects an edit-capable provider, the adapter ships the real source bytes, and the failure surfaces honestly as *"the account has no remaining credits or balance — add credits for this provider"* (unit-tested in `tests/omiImageErrors.test.ts`).
+- **To make full-size editing reliable, top up the Pollinations balance.** The key already has image-model permissions (`ALLOWED: ["kontext","flux","sana","z-image","gptimage"]`); credits are the only missing piece. Free Pollen can be earned via Pollinations **Quests**; for sustained volume a small budget is required. No code change is needed — the same requests begin succeeding as soon as balance is available, and `/selftest` image editing already proves the full path.
+- **Interim behaviour is correct and honest:** small-input edits succeed today, and a 402 is reported as a credits problem with a next step, never as a generic "something went wrong".
 - **Requires a key?** Yes — the existing Pollinations key (free tier) with image permissions enabled (done). **Device?** No. **Manual user action?** Remaining only if the balance needs topping up for sustained 1024px volume.
 
 ---
@@ -167,7 +193,7 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 
 ## 9. Testing — **DONE**
 
-- Chat, streaming, stop, regenerate, AI fallback, Andromeda, search, citations, knowledge base, file extraction, vision, image generation/editing/routing/errors, emotions, security, authorization, rate limiting, error recovery and PWA service worker all have automated coverage: **822 pass / 0 fail** across 49 files (one new test added this session: the scoped-key 403 must read as "valid key, not permitted", never "credential rejected"). Build, typecheck, lint and Convex codegen all pass (§0). Automated passes are not treated as proof of the manual flows — see §10.
+- Chat, streaming, stop, regenerate, AI fallback, Andromeda, search, citations, knowledge base, file extraction, vision, image generation/editing/routing/errors, emotions, security, authorization, rate limiting, error recovery and PWA service worker all have automated coverage: **833 pass / 0 fail** across 50 files / 3252 assertions. Build, typecheck, lint and Convex codegen all pass (§0). Automated passes are not treated as proof of the manual flows — see §10.
 
 ---
 
@@ -222,32 +248,115 @@ A real **guest (anonymous) session** was created against the live deployment and
 
 ---
 
-## 13. Summary
+## 13. Final report — VERIFIED / MANUAL VERIFIED / PARTIAL / BLOCKED
 
-| Phase | Verdict |
+### ✅ VERIFIED — executed and measured in this session
+
+| # | Area | Evidence |
+|---|---|---|
+| 1 | Build / typecheck / lint | `bun run build` 13.11 s; `tsc -b --noEmit` 0 errors; `eslint .` **0 errors** / 21 warnings (baseline) |
+| 2 | Test suite | `bun test tests/` — **833 pass / 0 fail**, 50 files, 3252 assertions |
+| 3 | Convex deploy + codegen | `bunx convex dev --once` — functions ready in 14.16 s |
+| 4 | Security / authorization | `audit-authz` — 109 public functions, **0 missing auth**; 1 ownership-marker item reviewed (`users.currentUser` returns only the caller's own record); 6 reviewed-public metadata routes; secrets never returned by any status/self-test surface |
+| 5 | Image generation | Real bytes via `pollinations (sana)` — 32,970 B @ 1024×1024; variation 21,286 B; transparency 27,547 B |
+| 6 | Image editing (all six edit-family ops) | edit 25,800 B · bg-removal 27,886 B · bg-replace 69,388 B · combination 20,198 B · upscale 132,728 B · enhance 18,258 B — all `pollinations-edit (kontext)`, byte-verified |
+| 7 | AI + vision + fallback | Groq primary, Gemini fallback (`chain: groq → gemini → openai`), vision read a real image → "Red" |
+| 8 | Andromeda / current information | `/currentinfo` **10/10**; `/selftest` reports Andromeda plan + 15 sources ready; 16/16 sources ready; SearXNG measured ready (`https://search.lumy.live`), stress-tested 15/15 |
+| 9 | Self-test + deployment parity | `/selftest` **status ok, 23 pass / 0 fail / 5 configured**; live Pages bundle contains the current frontend work; `sw.js`, `manifest.webmanifest`, `offline.html`, `llms.txt` all HTTP 200 |
+
+### 👤 MANUAL VERIFIED — **NONE. This bucket is empty.**
+
+**No flow in this report has been manually verified by a human in a browser or on a device.** Zero. The 15/16 authenticated end-to-end passes in §10 were driven **through the production API from the backend**, not by a person looking at the screen. That is real verification of behaviour, but it is not visual/interaction verification, and it is not presented as such.
+
+### ⚠️ PARTIAL — code complete and tested, real-world condition outstanding
+
+| Item | What is outstanding |
 |---|---|
-| 1 Provider verification | **DONE** — every provider probed; image editing, SearXNG and all keyless sources READY (intermittent free-tier 402 noted) |
-| 2 Image generation + editing | **DONE** — generation and all six edit-family ops PASS the live self-test |
-| 3 Andromeda universal search | **DONE** — pipeline + current info 10/10; general-web floor returns SearXNG results |
-| 4 Knowledge base | **PARTIAL** — code/tests DONE, end-to-end needs a signed-in session |
-| 5 Chat experience | **DONE** (code) / PARTIAL (visual) |
-| 6 Emotion intelligence | **DONE** |
-| 7 UI / UX | **PARTIAL** — code complete; no rendered visual review |
-| 7b Premium UX / micro-interactions | **PARTIAL** — implemented in code (incl. offline bar + op-true image run states); human visual pass pending |
-| 8 Security | **DONE** (automated) / PARTIAL (manual) |
-| 9 Testing | **DONE** — 833 tests, all gates green |
-| 10 Real-account QA | **PARTIAL** — 15/16 authenticated end-to-end flows PASS from a real guest session; 1 blocked by free-tier balance; browser/device flows still manual |
-| 11 Deployment parity | **DONE (verified)** — live bundle contains the latest frontend work; backend live & smoke-tested |
-| 12 PWA / Android | **PARTIAL** / Android **BLOCKED** — no device test |
-| 13 This report | **DONE** |
+| Full-size image editing (1024×1024 input) | Free Pollinations balance is exhausted → 402. Small-input edits pass live. **Needs a balance top-up, not a code change** (§2). Editing code was deliberately left untouched. |
+| Chat / image / search **visual** quality | Streaming smoothness, spacing, scrolling feel and layout responsiveness are implemented and unit-tested but have never been rendered to a human eye |
+| Responsive + touch targets | 44px+ targets, safe-area and keyboard-viewport handling are implemented and unit-tested; unconfirmed on a real viewport |
+| PWA install + offline behaviour | `manifest.webmanifest`, `public/sw.js`, `public/offline.html`, `NetworkStatusBar` all present and served; install prompt and offline shell never exercised in a real browser |
+| Knowledge base end-to-end | Real file upload → extract → index → `[K#]` answer executed via API for TXT and PNG; PDF/DOCX/XLSX/OCR still need a human with real files |
 
-### Top three actions to move the needle
+### 🛑 BLOCKED — cannot be executed in this environment
 
-1. **Run the 22-flow manual QA** (`docs/MANUAL_QA_CHECKLIST.md`) → completes §10 and surfaces any UI-level failures. *(manual)*
-2. **Build and test the Android app on a physical device** → completes §12. *(device required, manual)*
+| Item | Why blocked | What unblocks it |
+|---|---|---|
+| **Real browser QA** (request item 1) | No browser session / no display in this environment | A human opens the deployed URL and runs the 22 flows in `docs/MANUAL_QA_CHECKLIST.md` |
+| **Human UX pass** (request item 2) | Needs a person perceiving the rendered UI — streaming smoothness, loading states, Andromeda progress, image states, spacing, scrolling, keyboard, touch targets, source cards, dark theme, errors/retries, success feedback, offline/reconnect | A human on a desktop browser and a phone; checklist in §14 |
+| **Android / PWA device test** (request item 4) | No physical device, and no JDK/Gradle to build an APK/AAB | `npx cap add android && npx cap sync && ./gradlew assembleRelease`, then install and test on a real Android phone |
 
-*(Recommended, not blocking: replace the community SearXNG instance with a self-hosted one for reliability, and top up the Pollinations balance if sustained 1024px generation is needed.)*
+### Requested-by-user items, answered one by one
 
-**Omi is not 100% production-ready.** Image generation **and** image editing are now genuinely working and measured (all six edit-family ops PASS the live self-test), as are Andromeda search, current information, deployment parity, security and the automated gates. What remains is the work that **requires a human, a browser and a device**: the 22-flow manual QA and PWA/Android device QA.
+| Request | Status |
+|---|---|
+| 1. Real browser QA | **BLOCKED** — not executed; flows specified in §14 |
+| 2. Human UX pass | **BLOCKED** — not executed; checklist specified in §14. Note: no *code* changes were made in response, because no real finding was observed — inventing fixes for an unviewed UI would be guessing |
+| 3. Image editing — don't break working code, keep honest 402, document the balance | **DONE.** Editing code untouched; honest 402 mapping retained and unit-tested; exact balance requirement documented in §2 |
+| 4. Android / PWA on a real device | **BLOCKED** — no device, no JDK/Gradle |
+| 5. Fix only real QA findings | **DONE (vacuously)** — no real findings existed to fix, so no speculative changes were made |
+| 6. Final regression | **DONE** — all gates re-run green this session (§0) |
+| 7. Final report in four buckets | **DONE** — this section |
 
-**What an agent could not do (and did not fake):** there is no browser session, signed-in account or Android device in this environment, so §10 manual QA and §12 device QA are genuinely unexecuted; the earlier Pollinations permission change was a user action, not an agent one. Every remaining item is a human/device action, not a code defect.
+### The three things that would move Omi to 100%
+
+1. **A human runs the 22-flow manual QA** in a real browser (`docs/MANUAL_QA_CHECKLIST.md`). This alone fills the empty MANUAL VERIFIED bucket and would surface any genuine UI defect.
+2. **A human does the UX pass in §14** on desktop *and* a phone, checking streaming, loading, Andromeda progress, image states, dark theme, offline/reconnect and install.
+3. **A physical Android device test** of the PWA (and the Capacitor shell if an APK is built).
+
+*(Non-blocking recommendations: self-host SearXNG instead of relying on the community `search.lumy.live` instance, which occasionally exceeds 12 s; top up the Pollinations balance for sustained 1024px image editing.)*
+
+**Omi is not 100% production-ready, and this report does not claim it is.** The backend, the capability surface, the security posture and the automated gates are genuinely strong and now measured end-to-end — including a real authenticated session that completed 15 of 16 flows against production. But **three of the requested QA activities — real browser QA, the human UX pass, and the Android/PWA device test — were not performed**, because this environment has no browser, no human viewer and no device. Those remain genuinely unexecuted, and no part of this document pretends otherwise.
+
+**What an agent could not do (and did not fake):** no browser session, no signed-in human account, no physical device and no JDK/Gradle. The earlier Pollinations model-permission change was a user action, not an agent one. Every remaining item is a human or device action, not a code defect.
+
+---
+
+## 14. Exact flows to run for the BLOCKED items
+
+These are the specific checks that could not be executed here. Each is written so a human can run it and record PASS/FAIL without reading the codebase.
+
+### 14a. Real browser QA (desktop)
+
+Open `https://omkarbhatti170899.github.io/omiuniversalai/`, sign in, then:
+
+1. Sign up with email OTP, **and** with the guest/anonymous option — both must reach the protected workspace, not bounce back to `/auth`.
+2. Send a normal question → answer renders as clean markdown; source cards appear where applicable.
+3. Send a long question → **tokens stream progressively**; no full-answer freeze, no jump-scroll.
+4. Press **Stop** mid-stream → generation halts immediately and the partial text stays on screen.
+5. Press **Regenerate** → a new answer replaces the old one; **no duplicate bubble**.
+6. Ask "Who is the CEO of Nvidia?" → cited answer; click a source card and confirm the URL is real and opens.
+7. Ask a current-information question ("latest news in India", "USD/INR rate", a live score, weather with **no** location) → fresh dated answers; weather must **ask for the location** rather than guessing.
+8. Create a project, upload a **PDF, DOCX, XLSX and a CSV** → each extracts and answers with `[K#]` citations; no invented content.
+9. Upload a photo and ask "what is in this image?" → accurate description; preview shown.
+10. Generate an image → a real image appears in the gallery; view / save / regenerate all work.
+11. Edit that image (background removal, replacement, upscale) → confirm the result **derives from the uploaded image**, not a fresh unrelated generation.
+12. Log out → protected routes require sign-in again. Log back in → prior conversations still there, correctly scoped.
+13. Open a second browser profile / incognito → no trace of the first session's data.
+
+### 14b. Human UX pass (what to actually look at)
+
+| Area | What "good" looks like | Where it lives |
+|---|---|---|
+| Streaming smoothness | Text grows token-by-token; no flicker, no re-render jank, no scroll hijack | `OmiAssistantPanel` |
+| Loading states | A skeleton or spinner on every async surface; **never a permanent spinner** after a failure | all workspace views |
+| Andromeda progress | Stage ladder advances **Understanding → Searching → Analyzing → Verifying → Preparing answer** and matches real backend progress (no fake stages) | `answerShape.ts` |
+| Image generation / editing states | The run sentence names the **real op** — an edit must never say "generating"; elapsed time appears only after ~5 s | `imageRunLabels.ts` |
+| Spacing & scrolling | No cramped panels, no horizontal scroll, no clipped content at any width | global |
+| Keyboard | Every interactive element reachable by Tab; visible focus ring; Enter/Send works; no keyboard trap | global |
+| Touch targets | ≥44 px on all chat, image and file controls | global |
+| Source cards | Titles, domains and dates legible; links open; no overflow on mobile | `SourceCards` |
+| Dark theme | No light-theme flash, no unreadable contrast, no white panels in dark mode | `index.css` tokens |
+| Errors / retries | Any failure shows **WHAT HAPPENED + WHAT TO DO NEXT**; a retry affordance where retryable; never a raw JSON blob or stack trace | `failureRecovery.ts` |
+| Success feedback | A quiet toast on upload / index / save / copy — not modal spam | `sonner` |
+| Offline / reconnect | Silent while online; a bar appears when the network drops; a "Back online" confirmation on recovery | `NetworkStatusBar` |
+| PWA install | Browser offers install; installed app launches standalone; offline shell loads with cached shell | `public/sw.js` |
+
+### 14c. Android / PWA device test
+
+1. Chrome on Android → open the app URL → **Add to Home screen** → launch from the icon (must be standalone, not a browser tab).
+2. With the app foregrounded, switch to Airplane mode → the offline shell must load with a clear message, not a browser error page.
+3. Restore connectivity → the **"Back online"** bar must appear and confirm.
+4. Sign in, send a chat message, upload a file and generate an image **on the phone** — the keyboard must not cover the input; no horizontal scroll.
+5. Check every touch control is comfortably tappable one-handed.
+6. *(Optional, if an APK is wanted)* `npx cap add android && npx cap sync && ./gradlew assembleRelease`, install the APK, and repeat 4–5 in the native shell.

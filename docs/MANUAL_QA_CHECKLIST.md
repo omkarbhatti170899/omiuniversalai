@@ -1,9 +1,11 @@
 # Omi Universal AI — Manual QA Checklist (22 flows)
 
 **Date:** 2026-09-27 · **Target:** `https://omkarbhatti170899.github.io/omiuniversalai/` (backend `resolute-ptarmigan-187`)
-**Status: PARTIALLY EXECUTED (2026-09-27).** A real guest (anonymous) session was created against the live deployment and the no-browser flows were driven end-to-end through the production API: **15 PASS / 1 FAIL** (the one FAIL is image editing on a full-size input — free-tier balance; small edits pass live). Rows below marked ✅ API were executed and verified; the browser-rendered feel (streaming visuals, keyboard, touch, install) still requires a human.
+**Status: API-VERIFIED ONLY. MANUALLY VERIFIED = 0 of 22 (2026-09-27).** A real guest (anonymous) session was created against the live deployment and the no-browser flows were driven end-to-end through the production API: **15 PASS / 1 FAIL** (the one FAIL is image editing on a full-size input — free-tier balance; small edits pass live). **Not one flow below has been verified by a human in a browser or on a device.** Rows marked ✅ API were executed and measured from the production backend; they prove behaviour, not rendered interaction.
 
-Legend: ✅ API = executed end-to-end from a real authenticated session · 👤 = still requires a human/browser/device.
+Legend: ✅ API = executed end-to-end from a real authenticated session · 👤 = still requires a human/browser/device (**all of section B is 👤**).
+
+**Verdict buckets used in the final report:** VERIFIED (measured here) · **MANUAL VERIFIED (currently empty — 0 items)** · PARTIAL (code done, condition outstanding) · BLOCKED (cannot be executed here at all).
 
 Use one word per row: **PASS / FAIL / BLOCKED** (with the failure text). File every FAIL.
 
@@ -63,8 +65,8 @@ Sign in with a real account, then run each in order and record the result.
 
 ## C. Blockers that will show up as FAILs
 
-1. **Flow 17 (image editing)** — the free Pollinations balance covers small-input edits (which pass live) but returned `402` for full 1024×1024-input edits during QA. Top up the balance (free Pollen via Quests, or budget) for sustained full-size editing.
+1. **Flow 17 (image editing)** — the free Pollinations balance covers small-input edits (which pass live) but returned `402 no remaining credits or balance` for full 1024×1024-input edits during QA. **This is a billing condition, not a code fault; the editing code was deliberately not changed.** The key already has image-model permissions (`kontext`, `flux`, `sana`, `z-image`, `gptimage`) — only credits are missing. To make full-size editing reliable, top up the balance: free Pollen via Pollinations **Quests**, or a small budget for sustained volume. The same requests start succeeding immediately once balance exists; `/selftest` already proves the full edit path.
 2. **Flow 22 (PWA)** and the **Android device test** — require a real device; not executed here.
 3. **Browser-rendered checks** (streaming feel, keyboard, touch, install, offline bar) require a human.
 
-Nothing in section B is claimed as done until a human records a PASS.
+Nothing in section B is claimed as done until a human records a PASS. **Section B is currently 0/22.**
