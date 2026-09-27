@@ -54,7 +54,7 @@ export type RetrievalPlan = {
 
 /** Structured providers already know what to ask for; a rewrite would only
  *  confuse them, so they receive `primary` alone. */
-const GENERAL_WEB_PROVIDERS = new Set(["searxng", "duckduckgo", "gdelt", "commoncrawl"]);
+const GENERAL_WEB_PROVIDERS = new Set(["searxng", "mojeek", "gdelt", "commoncrawl"]);
 
 /**
  * The words each vertical's results actually use — added ONLY when the user's

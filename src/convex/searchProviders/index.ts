@@ -1,6 +1,6 @@
 import { type SearchProvider } from "./types";
 import { createSearxProvider, searxngHealth, searxngHealthCached } from "./searxng";
-import { createKeylessProvider, duckduckgoHealthCached } from "./keyless";
+import { createMojeekProvider } from "./mojeek";
 import { createWikipediaProvider } from "./wikipedia";
 import { createWikidataProvider } from "./wikidata";
 import { createArxivProvider } from "./arxiv";
@@ -67,16 +67,29 @@ export type ProviderStatus = {
  *   Open-Meteo   — weather/structured open data (scope-gated, CC-BY attribution)
  *   Market rates — live FX (scope-gated, not financial advice)
  *   Sports DB    — live scorelines (scope-gated to the sports vertical)
- *   DuckDuckGo   — keyless last-resort web floor
+ *   Mojeek       — independent crawler + own index, official API, explicit
+ *                  "AI Usage" right. The first FEDERATED general-web engine:
+ *                  it is not a Google wrapper, so it adds genuine ecosystem
+ *                  independence. Needs a MOJEEK_API_KEY; reports not-ready
+ *                  until one is supplied.
+ *
+ * REMOVED — DuckDuckGo (2026-09-27, compliance). The previous general-web
+ * fallback POSTed to `https://html.duckduckgo.com/html/` with a spoofed
+ * browser User-Agent. DuckDuckGo publishes no search API, so that is scraping
+ * a consumer results page while defeating bot protection — forbidden by the
+ * project's own rule ("do NOT scrape consumer search-result pages unless
+ * explicitly permitted"). It was ALSO dead weight: measured twice on
+ * 2026-09-26, it answers HTTP 202 with an "anomaly"/"challenge" body and zero
+ * result links, so it could never return a result. Removing it cost no
+ * functionality and removed the only place we broke that rule. Mojeek
+ * replaces it as the general-web floor.
  *
  * MEASURED 2026-09-26 against the live endpoints: the general-web floor is NOT
  * reliable. All four public SearXNG instances answer HTTP 200 with an HTML body
- * (their JSON format is disabled by default), and DuckDuckGo's keyless endpoint
- * answers HTTP 202 with an "anomaly"/"challenge" body and zero results — twice,
- * reproducibly. Both are therefore reported as `ready: false` from a real
- * reachability probe rather than a hardcoded `true`, and current-information
- * questions route to sources that genuinely carry dates. See searxng.ts and
- * keyless.ts. Set SEARXNG_BASE_URL to fix the general-web floor.
+ * (their JSON format is disabled by default). SearXNG readiness is therefore
+ * reported from a real reachability probe rather than a hardcoded `true`, and
+ * current-information questions route to sources that genuinely carry dates.
+ * See searxng.ts. Set SEARXNG_BASE_URL to fix the general-web floor.
  *
  * This is the §3 rule in code: a provider that exists in the registry is not
  * evidence that it works. Readiness is measured, cached, and reported.
@@ -104,7 +117,7 @@ const REGISTRY: SearchProvider[] = [
   createOpenMeteoProvider(),
   createMarketRatesProvider(),
   createSportsProvider(),
-  createKeylessProvider(),
+  createMojeekProvider(),
 ];
 
 export function getConfiguredProviders(): SearchProvider[] {
@@ -123,13 +136,13 @@ export function getActiveProvider(): SearchProvider | null {
  * note: anonymous access is rate-limited by the upstream API (still free).
  */
 /**
- * Measure the two general-web providers (the ones that were previously
- * reporting themselves ready without ever being reachable) and warm their
- * caches. Cheap: each is one request, both are cached for 5-10 minutes, and
- * callers (the /status and /selftest surfaces) are rare. Never throws.
+ * Measure the general-web provider (the one that was previously reporting
+ * itself ready without ever being reachable) and warm its cache. Cheap: one
+ * request, cached, and callers (the /status and /selftest surfaces) are rare.
+ * Never throws.
  */
 export async function warmGeneralWebHealth(): Promise<void> {
-  await Promise.allSettled([searxngHealth(), duckduckgoHealthCached()]);
+  await Promise.allSettled([searxngHealth()]);
 }
 
 export function getProviderStatus(): ProviderStatus[] {

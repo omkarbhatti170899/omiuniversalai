@@ -177,7 +177,22 @@ These are not search engines but legitimate open-data APIs. No ToS conflict was 
 
 ### Not yet assessed (flagged, not recommended)
 
-`Marginalia`, `Stract`, `Right Dao`, `Yep`, `Mwmbl`, `Kagi` (paid), `Google CSE`, `Bing/Azure`, and paid aggregators (`Exa`, `Tavily`, `Serper`, `SerpAPI`). Several of the independent indexes are exactly the ecosystem diversity this project wants, and several are free-key. **I have not verified them and am not recommending them.** If you want, I'll research this second wave the same way before we touch code.
+### Second-wave research (done 2026-09-27) — result: no strong addition
+
+I promised to research these properly before writing adapter code. I did, and the honest answer is that **none of them displaces Mojeek for general web**:
+
+| Candidate | What it actually is | Verdict |
+|---|---|---|
+| **Stract** | Open-source, independent search engine; **self-hostable** | 🟡 Not a general-web answer today. Interesting later for the **own-index** track (Phase 6) precisely because it is self-hostable source code, not for federation |
+| **Mwmbl** | Open-source, non-profit, community-curated | 🟡 Very small index; already in the curated SearXNG engine list as a low-risk addition |
+| **Marginalia** | Deliberately narrow — indie/non-commercial web, by design | ⛔ Not a general-web provider. Wrong index for this product |
+| **Right Dao / Yep** | No official API verified | 🔍 Unverified |
+| **Kagi** | Paid, no free tier | 🟡 Possible paid tier, no advantage over Brave at that point |
+| **Google CSE / Bing** | Programmatic but licence-restricted for this use | ⛔ Not recommended |
+
+**Conclusion:** the independent-index ecosystem that would most improve *ecosystem diversity* is small and does not currently offer a general-web API with the maturity Mojeek has. This is a real finding, not a gap in the research. Mojeek remains the right first provider; **Stract is the most interesting name for Phase 6 (own index)**, because self-hostable search-engine source code is exactly what that phase needs.
+
+Not verified in depth, and therefore not recommended: `Exa`, `Tavily`, `Serper`, `SerpAPI` (commercial SERP aggregators — they resell scraped results, which imports the exposure we just removed).
 
 ---
 
@@ -204,9 +219,19 @@ Carried forward for the architecture review:
 
 ---
 
-## 7. Decision requested
+## 7. Implementation status (updated 2026-09-27)
 
-1. Approve **Tier 1** (Mojeek + self-hosted SearXNG) for implementation?
-2. **Brave is a paid line item** ($5/1000). Include it, or stay strictly free-first?
-3. May I **disable the DuckDuckGo scraper** in `keyless.ts`? My recommendation is yes — it is non-functional and is the only place we currently violate the "no scraping consumer pages" rule.
-4. Should I research the second wave (`Marginalia`, `Stract`, `Right Dao`, `Mwmbl`, `Kagi`, `Google CSE`) before writing any adapter code?
+Decisions 1–4 were approved. What is now DONE, and what still needs you:
+
+| # | Action | Status |
+|---|---|---|
+| 1 | **DuckDuckGo scraper removed** | ✅ **DONE.** `keyless.ts` deleted, the provider is out of the registry, out of every vertical's `preferredProviders`, out of the self-test, and out of the rewrite allowlist. `tests/omiFederationProvider.test.ts` asserts it cannot return. Cost: zero — it never returned results anyway |
+| 3 | **Mojeek adapter added** | ✅ **DONE** behind the existing `SearchProvider` interface. Registered, correctly gated on `MOJEEK_API_KEY`, declared as the general-web fallback for all verticals, declines image/video rather than burning quota, and stamps `providers: ["mojeek"]` so cross-engine corroboration can distinguish it from a SearXNG echo |
+| 2 | **Self-hosted SearXNG** | 🟡 **Config written, NOT deployed.** The curated engine list in `docs/SEARXNG_SELF_HOST_PLAN.md` now disables google/bing/duckduckgo/startpage (the ToS-risking engines) and documents why. **I cannot provision a host** — this needs a VPS you control |
+| 4 | **Second-wave research** | ✅ **DONE** (above) |
+| — | **Mojeek API key** | 🔴 **BLOCKED ON YOU.** Until `MOJEEK_API_KEY` is set the provider reports `ready: false` and is skipped, exactly like any other keyed source. Request a free trial at mojeek.com |
+| — | **Circuit breaker / health** | ✅ **Already existed** — `guardedCall` in `resilience.ts` wires `breakerAllow`/`breakerRecord` and is exposed via `breakerStatus()`. I initially reported it as dead code; that was **wrong** (my grep only searched one file). No change needed. Known limit: breaker state is **per server isolate**, so on a multi-instance Convex deployment an open circuit does not propagate globally |
+
+**Gates after this work:** `bun test tests/` **1104 pass / 0 fail** (59 files, 4004 assertions) · `bunx eslint .` **0 errors / 21 warnings** · `bunx tsc -b --noEmit` **0 errors** · `/selftest` **status ok, 21 pass / 0 fail / 6 configured**.
+
+The self-test count moved 28 → 27 checks because the DuckDuckGo reachability probe was removed by design. The remaining `configured` rows are the five that need a signed-in session or a device, plus SearXNG reporting unreachable — the known community-instance flap, which is precisely what self-hosting and Mojeek exist to fix.

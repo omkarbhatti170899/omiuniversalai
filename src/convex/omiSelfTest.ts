@@ -81,7 +81,6 @@ function minAgeHours(
   return best;
 }
 import { searxngHealth } from "./searchProviders/searxng";
-import { duckduckgoHealthCached } from "./searchProviders/keyless";
 export type SubsystemStatus = "pass" | "fail" | "configured" | "unverified";
 
 export type SubsystemCheck = {
@@ -996,16 +995,6 @@ export async function runSelfTest(ctx: QueryRunner): Promise<SelfTestReport> {
       // A real probe: the previous status was a hardcoded `true` while every
       // public instance actually returned HTML instead of JSON.
       const health = await searxngHealth();
-      return {
-        status: (health.healthy ? "pass" : "configured") as SubsystemStatus,
-        detail: health.detail.slice(0, 400),
-      };
-    }),
-    check("duckduckgo reachability", async () => {
-      // Same rule as SearXNG: a provider in the registry is not evidence that
-      // it works. This provider used to report itself configured while every
-      // request came back as an HTTP 202 bot challenge.
-      const health = await duckduckgoHealthCached();
       return {
         status: (health.healthy ? "pass" : "configured") as SubsystemStatus,
         detail: health.detail.slice(0, 400),

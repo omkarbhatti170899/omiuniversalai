@@ -66,25 +66,84 @@ outgoing:
   pool_maxsize: 10
 
 engines:
-  - name: google
-    disabled: true        # start with engines that permit programmatic use
-  - name: duckduckgo
-    disabled: false
-  - name: bing
-    disabled: false
+  # ---------------------------------------------------------------
+  # CURATED LIST — revised 2026-09-27 after the provider capability
+  # review (docs/ANDROMEDA_PROVIDER_CAPABILITY_MATRIX.md).
+  #
+  # The rule: SearXNG is a METASEARCH engine. Whatever we enable here, we
+  # end up sending automated queries to. Enabling an engine therefore means
+  # accepting that engine's terms of service on Andromeda's behalf. Google,
+  # Bing, DuckDuckGo and Startpage all actively block or restrict automated
+  # clients, and several serve bot challenges instead of results — so they
+  # are not merely risky, they are also useless (we measured DuckDuckGo
+  # returning zero results, reproducibly).
+  #
+  # Start with engines that either permit programmatic access or have an
+  # official API. Add a commercial engine only with a licence.
+  # ---------------------------------------------------------------
+
+  # --- Safe: open APIs / permissive, no API key needed ---
   - name: wikipedia
     disabled: false
   - name: wikidata
     disabled: false
   - name: mojeek
+    disabled: false       # own crawler + official API, AI usage permitted
+  - name: openverse
     disabled: false
+  - name: arxiv
+    disabled: false
+  - name: pubmed
+    disabled: false
+  - name: crossref
+    disabled: false
+  - name: openalex
+    disabled: false
+  - name: hackernews
+    disabled: false
+  - name: gitlab
+    disabled: false
+  - name: docker hub
+    disabled: false
+  - name: mwmbl
+    disabled: false       # independent open index
+
+  # --- Requires a licensed API key before enabling ---
   - name: brave
-    disabled: false       # needs a BRAVE_API_KEY
+    disabled: true        # needs BRAVE_API_KEY ($5/1000; free tier removed)
+  - name: qwant
+    disabled: true        # no official API — needs anti-bot cookie bypass
+
+  # --- NOT ENABLED: block automated clients and/or forbid it ---
+  # Each of these blocks datacenter IPs, serves CAPTCHA/bot-challenge pages,
+  # or prohibits scraping in its terms. Enabling one is both a ToS breach
+  # and, measured, a source of zero results:
+  - name: google
+    disabled: true        # blocks automated queries; will ban the instance
+  - name: bing
+    disabled: true        # same class of restriction
+  - name: duckduckgo
+    disabled: true        # we already removed the direct scraper for this
   - name: startpage
-    disabled: false
+    disabled: true
+  - name: google images
+    disabled: true
+  - name: bing images
+    disabled: true
+  - name: duckduckgo images
+    disabled: true
 ```
 
-> **Do not enable Google.** It blocks automated queries and will get the instance rate-limited or banned. Start with the engines that permit programmatic access; add more once it is stable.
+> **Do not enable Google, Bing, DuckDuckGo or Startpage.** They block automated
+> clients and restrict scraping in their terms. A metasearch instance is only as
+> defensible as its *weakest enabled engine*, so the curated list above is a legal
+> control, not a performance tweak.
+>
+> **On Qwant specifically:** SearXNG's shipped Qwant engine works by
+> reverse-engineering an undocumented endpoint and storing a **DataDome
+> anti-bot cookie**. That is scraping with bot-protection bypass, which this
+> project forbids. It stays disabled. If Qwant is ever wanted, it must be via a
+> written commercial agreement, not an engine toggle.
 
 ### 2.3 Keep it private
 

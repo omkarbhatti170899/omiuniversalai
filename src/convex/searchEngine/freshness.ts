@@ -365,7 +365,7 @@ export function freshnessPolicyFor(
   const valueAsked = vertical === "markets" && marketValueDemanded(query);
 
   const preferred: Record<Vertical, string[]> = {
-    news: ["wikipedia-current-events", "gdelt", "hackernews", "searxng", "duckduckgo"],
+    news: ["wikipedia-current-events", "gdelt", "hackernews", "searxng", "mojeek"],
     // A scoreline must come from a scoreboard, never from a news article
     // saying "Arsenal beat Chelsea 2-1". When a score is actually being asked
     // for, ONLY the live score feed may answer; when the user merely wants
@@ -379,17 +379,17 @@ export function freshnessPolicyFor(
     // dangerous — a medal tally is not a fixture list.
     sports: scoreAsked
       ? ["sports-scores"]
-      : ["gdelt", "wikipedia-current-events", "searxng", "duckduckgo"],
+      : ["gdelt", "wikipedia-current-events", "searxng", "mojeek"],
     weather: ["openmeteo"],
     // Real rate data, with a news backstop for "why did the rupee move".
-    markets: ["market-rates", "gdelt", "searxng", "duckduckgo"],
+    markets: ["market-rates", "gdelt", "searxng", "mojeek"],
     // No dedicated structured feed is wired for these two yet, so news plus
     // the general-web floor is the honest best available — and `strict` stays
     // FALSE so a single index outage degrades to a real answer instead of a
     // bare failure.
-    election: ["gdelt", "wikipedia-current-events", "searxng", "duckduckgo"],
-    travel: ["searxng", "duckduckgo", "gdelt"],
-    general: ["wikipedia-current-events", "gdelt", "wikipedia", "searxng", "duckduckgo"],
+    election: ["gdelt", "wikipedia-current-events", "searxng", "mojeek"],
+    travel: ["searxng", "mojeek", "gdelt"],
+    general: ["wikipedia-current-events", "gdelt", "wikipedia", "searxng", "mojeek"],
   };
 
   return {

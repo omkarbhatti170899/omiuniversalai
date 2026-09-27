@@ -837,9 +837,17 @@ describe("REGRESSION — the query sent to the engines is keyword-shaped", () =>
     // SearXNG is a single community instance and was measured returning
     // nothing for ~1 in 3 current queries after a 12s timeout. A current
     // question must not depend on it alone.
+    //
+    // The fallback used to be DuckDuckGo, which was removed in 2026-09 for
+    // compliance: it has no official API, so using it meant scraping a
+    // consumer results page with a spoofed User-Agent, and it was already
+    // measured to return zero results. Mojeek replaced it as the federated
+    // general-web floor (see docs/ANDROMEDA_PROVIDER_CAPABILITY_MATRIX.md).
     for (const query of ["latest AI news", "What is India's medal tally in Asian Games 2026?", "latest election results"]) {
       const policy = freshnessPolicyFor(query, decideSearch(query).intent);
-      expect(policy.preferredProviders).toContain("duckduckgo");
+      expect(policy.preferredProviders).toContain("mojeek");
+      // The removed scraper must not creep back into any routing list.
+      expect(policy.preferredProviders).not.toContain("duckduckgo");
     }
   });
 });
