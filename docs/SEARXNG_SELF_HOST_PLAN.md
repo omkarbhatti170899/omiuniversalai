@@ -1,0 +1,150 @@
+# Self-Hosted SearXNG — Plan
+
+**Status:** PLAN (not implemented — needs a host the owner controls)
+**Why now:** the current instance is the single biggest reliability risk in Omi's search path, and it is third-party.
+
+---
+
+## 1. The problem, measured
+
+Omi currently points `SEARXNG_BASE_URL` at **`https://search.lumy.live`** — a **community** instance, free, with no SLA and no control.
+
+Measured behaviour over this session:
+
+| Observation | Evidence |
+|---|---|
+| It works, but slowly | Stress test: median **1,021 ms**, p95/max **12,112 ms**, 15/15 success |
+| It intermittently times out | Several live runs returned **0 results after the 12 s budget** |
+| It degraded our own health checks | Twice during this session `/selftest` dropped from 23/0 to **21/1** solely because the reachability probe timed out, then recovered to 23/0 with no code change |
+| It is rate-limited | Repeated probing (mine) is enough to destabilise it |
+| It is the only true general-web source | `gdelt` and `wikipedia-current-events` do not cover arbitrary queries, so when SearXNG goes quiet, Omi honestly refuses |
+
+**The risk is not theoretical.** Omi already degrades correctly — it refuses rather than answering from memory — but the *user experience* is "Omi can't find anything", which is indistinguishable from a broken product.
+
+## 2. The fix
+
+Run SearXNG yourself. It is a single Docker container, no database, no account, and it removes the shared-instance dependency entirely.
+
+### 2.1 Run it
+
+```bash
+docker run -d \
+  --name omi-searxng \
+  --restart unless-stopped \
+  -p 8080:8080 \
+  -e BASE_URL=http://searxng.your-domain.example/ \
+  -e INSTANCE_NAME="Omi Search" \
+  -v ./searxng:/etc/searxng \
+  searxng/searxng:latest
+```
+
+### 2.2 **Enable the JSON format — this is the critical step**
+
+Omi needs `application/json`. It is **off by default**, and this is precisely why 70 public instances were probed and only one returned usable results earlier.
+
+`searxng/settings.yml`:
+
+```yaml
+use_default_settings: true
+
+server:
+  # Required for a real reverse proxy; optional for a private instance.
+  secret_key: "CHANGE-ME-long-random-string"
+  limiter: false          # only if strictly private
+  image_proxy: false
+
+search:
+  # THE setting that matters.
+  formats:
+    - html
+    - json
+
+outgoing:
+  request_timeout: 5.0
+  max_request_timeout: 10.0
+  pool_connections: 20
+  pool_maxsize: 10
+
+engines:
+  - name: google
+    disabled: true        # start with engines that permit programmatic use
+  - name: duckduckgo
+    disabled: false
+  - name: bing
+    disabled: false
+  - name: wikipedia
+    disabled: false
+  - name: wikidata
+    disabled: false
+  - name: mojeek
+    disabled: false
+  - name: brave
+    disabled: false       # needs a BRAVE_API_KEY
+  - name: startpage
+    disabled: false
+```
+
+> **Do not enable Google.** It blocks automated queries and will get the instance rate-limited or banned. Start with the engines that permit programmatic access; add more once it is stable.
+
+### 2.3 Keep it private
+
+If the instance is **not** public, the only thing exposed to the internet is Omi's own backend. Do not publish a JSON-enabled instance publicly — open SearXNG instances get abused within hours and then block you.
+
+- Bind to `127.0.0.1` and let only the Convex deployment reach it, **or**
+- Put it behind a reverse proxy with a shared secret / IP allow-list.
+
+### 2.4 Point Omi at it
+
+```bash
+bunx convex env set SEARXNG_BASE_URL https://searx.your-domain.example
+```
+
+Then verify **from inside the Convex runtime** (this is the honest check — it proves the backend can actually reach it, not just that a variable is set):
+
+```bash
+bunx convex run diagnostics:probeSearxng '{}'
+# expect: "JSON API reachable (N probe results, application/json)"
+```
+
+Readiness is **measured**, never inferred: `isConfigured()` treats a configured instance as eligible unless a probe has *proved* it broken, and a 5-minute `warmWebHealth` cron re-probes.
+
+## 3. Where to host it
+
+| Option | Cost | Notes |
+|---|---|---|
+| A small VPS (Hetzner, DigitalOcean, Fly.io) | ~€4/mo | **Recommended.** Predictable, no cold starts. |
+| Fly.io / Railway | free–$5/mo | Easy; watch the free-tier sleep behaviour, which would reintroduce latency |
+| A home machine / NAS | free | Fine for development; not for production uptime |
+| Cloudflare Workers | not suitable | SearXNG is a Python app, not edge-compatible |
+
+Anything with a public HTTPS endpoint and a stable IP will do. **Avoid serverless platforms that suspend instances** — a cold start is exactly the 12 s timeout we are trying to eliminate.
+
+## 4. Verification before switching over
+
+1. `docker logs omi-searxng` shows no engine errors.
+2. From your machine: `curl -s "https://searx.example/search?q=test&format=json" | head -c 300` returns real results.
+3. `bunx convex run diagnostics:probeSearxng '{}'` → reachable **from the Convex runtime**.
+4. `bunx convex run diagnostics:stressSearxng '{}'` → aim for **median < 1.5 s, max < 5 s** over 15 queries.
+5. Point `SEARXNG_BASE_URL` at it, then re-run `GET /selftest` twice, 10 minutes apart, and confirm **23/0** both times.
+
+## 5. Rollback
+
+The old value is one env var. If the new instance misbehaves:
+
+```bash
+bunx convex env set SEARXNG_BASE_URL https://search.lumy.live
+```
+
+Because readiness is measured, the health cron re-verifies within one probe cycle. **Keep the community instance configured as a documented fallback until the new one has run clean for a week** — it is a worse experience, but it is better than none.
+
+## 6. Expected effect
+
+| Metric | Now | After self-hosting |
+|---|---|---|
+| Median search latency | 1,021 ms | Target **< 1.5 s** (controlled) |
+| p95 / max | 12,112 ms | Target **< 5 s** (we control the timeout) |
+| Zero-result runs | frequent | Should reach ~0 |
+| Third-party dependency | **yes** | **none** |
+| `/selftest` flapping | observed twice | Should stop |
+
+**Note honestly:** self-hosting improves *reliability*, not *relevance*. The relevance work — query rewriting, event/year matching, authority ranking, cross-checking — is already in place and is what makes the results correct. Self-hosting makes sure the results actually arrive.

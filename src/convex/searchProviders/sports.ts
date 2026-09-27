@@ -302,6 +302,172 @@ export function composeEventCitation(
   };
 }
 
+// --- League standings (a DIFFERENT question from a scoreline) ---------------
+//
+// Measured: `lookuptable.php` on the FREE key ("3") returns a real league
+// table with rank, played, W/D/L, goals and a `dateUpdated` timestamp (e.g.
+// English Premier League, season 2026-2027). It returns NOTHING for cricket
+// competitions such as the IPL (id 4460), so an unavailable table must produce
+// an honest refusal, not a fixture list.
+
+/** Wording that asks for a TABLE rather than a scoreline. */
+export function standingsDemanded(query: string): boolean {
+  return /\b(standings?|league table|points table|tables?|positions?|podium)\b/i.test(
+    query ?? "",
+  );
+}
+
+/** Leagues we can name without a lookup round-trip. Verified ids. */
+const LEAGUE_HINTS: Array<{ re: RegExp; idLeague: string; name: string }> = [
+  { re: /\bpremier league\b/i, idLeague: "4328", name: "English Premier League" },
+  { re: /\bla liga\b|\bspanish\b.*\bla liga\b/i, idLeague: "4335", name: "La Liga" },
+  { re: /\bserie a\b|\bitalian\b.*\bserie a\b/i, idLeague: "4332", name: "Serie A" },
+  { re: /\bbundesliga\b/i, idLeague: "4331", name: "Bundesliga" },
+  { re: /\bligue 1\b|\bfrench\b.*\bligue 1\b/i, idLeague: "4334", name: "Ligue 1" },
+  { re: /\beuropa league\b/i, idLeague: "4482", name: "UEFA Europa League" },
+  { re: /\bchampions league\b/i, idLeague: "4481", name: "UEFA Champions League" },
+  { re: /\bipl\b|indian premier league/i, idLeague: "4460", name: "Indian Premier League" },
+  { re: /\bnba\b/i, idLeague: "4387", name: "NBA" },
+  { re: /\bnfl\b/i, idLeague: "4391", name: "NFL" },
+];
+
+export type ResolvedLeague = { idLeague: string; name: string };
+
+/** Resolve a competition from the query. Pure, no network. */
+export function leagueFromQuery(query: string): ResolvedLeague | null {
+  for (const l of LEAGUE_HINTS) {
+    if (l.re.test(query ?? "")) return { idLeague: l.idLeague, name: l.name };
+  }
+  return null;
+}
+
+type TablePayload = {
+  table?: Array<{
+    intRank?: string;
+    strTeam?: string;
+    strLeague?: string;
+    strSeason?: string;
+    intPlayed?: string;
+    intWin?: string;
+    intDraw?: string;
+    intLoss?: string;
+    intGoalsFor?: string;
+    intGoalsAgainst?: string;
+    intGoalDifference?: string;
+    intPoints?: string;
+    strForm?: string;
+    dateUpdated?: string;
+  }>;
+};
+
+type StandingRow = {
+  rank: number | null;
+  team: string;
+  played: number | null;
+  wins: number | null;
+  draws: number | null;
+  losses: number | null;
+  goalsFor: number | null;
+  goalsAgainst: number | null;
+  goalDifference: number | null;
+  points: number | null;
+  form?: string;
+};
+
+const num = (v: string | undefined): number | null => {
+  if (v === undefined || v === null || v === "") return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+};
+
+/** Normalise the feed's rows, dropping any without a team name. */
+export function normalizeStandings(rows: TablePayload["table"]): StandingRow[] {
+  return (rows ?? [])
+    .filter((r) => typeof r.strTeam === "string" && r.strTeam.trim().length > 0)
+    .map((r) => ({
+      rank: num(r.intRank),
+      team: (r.strTeam ?? "").trim(),
+      played: num(r.intPlayed),
+      wins: num(r.intWin),
+      draws: num(r.intDraw),
+      losses: num(r.intLoss),
+      goalsFor: num(r.intGoalsFor),
+      goalsAgainst: num(r.intGoalsAgainst),
+      goalDifference: num(r.intGoalDifference),
+      points: num(r.intPoints),
+      form: r.strForm?.trim() || undefined,
+    }))
+    .sort((a, b) => (a.rank ?? 99) - (b.rank ?? 99));
+}
+
+/** One readable line per team. */
+export function standingsLines(rows: StandingRow[], limit = 10): string[] {
+  return rows.slice(0, limit).map((r) => {
+    const parts = [
+      r.rank !== null ? `${r.rank}.` : "-",
+      r.team,
+      r.points !== null ? `${r.points} pts` : "points not reported",
+      r.played !== null ? `(${r.played} played` : "(played not reported",
+    ];
+    if (r.wins !== null && r.draws !== null && r.losses !== null) {
+      parts[parts.length - 1] = `(${r.played ?? "?"} played, ${r.wins}W ${r.draws}D ${r.losses}L)`;
+    }
+    if (r.goalDifference !== null) parts.push(`GD ${r.goalDifference > 0 ? "+" : ""}${r.goalDifference}`);
+    return parts.join(" ");
+  });
+}
+
+/**
+ * Build the standings citation. `dateUpdated` from the feed is preferred over
+ * "now" so the user sees when the table itself was last refreshed; when the
+ * feed omits it, the read time is used and says so.
+ */
+export function composeStandingsCitation(
+  league: ResolvedLeague,
+  rows: StandingRow[],
+  opts: { now?: number; limit?: number; updatedAt?: string } = {},
+): WebCitation {
+  const now = opts.now ?? Date.now();
+  const limit = opts.limit ?? 10;
+  const lines = standingsLines(rows, limit);
+  const season = (rows.length > 0 ? undefined : undefined) as string | undefined;
+  const updated = opts.updatedAt;
+  const when = updated ? new Date(updated.replace(" ", "T") + "Z") : null;
+  const validWhen = when && Number.isFinite(when.getTime()) ? when : null;
+
+  const header = `${league.name} — league standings`;
+  const body = lines.length > 0 ? lines.join("\n") : "No rows returned by the feed.";
+  const freshness = validWhen
+    ? `Table last updated by the feed: ${validWhen.toUTCString()}.`
+    : "The feed did not supply a table timestamp; this was read just now.";
+
+  return {
+    title: `${header} (${lines.length} team${lines.length === 1 ? "" : "s"} shown)`,
+    url: `https://www.thesportsdb.com/league/${league.idLeague}`,
+    snippet:
+      `${header}.\n${body}\n\n${freshness} ` +
+      "Standings from TheSportsDB's league table. Figures as reported by the feed; " +
+      `${season ?? "current season"} as labelled by the provider.`,
+    publishedAt: (validWhen ?? new Date(now)).toISOString(),
+    author: "TheSportsDB",
+  };
+}
+
+async function fetchStandings(leagueId: string): Promise<{ rows: StandingRow[]; updatedAt?: string }> {
+  const payload = await getJson<TablePayload>("lookuptable.php", { l: leagueId });
+  const rows = normalizeStandings(payload?.table);
+  // The newest dateUpdated across the rows is the table's own timestamp.
+  const dates = (payload?.table ?? [])
+    .map((r) => r.dateUpdated)
+    .filter((d): d is string => typeof d === "string" && d.length > 0)
+    .sort();
+  return { rows, updatedAt: dates[dates.length - 1] };
+}
+
+async function resolveLeague(query: string): Promise<ResolvedLeague | null> {
+  return leagueFromQuery(query);
+}
+
 /** Pure: rank live first, then results, then upcoming, then most recent. */
 export function rankEvents(events: SportsEvent[]): SportsEvent[] {
   return [...events]
@@ -448,6 +614,30 @@ export function createSportsProvider(): SearchProvider {
       const sport = detectSport(query);
       const team = detectTeam(query);
       const limit = Math.max(1, Math.min(numResults, 6));
+
+      // --- A STANDINGS question is a DIFFERENT question from a scoreline. ---
+      // "Current IPL standings" was being answered with a list of unrelated
+      // matches. A league table is a different endpoint entirely, so it is
+      // asked first — and when the feed genuinely has no table, Omi says so
+      // rather than falling back to fixtures that do not answer the question.
+      if (standingsDemanded(query)) {
+        const league = await resolveLeague(query);
+        if (league) {
+          const table = await fetchStandings(league.idLeague);
+          if (table.rows.length > 0) {
+            return {
+              citations: [
+                composeStandingsCitation(league, table.rows, { now, limit, updatedAt: table.updatedAt }),
+              ],
+            };
+          }
+        }
+        throw new Error(
+          `TheSportsDB has no current league table for ${
+            league ? `"${league.name}"` : "that competition"
+          }. Omi will not present a fixture list as a standings table.`,
+        );
+      }
 
       const build = (events: SportsEvent[], disclosure: SportsDisclosure): WebCitation[] =>
         rankEvents(events)
