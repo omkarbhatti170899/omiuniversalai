@@ -5,6 +5,43 @@
 **Frontend:** `https://omkarbhatti170899.github.io/omiuniversalai/`
 **Method:** every verdict below is backed by a *measured* result — a live HTTP probe, a real self-test row, a compiler/linter/test run, or an authorization scan. Nothing is graded "ready" because a key exists.
 
+---
+
+## HARDENING PASS (2026-09-27) — adversarial QA, newest findings first
+
+An adversarial live stress run (`scripts/searchStress.ts`, 11 hostile queries: ambiguous, unsatisfiable, historical, multilingual, geographic) was executed against the deployed build. The happy-path suite was green throughout and **missed every defect below**, which is the important lesson: the standing checks do not cover non-English input or non-FX market questions.
+
+### Defects found, fixed, and pinned
+
+| # | Severity | Defect | Evidence | Fix | Regression test |
+|---|---|---|---|---|---|
+| 1 | **HIGH** | Non-English recency questions **lost their freshness requirement entirely**. "Quelles sont les dernières nouvelles en France?", "Was ist die aktuelle Wetterlage in Berlin?", "¿Cuáles son las últimas noticias de hoy?" all produced `requiresFreshness=false` — so no freshness gate, no escalation, no "Current as of" timestamp. A months-old page could be presented as today's news. **The user's language decided whether their data was treated as stale.** | Live probe + deterministic replay | Multilingual recency vocabulary (fr/de/es/it/pt/nl/sv/da/no/ru/ar/ja/ko/zh) wired into the `EXPLICIT_FRESH_RE` gate, the `now` tier and the `recent` tier, using Unicode-aware boundaries | `tests/omiMultilingualAndClarifyRegression.test.ts` — 25 language cases |
+| 2 | **MEDIUM** | **A nonsense clarifying question blocked answerable questions.** "What is the current market cap of Apple?", "Current gold price in Tokyo?" and "What is the market cap of Tesla?" were all answered *"Which currency pair do you mean?"* The old rule demanded a currency pair from **any** markets query lacking two ISO codes. These queries returned 0 results purely because Omi asked instead of searching. | Live probe | Clarification now fires only for genuine FX questions; named non-FX assets (equity, commodity, index, crypto) route to search instead | 5 cases in the same file, incl. "genuine FX still asks" |
+| 3 | **MEDIUM** | **Non-English questions never reached the right vertical feed.** Vertical keywords were English-only, so a French news query went to the general web floor instead of the news feeds — and, once defect 1 was fixed, that turned into an honest-but-useless refusal. | Live probe: `vertical=general`, then "all search engines failed" | Multilingual news + weather routing (fr/de/es/it/pt/nl/sv/da/fi/pl/tr/ja/ko/zh/ru/ar) | 15 routing cases in the same file |
+
+**Gates after the fixes:** `bun test tests/` **1096 pass / 0 fail** (58 files, 3979 assertions) · `bunx eslint .` **0 errors / 21 warnings** (baseline) · `bunx tsc -b --noEmit` **0 errors** · `bunx convex dev --once` deployed · `/currentinfo` **10/10** · `/selftest` **status ok, 23 pass / 0 fail / 5 configured** · authz scan 109 public functions, **0 NO_AUTH**.
+
+### Honest limits of this pass
+
+- **Defect 1 and 3 are fixed; the underlying provider fragility is not.** After the fix, Italian news queries pass live (`fresh=8`), while French and Spanish still return *"All search engines failed"* — that is **upstream provider availability** (the single community SearXNG instance plus rate-limited feeds), not the intent/routing architecture. Confirmed by the failure message naming the engines, not a classification error.
+- **Unicode boundary trap, recorded because it nearly shipped a fake fix:** JavaScript's `\b` is ASCII-only, so it silently fails to match before an accented letter (`ü`, `é`, `ú`). The first version of this fix appeared to work and did not. All multilingual patterns now use `(?<![\p{L}\p{N}])…(?![\p{L}\p{N}])`.
+- **Only `news` and `weather` verticals got multilingual routing**, because those are the only two observed failing live. Sports/markets/election/travel in other languages remain unrouted — that is Phase 4 global-intent work and was deliberately **not guessed at**.
+- **A scanner that prints the secret it found is itself the leak.** `scripts/secretExposureCheck.ts` reports file + pattern name + count only, never a value.
+
+### Security recheck (executed this pass)
+
+| Control | Verdict | Evidence |
+|---|---|---|
+| Secrets in client source | **PASS** | 233 files scanned, 0 provider-key shapes |
+| Secrets in the **live deployed bundle** | **PASS** | `index` (476 KB), `framer-motion` (136 KB), `radix-ui` (115 KB) — all clean |
+| SSRF guard | **PASS** | 12/12 hostile forms blocked, incl. decimal-IP `2130706433`, `169.254.169.254` metadata, `file://`, `::ffff:127.0.0.1`. 3 new cases added to `tests/omiSecurityExpansion.test.ts` |
+| Authorization | **PASS** | 109 public functions, 0 missing auth |
+| **Security headers / CSP** | **FAIL** | Live site serves **only** `strict-transport-security`. No CSP, no `X-Frame-Options`, no `X-Content-Type-Options`, no `Referrer-Policy`. GitHub Pages cannot set response headers, so the only lever is a `<meta>` CSP. **Deliberately NOT applied blind** — an over-strict policy blanks the app and there is no browser here to catch that. Derived browser-side origins are `resolute-ptarmigan-187.convex.cloud` and `happy-otter-123.convex.cloud`; it must be smoke-tested in a browser before it ships. |
+| Rate limiting | **PASS** | Ad-hoc diagnostic probe is table-backed and bounded; observed 429s upstream were respected, not ignored |
+| Dependency audit | **NOT RUN** | Requires network advisory DB access; recorded as outstanding, not as a pass |
+
+---
+
 **Overall: NOT 100%.** Every automated gate is green and the backend capability surface is genuinely working — image **generation and editing are VERIFIED** (all six edit-family ops PASS the live self-test; the earlier blocker was the key's model permissions, now enabled by the owner), Andromeda/current-information return fresh dated sources, security scans are clean, and 833 tests pass. What remains is **not code**: it needs **a human, a browser and a physical device**. This report is therefore split into four buckets, and the second one is deliberately empty:
 
 | Bucket | Meaning | Count |

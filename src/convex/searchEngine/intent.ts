@@ -146,6 +146,37 @@ const EXPLICIT_FRESH_RE =
   /\b(latest|newest|most recent|recent|recently|right now|as of (?:today|now)|today'?s?|tonight|currently|current|live|breaking|upcoming|so far|this (?:week|month|year|morning|evening)|updated)\b/i;
 
 /**
+ * The multilingual counterpart of EXPLICIT_FRESH_RE.
+ *
+ * This is the gate that actually decides `requiresFreshness`, so it — not
+ * the tier helper — is where the English-only bug lived. Measured: French,
+ * Spanish, German, Italian, Portuguese, Dutch, Swedish and CJK recency
+ * wording all produced `requiresFreshness=false`, so those users got no
+ * freshness gate, no escalation and no data timestamp, and a months-old page
+ * could be presented as current.
+ *
+ * The user's language must never decide whether their data is stale.
+ */
+const EXPLICIT_FRESH_MULTILINGUAL_RE = new RegExp(
+  [
+    "(?<![\\p{L}\\p{N}])(aujourd'hui|aujourdhui|maintenant|d[eé]sormais?|derni[eè]res?|nouvelles?|actuel(?:le|s)?|r[eé]cent(?:e|s)?)(?![\\p{L}\\p{N}])", // fr
+    "(?<![\\p{L}\\p{N}])(heute|jetzt|aktuell\\w*|neueste?n?|gerade|neuer?)(?![\\p{L}\\p{N}])", // de
+    "(?<![\\p{L}\\p{N}])(hoy|ahora|actuali[sz]|reciente[sd]?|[uú]ltim[oa]s?)(?![\\p{L}\\p{N}])", // es
+    "(?<![\\p{L}\\p{N}])(oggi|adesso|attuali|ultim[io]|pi[uù] recenti|recenti|notizie)(?![\\p{L}\\p{N}])", // it
+    "(?<![\\p{L}\\p{N}])(hoje|agora|atuais?|recentes?|atualmente)(?![\\p{L}\\p{N}])", // pt
+    "(?<![\\p{L}\\p{N}])(vandaag|nu|actuele|laatste)(?![\\p{L}\\p{N}])", // nl
+    "(?<![\\p{L}\\p{N}])(idag|nu|senaste|aktuella)(?![\\p{L}\\p{N}])", // sv
+    "(?<![\\p{L}\\p{N}])(i dag|n[uå]v|aktuelle|siste)(?![\\p{L}\\p{N}])", // da/no
+    "(今日|本日|今|最近|最新|現在|速報)", // ja
+    "(오늘|지금|최근|최신|현재)",       // ko
+    "(今天|今日|现在|最近|最新|当前|实时)", // zh
+    "(сегодня|сейчас|последние|актуальные|свежие|новости)", // ru
+    "(أحدث|الأخير|اليوم|الآن|حتى الآن|جديد)",                  // ar
+  ].join("|"),
+  "iu",
+);
+
+/**
  * "As of RIGHT NOW" wording — the tightest possible freshness demand.
  *
  * Measured failure this fixes: a user asked for India's LATEST Asian Games
@@ -157,9 +188,65 @@ const EXPLICIT_FRESH_RE =
 const NOW_TIER_RE =
   /\b(today|tonight|right now|as of (?:today|now)|at the moment|current score|current tally|current status|so far today|this (?:morning|afternoon|evening)|live now|just now)\b/i;
 
+/**
+ * "Today" in the languages Omi actually serves.
+ *
+ * MEASURED DEFECT: recency wording was English-only, so a French, Spanish,
+ * German, Italian or Japanese user asking for TODAY's news was classified
+ * `tier=none` -> `requiresFreshness=false`. Live consequence: no freshness
+ * gate, no escalation pass, and no "Current as of" timestamp, so Omi would
+ * answer from a months-old page and present it as current. The user's
+ * language must not decide whether their data is stale.
+ *
+ * This is a word list per language, not a per-query patch: adding a language
+ * adds its recency vocabulary and nothing else changes.
+ */
+const NOW_TIER_MULTILINGUAL_RE = new RegExp(
+  [
+    "(?<![\\p{L}\\p{N}])(aujourd'hui|aujourdhui)(?![\\p{L}\\p{N}])", // fr
+    "(?<![\\p{L}\\p{N}])(heute|jetzt|gerade eben|sofort)(?![\\p{L}\\p{N}])", // de
+    "(?<![\\p{L}\\p{N}])(hoy|ahora|mism[oó] momento)(?![\\p{L}\\p{N}])", // es
+    "(?<![\\p{L}\\p{N}])(oggi|adesso|ora)(?![\\p{L}\\p{N}])", // it
+    "(?<![\\p{L}\\p{N}])(hoje|agora)(?![\\p{L}\\p{N}])", // pt
+    "(?<![\\p{L}\\p{N}])(vandaag|nu)(?![\\p{L}\\p{N}])", // nl
+    "(?<![\\p{L}\\p{N}])(idag|nu|dabar)(?![\\p{L}\\p{N}])", // sv
+    "(?<![\\p{L}\\p{N}])(i dag|akkurat|n[åa])(?![\\p{L}\\p{N}])", // no/da
+    "(今日|本日|今朝|今晩|いま|今)", // ja
+    "(오늘|지금|현재)",       // ko
+    "(今天|今日|现在)",        // zh
+    "(сегодня|сейчас)",       // ru
+    "(اليوم|الآن|حتى الآن)",   // ar
+  ].join("|"),
+  "iu",
+);
+
 /** "Give me something recent" wording — a looser but still real demand. */
 const RECENT_TIER_RE =
   /\b(latest|newest|most recent|recent|recently|this week|past few days|current|currently|updated|up to date|breaking|upcoming|recently updated)\b/i;
+
+/**
+ * "Latest / current / updated" in the languages Omi serves. Same measured
+ * defect as NOW_TIER_MULTILINGUAL_RE: without these, non-English recency
+ * requests silently lost their freshness requirement.
+ */
+const RECENT_TIER_MULTILINGUAL_RE = new RegExp(
+  [
+    "(?<![\\p{L}\\p{N}])(derni[eè]res?|r[eé]cent[e]?s?|actualis[eé]|nouveaux?|nouvelles?)(?![\\p{L}\\p{N}])", // fr
+    "(?<![\\p{L}\\p{N}])(neueste?n?|aktuell\\w*|neuer?)(?![\\p{L}\\p{N}])", // de
+    "(?<![\\p{L}\\p{N}])([uú]ltim[oa]s?|actuali[sz]|recientes?)(?![\\p{L}\\p{N}])", // es
+    "(?<![\\p{L}\\p{N}])(ultim[io]|pi[uù] recenti|attuali)(?![\\p{L}\\p{N}])", // it
+    "(?<![\\p{L}\\p{N}])([uú]ltim[oa]s?|atuais?|recentes?)(?![\\p{L}\\p{N}])", // pt
+    "(?<![\\p{L}\\p{N}])(laatste|actuele|recente)(?![\\p{L}\\p{N}])", // nl
+    "(?<![\\p{L}\\p{N}])(senaste|senas|aktuella)(?![\\p{L}\\p{N}])", // sv
+    "(?<![\\p{L}\\p{N}])(siste|aktuelle)(?![\\p{L}\\p{N}])", // da/no
+    "(最新|最近|現在|本日)", // ja
+    "(최근|최신|현재)",       // ko
+    "(最新|最近|今日|当前|更新)", // zh
+    "(последние|актуальные|свежие|новости)", // ru
+    "(أحدث|الأخير|جديد)",     // ar
+  ].join("|"),
+  "iu",
+);
 
 /** Past-tense framing — strong evidence the user wants history, not a feed. */
 const HISTORICAL_RE =
@@ -246,6 +333,47 @@ function namesCurrencyPair(q: string): boolean {
  * wins over the generic news catch-all, and a sport name wins over "news"
  * ("latest cricket news" is sport reporting, not a news index).
  */
+/**
+ * Weather vocabulary outside English. Unicode-aware boundaries via
+ * `(?<![\p{L}\p{N}])` — plain `\b` is ASCII-only and silently fails to match
+ * before an accented letter such as "ü" or "é", which is exactly how the
+ * first attempt at this fix appeared to work and did not.
+ */
+const WEATHER_MULTILINGUAL_RE = new RegExp(
+  [
+    "(?<![\\p{L}\\p{N}])(wetterlage|wetteraussicht|wetter\\w*|wetter|vorhersage)(?![\\p{L}\\p{N}])", // de
+    "(?<![\\p{L}\\p{N}])(m[eé]t[eé]o|tiempo|clima|pr[ée]vision m[ée]t[ée]o)(?![\\p{L}\\p{N}])", // es/fr/it mix
+    "(?<![\\p{L}\\p{N}])(temps|pr[ée]vision m[ée]t[ée]o)(?![\\p{L}\\p{N}])", // fr
+    "(?<![\\p{L}\\p{N}])(tempo|meteo|previsioni)(?![\\p{L}\\p{N}])", // it
+    "(?<![\\p{L}\\p{N}])(tempo|previsao|weather)(?![\\p{L}\\p{N}])", // pt
+    "(?<![\\p{L}\\p{N}])(weer|weersverwachting)(?![\\p{L}\\p{N}])", // nl
+    "(?<![\\p{L}\\p{N}])(v[aä]der|v[aä]dret)(?![\\p{L}\\p{N}])", // sv
+    "(?<![\\p{L}\\p{N}])(v[aæ]r|v[aæ]rret)(?![\\p{L}\\p{N}])", // da/no
+    "(?<![\\p{L}\\p{N}])(tiempo|meteorolog[ií]a)(?![\\p{L}\\p{N}])", // es
+    "(天气|気象|天気|天氣|기상|날씨| погод|الطقس)",                            // zh/ja/ko/ru/ar
+  ].join("|"),
+  "iu",
+);
+
+/** News vocabulary outside English — the "latest news" catch-all. */
+const NEWS_MULTILINGUAL_RE = new RegExp(
+  [
+    "(?<![\\p{L}\\p{N}])(nouvelles?|actualit[eé]s?|d[eé]p[eê]ches?)(?![\\p{L}\\p{N}])", // fr
+    "(?<![\\p{L}\\p{N}])(nachrichten|meldungen|neues|neuigkeiten)(?![\\p{L}\\p{N}])", // de
+    "(?<![\\p{L}\\p{N}])(noticias|novedades|actualidad)(?![\\p{L}\\p{N}])", // es
+    "(?<![\\p{L}\\p{N}])(notizie|ultime notizie|cronaca)(?![\\p{L}\\p{N}])", // it
+    "(?<![\\p{L}\\p{N}])(not[ií]cias|noticias|atualidades)(?![\\p{L}\\p{N}])", // pt
+    "(?<![\\p{L}\\p{N}])(nieuws|actualiteiten)(?![\\p{L}\\p{N}])", // nl
+    "(?<![\\p{L}\\p{N}])(nyheter|nyheterna|nyhetsl[aä]gen)(?![\\p{L}\\p{N}])", // sv
+    "(?<![\\p{L}\\p{N}])(nyheder|nyhetslarm|nyhetsniva)(?![\\p{L}\\p{N}])", // da
+    "(?<![\\p{L}\\p{N}])(uutiset|uutis[aä]t)(?![\\p{L}\\p{N}])", // fi
+    "(?<![\\p{L}\\p{N}])(wiadomo[sś]ci|aktualno[sś]ci)(?![\\p{L}\\p{N}])", // pl
+    "(?<![\\p{L}\\p{N}])(haber|notic[ií]as|actualidad)(?![\\p{L}\\p{N}])", // tr/es
+    "(ニュース|報道|chwita|뉴스|보도|新闻|新聞|消息|资讯|новост|أخبار)",          // ja/ko/zh/ru/ar
+  ].join("|"),
+  "iu",
+);
+
 export function classifyVertical(query: string): Vertical {
   const q = query ?? "";
   if (WEATHER_RE.test(q)) return "weather";
@@ -259,6 +387,16 @@ export function classifyVertical(query: string): Vertical {
   if (ELECTION_RE.test(q)) return "election";
   if (/\bvs\.?\b|\bagainst\b/i.test(q) && SCORE_RE.test(q)) return "sports";
   if (NEWS_RE.test(q)) return "news";
+  // MEASURED DEFECT: the vertical keywords above are English-only, so a
+  // French "dernieres nouvelles" or a German "Wetterlage" was routed to the
+  // general web floor instead of the news/weather feeds. Combined with the
+  // freshness fix that made non-English news queries HONESTLY REFUSE (no
+  // general-web source carried a recent date) instead of reaching the feed
+  // that can answer them. Only the two verticals actually observed failing
+  // live are added here; the rest is Phase 4 global-intent work and is not
+  // guessed at.
+  if (WEATHER_MULTILINGUAL_RE.test(q)) return "weather";
+  if (NEWS_MULTILINGUAL_RE.test(q)) return "news";
   return "general";
 }
 
@@ -314,7 +452,8 @@ export function classifyCurrentIntent(query: string, intent?: string, now = Date
   const vertical = classifyVertical(q);
   const liveData = detectLiveKind(q);
 
-  const explicit = EXPLICIT_FRESH_RE.test(q);
+  const explicit =
+    EXPLICIT_FRESH_RE.test(q) || EXPLICIT_FRESH_MULTILINGUAL_RE.test(q);
   if (explicit) reasons.push("explicit freshness wording");
 
   if (intent === "current" || intent === "news") {
@@ -379,6 +518,11 @@ function tierFor(q: string, vertical: Vertical, requiresFreshness: boolean): Fre
   if (vertical === "weather" || vertical === "markets") return "live-feed";
   if (NOW_TIER_RE.test(q)) return "now";
   if (RECENT_TIER_RE.test(q)) return "recent";
+  // Non-English recency wording. Without this, a user asking for "les
+  // dernieres nouvelles" or "今日の最新ニュース" fell through to `none` and
+  // lost its freshness requirement entirely.
+  if (NOW_TIER_MULTILINGUAL_RE.test(q)) return "now";
+  if (RECENT_TIER_MULTILINGUAL_RE.test(q)) return "recent";
   // Inherently-live nouns (a medal tally, standings) with no time word still
   // want a recent answer, not a fortnight-old one.
   if (LIVE_NOUN_RE.test(q)) return "recent";

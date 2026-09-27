@@ -548,7 +548,25 @@ export function missingInputFor(query: string, vertical: Vertical): string | nul
   }
   if (vertical === "markets") {
     const codes = q.toUpperCase().match(/\b(?:USD|EUR|GBP|INR|JPY|AUD|CAD|CHF|CNY|SGD|AED|SAR|HKD|NZD|ZAR|BRL|MXN|RUB|KRW|TRY|IDR|PHP|MYR|THB|ILS|PKR|BDT|LKR|KES|GHS|ISK|UAH)\b/g);
-    return new Set(codes ?? []).size >= 2 ? null : "currency-pair";
+    if (new Set(codes ?? []).size >= 2) return null;
+
+    // MEASURED DEFECT: the old rule asked "Which currency pair do you mean?"
+    // for ANY markets query without two codes, so "what is the current market
+    // cap of Apple?", "current gold price in Tokyo?" and "Nifty 50 today" were
+    // all answered with a nonsense question about currency pairs. Blocking a
+    // perfectly answerable question is worse than attempting it: the live
+    // stress run showed these returning 0 results purely because Omi asked
+    // instead of searching.
+    //
+    // A currency pair is only genuinely missing when the question is actually
+    // about converting between two currencies.
+    const FX_RE =
+      /\b(exchange rate|fx rate|forex|currency|convert|conversion|how much is|worth|in (?:usd|eur|gbp|inr|jpy)|rate of)\b/i;
+    // A named non-FX asset makes it a market question, not an FX question.
+    const NON_FX_ASSET_RE =
+      /\b(market cap|share price|stock price|share|stock|equit|index|nifty|sensex|dow|s&p|nasdaq|gold|silver|platinum|oil|crude|bitcoin|btc|ethereum|crypto|coin|bitcoin|bond|yield|commodit|ticker|ipo)\b/i;
+    if (NON_FX_ASSET_RE.test(q)) return null;
+    return FX_RE.test(q) ? "currency-pair" : null;
   }
   return null;
 }

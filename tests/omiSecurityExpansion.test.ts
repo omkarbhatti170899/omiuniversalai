@@ -81,4 +81,21 @@ describe("hardening pass — SSRF regression", () => {
     expect(assertSafeUrl("http://[::ffff:8.8.8.8]/x").hostname).toBe("[::ffff:808:808]");
     expect(assertSafeUrl("https://example.com/x").hostname).toBe("example.com");
   });
+
+  // Added by the hardening recheck: bypass forms that are NOT obviously
+  // private by eye. A guard that only matches literal "127.0.0.1" is
+  // trivially defeated by these, so each is pinned as a rejection.
+  test("decimal-encoded loopback is blocked (2130706433 === 127.0.0.1)", () => {
+    expect(() => assertSafeUrl("http://2130706433/x")).toThrow();
+  });
+
+  test("cloud metadata endpoints are blocked", () => {
+    // The classic credential-exfiltration target on any cloud host.
+    expect(() => assertSafeUrl("http://169.254.169.254/latest/meta-data/")).toThrow();
+    expect(() => assertSafeUrl("http://metadata.google.internal/")).toThrow();
+  });
+
+  test("non-http schemes are blocked (file:// reads local disk)", () => {
+    expect(() => assertSafeUrl("file:///etc/passwd")).toThrow();
+  });
 });
