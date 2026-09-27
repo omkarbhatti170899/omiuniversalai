@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  MissingKeyError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -50,6 +49,26 @@ export function mapArticleToCitation(r: {
  * content is retrieved live via Omi's own SSRF-guarded fetcher when a page
  * is read, never pre-stored (copyright-safe usage).
  */
+/**
+ * Classify a GDELT failure honestly.
+ *
+ * MEASURED BUG (provider benchmark, 2026-09-27): every non-429 failure used to
+ * be rethrown as `MissingKeyError`, so a 15 s upstream timeout surfaced as
+ * `Search provider "gdelt: timeout of 15000ms exceeded" is not configured` —
+ * telling the user to add an API key to a provider that is keyless. A wrong
+ * diagnosis sends debugging in the wrong direction, and it is exactly the
+ * misreporting this codebase already fixed once for DuckDuckGo.
+ *
+ * Exported purely so it can be tested without a network call.
+ */
+export function describeGdeltFailure(err: unknown): string {
+  const msg = err instanceof Error ? err.message : String(err);
+  const isTimeout = /timeout|timed out|ECONNABORTED/i.test(msg);
+  return isTimeout
+    ? "gdelt: upstream timed out after 15000ms (no key required — this is an availability problem, not a configuration one)"
+    : `gdelt: upstream unavailable — ${msg.slice(0, 120)}`;
+}
+
 export function createGdeltProvider(): SearchProvider {
   return {
     id: "gdelt",
@@ -109,9 +128,20 @@ export function createGdeltProvider(): SearchProvider {
         // A 429 surfacing as a thrown axios error is still just a rate limit.
         const status = (err as { response?: { status?: number } })?.response?.status;
         if (status === 429) return { citations: [] };
-        throw new MissingKeyError(
-          `gdelt: ${err instanceof Error ? err.message : "unavailable"}`,
-        );
+
+        // MEASURED BUG (provider benchmark, 2026-09-27): every non-429 failure
+        // was reported as a MissingKeyError, so a 15 s UPSTREAM TIMEOUT surfaced
+        // to the user as `Search provider "gdelt: timeout of 15000ms exceeded"
+        // is not configured` — telling them to go and add an API key that does
+        // not exist, when GDELT is keyless. That is a wrong diagnosis of a
+        // network condition, and it is exactly the misreporting this codebase
+        // already fixed once for DuckDuckGo.
+        //
+        // GDELT needs no key, so MissingKeyError is never truthful here. A
+        // timeout or upstream 5xx is an availability problem and is rethrown
+        // as such, so the status surface, the circuit breaker and the health
+        // metrics all classify it correctly.
+        throw new Error(describeGdeltFailure(err));
       }
     },
   };

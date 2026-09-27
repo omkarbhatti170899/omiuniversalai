@@ -1,5 +1,7 @@
 import { type SearchProvider } from "./types";
 import { createSearxProvider, searxngHealth, searxngHealthCached } from "./searxng";
+import { createMwmblProvider } from "./mwmbl";
+import { createDuckDuckGoInstantProvider } from "./duckduckgoInstant";
 import { createWikipediaProvider } from "./wikipedia";
 import { createWikidataProvider } from "./wikidata";
 import { createArxivProvider } from "./arxiv";
@@ -66,6 +68,22 @@ export type ProviderStatus = {
  *   Open-Meteo   — weather/structured open data (scope-gated, CC-BY attribution)
  *   Market rates — live FX (scope-gated, not financial advice)
  *   Sports DB    — live scorelines (scope-gated to the sports vertical)
+ *   Mwmbl        — free, AGPL, non-profit, OWN index, official keyless API
+ *   DDG Instant  — official keyless API, encyclopedic entities
+ *
+ * TWO PROVIDERS THAT DELIBERATELY RETURN NO DATES: Mwmbl and DuckDuckGo
+ * Instant Answers. Both were measured live on 2026-09-27 and neither includes
+ * a publication or update timestamp anywhere in its payload. They are therefore
+ * registered for general/knowledge breadth but are ABSENT from every freshness
+ * tier's `preferredProviders`. An undated source is not evidence of recency,
+ * and letting one into a "latest news" turn is precisely the bug class the
+ * freshness engine exists to prevent.
+ *
+ * DuckDuckGo note: this is the OFFICIAL API (api.duckduckgo.com), keyless and
+ * documented, so it is permitted. It is NOT a web search engine — measured,
+ * it returns an encyclopedic abstract for entity questions and *nothing at all*
+ * for real search queries. The earlier consumer-SERP scrape of
+ * html.duckduckgo.com with a spoofed User-Agent was removed as non-compliant.
  *
  * GENERAL-WEB STRATEGY (2026-09-27, revised) — deliberately free/open.
  * A paid general-web API (Brave $5/1000, Mojeek ~$5/1000) is NOT acceptable
@@ -140,6 +158,8 @@ const REGISTRY: SearchProvider[] = [
   createOpenMeteoProvider(),
   createMarketRatesProvider(),
   createSportsProvider(),
+  createMwmblProvider(),
+  createDuckDuckGoInstantProvider(),
 ];
 
 export function getConfiguredProviders(): SearchProvider[] {

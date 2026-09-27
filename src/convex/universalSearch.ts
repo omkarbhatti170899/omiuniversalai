@@ -27,6 +27,7 @@ import {
 } from "./searchEngine/quality";
 import { internal } from "./_generated/api";
 import { guardedCall } from "./searchEngine/resilience";
+import { recordProviderObservation } from "./searchEngine/providerHealth";
 // §45 — single source of truth for product identity, shared by every surface.
 import { creatorIdentityBlock } from "./omiIdentity";
 import type { ActionCtx } from "./_generated/server";
@@ -190,14 +191,56 @@ export async function runUniversalSearch(
         opts?.retrievalVariants && (opts?.variantTargets ?? []).includes(p.id)
           ? opts.retrievalVariants
           : [];
-      const calls = [query, ...variants].map((q) =>
-        guardedCall(
+      const calls = [query, ...variants].map((q) => {
+        // Health is measured around the REAL call, so the numbers reflect what
+        // the provider actually did rather than what its status page claims.
+        // Failure is still isolated: a health-recording error can never fail a
+        // search.
+        const started = Date.now();
+        return guardedCall(
           p.id,
           p.label,
           () => p.search(q, perEngine, engineOpts),
           perProviderTimeoutMs,
-        ).then((result) => ({ engine: p, result })),
-      );
+        )
+          .then((result) => {
+            try {
+              recordProviderObservation(p.id, {
+                ok: true,
+                timedOut: false,
+                latencyMs: Date.now() - started,
+                results: result.citations.length,
+                datedResults: result.citations.filter((c) => Boolean(c.publishedAt)).length,
+                // A provider that only echoes URLs another provider already
+                // returned adds no independent corroboration. Measured here so
+                // "which provider is actually adding signal" is answerable.
+                duplicates: result.citations.filter((c) => seenUrls.has(normalizeUrl(c.url))).length,
+                at: Date.now(),
+              });
+            } catch {
+              /* telemetry must never break a search */
+            }
+            return { engine: p, result };
+          })
+          .catch((err) => {
+            try {
+              recordProviderObservation(p.id, {
+                ok: false,
+                timedOut: /timeout|timed out/i.test(
+                  err instanceof Error ? err.message : String(err),
+                ),
+                latencyMs: Date.now() - started,
+                results: 0,
+                datedResults: 0,
+                duplicates: 0,
+                at: Date.now(),
+              });
+            } catch {
+              /* telemetry must never break a search */
+            }
+            throw err;
+          });
+      });
       return calls;
     }),
   );
