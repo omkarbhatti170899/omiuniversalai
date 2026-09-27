@@ -86,7 +86,98 @@ GDELT is keyless. The message told a user to go and add an API key that does not
 
 ---
 
-## 7. LangSearch — investigated, adapter built, NOT yet benchmarked
+## 7. SERVER-SIDE BENCHMARK (2026-09-27) — the decisive run
+
+The shell harness structurally could not measure LangSearch or SearXNG (no
+`LANGSEARCH_API_KEY`, no `SEARXNG_BASE_URL` in a developer shell). An internal
+Convex action now runs the **same query set in the production runtime**, where
+those variables exist: `benchmarkProviders:runProviderBenchmark`.
+
+### Results — 22 queries, all active providers, same query set
+
+| provider | n | availability | p50 ms | p95 ms | avg results | **freshness** | relevance (proxy) |
+|---|---|---|---|---|---|---|---|
+| **langsearch** | 22 | 0.82 | 876 | 1883 | 3.8 | **100%** | 0.266 |
+| searxng | 22 | 0.95 | 1257 | 7100 | 63.4 | **5%** | 0.431 |
+| mwmbl | 22 | 0.95 | 125 | 177 | 4.5 | 0% | 0.595 |
+| duckduckgo-instant | 22 | 0.23 | 39 | 48 | 0.8 | 0% | 0.192 |
+| wikipedia-current-events | 6 | 0.83 | 0 | 73 | 2.5 | 100% | 0.019 |
+| gdelt | 10 | **0.00** | 20 | 12968 | 0.0 | — | 0.000 |
+| hackernews | 1 | 1.00 | 210 | 210 | 5.0 | 100% | 1.000 |
+
+### The headline finding
+
+**LangSearch returns dated results on 100% of its results. SearXNG returns a
+publication date on 5%.** That is a 20x difference on precisely the metric the
+freshness engine is built on, measured on the same 22 queries.
+
+It also explains the whole shape of the problem. **SearXNG returns ~63 results
+per query and almost none of them are dated**, so the freshness gate correctly
+rejects ~95% of what the main general-web provider produces. The gate is
+working; the *dated-source supply* is the constraint. The system survives on
+`wikipedia-current-events`, `hackernews`, and the escalation pass.
+
+### What LangSearch costs in return
+
+- **Breadth: 3.8 results vs SearXNG's 63.4.** It is a precision source, not a
+  breadth source.
+- **Relevance proxy 0.266 vs SearXNG's 0.431 and Mwmbl's 0.595** — lower, though
+  this is a lexical proxy and cannot judge a good answer from a plausible wrong
+  one.
+- **It is a paid reseller** (Tavily-backed; its pricing page publishes upstream
+  rates) with a **daily token allowance** that resets at 00:00 UTC. The free tier
+  is $0 today, but it is a bounded trial.
+
+**Conclusion the evidence supports:** LangSearch is a strong *complement* for
+freshness-critical queries and a poor replacement for breadth. It does not
+replace SearXNG. Enabling it is a product decision about accepting a
+quota-bounded paid reseller into the query path — not a technical one.
+
+### GDELT — still down, now confirmed as a network fault
+
+`0.00 availability`, error: `gdelt: upstream unavailable — error sending request
+for url (https://api.gdeltpr...)`. Measured across three separate sessions. The
+reclassified error is doing its job: it now says *upstream unavailable* instead
+of the old false "is not configured". This removes a primary open news provider
+and needs an operational answer.
+
+---
+
+## 8. FRESHNESS MATRIX — end-to-end, all recency classes
+
+`scripts/freshnessMatrix.ts` — 10 queries across every recency class the brief
+names, run against the deployed probe. A pass requires `requiresFreshness=true`
+AND dated, current evidence.
+
+| class | query | fresh | newest | sources |
+|---|---|---|---|---|
+| latest | latest news today | 1/5 | yesterday | SearXNG + Wikipedia Current Events |
+| today | what happened today | 10/5 | **~1 hour ago** | SearXNG + Wikipedia Current Events |
+| current | current situation in the world | 8/5 | 15 hours | SearXNG + Wikipedia |
+| live | live updates right now | 1/5 | 13 hours | SearXNG + Wikipedia Current Events |
+| breaking | breaking news today | 2/5 | 23 hours | SearXNG + Wikipedia Current Events |
+| year-2026 | India medal tally Asian Games 2026 | 4/5 | yesterday | SearXNG |
+| year-2026 | latest news 2026 | 3/5 | yesterday | SearXNG + Wikipedia Current Events |
+| multilingual | dernières nouvelles France | 8/5 | 9 hours | SearXNG |
+| multilingual | aktuelle Nachrichten Deutschland | 8/5 | 11 hours | SearXNG |
+| multilingual | 日本の最新ニュース | 8/5 | 12 hours | SearXNG |
+
+**10 / 10 PASS.** Every recency class returns dated, current evidence, and the
+multilingual fix is holding in production (French, German and Japanese all now
+demand freshness and receive dated sources — these were silently unserved
+before that fix).
+
+The `fresh` count exceeding `resultsFound` is the escalation pass adding a
+second, tighter retrieval round on top of the first.
+
+### Honest reading of "10/10"
+
+This measures **retrieval and gating**, not answer quality. It does not verify
+that the final prose cites the right source, states the timestamp to the user,
+or is factually correct — that still needs a human in a browser. The newest
+evidence is 1–23 hours old, which is "current" for these classes, but no
+automated check can confirm the number in the answer is right.
+
 
 **Status: adapter built and feature-gated. No performance claim is made, because none has been measured.**
 

@@ -141,6 +141,26 @@ type LangSearchResponse = {
 };
 
 export function createLangSearchProvider(): SearchProvider {
+  return buildProvider(() => isLangSearchConfigured());
+}
+
+/**
+ * EVALUATION-ONLY factory. Bypasses the feature flag so the internal
+ * benchmark can measure whether LangSearch deserves to be enabled.
+ *
+ * This exists because a benchmark that refuses to measure a candidate until
+ * the candidate is enabled can never answer the question "should it be
+ * enabled?". The production gate in `createLangSearchProvider` is untouched
+ * and stays closed.
+ *
+ * NOT REGISTERED ANYWHERE. Nothing in the product's provider registry or
+ * fan-out may import this; only the internal benchmark action may.
+ */
+export function createLangSearchEvaluationProvider(): SearchProvider {
+  return buildProvider(() => apiKey() !== undefined);
+}
+
+function buildProvider(ready: () => boolean): SearchProvider {
   return {
     id: "langsearch",
     label: "LangSearch (temporary, feature-gated)",
@@ -149,10 +169,10 @@ export function createLangSearchProvider(): SearchProvider {
       "evaluation adapter — it supplements SearXNG and the open-data providers " +
       "and must never be the only search source. See " +
       "docs/PROVIDER_BENCHMARK_RESULTS.md.",
-    isConfigured: () => isLangSearchConfigured(),
+    isConfigured: () => ready(),
 
     async search(query, numResults, opts): Promise<SearchProviderResult> {
-      if (!isLangSearchConfigured()) {
+      if (!ready()) {
         throw new Error(
           "langsearch: disabled (needs ENABLE_LANGSEARCH=true and LANGSEARCH_API_KEY)",
         );

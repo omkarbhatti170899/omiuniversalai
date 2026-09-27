@@ -32,6 +32,7 @@ import type * as andromeda_orchestrator from "../andromeda/orchestrator.js";
 import type * as andromeda_query from "../andromeda/query.js";
 import type * as auth from "../auth.js";
 import type * as auth_emailOtp from "../auth/emailOtp.js";
+import type * as benchmarkProviders from "../benchmarkProviders.js";
 import type * as crons from "../crons.js";
 import type * as deepResearch from "../deepResearch.js";
 import type * as deepResearchRuns from "../deepResearchRuns.js";
@@ -162,6 +163,7 @@ declare const fullApi: ApiFromModules<{
   "andromeda/query": typeof andromeda_query;
   auth: typeof auth;
   "auth/emailOtp": typeof auth_emailOtp;
+  benchmarkProviders: typeof benchmarkProviders;
   crons: typeof crons;
   deepResearch: typeof deepResearch;
   deepResearchRuns: typeof deepResearchRuns;

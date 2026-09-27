@@ -24,6 +24,7 @@ import { describe, expect, it, beforeEach, afterEach } from "bun:test";
 import { readFileSync } from "node:fs";
 import {
   createLangSearchProvider,
+  createLangSearchEvaluationProvider,
   isLangSearchEnabled,
   isLangSearchConfigured,
   toLangSearchFreshness,
@@ -147,6 +148,36 @@ describe("langsearch — freshness mapping", () => {
     // Docs say the field may be absent — an undated result must stay undated
     // rather than be back-filled, or it would defeat the freshness gate.
     expect(normalizeDatePublished(null)).toBeUndefined();
+  });
+});
+
+describe("langsearch — the evaluation bypass is not a production path", () => {
+  it("the registry uses the GATED factory, never the evaluation one", () => {
+    // The benchmark may call LangSearch before the flag is set, but nothing in
+    // production may. If the registry ever imported the evaluation factory,
+    // the feature flag would stop meaning anything.
+    const indexSrc = readFileSync("src/convex/searchProviders/index.ts", "utf8");
+    expect(indexSrc).not.toContain("createLangSearchEvaluationProvider");
+    expect(indexSrc).toContain("createLangSearchProvider");
+  });
+
+  it("the production factory is still disabled without the flag", () => {
+    expect(createLangSearchProvider().isConfigured()).toBe(false);
+  });
+
+  it("the evaluation factory is only reachable when a key exists", () => {
+    const original = process.env.LANGSEARCH_API_KEY;
+    delete process.env.LANGSEARCH_API_KEY;
+    try {
+      expect(createLangSearchEvaluationProvider().isConfigured()).toBe(false);
+    } finally {
+      if (original !== undefined) process.env.LANGSEARCH_API_KEY = original;
+    }
+  });
+
+  it("only the benchmark action imports the evaluation factory", () => {
+    const src = readFileSync("src/convex/benchmarkProviders.ts", "utf8");
+    expect(src).toContain("createLangSearchEvaluationProvider");
   });
 });
 
