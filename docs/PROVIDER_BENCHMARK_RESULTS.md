@@ -235,3 +235,26 @@ Fixed: an unconfigured provider is now printed as `NOT CONFIGURED — not measur
 
 **Consequence for the comparison:** SearXNG remains unmeasured. It must be run from a shell where `SEARXNG_BASE_URL` is set, or from the deployed environment, before any provider ordering is decided.
 
+---
+
+# 10. LangSearch is now ENABLED — see `LANGSEARCH_ENABLEMENT_RUN.md`
+
+The candidate evaluation above has been superseded by the post-enablement run in
+**`docs/LANGSEARCH_ENABLEMENT_RUN.md`**, which records:
+
+- the enable flag moved into versioned code, with the environment variable
+  demoted to a kill switch and the credential kept server-side only;
+- the **routing defect** that made the provider enabled-but-unreachable, which
+  made the difference between "the flag is true" and "LangSearch is in the
+  answer";
+- the benchmark re-run through the **production** path (`evaluationOnly: false`)
+  rather than the evaluation-only factory;
+- live evidence that LangSearch contributed every kept citation for
+  `Indian contingent medals tally in Asian Games 2026`, turning a hard refusal
+  into a caveated answer across 4 independent domains;
+- failure isolation for 401 / 429 / 500 / 503, including circuit opening on an
+  exhausted daily allowance;
+- the mutation-tested regression suite, and the honest limits — chiefly a low
+  relevance score and the fact that answer correctness is still unverified by a
+  human.
+
