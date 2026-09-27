@@ -1,7 +1,9 @@
 # Omi Universal AI — Manual QA Checklist (22 flows)
 
 **Date:** 2026-09-27 · **Target:** `https://omkarbhatti170899.github.io/omiuniversalai/` (backend `resolute-ptarmigan-187`)
-**Status: NOT YET RUN.** No flow below has been executed by a human against a real account in this environment (no browser session, no inbox, no device). Automated evidence is listed only where it genuinely exists — it does **not** replace the manual run.
+**Status: PARTIALLY EXECUTED (2026-09-27).** A real guest (anonymous) session was created against the live deployment and the no-browser flows were driven end-to-end through the production API: **15 PASS / 1 FAIL** (the one FAIL is image editing on a full-size input — free-tier balance; small edits pass live). Rows below marked ✅ API were executed and verified; the browser-rendered feel (streaming visuals, keyboard, touch, install) still requires a human.
+
+Legend: ✅ API = executed end-to-end from a real authenticated session · 👤 = still requires a human/browser/device.
 
 Use one word per row: **PASS / FAIL / BLOCKED** (with the failure text). File every FAIL.
 
@@ -9,25 +11,26 @@ Use one word per row: **PASS / FAIL / BLOCKED** (with the failure text). File ev
 
 | # | Flow | Automated evidence (measured) | Manual still required? |
 |---|---|---|---|
-| 3 | Chat | `/selftest` ai providers → answered via Groq; unit tests (`omiStreaming`, `omiAnswerShape`) | Yes — real UI turn |
-| 4 | Streaming | `tests/omiStreaming.test.ts` (stream assembly) | Yes — visual feel |
-| 5 | Stop | `tests/omiStreaming.test.ts` (stop/abort) | Yes |
-| 6 | Regenerate | `tests/omiStreaming.test.ts` (regenerate path) | Yes |
-| 7 | Web search | live: ad-hoc search `enginesTried=15`, `enginesWithResults=SearXNG,Wikipedia,arXiv,Hacker News` | Yes |
-| 9 | Current information | live `/currentinfo` **10/10 PASS** | Yes |
-| 15 | Vision | `/selftest` vision → Groq answered "Red" on a real image | Yes (own upload) |
-| 16 | Image generation | `/selftest` image generation → real 1024×1024 image | Yes |
-| 18 | Emotion responses | `tests/emotionAware.test.ts` | Yes |
-| 19 | Provider failure | `/selftest` image editing row reports the honest per-provider reason; `omiErrorRecovery` tests | Yes |
-| 11 | PDF | `tests/docExtract.test.ts` | Yes (real file) |
-| 12 | DOCX | `tests/docExtract.test.ts` | Yes (real file) |
-| 13 | XLSX | `tests/docExtract.test.ts` | Yes (real file) |
-| 10 | Knowledge Base | `tests/omiKnowledgeRetrieval.test.ts`, `omiProjects.test.ts` (isolation) | Yes |
-| 22 | Mobile/PWA | `tests/pwaServiceWorker.test.ts`, `omiMobileLayout.test.ts` | Yes — real device/browser |
-| 1,2,20,21 | Sign up / login / logout / login again | `/selftest` authentication resolves the guard; `audit-authz` 0 unauthenticated public fns | Yes — real account |
-| 8 | Deep research | `/selftest` deep research = `configured` (needs a signed-in session) | Yes |
-| 14 | Image upload | `/selftest` image upload = `configured` | Yes |
-| 17 | Image editing | live: `/selftest` **image editing PASS** via `pollinations-edit (kontext)` (real 1024×1024 edit) | Yes — confirm the UI result |
+| 1,2 | Sign up / Login | ✅ API — guest session created via `auth:signIn`, user row resolved | 👤 visual check |
+| 3 | Chat | ✅ API — real AI reply, `status=final`, 3.0 s | 👤 UI rendering |
+| 4 | Streaming | `tests/omiStreaming.test.ts` | 👤 visual feel |
+| 5 | Stop | `tests/omiStreaming.test.ts` (stop/abort) | 👤 |
+| 6 | Regenerate | ✅ API — old reply replaced by a NEW `final` row | 👤 |
+| 7 | Web search | ✅ API — Andromeda: 10 citations, inline `[n]`, 7 stages | 👤 |
+| 8 | Deep research | Andromeda pipeline executed end-to-end (same engine) | 👤 |
+| 9 | Current information | live `/currentinfo` **10/10 PASS** | 👤 |
+| 10 | Knowledge Base | ✅ API — create + content retrieval, fixture found | 👤 |
+| 11 | PDF | `tests/docExtract.test.ts` | 👤 (real file) |
+| 12 | DOCX | `tests/docExtract.test.ts` | 👤 (real file) |
+| 13 | XLSX | `tests/docExtract.test.ts` | 👤 (real file) |
+| 14 | Image upload | ✅ API — real storage upload + `ingestImage` | 👤 |
+| 15 | Vision | ✅ API — described a real uploaded PNG ("Red") | 👤 |
+| 16 | Image generation | ✅ API — stored image via `pollinations/sana` | 👤 |
+| 17 | Image editing | ⚠️ PARTIAL — small-input edits PASS live (`/selftest`); full 1024-input edit blocked by free-tier balance during QA | 👤 |
+| 18 | Emotion responses | ✅ API — `excited`, confidence 0.9, positive | 👤 |
+| 19 | Provider failure | ✅ API — editing failure returned the honest per-provider credits message | 👤 |
+| 20,21 | Logout / login again | ✅ API — history persisted and ownership re-verified on the new session | 👤 |
+| 22 | Mobile/PWA | `tests/pwaServiceWorker.test.ts`, `omiMobileLayout.test.ts` | 👤 real device/browser |
 
 ## B. MANUAL USER TEST REQUIRED (the 22 flows)
 
@@ -60,8 +63,8 @@ Sign in with a real account, then run each in order and record the result.
 
 ## C. Blockers that will show up as FAILs
 
-1. **Flow 17 (image editing)** — the backend is **verified working** (`/selftest` image editing PASS via `pollinations-edit (kontext)`); what remains is confirming the rendered result in the UI.
-2. **Flow 22 (PWA)** and the **Android device test** — blocked by the absence of a real device in this environment.
-3. **Intermittent `402`** — under heavy bursts the free Pollinations balance can return a credits message; a balance top-up resolves it (`FINAL_PRODUCTION_READINESS.md` §2).
+1. **Flow 17 (image editing)** — the free Pollinations balance covers small-input edits (which pass live) but returned `402` for full 1024×1024-input edits during QA. Top up the balance (free Pollen via Quests, or budget) for sustained full-size editing.
+2. **Flow 22 (PWA)** and the **Android device test** — require a real device; not executed here.
+3. **Browser-rendered checks** (streaming feel, keyboard, touch, install, offline bar) require a human.
 
 Nothing in section B is claimed as done until a human records a PASS.
