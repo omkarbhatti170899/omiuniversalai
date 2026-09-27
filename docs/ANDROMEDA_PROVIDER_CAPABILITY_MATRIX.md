@@ -16,7 +16,121 @@
 
 ---
 
-## 1. Verdict summary
+## 0. THE CENTRAL FINDING — "free" is not the same as "free for commercial use"
+
+The brief is: *do not let Andromeda's core general search depend on a paid API.*
+That is a legitimate goal, and this section exists because pursuing it honestly
+produces one uncomfortable conclusion that must be stated before any matrix:
+
+> **Omi Universal AI is a commercial product. Almost every genuinely free
+> search provider is licensed for NON-COMMERCIAL use only.**
+
+Verified from Marginalia's own terms page, which publishes three tiers:
+
+| Marginalia tier | Terms |
+|---|---|
+| Free non-commercial key | *"Provided under **CC-BY-NC-SA 4.0**"* — NonCommercial + ShareAlike |
+| Paid non-commercial key | one-time payment, still CC-BY-NC-SA 4.0 |
+| Commercial | **metered paid key** — the only tier without a commercial restriction |
+
+**NC is a hard legal blocker for a commercial product.** "Free" and "licensed for
+our use" are different properties, and conflating them is how a project ends up
+shipping a licence violation it never noticed.
+
+The same pattern holds across the field: the providers that are free-for-any-use
+are either **scrapers** (whose "free" is really "we have not been blocked yet")
+or **too small to be a general-web answer**. The providers big enough to serve
+real general-web traffic are paid.
+
+### What this means for the plan
+
+A free-only general-web capability is achievable, but **not** by finding a free
+Google-sized index. It requires all three of:
+
+1. **Self-hosted SearXNG restricted to compliant engines** — keeps open-data and
+   permitted engines, gives up Google/Bing coverage. Honest, but thinner.
+2. **Specialized data sources** — already largely in place (GDELT, Wikipedia,
+   Open-Meteo, sports, FX). These carry the freshness-critical verticals better
+   than general web search does anyway.
+3. **Our own crawler + own index** — the only route to genuinely independent,
+   free-at-scale general web. This is Phase 6, and it is a real road, not a
+   weekend.
+
+**Recommendation:** accept that general-web coverage stays deliberately thin
+until the own index exists, and spend the effort on the crawler instead of on
+finding another free proxy. A thin honest index beats a broad one built on
+scraping we have to defend.
+
+---
+
+## 1. Free/open candidate verification (2026-09-27)
+
+### Mwmbl — priority 1, investigated
+
+| Question | Finding | Confidence |
+|---|---|---|
+| Actually free? | ✅ Yes. Non-profit, no ads, no profit | ✅ |
+| Independent index? | ✅ **Yes** — own index, community-crawled, distributed crawling across volunteer servers. It is *not* a Google proxy | ✅ |
+| Official API? | ⚠️ An endpoint exists (SearXNG ships a Mwmbl engine against it), but no first-class documented public API with an SLA | ⚠️ |
+| Free without paying? | ✅ Yes, no key, no billing | ✅ |
+| Commercial / AI use permitted? | ⚠️ **Code is AGPL-3.0, but AGPL covers the *software*, not necessarily use of the hosted *service*. Commercial use of the service is not clearly granted** | 🔍 **Must confirm** |
+| Display / reuse of results? | 🔍 Not clearly stated. Matters for an AI answer that cites them | 🔍 |
+| Rate limits? | ⚠️ Not published | 🔍 |
+| Reliability? | 🔴 **Low.** The project's own README: crawling is volunteer-run; index is *"much smaller than commercial search engines"* | ✅ |
+| Freshness? | 🔴 **Poor.** SearXNG's engine docs state Mwmbl *"does not support regions, languages, safe-search or time range"* | ✅ |
+| Result quality? | 🔴 Small index. Its own README says the core design *"has yet to be tested on any large scale"* | ✅ |
+| Self-host? | ✅ Yes — open source | ✅ |
+| License | ✅ **AGPL-3.0** | ✅ |
+| **Verdict** | 🔴 **Not suitable as a general-web provider.** Free, independent and genuinely open — but no time-range support makes it structurally incompatible with a freshness-first engine, and the index is too small to matter for current information. **Keep as a SearXNG engine; do not build a direct adapter** | — |
+
+### Marginalia Search — priority 2, investigated
+
+| Question | Finding | Confidence |
+|---|---|---|
+| Actually free? | ⚠️ **Free only for non-commercial use.** Key by email; the free tier is "Provided under CC-BY-NC-SA 4.0" | ✅ |
+| Independent index? | ✅ Yes — own crawler and index, explicitly non-commercial/text-heavy content | ✅ |
+| Official API? | ✅ `https://api2.marginalia-search.com/search?query=…`, `API-Key` header. Public key `public` for experimentation | ✅ |
+| Free without paying? | ✅ Yes, but **email-gated** and the public key "often hits a rate limit" (HTTP 503) | ✅ |
+| **Commercial / AI use permitted?** | 🔴 **NO on the free tier.** CC-BY-NC-SA 4.0 = NonCommercial. A **metered paid commercial key** exists and is the only unrestricted tier | ✅ |
+| Display / reuse? | ⚠️ NC/SA obligations on the free tier; commercial tier has "no commercial usage restriction or attribution requirement" | ✅ |
+| Rate limits? | ⚠️ **Shared across ALL consumers**; public key ≈15 queries/min. Custom filters not available on the public key | ✅ |
+| Reliability? | ⚠️ Small, volunteer project. Shared rate limit means other people's traffic can block ours | ✅ |
+| Freshness? | ✅ **Better than expected** — supports `temporal-bias: RECENT \| OLD \| NONE` filters and year constraints | ✅ |
+| Result quality? | ✅ Strong for its niche; useless outside it (indie/text-heavy sites only) | ✅ |
+| Self-host? | ✅ Open-source crawler + index software | ✅ |
+| License | ✅ Open source; API output under CC-BY-NC-SA 4.0 (free tier) | ✅ |
+| **Verdict** | ⛔ **Blocked on licence, not on price.** The free tier is NonCommercial and Omi is a commercial product. This is precisely the trap the central finding describes. **Also wrong index shape** for general web. Do not integrate | — |
+
+### OpenSERP — priority 3, "federation experiment"
+
+| Question | Finding | Confidence |
+|---|---|---|
+| What it actually is | ✅ `karust/openserp` — a **self-hosted, open-source SERP API and CLI** for **Google, Yandex, Baidu, Bing, DuckDuckGo and Ecosia**. No keys, no per-search billing | ✅ |
+| Actually free? | ✅ Yes — free software you run yourself | ✅ |
+| Independent index? | ⛔ **No.** It is a scraper front-end for other people's search engines | ✅ |
+| Official API? | ✅ Its own REST API — over **scraped** results | ✅ |
+| Commercial use permitted? | 🔴 **The licence of the software is not the issue — the upstream engines' terms are.** Google, Bing, Yandex, Baidu, DuckDuckGo and Ecosia all restrict or prohibit automated querying | ✅ |
+| **Verdict** | ⛔ **DO NOT INTEGRATE.** Self-hosting does not make this compliant — it removes the intermediary and puts *us* in direct breach, against **six** engines instead of one. This is the same category as the DuckDuckGo scraper already removed, but larger. A compliance review would fail it immediately | — |
+
+### Self-hosted SearXNG — continuing as the major aggregation layer
+
+| Question | Finding | Confidence |
+|---|---|---|
+| Actually free? | ✅ Software AGPL; self-hosting is free | ✅ |
+| Independent index? | ⚠️ No — metasearch. Its independence is bounded by its weakest enabled engine | ✅ |
+| Official API? | ✅ JSON output; you control the instance | ✅ |
+| Commercial use? | ⚠️ Software yes; **each enabled engine is a separate ToS question** | ⚠️ |
+| Freshness / quality / language | ✅ Good multilingual coverage — its main genuine strength | ✅ |
+| Self-host? | ✅ Yes | ✅ |
+| **Verdict** | 🟢 **Keep as the aggregation layer**, with the curated engine list already committed (google/bing/duckduckgo/startpage/qwant all disabled). This is the only free general-web layer that is *defensible* | — |
+
+### Also surfaced: YaCy (not previously considered)
+
+Open-source, **GPL**, self-hostable, P2P-distributed index. Named in Mwmbl's own README as *"the closest in spirit"* to a non-profit engine, while noting the distributed design *"slows the fetching of search results."* Genuinely free and open — but a heavy deployment and a small index. **Worth a look when the own-index track (Phase 6) starts, not for federation now.**
+
+---
+
+## 2. Verdict summary
 
 | Provider | Official API? | Verdict | One-line reason |
 |---|---|---|---|

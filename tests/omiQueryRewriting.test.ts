@@ -134,7 +134,7 @@ describe("query rewriting — only general-web providers see the variants", () =
     const p = plan("current USD INR rate");
     // A rate provider knows what to ask for; a rewrite only confuses it.
     expect(providersForVariant("searxng", p)).toBe(true);
-    expect(providersForVariant("mojeek", p)).toBe(true);
+    expect(providersForVariant("gdelt", p)).toBe(true);
     expect(providersForVariant("market-rates", p)).toBe(false);
     expect(providersForVariant("openmeteo", p)).toBe(false);
     expect(providersForVariant("sports-scores", p)).toBe(false);
@@ -142,7 +142,7 @@ describe("query rewriting — only general-web providers see the variants", () =
 
   it("names no provider that is not a registered general-web source", () => {
     for (const id of GENERAL_WEB_PROVIDERS) {
-      expect(["searxng", "mojeek", "gdelt", "commoncrawl"]).toContain(id);
+      expect(["searxng", "gdelt", "commoncrawl"]).toContain(id);
     }
   });
 });

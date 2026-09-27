@@ -1,6 +1,5 @@
 import { type SearchProvider } from "./types";
 import { createSearxProvider, searxngHealth, searxngHealthCached } from "./searxng";
-import { createMojeekProvider } from "./mojeek";
 import { createWikipediaProvider } from "./wikipedia";
 import { createWikidataProvider } from "./wikidata";
 import { createArxivProvider } from "./arxiv";
@@ -67,11 +66,35 @@ export type ProviderStatus = {
  *   Open-Meteo   — weather/structured open data (scope-gated, CC-BY attribution)
  *   Market rates — live FX (scope-gated, not financial advice)
  *   Sports DB    — live scorelines (scope-gated to the sports vertical)
- *   Mojeek       — independent crawler + own index, official API, explicit
- *                  "AI Usage" right. The first FEDERATED general-web engine:
- *                  it is not a Google wrapper, so it adds genuine ecosystem
- *                  independence. Needs a MOJEEK_API_KEY; reports not-ready
- *                  until one is supplied.
+ *
+ * GENERAL-WEB STRATEGY (2026-09-27, revised) — deliberately free/open.
+ * A paid general-web API (Brave $5/1000, Mojeek ~$5/1000) is NOT acceptable
+ * as a dependency of the core search path, so none is registered. The honest
+ * position is that general-web coverage is currently thin, and that is the
+ * accepted cost until Andromeda has its own index. See
+ * docs/ANDROMEDA_PROVIDER_CAPABILITY_MATRIX.md for the full evidence.
+ *
+ * Evaluated and rejected on licence/compliance grounds, recorded so the
+ * reasoning survives:
+ *   ⛔ DuckDuckGo — no official API; scraping a consumer SERP with a spoofed
+ *      User-Agent, and measured to return zero results. Removed.
+ *   ⛔ Qwant     — no official API; requires a reverse-engineered DataDome
+ *      anti-bot cookie. Bot-protection bypass. Never.
+ *   ⛔ Baidu     — no general web-search API at all.
+ *   ⛔ OpenSERP  — free and self-hostable, but it scrapes Google, Bing, Yandex,
+ *      Baidu, DuckDuckGo and Ecosia. Self-hosting does not make that compliant;
+ *      it puts us in direct breach of six engines instead of one.
+ *   ⛔ Marginalia — free tier is CC-BY-NC-SA 4.0 (**NonCommercial**). Omi is a
+ *      commercial product, so the free tier is not usable regardless of price.
+ *   🟡 Mwmbl    — free, independent, AGPL. But it supports no time range,
+ *      language or region, which is structurally incompatible with a
+ *      freshness-first engine. Kept as a SearXNG engine, not a direct adapter.
+ *
+ * So: general web is served by self-hosted SearXNG restricted to compliant
+ * engines, and the freshness-critical verticals are carried by the specialized
+ * open-data providers above, which do that job better than general web search
+ * would anyway. Long-term, the fix for general-web depth is our own crawler
+ * and index (Phase 6), not another free proxy.
  *
  * REMOVED — DuckDuckGo (2026-09-27, compliance). The previous general-web
  * fallback POSTed to `https://html.duckduckgo.com/html/` with a spoofed
@@ -117,7 +140,6 @@ const REGISTRY: SearchProvider[] = [
   createOpenMeteoProvider(),
   createMarketRatesProvider(),
   createSportsProvider(),
-  createMojeekProvider(),
 ];
 
 export function getConfiguredProviders(): SearchProvider[] {

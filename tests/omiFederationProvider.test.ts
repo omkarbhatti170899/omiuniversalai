@@ -1,132 +1,131 @@
 /**
- * REGRESSION — SEARCH FEDERATION: Mojeek added, DuckDuckGo scraper removed.
+ * REGRESSION — PROVIDER POLICY: free/open only, and no scraping.
  * =========================================================================
  *
- * Two changes, one root cause: Andromeda's general-web floor was a single
- * point of failure AND a compliance violation at the same time.
+ * This is now a POLICY test, not a snapshot test. It exists to stop two
+ * specific regressions from ever coming back:
  *
- * REMOVAL (2026-09-27, compliance). The previous fallback POSTed to
- * `https://html.duckduckgo.com/html/` — DuckDuckGo's no-JS consumer endpoint —
- * with a spoofed browser User-Agent. DuckDuckGo publishes no search API, so
- * that is scraping a consumer results page while defeating bot protection,
- * which the project forbids. It was also dead weight: measured twice on
- * 2026-09-26 it returns HTTP 202 with an "anomaly"/"challenge" body and zero
- * result links, so it could never return anything at all.
+ *   1. A PAID general-web API becoming a dependency of the core search path.
+ *      Brave (~$5/1000) and Mojeek (~$5/1000) were both evaluated and
+ *      deliberately NOT adopted — the product is free-first, and a metered
+ *      bill on the query path is not an acceptable foundation.
  *
- * ADDITION. Mojeek replaces it as the federated general-web floor. Verified
- * against Mojeek's own documentation before choosing it: official REST API,
- * its OWN crawler and index (so it is genuine ecosystem independence, not a
- * second view of Google's), and "AI Usage" sold as an explicit plan right.
- * See docs/ANDROMEDA_PROVIDER_CAPABILITY_MATRIX.md.
+ *   2. A SCRAPER being added as a "free" provider. That is the failure that
+ *      actually happened twice:
+ *        • DuckDuckGo — no official API; we scraped the no-JS consumer
+ *          endpoint with a spoofed browser User-Agent. Measured to return
+ *          zero results anyway. Removed.
+ *        • OpenSERP — free and self-hostable, but it scrapes Google, Bing,
+ *          Yandex, Baidu, DuckDuckGo and Ecosia. Self-hosting does not make
+ *          that compliant; it puts us in direct breach of six engines
+ *          instead of one.
  *
- * Rejected and recorded so the reasoning survives:
- *   Qwant — no official API; needs a reverse-engineered DataDome anti-bot
- *           cookie. Scraping. Never.
- *   Baidu — no general web-search API at all.
+ * And one licensing trap, which is the subtler of the three:
+ *        • Marginalia — free, but the free tier is CC-BY-NC-SA 4.0, i.e.
+ *          NON-COMMERCIAL. Omi is a commercial product, so "free" does not
+ *          mean "usable". Price was never the blocker; the licence was.
+ *
+ * Full evidence: docs/ANDROMEDA_PROVIDER_CAPABILITY_MATRIX.md
  */
 
 import { describe, expect, it } from "bun:test";
-import { getProviderStatus, getConfiguredProviders } from "../src/convex/searchProviders";
-import { createMojeekProvider } from "../src/convex/searchProviders/mojeek";
-import { MissingKeyError } from "../src/convex/searchProviders/types";
+import { getProviderStatus } from "../src/convex/searchProviders";
 import { freshnessPolicyFor } from "../src/convex/searchEngine/freshness";
 import { decideSearch } from "../src/convex/searchEngine/decision";
 
-describe("federation — the DuckDuckGo scraper is gone and stays gone", () => {
-  it("is NOT registered as a provider", () => {
-    const ids = getProviderStatus().map((p) => p.id);
-    expect(ids).not.toContain("duckduckgo");
+const ALL_PROVIDER_IDS = getProviderStatus().map((p) => p.id);
+
+/** Providers that must never appear: paid, or licence/compliance-blocked. */
+const FORBIDDEN = {
+  paid: ["brave", "mojeek", "kagi", "exa", "tavily", "serpapi", "serper"],
+  scrapers: ["duckduckgo", "openserp", "qwant", "baidu-scrape"],
+  nonCommercialLicence: ["marginalia"],
+} as const;
+
+describe("provider policy — the core search path is free/open", () => {
+  for (const id of FORBIDDEN.paid) {
+    it(`does NOT register the paid provider "${id}"`, () => {
+      expect(ALL_PROVIDER_IDS).not.toContain(id);
+    });
+  }
+
+  for (const id of FORBIDDEN.scrapers) {
+    it(`does NOT register the scraper "${id}"`, () => {
+      expect(ALL_PROVIDER_IDS).not.toContain(id);
+    });
+  }
+
+  for (const id of FORBIDDEN.nonCommercialLicence) {
+    it(`does NOT register the non-commercial-only provider "${id}"`, () => {
+      expect(ALL_PROVIDER_IDS).not.toContain(id);
+    });
+  }
+
+  it("no registered provider reports a paid cost", () => {
+    // Every registered source must be free/open. A metered provider that
+    // slipped into the registry would show up here as a cost note.
+    for (const p of getProviderStatus()) {
+      expect(p.cost).toMatch(/\$0/);
+    }
   });
 
-  it("appears in NO vertical's provider routing", () => {
-    // A removed provider that lingers in a routing list is a silent
-    // re-introduction: the orchestrator would try to reach an endpoint that
-    // no longer exists as an adapter.
-    const queries = [
-      "latest AI news",
-      "What is India's medal tally in Asian Games 2026?",
-      "latest election results",
-      "current USD INR rate",
-      "what is the weather in Mumbai",
-      "live sports score",
-      "latest flight status",
-      "Tell me a joke",
-    ];
-    for (const q of queries) {
-      const policy = freshnessPolicyFor(q, decideSearch(q).intent);
-      expect(policy.preferredProviders).not.toContain("duckduckgo");
+  it("no provider is configured via a commercial API key", () => {
+    // Guard against reintroducing a metered key path.
+    for (const p of getProviderStatus()) {
+      const hint = p.hint ?? "";
+      expect(hint).not.toMatch(/BRAVE_API_KEY|MOJEEK_API_KEY|SERP|TAVILY|EXA_API/i);
     }
   });
 });
 
-describe("federation — Mojeek is registered and honestly gated", () => {
-  it("is registered in the provider registry", () => {
-    const mojeek = getProviderStatus().find((p) => p.id === "mojeek");
-    expect(mojeek).toBeDefined();
-    expect(mojeek!.label).toContain("Mojeek");
-  });
+describe("provider policy — nothing routes to a removed provider", () => {
+  const QUERIES = [
+    "latest AI news",
+    "What is India's medal tally in Asian Games 2026?",
+    "latest election results",
+    "current USD INR rate",
+    "what is the weather in Mumbai",
+    "live sports score",
+    "latest flight status",
+    "Tell me a joke",
+  ];
 
-  it("is NOT ready without a key, and says why", () => {
-    // A keyed provider must never appear ready without credentials — that is
-    // how a hidden bill or a silent failure gets introduced.
-    const original = process.env.MOJEEK_API_KEY;
-    delete process.env.MOJEEK_API_KEY;
-    try {
-      const p = createMojeekProvider();
-      expect(p.isConfigured()).toBe(false);
-      expect(getConfiguredProviders().some((x) => x.id === "mojeek")).toBe(false);
-      const status = getProviderStatus().find((x) => x.id === "mojeek")!;
-      expect(status.ready).toBe(false);
-      expect(status.hint).toContain("MOJEEK_API_KEY");
-    } finally {
-      if (original !== undefined) process.env.MOJEEK_API_KEY = original;
-    }
-  });
+  const REMOVED = [
+    "duckduckgo",
+    "mojeek",
+    "brave",
+    "marginalia",
+    "openserp",
+    "qwant",
+  ];
 
-  it("is configured once a key is present", () => {
-    const original = process.env.MOJEEK_API_KEY;
-    process.env.MOJEEK_API_KEY = "test-key-not-real";
-    try {
-      expect(createMojeekProvider().isConfigured()).toBe(true);
-    } finally {
-      if (original === undefined) delete process.env.MOJEEK_API_KEY;
-      else process.env.MOJEEK_API_KEY = original;
-    }
-  });
+  for (const id of REMOVED) {
+    it(`"${id}" appears in no vertical's routing`, () => {
+      for (const q of QUERIES) {
+        const policy = freshnessPolicyFor(q, decideSearch(q).intent);
+        expect(policy.preferredProviders).not.toContain(id);
+      }
+    });
+  }
+});
 
-  it("throws MissingKeyError rather than silently searching without a key", async () => {
-    const original = process.env.MOJEEK_API_KEY;
-    delete process.env.MOJEEK_API_KEY;
-    try {
-      await expect(createMojeekProvider().search("test query", 5)).rejects.toThrow(
-        MissingKeyError,
-      );
-    } finally {
-      if (original !== undefined) process.env.MOJEEK_API_KEY = original;
-    }
-  });
-
-  it("is declared a general-web fallback in the current verticals", () => {
-    for (const q of [
+describe("provider policy — the surviving general-web floor is compliant", () => {
+  it("serves general web through SearXNG, which is self-hostable and curated", () => {
+    const policy = freshnessPolicyFor(
       "latest AI news",
-      "What is India's medal tally in Asian Games 2026?",
-      "latest election results",
-    ]) {
-      const policy = freshnessPolicyFor(q, decideSearch(q).intent);
-      expect(policy.preferredProviders).toContain("mojeek");
-    }
+      decideSearch("latest AI news").intent,
+    );
+    // SearXNG is the aggregation layer, not a scraper in itself — its
+    // compliance comes from the curated engine list in
+    // docs/SEARXNG_SELF_HOST_PLAN.md, which disables google/bing/ddg/startpage.
+    expect(policy.preferredProviders).toContain("searxng");
   });
 
-  it("declines image/video categories rather than burning quota", async () => {
-    const original = process.env.MOJEEK_API_KEY;
-    process.env.MOJEEK_API_KEY = "test-key-not-real";
-    try {
-      const p = createMojeekProvider();
-      expect((await p.search("q", 5, { category: "images" })).citations).toEqual([]);
-      expect((await p.search("q", 5, { category: "videos" })).citations).toEqual([]);
-    } finally {
-      if (original === undefined) delete process.env.MOJEEK_API_KEY;
-      else process.env.MOJEEK_API_KEY = original;
-    }
+  it("the freshness-critical verticals are carried by open data providers", () => {
+    // These do current information better than general web search would, and
+    // they are free/open — which is why the free-only policy is survivable.
+    const news = freshnessPolicyFor("latest AI news", decideSearch("latest AI news").intent);
+    expect(news.preferredProviders).toContain("gdelt");
+    expect(news.preferredProviders).toContain("wikipedia-current-events");
   });
 });

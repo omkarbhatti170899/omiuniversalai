@@ -838,16 +838,21 @@ describe("REGRESSION — the query sent to the engines is keyword-shaped", () =>
     // nothing for ~1 in 3 current queries after a 12s timeout. A current
     // question must not depend on it alone.
     //
-    // The fallback used to be DuckDuckGo, which was removed in 2026-09 for
-    // compliance: it has no official API, so using it meant scraping a
-    // consumer results page with a spoofed User-Agent, and it was already
-    // measured to return zero results. Mojeek replaced it as the federated
-    // general-web floor (see docs/ANDROMEDA_PROVIDER_CAPABILITY_MATRIX.md).
+    // The second fallback has changed twice, both times for compliance:
+    // DuckDuckGo (a consumer-SERP scraper, measured returning zero results)
+    // then Mojeek (official, but a PAID API — rejected because the product is
+    // free-first and a metered bill on the query path is not acceptable).
+    // The current verticals therefore lean on the open-data providers
+    // (gdelt, wikipedia-current-events) which serve freshness-critical
+    // current information better than general web search would anyway.
+    // See docs/ANDROMEDA_PROVIDER_CAPABILITY_MATRIX.md.
     for (const query of ["latest AI news", "What is India's medal tally in Asian Games 2026?", "latest election results"]) {
       const policy = freshnessPolicyFor(query, decideSearch(query).intent);
-      expect(policy.preferredProviders).toContain("mojeek");
-      // The removed scraper must not creep back into any routing list.
+      expect(policy.preferredProviders).toContain("gdelt");
+      // Neither a scraper nor a paid API may creep back into routing.
       expect(policy.preferredProviders).not.toContain("duckduckgo");
+      expect(policy.preferredProviders).not.toContain("mojeek");
+      expect(policy.preferredProviders).not.toContain("brave");
     }
   });
 });
