@@ -20,4 +20,15 @@ crons.daily(
   internal.omiKnowledgeIntelligence.sweepAllUsersInternal,
 );
 
+// Measure the general-web floor (SearXNG + DuckDuckGo) on a schedule so their
+// readiness verdicts stay live without depending on a /status visit. SearXNG
+// readiness is MEASURED (a configured base URL alone is never enough), so a
+// self-hosted instance becomes ready within one cycle while a broken one keeps
+// reporting honestly.
+crons.interval(
+  "general web health",
+  { minutes: 5 },
+  internal.omiHealth.warmWebHealth,
+);
+
 export default crons;

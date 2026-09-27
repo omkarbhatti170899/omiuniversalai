@@ -11,6 +11,9 @@ A feature is marked **DONE** only when it has passed BUILD → TEST → ERROR HA
 SECURITY CHECK → and a live/deployed check where one is possible here. Nothing is marked
 100% because of a green build alone. Every PARTIAL/BLOCKED item states why.
 
+> The current provider-level, per-phase production audit (with measured verdicts and
+exact unblock actions) lives in **[docs/FINAL_PRODUCTION_READINESS.md](docs/FINAL_PRODUCTION_READINESS.md)**.
+
 ---
 
 ## Verification gate (measured this run)

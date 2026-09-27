@@ -277,14 +277,23 @@ export function createSearxProvider(): SearchProvider {
       ? ""
       : "Set SEARXNG_BASE_URL to your own SearXNG instance with the JSON format enabled (settings.yml → search.formats: [html, json]). The public instances were measured on 2026-09-26 and all return HTML instead of JSON, so Omi does not count them as a working general-web source.",
     /**
-     * HONEST readiness. The previous value was `() => true`, which made the
-     * status page, the Settings UI and the self-test all report a working
-     * general-web engine that could never return a single result. Readiness
-     * now means "either you configured your own instance, or a probe has
-     * confirmed a public instance actually serves JSON".
+     * HONEST readiness — MEASURED, never inferred from configuration alone.
+     *
+     * The previous value was `() => true`, which made the status page, the
+     * Settings UI and the self-test all report a working general-web engine
+     * that could never return a single result. The next version returned true
+     * the moment `SEARXNG_BASE_URL` was set — still a lie: a configured
+     * instance that answers 403/HTML (every public instance measured
+     * 2026-09-27, including the requested searx.tiekoetter.com → 403) is not
+     * a working search source, and "a base URL exists" is exactly the
+     * "key exists ⇒ READY" trap the self-test is built to avoid.
+     *
+     * Readiness now means one thing only: a probe has confirmed an instance
+     * that actually serves the JSON API. `/status`, `/selftest` and the
+     * scheduled `warmWebHealth` cron warm this verdict, so a correctly
+     * self-hosted instance becomes ready on its own within one probe cycle.
      */
-    isConfigured: () =>
-      configuredBase !== undefined || SEARXNG_FLOOR_HEALTHY || (lastProbe?.healthy ?? false),
+    isConfigured: () => SEARXNG_FLOOR_HEALTHY || lastProbe?.healthy === true,
 
     async search(
       query,

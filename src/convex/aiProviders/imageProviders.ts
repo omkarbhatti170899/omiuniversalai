@@ -259,9 +259,20 @@ export async function runImageOp(args: {
   };
 }
 
-/** First configured env value for a provider (never logged or returned). */
+/**
+ * First configured env value for a provider (never logged or returned).
+ *
+ * Trimmed before use: a credential pasted through a dashboard very often
+ * carries a trailing newline or a wrapping space, and `Bearer <key>\n` is
+ * rejected as 401 — which then reads to the user as "the key is wrong" when
+ * the key was fine. Whitespace is never meaningful in these tokens.
+ */
 function envKeyFor(p: { envKeys: string[] }): string {
-  return p.envKeys.map((k) => process.env[k] ?? "").find((v) => v.length > 0) ?? "";
+  return (
+    p.envKeys
+      .map((k) => (process.env[k] ?? "").trim())
+      .find((v) => v.length > 0) ?? ""
+  );
 }
 
 type Raw = { ok: boolean; bytes?: Uint8Array; mimeType?: string; w?: number; h?: number; error?: string };

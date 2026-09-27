@@ -1,8 +1,9 @@
-import { query } from "./_generated/server";
+import { query, internalAction } from "./_generated/server";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
 import { deriveProposals } from "./omiImprove";
+import { warmGeneralWebHealth } from "./searchProviders";
 
 /**
  * OMI workspace health (master plan Phase 11/13 observability).
@@ -17,6 +18,24 @@ import { deriveProposals } from "./omiImprove";
  * (master plan §11: PROPOSE → TEST → VERIFY → APPROVE → DEPLOY); nothing here
  * mutates prompts or routing automatically.
  */
+/**
+ * Periodically re-measure the general-web floor (SearXNG + DuckDuckGo).
+ *
+ * SearXNG readiness is now MEASURED (see searchProviders/searxng.ts): a
+ * configured base URL is not enough — a probe must confirm the instance
+ * actually serves the JSON API. Without a scheduled probe a correctly
+ * self-hosted instance would stay unready until somebody happened to open
+ * /status. This cron warms the cached verdict every few minutes so readiness
+ * converges on its own, while a broken instance keeps reporting honestly.
+ */
+export const warmWebHealth = internalAction({
+  args: {},
+  handler: async () => {
+    await warmGeneralWebHealth();
+    return null;
+  },
+});
+
 export const workspaceHealth = query({
   args: {},
   handler: async (ctx) => {
