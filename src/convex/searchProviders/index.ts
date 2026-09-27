@@ -2,6 +2,7 @@ import { type SearchProvider } from "./types";
 import { createSearxProvider, searxngHealth, searxngHealthCached } from "./searxng";
 import { createMwmblProvider } from "./mwmbl";
 import { createDuckDuckGoInstantProvider } from "./duckduckgoInstant";
+import { createLangSearchProvider } from "./langsearch";
 import { createWikipediaProvider } from "./wikipedia";
 import { createWikidataProvider } from "./wikidata";
 import { createArxivProvider } from "./arxiv";
@@ -70,6 +71,12 @@ export type ProviderStatus = {
  *   Sports DB    — live scorelines (scope-gated to the sports vertical)
  *   Mwmbl        — free, AGPL, non-profit, OWN index, official keyless API
  *   DDG Instant  — official keyless API, encyclopedic entities
+ *   LangSearch   — TEMPORARY evaluation adapter, OFF by default. Gated on
+ *                  ENABLE_LANGSEARCH=true AND LANGSEARCH_API_KEY. It is a
+ *                  RESELLER (its pricing page publishes upstream Tavily/Exa/
+ *                  Brave rates), not an independent index, and its free tier
+ *                  is bounded by a daily token allowance. Added to be
+ *                  BENCHMARKED, never to be a sole dependency.
  *
  * TWO PROVIDERS THAT DELIBERATELY RETURN NO DATES: Mwmbl and DuckDuckGo
  * Instant Answers. Both were measured live on 2026-09-27 and neither includes
@@ -160,6 +167,8 @@ const REGISTRY: SearchProvider[] = [
   createSportsProvider(),
   createMwmblProvider(),
   createDuckDuckGoInstantProvider(),
+  // Feature-gated and off by default; never a replacement for anything.
+  createLangSearchProvider(),
 ];
 
 export function getConfiguredProviders(): SearchProvider[] {
@@ -197,11 +206,35 @@ export function getProviderStatus(): ProviderStatus[] {
     // snapshot is built (see /status → warmGeneralWebHealth).
     ready: p.id === "searxng" ? (searxngHealthCached()?.healthy ?? false) : p.isConfigured(),
     enabled: true,
-    cost:
-      p.id === "openverse"
-        ? "$0 (anonymous, upstream rate-limited)"
-        : "$0 per query",
-    requiresKey: p.id === "searxng" && !process.env.SEARXNG_BASE_URL,
+    cost: PROVIDER_COST[idOf(p)] ?? "$0 per query",
+    // MEASURED GAP FIXED: this used to be hardcoded to SearXNG, so a
+    // key-gated provider reported requiresKey:false in the status surface —
+    // telling an operator a provider needed no credentials when it plainly
+    // does. It is now derived per provider.
+    requiresKey: KEYED_PROVIDER_IDS.has(idOf(p)),
     hint: p.missingKeyHint,
   }));
 }
+
+function idOf(p: SearchProvider): string {
+  return p.id;
+}
+
+/**
+ * Per-provider cost statements. Kept honest rather than uniformly "$0":
+ * a status page that says "free" for a provider with a daily token
+ * allowance and published paid tiers is not being truthful, even if today's
+ * usage happens to cost nothing.
+ */
+const PROVIDER_COST: Record<string, string> = {
+  openverse: "$0 (anonymous, upstream rate-limited)",
+  langsearch:
+    "$0 on the free plan — but bounded by a daily token allowance, and it " +
+    "resells Tavily/Exa/Brave (paid tiers exist). Temporary evaluation only.",
+  searxng: "$0 (self-hosted)",
+  mwmbl: "$0 (keyless, open source)",
+  "duckduckgo-instant": "$0 (keyless, official API)",
+};
+
+/** Providers that cannot serve without a credential of some kind. */
+const KEYED_PROVIDER_IDS = new Set(["searxng", "langsearch"]);

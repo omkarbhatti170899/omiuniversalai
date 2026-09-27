@@ -109,6 +109,7 @@ import type * as searchProviders_gdelt from "../searchProviders/gdelt.js";
 import type * as searchProviders_github from "../searchProviders/github.js";
 import type * as searchProviders_hackernews from "../searchProviders/hackernews.js";
 import type * as searchProviders_index from "../searchProviders/index.js";
+import type * as searchProviders_langsearch from "../searchProviders/langsearch.js";
 import type * as searchProviders_markets from "../searchProviders/markets.js";
 import type * as searchProviders_mwmbl from "../searchProviders/mwmbl.js";
 import type * as searchProviders_openalex from "../searchProviders/openalex.js";
@@ -238,6 +239,7 @@ declare const fullApi: ApiFromModules<{
   "searchProviders/github": typeof searchProviders_github;
   "searchProviders/hackernews": typeof searchProviders_hackernews;
   "searchProviders/index": typeof searchProviders_index;
+  "searchProviders/langsearch": typeof searchProviders_langsearch;
   "searchProviders/markets": typeof searchProviders_markets;
   "searchProviders/mwmbl": typeof searchProviders_mwmbl;
   "searchProviders/openalex": typeof searchProviders_openalex;

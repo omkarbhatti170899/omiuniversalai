@@ -86,6 +86,61 @@ GDELT is keyless. The message told a user to go and add an API key that does not
 
 ---
 
-## 7. Next step this benchmark implies
+## 7. LangSearch — investigated, adapter built, NOT yet benchmarked
 
-Add **self-hosted SearXNG** to the harness as a first-class measured provider, re-run, and only then decide the general-web ordering. Until then the comparison is incomplete — and an incomplete comparison is not a basis for choosing a provider.
+**Status: adapter built and feature-gated. No performance claim is made, because none has been measured.**
+
+### What LangSearch is (verified against its own docs, 2026-09-27)
+
+| Question | Finding |
+|---|---|
+| Official API? | ✅ `POST https://api.langsearch.com/v1/web-search`, bearer auth. Verified live: a bad key returns a structured `{"code":"401",...}` in ~770 ms |
+| Free quota | ✅ Free plan, **$0/month**; input and output tokens both **$0 per million**. Bounded by **RPS / TPM / TPD** (a daily token allowance resetting at 00:00 UTC) |
+| RPS / TPM | ✅ **5 RPS** for new accounts; TPM is a rolling 60-second window; no separate requests-per-minute/day quota — the binding constraint is **tokens** |
+| API stability | ✅ Good first impression: structured JSON errors, `log_id` on every failure, documented `Retry-After` behaviour |
+| Freshness behaviour | ✅ **The strongest of any candidate.** Returns `datePublished` per result, and `freshness` accepts `oneDay`/`oneWeek`/`oneMonth`/`oneYear`, a **single UTC date**, or an **inclusive date range** |
+| Multilingual | ⚠️ Not stated. Unverified |
+| Full page extraction | ✅ `contents.text` — 5 000 chars default, configurable per result |
+| Source URLs | ✅ Real source URLs per result, explicitly documented as the thing to retain for citations |
+| Date filtering | ✅ Yes, including exact dates/ranges. Docs correctly warn it "uses source metadata, not a guarantee that a page was crawled during that window" |
+
+### The material caveat — it is a reseller, not an index
+
+**Its pricing page publishes the upstream rates it resells**: Tavily basic search at **$8/1k**, plus its own "advanced" multipliers, with references to Exa and Brave. Paid monthly plans exist ($30 / 4 000 credits upward).
+
+Two consequences, and they point in opposite directions:
+
+1. **It is not the same compliance problem as scraping.** Reselling a *licensed* upstream API is legitimate — categorically different from the DuckDuckGo consumer-SERP scrape that was removed. Its own docs also tell integrators not to expose the key in a browser bundle.
+2. **It IS a paid API in the supply chain.** The free tier is real today at $0, but it is a promotional allowance on a commercial aggregator, bounded by a daily token cap. Full-text extraction spends output tokens, so the allowance is finite. **This is a bounded trial, not a foundation** — and it does not satisfy the "no paid API in the core path" decision.
+
+### Why it is still worth evaluating
+
+Mwmbl and DuckDuckGo Instant both measured **0% dated results**. The only 100%-fresh providers are `wikipedia-current-events` and `hackernews`, which are narrowly scoped. LangSearch returning `datePublished` **and** accepting an exact-date filter is precisely what the freshness escalation pass needs — it currently appends a `YYYY-MM-DD` date to the query string as a crude proxy. If it measures well, that crude proxy could become a real filter.
+
+### Implementation state
+
+- `src/convex/searchProviders/langsearch.ts` — behind the existing `SearchProvider` interface.
+- **Feature-gated OFF by default:** requires `ENABLE_LANGSEARCH=true` **and** `LANGSEARCH_API_KEY`. A key alone does not enable it, so a stray secret in production cannot switch on a metered provider.
+- **Never a sole provider:** SearXNG, GDELT, `wikipedia-current-events` and Mwmbl all remain registered.
+- **Key containment asserted by test:** the adapter never reads `import.meta.env` (the only Vite bundling path), reads the key only from the server environment, and the key never appears in the registry, provider status, health snapshot, hint text or any citation.
+- Added to `scripts/providerBenchmark.ts`, which **refuses to report a number for it** while unconfigured.
+
+### Why it is not yet benchmarked
+
+`LANGSEARCH_API_KEY` and `ENABLE_LANGSEARCH` are not set, and this environment cannot set them. The benchmark prints:
+
+```
+# SKIPPED langsearch: needs ENABLE_LANGSEARCH=true and LANGSEARCH_API_KEY.
+#   No number is reported for it rather than a fabricated one.
+```
+
+**No accuracy, latency, freshness or source-quality number for LangSearch exists yet.** The brief said to keep it if it materially improves current-information retrieval — that judgement requires a measurement that has not been made.
+
+## 8. Benchmark honesty fix (found in this run)
+
+The first run of this harness reported **SearXNG at 0% availability across 51 queries**, which would have implied the production general-web provider was dead. It was not — SearXNG simply had no `SEARXNG_BASE_URL` in that shell, so every call threw `MissingKeyError`. The harness was counting "not configured" as "failed", which is a **fabricated finding**.
+
+Fixed: an unconfigured provider is now printed as `NOT CONFIGURED — not measured` and excluded from the table entirely. The run above shows the corrected behaviour.
+
+**Consequence for the comparison:** SearXNG remains unmeasured. It must be run from a shell where `SEARXNG_BASE_URL` is set, or from the deployed environment, before any provider ordering is decided.
+

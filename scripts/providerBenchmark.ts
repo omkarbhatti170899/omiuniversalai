@@ -30,6 +30,8 @@
 
 import { createMwmblProvider } from "../src/convex/searchProviders/mwmbl";
 import { createDuckDuckGoInstantProvider } from "../src/convex/searchProviders/duckduckgoInstant";
+import { createLangSearchProvider, isLangSearchConfigured } from "../src/convex/searchProviders/langsearch";
+import { createSearxProvider } from "../src/convex/searchProviders/searxng";
 import { createWikipediaCurrentEventsProvider } from "../src/convex/searchProviders/wikipediaCurrentEvents";
 import { createGdeltProvider } from "../src/convex/searchProviders/gdelt";
 import { createHackerNewsProvider } from "../src/convex/searchProviders/hackernews";
@@ -120,6 +122,15 @@ const CASES: Case[] = [
 const PROVIDERS: Array<{ p: SearchProvider; categories?: Category[] }> = [
   { p: createMwmblProvider() },
   { p: createDuckDuckGoInstantProvider() },
+  // The PRODUCTION general-web provider. It was missing from the first
+  // benchmark run, which made any "X beats SearXNG" claim unsupportable.
+  { p: createSearxProvider() },
+  // Temporary evaluation adapter. Skipped (with a printed reason) unless
+  // ENABLE_LANGSEARCH=true and LANGSEARCH_API_KEY are both set — the benchmark
+  // must never invent numbers for a provider it could not actually call.
+  ...(isLangSearchConfigured()
+    ? [{ p: createLangSearchProvider() } as { p: SearchProvider; categories?: Category[] }]
+    : []),
   { p: createWikipediaCurrentEventsProvider(), categories: ["current-news"] },
   { p: createGdeltProvider(), categories: ["current-news", "international", "india"] },
   { p: createHackerNewsProvider(), categories: ["technology"] },
@@ -212,12 +223,36 @@ function pct(n: number): string {
 async function main() {
   console.log(`# ANDROMEDA PROVIDER BENCHMARK`);
   console.log(`# ${CASES.length} queries x ${PROVIDERS.length} providers`);
+  if (!isLangSearchConfigured()) {
+    console.log(
+      `# SKIPPED langsearch: needs ENABLE_LANGSEARCH=true and LANGSEARCH_API_KEY.`,
+    );
+    console.log(
+      `#   No number is reported for it rather than a fabricated one. Set the env vars and re-run.`,
+    );
+  }
   console.log(`# relevance = lexical-overlap PROXY, not a correctness judgement\n`);
 
   const totals = new Map<string, Row[]>();
+  const notConfigured = new Set<string>();
 
   for (const { p, categories } of PROVIDERS) {
     const applicable = CASES.filter((c) => !categories || categories.includes(c.category));
+
+    // HONESTY FIX: an unconfigured provider is NOT a 0%-availability provider.
+    // Reporting MissingKeyError for all N queries as "failures" invents a
+    // performance finding that was never measured. The first run of this
+    // benchmark did exactly that to SearXNG and would have wrongly implied the
+    // production general-web provider was dead.
+    if (!p.isConfigured()) {
+      notConfigured.add(p.id);
+      console.log(
+        `${p.id}: `.padEnd(24) +
+          "NOT CONFIGURED - not measured (no result recorded)",
+      );
+      continue;
+    }
+
     const rows: Row[] = [];
     process.stdout.write(`${p.id}: `.padEnd(24));
     for (const c of applicable) {
@@ -280,6 +315,17 @@ async function main() {
   }
 
   console.log(`\n## Interpretation guardrails\n`);
+  if (notConfigured.size > 0) {
+    console.log(
+      `- NOT MEASURED (unconfigured in this environment): ${[...notConfigured].join(", ")}.`,
+    );
+    console.log(
+      `  Excluded from the table entirely. An unconfigured provider has no`,
+    );
+    console.log(
+      `  availability figure - reporting 0% would be a fabricated finding.`,
+    );
+  }
   console.log(`- "avail" = returned at least one result, NOT "correct".`);
   console.log(`- "rel(proxy)" is lexical overlap only. It cannot detect a`);
   console.log(`  plausible-but-wrong answer, and a high score is NOT evidence`);
