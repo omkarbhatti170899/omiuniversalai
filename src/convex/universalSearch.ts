@@ -389,15 +389,21 @@ export function extractiveBrief(
       .split(/(?<=[.!?])\s+/)
       .map((s) => s.trim())
       .filter((s) => s.length > 40 && s.length < 400);
-    for (const s of parts) {
+    parts.forEach((s, partIndex) => {
       const lower = s.toLowerCase();
       let score = 0;
       for (const k of keywords) {
         if (lower.includes(k)) score += 2;
       }
       if (/\b(is|are|means|refers to|defined as)\b/i.test(s)) score += 1;
+      // The LEAD sentence of a source is its headline fact. Without a baseline
+      // it was dropped whenever it shared no keyword with the question — which
+      // is exactly what happened to a live scoreboard: "Portland Thorns v
+      // Houston Dash — in play (1H), 0 – 0." matched no question word, so the
+      // no-AI answer omitted every score and showed only the caveat.
+      if (partIndex === 0) score += 2;
       if (score > 0) sentences.push({ text: s, idx: idx + 1, score });
-    }
+    });
   });
 
   sentences.sort((a, b) => b.score - a.score);

@@ -468,7 +468,10 @@ export function freshnessInstruction(policy: FreshnessPolicy): string {
     `• Lead your answer with a freshness line, e.g. "Based on reports published today, …"\n` +
     `• Use ONLY the dates shown below. Never estimate or invent a date.\n` +
     `• If the results do not actually answer the question, say so — do NOT fill the gap from your own training data.\n` +
-    `• This is ${policy.label.toLowerCase()}, not a real-time ${policy.vertical} database: if the question needs a live score, rate or forecast that is not in the results, say you could not verify it.`
+    `• This is ${policy.label.toLowerCase()}, not a real-time ${policy.vertical} database: if the question needs a live score, rate or forecast that is not in the results, say you could not verify it.` +
+    (policy.vertical === "sports"
+      ? `\n• For a scoreboard question, name each match and print its scoreline (e.g. "Portland Thorns 0–0 Houston Dash, 5' in play"). Never summarise the collection without the scores.`
+      : "")
   );
 }
 

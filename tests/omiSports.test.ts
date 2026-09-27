@@ -12,6 +12,7 @@
  */
 import { describe, expect, it } from "bun:test";
 
+import { extractiveBrief } from "../src/convex/universalSearch";
 import {
   composeEventCitation,
   detectSport,
@@ -27,6 +28,7 @@ import {
   type SportsEvent,
 } from "../src/convex/searchProviders/sports";
 import {
+  freshnessInstruction,
   freshnessPolicyFor,
   isLiveWeatherRequest,
   scoreDemanded,
@@ -335,5 +337,86 @@ describe("next-fixture disclosure", () => {
   it("keeps the sample caveat for a broad today's-sweep", () => {
     const c = composeEventCitation(played, { now: 1_700_000_000_000, disclosure: "today-selection" });
     expect(c!.snippet).toContain("small selection of today's fixtures");
+  });
+});
+
+// --- The live scoreboard (livescore.php) ------------------------------------
+//
+// MEASURED 2026-09-27: `livescore.php?s=Soccer` returns in-play matches with
+// real scorelines and no key. A "live sports score" question must be answered
+// from this board — a score, not a schedule.
+describe("live scoreboard", () => {
+  const inPlay = {
+    strHomeTeam: "Portland Thorns",
+    strAwayTeam: "Houston Dash",
+    intHomeScore: "2",
+    intAwayScore: "1",
+    strStatus: "1H",
+    strProgress: "45'",
+    strLeague: "American NWSL",
+    idLeague: "4521",
+    idHomeTeam: "136426",
+  };
+
+  it("shows the current scoreline and the in-play clock", () => {
+    const c = composeEventCitation(inPlay, { now: 1_700_000_000_000, disclosure: "live-in-play" });
+    expect(c).not.toBeNull();
+    expect(c!.title).toContain("Portland Thorns v Houston Dash");
+    expect(c!.title).toContain("2 – 1");
+    expect(c!.title).toContain("45'");
+    expect(c!.snippet).toContain("in play");
+  });
+
+  it("states the board is live-only, not the day's completed results", () => {
+    const c = composeEventCitation(inPlay, { now: 1_700_000_000_000, disclosure: "live-in-play" });
+    expect(c!.snippet).toContain("in play right now");
+    expect(c!.snippet).toContain("Completed results from earlier today are not included");
+    // It must NOT claim to be today's full fixture list — it is not.
+    expect(c!.snippet).not.toContain("small selection of today's fixtures");
+  });
+
+  it("still stamps the observation time as the freshness" , () => {
+    const now = 1_700_000_000_000;
+    const c = composeEventCitation(inPlay, { now, disclosure: "live-in-play" });
+    expect(c!.publishedAt).toBe(new Date(now).toISOString());
+  });
+
+  it("keeps the scoreline in the no-AI source extract", () => {
+    // Regression: the extractive brief ranked by keyword overlap, so a
+    // scoreboard's lead line ("Portland Thorns v Houston Dash — in play (1H),
+    // 0 – 0.") shared no word with "Live sports score" and was dropped. The
+    // user saw only "live scoreboard…" with no scores anywhere.
+    const brief = extractiveBrief("Live sports score", [
+      {
+        title: "Portland Thorns v Houston Dash 0 – 0 (American NWSL · 45')",
+        url: "https://www.thesportsdb.com/team/136426",
+        snippet:
+          "Portland Thorns v Houston Dash — in play (1H), 0 – 1. " +
+          "Competition: American NWSL. " +
+          "Live scoreboard: these matches are in play right now, as reported by the feed.",
+        publishedAt: new Date().toISOString(),
+      },
+    ]);
+    expect(brief).toContain("Portland Thorns v Houston Dash");
+    expect(brief).toContain("0 – 1");
+  });
+
+  it("tells the model to print the scoreline, not just the caveat", () => {
+    // A weak model answered a scoreboard question with only the disclosure
+    // sentence, hiding the actual scores. The prompt now requires the scores.
+    const block = freshnessInstruction(freshnessPolicyFor("Live sports score"));
+    expect(block).toMatch(/print its scoreline/);
+    expect(block).toMatch(/Never summarise the collection without the scores/);
+    // A non-sports vertical must not carry the sports rule.
+    expect(freshnessInstruction(freshnessPolicyFor("latest news in India"))).not.toMatch(/scoreline/);
+  });
+
+  it("never shows a clock for a match that is not in play", () => {
+    const c = composeEventCitation(
+      { ...inPlay, strStatus: "FT", strProgress: "45'" },
+      { now: 1_700_000_000_000, disclosure: "named-team" },
+    );
+    expect(c!.title).not.toContain("45'");
+    expect(c!.snippet).not.toContain("In play:");
   });
 });

@@ -76,14 +76,26 @@ export function parseCurrentEvents(wikitext: string): ParsedEvent[] {
     text = text.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2");
     text = text.replace(/\[\[([^\]]+)\]\]/g, "$1");
 
-    const cite = /\[(https?:\/\/[^\s\]]+)\s*\(([^)]+)\)\]/.exec(text);
+    // A bullet routinely carries MORE THAN ONE citation (e.g. an AP report and
+    // a BBC report). Only stripping the first one left the remaining
+    // `[https://… (Source)]` markup inside the text, which then leaked into
+    // titles and into the answer the model read. Strip them ALL; keep the
+    // first as the primary URL.
     let url: string | undefined;
     let source: string | undefined;
-    if (cite) {
-      url = cite[1];
-      source = cite[2];
-      text = text.replace(cite[0], "").replace(/[\s,;.]+$/, "");
+    const CITE_RE = /\[(https?:\/\/[^\s\]]+)\s*\(([^)]+)\)\]/g;
+    for (const m of text.matchAll(CITE_RE)) {
+      if (!url) {
+        url = m[1];
+        source = m[2];
+      }
     }
+    text = text.replace(CITE_RE, "");
+    // A citation whose source name was missing still leaves a bare
+    // `[https://…]`; drop those too. Then tidy the resulting punctuation gap.
+    text = text.replace(/\[https?:\/\/[^\s\]]*\]/g, "");
+    text = text.replace(/[\s,;.]+$/, "");
+    text = text.replace(/\s+([,;.])/g, "$1");
     // Drop templates and leftover markup.
     text = text
       .replace(/\{\{[^}]*\}\}/g, "")
@@ -233,6 +245,22 @@ export async function currentEvents(now = new Date()): Promise<{
   return { events: result.events, publishedAt: result.publishedAt, date: todayKey };
 }
 
+/**
+ * Trim text to a length WITHOUT cutting a word or a URL in half.
+ *
+ * A title ending in "…more. [https://apnew" is not a title, it is a bug: the
+ * reader sees a broken link fragment where a sentence should end. Cut on a
+ * word boundary and add an ellipsis only when something was actually dropped.
+ */
+export function clipTitle(text: string, max: number): string {
+  const t = (text ?? "").trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  const body = lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut;
+  return `${body.replace(/[\s,;:.]+$/, "")}…`;
+}
+
 export function createWikipediaCurrentEventsProvider(): SearchProvider {
   return {
     id: "wikipedia-current-events",
@@ -250,7 +278,7 @@ export function createWikipediaCurrentEventsProvider(): SearchProvider {
       const picked = rankEvents(events, query, Math.min(Math.max(numResults * 2, 6), 20));
 
       const citations: WebCitation[] = picked.map((e) => ({
-        title: `${e.section}: ${e.text.slice(0, 180)}`,
+        title: `${e.section}: ${clipTitle(e.text, 180)}`,
         // The primary report, not the portal summary, is what the user opens.
         url: e.url ?? "https://en.wikipedia.org/wiki/Portal:Current_events",
         snippet: e.text.slice(0, 600),

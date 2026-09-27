@@ -182,6 +182,8 @@ export type SportsEvent = {
   idLeague?: string | null;
   idHomeTeam?: string | null;
   idAwayTeam?: string | null;
+  /** Live-scoreboard-only: the in-play clock (e.g. "45'") or period label. */
+  strProgress?: string | null;
 };
 
 function scoreOf(v: string | number | null | undefined): number | null {
@@ -217,7 +219,13 @@ export type SportsDisclosure =
   /** The named team's own next fixture, which has not been played. */
   | "next-fixture"
   /** The named team's own match today, so the sample caveat does not apply. */
-  | "named-team";
+  | "named-team"
+  /**
+   * The live scoreboard (`livescore.php`): matches in play RIGHT NOW. Only
+   * used when the feed actually reports in-play matches, so the caveat is
+   * about scopeness (live only, not full-time results), not about staleness.
+   */
+  | "live-in-play";
 
 const DISCLOSURE_TEXT: Record<SportsDisclosure, string> = {
   "today-selection":
@@ -225,6 +233,9 @@ const DISCLOSURE_TEXT: Record<SportsDisclosure, string> = {
   "next-fixture":
     "This is the team's NEXT fixture, not a played match — it has no score yet. " +
     "Omi is showing the schedule because the feed reports no live or completed match for this team today.",
+  "live-in-play":
+    "Live scoreboard: these matches are in play right now, as reported by the feed. " +
+    "Completed results from earlier today are not included.",
   "named-team": "",
 };
 
@@ -248,7 +259,12 @@ export function composeEventCitation(
 
   const titleParts = [name];
   if (score) titleParts.push(score);
-  const context = [league, when ? when.replace("T", " ") : (e.strTime ?? "").trim()]
+  const progress = (e.strProgress ?? "").trim();
+  const context = [
+    league,
+    progress && isLiveStatus(e.strStatus) ? progress : "",
+    when ? when.replace("T", " ") : (e.strTime ?? "").trim(),
+  ]
     .filter(Boolean)
     .join(" · ");
   if (context) titleParts.push(`(${context})`);
@@ -257,6 +273,7 @@ export function composeEventCitation(
     `${name} — ${statusPhrase(e)}${score ? `, ${score}` : ""}.`,
   ];
   if (league) snippetParts.push(`Competition: ${league}.`);
+  if (progress && isLiveStatus(e.strStatus)) snippetParts.push(`In play: ${progress}.`);
   if (when) snippetParts.push(`Scheduled/kicked off ${when.replace("T", " ")} (as given by the feed).`);
   if (disclosure === "next-fixture" && !score) {
     snippetParts[0] = `${name} has not been played yet — no score exists for it.`;
@@ -381,6 +398,44 @@ async function eventsForSports(sports: string[], now: number): Promise<SportsEve
   return all;
 }
 
+/**
+ * `livescore.php` — the feed's dedicated in-play scoreboard.
+ *
+ * MEASURED 2026-09-27 with the free key: `livescore.php?s=Soccer` returned 43
+ * in-play matches with real `intHomeScore`/`intAwayScore`/`strStatus`/`strProgress`
+ * and no key required. Unlike `eventsday.php` (which lists the day's fixtures,
+ * many of them not yet started), this returns ONLY matches in play, so a
+ * "live score" question gets an actual scoreline instead of a schedule.
+ *
+ * A 30 s cache: the board is genuinely live, so a fresh reading every half
+ * minute is right, and it keeps a burst of questions to one upstream call.
+ */
+const LIVE_CACHE_TTL_MS = 30_000;
+const liveCache = new Map<string, { at: number; events: SportsEvent[] }>();
+
+type LivePayload = { livescore?: SportsEvent[] | null };
+
+async function fetchLiveScores(sport: string, now: number): Promise<SportsEvent[]> {
+  const hit = liveCache.get(sport);
+  if (hit && now - hit.at < LIVE_CACHE_TTL_MS) return hit.events;
+  const data = await getJson<LivePayload>("livescore.php", { s: sport });
+  const raw = data?.livescore;
+  // Only keep rows with a real scoreline; the scoreboard is worthless otherwise.
+  const events = (Array.isArray(raw) ? raw : []).filter(hasScoreline);
+  liveCache.set(sport, { at: now, events });
+  return events;
+}
+
+/** In-play matches across sports, sequential to respect the free-tier limit. */
+async function liveScoresForSports(sports: string[], now: number): Promise<SportsEvent[]> {
+  const all: SportsEvent[] = [];
+  for (const sport of sports) {
+    if (all.length > 0) await new Promise((r) => setTimeout(r, 120));
+    all.push(...(await fetchLiveScores(sport, now)));
+  }
+  return all;
+}
+
 export function createSportsProvider(): SearchProvider {
   return {
     id: "sports-scores",
@@ -409,6 +464,17 @@ export function createSportsProvider(): SearchProvider {
         if (candidates.length > 0) {
           const id = candidates[0].idTeam;
           const teamSport = sport ?? (candidates[0].strSport ?? null);
+          // The live scoreboard first: if the team is playing RIGHT NOW, this
+          // is where the current scoreline is, and it is more current than the
+          // day's fixture list.
+          if (teamSport) {
+            const live = (await fetchLiveScores(teamSport, now)).filter((e) =>
+              [e.strHomeTeam, e.strAwayTeam].some(
+                (n) => typeof n === "string" && teamNameMatches(team, n as string),
+              ),
+            );
+            if (live.length > 0) return { citations: build(live, "named-team") };
+          }
           const today = await eventsForToday(teamSport, now);
           const mine = today.filter((e) =>
             [e.strHomeTeam, e.strAwayTeam].some(
@@ -438,15 +504,19 @@ export function createSportsProvider(): SearchProvider {
         );
       }
 
-      // --- No team named: today's fixtures for the named (or default) sports.
+      // --- No team named: the live scoreboard first, then today's fixtures.
       const sports = sport ? [sport] : DEFAULT_SPORTS;
+      const live = await liveScoresForSports(sports, now);
+      if (live.length > 0) {
+        return { citations: build(live, "live-in-play") };
+      }
       const all = await eventsForSports(sports, now);
       const citations = build(all, "today-selection");
       if (citations.length === 0) {
         throw new Error(
           sport
-            ? `TheSportsDB reports no ${sport} fixtures for ${todayUtc(now)}.`
-            : `TheSportsDB reports no fixtures for ${todayUtc(now)} in ${sports.join(", ")}.`,
+            ? `TheSportsDB reports no live or scheduled ${sport} matches for ${todayUtc(now)}.`
+            : `TheSportsDB reports no live or scheduled matches for ${todayUtc(now)} in ${sports.join(", ")}.`,
         );
       }
       return { citations };
