@@ -156,6 +156,22 @@ export function extractEvent(query: string): string | null {
   return null;
 }
 
+/**
+ * True when the query text already names the event under ANY of its known
+ * surface forms.
+ *
+ * Needed so query rewriting does not bolt a canonical name onto a query that
+ * already used a synonym: "Indian Premier League 2026 standings" must not
+ * become "… standings ipl". The canonical name is for MATCHING sources, not
+ * for decorating a query the user already phrased correctly.
+ */
+export function namesEvent(query: string, event: string | null): boolean {
+  if (!event) return false;
+  const entry = EVENTS.find((e) => e.name === event);
+  if (!entry) return query.toLowerCase().includes(event);
+  return entry.re.test(query ?? "");
+}
+
 function detectLiveKind(q: string): LiveDataKind | null {
   if (WEATHER_RE.test(q)) return "weather";
   if (TALLY_RE.test(q)) return "tally";

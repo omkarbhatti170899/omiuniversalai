@@ -1,5 +1,6 @@
-import { ExternalLink, Clock3, Globe } from "lucide-react";
+import { ExternalLink, Clock3, Globe, ShieldCheck, ShieldAlert, ShieldQuestion } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { verificationFor, verificationSentence, type VerificationInfo } from "@/lib/sourceVerification";
 
 /**
  * Source cards for current-information answers (§8).
@@ -125,6 +126,14 @@ export function SourceCard({
           <ExternalLink className="mt-0.5 size-3 shrink-0 text-muted-foreground/60 transition-colors group-hover:text-primary" />
         </span>
 
+        {/* The RELEVANT snippet, so the user can judge whether the source
+            actually supports the claim without opening every link. */}
+        {source.snippet ? (
+          <span className="mt-1 line-clamp-2 block text-[11px] leading-relaxed text-muted-foreground/90">
+            {source.snippet}
+          </span>
+        ) : null}
+
         <span className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-muted-foreground">
           <span className="inline-flex items-center gap-1">
             <Globe className="size-3" />
@@ -153,6 +162,36 @@ export function SourceCard({
   );
 }
 
+/**
+ * The verification badge.
+ *
+ * Green ONLY for genuine cross-checking. A single source gets a neutral
+ * "Single source" badge, because a green tick next to one link is the single
+ * most misleading thing this UI could show.
+ */
+export function VerificationBadge({ info, className }: { info: VerificationInfo; className?: string }) {
+  const Icon = info.verified ? ShieldCheck : info.state === "none" ? ShieldQuestion : ShieldAlert;
+  return (
+    <span
+      data-testid="source-verification"
+      data-state={info.state}
+      title={info.detail}
+      className={cn(
+        "inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5 text-[10px] font-medium",
+        info.verified
+          ? "border-primary/40 bg-primary/10 text-primary"
+          : info.state === "conflicting"
+            ? "border-amber-500/40 bg-amber-500/10 text-amber-500"
+            : "border-border/60 bg-muted/40 text-muted-foreground",
+        className,
+      )}
+    >
+      <Icon className="size-2.5" aria-hidden />
+      {info.label}
+    </span>
+  );
+}
+
 /** A titled stack of source cards, with a count and an honesty note. */
 export function SourceCardList({
   sources,
@@ -173,14 +212,27 @@ export function SourceCardList({
     ) : null;
   }
   const undated = sources.filter((s) => sourceAgeLabel(s.publishedAt, now) === null).length;
+  // Verification is counted by INDEPENDENT DOMAIN, never by link count: one
+  // outlet publishing three articles is one source, not three. A single
+  // source is labelled "Single source", never "verified".
+  const info: VerificationInfo = verificationFor({
+    sources: sources.map((s) => ({ domain: s.domain ?? hostOf(s.url) })),
+    datedSources: sources.length - undated,
+  });
   return (
     <div className={cn("space-y-2", className)}>
-      <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
-        {title}
-        <span className="font-normal text-muted-foreground/70">
-          ({sources.length}
-          {undated > 0 ? ` · ${undated} without a date` : ""})
+      <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold text-muted-foreground">
+        <span className="flex items-center gap-1.5">
+          {title}
+          <span className="font-normal text-muted-foreground/70">
+            ({sources.length}
+            {undated > 0 ? ` · ${undated} without a date` : ""})
+          </span>
         </span>
+        <VerificationBadge info={info} />
+      </p>
+      <p className="text-[11px] leading-relaxed text-muted-foreground/80">
+        {verificationSentence(info)}
       </p>
       <div className="space-y-1.5">
         {sources.map((s, i) => (

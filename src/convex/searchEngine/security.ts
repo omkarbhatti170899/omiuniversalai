@@ -206,6 +206,21 @@ function redactEncodedSteering(input: string): string {
 export function sanitizeUntrustedText(input: string, maxLen = 4000): string {
   return input
     .replace(INVISIBLE_CHARS, " ") // zero-width/override steering chars
+    // CREDENTIAL REDACTION. Untrusted text here is document and web content,
+    // and a document can legitimately contain a pasted key ("here is the API
+    // key I was given"). Forwarding that to a model is how a secret ends up
+    // in an answer, a log or a provider request. Redact the well-known shapes
+    // before anything else touches the string.
+    .replace(/\b(?:sk|pk|rk|ak|api)[-_][A-Za-z0-9_-]{12,}\b/g, "[credential redacted]")
+    .replace(/\bAIza[0-9A-Za-z_-]{20,}\b/g, "[credential redacted]")
+    .replace(/\bgh[pousr]_[0-9A-Za-z]{20,}\b/g, "[credential redacted]")
+    .replace(/\bxox[abprs]-[0-9A-Za-z-]{10,}\b/g, "[credential redacted]")
+    .replace(/\bAKIA[0-9A-Z]{16}\b/g, "[credential redacted]")
+    .replace(/\bBearer\s+[A-Za-z0-9._~+/-]{16,}=*/g, "Bearer [credential redacted]")
+    .replace(
+      /-----BEGIN [A-Z ]*PRIVATE KEY-----[\s\S]*?-----END [A-Z ]*PRIVATE KEY-----/g,
+      "[private key redacted]",
+    )
     .replace(
       /\b[A-Za-z0-9+/]{16,}={0,2}\b/g,
       redactEncodedSteering,

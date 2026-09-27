@@ -25,7 +25,8 @@ import { v } from "convex/values";
 import { runUniversalSearch } from "./universalSearch";
 import { decideSearch } from "./searchEngine/decision";
 import { freshnessPolicyFor, splitByFreshness, type FreshnessSource } from "./searchEngine/freshness";
-import { classifyCurrentIntent, retrievalQuery } from "./searchEngine/intent";
+import { classifyCurrentIntent } from "./searchEngine/intent";
+import { planRetrieval } from "./searchEngine/rewrite";
 import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
 import { crossCheckClaims, conflictNotice } from "./searchEngine/crossCheck";
 import { validateEvidence, cannotVerifyMessage } from "./searchEngine/validation";
@@ -117,9 +118,12 @@ export const traceSearch = internalAction({
     // Mirrors the chat turn: keyword-shaped retrieval, original text for
     // validation. The diagnostic must exercise the production path, or it
     // reports a behaviour the app does not have.
-    const retrieval = retrievalQuery(query);
+    const retrievalPlan = planRetrieval(query, classified);
+    const retrieval = retrievalPlan.primary;
     try {
       const universal = await runUniversalSearch(ctx, retrieval, {
+        retrievalVariants: retrievalPlan.variants,
+        variantTargets: retrievalPlan.variantTargets,
         perEngineLimit: 4,
         maxCitations: max,
         category: decision.category,
@@ -192,6 +196,7 @@ export const traceSearch = internalAction({
     return {
       summary: summarizeTrace(trace),
       retrievalQuery: retrieval,
+      retrievalPlan,
       trace,
       conflicts: crossCheck.conflicts,
       conflictNotice: conflictNotice(crossCheck, started),

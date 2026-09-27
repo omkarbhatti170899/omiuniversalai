@@ -93,6 +93,17 @@ export async function runUniversalSearch(
      */
     askedYears?: number[];
     askedEvent?: string | null;
+    /**
+     * Rewritten variants, fanned out to GENERAL-WEB providers only.
+     *
+     * A single phrasing under-recalls: different wordings surface different
+     * sources. Structured providers (weather, rates, scores) still receive
+     * `query` alone — they know what to ask for, and a rewrite only confuses
+     * them. Bounded to keep latency predictable.
+     */
+    retrievalVariants?: string[];
+    /** Provider ids that may receive the variants. */
+    variantTargets?: string[];
   },
 ): Promise<UniversalResult> {
   const perEngine = opts?.perEngineLimit ?? PER_ENGINE_LIMIT;
@@ -167,14 +178,23 @@ export async function runUniversalSearch(
     process.env.SEARCH_PROVIDER_TIMEOUT_MS ?? 12_000,
   );
   const settled = await Promise.allSettled(
-    providers.map((p) =>
-      guardedCall(
-        p.id,
-        p.label,
-        () => p.search(query, perEngine, engineOpts),
-        perProviderTimeoutMs,
-      ).then((result) => ({ engine: p, result })),
-    ),
+    providers.flatMap((p) => {
+      // General-web providers additionally see each rewritten angle; a
+      // structured provider gets exactly one call with the primary query.
+      const variants =
+        opts?.retrievalVariants && (opts?.variantTargets ?? []).includes(p.id)
+          ? opts.retrievalVariants
+          : [];
+      const calls = [query, ...variants].map((q) =>
+        guardedCall(
+          p.id,
+          p.label,
+          () => p.search(q, perEngine, engineOpts),
+          perProviderTimeoutMs,
+        ).then((result) => ({ engine: p, result })),
+      );
+      return calls;
+    }),
   );
 
   const merged: Array<{ c: WebCitation; engine: string; score: number }> = [];

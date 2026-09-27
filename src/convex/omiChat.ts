@@ -38,7 +38,8 @@ import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
 import { crossCheckClaims, conflictNotice, type CrossCheckReport } from "./searchEngine/crossCheck";
 import { validateEvidence, cannotVerifyMessage, type ValidationReport } from "./searchEngine/validation";
 import { buildSearchTrace, summarizeTrace } from "./searchEngine/debugTrace";
-import { classifyCurrentIntent, retrievalQuery } from "./searchEngine/intent";
+import { classifyCurrentIntent } from "./searchEngine/intent";
+import { planRetrieval } from "./searchEngine/rewrite";
 import type { WebCitation } from "./searchProviders/types";
 
 /**
@@ -718,12 +719,16 @@ async function runTurn(
             ? `Omi is looking up ${policy.label.toLowerCase()}…`
             : "Omi is searching the web…",
         });
-        // Send a KEYWORD-shaped query to the engines, not the raw question.
-        // Measured: the same question retrieves 4 sources without the
-        // interrogative frame and 0 (after a 12s timeout) with it. The
-        // original text is still what gets validated and synthesized.
-        const retrieval = retrievalQuery(trimmed);
+        // Send a REWRITTEN, keyword-shaped query to the engines, not the raw
+        // question. Measured: the same question retrieves 8 sources without
+        // the interrogative frame and 0 (after a 12s timeout) with it. The
+        // rewrite also anchors the asked year and event, which is what stops
+        // a bare "medal tally" query returning a previous Games.
+        const retrievalPlan = planRetrieval(trimmed, classifyCurrentIntent(trimmed, decision.intent));
+        const retrieval = retrievalPlan.primary;
         const universal = await runUniversalSearch(ctx, retrieval, {
+          retrievalVariants: retrievalPlan.variants,
+          variantTargets: retrievalPlan.variantTargets,
           perEngineLimit: policy.requiresFreshness ? 4 : 3,
           maxCitations: policy.requiresFreshness ? 5 : 4,
           // The three parameters the search layer was never given before.
