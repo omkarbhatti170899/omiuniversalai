@@ -44,6 +44,9 @@ export type Vertical =
   | "travel"
   | "general";
 
+/** How current the evidence must be. See `CurrentIntent.freshnessTier`. */
+export type FreshnessTier = "now" | "recent" | "live-feed" | "none";
+
 /** The kind of live datum the question is asking for, when it is one. */
 export type LiveDataKind =
   | "score"
@@ -63,6 +66,18 @@ export type CurrentIntent = {
   vertical: Vertical;
   /** Which live datum is being asked for, or null for a general current ask. */
   liveData: LiveDataKind | null;
+  /**
+   * HOW fresh the evidence must be. This is the single most important field
+   * for ranking: "today" and "recent" are NOT the same request, and treating
+   * them identically is what let a 3-day-old article answer "latest".
+   *
+   *  • "now"       — the user named today/now. Target: HOURS.
+   *  • "recent"    — the user asked for latest/recent. Target: DAYS.
+   *  • "live-feed" — a structured vertical (weather, rates) that refreshes in
+   *                  minutes; the provider's own read time is the timestamp.
+   *  • "none"      — not a freshness-sensitive question.
+   */
+  freshnessTier: FreshnessTier;
   /**
    * Years explicitly named in the question, ascending. A year >= the current
    * year means the user is asking about the present, not the archive.
@@ -129,6 +144,22 @@ const EVENTS: Array<{ re: RegExp; name: string }> = [
 /** Words that make even a past-dated question a live one. */
 const EXPLICIT_FRESH_RE =
   /\b(latest|newest|most recent|recent|recently|right now|as of (?:today|now)|today'?s?|tonight|currently|current|live|breaking|upcoming|so far|this (?:week|month|year|morning|evening)|updated)\b/i;
+
+/**
+ * "As of RIGHT NOW" wording — the tightest possible freshness demand.
+ *
+ * Measured failure this fixes: a user asked for India's LATEST Asian Games
+ * medal tally and Omi answered from a source THREE DAYS OLD, at full
+ * confidence, because every freshness rule used the same 14-day window and a
+ * 3-day-old page scored identically to a 1-day-old one. Asking for "today"
+ * must mean a materially different thing from asking for "recent".
+ */
+const NOW_TIER_RE =
+  /\b(today|tonight|right now|as of (?:today|now)|at the moment|current score|current tally|current status|so far today|this (?:morning|afternoon|evening)|live now|just now)\b/i;
+
+/** "Give me something recent" wording — a looser but still real demand. */
+const RECENT_TIER_RE =
+  /\b(latest|newest|most recent|recent|recently|this week|past few days|current|currently|updated|up to date|breaking|upcoming|recently updated)\b/i;
 
 /** Past-tense framing — strong evidence the user wants history, not a feed. */
 const HISTORICAL_RE =
@@ -326,6 +357,7 @@ export function classifyCurrentIntent(query: string, intent?: string, now = Date
   return {
     requiresFreshness,
     vertical,
+    freshnessTier: tierFor(q, vertical, requiresFreshness),
     liveData,
     years,
     event,
@@ -333,4 +365,22 @@ export function classifyCurrentIntent(query: string, intent?: string, now = Date
     reasons,
     historical,
   };
+}
+
+/**
+ * Which freshness tier applies.
+ *
+ * A structured feed (weather, a currency rate) reports its own read time and
+ * is "live" by construction, so it must not be judged against a web-article
+ * window. Everything else is judged by how tight the user's own wording was.
+ */
+function tierFor(q: string, vertical: Vertical, requiresFreshness: boolean): FreshnessTier {
+  if (!requiresFreshness) return "none";
+  if (vertical === "weather" || vertical === "markets") return "live-feed";
+  if (NOW_TIER_RE.test(q)) return "now";
+  if (RECENT_TIER_RE.test(q)) return "recent";
+  // Inherently-live nouns (a medal tally, standings) with no time word still
+  // want a recent answer, not a fortnight-old one.
+  if (LIVE_NOUN_RE.test(q)) return "recent";
+  return "recent";
 }

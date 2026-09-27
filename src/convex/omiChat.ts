@@ -32,7 +32,10 @@ import {
   freshnessStatement,
   noVerificationMessage,
   splitByFreshness,
+  minAgeHours as minAgeHoursShared,
+  shouldEscalateForFreshness,
   type FreshnessPolicy,
+  type FreshnessSource,
 } from "./searchEngine/freshness";
 import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
 import { crossCheckClaims, conflictNotice, type CrossCheckReport } from "./searchEngine/crossCheck";
@@ -56,6 +59,20 @@ import type { WebCitation } from "./searchProviders/types";
  * safe to keep; the full object is what an engineer inspects when a live
  * answer looks wrong.
  */
+/** Today's date as YYYY-MM-DD — a second, concrete recency probe for engines. */
+function todayIso(now = Date.now()): string {
+  return new Date(now).toISOString().slice(0, 10);
+}
+
+/**
+ * Age of the NEWEST source in hours, or null when nothing is dated.
+ * Delegates to the shared engine helper so the chat turn, the /currentinfo
+ * probe and the regression tests all judge freshness by ONE rule.
+ */
+function minAgeHours(sources: FreshnessSource[], now = Date.now()): number | null {
+  return minAgeHoursShared(sources, now);
+}
+
 function recordSearchDebugTrace(args: {
   query: string;
   intent?: string;
@@ -73,8 +90,7 @@ function recordSearchDebugTrace(args: {
     classified: classifyCurrentIntent(args.query, args.intent),
     providersSearched: args.policy.preferredProviders,
     rawCount: args.citations.length,
-    dedupedCount: args.citations.length,
-    candidates: args.citations.map((citation) => {
+    dedupedCount: args.citations.length,            candidates: args.citations.map((citation) => {
       const selected = kept.has(citation.url);
       return {
         citation,
@@ -729,6 +745,7 @@ async function runTurn(
         const universal = await runUniversalSearch(ctx, retrieval, {
           retrievalVariants: retrievalPlan.variants,
           variantTargets: retrievalPlan.variantTargets,
+          freshnessTier: policy.freshnessTier,
           perEngineLimit: policy.requiresFreshness ? 4 : 3,
           maxCitations: policy.requiresFreshness ? 5 : 4,
           // The three parameters the search layer was never given before.
@@ -754,14 +771,75 @@ async function runTurn(
             ? splitByFreshness(universal.citations, policy.maxAgeDays).fresh
             : universal.citations;
 
+          // --- ESCALATION: don't settle for a stale set. ------------------
+          // Measured failure this closes: a user asked for the LATEST medal
+          // tally and the first pass's best source was 3 DAYS old. The old
+          // pipeline accepted it, because "any source inside the window" was
+          // the only test. Now, when the NEWEST acceptable source is older
+          // than the tier demands, retrieval runs a second, tighter pass
+          // before anything is accepted.
+          let citations = freshEnough;
+          if (policy.requiresFreshness && policy.preferFreshHours > 0) {
+            const newestHours = minAgeHours(freshEnough);
+            // `null` means the first pass produced NOTHING recent enough to be
+            // evidence. Measured on /currentinfo: three scenarios came back
+            // "5 raw result(s) but none recent enough", and escalation never
+            // fired, because the old guard required a non-null age. So the one
+            // case that most needs a second, tighter pass was the one case
+            // that could never trigger it — the engine refused without ever
+            // looking again. Escalate on "no fresh evidence" as well as on
+            // "evidence older than the tier wants".
+            const nothingFresh = newestHours === null;
+            if (
+              shouldEscalateForFreshness(freshEnough, policy.preferFreshHours, Date.now())
+            ) {
+              recordSearchTelemetry(ctx, {
+                phase: "start",
+                vertical: policy.vertical,
+                ms: Date.now() - searchStarted,
+                results: freshEnough.length,
+                usable: 0,
+                error: nothingFresh
+                  ? `escalating: no source was recent enough to be evidence (tier "${policy.freshnessTier}" wants <=${policy.preferFreshHours}h) — re-searching with a tighter window`
+                  : `escalating: newest source is ${Math.round(newestHours!)}h old (tier "${policy.freshnessTier}" wants <=${policy.preferFreshHours}h) — re-searching with a tighter window`,
+              });
+              const second = await runUniversalSearch(ctx, retrieval, {
+                perEngineLimit: 6,
+                maxCitations: 8,
+                category: "news",
+                // ALWAYS a hard day filter on escalation. The first pass
+                // already used the tier's window; re-running with the same
+                // "week" filter just returns the same 3-6-day-old pages and
+                // the escalation achieves nothing. Escalation exists to look
+                // somewhere the first pass did not.
+                timeRange: "day",
+                skipCache: true,
+                freshnessMatters: true,
+                freshnessTier: policy.freshnessTier,
+                askedYears: policy.years,
+                askedEvent: policy.event,
+                strictVertical: false,
+                preferredProviders: policy.preferredProviders,
+                retrievalVariants: [`${retrieval} today`, `${retrieval} "${todayIso()}"`],
+                variantTargets: retrievalPlan.variantTargets,
+              });
+              const secondFresh = splitByFreshness(second.citations, policy.maxAgeDays).fresh;
+              // Merge, keeping both passes: the tighter one often has the
+              // newer pages, the first often has the richer ones.
+              const merged = new Map<string, (typeof freshEnough)[number]>();
+              for (const c of [...freshEnough, ...secondFresh]) merged.set(c.url, c);
+              citations = [...merged.values()];
+            }
+          }
+
           // YEAR/EVENT GATE. Recency alone let a 2018 Asian Games article
           // answer a question about the 2026 medal tally: it was a
           // high-authority, recently-crawled page about the WRONG YEAR. A
           // result about a different year is a wrong answer, not an old one,
           // so it is dropped outright rather than down-ranked.
           const usable = policy.years.length > 0 || policy.event
-            ? freshEnough.filter((c) => !isWrongYear(matchTemporal(c, policy.years, null)))
-            : freshEnough;
+            ? citations.filter((c) => !isWrongYear(matchTemporal(c, policy.years, null)))
+            : citations;
           await patchStreaming({
             content: `Reading ${usable.length} sources…`,
           });
@@ -791,6 +869,7 @@ async function runTurn(
               askedYears: policy.years,
               askedEvent: policy.event,
               maxAgeDays: policy.maxAgeDays,
+              preferFreshHours: policy.preferFreshHours,
               crossCheck,
               now: searchStarted,
             });
@@ -819,6 +898,15 @@ async function runTurn(
               const caveat = validation.unverifiable.length > 0
                 ? `UNVERIFIED ASPECTS — state these plainly in the answer: ${validation.unverifiable.join(" ")}`
                 : "";
+              // The user asked "as of when?" and deserves a real answer. The
+              // newest source's ABSOLUTE timestamp goes into the prompt so the
+              // model can lead with it instead of a vague "recently".
+              const asOf = validation.newestSourceAt
+                ? `DATA TIMESTAMP — the newest source in this evidence set is dated ${validation.newestSourceAt}` +
+                  ` (${validation.newestSourceAgeHours}h old at time of search). ` +
+                  `Lead the answer with "Current as of <that date and time>". ` +
+                  `If any figure here contradicts a newer source the user already mentioned, say so.`
+                : "";
 
               // Real, measured progress for the calm status UI: how many
               // INDEPENDENT sources back this, not an animated percentage.
@@ -838,6 +926,7 @@ async function runTurn(
                   : "") +
                 freshnessInstruction(policy) +
                 (statement ? `\n${statement}\n` : "") +
+                (asOf ? `\n${asOf}\n` : "") +
                 (conflict ? `\n${conflict}\n` : "") +
                 (caveat ? `\n${caveat}\n` : "") +
                 "\n" +

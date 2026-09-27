@@ -58,6 +58,28 @@ import {
 import { CREATOR_STATEMENT, OMI_PRODUCT_NAME } from "./omiIdentity";
 import { freshnessPolicyFor, freshnessStatement, splitByFreshness, clarifyForMissingInput, noVerificationMessage } from "./searchEngine/freshness";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
+
+/**
+ * Age in hours of the NEWEST dated source, or null when nothing is dated.
+ * Mirrors the chat turn's escalation trigger (omiChat.ts) so this probe
+ * judges freshness the way the product does. `null` = no fresh evidence at
+ * all, which MUST escalate.
+ */
+function minAgeHours(
+  sources: Array<{ publishedAt?: string | null }>,
+  now = Date.now(),
+): number | null {
+  let best: number | null = null;
+  for (const s of sources) {
+    if (!s.publishedAt) continue;
+    const at = Date.parse(s.publishedAt);
+    if (Number.isNaN(at)) continue;
+    const hours = (now - at) / 3_600_000;
+    if (hours < 0) continue; // future-dated: never counts as fresh evidence
+    if (best === null || hours < best) best = hours;
+  }
+  return best;
+}
 import { searxngHealth } from "./searchProviders/searxng";
 import { duckduckgoHealthCached } from "./searchProviders/keyless";
 export type SubsystemStatus = "pass" | "fail" | "configured" | "unverified";
@@ -277,9 +299,49 @@ export async function probeCurrentInfo(
       },
     );
 
+    // --- ESCALATION (must mirror the chat turn) --------------------------
+    // A probe that only runs the FIRST pass measures less than the product
+    // does, and a stricter freshness window then looks like a regression.
+    // omiChat escalates when the newest acceptable source is older than the
+    // tier wants — and, since the `null` fix, when NOTHING is recent enough.
+    // Measured: three scenarios returned "5 raw result(s) but none recent
+    // enough" and this probe reported them as failures while the chat turn
+    // would have run a second, tighter pass first.
+    let citations = result.citations;
+    let escalated = false;
+    if (policy.requiresFreshness && policy.preferFreshHours > 0) {
+      const firstFresh = splitByFreshness(citations, policy.maxAgeDays).fresh;
+      const newestHours = minAgeHours(
+        firstFresh.map((c) => ({ publishedAt: c.publishedAt })),
+      );
+      if (newestHours === null || newestHours > policy.preferFreshHours) {
+        escalated = true;
+        const second = await runUniversalSearch(ctx as never, query, {
+          perEngineLimit: 6,
+          maxCitations: 8,
+          category: decision.category,
+          timeRange: "day",
+          skipCache: true,
+          freshnessMatters: true,
+          freshnessTier: policy.freshnessTier,
+          askedYears: policy.years,
+          askedEvent: policy.event,
+          strictVertical: false,
+          preferredProviders: policy.preferredProviders,
+        });
+        const secondFresh = splitByFreshness(
+          second.citations,
+          policy.maxAgeDays,
+        ).fresh;
+        const merged = new Map<string, (typeof citations)[number]>();
+        for (const c of [...citations, ...secondFresh]) merged.set(c.url, c);
+        citations = [...merged.values()];
+      }
+    }
+
     const split = policy.requiresFreshness
-      ? splitByFreshness(result.citations, policy.maxAgeDays)
-      : { fresh: result.citations, undated: [], stale: [] };
+      ? splitByFreshness(citations, policy.maxAgeDays)
+      : { fresh: citations, undated: [], stale: [] };
 
     const row: CurrentInfoRow = {
       ...searching,
@@ -307,14 +369,14 @@ export async function probeCurrentInfo(
           `Search ran (${row.resultsFound} raw result(s)) but none were recent enough to be evidence ` +
           `within ${policy.maxAgeDays} day(s). Omi would refuse to answer rather than use stale data.`,
       };
-    }
-    return {
-      ...row,
-      status: "pass",
-      detail:
-        `${split.fresh.length} fresh result(s) from ${row.enginesWithResults.length} source(s) ` +
-        `in ${row.searchMs}ms${row.failedEngines.length > 0 ? `; failed engines: ${row.failedEngines.join(", ")}` : ""}`,
-    };
+    }      return {
+        ...row,
+        status: "pass",
+        detail:
+          `${split.fresh.length} fresh result(s) from ${row.enginesWithResults.length} source(s) ` +
+          `in ${row.searchMs}ms${escalated ? " (after a freshness escalation pass)" : ""}` +
+          `${row.failedEngines.length > 0 ? `; failed engines: ${row.failedEngines.join(", ")}` : ""}`,
+      };
   } catch (err) {
     return {
       ...base,

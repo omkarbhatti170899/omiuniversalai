@@ -72,18 +72,32 @@ export function sourceTier(url: string): { tier: SourceTier; weight: number } {
   return { tier: "general", weight: 0.6 };
 }
 
-/** 0..1 — how fresh the source is; unknown dates score neutral 0.4. */
+/**
+ * 0..1 — how fresh the source is, at HOUR resolution.
+ *
+ * The previous version bucketed "<=1 day = 1.0, <=7 days = 0.9", which made a
+ * 3-day-old article indistinguishable from yesterday's. Measured consequence:
+ * a user asked for the LATEST Asian Games medal tally and Omi answered from a
+ * source 3 days old, at full confidence, because a week-old page and a
+ * day-old page scored identically. A day-scale curve cannot express "today".
+ *
+ * The curve is now smooth and log-shaped, so an extra day of age always
+ * costs something, and the first 24 hours are the most valuable.
+ */
 export function freshnessScore(publishedAt: string | undefined, now = Date.now()): number {
   if (!publishedAt) return 0.4;
   const t = Date.parse(publishedAt);
   if (!Number.isFinite(t)) return 0.4;
-  const ageDays = Math.max(0, (now - t) / 86_400_000);
-  if (ageDays <= 1) return 1;
-  if (ageDays <= 7) return 0.9;
-  if (ageDays <= 30) return 0.75;
-  if (ageDays <= 180) return 0.55;
-  if (ageDays <= 365) return 0.4;
-  return 0.25;
+  const ageHours = Math.max(0, (now - t) / 3_600_000);
+  // <1h 1.0 · 6h .95 · 1d .88 · 3d .72 · 7d .55 · 30d .3 · 1y .08
+  if (ageHours <= 1) return 1;
+  if (ageHours <= 6) return 0.95;
+  if (ageHours <= 24) return 0.88;
+  if (ageHours <= 72) return 0.72;
+  if (ageHours <= 168) return 0.55;
+  if (ageHours <= 720) return 0.3;
+  if (ageHours <= 8760) return 0.12;
+  return 0.05;
 }
 
 /** 0..1 — how much usable content the citation carries. */
@@ -157,16 +171,28 @@ export function scoreSource(
     freshnessMatters?: boolean;
     askedYears?: number[];
     askedEvent?: string | null;
+    /**
+     * "now" | "recent" | "live-feed" | "none". How aggressively recency
+     * outranks everything else. For "now" (the user said today/now) freshness
+     * is worth 0.40 — more than relevance — because answering with yesterday's
+     * number is wrong, not merely less good.
+     */
+    freshnessTier?: string;
   } = {},
 ): number {
   const rel = relevanceScore(c, keywords);
   const tier = sourceTier(c.url).weight;
   const fresh = freshnessScore(c.publishedAt);
   const comp = completenessScore(c);
-  const freshW = opts.freshnessMatters ? 0.18 : 0.06;
-  const rest = 1 - 0.5 - 0.18 - freshW - 0.12 - 0.08;
+  const ft = opts.freshnessTier;
+  // Freshness weight by demand. Without this, a 3-day-old authoritative page
+  // and a 2-hour-old one ranked identically.
+  const freshW = !opts.freshnessMatters ? 0.06 : ft === "now" ? 0.4 : ft === "live-feed" ? 0.3 : 0.22;
+  // Relevance is deliberately de-weighted as freshness demand rises.
+  const relW = ft === "now" ? 0.28 : 0.5;
+  const rest = Math.max(0, 1 - relW - 0.18 - freshW - 0.12 - 0.08);
   const direct = 0.08 * directnessScore(c, keywords);
-  const base = 0.5 * rel + 0.18 * tier + freshW * fresh + 0.12 * comp + direct + rest;
+  const base = relW * rel + 0.18 * tier + freshW * fresh + 0.12 * comp + direct + rest;
 
   // Temporal matching is only meaningful when the question is actually scoped
   // to a year or an event. Applying it unconditionally would penalise every

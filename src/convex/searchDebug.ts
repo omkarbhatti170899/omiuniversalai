@@ -154,6 +154,11 @@ export const traceSearch = internalAction({
       askedYears: policy.years,
       askedEvent: policy.event,
       maxAgeDays: policy.maxAgeDays,
+      // The diagnostic must judge the evidence exactly as the chat turn does.
+      // Omitting this made it report a 3-day-old set as fully "answer" when
+      // the turn would have flagged it — a diagnostic that under-reports is
+      // worse than none.
+      preferFreshHours: policy.preferFreshHours,
       crossCheck,
       now: started,
     });

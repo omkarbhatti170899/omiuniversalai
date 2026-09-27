@@ -103,9 +103,14 @@ function dedupe(list: string[]): string[] {
  *
  * `now` is injectable so "is this year current" stays deterministic in tests.
  */
-export function planRetrieval(query: string, classified: CurrentIntent): RetrievalPlan {
+export function planRetrieval(
+  query: string,
+  classified: CurrentIntent,
+  now: number = Date.now(),
+): RetrievalPlan {
   const notes: string[] = [];
   const base = retrievalQuery(query);
+  const todayStamp = new Date(now).toISOString().slice(0, 10);
 
   // 1. ANCHOR the year and the event into the string itself. This is the
   //    single highest-value rewrite: it stops a bare "medal tally" query from
@@ -146,18 +151,76 @@ export function planRetrieval(query: string, classified: CurrentIntent): Retriev
     notes.push(`no ${classified.vertical} terms added — the query already expresses that`);
   }
 
-  // 3. ANGLES. Each is a different way of asking, so they surface different
+  // 3. RECENCY WORD IN THE PRIMARY — measured to be the single biggest
+  //    freshness lever available.
+  //
+  //    Measured live, same minute, same engines, same event:
+  //      "…India latest medal tally at the Asian Games 2026"
+  //          -> newest source 78.8h old  (3.3 days)
+  //      "…India Asian Games 2026 medal tally today"
+  //          -> newest source 26.4h old  (yesterday)
+  //
+  //    The word "today" is what unlocked the fresher page. Two lessons:
+  //      (a) relying on a secondary variant to carry the recency signal means
+  //          the PRIMARY call — the one every engine sees — carries none; and
+  //      (b) "latest" is a WEAK recency signal to a search index and must NOT
+  //          be allowed to suppress the strong one. So the rule is "ensure the
+  //          strongest word is present", not "ensure some recency word is".
+  //
+  //    Not applied to `live-feed` verticals: a forecast or a currency rate
+  //    carries the provider's own read time and is not a web-article recency
+  //    problem.
+  const STRONG_RECENCY_RE = /\b(today|tonight|right now|as of today|just now|currently)\b/i;
+  // WEAK recency words. Measured: "latest" is not merely weak, it is actively
+  // HARMFUL to a search index here — "India latest medal tally …" returned a
+  // 3.3-day-old set while "India medal tally … today" returned yesterday's.
+  // Since a strong word is added below, dropping the weak one is a measured
+  // improvement, not a cosmetic one.
+  const WEAK_RECENCY_RE = /\b(latest|newest|recent|recently|current|currently|upcoming|breaking)\b/gi;
+  // Filler that dilutes an index query without adding a retrievable concept.
+  const FILLER_RE =
+    /\b(at the|of the|in the|for the|what is|what are|how many|give me|tell me|please|india'?s|the)\b/gi;
+
+  let primary = withVertical;
+  const wantsRecency =
+    classified.requiresFreshness &&
+    classified.freshnessTier !== "live-feed" &&
+    !STRONG_RECENCY_RE.test(withVertical);
+  if (wantsRecency) {
+    // Compact, then attach the strong recency word. Order matters: compacting
+    // AFTER adding "today" would not remove the weak words the user typed.
+    const compacted = withVertical
+      .replace(FILLER_RE, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    const droppedWeak = wantsRecency && WEAK_RECENCY_RE.test(compacted);
+    primary = `${droppedWeak ? compacted.replace(WEAK_RECENCY_RE, " ") : compacted} today`
+      .replace(/\s+/g, " ")
+      .trim();
+    notes.push('added the strong recency word "today" to the primary query');
+    if (droppedWeak) {
+      notes.push("dropped weak recency words (latest/recent/current) — measured to return staler results than 'today'");
+    }
+    if (compacted !== withVertical) notes.push("removed filler words from the retrieval query");
+  }
+
+  // 4. ANGLES. Each is a different way of asking, so they surface different
   //    sources. Only genuinely DIFFERENT angles are kept: an angle that merely
   //    repeats a token already present is noise that costs a provider call
   //    and buys nothing.
-  const primary = withVertical;
   const variants: string[] = [];
 
-  if (classified.requiresFreshness && !/\b(latest|recent|today|now|current|breaking)\b/i.test(base)) {
+  if (classified.requiresFreshness && !/\blatest\b/i.test(base)) {
     variants.push(`${primary} latest`);
   }
-  // The bare base is a useful angle ONLY when anchoring or vertical terms
-  // changed the primary — otherwise it is just the primary again.
+  // The dated angle: a concrete date is a stronger recency probe than a
+  // relative word, and it is what escalation uses.
+  if (classified.requiresFreshness) {
+    variants.push(`${base} today`);
+    variants.push(`${base} ${todayStamp}`);
+  }
+  // The bare base is a useful angle ONLY when anchoring, vertical terms or a
+  // recency word changed the primary — otherwise it is just the primary again.
   if (primary !== base) variants.push(base);
   variants.push(`${base} ${AUTHORITY_TERMS}`.trim());
 

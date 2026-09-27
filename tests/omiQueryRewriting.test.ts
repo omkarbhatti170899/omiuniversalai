@@ -54,13 +54,15 @@ describe("query rewriting — no added noise", () => {
   it("does NOT append sports terms to a query that already says score", () => {
     // "India cricket score result report" is WORSE than "India cricket score":
     // the two extra tokens compete with the two that identify the request.
+    // (The trailing "today" is a deliberate, measured addition — see the
+    // freshness regression suite; it is the recency signal, not filler.)
     const p = plan("latest India cricket score");
-    expect(p.primary).toBe("India cricket score");
+    expect(p.primary).toBe("India cricket score today");
     expect(p.primary).not.toContain("result report");
   });
 
   it("does NOT append sports terms to a standings or medal query", () => {
-    expect(plan("current IPL standings").primary).toBe("IPL standings");
+    expect(plan("current IPL standings").primary).toBe("IPL standings today");
     expect(plan("medal tally Asian Games 2026").primary).not.toContain("result report");
   });
 
@@ -107,8 +109,11 @@ describe("query rewriting — never invents anything", () => {
   });
 
   it("adds only a recency word for a current question", () => {
+    // Measured: "latest" is a WEAK recency signal to a search index and
+    // returned a 3x staler result set than "today" on the same event, so the
+    // rewriter substitutes the strong word.
     const p = plan("latest AI news");
-    expect(p.primary).toBe("AI news");
+    expect(p.primary).toBe("AI news today");
     expect(p.variants.join(" ")).toContain("latest");
   });
 

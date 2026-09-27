@@ -27,6 +27,7 @@ import {
   classifyVertical,
   type Vertical,
   type LiveDataKind,
+  type FreshnessTier,
 } from "./intent";
 
 export type FreshnessSource = {
@@ -43,6 +44,19 @@ export type FreshnessPolicy = {
   requiresFreshness: boolean;
   /** Which live datum is being asked for, when the question names one. */
   liveData: LiveDataKind | null;
+  /**
+   * HOW fresh the evidence must be: "now" (the user said today/now), "recent"
+   * (latest/recent), "live-feed" (a structured feed that refreshes in
+   * minutes), or "none". This drives the window, the ranking weight and the
+   * escalation trigger — it is the fix for "latest" being answered from a
+   * 3-day-old article.
+   */
+  freshnessTier: FreshnessTier;
+  /**
+   * If the NEWEST acceptable source is older than this many hours, retrieval
+   * escalates to a second, tighter pass instead of settling for a stale set.
+   */
+  preferFreshHours: number;
   /**
    * Years the question is scoped to, ascending. A result about a DIFFERENT
    * year is a wrong answer, not an old one — this drives event/year matching
@@ -198,6 +212,93 @@ export function marketValueDemanded(query: string): boolean {
   );
 }
 
+/**
+ * Age in hours of the NEWEST dated source, or null when nothing is dated.
+ *
+ * `null` means NO dated evidence survived the freshness filter — the worst
+ * case, not a neutral one. `shouldEscalateForFreshness` treats it as
+ * "escalate" for exactly that reason.
+ */
+export function minAgeHours(
+  sources: Array<{ publishedAt?: string | null }>,
+  now: number,
+): number | null {
+  let best: number | null = null;
+  for (const s of sources) {
+    if (!s.publishedAt) continue;
+    const at = Date.parse(s.publishedAt);
+    if (Number.isNaN(at)) continue;
+    const hours = (now - at) / 3_600_000;
+    // A future-dated timestamp is a broken page, not fresh evidence.
+    if (hours < 0) continue;
+    if (best === null || hours < best) best = hours;
+  }
+  return best;
+}
+
+/**
+ * THE ESCALATION TRIGGER: "is my best evidence recent enough for what was
+ * actually asked?" If not, retrieval runs a second, tighter pass instead of
+ * settling.
+ *
+ * Measured defect this fixes: the trigger was guarded as
+ * `newestHours !== null && newestHours > preferFreshHours`, but
+ * `minAgeHours([])` returns `null`. So when the first pass returned results
+ * that were ALL too old to be evidence, escalation could not fire — the
+ * engine refused on the first pass and never looked again. That is
+ * backwards: "nothing recent enough" is precisely the case that most needs a
+ * second, tighter pass. On the deployed build this left three /currentinfo
+ * scenarios at "5 raw result(s) but none recent enough".
+ *
+ * `preferFreshHours <= 0` means the policy does not demand freshness, so no
+ * escalation is ever warranted.
+ */
+export function shouldEscalateForFreshness(
+  freshSources: Array<{ publishedAt?: string | null }>,
+  preferFreshHours: number,
+  now: number,
+): boolean {
+  if (preferFreshHours <= 0) return false;
+  const newestHours = minAgeHours(freshSources, now);
+  return newestHours === null || newestHours > preferFreshHours;
+}
+
+/**
+ * The freshness window, derived from the user's own demand.
+ *
+ * THE BUG THIS REPLACES: a single flat `maxAgeDays` of 14 (or 7 for markets)
+ * was applied to every current question. Measured consequence — a user asked
+ * for India's LATEST Asian Games medal tally and Omi answered from a source
+ * THREE DAYS OLD, at full confidence, because three days is comfortably
+ * inside fourteen. A window that cannot express "today" will eventually serve
+ * last week and call it current.
+ *
+ * `preferFreshHours` is the escalation trigger: if the NEWEST acceptable
+ * source is older than this, retrieval runs a second, tighter pass rather
+ * than settling for the best of a stale set.
+ */
+export function freshnessWindowFor(
+  tier: FreshnessTier,
+  vertical: Vertical,
+): { maxAgeDays: number; preferFreshHours: number } {
+  switch (tier) {
+    case "now":
+      // "Today" really means today. 2 days is the outer bound because some
+      // verticals publish a round-up once a day.
+      return { maxAgeDays: 2, preferFreshHours: 30 };
+    case "live-feed":
+      // Weather and rates carry the provider's own read time.
+      return { maxAgeDays: vertical === "markets" ? 3 : 1, preferFreshHours: 6 };
+    case "recent":
+      // "Latest" still means days, not weeks. Measured: a 3-6-day-old page
+      // set was being accepted for a "latest medal tally" question, so the
+      // escalation trigger is pulled in to 48h and the ceiling to 5 days.
+      return { maxAgeDays: 5, preferFreshHours: 48 };
+    default:
+      return { maxAgeDays: 14, preferFreshHours: 168 };
+  }
+}
+
 /** Time filter implied by the user's own wording. */
 export function timeRangeFor(query: string, intent?: string): FreshnessPolicy["timeRange"] {
   const explicit = LAST_N_RE.exec(query ?? "");
@@ -212,7 +313,11 @@ export function timeRangeFor(query: string, intent?: string): FreshnessPolicy["t
     return "week";
   }
   if (intent === "news") return "week";
-  if (intent === "current") return "month";
+  // A generic "current" previously widened the engine-level filter to a
+  // MONTH, which is the opposite of what the user asked for. Default to a
+  // week; the freshness TIER tightens it further when the wording demands
+  // "today".
+  if (intent === "current") return "week";
   return undefined;
 }
 
@@ -235,6 +340,8 @@ export function freshnessPolicyFor(
       vertical,
       requiresFreshness: false,
       liveData: classified.liveData,
+      freshnessTier: "none",
+      preferFreshHours: 0,
       years: classified.years,
       event: classified.event,
       timeRange: intent === "news" ? "week" : undefined,
@@ -247,9 +354,10 @@ export function freshnessPolicyFor(
   }
 
   // A short window asked for explicitly ("last hour") is a hard 1-day ceiling;
-  // everything else accepts up to a week of news coverage.
+  // otherwise the window comes from the freshness TIER, not a flat constant.
   const hardWindow = /\b(?:last|past)\s+(?:\d+\s+)?(minute|hour)/i.test(query ?? "");
-  const maxAgeDays = hardWindow ? 1 : vertical === "markets" ? 7 : 14;
+  const window = freshnessWindowFor(classified.freshnessTier, vertical);
+  const maxAgeDays = hardWindow ? 1 : window.maxAgeDays;
 
   const scoreAsked = vertical === "sports" ? scoreDemanded(query) : false;
   // A straight rate/price read has exactly one honest source. "Why did the
@@ -288,6 +396,8 @@ export function freshnessPolicyFor(
     vertical,
     requiresFreshness: true,
     liveData: classified.liveData,
+    freshnessTier: classified.freshnessTier,
+    preferFreshHours: window.preferFreshHours,
     years: classified.years,
     event: classified.event,
     timeRange,

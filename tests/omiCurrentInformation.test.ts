@@ -148,10 +148,28 @@ describe("current info — a question is routed to the source that can actually 
     expect(p.preferredProviders).toContain("gdelt");
   });
 
-  it("marks a market question as requiring fresher data than a general one", () => {
-    expect(freshnessPolicyFor("Current USD/INR rate", "current").maxAgeDays).toBe(7);
-    expect(freshnessPolicyFor("What happened today?", "news").maxAgeDays).toBe(14);
-    // "last hour" is a hard window.
+  it("scales the freshness window to how current the user actually asked", () => {
+    // These expectations CHANGED, deliberately. The old code applied a flat 14
+    // days to everything (7 for markets), and that is what let a 3-day-old
+    // article answer "give me India's LATEST medal tally" at full confidence.
+    // A user who says "today" means today.
+    const now = freshnessPolicyFor("What happened today?", "news");
+    const live = freshnessPolicyFor("Current USD/INR rate", "current");
+    const recent = freshnessPolicyFor("latest AI news", "current");
+
+    expect(now.freshnessTier).toBe("now");
+    expect(now.maxAgeDays).toBeLessThanOrEqual(2);
+    expect(now.preferFreshHours).toBeLessThanOrEqual(48);
+
+    expect(live.freshnessTier).toBe("live-feed");
+    expect(live.maxAgeDays).toBeLessThanOrEqual(3);
+
+    expect(recent.freshnessTier).toBe("recent");
+    // "latest" is looser than "today" but still far tighter than a fortnight.
+    expect(recent.maxAgeDays).toBeLessThanOrEqual(7);
+    expect(recent.maxAgeDays).toBeLessThan(now.maxAgeDays + 10);
+
+    // "last hour" is still a hard 1-day window.
     expect(freshnessPolicyFor("News from the last hour", "current").maxAgeDays).toBe(1);
   });
 

@@ -104,6 +104,11 @@ export async function runUniversalSearch(
     retrievalVariants?: string[];
     /** Provider ids that may receive the variants. */
     variantTargets?: string[];
+    /**
+     * How aggressively recency outranks everything else. Forwarded to the
+     * ranker so "today" genuinely means today.
+     */
+    freshnessTier?: string;
   },
 ): Promise<UniversalResult> {
   const perEngine = opts?.perEngineLimit ?? PER_ENGINE_LIMIT;
@@ -254,6 +259,7 @@ export async function runUniversalSearch(
       freshnessMatters,
       askedYears: opts?.askedYears,
       askedEvent: opts?.askedEvent,
+      freshnessTier: opts?.freshnessTier,
     });
     const agreement = seenUrls.get(normalizeUrl(item.c.url)) ?? 1;
     if (agreement > 1) {

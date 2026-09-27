@@ -63,6 +63,14 @@ export type ValidationReport = {
   independentDomains: number;
   /** Fraction of checks passed, 0..1 — a confidence proxy, never a certainty. */
   passRate: number;
+  /**
+   * The absolute timestamp of the NEWEST source, ISO. Required so the answer
+   * can say "current as of <time>" rather than vaguely "recently" — a user
+   * asking for a current figure needs to know how current it actually is.
+   */
+  newestSourceAt?: string;
+  /** Age of that newest source, in hours, for display. */
+  newestSourceAgeHours?: number;
 };
 
 export type ValidationInput = {
@@ -71,6 +79,11 @@ export type ValidationInput = {
   askedYears: number[];
   askedEvent: string | null;
   maxAgeDays: number;
+  /**
+   * The freshness tier's target, in hours. When set, evidence older than this
+   * is reported as unverifiable even if it falls inside `maxAgeDays`.
+   */
+  preferFreshHours?: number;
   crossCheck?: CrossCheckReport;
   now?: number;
 };
@@ -84,7 +97,7 @@ export type ValidationInput = {
  */
 export function validateEvidence(input: ValidationInput): ValidationReport {
   const now = input.now ?? Date.now();
-  const { citations, query, askedYears, askedEvent, maxAgeDays } = input;
+  const { citations, query, askedYears, askedEvent, maxAgeDays, preferFreshHours } = input;
   const keywords = keywordSet(query);
   const checks: CheckResult[] = [];
   const unverifiable: string[] = [];
@@ -160,22 +173,40 @@ export function validateEvidence(input: ValidationInput): ValidationReport {
     }
   }
 
-  // 4. RECENCY — fresh enough to be evidence for a current question?
+  // 4. RECENCY — is the NEWEST evidence fresh enough for what was asked?
+  //
+  // The old check passed when ANY source fell inside the window. That is how a
+  // 3-day-old article answered "give me India's LATEST medal tally": the set
+  // contained one 3-day page and the check was satisfied by the mere existence
+  // of a dated source. Recency is a property of the BEST evidence, not of the
+  // set.
   const ages = citations.map((c) => ageInDays(c.publishedAt, now));
   const datedAges = ages.filter((a): a is number => a !== null);
-  const freshEnough = datedAges.length > 0 && datedAges.some((a) => a <= maxAgeDays);
+  const newestDays = datedAges.length > 0 ? Math.min(...datedAges) : null;
+  const freshEnough = newestDays !== null && newestDays <= maxAgeDays;
+  // A "today" question must be answered by something from today, not merely
+  // something inside a two-day bound.
+  const meetsTierTarget = preferFreshHours === undefined || newestDays === null
+    ? true
+    : newestDays * 24 <= Math.max(preferFreshHours, 48);
   checks.push({
     id: "recency",
-    passed: freshEnough,
+    passed: freshEnough && meetsTierTarget,
     critical: true,
-    detail: freshEnough
-      ? `at least one source is within ${maxAgeDays} day(s)`
-      : datedAges.length > 0
-        ? `every dated source is older than ${maxAgeDays} day(s)`
-        : "no source carries a date, so recency is unverifiable",
+    detail: freshEnough && meetsTierTarget
+      ? `newest source is ${newestDays === null ? "?" : newestDays.toFixed(1)} day(s) old, within the ${maxAgeDays}-day window`
+      : newestDays === null
+        ? "no source carries a date, so recency is unverifiable"
+        : meetsTierTarget
+          ? `newest source is ${newestDays.toFixed(1)} day(s) old, outside the ${maxAgeDays}-day window`
+          : `newest source is ${newestDays.toFixed(1)} day(s) old — too old for a question asking for current information`,
   });
   if (!freshEnough) {
     unverifiable.push("No source recent enough to speak to the current situation was found.");
+  } else if (!meetsTierTarget) {
+    unverifiable.push(
+      `The newest source available is ${newestDays === null ? "?" : newestDays.toFixed(1)} days old, so this may not reflect today's situation.`,
+    );
   }
 
   // 5. AUTHORITY — is at least one source primary or reputable?
@@ -256,7 +287,23 @@ export function validateEvidence(input: ValidationInput): ValidationReport {
     datedSources,
     independentDomains: domains.size,
     passRate,
+    newestSourceAt: newestIso(citations, now),
+    newestSourceAgeHours: newestDays === null ? undefined : Number((newestDays * 24).toFixed(1)),
   };
+}
+
+/** Absolute ISO time of the newest dated source, or undefined. */
+function newestIso(citations: WebCitation[], now: number): string | undefined {
+  let best: { t: number; iso: string } | null = null;
+  for (const c of citations) {
+    if (!c.publishedAt) continue;
+    const t = Date.parse(c.publishedAt);
+    if (!Number.isFinite(t)) continue;
+    // Ignore a far-future timestamp: it is a clock artefact, not freshness.
+    if (t - now > 6 * 3_600_000) continue;
+    if (!best || t > best.t) best = { t, iso: new Date(t).toISOString() };
+  }
+  return best?.iso;
 }
 
 /**
