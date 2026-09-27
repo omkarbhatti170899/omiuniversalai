@@ -32,7 +32,70 @@ import {
   freshnessStatement,
   noVerificationMessage,
   splitByFreshness,
+  type FreshnessPolicy,
 } from "./searchEngine/freshness";
+import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
+import { crossCheckClaims, conflictNotice, type CrossCheckReport } from "./searchEngine/crossCheck";
+import { validateEvidence, cannotVerifyMessage, type ValidationReport } from "./searchEngine/validation";
+import { buildSearchTrace, summarizeTrace } from "./searchEngine/debugTrace";
+import { classifyCurrentIntent, retrievalQuery } from "./searchEngine/intent";
+import type { WebCitation } from "./searchProviders/types";
+
+/**
+ * Search debug mode (internal only).
+ *
+ * Records WHY a current answer looks the way it does: the freshness decision
+ * and its reasons, every source considered and whether it was kept, which
+ * stale/wrong-year sources were dropped, latency, cross-source conflicts and
+ * the validation verdict.
+ *
+ * This never reaches the user surface. It contains queries, domains, dates,
+ * counts and reasons only — no provider keys, no env values, no upstream
+ * bodies, no user identifiers. `summarizeTrace` emits a one-line log that is
+ * safe to keep; the full object is what an engineer inspects when a live
+ * answer looks wrong.
+ */
+function recordSearchDebugTrace(args: {
+  query: string;
+  intent?: string;
+  policy: FreshnessPolicy;
+  citations: WebCitation[];
+  usable: WebCitation[];
+  crossCheck: CrossCheckReport;
+  validation: ValidationReport;
+  searchMs: number;
+}): void {
+  const kept = new Set(args.usable.map((c) => c.url));
+  const trace = buildSearchTrace({
+    query: args.query,
+    intent: args.intent,
+    classified: classifyCurrentIntent(args.query, args.intent),
+    providersSearched: args.policy.preferredProviders,
+    rawCount: args.citations.length,
+    dedupedCount: args.citations.length,
+    candidates: args.citations.map((citation) => {
+      const selected = kept.has(citation.url);
+      return {
+        citation,
+        selected,
+        score: citation.relevance,
+        reason: selected
+          ? "kept as current evidence"
+          : isWrongYear(matchTemporal(citation, args.policy.years, null))
+            ? "dropped: about a different year than asked"
+            : `dropped: outside the ${args.policy.maxAgeDays}-day freshness window or undated`,
+      };
+    }),
+    maxAgeDays: args.policy.maxAgeDays,
+    crossCheck: args.crossCheck,
+    validation: args.validation,
+    searchMs: args.searchMs,
+    totalMs: args.searchMs,
+  });
+  // Internal diagnostic log. Intentionally a single line and free of any
+  // credential-shaped or personal field.
+  console.log(summarizeTrace(trace));
+}
 import { parseKnowledgeMode, routeKnowledge, knowledgeOnlyRefusal } from "./knowledgeEngine/mode";
 import {
   creatorIdentityBlock,
@@ -655,7 +718,12 @@ async function runTurn(
             ? `Omi is looking up ${policy.label.toLowerCase()}…`
             : "Omi is searching the web…",
         });
-        const universal = await runUniversalSearch(ctx, trimmed, {
+        // Send a KEYWORD-shaped query to the engines, not the raw question.
+        // Measured: the same question retrieves 4 sources without the
+        // interrogative frame and 0 (after a 12s timeout) with it. The
+        // original text is still what gets validated and synthesized.
+        const retrieval = retrievalQuery(trimmed);
+        const universal = await runUniversalSearch(ctx, retrieval, {
           perEngineLimit: policy.requiresFreshness ? 4 : 3,
           maxCitations: policy.requiresFreshness ? 5 : 4,
           // The three parameters the search layer was never given before.
@@ -665,6 +733,9 @@ async function runTurn(
           skipCache: decision.skipCache || policy.requiresFreshness,
           // Recency dominates ranking for a current question.
           freshnessMatters: policy.requiresFreshness,
+          // Rank by the year/event actually asked about, not just recency.
+          askedYears: policy.years,
+          askedEvent: policy.event,
           // Only run engines that genuinely serve this vertical.
           strictVertical: policy.requiresFreshness ? policy.strict : false,
           preferredProviders: policy.requiresFreshness
@@ -674,9 +745,18 @@ async function runTurn(
         if (universal.citations.length > 0) {
           // Drop results that are too old (or undated) to be evidence for a
           // current question. Keeping them would be the same bug in a new form.
-          const usable = policy.requiresFreshness
+          const freshEnough = policy.requiresFreshness
             ? splitByFreshness(universal.citations, policy.maxAgeDays).fresh
             : universal.citations;
+
+          // YEAR/EVENT GATE. Recency alone let a 2018 Asian Games article
+          // answer a question about the 2026 medal tally: it was a
+          // high-authority, recently-crawled page about the WRONG YEAR. A
+          // result about a different year is a wrong answer, not an old one,
+          // so it is dropped outright rather than down-ranked.
+          const usable = policy.years.length > 0 || policy.event
+            ? freshEnough.filter((c) => !isWrongYear(matchTemporal(c, policy.years, null)))
+            : freshEnough;
           await patchStreaming({
             content: `Reading ${usable.length} sources…`,
           });
@@ -694,10 +774,77 @@ async function runTurn(
             // Say exactly that rather than answering from memory.
             searchBlock = "";
             orchestratorNote = `NO_VERIFIED_RESULTS ${noVerificationMessage(trimmed, policy.vertical)}`;
+          } else if (policy.requiresFreshness) {
+            // --- VALIDATION GATE -----------------------------------------
+            // Seven checks before Omi is allowed to answer a current question
+            // confidently. A failed CRITICAL check means the honest output is
+            // "I could not verify this", NOT a model-memory guess.
+            const crossCheck = crossCheckClaims(usable, searchStarted);
+            const validation = validateEvidence({
+              query: trimmed,
+              citations: usable,
+              askedYears: policy.years,
+              askedEvent: policy.event,
+              maxAgeDays: policy.maxAgeDays,
+              crossCheck,
+              now: searchStarted,
+            });
+
+            // Search debug mode: recorded for internal diagnosis only, never
+            // shown to the user and never carrying secrets.
+            recordSearchDebugTrace({
+              query: trimmed,
+              intent: decision.intent,
+              policy,
+              citations: freshEnough,
+              usable,
+              crossCheck,
+              validation,
+              searchMs: Date.now() - searchStarted,
+            });
+
+            if (validation.verdict === "refuse") {
+              searchBlock = "";
+              orchestratorNote = `NO_VERIFIED_RESULTS ${cannotVerifyMessage(trimmed, validation)}`;
+            } else {
+              const statement = freshnessStatement(usable, policy.maxAgeDays);
+              // Disagreement is surfaced, never silently resolved. The model
+              // is told to present the conflict rather than pick a winner.
+              const conflict = conflictNotice(crossCheck, searchStarted);
+              const caveat = validation.unverifiable.length > 0
+                ? `UNVERIFIED ASPECTS — state these plainly in the answer: ${validation.unverifiable.join(" ")}`
+                : "";
+
+              // Real, measured progress for the calm status UI: how many
+              // INDEPENDENT sources back this, not an animated percentage.
+              // With one source the wording stays honest — it is reported, not
+              // confirmed.
+              const independent = validation.independentDomains;
+              await patchStreaming({
+                content:
+                  independent >= 2
+                    ? `Verified against ${independent} sources`
+                    : "Verified against 1 source — not independently confirmed",
+              });
+              searchBlock =
+                (knowledgeUse.blendWithResearch
+                  ? "EXTERNAL RESEARCH (live web — clearly SEPARATE from the approved internal knowledge above; " +
+                    "never present an external claim as internal policy). Cite inline as [1], [2] … where used:\n"
+                  : "") +
+                freshnessInstruction(policy) +
+                (statement ? `\n${statement}\n` : "") +
+                (conflict ? `\n${conflict}\n` : "") +
+                (caveat ? `\n${caveat}\n` : "") +
+                "\n" +
+                usable
+                  .map((c, i) => `${formatSourceLine(c, i + 1)}\nEXCERPT: ${c.snippet ?? ""}`)
+                  .join("\n\n");
+              // Pre-build the no-AI fallback answer from the same sources so it's
+              // ready if every AI provider is unreachable.
+              fallbackAnswer = extractiveBrief(trimmed, usable);
+            }
           } else {
-            const statement = policy.requiresFreshness
-              ? freshnessStatement(usable, policy.maxAgeDays)
-              : null;
+            const statement = freshnessStatement(usable, policy.maxAgeDays);
             searchBlock =
               (knowledgeUse.blendWithResearch
                 ? "EXTERNAL RESEARCH (live web — clearly SEPARATE from the approved internal knowledge above; " +

@@ -68,5 +68,14 @@ Sign in with a real account, then run each in order and record the result.
 1. **Flow 17 (image editing)** — the free Pollinations balance covers small-input edits (which pass live) but returned `402 no remaining credits or balance` for full 1024×1024-input edits during QA. **This is a billing condition, not a code fault; the editing code was deliberately not changed.** The key already has image-model permissions (`kontext`, `flux`, `sana`, `z-image`, `gptimage`) — only credits are missing. To make full-size editing reliable, top up the balance: free Pollen via Pollinations **Quests**, or a small budget for sustained volume. The same requests start succeeding immediately once balance exists; `/selftest` already proves the full edit path.
 2. **Flow 22 (PWA)** and the **Android device test** — require a real device; not executed here.
 3. **Browser-rendered checks** (streaming feel, keyboard, touch, install, offline bar) require a human.
+4. **Search quality — now a human judgement, not a code check.** The reported live-information bug was fixed and regression-tested (81 new cases), but whether the *answers* read as genuinely current and correctly dated can only be confirmed by a person. Run these in a browser and confirm the answer is current, carries dates, cites sources, and that Omi says so plainly when it cannot verify:
+   - "What is the Indian contingent medals tally in Asian Games 2026?"
+   - "What is India's medal tally in Asian Games 2026?"
+   - "latest India cricket score" · "current gold price in India" · "latest election results"
+   - "today's weather" · "latest Apple stock price" · "current USD INR rate" · "latest AI news"
+   - "current IPL standings" · "latest flight status"
+   - Control: "Who won the 2016 Olympics men's 100m?" must **not** be treated as a live question.
+
+   While you are there, watch the research status: it must stay calm, must not restart repeatedly, and must never leave a spinner running.
 
 Nothing in section B is claimed as done until a human records a PASS. **Section B is currently 0/22.**

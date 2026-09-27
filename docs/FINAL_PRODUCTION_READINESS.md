@@ -22,11 +22,11 @@
 
 | Gate | Command | Result |
 |---|---|---|
-| Build | `bun run build` | **PASS** — built in 13.11 s, no errors |
+| Build | `bun run build` | **PASS** — built in 12.97 s, no errors |
 | Typecheck | `bunx tsc -b --noEmit` | **PASS** — 0 errors |
-| Lint | `bunx eslint .` | **PASS** — 0 errors / 21 warnings (baseline: react-refresh in `ui/`, unused `eslint-disable` in `_generated/*` + `retrieval.ts`) |
-| Unit/integration tests | `bun test tests/` | **PASS** — **833 pass / 0 fail**, 50 files, 3252 assertions |
-| Convex codegen | `bunx convex dev --once` | **PASS** — functions ready in 14.16 s, schema + crons deployed |
+| Lint | `bunx eslint .` | **PASS** — 0 errors / 21 warnings (baseline) |
+| Unit/integration tests | `bun test tests/` | **PASS** — **914 pass / 0 fail**, 52 files, 3467 assertions (833 + 81 new regression cases) |
+| Convex codegen | `bunx convex dev --once` | **PASS** — functions ready, schema + crons deployed |
 | Authorization audit | `bun scripts/audit-authz.ts` | **PASS** — 109 public functions, **0 with no auth**, 1 authenticated-without-ownership marker (reviewed), 6 reviewed-public |
 | Current-information suite | `GET /currentinfo` | **PASS** — **10/10**, 0 failed |
 | Full self-test | `GET /selftest` | **PASS** — status **ok**, **23 pass / 0 fail / 5 configured** (re-confirmed 2026-09-27T04:21Z) |
@@ -254,8 +254,9 @@ A real **guest (anonymous) session** was created against the live deployment and
 
 | # | Area | Evidence |
 |---|---|---|
-| 1 | Build / typecheck / lint | `bun run build` 13.11 s; `tsc -b --noEmit` 0 errors; `eslint .` **0 errors** / 21 warnings (baseline) |
-| 2 | Test suite | `bun test tests/` — **833 pass / 0 fail**, 50 files, 3252 assertions |
+| 0 | **Search quality overhaul** | The reported live-information bug reproduced, root-caused and fixed at the orchestration layer. Live pipeline now returns real dated 2026 sources for the reported query (4 kept, 4 independent domains, wrong-year sources dropped, no invented tally). See **[docs/SEARCH_QUALITY_REPORT.md](SEARCH_QUALITY_REPORT.md)** |
+| 1 | Build / typecheck / lint | `bun run build` 12.97 s; `tsc -b --noEmit` 0 errors; `eslint .` **0 errors** / 21 warnings (baseline) |
+| 2 | Test suite | `bun test tests/` — **914 pass / 0 fail**, 52 files, 3467 assertions |
 | 3 | Convex deploy + codegen | `bunx convex dev --once` — functions ready in 14.16 s |
 | 4 | Security / authorization | `audit-authz` — 109 public functions, **0 missing auth**; 1 ownership-marker item reviewed (`users.currentUser` returns only the caller's own record); 6 reviewed-public metadata routes; secrets never returned by any status/self-test surface |
 | 5 | Image generation | Real bytes via `pollinations (sana)` — 32,970 B @ 1024×1024; variation 21,286 B; transparency 27,547 B |
@@ -272,6 +273,9 @@ A real **guest (anonymous) session** was created against the live deployment and
 
 | Item | What is outstanding |
 |---|---|
+| **Search source relevance** | The gates now *detect* off-topic results and refuse rather than answer, but the underlying engines still guess (the sports feed answering an IPL-standings question). Detection is downstream of the provider. |
+| **Search engine resilience** | A single community SearXNG instance is the biggest reliability risk in the search path; it timed out under probing and briefly dropped `/selftest` to 21/1 before recovering to 23/0. A second keyless provider was added, but self-hosting is still recommended. |
+| **Search / chat UI feel** | Calm status, fixed heights and reserved space are code-verified by 16 contract tests, but no human has watched them. |
 | Full-size image editing (1024×1024 input) | Free Pollinations balance is exhausted → 402. Small-input edits pass live. **Needs a balance top-up, not a code change** (§2). Editing code was deliberately left untouched. |
 | Chat / image / search **visual** quality | Streaming smoothness, spacing, scrolling feel and layout responsiveness are implemented and unit-tested but have never been rendered to a human eye |
 | Responsive + touch targets | 44px+ targets, safe-area and keyboard-viewport handling are implemented and unit-tested; unconfirmed on a real viewport |
@@ -282,6 +286,7 @@ A real **guest (anonymous) session** was created against the live deployment and
 
 | Item | Why blocked | What unblocks it |
 |---|---|---|
+| **Human verdict on the search + UX quality gates** | A quality gate is a judgement about whether an answer is *right* and an interface is *calm*. No automated test can make that judgement. | A human runs the reported queries in a browser and watches the interface |
 | **Real browser QA** (request item 1) | No browser session / no display in this environment | A human opens the deployed URL and runs the 22 flows in `docs/MANUAL_QA_CHECKLIST.md` |
 | **Human UX pass** (request item 2) | Needs a person perceiving the rendered UI — streaming smoothness, loading states, Andromeda progress, image states, spacing, scrolling, keyboard, touch targets, source cards, dark theme, errors/retries, success feedback, offline/reconnect | A human on a desktop browser and a phone; checklist in §14 |
 | **Android / PWA device test** (request item 4) | No physical device, and no JDK/Gradle to build an APK/AAB | `npx cap add android && npx cap sync && ./gradlew assembleRelease`, then install and test on a real Android phone |

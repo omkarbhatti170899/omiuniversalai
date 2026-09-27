@@ -84,6 +84,15 @@ export async function runUniversalSearch(
      * information contract forbids.
      */
     strictVertical?: boolean;
+    /**
+     * Years / the event the question is scoped to. When present, ranking
+     * penalises sources about a DIFFERENT year or event, which is what stops
+     * a 2018 Asian Games article from outranking the 2026 medal tally.
+     * Recency cannot express this: a page published last week about the 2018
+     * Games is fresh by timestamp and wrong by content.
+     */
+    askedYears?: number[];
+    askedEvent?: string | null;
   },
 ): Promise<UniversalResult> {
   const perEngine = opts?.perEngineLimit ?? PER_ENGINE_LIMIT;
@@ -221,7 +230,11 @@ export async function runUniversalSearch(
   // when freshness matters) + completeness. Same URL found by 2+ independent
   // engines earns a confidence bump (spec: cross-source priority).
   for (const item of merged) {
-    let score = scoreSource(item.c, keywords, { freshnessMatters });
+    let score = scoreSource(item.c, keywords, {
+      freshnessMatters,
+      askedYears: opts?.askedYears,
+      askedEvent: opts?.askedEvent,
+    });
     const agreement = seenUrls.get(normalizeUrl(item.c.url)) ?? 1;
     if (agreement > 1) {
       score = Math.min(1, score + 0.08 * (agreement - 1));

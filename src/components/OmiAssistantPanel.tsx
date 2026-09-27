@@ -61,10 +61,7 @@ import {
   AnswerRenderer,
   AnswerDetails,
 } from "@/components/answer/AnswerRenderer";
-import {
-  PROGRESS_STAGES,
-  stageForStatus,
-} from "@/lib/answerShape";
+import { ResearchStatusLine } from "./workspace/ResearchStatus";
 import {
   composerBottomInset,
   initialThreadBudget,
@@ -715,54 +712,18 @@ export function OmiAssistantPanel({
                     {m.role === "user" ? (
                       <p className="whitespace-pre-wrap">{m.content}</p>
                     ) : m.status === "streaming" ? (
-                      <div className="space-y-3">
-                        {/* §3 — visible stage ladder, not chain-of-thought. */}
-                        <ol
-                          className="flex flex-wrap items-center gap-x-2 gap-y-1"
-                          aria-label="Omi is working"
-                        >
-                          {PROGRESS_STAGES.map((stage, i) => {
-                            const current = stageForStatus(
-                              m.content || m.reasoning,
-                            );
-                            const stageIdx = PROGRESS_STAGES.indexOf(current);
-                            const done = i < stageIdx;
-                            const active = i === stageIdx;
-                            return (
-                              <li
-                                key={stage}
-                                className={cn(
-                                  "flex items-center gap-1 text-[11px] transition-colors",
-                                  done
-                                    ? "text-muted-foreground/70"
-                                    : active
-                                      ? "font-medium text-primary"
-                                      : "text-muted-foreground/40",
-                                )}
-                              >
-                                {active ? (
-                                  <Loader2 className="size-3 shrink-0 animate-spin" />
-                                ) : (
-                                  <span
-                                    aria-hidden
-                                    className={cn(
-                                      "size-1.5 rounded-full",
-                                      done ? "bg-primary/60" : "bg-muted-foreground/30",
-                                    )}
-                                  />
-                                )}
-                                {stage.charAt(0) + stage.slice(1).toLowerCase()}
-                                {i < PROGRESS_STAGES.length - 1 && (
-                                  <span aria-hidden className="ml-1 text-muted-foreground/30">
-                                    ·
-                                  </span>
-                                )}
-                              </li>
-                            );
-                          })}
-                        </ol>
+                      <div className="space-y-2">
+                        {/* §11 — compact, fixed-height research status.
+                            Replaces the five-step ladder with a moving spinner:
+                            one line, one real count, no restarts, and a
+                            guaranteed terminal state so nothing spins forever. */}
+                        <ResearchStatusLine status={m.content || m.reasoning} />
                         {m.content && (
-                          <MarkdownMessage content={m.content} className="flex-1" />
+                          // Reserved minimum height so the bubble does not
+                          // resize as the first tokens arrive.
+                          <div className="min-h-[3rem]">
+                            <MarkdownMessage content={m.content} className="flex-1" />
+                          </div>
                         )}
                       </div>
                     ) : (
@@ -1000,7 +961,11 @@ export function OmiAssistantPanel({
                     }}
                   >
                     {voice.listening ? (
-                      <Mic className="size-4 animate-pulse" />
+                      // Recording is real state, so it is shown with a steady
+                      // colour change rather than a pulsing cycle. A pulsing
+                      // icon next to an input that is already animating is
+                      // exactly the "choppy" feel the UX pass removed.
+                      <Mic className="size-4 text-primary" aria-hidden />
                     ) : (
                       <Mic className="size-4" />
                     )}

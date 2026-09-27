@@ -13,6 +13,10 @@ SECURITY CHECK → and a live/deployed check where one is possible here. Nothing
 
 > The current provider-level, per-phase production audit (with measured verdicts and
 exact unblock actions) lives in **[docs/FINAL_PRODUCTION_READINESS.md](docs/FINAL_PRODUCTION_READINESS.md)**.
+>
+> The search-quality and UX overhaul (the reported live-information bug, its root
+> cause, the fix, and the two quality gates) lives in
+> **[docs/SEARCH_QUALITY_REPORT.md](docs/SEARCH_QUALITY_REPORT.md)**.
 
 ---
 
@@ -22,9 +26,9 @@ exact unblock actions) lives in **[docs/FINAL_PRODUCTION_READINESS.md](docs/FINA
 |---|---|---|
 | Typecheck | `bunx tsc -b --noEmit` | **0 errors** |
 | Lint | `bunx eslint .` | **0 errors**, 21 warnings (react-refresh in shadcn files + unused eslint-disable in generated files) |
-| Unit/integration tests | `bun test tests/` | **833 pass / 0 fail** (50 files, 3252 assertions) |
-| Build | `bun run build` | clean, 13.11 s |
-| Convex codegen | `bunx convex dev --once` | clean, 14.16 s |
+| Unit/integration tests | `bun test tests/` | **914 pass / 0 fail** (52 files, 3467 assertions) |
+| Build | `bun run build` | clean, 12.97 s |
+| Convex codegen | `bunx convex dev --once` | clean |
 | Authorization audit | `bun scripts/audit-authz.ts` | 109 public functions, **0 with no auth** |
 | Deployed current-info probe | `GET /currentinfo` | **10 / 10 scenarios PASS** |
 | Deployed self-test | `GET /selftest` | **status ok — 23 pass / 0 fail / 5 configured** |
@@ -201,7 +205,9 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Image editing | **READY (verified)** — all six edit-family ops PASS live via `pollinations-edit (kontext)`; full 1024×1024-**input** edits need a Pollinations balance top-up |
 | General web search | **READY (measured)** — JSON-enabled instance configured and stress-tested 15/15 |
 | Android / PWA | **BLOCKED** — no device, no JDK/Gradle |
+| Search quality (freshness, stale rejection, cross-check) | **READY (measured)** — reported bug fixed and regression-tested; see `docs/SEARCH_QUALITY_REPORT.md` |
+| Search UI feel / mobile behaviour | **NOT VERIFIED BY A HUMAN** — code contract tested, never rendered |
 
 **Verdict buckets:** **VERIFIED** (measured here) · **MANUAL VERIFIED = 0, this bucket is empty** · **PARTIAL** (visual UX, PWA install/offline, full-size editing pending balance, multi-format KB end-to-end) · **BLOCKED** (real browser QA, human UX pass, Android/PWA device test).
 
-**Overall: NOT 100%.** Chat, search, current information, image generation, image editing, deployment parity, security and the automated gates are genuinely verified — including a real authenticated session completing 15 of 16 production flows. But **not a single flow has been manually verified by a human in a browser or on a device**, and the three QA activities explicitly requested (real browser QA, human UX pass, Android/PWA device test) could not be executed here. Omi reaches 100% only when that MANUAL VERIFIED bucket is non-empty.
+**Overall: NOT 100%.** The reported search-quality bug is **fixed and measured**: current questions are detected (including implicit ones), stale and wrong-year sources are dropped, claims are cross-checked, and the UI is calmer and more stable — 81 new regression cases, 914 tests passing, live pipeline verified. But **not a single flow has been manually verified by a human in a browser or on a device**, the three QA activities explicitly requested (real browser QA, human UX pass, Android/PWA device test) could not be executed here, and both quality gates (search, UX) are still **PARTIAL** because automated tests cannot judge whether an answer is right or an interface feels calm. Omi reaches 100% only when the MANUAL VERIFIED bucket is non-empty.

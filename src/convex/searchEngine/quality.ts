@@ -6,6 +6,7 @@
  */
 
 import type { WebCitation } from "../searchProviders/types";
+import { matchTemporal, temporalPenalty } from "./temporal";
 
 export function normalizeUrl(url: string): string {
   try {
@@ -117,22 +118,64 @@ export function relevanceScore(c: WebCitation, keywords: string[]): number {
 }
 
 /**
+ * Directness: does the source actually ANSWER, or merely mention the topic?
+ *
+ * A page that discusses the Asian Games at length without giving a medal count
+ * is not evidence for a medal question. Directness rewards sources whose own
+ * text carries the asked entity together with a concrete value (a number, a
+ * date, a scoreline) — that is the difference between a real answer and a
+ * summary page.
+ */
+export function directnessScore(c: WebCitation, keywords: string[]): number {
+  const hay = `${c.title ?? ""} ${c.snippet ?? ""}`.toLowerCase();
+  if (!hay) return 0;
+  const entityHits = keywords.filter((k) => hay.includes(k)).length;
+  if (entityHits === 0) return 0;
+  // A concrete value in the body text is the strongest signal of a direct
+  // answer; a value in the title alone is weaker but still meaningful.
+  const hasNumber = /\b\d+(?:[.,]\d+)?\b/.test(hay);
+  const titleHasNumber = /\b\d+(?:[.,]\d+)?\b/.test((c.title ?? "").toLowerCase());
+  const coverage = entityHits / Math.max(1, keywords.length);
+  const valueBonus = hasNumber ? (titleHasNumber ? 0.35 : 0.2) : 0;
+  return Math.min(1, coverage * 0.7 + valueBonus);
+}
+
+/**
  * Blended source score (0..1): relevance dominates; authority, freshness
- * (weighted up when the request is freshness-sensitive), and completeness
- * contribute per spec §12.
+ * (weighted up when the request is freshness-sensitive), directness and
+ * completeness contribute per spec §12.
+ *
+ * For a year- or event-scoped question the whole score is then multiplied by
+ * `temporalPenalty`, which drives a confidently-wrong-year source to the
+ * floor. Recency alone cannot do this: a page published last week about the
+ * 2018 Games is fresh by timestamp and useless by content.
  */
 export function scoreSource(
   c: WebCitation,
   keywords: string[],
-  opts: { freshnessMatters?: boolean } = {},
+  opts: {
+    freshnessMatters?: boolean;
+    askedYears?: number[];
+    askedEvent?: string | null;
+  } = {},
 ): number {
   const rel = relevanceScore(c, keywords);
   const tier = sourceTier(c.url).weight;
   const fresh = freshnessScore(c.publishedAt);
   const comp = completenessScore(c);
   const freshW = opts.freshnessMatters ? 0.18 : 0.06;
-  const rest = 1 - 0.5 - 0.18 - freshW - 0.12;
-  return 0.5 * rel + 0.18 * tier + freshW * fresh + 0.12 * comp + rest;
+  const rest = 1 - 0.5 - 0.18 - freshW - 0.12 - 0.08;
+  const direct = 0.08 * directnessScore(c, keywords);
+  const base = 0.5 * rel + 0.18 * tier + freshW * fresh + 0.12 * comp + direct + rest;
+
+  // Temporal matching is only meaningful when the question is actually scoped
+  // to a year or an event. Applying it unconditionally would penalise every
+  // source for a timeless question.
+  if ((opts.askedYears?.length ?? 0) > 0 || opts.askedEvent) {
+    const match = matchTemporal(c, opts.askedYears ?? [], opts.askedEvent ?? null);
+    return base * temporalPenalty(match);
+  }
+  return base;
 }
 
 function titleKey(title: string): string {

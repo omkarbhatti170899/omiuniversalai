@@ -20,7 +20,14 @@
  *      memory for a current question without saying so explicitly.
  */
 
-export type Vertical = "news" | "sports" | "weather" | "markets" | "general";
+export type { Vertical, LiveDataKind, CurrentIntent } from "./intent";
+
+import {
+  classifyCurrentIntent,
+  classifyVertical,
+  type Vertical,
+  type LiveDataKind,
+} from "./intent";
 
 export type FreshnessSource = {
   title: string;
@@ -34,6 +41,16 @@ export type FreshnessPolicy = {
   vertical: Vertical;
   /** The question cannot be answered honestly from model memory. */
   requiresFreshness: boolean;
+  /** Which live datum is being asked for, when the question names one. */
+  liveData: LiveDataKind | null;
+  /**
+   * Years the question is scoped to, ascending. A result about a DIFFERENT
+   * year is a wrong answer, not an old one — this drives event/year matching
+   * so a 2018 Games article cannot be presented as the 2026 tally.
+   */
+  years: number[];
+  /** A named event the question is scoped to, or null. */
+  event: string | null;
   /** Engine-level time filter, when the provider supports one. */
   timeRange: "hour" | "day" | "week" | "month" | undefined;
   /** A result older than this is not acceptable evidence for this question. */
@@ -88,24 +105,10 @@ export function scoreDemanded(query: string): boolean {
 
 // --- Natural-language current detection ------------------------------------
 //
-// Keyword-only detection misses the phrasing people actually use, so these
-// patterns are deliberately about MEANING, not a word list.
-
-const NEWS_RE =
-  /\b(news|headlines?|breaking|what'?s happening|what is happening|what happened|developments?|announcements?|announced|press release|update[ds]?|latest)\b/i;
-
-const SPORTS_RE =
-  /\b(score|scores|scoreline|fixture|fixtures|match|matches|fixture|game|tournament|league|ipl|football|soccer|cricket|nba|nfl|f1|formula ?1|tennis|olympic)\b/i;
-
-const WEATHER_RE =
-  /\b(weather|forecast|temperature|raining|rain|rainfall|snow|snowfall|humidity|wind speed|wind|storm|cyclone|hot|how (?:hot|cold)|will it (?:rain|snow)|air quality)\b/i;
-
-const MARKETS_RE =
-  /\b(stock|stocks|share price|share prices|market cap|sensex|nifty|nasdaq|dow jones|sp ?500|exchange rate|exchange rates|forex|crypto|bitcoin|btc|ethereum|etf|gold price|oil price|brent|commodit|bullion|conversion rate)\b/i;
-
-/** A named currency, e.g. "USD", "INR" — used to spot "USD to INR". */
-const CURRENCY_CODE_RE =
-  /\b(usd|eur|gbp|inr|jpy|aud|cad|chf|cny|sgd|aed|sar|hkd|nzd|zar|brl|mxn|rub|krw|try|idr|php|myr|thb|ils|pkr|bdt|lkr|kes|ghs|isk|uah)\b/i;
+// Vertical vocabulary and IMPLICIT-freshness detection now live in ./intent
+// (the query-intent classifier). They are not duplicated here: two lists that
+// can drift apart is how "medal tally" ended up classified as history while
+// "latest AI news" was classified as current. ./intent is the single source.
 
 /** "as of today", "right now", "at the moment", "these days", "so far today". */
 // The bare words "live", "current" and "now" are in the current-information
@@ -133,23 +136,7 @@ const RECENT_RE =
  * "weather" question that also says "today" is weather, not news.
  */
 export function detectVertical(query: string): Vertical {
-  const q = query ?? "";
-  if (WEATHER_RE.test(q)) return "weather";
-  if (MARKETS_RE.test(q)) return "markets";
-  // "USD to INR", "1 GBP in EUR" — a currency pair IS a market question, even
-  // without the word "rate".
-  // "gi" — the source pattern is case-insensitive, and `new RegExp(re, flags)`
-  // REPLACES the original flags rather than adding to them, so the "i" must be
-  // repeated here or "USD" in caps would never match.
-  const codes = [...new Set(q.toLowerCase().match(new RegExp(CURRENCY_CODE_RE, "gi")) ?? [])];
-  if (codes.length >= 2) return "markets";
-  if (SPORTS_RE.test(q)) return "sports";
-  // "Arsenal vs Chelsea result" names no sport at all, but "vs" plus a
-  // score word is unambiguously a fixture question. Without this it fell
-  // through to "general" and was answered from a book catalogue.
-  if (scoreDemanded(q) && /\bvs\.?\b|\bagainst\b/i.test(q)) return "sports";
-  if (NEWS_RE.test(q)) return "news";
-  return "general";
+  return classifyVertical(query);
 }
 
 /**
@@ -161,23 +148,22 @@ export function detectVertical(query: string): Vertical {
  */
 export function requiresFreshness(query: string, intent?: string): boolean {
   const q = query ?? "";
-  if (intent === "current" || intent === "news") return true;
-  if (NOW_RE.test(q)) return true;
-  if (LAST_N_RE.test(q)) return true;
-  if (RECENT_RE.test(q)) return true;
+  // The classifier owns the decision. It understands IMPLICIT freshness — a
+  // live-data noun ("medal tally", "election result", "flight status") or a
+  // year at/after the current one — which is what the old keyword list missed
+  // and what let "Asian Games 2026" be answered from model memory.
+  if (classifyCurrentIntent(q, intent).requiresFreshness) return true;
+  // Defence in depth: the two live-feed rules below stand on their own, so a
+  // future caller that skips the classifier still cannot answer a forecast or
+  // a conversion from memory.
+  if (isLiveWeatherRequest(q)) return true;
+  if (demandIsInherentlyLive(q)) return true;
+  // Explicit relative-date phrasing implies freshness even without a keyword.
+  if (NOW_RE.test(q) || LAST_N_RE.test(q) || RECENT_RE.test(q)) return true;
   // "What is happening…", "what happened…" — current with no time word.
   if (/\bwhat(?:'s| is| was)?\s+(?:happen(?:ing|ed)?|going on|new)\b/i.test(q)) {
     return true;
   }
-  // A live forecast request carries no time word ("what's the weather") but
-  // still cannot be answered from memory, so it must reach the weather feed.
-  if (isLiveWeatherRequest(q)) return true;
-  // Asking for a live DATASET implies freshness on its own. "Arsenal score",
-  // "1 USD to INR" and "will it rain tomorrow" name no time word at all, yet
-  // each is only answerable from a live feed. Without this, such a query
-  // looked "not current", lost its vertical routing, fell through the general
-  // fan-out, and was answered with whatever an academic-paper engine returned.
-  if (demandIsInherentlyLive(q)) return true;
   return false;
 }
 
@@ -239,7 +225,8 @@ export function freshnessPolicyFor(
   query: string,
   intent?: string,
 ): FreshnessPolicy {
-  const vertical = detectVertical(query);
+  const classified = classifyCurrentIntent(query, intent);
+  const vertical = classified.vertical;
   const fresh = requiresFreshness(query, intent);
   const timeRange = timeRangeFor(query, intent);
 
@@ -247,6 +234,9 @@ export function freshnessPolicyFor(
     return {
       vertical,
       requiresFreshness: false,
+      liveData: classified.liveData,
+      years: classified.years,
+      event: classified.event,
       timeRange: intent === "news" ? "week" : undefined,
       maxAgeDays: 3650,
       label: "Web search",
@@ -267,23 +257,39 @@ export function freshnessPolicyFor(
   const valueAsked = vertical === "markets" && marketValueDemanded(query);
 
   const preferred: Record<Vertical, string[]> = {
-    news: ["wikipedia-current-events", "gdelt", "hackernews", "searxng"],
+    news: ["wikipedia-current-events", "gdelt", "hackernews", "searxng", "duckduckgo"],
     // A scoreline must come from a scoreboard, never from a news article
     // saying "Arsenal beat Chelsea 2-1". When a score is actually being asked
     // for, ONLY the live score feed may answer; when the user merely wants
     // reporting about a match, news is a legitimate answer.
+    //
+    // The live scoreboard is deliberately EXCLUDED when no score is asked
+    // for. Measured live: a question about the "Asian Games 2026 medal tally"
+    // was answered with Japanese B1 League basketball scorelines, because
+    // the scoreboard returns *something* for any query that looks sporting.
+    // Those results are genuinely fresh, which is precisely why they were
+    // dangerous — a medal tally is not a fixture list.
     sports: scoreAsked
       ? ["sports-scores"]
-      : ["sports-scores", "gdelt", "wikipedia-current-events", "searxng"],
+      : ["gdelt", "wikipedia-current-events", "searxng", "duckduckgo"],
     weather: ["openmeteo"],
     // Real rate data, with a news backstop for "why did the rupee move".
-    markets: ["market-rates", "gdelt", "searxng"],
-    general: ["wikipedia-current-events", "gdelt", "wikipedia", "searxng"],
+    markets: ["market-rates", "gdelt", "searxng", "duckduckgo"],
+    // No dedicated structured feed is wired for these two yet, so news plus
+    // the general-web floor is the honest best available — and `strict` stays
+    // FALSE so a single index outage degrades to a real answer instead of a
+    // bare failure.
+    election: ["gdelt", "wikipedia-current-events", "searxng", "duckduckgo"],
+    travel: ["searxng", "duckduckgo", "gdelt"],
+    general: ["wikipedia-current-events", "gdelt", "wikipedia", "searxng", "duckduckgo"],
   };
 
   return {
     vertical,
     requiresFreshness: true,
+    liveData: classified.liveData,
+    years: classified.years,
+    event: classified.event,
     timeRange,
     maxAgeDays,
     label: VERTICAL_LABEL[vertical],
@@ -300,6 +306,8 @@ const VERTICAL_LABEL: Record<Vertical, string> = {
   sports: "Live sports search",
   weather: "Live weather data",
   markets: "Live market data",
+  election: "Live election search",
+  travel: "Live travel search",
   general: "Live web search",
 };
 

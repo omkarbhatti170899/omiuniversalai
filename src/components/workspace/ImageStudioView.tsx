@@ -1075,7 +1075,11 @@ export function ImageStudioView({
                 {[0, 1, 2, 3].map((i) => (
                   <div
                     key={i}
-                    className="aspect-square animate-pulse rounded-lg border border-border/60 bg-muted/40"
+                    // Static placeholder. `aspect-square` still reserves the
+                    // exact final size, so the grid does not jump when the
+                    // gallery arrives — that is the whole point of a skeleton.
+                    // A pulse on top of four tiles was shimmer for its own sake.
+                    className="aspect-square rounded-lg border border-border/60 bg-muted/40"
                   />
                 ))}
               </div>
