@@ -132,6 +132,37 @@ export function relevanceScore(c: WebCitation, keywords: string[]): number {
 }
 
 /**
+ * The TOPIC words of a question — the query's keywords minus bare numbers.
+ *
+ * A year is a scoping constraint, not a topic. "2026" appears on holiday
+ * packages, tender notices and unrelated press releases, so a source that
+ * shares nothing with the question but the year looks on-topic to a naive
+ * overlap test. In the live run this is exactly what let a "Sri Lanka Maldives
+ * Twin Centre Holiday Package 2026/2027" page through a medal-tally gate.
+ */
+export function topicKeywords(query: string): string[] {
+  return keywordSet(query).filter((w) => !/^\d+$/.test(w));
+}
+
+/**
+ * Off-topic test: shares NO topic word with the question.
+ *
+ * Deliberately the weakest possible floor — one shared topic word is enough to
+ * survive. A stricter threshold was rejected: paraphrase and inflection
+ * ("medal" vs "medals", "tally" vs "medal count") are common in real headlines,
+ * and a floor tuned on one query would silently drop legitimate evidence on the
+ * next one. Zero overlap is unambiguous in a way that partial overlap is not.
+ *
+ * Returns false when the question has no topic words, because a question we
+ * cannot characterise is not evidence that a source is off-topic.
+ */
+export function isOffTopic(c: WebCitation, topic: string[]): boolean {
+  if (topic.length === 0) return false;
+  const hay = `${c.title ?? ""} ${c.snippet ?? ""}`.toLowerCase();
+  return !topic.some((k) => hay.includes(k));
+}
+
+/**
  * Directness: does the source actually ANSWER, or merely mention the topic?
  *
  * A page that discusses the Asian Games at length without giving a medal count

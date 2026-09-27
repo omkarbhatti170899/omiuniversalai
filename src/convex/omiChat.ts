@@ -114,6 +114,7 @@ function recordSearchDebugTrace(args: {
   console.log(summarizeTrace(trace));
 }
 import { parseKnowledgeMode, routeKnowledge, knowledgeOnlyRefusal } from "./knowledgeEngine/mode";
+import { isOffTopic, topicKeywords } from "./searchEngine/quality";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -837,9 +838,26 @@ async function runTurn(
           // high-authority, recently-crawled page about the WRONG YEAR. A
           // result about a different year is a wrong answer, not an old one,
           // so it is dropped outright rather than down-ranked.
-          const usable = policy.years.length > 0 || policy.event
-            ? citations.filter((c) => !isWrongYear(matchTemporal(c, policy.years, null)))
-            : citations;
+          // MEASURED DEFECT: the wrong-YEAR drop below was thorough, but
+          // nothing dropped an OFF-TOPIC source. On a `now`-tier question the
+          // ranker weights freshness 0.40 against relevance 0.28, so a fresh
+          // page about an unrelated subject outranks a relevant older one —
+          // and with no relevance floor, "a Sri Lanka Maldives holiday package
+          // 2026/2027" was kept as evidence for a 2026 Asian Games medal
+          // tally. Freshness is evidence of currency, never of subject: a
+          // source about the wrong subject is not a fresher answer, it is a
+          // different answer.
+          // The USER's words, not the rewritten retrieval string: the rewriter
+          // appends recency words ("today", "latest") that describe WHEN, not
+          // WHAT, and matching on those would let any fresh page through.
+          const topic = topicKeywords(trimmed);
+          const usable = citations.filter(
+            (c) =>
+              !isOffTopic(c, topic) &&
+              (policy.years.length === 0 && !policy.event
+                ? true
+                : !isWrongYear(matchTemporal(c, policy.years, null))),
+          );
           await patchStreaming({
             content: `Reading ${usable.length} sources…`,
           });

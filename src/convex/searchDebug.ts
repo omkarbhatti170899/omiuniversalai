@@ -28,6 +28,7 @@ import { freshnessPolicyFor, splitByFreshness, type FreshnessSource } from "./se
 import { classifyCurrentIntent } from "./searchEngine/intent";
 import { planRetrieval } from "./searchEngine/rewrite";
 import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
+import { isOffTopic, topicKeywords } from "./searchEngine/quality";
 import { crossCheckClaims, conflictNotice } from "./searchEngine/crossCheck";
 import { validateEvidence, cannotVerifyMessage } from "./searchEngine/validation";
 import { buildSearchTrace, assertTraceIsSafe, summarizeTrace } from "./searchEngine/debugTrace";
@@ -143,9 +144,18 @@ export const traceSearch = internalAction({
     const freshEnough = policy.requiresFreshness
       ? splitByFreshness(raw, policy.maxAgeDays).fresh
       : raw;
-    const kept = policy.years.length > 0 || policy.event
-      ? freshEnough.filter((c: WebCitation) => !isWrongYear(matchTemporal(c, policy.years, null)))
-      : freshEnough;
+    // The diagnostic must judge evidence EXACTLY as the chat turn does. The
+    // chat drops off-topic sources; if this only dropped wrong-year ones the
+    // trace would report a 4-source set where the turn kept 2, and a
+    // diagnostic that disagrees with production is worse than none.
+    const topic = topicKeywords(query);
+    const kept = freshEnough.filter(
+      (c: WebCitation) =>
+        !isOffTopic(c, topic) &&
+        (policy.years.length === 0 && !policy.event
+          ? true
+          : !isWrongYear(matchTemporal(c, policy.years, null))),
+    );
 
     const crossCheck = crossCheckClaims(kept as FreshnessSource[], started);
     const validation = validateEvidence({

@@ -195,19 +195,87 @@ Two of these tests were themselves defective on first write and were fixed:
   in the file, which is both the stronger claim and the one that cannot be
   satisfied by shifting a window.
 
-## 7. Honest limits of this run
+## 7. The relevance defect this run exposed — and the fix
 
-- **LangSearch's `relevanceProxy` is 0.266 — low.** In the trace above, 2 of
-  the 4 kept citations are off-topic (a Sri Lanka/Maldives holiday package and
-  a rooftop-solar MoA). They survived because the freshness gate judges currency
-  and source tier, not topical relevance. The answer is real and correctly
-  dated; it is **not yet well-targeted**. This is a relevance-ranking problem,
-  not an enablement problem, and it is unresolved.
+The trace in §4 answered the question, but 2 of its 4 kept citations were
+off-topic: a "Sri Lanka Maldives Twin Centre Holiday Package 2026/2027" and a
+rooftop-solar MoA. Both were **fresh**, which is exactly why they survived.
+
+Two causes, neither of which was the enablement work:
+
+1. On a `now`-tier question the ranker weights freshness **0.40** against
+   relevance **0.28**, so a fresh page on the wrong subject outranks a relevant
+   older one. That weighting is deliberate and correct — answering with
+   yesterday's number is *wrong*, not merely worse — so it was not rebalanced.
+2. **Nothing floored relevance.** The wrong-YEAR gate was thorough; the
+   topical equivalent was simply missing, so a source could be admitted on
+   authority and currency alone.
+
+The fix is the principle those cases both turn on: **freshness is evidence of
+currency, never of subject.** A page about the wrong subject is not a fresher
+answer, it is a different answer.
+
+- `topicKeywords()` — the query's keywords minus bare numbers. A year is a
+  *scoping constraint*, not a topic: "2026" appears on holiday packages and
+  tender notices, and matching on it is precisely how the Maldives page
+  qualified.
+- `isOffTopic()` — a source sharing **no** topic word is dropped outright,
+  alongside the existing wrong-year drop. Matching is over title *and* snippet,
+  so a generically-titled page with a relevant body still counts as evidence.
+
+The floor is deliberately the weakest one that fixes the observed defect. A
+stricter threshold was rejected: inflection and paraphrase ("medal"/"medals",
+"tally"/"medal count") are routine in real headlines, and a threshold tuned on
+one query silently drops legitimate evidence on the next. It is also a no-op
+when a question has no topic words, because a question we cannot characterise
+is not evidence that a source is off-topic.
+
+The chat path matches on the **user's** words rather than the rewritten
+retrieval string — the rewriter appends "today"/"latest", which describe *when*
+rather than *what*, and matching on those would let any fresh page through and
+reintroduce the same defect in a subtler form. The diagnostic applies the
+identical filter, because a trace that disagrees with production is worse than
+no trace.
+
+### Live result after the fix
+
+Same query, same run shape: `kept=5 domains=5 verdict=answer-caveated`, and
+every kept citation is now on-topic — "India's medal tally after Day 6",
+"India Medal Tally, Results & Highlights", "India look to add to medal tally".
+The 5 dropped results are all **undated** highly-relevant pages (NDTV, India
+Today, Indian Express medal-tally pages), correctly rejected by the freshness
+gate — which is the dated-supply constraint of §3 showing up again, not a
+ranking fault.
+
+`tests/omiOffTopicRelevanceRegression.test.ts` (11 tests) pins this, each
+mutation-tested:
+
+| mutation | result |
+|---|---|
+| `isOffTopic` always returns false | 2 failures |
+| `topicKeywords` keeps bare numbers | 4 failures |
+| chat matches on the rewritten `retrieval` | 1 failure |
+| chat stops calling the floor | 1 failure |
+| diagnostic stops calling the floor | 1 failure |
+
+The fourth of these initially **survived**: the test asserted the helper was
+*imported*, and replacing the call with `true &&` left the import intact. It now
+asserts the call.
+
+## 8. Honest limits of this run
+
 - **Answer correctness is still unverified by a human.** Every number in this
   document is retrieval and gating evidence. Nobody has read the answer in a
   browser and confirmed the medal tally is actually right. That remains the
   outstanding QA gap, and it is the binding constraint on calling Omi
   production-ready.
+- **LangSearch's measured `relevanceProxy` is 0.266** — still low as a provider
+  statistic. The §7 floor stops non-answers reaching the answer, but it does
+  not make the provider's retrieval precise; the statistic reflects lexical
+  overlap only and is not a quality verdict either way.
+- **Dated evidence remains scarce.** Five on-topic medal-tally pages were
+  dropped purely for lacking a publication date. The engine is choosing
+  correctly; the open-web supply of *dated* reporting is the constraint.
 - **The free tier is a bounded trial, not a foundation**: a daily token
   allowance resetting at 00:00 UTC, on a paid reseller whose upstream is
   Tavily / Exa / Brave, with paid plans from $30 per 4,000 credits. Keep it
@@ -215,13 +283,21 @@ Two of these tests were themselves defective on first write and were fixed:
 - **Multilingual coverage is unverified** — not measured either way.
 - **gdelt remains at 0% availability** from the Convex runtime across three
   separate sessions. Operational, not a code defect.
+- **The secondary AI provider (Gemini) began timing out** at 20 s on
+  `/selftest` late in this run, taking the suite to `degraded` / 1 fail. The
+  primary provider (Groq) answers in ~380 ms. No AI provider code was touched
+  by this work, so this is external degradation of that upstream rather than a
+  regression here — but it is real, it recurred across repeated probes, and it
+  means the AI fallback path is currently unverified.
 
-## 8. Gate status at the time of writing
+## 9. Gate status at the time of writing
 
-- `/status` — 18 enabled, 17 configured, 17 ready; LangSearch true on all three.
+- `/status` — 18 enabled, 18 configured, 18 ready; LangSearch true on all three.
 - `/currentinfo` — 10/10 scenarios pass, with LangSearch appearing in
   `enginesWithResults` for the news scenario.
-- `/selftest` — status `ok`, 21 pass, 0 fail, 6 configured. SearXNG is reported
-  as unreachable rather than silently counted as working.
-- Unit suite — 1171 pass, 0 fail across 62 files.
+- `/selftest` — `degraded`: 20–21 pass, 1 fail, 5–6 configured. The single
+  failure is the secondary AI provider timeout described in §8, not a search
+  defect; SearXNG is reported as unreachable rather than silently counted as
+  working.
+- Unit suite — 1182 pass, 0 fail across 63 files.
 - Lint — 0 errors.
