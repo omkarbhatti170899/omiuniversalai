@@ -53,7 +53,7 @@ failures, reported explicitly, not silently fabricated.
 | Conflicting sources handled, not blended | **DONE** | Model is instructed to list disagreements in `conflicts` — "never silently pick one". |
 | Graceful fallback when a source is unreachable | **DONE** | `Promise.allSettled` fan-out; per-engine failures reported; unreachable sources degrade instead of failing the turn. |
 | Difficult real-world queries tested | **DONE** | 10 deployed current-info scenarios + `/selftest` universal-search and current-information probes. |
-| General-web floor | **PARTIAL** | DuckDuckGo reachable from Convex's network (10 results). SearXNG public instances serve **HTML, not JSON**, for `format=json`. Fix = set `SEARXNG_BASE_URL` to an instance with `search.formats: [html, json]`. News/markets/sports/weather work without it. |
+| General-web floor | **DONE (community instance)** | A JSON-enabled instance was found and set (`SEARXNG_BASE_URL=https://search.lumy.live`). Verified from inside the backend: `/selftest` → `searxng reachability: PASS`, and a live search returned `enginesWithResults: SearXNG, Wikipedia, arXiv, Hacker News`. The requested `searx.tiekoetter.com` does **not** serve JSON (403/429). Community instance is intermittently slow — self-hosting recommended for reliability. |
 
 See `docs/current-information-report.md` for the full deployed test table.
 
@@ -75,7 +75,7 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Image generation | **DONE** | Verified live: Pollinations returns a real 1024×1024 PNG, `/selftest` "image generation" PASS. |
 | Editing edits the uploaded image, never returns an unrelated generated image | **DONE (by construction)** | The router only sends an edit op to a provider that declares `supportsImageInput`; a text-only provider can never answer an edit. Enforced by `omiImageEditing.test.ts` / `omiImageRouting.test.ts`. |
 | Report the limitation clearly when the provider can't edit | **DONE** | The turn fails with the exact reason and a next step, e.g. "gemini: free-tier quota is exhausted right now … tried gemini/gemini-2.5-flash-image → openai/gpt-image-1". |
-| Use a supported fallback | **BLOCKED** | Edit chain is `gemini → openai → pollinations-edit`. Gemini quota is exhausted and OpenAI has no credits; `pollinations-edit` needs a free **`POLLINATIONS_API_KEY`**. Adding that key immediately enables the keyless-tier edit route. |
+| Use a supported fallback | **BLOCKED** | Edit chain is `pollinations-edit → gemini → openai`. Gemini quota exhausted, OpenAI no credits, and the `pollinations-edit` key is **valid but its model permissions forbid `kontext`** (403: `Model 'kontext' is not allowed for this API key`). Fix = enable image-model permissions for the existing key at `enter.pollinations.ai/edit-key`. |
 
 ## 5. HUMAN EMOTIONS AI — **DONE**
 
@@ -106,7 +106,7 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Never expose API keys to the client | **DONE** | All keyed calls run in Convex (`"use node"` actions / server modules); keys are read from `process.env` server-side only. |
 | Never silently fabricate when a provider fails | **DONE** | Failures produce an honest "cannot verify" message, never a memory-sourced answer presented as live. |
 | Distinguish generated vs searched vs uploaded-document information | **DONE** | Separate blocks: external research `[1]`, internal knowledge `[K#]`, attachments, generated images. |
-| SearXNG | **PARTIAL** | Reports `configured` not `ready` — public instances disable JSON. Needs `SEARXNG_BASE_URL`. |
+| SearXNG | **READY (measured)** | Readiness comes from a real probe, never from `SEARXNG_BASE_URL` existing. Configured to a JSON-enabled instance; live search returns SearXNG results. Community instance is intermittently slow. |
 
 ## 8. SECURITY + PRIVACY — **DONE**
 
@@ -159,8 +159,8 @@ See `docs/current-information-report.md` for the full deployed test table.
 
 | Var | Needed for | Cost | Status |
 |---|---|---|---|
-| `SEARXNG_BASE_URL` | General web search (JSON enabled) | self-host, free | **not set** — news/markets/sports/weather work without it |
-| `POLLINATIONS_API_KEY` | Image **editing** (OpenAI Images-Edits-compatible, model `kontext`) | free tier | **not set** — the one key that unblocks editing now |
+| `SEARXNG_BASE_URL` | General web search (JSON enabled) | free (community) / self-host | **set** → `https://search.lumy.live` (JSON verified from the backend); self-host recommended |
+| `POLLINATIONS_API_KEY` | Image **editing** (OpenAI Images-Edits-compatible, model `kontext`) | free tier | **set but scoped** — the key is valid, yet its permission set forbids every image model; enable image-model permissions at `enter.pollinations.ai/edit-key` |
 | `GEMINI_API_KEY` | AI + image editing | free tier (currently quota-exhausted) | set |
 | `GROQ_API_KEY` | Primary AI | free tier | set |
 | `OPENAI_API_KEY` | Optional AI + image edits | paid (no credits) | set, no credits |
@@ -168,11 +168,12 @@ See `docs/current-information-report.md` for the full deployed test table.
 
 ## Known limitations / remaining bugs
 
-1. **Image editing** is blocked only on provider availability (Gemini quota, OpenAI credits)
-   or the free Pollinations key — the code path and the "never return an unrelated image"
-   guarantee are in place.
-2. **General web search** stays degraded until `SEARXNG_BASE_URL` is set to an instance with
-   JSON enabled.
+1. **Image editing** is blocked on provider permissions/availability: the Pollinations key is
+   valid but lacks image-model permission (403), Gemini image quota is exhausted, and OpenAI
+   has no credits. The code path and the "never return an unrelated image" guarantee are in place.
+2. **General web search** now works via a JSON-enabled community instance; it is intermittently
+   slow, so a self-hosted instance is recommended for production.
+   The 22-flow manual checklist is `docs/MANUAL_QA_CHECKLIST.md`.
 3. **Live sports** returns in-play matches plus, for a named team not playing today, its own
    **next fixture** explicitly labelled as unplayed — it never invents a scoreline.
 4. **On-device/mobile QA** and **Android build** could not be executed here.
@@ -188,10 +189,10 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Emotions | **READY** |
 | UI/UX | **READY** |
 | Image generation | **READY** |
-| Image editing | **BLOCKED** on a provider key (one free key unblocks it) |
-| General web search | **PARTIAL** — needs `SEARXNG_BASE_URL` |
+| Image editing | **BLOCKED** — enable image-model permissions on the existing Pollinations key |
+| General web search | **READY (measured)** — JSON-enabled instance configured |
 | Android | **BLOCKED** — no device/toolchain here |
 
 **Overall: NOT 100%.** The core product (chat, search, current information, security, UI) is
-production-ready and verified; image editing, general web search and Android remain, each
-with an explicit, user-actionable reason.
+production-ready and verified; image editing (existing key's model permissions), manual QA and
+Android remain, each with an explicit, user-actionable reason.

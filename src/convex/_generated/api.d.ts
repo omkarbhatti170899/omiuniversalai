@@ -35,6 +35,7 @@ import type * as auth_emailOtp from "../auth/emailOtp.js";
 import type * as crons from "../crons.js";
 import type * as deepResearch from "../deepResearch.js";
 import type * as deepResearchRuns from "../deepResearchRuns.js";
+import type * as diagnostics from "../diagnostics.js";
 import type * as ecosystem from "../ecosystem.js";
 import type * as ecosystemStatus from "../ecosystemStatus.js";
 import type * as emotions from "../emotions.js";
@@ -153,6 +154,7 @@ declare const fullApi: ApiFromModules<{
   crons: typeof crons;
   deepResearch: typeof deepResearch;
   deepResearchRuns: typeof deepResearchRuns;
+  diagnostics: typeof diagnostics;
   ecosystem: typeof ecosystem;
   ecosystemStatus: typeof ecosystemStatus;
   emotions: typeof emotions;

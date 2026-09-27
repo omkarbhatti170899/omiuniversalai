@@ -194,7 +194,11 @@ export async function searxngHealth(): Promise<ProbeResult> {
   const findings: string[] = [];
   let healthy = false;
   for (const base of targets) {
-    const r = await probeInstance(base);
+    // A configured instance that answers JSON but is slow (community hosts
+    // frequently take 8-15s) must not be judged broken by an arbitrarily
+    // short probe. The public floor keeps the shorter budget; a configured
+    // instance gets the same 15s the search path already allows it.
+    const r = await probeInstance(base, configuredBase ? 15000 : 8000);
     findings.push(`${base}: ${r.healthy ? "OK" : r.detail}`);
     if (r.healthy) {
       healthy = true;
@@ -288,12 +292,24 @@ export function createSearxProvider(): SearchProvider {
      * a working search source, and "a base URL exists" is exactly the
      * "key exists ⇒ READY" trap the self-test is built to avoid.
      *
-     * Readiness now means one thing only: a probe has confirmed an instance
-     * that actually serves the JSON API. `/status`, `/selftest` and the
-     * scheduled `warmWebHealth` cron warm this verdict, so a correctly
-     * self-hosted instance becomes ready on its own within one probe cycle.
+     * Two DIFFERENT questions, deliberately answered differently:
+     *
+     *  • "Is SearXNG READY?" (the status surface) — MEASURED only. That is
+     *    answered in `searchProviders/index.ts` `getProviderStatus()` from the
+     *    cached probe, so the status page never says READY just because
+     *    `SEARXNG_BASE_URL` exists.
+     *  • "Should the search fan-out try this source?" (this method) — a
+     *    CONFIGURED instance is eligible unless a probe has PROVEN it broken.
+     *    Excluding it on cold instances (no probe state yet) would silently
+     *    drop the general-web floor from real searches, which is worse than
+     *    trying a possibly-slow instance — the search call is itself the test.
+     *    Without configuration, only a measured-healthy public instance counts
+     *    (and the public floor is measured broken).
      */
-    isConfigured: () => SEARXNG_FLOOR_HEALTHY || lastProbe?.healthy === true,
+    isConfigured: () => {
+      if (configuredBase !== undefined) return lastProbe?.healthy !== false;
+      return SEARXNG_FLOOR_HEALTHY || lastProbe?.healthy === true;
+    },
 
     async search(
       query,

@@ -1,5 +1,5 @@
 import { type SearchProvider } from "./types";
-import { createSearxProvider, searxngHealth } from "./searxng";
+import { createSearxProvider, searxngHealth, searxngHealthCached } from "./searxng";
 import { createKeylessProvider, duckduckgoHealthCached } from "./keyless";
 import { createWikipediaProvider } from "./wikipedia";
 import { createWikidataProvider } from "./wikidata";
@@ -136,7 +136,11 @@ export function getProviderStatus(): ProviderStatus[] {
   return REGISTRY.map((p) => ({
     id: p.id,
     label: p.label,
-    ready: p.isConfigured(),
+    // SearXNG readiness is MEASURED, never inferred: a configured base URL is
+    // not evidence that the instance serves JSON (the user's requested
+    // searx.tiekoetter.com answers 403). The probe cache is warmed before this
+    // snapshot is built (see /status → warmGeneralWebHealth).
+    ready: p.id === "searxng" ? (searxngHealthCached()?.healthy ?? false) : p.isConfigured(),
     enabled: true,
     cost:
       p.id === "openverse"

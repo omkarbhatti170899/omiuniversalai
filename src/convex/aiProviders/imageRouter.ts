@@ -199,7 +199,10 @@ export function providerHealthLabel(
     case "rate_limited":
       return { label: "rate limited", tone: "warn" };
     case "auth_error":
-      return { label: "credential rejected", tone: "bad" };
+      // A 403 from a scoped key means the key is VALID but lacks permission
+      // for that model, which is a different fix from an invalid key. The
+      // label names both so the user is not told to replace a good key.
+      return { label: "key rejected or model not permitted", tone: "bad" };
     case "unavailable":
       return { label: "unavailable", tone: "bad" };
     case "capability_unsupported":
@@ -219,7 +222,7 @@ export function healthSentence(health: ProviderHealth, op: ImageOp): string {
     case "rate_limited":
       return `The provider for ${cap} is rate-limited or out of quota right now — retry later or enable billing for the configured key.`;
     case "auth_error":
-      return `The provider for ${cap} rejected the configured credential.`;
+      return `The provider for ${cap} rejected the request: the credential may be invalid, or the key may not be permitted to use that model (check the key's model permissions).`;
     default:
       return `No provider could complete ${cap} right now.`;
   }

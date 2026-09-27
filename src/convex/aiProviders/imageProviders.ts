@@ -104,6 +104,15 @@ export function humanizeImageError(raw: string): string {
   const flat = text.replace(/\s+/g, " ");
   const lower = flat.toLowerCase();
 
+  // KEY VALID, MODEL NOT PERMITTED. Checked BEFORE the generic 401/403 branch,
+  // because a scoped key answers 403 with "Model 'x' is not allowed for this
+  // API key" — reporting that as "the credential was rejected" sends the user
+  // to replace a perfectly good key. The real fix is to widen the key's model
+  // permissions, and the message must say so.
+  if (/not allowed for this api key|model .*not permitted|key permissions|not permitted/.test(lower)) {
+    return "this API key is valid but is not permitted to use that image model — enable image/model permissions for the key";
+  }
+
   if (/no credits remaining|insufficient (credits?|funds|balance)|no credit/.test(lower)) {
     return "the account has no remaining credits — billing must be enabled";
   }

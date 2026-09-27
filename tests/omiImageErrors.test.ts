@@ -85,6 +85,16 @@ describe("humanizeImageError — other failure classes", () => {
       .toContain("credential");
   });
 
+  test("a scoped key (403 model-not-allowed) says the KEY IS VALID, not rejected", () => {
+    const out = humanizeImageError(
+      'error 403: {"success":false,"error":{"message":"Model \'kontext\' is not allowed for this API key. Manage key permissions","code":"FORBIDDEN"}}',
+    );
+    // Must not send the user to replace a valid credential…
+    expect(out).not.toContain("credential");
+    // …but must name the real fix (widen the key's model permissions).
+    expect(out.toLowerCase()).toContain("permission");
+  });
+
   test("retired model is distinguishable from a credential problem", () => {
     const out = humanizeImageError(
       'error 404: {"error":{"message":"model no longer available"}}',
