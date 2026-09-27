@@ -5,7 +5,7 @@
 **Frontend:** `https://omkarbhatti170899.github.io/omiuniversalai/`
 **Method:** every verdict below is backed by a *measured* result — a live HTTP probe, a real self-test row, a compiler/linter/test run, or an authorization scan. Nothing is graded "ready" because a key exists.
 
-**Overall: NOT 100%.** Build, tests, security and the backend capability surface are strong and genuinely working. Image **editing** is **BLOCKED** — the Pollinations key is valid but its **model permissions forbid the edit model** (exact fix below); the general-web floor now **works** (a JSON-enabled SearXNG instance was found and verified from the backend); real-account manual QA, mobile/PWA manual QA and the Android device test remain **BLOCKED** by this environment (no browser session, no signed-in account, no device).
+**Overall: NOT 100%.** Build, tests, security and the backend capability surface are strong and genuinely working. Image **generation and editing are now VERIFIED working** (all six edit-family ops PASS the live self-test; the earlier blocker was the key's model permissions, now enabled by the owner), and the general-web floor works via a JSON-enabled SearXNG instance found and verified from the backend. What remains is **BLOCKED by this environment, not by code**: real-account manual QA (no browser session / signed-in account), mobile/PWA and Android device QA (no device), and a frontend redeploy for parity.
 
 Legend: **DONE** · **PARTIAL** · **BLOCKED**
 
@@ -22,7 +22,7 @@ Legend: **DONE** · **PARTIAL** · **BLOCKED**
 | Convex codegen | `bunx convex dev --once` | **DONE** — functions ready, schema + crons deployed |
 | Authorization audit | `bun scripts/audit-authz.ts` | **DONE** — 109 public functions, **0 with no auth**, 1 authenticated-without-ownership marker (reviewed), 6 reviewed-public |
 | Current-information suite | `GET /currentinfo` | **DONE** — **10/10 PASS** |
-| Full self-test | `GET /selftest` | **PARTIAL** — 17 pass / 6 fail / 5 configured |
+| Full self-test | `GET /selftest` | **DONE** — status **ok**, **22 pass / 0 fail / 6 configured** |
 
 ---
 
@@ -37,7 +37,7 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
 | AI fallback — Gemini (text) | **READY** | `gemini-flash-lite-latest` answered the fallback probe |
 | AI fallback — OpenAI (text) | **OPTIONAL** | Configured in chain (`groq → gemini → openai`) but not independently probed for text; image path shows credits exhausted |
 | Pollinations — generation | **READY** | Real image returned via `pollinations` (sana) at 1024×1024 (32,970 bytes) |
-| Pollinations — **editing** | **FAILED** | Key is **valid** but **model permissions forbid `kontext`** (HTTP **403**): `Model 'kontext' is not allowed for this API key. Manage key permissions`. Not a bad key. |
+| Pollinations — **editing** | **READY** | `kontext` permitted; a real edit returned a verified image via `pollinations-edit (kontext)` (25,800 B at 1024×1024). Intermittent free-tier 402 under heavy bursts |
 | Gemini — image | **QUOTA EXHAUSTED** | `free-tier quota is exhausted right now` (429) |
 | OpenAI — image | **QUOTA EXHAUSTED** | `the account has no remaining credits` |
 | SearXNG | **READY (measured)** | Configured to a JSON-enabled instance; live search returned `enginesWithResults: SearXNG, Wikipedia, arXiv, Hacker News` with real news URLs. `searx.tiekoetter.com` → 403/429 (not JSON). Reliability caveat below. |
@@ -64,30 +64,21 @@ Every row below is from the live `/selftest` at 2026-09-27T02:14Z, not from env 
 
 **Generation: DONE.** Real images are produced, verified by byte inspection, and errors are honest.
 
-**Editing: BLOCKED.**
+**Editing: DONE — VERIFIED (resolved 2026-09-27).**
 
-- **What is missing:** image editing, background removal/replacement, combination, upscaling, enhancement (and outpaint). All six self-test rows **FAIL**.
-- **Why it is missing:** the production edit router tries `pollinations-edit (kontext) → gemini → openai`. Right now **all three fail**: Pollinations answers **HTTP 403** (`Model 'kontext' is not allowed for this API key`), Gemini image is **quota-exhausted (429)**, OpenAI image has **no remaining credits**. Editing cannot run without at least one working image-input provider.
-- **Verification that the code is correct (not the blocker):** the live Pollinations contract was checked directly against `https://gen.pollinations.ai/openapi.json`:
-  - endpoint `/v1/images/edits` accepts **`multipart/form-data`** (Omi's transport) and JSON;
-  - multipart field name is **`image`** (or `image[]`) — matches Omi's adapter;
-  - auth is **`Authorization: Bearer <key>`** with a `pk_`/`sk_` key from `enter.pollinations.ai/keys` — matches Omi's adapter;
-  - the model alias **`kontext` → `black-forest-labs/flux.1-kontext-pro`** (text+image) is valid and accepts an image input.
-  So the transport, field name, auth scheme and model are **correct** — the code is not the blocker.
-- **Root cause (measured from inside Convex, `convex run diagnostics:probePollinations`):** the `POLLINATIONS_API_KEY` in the **Convex deployment environment** is **present and well-formed** (`sk_` prefix, 35 chars, no whitespace/quotes), and `/account/profile` returns **200** — so the credential is **valid**. Every call returns **403**, and the provider's verbatim reason is:
-
-  > `Model 'kontext' is not allowed for this API key. Manage key permissions at https://enter.pollinations.ai/edit-key?id=…`
-
-  A sweep of 15 edit-capable models (`kontext`, `flux`, `flux.2-klein-4b`, `pruna-edit`, `qwen-image-edit`, `gptimage`, `nanobanana`, `seedream-5`, …) returned **403 for all** — this key has **no image-model permissions at all**. `/account/balance` and `/account/usage` also return 403, consistent with a **scoped key**.
-- **Exact action required:** open **`https://enter.pollinations.ai/edit-key?id=…`** (from the key list at `enter.pollinations.ai/keys`) and **enable image-model permissions** for this key — at minimum allow **`kontext`** (`black-forest-labs/flux.1-kontext-pro`), or grant the key the full image scope. Save, then re-run `GET /selftest`. No new key is required, and no code change is required.
-- **Requires a key?** Yes — the **existing** Pollinations key, with image-model permissions enabled (free). Alternative: enable billing on the Gemini project, or add OpenAI credits.
-- **Requires a device?** No. **Manual user action?** Yes (edit the key's permissions in the Pollinations dashboard, then re-run the self-test).
-- **Error honesty improved:** a 403 model-not-permitted now reads *"this API key is valid but is not permitted to use that image model — enable image/model permissions for the key"* (previously it said "the provider rejected the configured credential", which would have sent you to replace a perfectly good key). Verified live in `/selftest`: the `image editing` row now prints exactly that.
-- **Re-probed 2026-09-27T02:30Z: still `403`** — the key's model permissions have **not** been enabled yet. Enabling them is a dashboard action on `enter.pollinations.ai` that only the account owner can perform (an agent cannot do it). **Image editing stays BLOCKED and is not marked READY** until a real uploaded-image edit succeeds.
+- **What is verified (live, through the production router):** image editing, background removal, background replacement, image combination, upscaling and enhancement all **PASS** `/selftest`. Verbatim: *"Edited a real image via pollinations-edit (kontext) — returned 25800 bytes at 1024×1024"*; removal 27,886 B · replacement 69,388 B · combination 20,198 B · upscaling 132,728 B · enhancement 18,258 B — all via `pollinations-edit (kontext)`.
+- **What unblocked it:** the key's **image-model permissions were enabled** in the Pollinations dashboard (a user action). `convex run diagnostics:sweepPollinationsModels` now reports `ALLOWED: ["kontext","flux","sana","z-image","gptimage"]`, with `kontext` returning a **200 verified image** (27,749 B). The credential probe reports *"credential WORKS — at least one auth mode returned a real image"*. Gemini image remains quota-exhausted and OpenAI has no credits; editing no longer depends on either.
+- **It edits THAT image, not a fresh generation — three independent guarantees:**
+  1. **Transport** — the adapter posts the uploaded bytes to `/v1/images/edits` in the multipart `image` field; a source-less request is **refused** (`convex run diagnostics:verifyEditUsesInput` → `http 400`), so a result can never be prompt-only. (The earlier 403 was diagnosed from inside Convex: `Model 'kontext' is not allowed for this API key`.)
+  2. **Router** — `providersForOp("edit", hasInput)` only returns providers that declare the op **and** accept image input, so a text-to-image provider can never answer an edit. Enforced by `tests/omiImageRouting.test.ts`: *"an edit request can NEVER be routed to the text-to-image provider"*, *"the keyless text-to-image provider is not eligible for an edit"*, *"an edit with no edit-capable key fails honestly and calls no provider"*.
+  3. **Verification** — every returned body is byte-checked by `imageVerify` before acceptance; a non-image body is reported as a failed attempt, never as a result.
+- **Error honesty improved:** a 403 model-not-permitted reads *"this API key is valid but is not permitted to use that image model — enable image/model permissions for the key"*, and a 402 reads *"the account has no remaining credits or balance — add credits for this provider"*. Both mappings are unit-tested.
+- **Operational note (measured, not a code fault):** under heavy repeated test generation, individual `kontext` calls intermittently returned **HTTP 402 (payment required)** while the deployed self-test's own 1024×1024 edits succeeded in the same period. 512px requests were consistently accepted. This is a free-tier balance/rate condition at Pollinations: if a user sees a credits message, the account balance needs topping up (free Pollen via Quests, or budget).
+- **Requires a key?** Yes — the existing Pollinations key (free tier) with image permissions enabled (done). **Device?** No. **Manual user action?** Remaining only if the balance needs topping up for sustained 1024px volume.
 
 ---
 
-## 3. Andromeda universal search — **PARTIAL**
+## 3. Andromeda universal search — **DONE**
 
 - **Pipeline: DONE.** Query understanding → plan → multi-source fan-out (`Promise.allSettled`, per-provider timeout + circuit breaker) → dedup → ranking → evidence pack → conflict detection → synthesis → `[n]` citations all exist and are covered by tests.
 - **Current information: DONE, measured.** `/currentinfo` **10/10**, each row naming engines, freshness and sources; stale results are refused rather than used; weather/markets/sports/news route to the correct vertical and never cross-answer.
@@ -211,8 +202,8 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 
 | Phase | Verdict |
 |---|---|
-| 1 Provider verification | **PARTIAL** — probes run; image editing FAILED (key model permissions), SearXNG measured READY |
-| 2 Image generation + editing | **PARTIAL** — generation DONE, editing **BLOCKED** (key's model permissions) |
+| 1 Provider verification | **DONE** — every provider probed; image editing, SearXNG and all keyless sources READY (intermittent free-tier 402 noted) |
+| 2 Image generation + editing | **DONE** — generation and all six edit-family ops PASS the live self-test |
 | 3 Andromeda universal search | **DONE** — pipeline + current info 10/10; general-web floor returns SearXNG results |
 | 4 Knowledge base | **PARTIAL** — code/tests DONE, end-to-end needs a signed-in session |
 | 5 Chat experience | **DONE** (code) / PARTIAL (visual) |
@@ -220,7 +211,7 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 | 7 UI / UX | **PARTIAL** — code complete; no rendered visual review |
 | 7b Premium UX / micro-interactions | **PARTIAL** — implemented in code (incl. offline bar), human visual pass pending |
 | 8 Security | **DONE** (automated) / PARTIAL (manual) |
-| 9 Testing | **DONE** — 821 tests, all gates green |
+| 9 Testing | **DONE** — 823 tests, all gates green |
 | 10 Real-account manual QA | **BLOCKED** — no browser/account |
 | 11 Deployment parity | **PARTIAL** — backend live & smoke-tested; frontend needs a deploy |
 | 12 PWA / Android | **PARTIAL** / Android **BLOCKED** — no device test |
@@ -228,12 +219,12 @@ Most of the premium-UX spec is **already implemented in the existing code**; it 
 
 ### Top three actions to move the needle
 
-1. **Enable image-model permissions on the existing Pollinations key** at `enter.pollinations.ai/edit-key` (allow at least `kontext`) → unblocks image editing and the five edit-family capabilities with no code change. *(existing key, manual)*
-2. **Run the 22-flow manual QA** (`docs/MANUAL_QA_CHECKLIST.md`) → completes §10 and surfaces any UI-level failures. *(manual)*
-3. **Build and test the Android app on a physical device** → completes §12. *(device required, manual)*
+1. **Run the 22-flow manual QA** (`docs/MANUAL_QA_CHECKLIST.md`) → completes §10 and surfaces any UI-level failures. *(manual)*
+2. **Build and test the Android app on a physical device** → completes §12. *(device required, manual)*
+3. **Redeploy the frontend** so the Pages artifact matches this repo (the connectivity bar and other frontend edits are ahead of the deployed build). *(no key, manual)*
 
-*(Recommended, not blocking: replace the community SearXNG instance with a self-hosted one for reliability.)*
+*(Recommended, not blocking: replace the community SearXNG instance with a self-hosted one for reliability, and top up the Pollinations balance if sustained 1024px generation is needed.)*
 
-**Omi is not 100% production-ready.** The backend capability surface, security posture, automated tests, the current-information pipeline and the general-web floor are genuinely working and measured; image editing is blocked solely on the existing key's **model permissions** (not a bad key), and the manual/device QA that a "100%" claim requires has not been performed here.
+**Omi is not 100% production-ready.** Image generation **and** image editing are now genuinely working and measured (all six edit-family ops PASS the live self-test), as are Andromeda search, current information, security and the automated gates. What remains is the work that **requires a human, a browser and a device**: the 22-flow manual QA, PWA/Android device QA, and a frontend redeploy for parity.
 
-**What an agent could not do (and did not fake):** enabling the Pollinations key's image-model permissions requires the account owner's action in the Pollinations dashboard; there is no browser session, signed-in account or Android device in this environment, so §10 manual QA and §12 device QA are genuinely unexecuted. Every remaining blocker is a human/key/device action, not a code defect.
+**What an agent could not do (and did not fake):** there is no browser session, signed-in account or Android device in this environment, so §10 manual QA and §12 device QA are genuinely unexecuted; the earlier Pollinations permission change was a user action, not an agent one. Every remaining item is a human/device action, not a code defect.

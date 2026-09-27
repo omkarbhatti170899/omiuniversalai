@@ -85,6 +85,12 @@ describe("humanizeImageError — other failure classes", () => {
       .toContain("credential");
   });
 
+  test("a provider out of balance reads as a credits problem, not a mystery", () => {
+    const out = humanizeImageError("402 payment required (no balance)");
+    expect(out.toLowerCase()).toContain("credits");
+    expect(out).not.toContain("402");
+  });
+
   test("a scoped key (403 model-not-allowed) says the KEY IS VALID, not rejected", () => {
     const out = humanizeImageError(
       'error 403: {"success":false,"error":{"message":"Model \'kontext\' is not allowed for this API key. Manage key permissions","code":"FORBIDDEN"}}',

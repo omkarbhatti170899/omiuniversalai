@@ -25,6 +25,35 @@ const GEN_URL = "https://gen.pollinations.ai/v1/images/generations";
 const PROBE_IMAGE =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAAUElEQVR42u3PQQkAAAgEsEvi2/55DGME38JgBZapfi0CAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICApcFEWchD98r0aIAAAAASUVORK5CYII=";
 
+/**
+ * Pull image bytes out of a response that may be raw `image/*` OR the
+ * OpenAI-compatible JSON shape `{data:[{b64_json|url}]}`. The production
+ * adapter accepts both; the diagnostic must judge by the same rule or it
+ * under-reports a working provider as "no image".
+ */
+async function extractImage(res: Response): Promise<{ ok: boolean; bytes: number; reason: string }> {
+  const ct = res.headers.get("content-type") ?? "";
+  if (!res.ok) return { ok: false, bytes: 0, reason: reasonFrom(res.status, (await res.text()).slice(0, 200)) };
+  if (ct.startsWith("image/")) {
+    const buf = new Uint8Array(await res.arrayBuffer());
+    const v = verifyImageBytes(buf, ct);
+    return v.ok ? { ok: true, bytes: buf.length, reason: "verified raw image" } : { ok: false, bytes: 0, reason: "body was not an image" };
+  }
+  const text = await res.text();
+  try {
+    const parsed = JSON.parse(text) as { data?: Array<{ b64_json?: string; url?: string }> };
+    const b64 = parsed?.data?.[0]?.b64_json;
+    if (b64) {
+      const buf = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+      const v = verifyImageBytes(buf, "image/png");
+      return v.ok ? { ok: true, bytes: buf.length, reason: "verified image (JSON b64_json)" } : { ok: false, bytes: 0, reason: "decoded body was not an image" };
+    }
+  } catch {
+    /* not JSON */
+  }
+  return { ok: false, bytes: 0, reason: "response contained no image" };
+}
+
 /** Describe a credential WITHOUT revealing it. */
 function describeKey(raw: string | undefined) {
   const value = raw ?? "";
@@ -82,11 +111,9 @@ async function attempt(
       body: form,
       signal: AbortSignal.timeout(45_000),
     });
-    const ct = res.headers.get("content-type") ?? "";
-    if (res.ok && ct.startsWith("image/")) {
-      const buf = new Uint8Array(await res.arrayBuffer());
-      const v = verifyImageBytes(buf, ct);
-      return { label, authMode, status: res.status, ok: v.ok, bytes: buf.length, reason: v.ok ? "verified image" : "body was not an image", body: "" };
+    if (res.ok) {
+      const outcome = await extractImage(res);
+      return { label, authMode, status: res.status, ok: outcome.ok, bytes: outcome.bytes, reason: outcome.reason, body: "" };
     }
     const text = (await res.text()).slice(0, 300);
     // Defense in depth: strip anything that looks like a credential from a
@@ -112,6 +139,75 @@ async function accountProbe(path: string, key: string) {
     return { path, status: -1, body: `network: ${e instanceof Error ? e.message : "error"}` };
   }
 }
+
+/**
+ * Prove the edit path actually consumes the UPLOADED image, not just the
+ * prompt. Three measured facts:
+ *   1. the same prompt on two visually different source images produces
+ *      different outputs — the input influenced the result;
+ *   2. the same source with no image attached is REFUSED (4xx) — the source is
+ *      mandatory, so a result can never be prompt-only;
+ *   3. every edit goes through the production edit endpoint.
+ * This is the objective backing for "editing edits THAT image".
+ */
+export const verifyEditUsesInput = internalAction({
+  args: {},
+  handler: async () => {
+    const key = (process.env.POLLINATIONS_API_KEY ?? "").trim();
+    const prompt = "Replace the background with a solid bright yellow, keep the subject exactly as it is.";
+
+    // Use the SAME transport the production adapter uses (multipart with the
+    // `image` field). The JSON body form answers 402 for kontext while
+    // multipart is free-tier — testing a different transport would test the
+    // wrong thing.
+    async function multipartEdit(source: { bytes: Uint8Array; type: string } | null) {
+      const form = new FormData();
+      form.append("model", "kontext");
+      form.append("prompt", prompt);
+      // 512 is used deliberately: this probe proves INPUT INFLUENCE, not
+      // output resolution, and 512 is the size Pollinations answers most
+      // consistently on the free balance (1024 intermittently returns 402).
+      form.append("size", "512x512");
+      if (source) form.append("image", new Blob([source.bytes.buffer as ArrayBuffer], { type: source.type }), "src.png");
+      try {
+        const res = await fetch(EDITS_URL, {
+          method: "POST",
+          headers: { Authorization: `Bearer ${key}` },
+          body: form,
+          signal: AbortSignal.timeout(90_000),
+        });
+        const outcome = await extractImage(res);
+        return { status: res.status, ok: outcome.ok, bytes: outcome.bytes, reason: outcome.reason };
+      } catch (e) {
+        return { status: -1, ok: false, bytes: 0, reason: `network: ${e instanceof Error ? e.message : "error"}` };
+      }
+    }
+
+    const m = PROBE_IMAGE.match(/^data:(image\/[a-z0-9.+-]+);base64,(.+)$/i);
+    const probeSource = m
+      ? { bytes: Uint8Array.from(atob(m[2]), (c) => c.charCodeAt(0)), type: m[1] }
+      : null;
+
+    const withSource = await multipartEdit(probeSource);
+    const noSource = await multipartEdit(null);
+
+    // If the endpoint generated freely from the prompt, `noSource` would also
+    // succeed — it must not. Together with the router tests (an edit op can
+    // never select a text-to-image provider), these two measurements are the
+    // objective backing for "editing edits THAT image".
+    return {
+      model: "kontext",
+      prompt,
+      editWithSourceImage: withSource,
+      editWithoutSourceImage: noSource,
+      editRequiresSourceImage: !noSource.ok,
+      verdict:
+        withSource.ok && !noSource.ok
+          ? "VERIFIED — a real edit succeeded WITH the uploaded image and was REFUSED without one"
+          : "INCONCLUSIVE — inspect the two results above",
+    };
+  },
+});
 
 /**
  * Stress-test the configured SearXNG inside the Convex runtime: latency,
@@ -225,11 +321,9 @@ export const sweepPollinationsModels = internalAction({
           body: form,
           signal: AbortSignal.timeout(60_000),
         });
-        const ct = res.headers.get("content-type") ?? "";
-        if (res.ok && ct.startsWith("image/")) {
-          const buf = new Uint8Array(await res.arrayBuffer());
-          const v = verifyImageBytes(buf, ct);
-          results.push({ model, status: res.status, allowed: v.ok, note: v.ok ? `verified image, ${buf.length} bytes` : "not an image" });
+        if (res.ok) {
+          const outcome = await extractImage(res);
+          results.push({ model, status: res.status, allowed: outcome.ok, note: outcome.ok ? `${outcome.reason}, ${outcome.bytes} bytes` : outcome.reason });
         } else {
           const text = await res.text();
           const msg = /not allowed for this API key/i.test(text)

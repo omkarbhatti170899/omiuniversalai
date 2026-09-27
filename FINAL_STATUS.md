@@ -75,7 +75,7 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Image generation | **DONE** | Verified live: Pollinations returns a real 1024×1024 PNG, `/selftest` "image generation" PASS. |
 | Editing edits the uploaded image, never returns an unrelated generated image | **DONE (by construction)** | The router only sends an edit op to a provider that declares `supportsImageInput`; a text-only provider can never answer an edit. Enforced by `omiImageEditing.test.ts` / `omiImageRouting.test.ts`. |
 | Report the limitation clearly when the provider can't edit | **DONE** | The turn fails with the exact reason and a next step, e.g. "gemini: free-tier quota is exhausted right now … tried gemini/gemini-2.5-flash-image → openai/gpt-image-1". |
-| Use a supported fallback | **BLOCKED** | Edit chain is `pollinations-edit → gemini → openai`. Gemini quota exhausted, OpenAI no credits, and the `pollinations-edit` key is **valid but its model permissions forbid `kontext`** (403: `Model 'kontext' is not allowed for this API key`). Fix = enable image-model permissions for the existing key at `enter.pollinations.ai/edit-key`. |
+| Use a supported fallback | **DONE** | Edit chain is `pollinations-edit (kontext) → gemini → openai`. Kontext is now permitted, and a real image edit succeeded. `/selftest`: `image editing`, `background removal`, `background replacement`, `combination`, `upscaling`, `enhancement` all PASS. |
 
 ## 5. HUMAN EMOTIONS AI — **DONE**
 
@@ -160,7 +160,7 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Var | Needed for | Cost | Status |
 |---|---|---|---|
 | `SEARXNG_BASE_URL` | General web search (JSON enabled) | free (community) / self-host | **set** → `https://search.lumy.live` (JSON verified from the backend); self-host recommended |
-| `POLLINATIONS_API_KEY` | Image **editing** (OpenAI Images-Edits-compatible, model `kontext`) | free tier | **set but scoped** — the key is valid, yet its permission set forbids every image model; enable image-model permissions at `enter.pollinations.ai/edit-key` |
+| `POLLINATIONS_API_KEY` | Image **editing** (OpenAI Images-Edits-compatible, model `kontext`) | free tier | **set and permitted** — `kontext` allowed, real edits verified; intermittent `402` under heavy bursts (free balance) |
 | `GEMINI_API_KEY` | AI + image editing | free tier (currently quota-exhausted) | set |
 | `GROQ_API_KEY` | Primary AI | free tier | set |
 | `OPENAI_API_KEY` | Optional AI + image edits | paid (no credits) | set, no credits |
@@ -168,9 +168,10 @@ See `docs/current-information-report.md` for the full deployed test table.
 
 ## Known limitations / remaining bugs
 
-1. **Image editing** is blocked on provider permissions/availability: the Pollinations key is
-   valid but lacks image-model permission (403), Gemini image quota is exhausted, and OpenAI
-   has no credits. The code path and the "never return an unrelated image" guarantee are in place.
+1. **Image editing is working (verified)** via `pollinations-edit (kontext)` — a real uploaded
+   image is edited, and a source-less edit is refused. Gemini image quota is exhausted and OpenAI
+   has no credits, so editing relies on the Pollinations key; under heavy bursts the free balance
+   intermittently returns HTTP 402 (a credits message, not a code fault).
 2. **General web search** now works via a JSON-enabled community instance; it is intermittently
    slow, so a self-hosted instance is recommended for production.
    The 22-flow manual checklist is `docs/MANUAL_QA_CHECKLIST.md`.
@@ -189,10 +190,10 @@ See `docs/current-information-report.md` for the full deployed test table.
 | Emotions | **READY** |
 | UI/UX | **READY (code)** — loading/skeleton/empty/error-recovery states, reduced motion, and a new app-wide offline bar (`NetworkStatusBar`); human visual pass pending |
 | Image generation | **READY** |
-| Image editing | **BLOCKED** — enable image-model permissions on the existing Pollinations key |
+| Image editing | **READY (verified)** — real edit via `pollinations-edit (kontext)`, 1024×1024 |
 | General web search | **READY (measured)** — JSON-enabled instance configured |
 | Android | **BLOCKED** — no device/toolchain here |
 
-**Overall: NOT 100%.** The core product (chat, search, current information, security, UI) is
-production-ready and verified; image editing (existing key's model permissions), manual QA and
-Android remain, each with an explicit, user-actionable reason.
+**Overall: NOT 100%.** Chat, search, current information, image generation, image editing,
+security and UI are production-ready and verified. What remains is manual/browser QA, PWA/Android
+device QA and a frontend redeploy — all human/device actions, each with an explicit reason.

@@ -113,8 +113,12 @@ export function humanizeImageError(raw: string): string {
     return "this API key is valid but is not permitted to use that image model — enable image/model permissions for the key";
   }
 
-  if (/no credits remaining|insufficient (credits?|funds|balance)|no credit/.test(lower)) {
-    return "the account has no remaining credits — billing must be enabled";
+  if (
+    /no credits remaining|insufficient (credits?|funds|balance)|no credit|payment required|no balance|no remaining balance/.test(
+      lower,
+    )
+  ) {
+    return "the account has no remaining credits or balance — add credits for this provider";
   }
   if (/quota|rate limit|429|too many requests|resource_exhausted|overloaded/.test(lower)) {
     return "free-tier quota is exhausted right now — retry later or enable billing";

@@ -27,7 +27,7 @@ Use one word per row: **PASS / FAIL / BLOCKED** (with the failure text). File ev
 | 1,2,20,21 | Sign up / login / logout / login again | `/selftest` authentication resolves the guard; `audit-authz` 0 unauthenticated public fns | Yes — real account |
 | 8 | Deep research | `/selftest` deep research = `configured` (needs a signed-in session) | Yes |
 | 14 | Image upload | `/selftest` image upload = `configured` | Yes |
-| 17 | Image editing | **FAIL** — see blocker below | Yes (blocked until fixed) |
+| 17 | Image editing | live: `/selftest` **image editing PASS** via `pollinations-edit (kontext)` (real 1024×1024 edit) | Yes — confirm the UI result |
 
 ## B. MANUAL USER TEST REQUIRED (the 22 flows)
 
@@ -51,7 +51,7 @@ Sign in with a real account, then run each in order and record the result.
 | 14 | Image upload | Upload a photo | Stored and retrievable; preview shown |
 | 15 | Vision | Ask "what is in this image?" | Accurate description via the vision provider |
 | 16 | Image generation | Generate an image | Real image returned and stored in the gallery |
-| 17 | **Image editing** | Upload an image and request an edit | **Currently BLOCKED** — Pollinations key lacks model permissions; Gemini quota exhausted; OpenAI no credits. Must pass after the key is fixed |
+| 17 | Image editing | Upload an image and request an edit | Backend edit now PASSES the live self-test (`pollinations-edit (kontext)`, real 1024×1024 edit). Confirm in the UI that the result matches the uploaded image |
 | 18 | Emotion responses | Send sad / angry / confused / complex messages | Natural, non-repetitive; never diagnoses; never derails a factual answer |
 | 19 | Provider failure | Trigger a provider error (e.g. image edit) | Honest, human error message — no raw JSON, no secrets |
 | 20 | Logout | Log out | Session cleared; protected routes require sign-in again |
@@ -60,7 +60,8 @@ Sign in with a real account, then run each in order and record the result.
 
 ## C. Blockers that will show up as FAILs
 
-1. **Flow 17 (image editing)** — blocked on the Pollinations key's **model permissions** (see `FINAL_PRODUCTION_READINESS.md` §2). Until fixed, flow 17 and the five edit-family ops fail.
+1. **Flow 17 (image editing)** — the backend is **verified working** (`/selftest` image editing PASS via `pollinations-edit (kontext)`); what remains is confirming the rendered result in the UI.
 2. **Flow 22 (PWA)** and the **Android device test** — blocked by the absence of a real device in this environment.
+3. **Intermittent `402`** — under heavy bursts the free Pollinations balance can return a credits message; a balance top-up resolves it (`FINAL_PRODUCTION_READINESS.md` §2).
 
 Nothing in section B is claimed as done until a human records a PASS.
