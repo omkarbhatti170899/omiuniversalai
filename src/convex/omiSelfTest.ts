@@ -295,6 +295,7 @@ export async function probeCurrentInfo(
         preferredProviders: policy.requiresFreshness
           ? policy.preferredProviders
           : undefined,
+        verticalName: policy.vertical,
       },
     );
 

@@ -561,7 +561,7 @@ export const diagnoseGdeltTls = internalAction({
     const host = args.host ?? "api.gdeltproject.org";
     const start = Date.now();
     return new Promise((resolve) => {
-      const socket = connectTls(host, 443, 15_000)
+      connectTls(host, 443, 15_000)
         .then((s) => {
           const peer = s.getPeerCertificate?.();
           const authorized = s.authorized;

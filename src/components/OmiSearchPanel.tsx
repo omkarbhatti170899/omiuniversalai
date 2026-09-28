@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Workflow } from "lucide-react";
 import { useState } from "react";
+import { formatDistanceToNowStrict } from "date-fns";
 import { classifyFailure, recoveryToast } from "@/lib/failureRecovery";
 import { SourceCardList } from "@/components/answer/SourceCards";
 import { recordSubsystemEvent, summarize } from "@/lib/observability";
@@ -476,6 +477,21 @@ export function OmiSearchPanel({
         </div>
       </motion.div>
 
+      {/* Searching live — a calm, single-line status, not a moving bar.
+          Appears only while a search is genuinely in flight, states WHAT is
+          happening ("searching the live web"), and disappears when it
+          settles. Nothing here animates except one small, slow spinner. */}
+      {isSearching && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="flex h-9 items-center gap-2 rounded-lg border border-border/60 bg-background/60 px-3 text-sm text-muted-foreground"
+        >
+          <Loader2 className="size-3.5 animate-spin text-primary/70" aria-hidden />
+          Searching the live web — “{query.trim()}”
+        </div>
+      )}
+
       {/* Andromeda deep-research pipeline (full §4 fabric) */}
       <AndromedaPipelineCard />
 
@@ -540,6 +556,13 @@ export function OmiSearchPanel({
             <Skeleton className="h-32 w-full" />
             <Skeleton className="h-32 w-full" />
           </div>
+        ) : isSearching ? (
+          // While a search runs, hold the layout with two stable skeleton
+          // cards sized like a result — no popping content, no spinner storm.
+          <div className="mt-6 space-y-3">
+            <Skeleton className="h-32 w-full" />
+            <Skeleton className="h-32 w-full" />
+          </div>
         ) : searches.length === 0 ? (
           <Card className="mt-6 border-dashed">
             <CardContent className="flex flex-col items-center py-12 text-center">
@@ -565,6 +588,13 @@ export function OmiSearchPanel({
                   <CardHeader className="pb-2">
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <CardTitle className="text-base">{s.query}</CardTitle>
+                      <time
+                        dateTime={new Date(s._creationTime).toISOString()}
+                        title={new Date(s._creationTime).toUTCString()}
+                        className="shrink-0 pt-0.5 text-[11px] tabular-nums text-muted-foreground"
+                      >
+                        {formatDistanceToNowStrict(new Date(s._creationTime), { addSuffix: true })}
+                      </time>
                       <Button
                         variant="ghost"
                         size="icon"

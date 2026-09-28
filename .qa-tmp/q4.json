@@ -1,70 +1,50 @@
 {
   "answerContract": {
-    "allSourcesDated": 27,
-    "citationsResolve": 30,
+    "allSourcesDated": 13,
+    "citationsResolve": 15,
     "duplicateUrlTotal": 0,
     "offTopicKeptTotal": 0,
     "withCitations": 13,
     "wrongYearKeptTotal": 0,
-    "zeroKept": 17
+    "zeroKept": 2
   },
   "byCategory": {
-    "asia": {
-      "fresh": 1,
-      "kept": 3,
-      "n": 4
+    "finance": {
+      "fresh": 7,
+      "kept": 49,
+      "n": 11
     },
-    "australia": {
-      "fresh": 1,
-      "kept": 1,
-      "n": 2
-    },
-    "europe": {
-      "fresh": 2,
-      "kept": 14,
-      "n": 5
-    },
-    "science": {
+    "technology": {
       "fresh": 3,
-      "kept": 19,
-      "n": 6
-    },
-    "usa": {
-      "fresh": 4,
-      "kept": 10,
-      "n": 5
-    },
-    "weather": {
-      "fresh": 1,
-      "kept": 12,
-      "n": 8
+      "kept": 18,
+      "n": 4
     }
   },
   "byTemporal": {
     "2026": {
       "fresh": 2,
-      "kept": 5,
-      "n": 3
+      "kept": 8,
+      "n": 2
     },
     "current": {
       "fresh": 2,
-      "kept": 6,
-      "n": 6
+      "kept": 11,
+      "n": 3
     },
     "latest": {
-      "fresh": 3,
+      "fresh": 1,
       "kept": 9,
-      "n": 8
+      "n": 4
     },
     "live": {
-      "fresh": 0,
-      "kept": 0,
+      "fresh": 1,
+      "kept": 2,
       "n": 1
     },
     "none": {
-      "fresh": 3,
-      "kept": 33,
-      "n": 4
+      "fresh": 2,
+      "kept": 24,
+      "n": 2
     },
     "recent": {
       "fresh": 0,
@@ -73,112 +53,306 @@
     },
     "today": {
       "fresh": 2,
-      "kept": 4,
-      "n": 7
+      "kept": 11,
+      "n": 2
     }
   },
   "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
-  "offset": 72,
-  "ran": 30,
+  "offset": 45,
+  "ran": 15,
   "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 735,
+        "statesFreshness": true,
+        "text": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? [1]\n\nThe rate for 22K gold is Rs 14,011 per gram, while 18K gold is priced at Rs 11,464 per gram. [1]\n\nCheck 22K, 18K, 10 Gram And 100 Gram Prices, Plus City-Wise Gold Rates\n\nGold prices in India remained at Rs 15,285 per gram for 24K gold on Saturday, September 26. [1]\n\nGold Price Today Per Gram in India\n\nGold Purity Price Per Gram\n\n24K ₹15,285\n\n22K ₹14,011\n\n18K ₹11,464\n\n24K gold has a purity of 99.9%, while 22K gold has 91.6% purity and 18K gold has 75% purity. [1]\n\nSources: [1] Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 Gram Prices, Plus City-Wise Gold Rates (sundayguardianlive.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest gold price",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 63.5,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:09:47.000Z",
+            "relevance": 0.99,
+            "title": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 G",
+            "url": "https://sundayguardianlive.com/business/gold-rate-today-in-india-september-26-2026-how-much-is-24k-gold-per-gram-check-22k-18k-10-gram-and-100-gram-prices-plus-city-wise-gold-rates-292891"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 63.5,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4768ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4895ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4863ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4846ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.99,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 21750,
+      "vertical": "markets"
+    },
     {
       "answer": {
         "allSourcesDated": true,
         "citationMarkers": [
           1,
           2,
-          3,
-          4
+          3
         ],
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 1204,
-        "statesFreshness": false,
-        "text": "The Quiet Normalization of Space: Why Rocket Lab's Latest Launch Matters More Than You Think\n\nThere is a peculiar kind of magic that has quietly drained out of rocket launches over the last few years, and honestly, I have mixed feelings about it. [3]\n\nClimate, however, is the average of weather over time and space.”\n\nThe climate report for the Atlanta area for the previous month shows how much departure from the average temperatures that month represents. [1]\n\nIn my opinion, we have entered an era where orbital mechanics have become routine, and that normalization is perhaps the most profound shift in the history of spaceflight. [3]\n\nThis is Rocket Lab's 18th launch of 2026 alone, marking a relentless tempo that used to be the exclusive domain of state superpowers, not nimble commercial players. [3]\n\nSources: [1] Cobb climate summary & weather forecast for Friday, September 25, 2026 (cob"
+        "length": 955,
+        "statesFreshness": true,
+        "text": "1 USD = 95.9279 INR (rate updated Mon, 28 Sep 2026 00:02:31 +0000). [1]\n\nKey factors include:\n\nGlobal gold prices\nUSD-INR exchange rate\nInterest rate expectations\nInflation and economic conditions\nGeopolitical developments\nJewellery and investment demand\nImport duties and taxes\n\nSilver prices are also influenced by industrial demand, particularly from sectors such as electronics, manufacturing and emerging technologies. [2]\n\nGold rates are influenced by both domestic and international market conditions. [2]\n\nSUI (SUI) rises 9.28% over the window to 1.27 USD\n\nSui (SUI) began the window at 00:09 UTC on 28 September 2026 priced at 1.16 USD. [3]\n\nSources: [1] 1 USD = 95.9279 INR (xe.com)  [2] Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 Gram Prices, Plus City-Wise Gold Rates (sundayguardianlive.com)  [3] SUI (SUI) rises 9.28% ov"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "science",
-      "query": "space missions 2026",
+      "category": "finance",
+      "query": "current USD to INR rate",
       "requiresFreshness": true,
       "retrieval": {
         "dropReasons": {
-          "outside freshness window": 7,
-          "undated": 1
+          "outside freshness window": 5
         },
         "finalSources": [
           {
-            "ageHours": 71.3,
-            "domain": "cobbcountycourier.com",
+            "ageHours": 17.6,
+            "domain": "xe.com",
             "providers": [
-              "langsearch"
+              "market-rates",
+              "Open Exchange Rates (keyless)"
             ],
-            "publishedAt": "2026-09-25T10:11:45.000Z",
-            "relevance": 0.98,
-            "title": "Cobb climate summary & weather forecast for Friday, September 25, 2026",
-            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-friday-september-25-2026"
+            "publishedAt": "2026-09-28T00:02:31.000Z",
+            "relevance": 1,
+            "title": "1 USD = 95.9279 INR",
+            "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
           },
           {
-            "ageHours": 46.6,
-            "domain": "cobbcountycourier.com",
+            "ageHours": 63.5,
+            "domain": "sundayguardianlive.com",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-26T10:50:51.000Z",
-            "relevance": 0.98,
-            "title": "Cobb climate summary & weather forecast for Saturday, September 26, 2026",
-            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-saturday-september-26-2026"
+            "publishedAt": "2026-09-26T02:09:47.000Z",
+            "relevance": 1,
+            "title": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 G",
+            "url": "https://sundayguardianlive.com/business/gold-rate-today-in-india-september-26-2026-how-much-is-24k-gold-per-gram-check-22k-18k-10-gram-and-100-gram-prices-plus-city-wise-gold-rates-292891"
           },
           {
-            "ageHours": 62.3,
-            "domain": "mi3dot.org",
+            "ageHours": 17.5,
+            "domain": "globalbankingandfinance.com",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-25T19:07:09.000Z",
-            "relevance": 0.82,
-            "title": "Rocket Lab Launches 'Owlright, Owlright, Owlright' Synspective Radar Satellite (2026)",
-            "url": "https://mi3dot.org/article/rocket-lab-launches-owlright-owlright-owlright-synspective-radar-satellite"
+            "publishedAt": "2026-09-28T00:10:08.000Z",
+            "relevance": 0.66,
+            "title": "SUI (SUI) rises 9.28% over the window to 1.27 USD",
+            "url": "https://www.globalbankingandfinance.com/sui-rises-9-28-percent-sui-2026-09-28"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 17.5,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.887,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 4924,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1061,
+        "statesFreshness": true,
+        "text": "The Healey ALS MyMatch BANYAN trial is testing foralumab, a fully human anti-CD3 monoclonal antibody, delivered as a nasal spray. [1]\n\nThe trial will enroll 44 people with early ALS, defined as 24 months or less since symptom onset, with slow vital capacity of at least 65% and neurofilament light chain levels of at least 40 pg/mL. [1]\n\nBank Strike September 2026: Is the Stock Market Open or Closed Tomorrow on September 28? [2]\n\nTiziana doses first three patients in ALS trial of nasal antibody foralumab\n\nPublished: 09:14 28 Sep 2026 EDT\n\nTiziana Life Sciences Ltd (NASDAQ:TLSA) said the first three participants have received their first dose of intranasal foralumab in a Phase 2a trial in people living with amyotrophic lateral sclerosis (ALS). [1]\n\nSources: [1] Tiziana doses first three patients in ALS trial of nasal antibody foralumab (proactiveinvestors.com)  [2] Bank Strike September 202"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "live sensex level",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 4.4,
+            "domain": "proactiveinvestors.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:14:00.000Z",
+            "relevance": 0.7,
+            "title": "Tiziana doses first three patients in ALS trial of nasal antibody foralumab",
+            "url": "https://www.proactiveinvestors.com/companies/news/1099225/tiziana-doses-first-three-patients-in-als-trial-of-nasal-antibody-foralumab-1099225.html"
           },
           {
-            "ageHours": 55,
-            "domain": "musichits.org",
+            "ageHours": 34.1,
+            "domain": "sundayguardianlive.com",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-26T02:27:09.000Z",
-            "relevance": 0.82,
-            "title": "AI in Real Estate: The Good, the Bad, and the Ugly (2026)",
-            "url": "https://musichits.org/article/ai-in-real-estate-the-good-the-bad-and-the-ugly"
+            "publishedAt": "2026-09-27T07:33:27.000Z",
+            "relevance": 0.55,
+            "title": "Bank Strike September 2026: Is the Stock Market Open or Closed Tomorrow on September 28? Check Sensex, Nifty, ",
+            "url": "https://sundayguardianlive.com/business/bank-strike-september-2026-is-the-stock-market-open-or-closed-tomorrow-on-september-28-check-sensex-nifty-nse-bse-trading-timings-upcoming-holiday-details-293792"
           }
         ],
         "freshnessMet": true,
         "freshnessStatement": null,
-        "keptCount": 4,
-        "keptDomains": 4,
-        "newestSourceAgeHours": 46.6,
-        "normalizedCount": 12,
-        "normalizedDated": 11,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 4.4,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
         "offTopicKept": 0,
         "providersFailed": [
-          "SearXNG (https://search.lumy.live) failed: timeout of 4953ms exceeded",
-          "SearXNG (https://search.lumy.live) failed: timeout of 4952ms exceeded",
-          "SearXNG (https://search.lumy.live) failed: timeout of 4951ms exceeded",
-          "SearXNG (https://search.lumy.live) failed: timeout of 4950ms exceeded"
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
         ],
         "providersSearched": [
           "searxng",
-          "wikipedia-current-events",
-          "wikipedia",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.625,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1797,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 687,
+        "statesFreshness": false,
+        "text": "Volatility and recent price action\n\nBitcoin traded above $86,000 briefly in September 2026 before settling near $84,000. [2]\n\nBitcoin Is Still Below Its 2026 Open After a 42% Quarter\n\nBitcoin closed June 2026 at $58,524 and July at $63,694, meaning most of its significant gains occurred in August and September. [1]\n\nIt’s also important to remember the all-time high of $126,198, which is nearly 49% above the current price. [1]\n\nFor those who bought at either of those closing prices, they currently enjoy a cushion of over 30%. [1]\n\nSources: [1] Should You Buy Bitcoin Now or Wait? The Case at $85,000 (247wallst.com)  [2] Can Bitcoin reach ‘$1 million’ in 2026, or not (filmdaily.co)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "current price of bitcoin",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.4,
+            "domain": "247wallst.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:14:16.000Z",
+            "relevance": 1.04,
+            "title": "Should You Buy Bitcoin Now or Wait? The Case at $85,000",
+            "url": "https://247wallst.com/investing/cryptocurrency/2026/09/28/should-you-buy-bitcoin-now-or-wait-the-case-at-85000"
+          },
+          {
+            "ageHours": 44.3,
+            "domain": "filmdaily.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:23:27.000Z",
+            "relevance": 0.99,
+            "title": "Can Bitcoin reach ‘$1 million’ in 2026, or not",
+            "url": "https://filmdaily.co/news/can-bitcoin-reach-1-million-in-2026-or-not"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 3.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
           "langsearch"
         ],
         "rawCount": 12,
-        "relevanceAvg": 0.9,
+        "relevanceAvg": 1.015,
         "wrongYearKept": 0
       },
-      "temporal": "2026",
-      "totalMs": 20617,
-      "vertical": "general"
+      "temporal": "current",
+      "totalMs": 1390,
+      "vertical": "markets"
     },
     {
       "answer": {
@@ -187,74 +361,120 @@
           1,
           2,
           3,
-          4
+          4,
+          5,
+          7
         ],
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 1486,
+        "length": 1482,
         "statesFreshness": true,
-        "text": "Oklahoma doctors highlight progress in childhood cancer treatment\n\nDuring Childhood Cancer Awareness Month, experts at the Jimmy Everest Center in Oklahoma are sharing how research is improving outcomes for young cancer patients, including a near 100% cure rate for certain leukemia cases. [4]\n\nOver the past 30 years, breast cancer deaths have declined by 44 percent,[3] while treatment options have expanded from a single targeted treatment in 1993 to more than 30 today, demonstrating the extraordinary progress that sustained investment in research and precision medicine can make possible. [1]\n\n“Well, cancer research is actually what has brought us here, in terms of having treatment options that we could have never imagined 30 years ago,” Bonilla told reporters. [2]\n\nSeptember is Childhood Cancer Awareness Month, and doctors at the Jimmy Everest Center at Oklahoma Children's OU Health are "
+        "text": "US Jobs Report and Economic Data in Focus\n\nInvestors are also looking ahead to upcoming US employment and inflation data as they assess the economy and the Federal Reserve’s next policy moves. [1]\n\nPakistan’s weekly inflation rises by 0.99 percent\n\nPakistan’s weekly inflation picked up pace in the latest week, with prices of several essential household items rising, led by a sharp increase in electricity charges, reported 24NewsHD TV channel. [4]\n\nArgentina's statistics agency, INDEC, is due to release poverty data for the first half of 2026 on Thursday. [7]\n\nArgentina’s poverty rate rises above 30% under President Milei, reversing recent decline\n\nBUENOS AIRES, Argentina — Argentina's poverty rate jumped to 32.3% in the first half of 2026, official data showed Thursday, as incomes failed to keep pace with the rising cost of basic goods, a setback for libertarian President Javier Milei li"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "science",
-      "query": "latest research on cancer treatment",
+      "category": "finance",
+      "query": "latest inflation data",
       "requiresFreshness": true,
       "retrieval": {
         "dropReasons": {
-          "outside freshness window": 8
+          "outside freshness window": 4
         },
         "finalSources": [
           {
-            "ageHours": 52,
-            "domain": "newswire.co.kr",
+            "ageHours": 77.1,
+            "domain": "sundayguardianlive.com",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-26T05:30:00.000Z",
+            "publishedAt": "2026-09-25T12:35:51.000Z",
             "relevance": 1,
-            "title": "The Estée Lauder Companies and the Breast Cancer Research Foundation Launch Largest Global Research Initiative",
-            "url": "https://www.newswire.co.kr/newsRead.php?no=1043393"
+            "title": "Dow Jones Today: Dow Futures Rise Ahead of US Jobs Report as Nvidia, Oil Prices & Treasury Yields Drive Wall S",
+            "url": "https://sundayguardianlive.com/business/dow-jones-today-dow-futures-rise-ahead-of-us-jobs-report-as-nvidia-oil-prices-treasury-yields-drive-wall-street-outlook-check-what-investors-should-know-292589"
           },
           {
-            "ageHours": 111.5,
-            "domain": "sudbury.com",
+            "ageHours": 106.5,
+            "domain": "sundayguardianlive.com",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-23T18:00:00.000Z",
-            "relevance": 1,
-            "title": "Oncologist talks genetic focused cancer treatment at annual Luncheon of Hope",
-            "url": "https://www.sudbury.com/local-news/oncologist-talks-genetic-focused-cancer-treatment-at-annual-luncheon-of-hope-12813171"
+            "publishedAt": "2026-09-24T07:08:38.000Z",
+            "relevance": 0.95,
+            "title": "UK Stock Market Forecast Today: Will FTSE 100 Open Higher or Lower on September 24? Oil Prices, Inflation and ",
+            "url": "https://sundayguardianlive.com/business/uk-stock-market-forecast-today-will-ftse-100-open-higher-or-lower-on-september-24-oil-prices-inflation-and-geopolitical-risks-in-focus-291585"
           },
           {
-            "ageHours": 36.2,
-            "domain": "scienmag.com",
+            "ageHours": 16.2,
+            "domain": "thehindubusinessline.com",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-26T21:16:35.000Z",
-            "relevance": 0.91,
-            "title": "When Should Cancer Patients Switch Treatment? Researchers Build a Standard Rulebook for a Key Clinical Milesto",
-            "url": "https://scienmag.com/when-should-cancer-patients-switch-treatment-researchers-build-a-standard-rulebook-for-a-key-clinical-milestone"
+            "publishedAt": "2026-09-28T01:30:00.000Z",
+            "relevance": 0.83,
+            "title": "WHITHER WEALTH. A data-driven analysis of mutual funds vs. PMS",
+            "url": "https://www.thehindubusinessline.com/portfolio/personal-finance/a-data-driven-analysis-of-mutual-funds-vs-pms/article71516224.ece"
           },
           {
-            "ageHours": 84.1,
-            "domain": "koco.com",
+            "ageHours": 79.2,
+            "domain": "24newshd.tv",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-24T21:22:20.000Z",
-            "relevance": 0.89,
-            "title": "Oklahoma doctors highlight progress in childhood cancer treatment",
-            "url": "https://www.koco.com/article/oklahoma-doctors-highlight-progress-childhood-cancer-treatment/73874005"
+            "publishedAt": "2026-09-25T10:30:09.000Z",
+            "relevance": 0.77,
+            "title": "Pakistan’s weekly inflation rises by 0.99 percent",
+            "url": "https://www.24newshd.tv/25-Sep-2026/pakistan-s-weekly-inflation-rises-0-99-percent"
+          },
+          {
+            "ageHours": 92.4,
+            "domain": "kiro7.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T21:18:50.000Z",
+            "relevance": 0.77,
+            "title": "Argentina’s poverty rate rises above 30% under President Milei, reversing recent decline",
+            "url": "https://www.kiro7.com/news/business/argentinas-poverty/3OGYQPHU744PNJPWZV3RMQ37PE"
+          },
+          {
+            "ageHours": 105,
+            "domain": "coincentral.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:41:48.000Z",
+            "relevance": 0.76,
+            "title": "Gold Prices Fall as Oil Surge and Strong US Data Boost Rate Hike Expectations",
+            "url": "https://coincentral.com/gold-prices-fall-as-oil-surge-and-strong-us-data-boost-rate-hike-expectations"
+          },
+          {
+            "ageHours": 103.6,
+            "domain": "straitstimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T10:07:03.000Z",
+            "relevance": 0.76,
+            "title": "Poverty rate tests Argentina's Milei ahead of election",
+            "url": "https://www.straitstimes.com/world/poverty-rate-tests-argentinas-milei-ahead-of-election"
+          },
+          {
+            "ageHours": 104.7,
+            "domain": "nhpr.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T09:01:39.000Z",
+            "relevance": 0.76,
+            "title": "Warren demands Trump officials explain removing a ban on interference in census data",
+            "url": "https://www.nhpr.org/2026-09-24/warren-demands-trump-officials-explain-removing-a-ban-on-interference-in-census-data"
           }
         ],
         "freshnessMet": true,
         "freshnessStatement": null,
-        "keptCount": 4,
-        "keptDomains": 4,
-        "newestSourceAgeHours": 36.2,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 16.2,
         "normalizedCount": 12,
         "normalizedDated": 12,
         "offTopicKept": 0,
@@ -271,11 +491,11 @@
           "langsearch"
         ],
         "rawCount": 12,
-        "relevanceAvg": 0.95,
+        "relevanceAvg": 0.825,
         "wrongYearKept": 0
       },
       "temporal": "latest",
-      "totalMs": 3768,
+      "totalMs": 2618,
       "vertical": "news"
     },
     {
@@ -283,53 +503,65 @@
         "allSourcesDated": true,
         "citationMarkers": [
           1,
-          2
+          2,
+          3
         ],
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 963,
+        "length": 824,
         "statesFreshness": true,
-        "text": "One paper has been published under the Science &Technology and five in Social Sciences section, one papers under the section of Business Studies, and the Arts & Humanities section has five papers. [1]\n\nMaine author's new book helping kids, adults cope with complex emotions\n\nCharlotte Agell, a longtime educator, author, and artist from Brunswick, is helping Maine's kids and adults find common ground in the stories they're reading. [2]\n\nJU VC releases latest issue of University's Multidisciplinary Research Journal\n\nExcelsior Correspondent JAMMU, Sept 24: Professor Umesh Rai, Vice Chancellor of the University of Jammu, today officially released Vol. [1]\n\nThe current edition features a total of twelve peer-reviewed papers spanning various disciplines. [1]\n\nSources: [1] JU VC releases latest issue of University's Multidisciplinary Research Journal (dailyexcelsior.com)  [2] Maine author's new "
+        "text": "Gold rates are influenced by both domestic and international market conditions. [3]\n\nToday's mortgage rates by loan type\n\nSource: Bankrate.com. [1]\n\nInvestors Need to Prepare for Higher Rates\n\nThe Federal Reserve's own September projections show how difficult this balancing act has become. [2]\n\nA mortgage, car loan, credit-card balance, or business loan becomes more expensive when interest rates remain elevated for longer. [2]\n\nSources: [1] Mortgage Rates Today, September 28, 2026: 30-Year Rates Climb to 7.22% (wsj.com)  [2] 6 Words From Kevin Warsh Changed the Question From “Will the Fed Hike Rates?” to “How High Can Rates Go?” (aol.com)  [3] Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 Gram Prices, Plus City-Wise Gold Rates (sundayguardianlive.com)"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "science",
-      "query": "recently published physics papers",
+      "category": "finance",
+      "query": "interest rates 2026",
       "requiresFreshness": true,
       "retrieval": {
         "dropReasons": {
-          "outside freshness window": 8,
+          "outside freshness window": 7,
           "undated": 2
         },
         "finalSources": [
           {
-            "ageHours": 86.7,
-            "domain": "dailyexcelsior.com",
+            "ageHours": 8.6,
+            "domain": "wsj.com",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-24T18:44:06.000Z",
-            "relevance": 0.89,
-            "title": "JU VC releases latest issue of University's Multidisciplinary Research Journal",
-            "url": "https://www.dailyexcelsior.com/ju-vc-releases-latest-issue-of-universitys-multidisciplinary-research-journal"
+            "publishedAt": "2026-09-28T09:02:11.000Z",
+            "relevance": 1.18,
+            "title": "Mortgage Rates Today, September 28, 2026: 30-Year Rates Climb to 7.22%",
+            "url": "https://www.wsj.com/buyside/personal-finance/mortgage/mortgage-rates-today-9-28-2026"
           },
           {
-            "ageHours": 58.3,
-            "domain": "wmtw.com",
+            "ageHours": 53.1,
+            "domain": "aol.com",
             "providers": [
               "langsearch"
             ],
-            "publishedAt": "2026-09-25T23:09:01.000Z",
-            "relevance": 0.7,
-            "title": "Maine author's new book helping kids, adults cope with complex emotions",
-            "url": "https://www.wmtw.com/article/maine-authors-new-book-helping-kids-adults-cope-with-complex-emotions/73668406"
+            "publishedAt": "2026-09-26T12:32:54.000Z",
+            "relevance": 1.14,
+            "title": "6 Words From Kevin Warsh Changed the Question From “Will the Fed Hike Rates?” to “How High Can Rates Go?”",
+            "url": "https://www.aol.com/articles/6-words-kevin-warsh-changed-123254000.html"
+          },
+          {
+            "ageHours": 63.5,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:09:47.000Z",
+            "relevance": 1.11,
+            "title": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 G",
+            "url": "https://sundayguardianlive.com/business/gold-rate-today-in-india-september-26-2026-how-much-is-24k-gold-per-gram-check-22k-18k-10-gram-and-100-gram-prices-plus-city-wise-gold-rates-292891"
           }
         ],
-        "freshnessMet": false,
+        "freshnessMet": true,
         "freshnessStatement": null,
-        "keptCount": 2,
-        "keptDomains": 2,
-        "newestSourceAgeHours": 58.3,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 8.6,
         "normalizedCount": 12,
         "normalizedDated": 10,
         "offTopicKept": 0,
@@ -346,554 +578,12 @@
           "langsearch"
         ],
         "rawCount": 12,
-        "relevanceAvg": 0.795,
-        "wrongYearKept": 0
-      },
-      "temporal": "recent",
-      "totalMs": 2603,
-      "vertical": "general"
-    },
-    {
-      "answer": {
-        "allSourcesDated": false,
-        "citationMarkers": [
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 1104,
-        "statesFreshness": false,
-        "text": "The evolution of photosynthesis refers to the origin and subsequent evolution of photosynthesis, the process by which light energy is used to assemble sugars from carbon dioxide and a hydrogen and electron source such as water. [5]\n\nPhotosynthesis first step mechanism concerns the sunlight absorption and both negative and positive charges separation. [1]\n\nPhotosynthesis may very well be one of the most important biological processes that happen on our planet Earth. [4]\n\nRecent and important photosynthesis literature claims that this mechanism is quantum mechanics controlled, however without presenting qualitative or quantitative scientifically based mechanism. [1]\n\nSources: [1] Can the photosynthesis first step quantum mechanism be explained? (arxiv.org)  [2] Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science (2024) (openlibrary."
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "science",
-      "query": "photosynthesis explained",
-      "requiresFreshness": false,
-      "retrieval": {
-        "dropReasons": {
-          "shares no subject word": 3
-        },
-        "finalSources": [
-          {
-            "ageHours": 143682.4,
-            "domain": "arxiv.org",
-            "providers": [
-              "arxiv"
-            ],
-            "publishedAt": "2010-05-08T15:03:14Z",
-            "relevance": 0.91,
-            "title": "Can the photosynthesis first step quantum mechanism be explained?",
-            "url": "http://arxiv.org/abs/1005.1337v1"
-          },
-          {
-            "ageHours": null,
-            "domain": "openlibrary.org",
-            "providers": [
-              "openlibrary"
-            ],
-            "publishedAt": null,
-            "relevance": 0.86,
-            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
-            "url": "https://openlibrary.org/works/OL39212144W"
-          },
-          {
-            "ageHours": null,
-            "domain": "openlibrary.org",
-            "providers": [
-              "openlibrary"
-            ],
-            "publishedAt": null,
-            "relevance": 0.86,
-            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
-            "url": "https://openlibrary.org/works/OL38617647W"
-          },
-          {
-            "ageHours": null,
-            "domain": "worldatlas.com",
-            "providers": [
-              "mwmbl"
-            ],
-            "publishedAt": null,
-            "relevance": 0.8,
-            "title": "Photosynthesis Explained - WorldAtlas",
-            "url": "https://www.worldatlas.com/feature/photosynthesis-explained.html"
-          },
-          {
-            "ageHours": null,
-            "domain": "en.wikipedia.org",
-            "providers": [
-              "wikipedia"
-            ],
-            "publishedAt": null,
-            "relevance": 0.66,
-            "title": "Evolution of photosynthesis",
-            "url": "https://en.wikipedia.org/wiki/Evolution_of_photosynthesis"
-          },
-          {
-            "ageHours": null,
-            "domain": "en.wikipedia.org",
-            "providers": [
-              "wikipedia"
-            ],
-            "publishedAt": null,
-            "relevance": 0.64,
-            "title": "Chlorophyll",
-            "url": "https://en.wikipedia.org/wiki/Chlorophyll"
-          },
-          {
-            "ageHours": 3652.3,
-            "domain": "arxiv.org",
-            "providers": [
-              "arxiv"
-            ],
-            "publishedAt": "2026-04-29T05:10:13Z",
-            "relevance": 0.63,
-            "title": "Towards a Frugal Photosynthesis Sensing Toolkit for Data-Driven Plant Science Education and Exploration",
-            "url": "http://arxiv.org/abs/2604.26305v2"
-          },
-          {
-            "ageHours": 111451.3,
-            "domain": "ucl.ac.uk",
-            "providers": [
-              "hackernews"
-            ],
-            "publishedAt": "2014-01-10T14:08:38Z",
-            "relevance": 0.56,
-            "title": "Quantum mechanics explains efficiency of photosynthesis",
-            "url": "http://www.ucl.ac.uk/news/news-articles/0114/090114-Quantum-mechanics-explains-efficiency-of-photosynthesis"
-          },
-          {
-            "ageHours": 67228.8,
-            "domain": "theconversation.com",
-            "providers": [
-              "hackernews"
-            ],
-            "publishedAt": "2019-01-27T04:41:15Z",
-            "relevance": 0.49,
-            "title": "Explainer: why can’t humans photosynthesise?",
-            "url": "http://theconversation.com/explainer-why-cant-humans-photosynthesise-51635"
-          }
-        ],
-        "freshnessMet": true,
-        "freshnessStatement": null,
-        "keptCount": 9,
-        "keptDomains": 9,
-        "newestSourceAgeHours": 3652.3,
-        "normalizedCount": 12,
-        "normalizedDated": 7,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "Request failed with status code 429",
-          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
-          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
-          "TheSportsDB has no current fixture for \"photosynthesis explained\" right now — Om",
-          "Request failed with status code 502",
-          "Request failed with status code 502"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "wikipedia",
-          "wikidata",
-          "arxiv",
-          "openalex",
-          "openlibrary",
-          "hackernews",
-          "openverse",
-          "commoncrawl",
-          "github",
-          "openmeteo",
-          "market-rates",
-          "sports-scores",
-          "mwmbl",
-          "duckduckgo-instant",
-          "langsearch"
-        ],
-        "rawCount": 12,
-        "relevanceAvg": 0.712,
-        "wrongYearKept": 0
-      },
-      "temporal": "none",
-      "totalMs": 1542,
-      "vertical": "general"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "science",
-      "query": "current Mars rover status",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {
-          "undated": 2
-        },
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 2,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "Request failed with status code 502",
-          "Request failed with status code 502",
-          "Request failed with status code 502",
-          "Request failed with status code 502"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "wikipedia",
-          "langsearch"
-        ],
-        "rawCount": 2,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "current",
-      "totalMs": 1675,
-      "vertical": "general"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "science",
-      "query": "climate report 2026",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {
-          "shares no subject word": 1,
-          "undated": 1
-        },
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 2,
-        "normalizedDated": 1,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "wikipedia",
-          "langsearch"
-        ],
-        "rawCount": 2,
-        "relevanceAvg": 0,
+        "relevanceAvg": 1.143,
         "wrongYearKept": 0
       },
       "temporal": "2026",
-      "totalMs": 479,
+      "totalMs": 2743,
       "vertical": "general"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "weather",
-      "query": "today's weather",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 0,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "All search engines failed for this query. Tried: openmeteo"
-        ],
-        "providersSearched": [],
-        "rawCount": 0,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "today",
-      "totalMs": 0,
-      "vertical": "weather"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "weather",
-      "query": "current weather in Mumbai",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 0,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "All search engines failed for this query. Tried: openmeteo | Search provider \"openmeteo: Request failed with status code"
-        ],
-        "providersSearched": [],
-        "rawCount": 0,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "current",
-      "totalMs": 792,
-      "vertical": "weather"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "weather",
-      "query": "live weather radar in London",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 0,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "All search engines failed for this query. Tried: openmeteo"
-        ],
-        "providersSearched": [],
-        "rawCount": 0,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "live",
-      "totalMs": 102,
-      "vertical": "weather"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "weather",
-      "query": "weather in Delhi today",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 0,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "All search engines failed for this query. Tried: openmeteo | Search provider \"openmeteo: Request failed with status code"
-        ],
-        "providersSearched": [],
-        "rawCount": 0,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "today",
-      "totalMs": 199,
-      "vertical": "weather"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "weather",
-      "query": "will it rain in Tokyo tomorrow",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 0,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "All search engines failed for this query. Tried: openmeteo"
-        ],
-        "providersSearched": [],
-        "rawCount": 0,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "none",
-      "totalMs": 100,
-      "vertical": "weather"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "weather",
-      "query": "current temperature in New York",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 0,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "All search engines failed for this query. Tried: openmeteo | Search provider \"openmeteo: Request failed with status code"
-        ],
-        "providersSearched": [],
-        "rawCount": 0,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "current",
-      "totalMs": 215,
-      "vertical": "weather"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "weather",
-      "query": "today's forecast for Sydney",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 0,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "All search engines failed for this query. Tried: openmeteo"
-        ],
-        "providersSearched": [],
-        "rawCount": 0,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "today",
-      "totalMs": 99,
-      "vertical": "weather"
     },
     {
       "answer": {
@@ -903,22 +593,89 @@
           2,
           3,
           4,
-          5
+          5,
+          12
         ],
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 751,
+        "length": 916,
         "statesFreshness": false,
-        "text": "Freezing rain is rain maintained at temperatures below freezing by the ambient air mass that causes freezing on contact with surfaces. [1]\n\n$\\begingroup$(Looks like carbon dioxide causes rain to have pH around 5.6, but the term acid rain is more often used for special cases when sulfur dioxid… [3]\n\nPreface Have you ever wondered what causes the rain? [4]\n\nIce pellets (sleet) frequently occurs mixed in with freezing\nrain, and is made of frozen raindrops. [5]\n\nSources: [1] Freezing rain (en.wikipedia.org)  [2] What causes acid rain? (1992) (openlibrary.org)  [3] atmosphere - If there was less carbon dioxide, would rain be bas… (earthscience.stackexchange.com)  [4] What Causes Rain - Process of Rainfall, Formation of Clouds & Th… (testbook.com)"
+        "text": "The S&P 500 (Standard and Poor's 500) is a stock market index tracking the stock performance of 500 companies listed on stock exchanges in the United States that are considered to have large market capitalizations. [1]\n\nIt is one of the most commonly followed equity indices.[5]\n\nThe S&P 500 index is a capitalization-weighted index and the 10 largest companies in the index account for 27.5% of the market capitalization of the index. [3]\n\nS&P 500 (Standard and Poor's 500)[12] is a stock market index tracking the stock performance of 500 leading companies listed on stock exchanges in the United States. [4]\n\nThe S&amp;P 500 index is considered the most popular trading instrument in financial markets. [5]\n\nSources: [1] S&P 500 (en.wikipedia.org)  [2] Precio de cierre de s & p 500 hoy rljmm (topoptionsbqwis.netlify.app)  [3] S&P 500 - Wikipedia (web.archive.org)  [4] S&P 500 - Wikipedia (trans"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "weather",
-      "query": "what causes rain",
+      "category": "finance",
+      "query": "S&P 500 index",
       "requiresFreshness": false,
       "retrieval": {
         "dropReasons": {},
         "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "title": "S&P 500",
+            "url": "https://en.wikipedia.org/wiki/S%26P_500"
+          },
+          {
+            "ageHours": 2664.2,
+            "domain": "topoptionsbqwis.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-09T17:28:19.000Z",
+            "relevance": 0.94,
+            "title": "Precio de cierre de s & p 500 hoy rljmm",
+            "url": "https://topoptionsbqwis.netlify.app/pinkstaff2939vy/precio-de-cierre-de-s-p-500-hoy-lypo"
+          },
+          {
+            "ageHours": 207684.8,
+            "domain": "web.archive.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2003-01-19T04:53:03.000Z",
+            "relevance": 0.94,
+            "title": "S&P 500 - Wikipedia",
+            "url": "https://web.archive.org/web/20210418225854/https:/en.wikipedia.org/wiki/S&P_500"
+          },
+          {
+            "ageHours": 207684.8,
+            "domain": "translate.google.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2003-01-19T04:53:03.000Z",
+            "relevance": 0.94,
+            "title": "S&P 500 - Wikipedia",
+            "url": "https://translate.google.com/website?hl=ko&sl=auto&tl=ko&u=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FS%26P_500"
+          },
+          {
+            "ageHours": 26180.6,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2023-10-03T21:07:54Z",
+            "relevance": 0.93,
+            "title": "Bitcoin versus S&amp;P 500 Index: Return and Risk Analysis",
+            "url": "http://arxiv.org/abs/2310.02436v1"
+          },
+          {
+            "ageHours": 35224.4,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2022-09-22T01:19:59Z",
+            "relevance": 0.93,
+            "title": "A Real Data-Driven Analytical Model to Predict Information Technology Sector Index Price of S&amp;P 500",
+            "url": "http://arxiv.org/abs/2209.10720v1"
+          },
           {
             "ageHours": null,
             "domain": "en.wikipedia.org",
@@ -927,8 +684,8 @@
             ],
             "publishedAt": null,
             "relevance": 0.92,
-            "title": "Freezing rain",
-            "url": "https://en.wikipedia.org/wiki/Freezing_rain"
+            "title": "List of S&P 500 companies",
+            "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
           },
           {
             "ageHours": null,
@@ -938,74 +695,30 @@
             ],
             "publishedAt": null,
             "relevance": 0.89,
-            "title": "What causes acid rain? (1992)",
-            "url": "https://openlibrary.org/works/OL14959607W"
+            "title": "A test of efficiency for the S&P 500 index option market using variance forecasts (1993)",
+            "url": "https://openlibrary.org/works/OL13587082W"
           },
           {
             "ageHours": null,
-            "domain": "earthscience.stackexchange.com",
+            "domain": "bloomberg.com",
             "providers": [
               "mwmbl"
             ],
             "publishedAt": null,
-            "relevance": 0.81,
-            "title": "atmosphere - If there was less carbon dioxide, would rain be bas…",
-            "url": "https://earthscience.stackexchange.com/a/26312"
+            "relevance": 0.88,
+            "title": "SPX Quote - S&P 500 INDEX - Bloomberg",
+            "url": "https://www.bloomberg.com/quote/SPX:IND?sref=byKgOh1x"
           },
           {
             "ageHours": null,
-            "domain": "testbook.com",
+            "domain": "cnn.com",
             "providers": [
               "mwmbl"
             ],
             "publishedAt": null,
-            "relevance": 0.8,
-            "title": "What Causes Rain - Process of Rainfall, Formation of Clouds & Th…",
-            "url": "https://testbook.com/biology/rain"
-          },
-          {
-            "ageHours": null,
-            "domain": "answers.com",
-            "providers": [
-              "mwmbl"
-            ],
-            "publishedAt": null,
-            "relevance": 0.75,
-            "title": "What causes rain to become sleet? - Answers",
-            "url": "https://www.answers.com/Q/What_causes_rain_to_become_sleet"
-          },
-          {
-            "ageHours": null,
-            "domain": "en.wikipedia.org",
-            "providers": [
-              "wikipedia"
-            ],
-            "publishedAt": null,
-            "relevance": 0.66,
-            "title": "Acid rain",
-            "url": "https://en.wikipedia.org/wiki/Acid_rain"
-          },
-          {
-            "ageHours": 147753.1,
-            "domain": "arxiv.org",
-            "providers": [
-              "arxiv"
-            ],
-            "publishedAt": "2009-11-20T00:22:59Z",
-            "relevance": 0.65,
-            "title": "A non arbitrary definition of rain event: the case of stratiform rain",
-            "url": "http://arxiv.org/abs/0911.3941v1"
-          },
-          {
-            "ageHours": 16230.6,
-            "domain": "arxiv.org",
-            "providers": [
-              "arxiv"
-            ],
-            "publishedAt": "2024-11-21T02:51:52Z",
-            "relevance": 0.65,
-            "title": "Hugging Rain Man: A Novel Facial Action Units Dataset for Analyzing Atypical Facial Expressions in Children wi",
-            "url": "http://arxiv.org/abs/2411.13797v1"
+            "relevance": 0.88,
+            "title": "Tesla set to join the S&P 500 Index in December | CNN Business",
+            "url": "http://www.cnn.com/2020/11/16/investing/tesla-sp-500/index.html"
           },
           {
             "ageHours": null,
@@ -1014,61 +727,36 @@
               "openlibrary"
             ],
             "publishedAt": null,
-            "relevance": 0.61,
-            "title": "Acid rain (2000)",
-            "url": "https://openlibrary.org/works/OL5954174W"
+            "relevance": 0.86,
+            "title": "Predictable dynamics in the S&P 500 index options implied volatility surface (2005)",
+            "url": "https://openlibrary.org/works/OL5893683W"
           },
           {
-            "ageHours": null,
-            "domain": "esv.org",
+            "ageHours": 199361.7,
+            "domain": "doi.org",
             "providers": [
-              "mwmbl"
+              "openalex"
             ],
-            "publishedAt": null,
-            "relevance": 0.55,
-            "title": "James 4 - What causes quarrels and what causes fights among you?…",
-            "url": "http://www.esv.org/Jm4.1"
-          },
-          {
-            "ageHours": 31634.8,
-            "domain": "news.ycombinator.com",
-            "providers": [
-              "hackernews"
-            ],
-            "publishedAt": "2023-02-18T06:42:05Z",
-            "relevance": 0.55,
-            "title": "Ask HN: Did the Fukushima cloud cause cancer?",
-            "url": "https://news.ycombinator.com/item?id=34844586"
-          },
-          {
-            "ageHours": 108514.4,
-            "domain": "news.ycombinator.com",
-            "providers": [
-              "hackernews"
-            ],
-            "publishedAt": "2014-05-12T23:03:42Z",
-            "relevance": 0.53,
-            "title": "Show HN: Original Rap about Databases",
-            "url": "https://news.ycombinator.com/item?id=7735899"
+            "publishedAt": "2004-01-01",
+            "relevance": 0.86,
+            "title": "The Price Response to S&P 500 Index Additions and Deletions: Evidence of Asymmetry and a New Explanation",
+            "url": "https://doi.org/10.1111/j.1540-6261.2004.00683.x"
           }
         ],
         "freshnessMet": true,
         "freshnessStatement": null,
         "keptCount": 12,
         "keptDomains": 12,
-        "newestSourceAgeHours": 16230.6,
+        "newestSourceAgeHours": 2664.2,
         "normalizedCount": 12,
-        "normalizedDated": 4,
+        "normalizedDated": 6,
         "offTopicKept": 0,
         "providersFailed": [
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
-          "OpenAlex: circuit open (cooling down)",
-          "Common Crawl (open web index): circuit open (cooling down)",
-          "Common Crawl (open web index): circuit open (cooling down)",
-          "Live sports scores (TheSportsDB): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"S&P 500 index\" right now — Omi will not "
         ],
         "providersSearched": [
           "searxng",
@@ -1090,313 +778,86 @@
           "langsearch"
         ],
         "rawCount": 12,
-        "relevanceAvg": 0.698,
+        "relevanceAvg": 0.909,
         "wrongYearKept": 0
       },
       "temporal": "none",
-      "totalMs": 385,
-      "vertical": "weather"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [
-          1,
-          2,
-          3
-        ],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 864,
-        "statesFreshness": false,
-        "text": "Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy; and Russian-occupied Enerhodar, all in Ukraine; and Russia's Belgorod Oblast [2]\n\nSaudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, killing seven people and wounding 40 more [3]\n\nSources: [1] Armed conflicts and attacks: Houthi–Saudi Arabian conflict (en.wikipedia.org)  [2] Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy… (apnews.com)  [3] Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, killing seven people and wounding 40 more (reuters.com)"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "usa",
-      "query": "latest US news",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [
-          {
-            "ageHours": 9.5,
-            "domain": "en.wikipedia.org",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.59,
-            "title": "Armed conflicts and attacks: Houthi–Saudi Arabian conflict",
-            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
-          },
-          {
-            "ageHours": 9.5,
-            "domain": "apnews.com",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.48,
-            "title": "Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in ",
-            "url": "https://apnews.com/article/russia-ukraine-war-germany-drones-strikes-f91ac88ee287bad2a3c99d2608975f53"
-          },
-          {
-            "ageHours": 9.5,
-            "domain": "reuters.com",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.45,
-            "title": "Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, kill",
-            "url": "https://www.reuters.com/world/middle-east/seven-people-killed-strike-market-yemen-houthi-run-health-ministry-says-2026-09-27"
-          }
-        ],
-        "freshnessMet": true,
-        "freshnessStatement": null,
-        "keptCount": 3,
-        "keptDomains": 3,
-        "newestSourceAgeHours": 9.5,
-        "normalizedCount": 3,
-        "normalizedDated": 3,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "hackernews",
-          "langsearch"
-        ],
-        "rawCount": 3,
-        "relevanceAvg": 0.507,
-        "wrongYearKept": 0
-      },
-      "temporal": "latest",
-      "totalMs": 123,
-      "vertical": "news"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [
-          1,
-          2,
-          3
-        ],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 864,
-        "statesFreshness": false,
-        "text": "Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy; and Russian-occupied Enerhodar, all in Ukraine; and Russia's Belgorod Oblast [2]\n\nSaudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, killing seven people and wounding 40 more [3]\n\nSources: [1] Armed conflicts and attacks: Houthi–Saudi Arabian conflict (en.wikipedia.org)  [2] Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy… (apnews.com)  [3] Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, killing seven people and wounding 40 more (reuters.com)"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "usa",
-      "query": "US news today",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [
-          {
-            "ageHours": 9.5,
-            "domain": "en.wikipedia.org",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.59,
-            "title": "Armed conflicts and attacks: Houthi–Saudi Arabian conflict",
-            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
-          },
-          {
-            "ageHours": 9.5,
-            "domain": "apnews.com",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.48,
-            "title": "Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in ",
-            "url": "https://apnews.com/article/russia-ukraine-war-germany-drones-strikes-f91ac88ee287bad2a3c99d2608975f53"
-          },
-          {
-            "ageHours": 9.5,
-            "domain": "reuters.com",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.45,
-            "title": "Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, kill",
-            "url": "https://www.reuters.com/world/middle-east/seven-people-killed-strike-market-yemen-houthi-run-health-ministry-says-2026-09-27"
-          }
-        ],
-        "freshnessMet": true,
-        "freshnessStatement": null,
-        "keptCount": 3,
-        "keptDomains": 3,
-        "newestSourceAgeHours": 9.5,
-        "normalizedCount": 3,
-        "normalizedDated": 3,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "hackernews",
-          "langsearch"
-        ],
-        "rawCount": 3,
-        "relevanceAvg": 0.507,
-        "wrongYearKept": 0
-      },
-      "temporal": "today",
-      "totalMs": 295,
-      "vertical": "news"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [
-          1,
-          2,
-          3
-        ],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 623,
-        "statesFreshness": false,
-        "text": "The National Rally clears the 10-seat threshold in the Senate of France, allowing the party to meet qualifications to form a far-right parliamentary group [2]\n\nSão Toméans vote to elect 55 members of the National Assembly [3]\n\nSources: [1] Politics and elections: 2026 French Senate election (en.wikipedia.org)  [2] Politics and elections: The National Rally clears the 10-seat threshold in the Senate of France, allowing the party to meet qualifications to form a far-right parliamentary group (theguardian.com)  [3] Politics and elections: São Toméans vote to elect 55 members of the National Assembly (macaubusiness.com)"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "usa",
-      "query": "current US politics",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {
-          "undated": 1
-        },
-        "finalSources": [
-          {
-            "ageHours": 9.5,
-            "domain": "en.wikipedia.org",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.89,
-            "title": "Politics and elections: 2026 French Senate election",
-            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
-          },
-          {
-            "ageHours": 9.5,
-            "domain": "theguardian.com",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.75,
-            "title": "Politics and elections: The National Rally clears the 10-seat threshold in the Senate of France, allowing the ",
-            "url": "https://www.theguardian.com/world/2026/sep/28/french-election-2026-far-right-senate-elections"
-          },
-          {
-            "ageHours": 9.5,
-            "domain": "macaubusiness.com",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.67,
-            "title": "Politics and elections: São Toméans vote to elect 55 members of the National Assembly",
-            "url": "https://macaubusiness.com/jobs-and-youth-exodus-dominate-sao-tome-election"
-          }
-        ],
-        "freshnessMet": true,
-        "freshnessStatement": null,
-        "keptCount": 3,
-        "keptDomains": 3,
-        "newestSourceAgeHours": 9.5,
-        "normalizedCount": 4,
-        "normalizedDated": 3,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "wikipedia",
-          "langsearch"
-        ],
-        "rawCount": 4,
-        "relevanceAvg": 0.77,
-        "wrongYearKept": 0
-      },
-      "temporal": "current",
-      "totalMs": 546,
+      "totalMs": 7673,
       "vertical": "general"
     },
     {
       "answer": {
         "allSourcesDated": true,
-        "citationMarkers": [],
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
+        "length": 1035,
+        "statesFreshness": true,
+        "text": "If You'd Invested $1,000 in the Vanguard S&P 500 ETF (VOO) 10 Years Ago, Here's How Much You'd Have Today\n\nKey Points\n\nThe Vanguard S&P 500 ETF grew investor capital more than fourfold over the last 10 years. [1]\n\nPetrol and diesel prices today in Hyderabad, Delhi, Chennai and Mumbai on 27 September 2026\n\nIn Short\n\nPetrol and Diesel prices today, 27 September 2026. [3]\n\nWhen you own a bond, your interest rate depends on batch clearing. [4]\n\nBuying an S&P 500 exchange-traded fund (ETF) is one of the best ways for average investors to gain exposure to the stock market. [1]\n\nSources: [1] If You'd Invested $1,000 in the Vanguard S&P 500 ETF (VOO) 10 Years Ago, Here's How Much You'd Have Today (aol.com)  [2] Century Casinos, Inc. Enters into Definitive Agreement to Sell Century Mile and Century Downs Racetracks in Alberta, Canada (prnewswire.co.uk)  [3] Petrol and diesel prices today in Hyder"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "usa",
-      "query": "latest NASA mission",
+      "category": "finance",
+      "query": "rupee exchange rate today",
       "requiresFreshness": true,
       "retrieval": {
-        "dropReasons": {
-          "outside freshness window": 4
-        },
-        "finalSources": [],
-        "freshnessMet": false,
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 5.6,
+            "domain": "aol.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:05:00.000Z",
+            "relevance": 0.99,
+            "title": "If You'd Invested $1,000 in the Vanguard S&P 500 ETF (VOO) 10 Years Ago, Here's How Much You'd Have Today",
+            "url": "https://www.aol.com/articles/youd-invested-1-000-vanguard-120500000.html"
+          },
+          {
+            "ageHours": 5.7,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:01:30.000Z",
+            "relevance": 0.97,
+            "title": "Century Casinos, Inc. Enters into Definitive Agreement to Sell Century Mile and Century Downs Racetracks in Al",
+            "url": "https://www.prnewswire.co.uk/news-releases/century-casinos-inc-enters-into-definitive-agreement-to-sell-century-mile-and-century-downs-racetracks-in-alberta-canada-302890883.html"
+          },
+          {
+            "ageHours": 36.5,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T05:13:18.000Z",
+            "relevance": 0.94,
+            "title": "Petrol and diesel prices today in Hyderabad, Delhi, Chennai and Mumbai on 27 September 2026",
+            "url": "https://www.thehansindia.com/business/market-compass/petrol-and-diesel-prices-today-in-hyderabad-delhi-chennai-and-mumbai-on-27-september-2026-1126125"
+          },
+          {
+            "ageHours": 25,
+            "domain": "newindianexpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T16:42:18.000Z",
+            "relevance": 0.94,
+            "title": "What Demat 2.0 means for your money",
+            "url": "https://www.newindianexpress.com/business/2026/Sep/27/what-demat-20-means-for-your-money"
+          }
+        ],
+        "freshnessMet": true,
         "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 5.6,
         "normalizedCount": 4,
         "normalizedDated": 4,
         "offTopicKept": 0,
@@ -1404,245 +865,20 @@
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+          "SearXNG: circuit open (cooling down)"
         ],
         "providersSearched": [
           "searxng",
-          "wikipedia-current-events",
-          "hackernews",
+          "market-rates",
           "langsearch"
         ],
         "rawCount": 4,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "latest",
-      "totalMs": 456,
-      "vertical": "news"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [
-          1
-        ],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 148,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n[1] Politics and elections: 2026 French Senate election — 2026 French Senate election"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "usa",
-      "query": "US election news 2026",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {},
-        "finalSources": [
-          {
-            "ageHours": 9.5,
-            "domain": "en.wikipedia.org",
-            "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
-            ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 1,
-            "title": "Politics and elections: 2026 French Senate election",
-            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
-          }
-        ],
-        "freshnessMet": true,
-        "freshnessStatement": null,
-        "keptCount": 1,
-        "keptDomains": 1,
-        "newestSourceAgeHours": 9.5,
-        "normalizedCount": 1,
-        "normalizedDated": 1,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "langsearch"
-        ],
-        "rawCount": 1,
-        "relevanceAvg": 1,
-        "wrongYearKept": 0
-      },
-      "temporal": "2026",
-      "totalMs": 242,
-      "vertical": "election"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "europe",
-      "query": "latest European Union news",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {
-          "shares no subject word": 3
-        },
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 3,
-        "normalizedDated": 3,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "hackernews",
-          "langsearch"
-        ],
-        "rawCount": 3,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "latest",
-      "totalMs": 229,
-      "vertical": "news"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "europe",
-      "query": "news in Europe today",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {
-          "shares no subject word": 3
-        },
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 3,
-        "normalizedDated": 3,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "hackernews",
-          "langsearch"
-        ],
-        "rawCount": 3,
-        "relevanceAvg": 0,
+        "relevanceAvg": 0.96,
         "wrongYearKept": 0
       },
       "temporal": "today",
-      "totalMs": 273,
-      "vertical": "news"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "europe",
-      "query": "current EU policy",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {
-          "undated": 2
-        },
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 2,
-        "normalizedDated": 0,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "wikipedia",
-          "langsearch"
-        ],
-        "rawCount": 2,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "current",
-      "totalMs": 686,
-      "vertical": "general"
+      "totalMs": 2380,
+      "vertical": "markets"
     },
     {
       "answer": {
@@ -1654,59 +890,56 @@
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 658,
+        "length": 894,
         "statesFreshness": false,
-        "text": "The Berlin Marathon is held in Germany, with Guye Adola and Tigst Assefa winning their respective marathon races although Assefa sustained cramps prior to the finish line [2]\n\nA bus carrying Filipino tourists veers off a highway near Munich, Germany, killing two people and wounding 25 more [1]\n\nSources: [1] Disasters and accidents: A bus carrying Filipino tourists veers off a highway near Munich, Germany, killing two people and wounding 25 more (apnews.com)  [2] Sports: The Berlin Marathon is held in Germany, with Guye Adola and Tigst Assefa winning their respective marathon races although Assefa sustained cramps prior to the finish line (apnews.com)"
+        "text": "Intel’s layoffs come on the heels of several rounds of job cuts across the tech industry in California. [1]\n\nOracle employees also woke up to shocking early morning termination emails on Sept 14, informing them it would be their last day at the tech giant in its latest round of layoffs. [1]\n\nThe tech giant sent out termination emails at 6 a.m., citing “broader organizational change” as the reason for the layoffs. [1]\n\nAdditional reductions are distributed across three nearby Santa Clara offices that include 24 staff members at the SC-12 location on 3600 Juliette Lane, five workers at the SC-9 facility at 3601 Juliette Lane, and a single employee at the SC-11 office at 2191 Laurelwood Road. [1]\n\nSources: [1] California tech giant slashes jobs across the Bay Area (nypost.com)  [2] It took 20 years to start regulating social media - will AI controls come sooner? (securitybrief.com.au)"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "europe",
-      "query": "latest news from Germany",
+      "category": "finance",
+      "query": "recently announced layoffs in tech",
       "requiresFreshness": true,
       "retrieval": {
-        "dropReasons": {},
+        "dropReasons": {
+          "outside freshness window": 8,
+          "shares no subject word": 2
+        },
         "finalSources": [
           {
-            "ageHours": 9.5,
-            "domain": "apnews.com",
+            "ageHours": 116.7,
+            "domain": "nypost.com",
             "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
+              "langsearch"
             ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.66,
-            "title": "Disasters and accidents: A bus carrying Filipino tourists veers off a highway near Munich, Germany, killing tw",
-            "url": "https://apnews.com/article/germany-philippines-tourists-bus-crash-b32abd29e5b2c05aef1d285ac8636fc7"
+            "publishedAt": "2026-09-23T20:59:40.000Z",
+            "relevance": 1,
+            "title": "California tech giant slashes jobs across the Bay Area",
+            "url": "https://nypost.com/2026/09/23/us-news/bay-area-tech-giant-to-slash-manufacturing-jobs-at-santa-clara-hq"
           },
           {
-            "ageHours": 9.5,
-            "domain": "apnews.com",
+            "ageHours": 83.4,
+            "domain": "securitybrief.com.au",
             "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
+              "langsearch"
             ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.63,
-            "title": "Sports: The Berlin Marathon is held in Germany, with Guye Adola and Tigst Assefa winning their respective mara",
-            "url": "https://apnews.com/article/berlin-marathon-world-record-assefa-adola-f037a7546b40afce0df1eab1c9294691"
+            "publishedAt": "2026-09-25T06:15:05.000Z",
+            "relevance": 0.68,
+            "title": "It took 20 years to start regulating social media - will AI controls come sooner?",
+            "url": "https://securitybrief.com.au/story/it-took-20-years-to-start-regulating-social-media-will-ai-controls-come-sooner"
           }
         ],
-        "freshnessMet": true,
+        "freshnessMet": false,
         "freshnessStatement": null,
         "keptCount": 2,
         "keptDomains": 2,
-        "newestSourceAgeHours": 9.5,
-        "normalizedCount": 2,
-        "normalizedDated": 2,
+        "newestSourceAgeHours": 83.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
         "offTopicKept": 0,
         "providersFailed": [
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+          "SearXNG: circuit open (cooling down)"
         ],
         "providersSearched": [
           "searxng",
@@ -1714,12 +947,12 @@
           "hackernews",
           "langsearch"
         ],
-        "rawCount": 2,
-        "relevanceAvg": 0.645,
+        "rawCount": 12,
+        "relevanceAvg": 0.84,
         "wrongYearKept": 0
       },
-      "temporal": "latest",
-      "totalMs": 230,
+      "temporal": "recent",
+      "totalMs": 2177,
       "vertical": "news"
     },
     {
@@ -1730,172 +963,170 @@
           2,
           3,
           4,
-          10
+          5
         ],
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 1022,
+        "length": 1399,
         "statesFreshness": false,
-        "text": "Growth in the 12-nation eurozone economy increased by 0.5% in the second quarter, and 2.0% on a 12-month basis, said EU statistics office Eurostat. [3]\n\nEurozone economy still in troubled waters The eurozone economy grew by a meagre 0.1 percent in the last three months, showing that optimism about recover… [10]\n\nMichele Chang, Federico Steinberg, Francisco Torres · 2019 — Financial crises, Economic stabilization, European union countries, economic conditions, European union countries, economic policy, Global Financial Crisis, 2008-2009, Eurozone [1]\n\nEurozone stuck in longest recession A harsh winter held back construction activity in Germany, contributing to a sharper than expected fall in first quar… [4]\n\nSources: [1] Political Economy of Adjustment Throughout and Beyond the Eurozone Crisis (2019) (openlibrary.org)  [2] Political Economy of the Eurozone (2017) (openlibrary.org)  [3] BB"
+        "text": "Quantitative easing (QE) is a monetary policy action where a central bank purchases predetermined amounts of government bonds, company shares, or other financial assets (liquidity) in order to artificially stimulate economic activity. [1]\n\nCarbon quantitative easing (CQE) is an unconventional monetary policy or monetary program that is featured in a proposed international climate policy, called a global carbon reward or simply, the carbon reward. [2]\n\nIn agreement with the recent research findings in the econophysics, we propose that the nonlinear dynamic chaos can be generated by the turbulent capital flows in both the quantitative easing transmission channels and the transaction networks channels, when there are the laminar turbulent capital flows transitions in the financial system. [4]\n\nQuantitative easing\n\nQuantitative easing (QE) is a monetary policy tool where central banks buy la"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "europe",
-      "query": "eurozone economy",
+      "category": "finance",
+      "query": "what is quantitative easing",
       "requiresFreshness": false,
       "retrieval": {
         "dropReasons": {},
         "finalSources": [
           {
             "ageHours": null,
-            "domain": "openlibrary.org",
+            "domain": "en.wikipedia.org",
             "providers": [
-              "openlibrary"
+              "wikipedia",
+              "duckduckgo-instant"
             ],
             "publishedAt": null,
+            "relevance": 1,
+            "title": "Quantitative easing",
+            "url": "https://en.wikipedia.org/wiki/Quantitative_easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Carbon quantitative easing",
+            "url": "https://en.wikipedia.org/wiki/Carbon_quantitative_easing"
+          },
+          {
+            "ageHours": 129233.7,
+            "domain": "openalex.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2012-01-01",
             "relevance": 0.92,
-            "title": "Political Economy of Adjustment Throughout and Beyond the Eurozone Crisis (2019)",
-            "url": "https://openlibrary.org/works/OL25752536W"
+            "title": "The Financial Market Impact of Quantitative Easing in the United Kingdom",
+            "url": "https://openalex.org/W2993327023"
           },
           {
-            "ageHours": null,
-            "domain": "openlibrary.org",
+            "ageHours": 117008.6,
+            "domain": "arxiv.org",
             "providers": [
-              "openlibrary"
+              "arxiv"
             ],
-            "publishedAt": null,
+            "publishedAt": "2013-05-24T09:05:48Z",
+            "relevance": 0.91,
+            "title": "To the problem of turbulence in quantitative easing transmission channels and transactions network channels at",
+            "url": "http://arxiv.org/abs/1305.5656v2"
+          },
+          {
+            "ageHours": 1066.4,
+            "domain": "capital.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T07:16:55.000Z",
             "relevance": 0.89,
-            "title": "Political Economy of the Eurozone (2017)",
-            "url": "https://openlibrary.org/works/OL21149456W"
+            "title": "Quality investing",
+            "url": "https://capital.com/en-eu/learn/glossary/q"
+          },
+          {
+            "ageHours": 984,
+            "domain": "capital.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T17:40:50.000Z",
+            "relevance": 0.89,
+            "title": "Quality investing",
+            "url": "https://capital.com/en-gb/learn/glossary/q"
           },
           {
             "ageHours": null,
-            "domain": "news.bbc.co.uk",
+            "domain": "blogs.lse.ac.uk",
             "providers": [
               "mwmbl"
             ],
             "publishedAt": null,
-            "relevance": 0.87,
-            "title": "BBC NEWS | Business | Eurozone economy continues growth",
-            "url": "http://news.bbc.co.uk/2/hi/business/3561558.stm"
+            "relevance": 0.89,
+            "title": "Quantitative easing | Euro Crisis in the Press",
+            "url": "https://blogs.lse.ac.uk/eurocrisispress/tag/quantitative-easing"
+          },
+          {
+            "ageHours": 118441.7,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2013-03-25T15:57:19Z",
+            "relevance": 0.88,
+            "title": "Quantitative easing is an incomplete strategy that must be accompanied by the nullification of debt",
+            "url": "http://arxiv.org/abs/1303.6183v3"
           },
           {
             "ageHours": null,
-            "domain": "money.cnn.com",
+            "domain": "news.mit.edu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "title": "Explained: Quantitative easing | MIT News | Massachusetts Instit…",
+            "url": "https://news.mit.edu/2010/explained-quantitative-easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Quantitative Easing (1920)",
+            "url": "https://openlibrary.org/works/OL21668065W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Quantitative Easing and Credit Rating Agencies (2022)",
+            "url": "https://openlibrary.org/works/OL28441463W"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
             "providers": [
               "mwmbl"
             ],
             "publishedAt": null,
             "relevance": 0.85,
-            "title": "Eurozone economy shrinks again",
-            "url": "http://money.cnn.com/2013/05/15/news/economy/europe-recession"
-          },
-          {
-            "ageHours": 102401.4,
-            "domain": "theguardian.com",
-            "providers": [
-              "hackernews"
-            ],
-            "publishedAt": "2015-01-22T16:06:00Z",
-            "relevance": 0.83,
-            "title": "ECB unveils €1.1tn QE plan to stimulate eurozone economy",
-            "url": "http://www.theguardian.com/business/2015/jan/22/ecb-unveils-1-trillion-qe-plan-stimulate-eurozoen-economy"
-          },
-          {
-            "ageHours": null,
-            "domain": "ft.com",
-            "providers": [
-              "mwmbl"
-            ],
-            "publishedAt": null,
-            "relevance": 0.82,
-            "title": "How resilient is the eurozone economy to new Covid curbs?",
-            "url": "https://www.ft.com/content/ff11f527-e0a3-4498-89ee-e9d1ad29fc89"
-          },
-          {
-            "ageHours": 75910.3,
-            "domain": "wsj.com",
-            "providers": [
-              "hackernews"
-            ],
-            "publishedAt": "2018-01-30T11:08:13Z",
-            "relevance": 0.82,
-            "title": "Eurozone Economy Records Strongest Growth in a Decade",
-            "url": "https://www.wsj.com/articles/french-economy-accelerates-at-fastest-pace-in-six-years-1517303003?mod=e2tweu"
-          },
-          {
-            "ageHours": 28989.9,
-            "domain": "wsj.com",
-            "providers": [
-              "hackernews"
-            ],
-            "publishedAt": "2023-06-08T11:35:41Z",
-            "relevance": 0.82,
-            "title": "Inflation Drags Eurozone Economy into Recession",
-            "url": "https://www.wsj.com/articles/inflation-drags-eurozone-economy-into-recession-b6ff6158"
-          },
-          {
-            "ageHours": null,
-            "domain": "theweek.com",
-            "providers": [
-              "mwmbl"
-            ],
-            "publishedAt": null,
-            "relevance": 0.81,
-            "title": "Eurozone economy shrinks at record rate | The Week",
-            "url": "https://theweek.com/coronavirus/106882/eurozone-economy-shrinks-at-record-rate"
-          },
-          {
-            "ageHours": null,
-            "domain": "euobserver.com",
-            "providers": [
-              "mwmbl"
-            ],
-            "publishedAt": null,
-            "relevance": 0.81,
-            "title": "Eurozone economy still in troubled waters",
-            "url": "http://euobserver.com/article/122119"
-          },
-          {
-            "ageHours": null,
-            "domain": "wikidata.org",
-            "providers": [
-              "wikidata"
-            ],
-            "publishedAt": null,
-            "relevance": 0.79,
-            "title": "Eurozone economy did not grow at all in last quarter of 2009",
-            "url": "http://www.wikidata.org/entity/Q17655943"
-          },
-          {
-            "ageHours": null,
-            "domain": "wikidata.org",
-            "providers": [
-              "wikidata"
-            ],
-            "publishedAt": null,
-            "relevance": 0.77,
-            "title": "economy of Eurozone",
-            "url": "http://www.wikidata.org/entity/Q100874038"
+            "title": "Quantitative easing 'is good for the rich, bad for the poor' | Q…",
+            "url": "https://www.theguardian.com/business/2011/aug/14/quantitative-easing-riots"
           }
         ],
         "freshnessMet": true,
         "freshnessStatement": null,
         "keptCount": 12,
         "keptDomains": 12,
-        "newestSourceAgeHours": 28989.9,
+        "newestSourceAgeHours": 984,
         "normalizedCount": 12,
-        "normalizedDated": 3,
+        "normalizedDated": 5,
         "offTopicKept": 0,
         "providersFailed": [
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
-          "OpenAlex: circuit open (cooling down)",
-          "Common Crawl (open web index): circuit open (cooling down)",
-          "Common Crawl (open web index): circuit open (cooling down)",
-          "Live sports scores (TheSportsDB): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"quantitative easing\" right now — Omi wil"
         ],
         "providersSearched": [
           "searxng",
@@ -1917,11 +1148,11 @@
           "langsearch"
         ],
         "rawCount": 12,
-        "relevanceAvg": 0.833,
+        "relevanceAvg": 0.897,
         "wrongYearKept": 0
       },
       "temporal": "none",
-      "totalMs": 438,
+      "totalMs": 9712,
       "vertical": "general"
     },
     {
@@ -1936,12 +1167,12 @@
         "text": "Here is what Omi found across the live web for your question:\n\n"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "asia",
-      "query": "latest news from Asia",
+      "category": "finance",
+      "query": "latest crypto market news",
       "requiresFreshness": true,
       "retrieval": {
         "dropReasons": {
-          "shares no subject word": 3
+          "outside freshness window": 12
         },
         "finalSources": [],
         "freshnessMet": false,
@@ -1949,18 +1180,145 @@
         "keptCount": 0,
         "keptDomains": 0,
         "newestSourceAgeHours": null,
-        "normalizedCount": 3,
-        "normalizedDated": 3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
         "offTopicKept": 0,
         "providersFailed": [
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2711,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1057,
+        "statesFreshness": true,
+        "text": "Latest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [1]\n\nSchool Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [2]\n\nAeries Technology (NASDAQ:AERT) Shares Down 1.9% – Here’s Why\n\nAeries Technology, Inc. [4]\n\nCampbell River theatre audio technology to connect with hearing devices\n\nPeople with hearing loss will now be able to connect to new assistive technology when going to a Campbell River theatre. [6]\n\nSources: [1] Today’s AI News – July 15, 2024 (bn.edu.pl)  [2] School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News (careerindia.com)  [3] Exploit.in D"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "today's technology news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 39.6,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 0.97,
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 13.1,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 0.92,
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 16.7,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:01:42.000Z",
+            "relevance": 0.73,
+            "title": "Exploit.in Database Reveals the Roots of Today’s Ransomware Ecosystem -.",
+            "url": "https://que.com/exploit-in-database-reveals-the-roots-of-todays-ransomware-ecosystem"
+          },
+          {
+            "ageHours": 31.3,
+            "domain": "watchlistnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T10:21:12.000Z",
+            "relevance": 0.7,
+            "title": "Aeries Technology (NASDAQ:AERT) Shares Down 1.9% – Here’s Why",
+            "url": "https://www.watchlistnews.com/aeries-technology-nasdaqaert-shares-down-1-9-heres-why/11239507.html"
+          },
+          {
+            "ageHours": 27.6,
+            "domain": "swtorstrategies.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:03:51.000Z",
+            "relevance": 0.62,
+            "title": "Scott Lawrence Turns 63 Today: The Darth Vader Voice a Generation of Gamers Grew Up With",
+            "url": "https://swtorstrategies.com/2026/09/scott-lawrence-darth-vader-star-wars-games.html"
+          },
+          {
+            "ageHours": 24.7,
+            "domain": "cheknews.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:00:14.000Z",
+            "relevance": 0.6,
+            "title": "Campbell River theatre audio technology to connect with hearing devices",
+            "url": "https://cheknews.ca/campbell-river-theatre-audio-technology-to-connect-with-hearing-devices-1350200"
+          },
+          {
+            "ageHours": 41.7,
+            "domain": "techbullion.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.6,
+            "title": "UK Manufacturers Continue to Invest in Production Technology Despite Cost Pressures",
+            "url": "https://techbullion.com/uk-manufacturers-continue-to-invest-in-production-technology-despite-cost-pressures"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 13.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
           "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
         ],
         "providersSearched": [
           "searxng",
@@ -1968,12 +1326,12 @@
           "hackernews",
           "langsearch"
         ],
-        "rawCount": 3,
-        "relevanceAvg": 0,
+        "rawCount": 12,
+        "relevanceAvg": 0.734,
         "wrongYearKept": 0
       },
-      "temporal": "latest",
-      "totalMs": 238,
+      "temporal": "today",
+      "totalMs": 1661,
       "vertical": "news"
     },
     {
@@ -1988,11 +1346,12 @@
         "text": "Here is what Omi found across the live web for your question:\n\n"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "asia",
-      "query": "Asia news today",
+      "category": "technology",
+      "query": "latest AI announcements",
       "requiresFreshness": true,
       "retrieval": {
         "dropReasons": {
+          "outside freshness window": 9,
           "shares no subject word": 3
         },
         "finalSources": [],
@@ -2001,18 +1360,14 @@
         "keptCount": 0,
         "keptDomains": 0,
         "newestSourceAgeHours": null,
-        "normalizedCount": 3,
-        "normalizedDated": 3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
         "offTopicKept": 0,
         "providersFailed": [
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+          "SearXNG: circuit open (cooling down)"
         ],
         "providersSearched": [
           "searxng",
@@ -2020,12 +1375,12 @@
           "hackernews",
           "langsearch"
         ],
-        "rawCount": 3,
+        "rawCount": 12,
         "relevanceAvg": 0,
         "wrongYearKept": 0
       },
-      "temporal": "today",
-      "totalMs": 201,
+      "temporal": "latest",
+      "totalMs": 1685,
       "vertical": "news"
     },
     {
@@ -2034,78 +1389,107 @@
         "citationMarkers": [
           1,
           2,
-          3
+          3,
+          4,
+          5
         ],
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 812,
-        "statesFreshness": false,
-        "text": "In tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defeating Ukraine 2–0 in the final in Shenzhen, Guangdong, China [2]\n\nTwo giant pandas, Ping Ping and Fu Shuang, arrive at the Atlanta zoo in Georgia, U.S., as part of an agreement signed between China and the U.S. [3]\n\nSources: [1] International relations: China–United States relations (en.wikipedia.org)  [2] Sports: In tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defeating Ukraine 2–0 in the final in Shenzhen, Guangdong, China (afp.com)  [3] International relations: Two giant pandas, Ping Ping and Fu Shuang, arrive at the Atlanta zoo in Georgia, U.S., as part of an agreement signed between China and the U.S. during Chinese leader Xi Jinping's… (dawn.com)"
+        "length": 1107,
+        "statesFreshness": true,
+        "text": "How to Compare LLM API Providers: Stop Comparing Models\n\nThe usual way to compare LLM API providers is to line up model prices and pick the lowest row. [5]\n\nOpenAI pauses work on top AI models after system bypasses internet restrictions\n\nSAN FRANCISCO, Sept 27 — ChatGPT developer OpenAI has paused work involving its most capable artificial intelligence models after one of its systems bypassed internet restrictions and contacted an external chatbot during a test, German news agency dpa reported. [1]\n\nWhich AI Business Models Are Generating the Highest Revenue Today? [2]\n\nAmong all AI business models, AI-as-a-Service (AIaaS) is currently leading the revenue race. [2]\n\nSources: [1] OpenAI pauses work on top AI models after system bypasses internet restrictions (malaymail.com)  [2] Which AI Business Models Are Generating the Highest Revenue Today? (ewebdiscussion.com)  [3] Black Ferns vs Bri"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "asia",
-      "query": "current situation in China",
+      "category": "technology",
+      "query": "current top AI models",
       "requiresFreshness": true,
       "retrieval": {
         "dropReasons": {
-          "undated": 1
+          "outside freshness window": 5,
+          "shares no subject word": 1
         },
         "finalSources": [
           {
-            "ageHours": 9.5,
-            "domain": "en.wikipedia.org",
+            "ageHours": 36.1,
+            "domain": "malaymail.com",
             "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
+              "langsearch"
             ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.61,
-            "title": "International relations: China–United States relations",
-            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+            "publishedAt": "2026-09-27T05:33:30.000Z",
+            "relevance": 0.8,
+            "title": "OpenAI pauses work on top AI models after system bypasses internet restrictions",
+            "url": "https://www.malaymail.com/news/tech-gadgets/2026/09/27/openai-pauses-work-on-top-ai-models-after-system-bypasses-internet-restrictions/236722"
           },
           {
-            "ageHours": 9.5,
-            "domain": "afp.com",
+            "ageHours": 44.4,
+            "domain": "ewebdiscussion.com",
             "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
+              "langsearch"
             ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.6,
-            "title": "Sports: In tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defe",
-            "url": "https://www.afp.com/en/czech-republic-beat-ukraine-win-bjk-cup-0"
+            "publishedAt": "2026-09-26T21:16:49.000Z",
+            "relevance": 0.78,
+            "title": "Which AI Business Models Are Generating the Highest Revenue Today?",
+            "url": "https://www.ewebdiscussion.com/threads/which-ai-business-models-are-generating-the-highest-revenue-today.404898"
           },
           {
-            "ageHours": 9.5,
-            "domain": "dawn.com",
+            "ageHours": 82,
+            "domain": "hawa4arab.com",
             "providers": [
-              "wikipedia-current-events",
-              "Wikipedia Current Events"
+              "langsearch"
             ],
-            "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.58,
-            "title": "International relations: Two giant pandas, Ping Ping and Fu Shuang, arrive at the Atlanta zoo in Georgia, U.S.",
-            "url": "https://www.dawn.com/news/2033172/two-giant-pandas-sent-by-china-arrive-in-us"
+            "publishedAt": "2026-09-25T07:44:14.000Z",
+            "relevance": 0.77,
+            "title": "Black Ferns vs British & Irish Lions Women: Historic Tour Preview | Rugby 2027 (2026)",
+            "url": "https://hawa4arab.com/article/black-ferns-vs-british-irish-lions-women-historic-tour-preview-rugby-2027"
+          },
+          {
+            "ageHours": 113.7,
+            "domain": "developeraman.vercel.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T00:00:00.000Z",
+            "relevance": 0.77,
+            "title": "Top 10 AI Tools for Developers 2026 - DeveloperAman - AI Productivity Guide | DeveloperAman",
+            "url": "https://developeraman.vercel.app/blog/top-10-ai-tools-developers-2025"
+          },
+          {
+            "ageHours": 115.4,
+            "domain": "kahawatungu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T22:20:09.000Z",
+            "relevance": 0.76,
+            "title": "How to Compare LLM API Providers: Stop Comparing Models",
+            "url": "https://kahawatungu.com/how-to-compare-llm-api-providers-stop-comparing-models"
+          },
+          {
+            "ageHours": 97.1,
+            "domain": "timothysykes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:33:00.000Z",
+            "relevance": 0.76,
+            "title": "Twist Bioscience Stock Jumps As AI Deals Fuel Bullish Target Hike",
+            "url": "https://www.timothysykes.com/news/twist-bioscience-corporation-twst-news-2026_09_24"
           }
         ],
         "freshnessMet": true,
         "freshnessStatement": null,
-        "keptCount": 3,
-        "keptDomains": 3,
-        "newestSourceAgeHours": 9.5,
-        "normalizedCount": 4,
-        "normalizedDated": 3,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 36.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
         "offTopicKept": 0,
         "providersFailed": [
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+          "SearXNG: circuit open (cooling down)"
         ],
         "providersSearched": [
           "searxng",
@@ -2113,168 +1497,109 @@
           "wikipedia",
           "langsearch"
         ],
-        "rawCount": 4,
-        "relevanceAvg": 0.597,
+        "rawCount": 12,
+        "relevanceAvg": 0.773,
         "wrongYearKept": 0
       },
       "temporal": "current",
-      "totalMs": 619,
+      "totalMs": 2173,
       "vertical": "general"
     },
     {
       "answer": {
         "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "asia",
-      "query": "latest news from Southeast Asia",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {
-          "shares no subject word": 3
-        },
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 3,
-        "normalizedDated": 3,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "hackernews",
-          "langsearch"
-        ],
-        "rawCount": 3,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "latest",
-      "totalMs": 250,
-      "vertical": "news"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
-        "citationMarkers": [],
-        "citationsResolve": true,
-        "duplicateUrls": 0,
-        "isRefusal": false,
-        "length": 63,
-        "statesFreshness": false,
-        "text": "Here is what Omi found across the live web for your question:\n\n"
-      },
-      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "australia",
-      "query": "latest Australian news",
-      "requiresFreshness": true,
-      "retrieval": {
-        "dropReasons": {
-          "shares no subject word": 3
-        },
-        "finalSources": [],
-        "freshnessMet": false,
-        "freshnessStatement": null,
-        "keptCount": 0,
-        "keptDomains": 0,
-        "newestSourceAgeHours": null,
-        "normalizedCount": 3,
-        "normalizedDated": 3,
-        "offTopicKept": 0,
-        "providersFailed": [
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
-        ],
-        "providersSearched": [
-          "searxng",
-          "wikipedia-current-events",
-          "hackernews",
-          "langsearch"
-        ],
-        "rawCount": 3,
-        "relevanceAvg": 0,
-        "wrongYearKept": 0
-      },
-      "temporal": "latest",
-      "totalMs": 256,
-      "vertical": "news"
-    },
-    {
-      "answer": {
-        "allSourcesDated": true,
         "citationMarkers": [
-          1
+          1,
+          2,
+          3,
+          4
         ],
         "citationsResolve": true,
         "duplicateUrls": 0,
         "isRefusal": false,
-        "length": 432,
-        "statesFreshness": false,
-        "text": "In cycling, Brandon McNulty of the United States wins the men's road race world title in Montreal, Canada, becoming the first American champion in 33 years after finishing 13 seconds ahead of Australia's Michael Matthews [1]\n\nSources: [1] Sports: In cycling, Brandon McNulty of the United States wins the men's road race world title in Montreal, Canada, becoming the first American champion in 33 years after finishing 13… (afp.com)"
+        "length": 1391,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [1]\n\nLatest Odisha Breaking News Updates | Thursday, 24 September 2026\n\nStay ahead with Odisha Bytes Breaking News – your source for fast, comprehensive, and accurate updates from Odisha and beyond. [2]\n\nAI\n2 min read\n\nQCon AI New York 2026 to focus on AI as systems engineering\n\nQCon AI New York 2026 will feature 23 sessions addressing the evolution of AI engineering into systems engineering. [3]\n\nDisney's AI Revolution: Layoffs and a New Director of AI Enablement (2026)\n\nWhen we think about artificial intelligence disrupting the entertainment industry, our minds usually race straight to the creative side—vfx artists sweating over digital rendering, scriptwriter"
       },
       "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
-      "category": "australia",
-      "query": "Australia news today",
+      "category": "technology",
+      "query": "AI news 2026",
       "requiresFreshness": true,
       "retrieval": {
-        "dropReasons": {},
+        "dropReasons": {
+          "outside freshness window": 7
+        },
         "finalSources": [
           {
-            "ageHours": 9.5,
-            "domain": "afp.com",
+            "ageHours": 13.1,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1.18,
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 119.1,
+            "domain": "odishabytes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T18:33:02.000Z",
+            "relevance": 1.07,
+            "title": "Latest Odisha Breaking News Updates | Thursday, 24 September 2026",
+            "url": "https://odishabytes.com/latest-odisha-breaking-news-updates-thursday-24-september-2026"
+          },
+          {
+            "ageHours": 70.6,
+            "domain": "techgig.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:05:05.000Z",
+            "relevance": 0.8,
+            "title": "QCon AI New York 2026 to focus on AI as systems engineering",
+            "url": "https://techgig.com/news/ai/qcon-ai-new-york-2026-to-focus-on-ai-as-systems-engineering/134486863"
+          },
+          {
+            "ageHours": 66.6,
+            "domain": "mi3dot.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T23:07:12.000Z",
+            "relevance": 0.72,
+            "title": "Disney's AI Revolution: Layoffs and a New Director of AI Enablement (2026)",
+            "url": "https://mi3dot.org/article/disney-s-ai-revolution-layoffs-and-a-new-director-of-ai-enablement"
+          },
+          {
+            "ageHours": 17.7,
+            "domain": "euronews.com",
             "providers": [
               "wikipedia-current-events",
               "Wikipedia Current Events"
             ],
             "publishedAt": "2026-09-28T00:00:00.000Z",
-            "relevance": 0.63,
-            "title": "Sports: In cycling, Brandon McNulty of the United States wins the men's road race world title in Montreal, Can",
-            "url": "https://www.afp.com/en/stunned-mcnulty-wins-miracle-road-race-world-title"
+            "relevance": 0.45,
+            "title": "Disasters and accidents: Eighty-one people in Uttar Pradesh, India and 21 more in Nepal are killed during heav",
+            "url": "https://www.euronews.com/2026/09/28/at-least-62-killed-after-heavy-rain-and-flooding-in-northern-india-officials-say"
           }
         ],
         "freshnessMet": true,
         "freshnessStatement": null,
-        "keptCount": 1,
-        "keptDomains": 1,
-        "newestSourceAgeHours": 9.5,
-        "normalizedCount": 1,
-        "normalizedDated": 1,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 13.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
         "offTopicKept": 0,
         "providersFailed": [
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
           "SearXNG: circuit open (cooling down)",
-          "SearXNG: circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
-          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+          "SearXNG: circuit open (cooling down)"
         ],
         "providersSearched": [
           "searxng",
@@ -2282,12 +1607,12 @@
           "hackernews",
           "langsearch"
         ],
-        "rawCount": 1,
-        "relevanceAvg": 0.63,
+        "rawCount": 12,
+        "relevanceAvg": 0.844,
         "wrongYearKept": 0
       },
-      "temporal": "today",
-      "totalMs": 223,
+      "temporal": "2026",
+      "totalMs": 1290,
       "vertical": "news"
     }
   ],

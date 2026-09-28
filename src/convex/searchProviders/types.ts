@@ -29,6 +29,13 @@ export type WebCitation = {
 export type SearchOptions = {
   /** general | news | images | videos | science | it | files | music */
   category?: string;
+  /**
+   * The freshness vertical the caller classified the query into
+   * ("weather" | "sports" | "markets" | …). Carried so the orchestrator can
+   * pick an honest general-web backstop when the vertical's structured feed
+   * is down, instead of failing the whole search (measured defect, 2026-09-28).
+   */
+  verticalName?: string;
   /** e.g. "en", "de", "all" */
   language?: string;
   /**

@@ -110,7 +110,13 @@ export function createGitHubProvider(): SearchProvider {
           // Rate limited: back off honestly, let error isolation continue.
           throw new MissingKeyError("github: rate limited — backing off");
         }
-        throw new MissingKeyError(
+        // MEASURED BUG (search-quality benchmark, 2026-09-28): every generic
+        // failure (network error, DNS, timeout) was rethrown as
+        // `MissingKeyError`, so an outage surfaced as
+        // `Search provider "github" is not configured.` — the same
+        // misdiagnosis already fixed for GDELT and 8 other providers.
+        // GitHub is keyless; a missing key is never the truthful diagnosis.
+        throw new Error(
           `github: ${err instanceof Error ? err.message : "unavailable"}`,
         );
       }

@@ -1,0 +1,258 @@
+{
+  "answerContract": {
+    "allSourcesDated": 3,
+    "citationsResolve": 3,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 2,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 1
+  },
+  "byCategory": {
+    "current-events": {
+      "fresh": 2,
+      "kept": 7,
+      "n": 3
+    }
+  },
+  "byTemporal": {
+    "current": {
+      "fresh": 1,
+      "kept": 2,
+      "n": 1
+    },
+    "latest": {
+      "fresh": 1,
+      "kept": 5,
+      "n": 1
+    },
+    "none": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 135,
+  "ran": 3,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 628,
+        "statesFreshness": false,
+        "text": "Australia has hung on for an extraordinary 42-38 upset win over rugby World Cup champion South Africa despite being reduced to 11 men against 15 for much of the last 10 minutes. [2]\n\nI break down what worked for the Wallabies, why 13 changes hurt the Springboks’ cohesion, and what this result means with a home Rugby World Cup approaching. [1]\n\nTheir scrum stood up, their kicking created chaos, and their attack repeatedly stretched South Africa. [1]\n\nSources: [1] 11 Wallabies Survived the Springboks — But That’s NOT... - YouTube (youtube.com)  [2] 11-man Australia hangs on to upset South Africa 42-38 in... - AOL (aol.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "current status of the Rugby World Cup",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 21.8,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T20:02:12.000Z",
+            "relevance": 1,
+            "title": "11 Wallabies Survived the Springboks — But That’s NOT... - YouTube",
+            "url": "https://www.youtube.com/watch?v=mysMxkK5PPM"
+          },
+          {
+            "ageHours": 28.1,
+            "domain": "aol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:44:20.000Z",
+            "relevance": 0.8,
+            "title": "11-man Australia hangs on to upset South Africa 42-38 in... - AOL",
+            "url": "https://www.aol.com/articles/australia-upsets-south-africa-42-120545000.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 21.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.9,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 4837,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1287,
+        "statesFreshness": false,
+        "text": "The AI Pact That Might Change Everything (2026)\n\nIn the world of international politics and awards, the Nobel Peace Prize is a highly coveted honor, and it seems that former US President Donald Trump has his sights set on it. [1]\n\nExploring and Settling Space with the Help of Artificial Intelligence [Blog]\n\nReflections from the Nobel Prize Dialogue Seoul 2026\n\nBy Bill Maloney, Guest Writer, Red Planet Bound\n\nThis past Sunday, I attended the “Nobel Prize Dialogue Seoul 2026” as a representative of The Mars Society’s Mars Technology Institute (MTI). [3]\n\nTED-Edand Nobel Prize.310,832 views • Sep 24, 2026. [5]\n\nIt is a milestone that connects two of the most important threads in modern longevity science: the Nobel Prize-winning discovery of Yamanaka factors by Shinya Yamanaka, and the bold proposition that aging itself is not an irreversible process but an information problem that can be so"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "latest on the Nobel Prize 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 90.3,
+            "domain": "freevods.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T23:33:41.000Z",
+            "relevance": 1,
+            "title": "Could Trump Win the Nobel Peace Prize? The AI Pact That Might Change Everything (2026)",
+            "url": "https://freevods.com/article/could-trump-win-the-nobel-peace-prize-the-ai-pact-that-might-change-everything"
+          },
+          {
+            "ageHours": 68.4,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:24:17.000Z",
+            "relevance": 1,
+            "title": "From Lab Bench to Bedside: Medical Breakthroughs of 2026",
+            "url": "https://que.com/from-lab-bench-to-bedside-medical-breakthroughs-of-2026"
+          },
+          {
+            "ageHours": 68.3,
+            "domain": "marssociety.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:31:39.000Z",
+            "relevance": 1,
+            "title": "Exploring and Settling Space with the Help of Artificial Intelligence [Blog]",
+            "url": "https://www.marssociety.org/red-planet-bound/2026/09/25/exploring-and-settling-space-with-the-help-of-artificial-intelligence-blog"
+          },
+          {
+            "ageHours": 16.4,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:24:15.000Z",
+            "relevance": 1,
+            "title": "Cellular Reprogramming Enters Human Trials The 2026 Age Reversal Milestone",
+            "url": "https://que.com/cellular-reprogramming-enters-human-trials-the-2026-age-reversal-milestone"
+          },
+          {
+            "ageHours": 98.4,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:27:20.000Z",
+            "relevance": 0.98,
+            "title": "Why magnets stumped scientists for so long - Rachel Yang - YouTube",
+            "url": "https://www.youtube.com/watch?v=jG7ULeWUfDw"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 16.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.996,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1593,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "upcoming general elections",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "shares no subject word": 1,
+          "undated": 10
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2434,
+      "vertical": "election"
+    }
+  ],
+  "total": 138
+}

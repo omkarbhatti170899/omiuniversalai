@@ -1,0 +1,3 @@
+✖ Failed to run function "searchQualityBenchmark:runSearchQualityBenchmark":
+Error: [Request ID: 708fd2c1725aab7c] Server Error
+Cannot run functions while this deployment is paused. Resume the deployment in the dashboard settings to allow functions to run.

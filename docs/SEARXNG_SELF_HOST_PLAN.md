@@ -21,7 +21,17 @@ Measured behaviour over this session:
 
 **The risk is not theoretical.** Omi already degrades correctly — it refuses rather than answering from memory — but the *user experience* is "Omi can't find anything", which is indistinguishable from a broken product.
 
-## 2. The fix
+## 3. Addendum — 2026-09-28 outage classification (measured, deployed runtime)
+
+`search.lumy.live` went fully dark during this session. `diagnosticsSearxngDeep:probeSearxngCandidates` from the Convex runtime classified it decisively:
+
+- **DNS resolves, TCP 443 accepts, TLS completes, and the host never sends an HTTP response** — the request dies at the 8 s client timeout. That is an **instance-side hang**, not an egress, DNS, or endpoint-configuration problem on Omi's side.
+- A **control instance answered 200 + JSON in ~276 ms** from the same runtime in the same probe window, ruling out production egress entirely.
+- A 12-instance sweep found **zero public fallbacks**: 1 dead (lumy), 1 broken TLS chain, 4 serving HTML because `search.formats` JSON is disabled, 5 returning 429 (rate-limited), 1 returning 403, 0 healthy.
+
+**Conclusion:** every public JSON-enabled SearXNG endpoint reachable from this runtime is either dead, misconfigured for JSON, or rate-limited. The self-host plan in §2 is no longer optional — it is the only path to a reliable breadth/federation layer. The adapter already fails open (measured fallbacks, circuit breaker, partial results), so the outage degrades to LangSearch + structured providers instead of breaking search.
+
+## 4. The fix (original plan, unchanged)
 
 Run SearXNG yourself. It is a single Docker container, no database, no account, and it removes the shared-instance dependency entirely.
 

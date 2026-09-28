@@ -1,0 +1,1402 @@
+{
+  "answerContract": {
+    "allSourcesDated": 13,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 8,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 7
+  },
+  "byCategory": {
+    "science": {
+      "fresh": 2,
+      "kept": 18,
+      "n": 3
+    },
+    "usa": {
+      "fresh": 3,
+      "kept": 25,
+      "n": 4
+    },
+    "weather": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 8
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 1
+    },
+    "current": {
+      "fresh": 0,
+      "kept": 5,
+      "n": 4
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 11,
+      "n": 2
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 24,
+      "n": 3
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 4
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 75,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1044,
+        "statesFreshness": false,
+        "text": "The evolution of photosynthesis refers to the origin and subsequent evolution of photosynthesis, the process by which light energy is used to assemble sugars from carbon dioxide and a hydrogen and electron source such as water. [6]\n\nPhotosynthesis is a vital biological process that sustains almost all life on Earth by converting light energy into chemical energy. [12]\n\nPhotosynthesis first step mechanism concerns the sunlight absorption and both negative and positive charges separation. [1]\n\nPhotosynthesis may very well be one of the most important biological processes that happen on our planet Earth. [4]\n\nSources: [1] Can the photosynthesis first step quantum mechanism be explained? (arxiv.org)  [2] Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science (2024) (openlibrary.org)  [3] Photo What? Photosynthesis Explained Process, Prod"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "photosynthesis explained",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 143690.7,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2010-05-08T15:03:14Z",
+            "relevance": 0.91,
+            "title": "Can the photosynthesis first step quantum mechanism be explained?",
+            "url": "http://arxiv.org/abs/1005.1337v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
+            "url": "https://openlibrary.org/works/OL39212144W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
+            "url": "https://openlibrary.org/works/OL38617647W"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldatlas.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "Photosynthesis Explained - WorldAtlas",
+            "url": "https://www.worldatlas.com/feature/photosynthesis-explained.html"
+          },
+          {
+            "ageHours": 313313.7,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1991-01-01",
+            "relevance": 0.76,
+            "title": "An improved model of C3 photosynthesis at high CO2: Reversed O2 sensitivity explained by lack of glycerate ree",
+            "url": "https://doi.org/10.1007/bf00035838"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "title": "Evolution of photosynthesis",
+            "url": "https://en.wikipedia.org/wiki/Evolution_of_photosynthesis"
+          },
+          {
+            "ageHours": 1237.7,
+            "domain": "intechopen.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:13.000Z",
+            "relevance": 0.65,
+            "title": "Comprehensive Analyses of the Enhancement of Oxygenesis in Photosynthesis by Bicarbonate and Effects of Divers",
+            "url": "https://www.intechopen.com/chapters/84963"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.64,
+            "title": "Chlorophyll",
+            "url": "https://en.wikipedia.org/wiki/Chlorophyll"
+          },
+          {
+            "ageHours": 3660.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2026-04-29T05:10:13Z",
+            "relevance": 0.63,
+            "title": "Towards a Frugal Photosynthesis Sensing Toolkit for Data-Driven Plant Science Education and Exploration",
+            "url": "http://arxiv.org/abs/2604.26305v2"
+          },
+          {
+            "ageHours": 1041.5,
+            "domain": "pearson.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T08:11:42.000Z",
+            "relevance": 0.58,
+            "title": "13. Photosynthesis",
+            "url": "https://www.pearson.com/channels/microbiology/explore/ch-13-photosynthesis/introduction-to-photosynthesis-Bio-1"
+          },
+          {
+            "ageHours": 155513.7,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2009-01-01",
+            "relevance": 0.57,
+            "title": "Does greater leaf‐level photosynthesis explain the larger solar energy conversion efficiency of Miscanthus rel",
+            "url": "https://doi.org/10.1111/j.1365-3040.2009.02017.x"
+          },
+          {
+            "ageHours": 55745.7,
+            "domain": "vedantu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2020-05-20T00:00:00.000Z",
+            "relevance": 0.57,
+            "title": "Photosynthesis: Process, Equation, Diagram & Steps",
+            "url": "https://www.vedantu.com/biology/photosynthesis"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1041.5,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4917ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4915ms exceeded",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"photosynthesis explained\" right now — Om"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.708,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 20625,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1161,
+        "statesFreshness": false,
+        "text": "Valve’s popular Steam Deck handheld is being used by Airbus to control its prototype Mars rover\n\nTable of Contents\n\nValve designed the Steam Deck as a portable gaming PC, but Airbus has found a much different use for the handheld system. [2]\n\nWhen NASA Perseverance Rover Reached Inner Mars Edge\n\nWhen NASA’s Perseverance rover reached 'Jezero Crater' - the inner edge of Mars in September 2023, the mission scientists were surprised by what they found. [1]\n\nThe aerospace company is using a Steam Deck to control a prototype Mars rover during development and testing, turning the device many people use to play their Steam library into a portable robotics controller. [2]\n\nMars Landing Pioneer Adam Steltzner Named Keynote Speaker for 2026 Int’l Mars Society Convention\n\nThe Mars Society is pleased to announce that renowned NASA engineer Dr. [3]\n\nSources: [1] When NASA Perseverance Rover Reached I"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current Mars rover status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 2,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 53.2,
+            "domain": "ummid.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:30:00.000Z",
+            "relevance": 0.86,
+            "title": "When NASA Perseverance Rover Reached Inner Mars Edge",
+            "url": "https://ummid.com/news/2026/9/26/when-nasa-perseverance-rover-reached-inner-mars-edge.html"
+          },
+          {
+            "ageHours": 103.2,
+            "domain": "pcguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T10:30:40.000Z",
+            "relevance": 0.81,
+            "title": "Valve’s popular Steam Deck handheld is being used by Airbus to control its prototype Mars rover",
+            "url": "https://www.pcguide.com/news/valves-popular-steam-deck-handheld-is-being-used-by-airbus-to-control-its-prototype-mars-rover"
+          },
+          {
+            "ageHours": 97.4,
+            "domain": "marssociety.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:20:55.000Z",
+            "relevance": 0.76,
+            "title": "Mars Landing Pioneer Adam Steltzner Named Keynote Speaker for 2026 Int’l Mars Society Convention",
+            "url": "https://www.marssociety.org/news/2026/09/24/mars-landing-pioneer-adam-steltzner-named-keynote-speaker-for-2026-intl-mars-society-convention"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 53.2,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.81,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 3034,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1028,
+        "statesFreshness": false,
+        "text": "UK Climate Crisis: Suppressed Report Reveals National Security Threats (2026)\n\nThe suppression of the UK's climate national security report is a concerning development that warrants closer examination. [3]\n\nClimate Crisis 2026: Global Disasters & Our Last Chance to Act | UN Live Coverage (2026)\n\nThe world is at a critical juncture, and the signs are all around us. [2]\n\nRecap of summer 2026 climate disasters across Canada\n\nCommunities across Canada navigated a summer defined by climate extremes, ranging from prolonged heat domes and aggressive wildfire activity to historic convective downpours. [1]\n\nFrom the devastating floods in the Himalayas to the scorching wildfires across Europe, 2026 has been a year of climate extremes. [2]\n\nSources: [1] Recap of summer 2026 climate disasters across Canada (brockpress.com)  [2] Climate Crisis 2026: Global Disasters & Our Last Chance to Act | UN Live"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "climate report 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 27.4,
+            "domain": "brockpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:21:14.000Z",
+            "relevance": 0.98,
+            "title": "Recap of summer 2026 climate disasters across Canada",
+            "url": "https://brockpress.com/recap-of-summer-2026-climate-disasters-across-canada"
+          },
+          {
+            "ageHours": 114.6,
+            "domain": "mi3dot.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T23:06:09.000Z",
+            "relevance": 0.94,
+            "title": "Climate Crisis 2026: Global Disasters & Our Last Chance to Act | UN Live Coverage (2026)",
+            "url": "https://mi3dot.org/article/climate-crisis-2026-global-disasters-our-last-chance-to-act-un-live-coverage"
+          },
+          {
+            "ageHours": 91.5,
+            "domain": "hawa4arab.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T22:14:14.000Z",
+            "relevance": 0.94,
+            "title": "UK Climate Crisis: Suppressed Report Reveals National Security Threats (2026)",
+            "url": "https://hawa4arab.com/article/uk-climate-crisis-suppressed-report-reveals-national-security-threats"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 27.4,
+        "normalizedCount": 8,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.953,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1514,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's weather",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current weather in Mumbai",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo | openmeteo: upstream unavailable — Request failed with statu"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 873,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "live weather radar in London",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 102,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "weather in Delhi today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo | openmeteo: upstream unavailable — Request failed with statu"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 211,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "will it rain in Tokyo tomorrow",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo | openmeteo: upstream unavailable — Request failed with statu"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 212,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current temperature in New York",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo | openmeteo: upstream unavailable — Request failed with statu"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 213,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's forecast for Sydney",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo | Open-Meteo (weather, open data): circuit open (cooling down"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 0,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 691,
+        "statesFreshness": false,
+        "text": "Freezing rain is rain maintained at temperatures below freezing by the ambient air mass that causes freezing on contact with surfaces. [1]\n\n$\\begingroup$(Looks like carbon dioxide causes rain to have pH around 5.6, but the term acid rain is more often used for special cases when sulfur dioxid… [7]\n\nPreface Have you ever wondered what causes the rain? [8]\n\nRains Lyrics Follow\n\nRain is liquid water in the form of droplets that have condensed from atmospheric water vapor and then becomes heavy enough to fall under gravity. [5]\n\nSources: [1] Freezing rain (en.wikipedia.org)  [2] What causes acid rain? (1992) (openlibrary.org)  [3] Rain (en.uncyclopedia.co)  [4] Rain (en.uncyclopedia.co)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "what causes rain",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "title": "Freezing rain",
+            "url": "https://en.wikipedia.org/wiki/Freezing_rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "What causes acid rain? (1992)",
+            "url": "https://openlibrary.org/works/OL14959607W"
+          },
+          {
+            "ageHours": 980,
+            "domain": "en.uncyclopedia.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T21:41:44.000Z",
+            "relevance": 0.85,
+            "title": "Rain",
+            "url": "https://en.uncyclopedia.co/w/index.php?oldid=6647270&title=Rain"
+          },
+          {
+            "ageHours": 1012.1,
+            "domain": "en.uncyclopedia.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T13:34:53.000Z",
+            "relevance": 0.85,
+            "title": "Rain",
+            "url": "https://en.uncyclopedia.co/w/index.php?section=5&title=Rain&veaction=edit"
+          },
+          {
+            "ageHours": 1080.3,
+            "domain": "lyricszoo.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-14T17:26:52.000Z",
+            "relevance": 0.84,
+            "title": "Rains Lyrics Follow",
+            "url": "https://www.lyricszoo.com/rains"
+          },
+          {
+            "ageHours": 114669.5,
+            "domain": "theweatheruk.wordpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2013-08-29T20:15:56.000Z",
+            "relevance": 0.83,
+            "title": "Rain",
+            "url": "https://theweatheruk.wordpress.com/2013/08/29/rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "earthscience.stackexchange.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "title": "atmosphere - If there was less carbon dioxide, would rain be bas…",
+            "url": "https://earthscience.stackexchange.com/a/26312"
+          },
+          {
+            "ageHours": null,
+            "domain": "testbook.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "What Causes Rain - Process of Rainfall, Formation of Clouds & Th…",
+            "url": "https://testbook.com/biology/rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "answers.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.75,
+            "title": "What causes rain to become sleet? - Answers",
+            "url": "https://www.answers.com/Q/What_causes_rain_to_become_sleet"
+          },
+          {
+            "ageHours": 1217.2,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-09T00:29:06.000Z",
+            "relevance": 0.7,
+            "title": "Cloud seeding",
+            "url": "https://en.wikipedia.org/wiki/Cloud_seeding"
+          },
+          {
+            "ageHours": 1237.7,
+            "domain": "mdpi.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:14.000Z",
+            "relevance": 0.65,
+            "title": "Evaluation of the First Negative Ion-Based Cloud Seeding and Rain Enhancement Trial in China",
+            "url": "https://www.mdpi.com/2073-4441/13/18/2473"
+          },
+          {
+            "ageHours": 42971.2,
+            "domain": "byjus.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-11-03T06:33:00.000Z",
+            "relevance": 0.65,
+            "title": "",
+            "url": "https://byjus.com/ias-questions/what-causes-rain"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 980,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Open-Meteo (weather, open data): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.795,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2871,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 962,
+        "statesFreshness": true,
+        "text": "Today in Norway Members only\n\nToday in Norway: A roundup of the latest news on Thursday\n\nNo end in sight for Norway train strike, record October heat forecast, Norges Bank raises interest rate, and more news on Thursday. [1]\n\nLiveLaw Breaking News Alerts: 28 September 2026\n\nHome\n\n/\n\nTop Stories\n\n/\n\nLiveLaw Breaking News Alerts: 28... [2]\n\nNews Briefs 24-09-2026\n\nIt has been brought to my attention that I need to be ‘less negative’ when writing the briefs 😒\n\nSo here’s hoping more people subscribe to our Patreon, so I can switch from coffee to cocaine 🤪\n\n68% of physicists don’t think that time started at the Big Bang. [3]\n\nGreat news: the Futuro UFO-like homes are making a comeback. [3]\n\nSources: [1] Today in Norway: A roundup of the latest news on Thursday (thelocal.no)  [2] LiveLaw Breaking News Alerts: 28 September 2026 (livelaw.in)  [3] News Briefs 24-09-2026 (dailygrail.com)  [4] Ne"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest US news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 104.9,
+            "domain": "thelocal.no",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:47:27.000Z",
+            "relevance": 1,
+            "title": "Today in Norway: A roundup of the latest news on Thursday",
+            "url": "https://www.thelocal.no/20260924/today-in-norway-a-roundup-of-the-latest-news-on-thursday-251"
+          },
+          {
+            "ageHours": 13,
+            "domain": "livelaw.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:42:44.000Z",
+            "relevance": 0.73,
+            "title": "LiveLaw Breaking News Alerts: 28 September 2026",
+            "url": "https://www.livelaw.in/top-stories/livelaw-breaking-news-alerts-28-september-2026-552026"
+          },
+          {
+            "ageHours": 111.3,
+            "domain": "dailygrail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T02:26:44.000Z",
+            "relevance": 0.68,
+            "title": "News Briefs 24-09-2026",
+            "url": "https://www.dailygrail.com/2026/09/news-briefs-24-09-2026"
+          },
+          {
+            "ageHours": 96.1,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T17:38:57.000Z",
+            "relevance": 0.67,
+            "title": "New US sanctions shut down Iranian flights",
+            "url": "https://www.channelnewsasia.com/world/new-us-sanctions-shut-down-iranian-flights-6409036"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 13,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.77,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1731,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 953,
+        "statesFreshness": true,
+        "text": "Are there any US Front loaders without tilted drums on the market today? [6]\n\nWelcome to “AI News Today,” your go-to source for the latest updates in the AI industry. [1]\n\nAdd Free Press access to your Brandon Sun subscription for only an additional\n\n$1 for the first 4 weeks*\n\nEnjoy unlimited reading on winnipegfreepress.com\nRead the E-Edition, our digital replica newspaper\nAccess News Break, our award-winning app\nPlay interactive puzzles\n\n*Your next Brandon Sun subscription payment will increase by $1.00 and you will be charged $17.95 plus GST for four weeks. [3]\n\n“Young people today face relentless pressure to succeed in school, at home, and in every aspect of their lives. [5]\n\nSources: [1] Today’s AI News – July 15, 2024 (bn.edu.pl)  [2] Professors use their intellectual freedom to skedaddle (thegazette.com)  [3] Today’s horoscope (winnipegfreepress.com)  [4] Today’s Wordle Hints for "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 39.6,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 1,
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 27.6,
+            "domain": "thegazette.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:10:00.000Z",
+            "relevance": 0.98,
+            "title": "Professors use their intellectual freedom to skedaddle",
+            "url": "https://www.thegazette.com/opinion/professors-use-their-intellectual-freedom-to-skedaddle/article_cf8a1fde-1ed9-4054-bfbe-cd0cbb6f2357.html"
+          },
+          {
+            "ageHours": 34.7,
+            "domain": "winnipegfreepress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T07:00:09.000Z",
+            "relevance": 0.98,
+            "title": "Today’s horoscope",
+            "url": "https://www.winnipegfreepress.com/arts-and-life/diversions/2026/09/27/todays-horoscope-5533"
+          },
+          {
+            "ageHours": 31.7,
+            "domain": "nytimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T10:00:07.000Z",
+            "relevance": 0.93,
+            "title": "Today’s Wordle Hints for September 28, 2026 - The New York Times",
+            "url": "https://www.nytimes.com/2026/09/27/crosswords/wordle-review-1927.html"
+          },
+          {
+            "ageHours": 3.7,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.85,
+            "title": "The Success Trap: How the Pressure to Stand Out Is Fueling Anxiety, Depression, and Burnout in Teens--and the ",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9780593839386"
+          },
+          {
+            "ageHours": 24.1,
+            "domain": "automaticwasher.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:34:13.000Z",
+            "relevance": 0.77,
+            "title": "Are there any US Front loaders without tilted drums on the market today?",
+            "url": "https://automaticwasher.org/threads/are-there-any-us-front-loaders-without-tilted-drums-on-the-market-today.101902"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ratracerebellion.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:14:16.000Z",
+            "relevance": 0.77,
+            "title": "Daily Jobs — Remote & Work from Home Jobs — September 28, 2026",
+            "url": "https://ratracerebellion.com/work-from-home-jobs-092826"
+          },
+          {
+            "ageHours": 4.7,
+            "domain": "balpa.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:01:48.000Z",
+            "relevance": 0.76,
+            "title": "BALPA respond to Chancellor’s Speech today – “Make pilot training affordable”",
+            "url": "https://www.balpa.org/2026/09/28/balpa-respond-to-chancellors-speech-today-make-pilot-training-affordable"
+          },
+          {
+            "ageHours": 13.2,
+            "domain": "ibtimes.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:30:18.000Z",
+            "relevance": 0.75,
+            "title": "NYT Connections Today: Hints and Answers for September 28, 2026 as Puzzle 1205 Gets Sneakily Repetitive",
+            "url": "https://www.ibtimes.com.au/nyt-connections-1205-answers-hints-monday-puzzle-1875927"
+          },
+          {
+            "ageHours": 31.7,
+            "domain": "nytimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T10:00:04.000Z",
+            "relevance": 0.75,
+            "title": "NYT Strands Hints for September 28, 2026 - The New York Times",
+            "url": "https://www.nytimes.com/2026/09/27/crosswords/strands-sidekick-939.html"
+          },
+          {
+            "ageHours": 18.5,
+            "domain": "channellife.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T23:15:06.000Z",
+            "relevance": 0.74,
+            "title": "Sicona buys Advano, gains US battery base in New Orleans",
+            "url": "https://channellife.com.au/story/sicona-buys-advano-gains-us-battery-base-in-new-orleans"
+          },
+          {
+            "ageHours": 26.2,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:32:16.000Z",
+            "relevance": 0.7,
+            "title": "US-Israel-Iran War Latest News: ‘Clearly Desperate ’ – US Rejects Iran’s ‘Captured’ US Underwater Drone Claim ",
+            "url": "https://sundayguardianlive.com/world/us-israel-iran-war-latest-news-clearly-desperate-us-rejects-irans-captured-us-underwater-drone-claim-in-strait-of-hormuz-294019"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.832,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1184,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 758,
+        "statesFreshness": false,
+        "text": "Key Takeaways\n\nThe Supreme Court was designed to be a political institution: 19th-century justices rode circuit, participated in state and local politics, ran for office, and even wrote legislation and presidential addresses. [1]\n\nUS Politics Live Updates: Trump and Xi begin high stakes summit\n\nKey Updates\n\nLatest posts [2]\n\ngoLateral is a quiet window into what's actually out there. [1]\n\nMadison‘s reputation as the moment the Court became apolitical is, according to Shelden, more myth than history, a narrative that took hold around the Court’s 1890 centennial. [1]\n\nSources: [1] If You Can Imagine It, The Supreme Court Used To Be Even More Political (abovethelaw.com)  [2] US Politics Live Updates: Trump and Xi begin high stakes summit (nine.com.au)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "current US politics",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "shares no subject word": 2,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 70.8,
+            "domain": "abovethelaw.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T18:54:14.000Z",
+            "relevance": 0.98,
+            "title": "If You Can Imagine It, The Supreme Court Used To Be Even More Political",
+            "url": "https://abovethelaw.com/2026/09/if-you-can-imagine-it-the-supreme-court-used-to-be-even-more-political"
+          },
+          {
+            "ageHours": 117.3,
+            "domain": "nine.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T20:24:46.000Z",
+            "relevance": 0.6,
+            "title": "US Politics Live Updates: Trump and Xi begin high stakes summit",
+            "url": "https://www.nine.com.au/world-news/us-politics-iran-war-global-affairs-live-updates-20260924-p6100t.html?ref=rss"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 70.8,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.79,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2830,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1455,
+        "statesFreshness": false,
+        "text": "From Marine Combat Pilot to NASA Astronaut on Crew-13 Mission: Education, Career, Wife and Latest News\n\nLuke Delaney, an American astronaut of NASA, started his career in the United States Army where he received knowledge in conducting flights tests, engineering, and research. [5]\n\nNASA's FarmFlux Mission: Uncovering Agricultural Emissions Over Colorado (2026)\n\nIn a fascinating development, NASA's FarmFlux mission is taking to the skies over Colorado, shedding light on a critical yet often overlooked aspect of our planet's health. [2]\n\nNASA's PRIMA Mission: Unveiling the Universe's Secrets with Far-Infrared Vision (2026)\n\nThe Universe's Next Big Reveal: Why NASA's PRIMA Mission is a Game-Changer\n\nNASA’s recent announcement of the PRIMA (PRobe far-Infrared Mission for Astrophysics) mission has sent ripples of excitement through the scientific community. [3]\n\nNASA's SpaceX Crew-14: Meet th"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest NASA mission",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 2.3,
+            "domain": "astrobiology.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:23:47.000Z",
+            "relevance": 1,
+            "title": "NASA’s Science Mission Directorate Seeks Volunteer Reviewers",
+            "url": "https://astrobiology.com/2026/09/28/nasas-science-mission-directorate-seeks-volunteer-reviewers"
+          },
+          {
+            "ageHours": 115.6,
+            "domain": "mi3dot.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T22:06:10.000Z",
+            "relevance": 1,
+            "title": "NASA's FarmFlux Mission: Uncovering Agricultural Emissions Over Colorado (2026)",
+            "url": "https://mi3dot.org/article/nasa-s-farmflux-mission-uncovering-agricultural-emissions-over-colorado"
+          },
+          {
+            "ageHours": 116.1,
+            "domain": "mi3dot.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T21:36:04.000Z",
+            "relevance": 0.93,
+            "title": "NASA's PRIMA Mission: Unveiling the Universe's Secrets with Far-Infrared Vision (2026)",
+            "url": "https://mi3dot.org/article/nasa-s-prima-mission-unveiling-the-universe-s-secrets-with-far-infrared-vision"
+          },
+          {
+            "ageHours": 95.7,
+            "domain": "cheknews.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:00:12.000Z",
+            "relevance": 0.84,
+            "title": "Canadian astronaut ready for NASA mission to International Space Station",
+            "url": "https://cheknews.ca/canadian-astronaut-ready-for-nasa-mission-to-international-space-station-1349826"
+          },
+          {
+            "ageHours": 104.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T09:37:44.000Z",
+            "relevance": 0.77,
+            "title": "Who Is Luke Delaney? From Marine Combat Pilot to NASA Astronaut on Crew-13 Mission: Education, Career, Wife an",
+            "url": "https://sundayguardianlive.com/world/who-is-luke-delaney-from-marine-combat-pilot-to-nasa-astronaut-on-crew-13-mission-education-career-wife-and-latest-news-291711"
+          },
+          {
+            "ageHours": 91.1,
+            "domain": "pnwbcrescue.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T22:36:34.000Z",
+            "relevance": 0.77,
+            "title": "NASA's SpaceX Crew-14: Meet the Astronauts Going to the ISS in 2027 (2026)",
+            "url": "https://pnwbcrescue.org/article/nasa-s-spacex-crew-14-meet-the-astronauts-going-to-the-iss-in-2027"
+          },
+          {
+            "ageHours": 111.7,
+            "domain": "biblebyte.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T01:58:14.000Z",
+            "relevance": 0.77,
+            "title": "NASA Revolutionizes Air Travel: Safer, Faster, and More Efficient Flights! (2026)",
+            "url": "https://biblebyte.org/article/nasa-revolutionizes-air-travel-safer-faster-and-more-efficient-flights"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 2.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.869,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1695,
+      "vertical": "news"
+    }
+  ],
+  "total": 138
+}

@@ -26,7 +26,7 @@ import {
   dedupeSyndication,
 } from "./searchEngine/quality";
 import { internal } from "./_generated/api";
-import { guardedCall } from "./searchEngine/resilience";
+import { guardedCall, strictVerticalFallbackFor } from "./searchEngine/resilience";
 import { recordProviderObservation } from "./searchEngine/providerHealth";
 import { providerTimeoutMs } from "./searchEngine/providerTimeouts";
 // §45 — single source of truth for product identity, shared by every surface.
@@ -100,8 +100,21 @@ export async function runUniversalSearch(
      * index and "what's the score" by a news article — precisely the
      * "ordinary web search is not a real-time database" failure the current
      * information contract forbids.
+     *
+     * 2026-09-28 amendment: strict no longer means "dead end". When the
+     * vertical's structured feed is down, the orchestrator degrades once to
+     * the vertical's dated general-web backstop (see
+     * `strictVerticalFallbackFor`). The answer is still never faked and never
+     * taken from an unrelated vertical.
      */
     strictVertical?: boolean;
+    /**
+     * The classified vertical ("weather" | "sports" | "markets" | …), used
+     * only to choose the honest backstop when a strict vertical's feed fails.
+     */
+    verticalName?: string;
+    /** Guards the strict-vertical backstop against infinite recursion. */
+    attemptedBackstop?: boolean;
     /**
      * Years / the event the question is scoped to. When present, ranking
      * penalises sources about a DIFFERENT year or event, which is what stops
@@ -148,6 +161,24 @@ export async function runUniversalSearch(
     ? allProviders.filter((p) => preferred.includes(p.id))
     : allProviders;
   if (providers.length === 0) {
+    // MEASURED DEFECT (search-quality benchmark, 2026-09-28): a strict
+    // vertical whose single provider is down used to throw "No source … is
+    // available right now" with no second attempt — every weather query in
+    // the benchmark failed that way while Open-Meteo itself was merely 429ing.
+    // The vertical answer must still never be FAKED, but a down feed may
+    // degrade to the dated general-web backstop.
+    const backstop = strictVerticalFallbackFor(opts?.verticalName);
+    if (backstop) {
+      const available = allProviders.filter((p) => backstop.includes(p.id));
+      if (available.length > 0) {
+        return runUniversalSearch(ctx, query, {
+          ...opts,
+          preferredProviders: available.map((p) => p.id),
+          strictVertical: false,
+          verticalName: opts?.verticalName,
+        });
+      }
+    }
     // A strict vertical (weather, a requested scoreline) has exactly one
     // honest source type. If it is not available, say so — do not let a
     // different vertical answer in its place.
@@ -314,6 +345,30 @@ export async function runUniversalSearch(
   }
 
   if (merged.length === 0) {
+    // MEASURED DEFECT (search-quality benchmark, 2026-09-28): a strict
+    // vertical whose ONLY provider failed (Open-Meteo 429, TheSportsDB empty,
+    // breaker open) reached here and threw "All search engines failed" — no
+    // second chance, the whole turn failed. The backstop below degrades to
+    // the dated general-web floor instead. It can only fire ONCE (the flag is
+    // cleared), so a failing backstop still surfaces honestly.
+    const backstop =
+      opts?.strictVertical
+        ? strictVerticalFallbackFor(opts?.verticalName)
+        : null;
+    if (backstop) {
+      const available = allProviders.filter(
+        (p) => backstop.includes(p.id) && !providers.some((q) => q.id === p.id),
+      );
+      if (available.length > 0) {
+        return runUniversalSearch(ctx, query, {
+          ...opts,
+          preferredProviders: available.map((p) => p.id),
+          strictVertical: false,
+          verticalName: opts?.verticalName,
+          attemptedBackstop: true,
+        });
+      }
+    }
     // The failure detail matters: an operator reading this needs to know WHICH
     // engines were tried, not just that "search failed".
     throw new Error(

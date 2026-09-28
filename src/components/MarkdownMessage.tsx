@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Check, Copy } from "lucide-react";
@@ -98,8 +98,15 @@ const components: Components = {
   hr: () => <hr className="my-3 border-border/60" />,
 };
 
-/** Renders an Omi reply as markdown (GFM) with copy-able code blocks. */
-export function MarkdownMessage({
+/**
+ * Renders an Omi reply as markdown (GFM) with copy-able code blocks.
+ *
+ * Memoised on purpose: while a reply streams, each token re-renders the whole
+ * message list. Without memo, every COMPLETED message's markdown is re-parsed
+ * too, so long threads get visibly choppier as the answer grows. Content is
+ * immutable once final, so a shallow compare is exactly the right check.
+ */
+export const MarkdownMessage = memo(function MarkdownMessage({
   content,
   className,
 }: {
@@ -113,4 +120,4 @@ export function MarkdownMessage({
       </ReactMarkdown>
     </div>
   );
-}
+});

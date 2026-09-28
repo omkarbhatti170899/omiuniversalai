@@ -764,6 +764,11 @@ async function runTurn(
           preferredProviders: policy.requiresFreshness
             ? policy.preferredProviders
             : undefined,
+          // Named so a failed strict-vertical feed can degrade ONCE to the
+          // dated general-web backstop instead of killing the turn (measured
+          // defect: every weather query hard-failed while Open-Meteo was
+          // merely rate-limiting).
+          verticalName: policy.vertical,
         });
         if (universal.citations.length > 0) {
           // Drop results that are too old (or undated) to be evidence for a

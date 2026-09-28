@@ -1,0 +1,1985 @@
+{
+  "answerContract": {
+    "allSourcesDated": 13,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 15,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "asia": {
+      "fresh": 2,
+      "kept": 23,
+      "n": 4
+    },
+    "australia": {
+      "fresh": 4,
+      "kept": 33,
+      "n": 4
+    },
+    "europe": {
+      "fresh": 4,
+      "kept": 28,
+      "n": 5
+    },
+    "japan": {
+      "fresh": 0,
+      "kept": 7,
+      "n": 1
+    },
+    "usa": {
+      "fresh": 0,
+      "kept": 6,
+      "n": 1
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 0,
+      "kept": 6,
+      "n": 1
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 22,
+      "n": 6
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 24,
+      "n": 2
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 31,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 90,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1440,
+        "statesFreshness": false,
+        "text": "Rajasthan Jaipur Mayor Election 2026 Live: Sunil Kothari vs Sunita Mawar, Voting Underway From 10 AM To 2 PM; Check Latest Updates, Result Time And Who Will Become Jaipur Mayor\n\nJaipur Mayor Election 2026: The Rajasthan Mayor Election 2026 is being held in Jaipur, Jodhpur and Kota on Friday, September 25. [4]\n\nKota Mayor Election 2026 Live: Anusuya Goswami vs Sunita Suman as BJP-Congress Face High-Stakes Battle in Rajasthan – Check Who Is Leading and Who is Trailing, Result Date and Latest Update\n\nRajasthan Mayor Election 2026: Kota Mayor Election 2026 has produced a winner with BJP’s Anusuya Goswami emerging victorious as the new mayor, defeating Congress’s Sunita Suman. [5]\n\nJaipur Mayor Election 2026\n\nVoting for the Jaipur Municipal Corporation mayoral election began at the Lalkothi headquarters at 10 am. [4]\n\nRajasthan Mayor Election 2026 Live Updates\n\nKota was one of the three key m"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US election news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 88,
+            "domain": "biospace.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T01:40:42.000Z",
+            "relevance": 1,
+            "title": "Anavex Stockholders Elect All of the Company’s Director Nominees at 2026 Annual Meeting",
+            "url": "https://www.biospace.com/press-releases/anavex-stockholders-elect-all-of-the-companys-director-nominees-at-2026-annual-meeting"
+          },
+          {
+            "ageHours": 108.7,
+            "domain": "timesdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T05:00:00.000Z",
+            "relevance": 0.99,
+            "title": "GameDay cover for Sept. 24, 2026",
+            "url": "https://www.timesdaily.com/gameday-cover-for-sept-24-2026/article_b8894338-a9bb-4bae-904a-31a443a69d02.html"
+          },
+          {
+            "ageHours": 108.7,
+            "domain": "timesdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T05:00:00.000Z",
+            "relevance": 0.99,
+            "title": "Sports on TV, radio: Sept. 24, 2026",
+            "url": "https://www.timesdaily.com/sports-on-tv-radio-sept-24-2026/article_4aee8eb0-fff0-4338-9f56-100acf432ed9.html"
+          },
+          {
+            "ageHours": 81.6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T08:08:29.000Z",
+            "relevance": 0.89,
+            "title": "Rajasthan Jaipur Mayor Election 2026 Live: Sunil Kothari vs Sunita Mawar, Voting Underway From 10 AM To 2 PM; ",
+            "url": "https://sundayguardianlive.com/india/rajasthan-jaipur-mayor-election-2026-live-sunil-kothari-vs-sunita-mawar-voting-underway-from-10-am-to-2-pm-check-latest-updates-result-time-and-who-will-become-jaipur-mayor-292413"
+          },
+          {
+            "ageHours": 82,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:41:05.000Z",
+            "relevance": 0.89,
+            "title": "Kota Mayor Election 2026 Live: Anusuya Goswami vs Sunita Suman as BJP-Congress Face High-Stakes Battle in Raja",
+            "url": "https://sundayguardianlive.com/india/kota-mayor-election-2026-live-anusuya-goswami-vs-sunita-suman-as-bjp-congress-face-high-stakes-battle-in-rajasthan-check-who-is-leading-and-who-is-trailing-result-date-and-latest-update-292396"
+          },
+          {
+            "ageHours": 95.7,
+            "domain": "edweek.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:02:16.000Z",
+            "relevance": 0.78,
+            "title": "Education on the Ballot: EdWeek’s Guide to the 2026 Elections",
+            "url": "https://www.edweek.org/policy-politics/education-on-the-ballot-edweeks-guide-to-the-2026-elections/2026/09"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 81.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4798ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4856ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4846ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4920ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.923,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 20597,
+      "vertical": "election"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1188,
+        "statesFreshness": false,
+        "text": "Trump Is Right to Denounce Canada’s Flirtation with European Union\n\nA de facto E.U. [2]\n\n\"Serbia is moving towards the European Union, not Russia.\"\n\nAlexander Vucic left the post of President of Serbia, acting became non-traditional* Ana Brnabic is an opponent of rapprochement with Moscow, a supporter of the EU. [3]\n\nEPAM Successfully Delivered Cloud Infrastructure and Applications for the European Union's First Equities Consolidated Tape\n\nDrawing on decades of engineering excellence, EPAM built a robust cloud-native environment and applications to support EuroCTP on its mission to solve a complex, long-standing data fragmentation challenge. [1]\n\nPhoto: Chip Somodevilla/Getty Images\n\nThe global media is buzzing this week over interest from both Canada and the European Union in making America’s northern neighbor the first “associate member” of the E.U. [2]\n\nSources: [1] EPAM Successfully "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest European Union news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 101.7,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:02:00.000Z",
+            "relevance": 1,
+            "title": "EPAM Successfully Delivered Cloud Infrastructure and Applications for the European Union's First Equities Cons",
+            "url": "https://www.prnewswire.co.uk/news-releases/epam-successfully-delivered-cloud-infrastructure-and-applications-for-the-european-unions-first-equities-consolidated-tape-302888307.html"
+          },
+          {
+            "ageHours": 79.4,
+            "domain": "amac.us",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:17:09.000Z",
+            "relevance": 0.83,
+            "title": "Trump Is Right to Denounce Canada’s Flirtation with European Union",
+            "url": "https://amac.us/newsline/trump-is-right-to-denounce-canada-s-flirtation-with-european-union"
+          },
+          {
+            "ageHours": 3.3,
+            "domain": "news-pravda.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:23:41.000Z",
+            "relevance": 0.74,
+            "title": "\"Serbia is moving towards the European Union, not Russia.\"",
+            "url": "https://news-pravda.com/world/2026/09/28/2626547.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 3.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.857,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1875,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1192,
+        "statesFreshness": false,
+        "text": "Russia and Europe\n\nE ele Registered Senior Member Interesting story here saying that many European countries believe there is a threat from Russia and advise their citizens to beware. [1]\n\nhttps://www.abc.net.au/news/2026-09...medium=content_shared&utm_source=abc_news_web\n\nInteresting story here saying that many European countries believe there is a threat from Russia and advise their citizens to beware. [1]\n\nEurope Raises €1.6B in New VC Funds as Defence Tech Leads Startup Investment Boom\n\nEurope’s venture capital market is entering a new phase, marked by a surge of fresh capital, a growing number of specialized funds and an increasingly important role for defence technology. [3]\n\nThe Wealthiest Country in Europe: Unveiling the Richest Nation on the Continent\n\nWhen it comes to determining the richest country in Europe, there are several factors to consider. [5]\n\nSources: [1] Russia and "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "news in Europe today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 40.7,
+            "domain": "sciforums.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:59:34.000Z",
+            "relevance": 1,
+            "title": "Russia and Europe",
+            "url": "https://www.sciforums.com/threads/russia-and-europe.167623"
+          },
+          {
+            "ageHours": 3.7,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.86,
+            "title": "The Contessa by Benedetta Craveri | 9798896230465 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9798896230465"
+          },
+          {
+            "ageHours": 2.9,
+            "domain": "tekedia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:47:11.000Z",
+            "relevance": 0.83,
+            "title": "Europe Raises €1.6B in New VC Funds as Defence Tech Leads Startup Investment Boom",
+            "url": "https://www.tekedia.com/europe-raises-e1-6b-in-new-vc-funds-as-defence-tech-leads-startup-investment-boom"
+          },
+          {
+            "ageHours": 5.5,
+            "domain": "euronews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:13:57.000Z",
+            "relevance": 0.81,
+            "title": "Video. Macron urges Europe to resist the ‘return of nationalisms’",
+            "url": "https://www.euronews.com/video/2026/09/28/macron-urges-europe-to-resist-the-return-of-nationalisms"
+          },
+          {
+            "ageHours": 19.9,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T21:51:01.000Z",
+            "relevance": 0.79,
+            "title": "Which is the richest country between France and Spain?",
+            "url": "https://visitfranceguide.com/which-is-the-richest-country-between-france-and-spain"
+          },
+          {
+            "ageHours": 26.2,
+            "domain": "aviationa2z.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:32:03.000Z",
+            "relevance": 0.7,
+            "title": "American Airlines Aircraft Technician and Engineer Salary in 2026",
+            "url": "https://aviationa2z.com/index.php/2026/09/27/american-airlines-technician-engineer-salary-2026"
+          },
+          {
+            "ageHours": 3.7,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.67,
+            "title": "Michael Palin in the Philippines by Michael Palin | 9781529995923 | Hardback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529995923"
+          },
+          {
+            "ageHours": 3.3,
+            "domain": "iceboat.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:27:10.000Z",
+            "relevance": 0.67,
+            "title": "September 28, 2026: DN Sail in MN",
+            "url": "https://www.iceboat.org/2026/09/28/september-28-2026-dn-sail-in-mn"
+          },
+          {
+            "ageHours": 16.1,
+            "domain": "seekingalpha.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:37:23.000Z",
+            "relevance": 0.66,
+            "title": "Fidelity Asset Manager 50% Strategic Allocation Portfolio Q2 2026 Commentary",
+            "url": "https://seekingalpha.com/article/4950091-fidelity-asset-manager-50-percent-strategic-allocation-portfolio-q2-2026-commentary"
+          },
+          {
+            "ageHours": 5.6,
+            "domain": "irishtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:10:24.000Z",
+            "relevance": 0.65,
+            "title": "Pope Leo praises multiculturalism as far right gains strength across Europe",
+            "url": "https://www.irishtimes.com/world/europe/2026/09/28/pope-leo-praises-multiculturalism-as-far-right-gains-strength-across-europe"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 2.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.764,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1629,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1124,
+        "statesFreshness": false,
+        "text": "If the EU continues to drift, disintegration becomes a more plausible future\n\nGaps between the European Union’s advocacy of ambitious policy goals and its ability to implement them matter greatly in a world changed from market integration through globalisation to one dominated by power politics and growing security threats. [1]\n\nSuch incoherence risks losing the public support vital to EU success, according to influential EU policy experts. [1]\n\nCustoms Union Proposal as a Solution\n\nIn response to lobbying for equal treatment for British products, the bloc told London its best solution would be to join the EU’s customs union, the newspaper said, citing two people familiar with the matter. [2]\n\nSecuring an EU budget deal for 2028-2034 is a priority made more difficult by the political contest between states supporting more resources for the EU and those who prefer a relatively smaller fin"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "current EU policy",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "shares no subject word": 2,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.2,
+            "domain": "irishtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:30:00.000Z",
+            "relevance": 0.82,
+            "title": "If the EU continues to drift, disintegration becomes a more plausible future",
+            "url": "https://www.irishtimes.com/opinion/2026/09/26/worldview-if-the-eu-continues-to-drift-disintegration-is-seen-as-a-more-plausible-future"
+          },
+          {
+            "ageHours": 84.6,
+            "domain": "globalbankingandfinance.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T05:04:59.000Z",
+            "relevance": 0.67,
+            "title": "EU urges Britain to raise tariffs on Chinese cars, FT says",
+            "url": "https://www.globalbankingandfinance.com/eu-urges-britain-raise-tariffs-chinese-cars-ft"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 13.2,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.745,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1079,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 520,
+        "statesFreshness": true,
+        "text": "Today in Germany Members only\n\nToday in Germany: A roundup of the latest news on Thursday\n\nGermany sets out plan to abandon fossil fuels by 2045, Merkel returns to spotlight with youth talk series, Germany unveils sweeping crackdown on welfare fraud and more news on Thursday, September 24th. [1]\n\nShare your own views and experience and if you have a question or suggestion for our journalists then email us at news@thelocal.de. [1]\n\nSources: [1] Today in Germany: A roundup of the latest news on Thursday (thelocal.de)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest news from Germany",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "shares no subject word": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 107.2,
+            "domain": "thelocal.de",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T06:31:47.000Z",
+            "relevance": 1,
+            "title": "Today in Germany: A roundup of the latest news on Thursday",
+            "url": "https://www.thelocal.de/20260924/today-in-germany-a-roundup-of-the-latest-news-on-thursday-137"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 107.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1446,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1128,
+        "statesFreshness": false,
+        "text": "Growth in the 12-nation eurozone economy increased by 0.5% in the second quarter, and 2.0% on a 12-month basis, said EU statistics office Eurostat. [3]\n\nImportant Facts For Prelims\n\nContraction of Eurozone Economy\n\n- 01 Aug 2020\n\n- 2 min read\n\nWhy in News\n\nThe Gross Domestic Product (GDP) of the Eurozone reduced by 12.1% in the April-June 2020 quarter, compared to the previous quarter. [5]\n\nKey Points\n\n- This is the largest drop on record in the eurozone's economy, as Covid-19 lockdowns shut businesses and hampered consumer spending. [5]\n\nThe euro area (EA), commonly called the eurozone (EZ), is a currency union of 21 member states of the European Union (EU) that have adopted the euro (€) as their primary currency and sole legal tender, and have thus fully implemented Economic and Monetary Union policies. [12]\n\nSources: [1] Political Economy of Adjustment Throughout and Beyond the Eurozo"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "eurozone economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "title": "Political Economy of Adjustment Throughout and Beyond the Eurozone Crisis (2019)",
+            "url": "https://openlibrary.org/works/OL25752536W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "Political Economy of the Eurozone (2017)",
+            "url": "https://openlibrary.org/works/OL21149456W"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.bbc.co.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "title": "BBC NEWS | Business | Eurozone economy continues growth",
+            "url": "http://news.bbc.co.uk/2/hi/business/3561558.stm"
+          },
+          {
+            "ageHours": null,
+            "domain": "money.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "Eurozone economy shrinks again",
+            "url": "http://money.cnn.com/2013/05/15/news/economy/europe-recession"
+          },
+          {
+            "ageHours": 2730.2,
+            "domain": "drishtiias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-06T23:29:15.000Z",
+            "relevance": 0.85,
+            "title": "Contraction of Eurozone Economy",
+            "url": "https://www.drishtiias.com/daily-updates/daily-news-analysis/contraction-of-eurozone-economy"
+          },
+          {
+            "ageHours": 2798.5,
+            "domain": "drishtiias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-04T03:15:19.000Z",
+            "relevance": 0.85,
+            "title": "Contraction of Eurozone Economy",
+            "url": "https://www.drishtiias.com/daily-news-analysis/contraction-of-eurozone-economy"
+          },
+          {
+            "ageHours": 16018.8,
+            "domain": "thedailybrief.zerodha.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2024-11-30T06:58:34.000Z",
+            "relevance": 0.85,
+            "title": "Eurozone’s road to recovery remains bumpy",
+            "url": "https://thedailybrief.zerodha.com/p/eurozones-road-to-recovery-remains"
+          },
+          {
+            "ageHours": 102409.6,
+            "domain": "theguardian.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-01-22T16:06:00Z",
+            "relevance": 0.83,
+            "title": "ECB unveils €1.1tn QE plan to stimulate eurozone economy",
+            "url": "http://www.theguardian.com/business/2015/jan/22/ecb-unveils-1-trillion-qe-plan-stimulate-eurozoen-economy"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "How resilient is the eurozone economy to new Covid curbs?",
+            "url": "https://www.ft.com/content/ff11f527-e0a3-4498-89ee-e9d1ad29fc89"
+          },
+          {
+            "ageHours": 75918.6,
+            "domain": "wsj.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2018-01-30T11:08:13Z",
+            "relevance": 0.82,
+            "title": "Eurozone Economy Records Strongest Growth in a Decade",
+            "url": "https://www.wsj.com/articles/french-economy-accelerates-at-fastest-pace-in-six-years-1517303003?mod=e2tweu"
+          },
+          {
+            "ageHours": 28998.1,
+            "domain": "wsj.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2023-06-08T11:35:41Z",
+            "relevance": 0.82,
+            "title": "Inflation Drags Eurozone Economy into Recession",
+            "url": "https://www.wsj.com/articles/inflation-drags-eurozone-economy-into-recession-b6ff6158"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "Eurozone",
+            "url": "https://en.wikipedia.org/wiki/Eurozone"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2730.2,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex timed out after 12000ms",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"eurozone economy\" right now — Omi will n"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.849,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12485,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1194,
+        "statesFreshness": true,
+        "text": "Passing on wealth is easier than preparing heirs to manage it, Sun Life Asia study finds\n\nHONG KONG , Sept. [3]\n\nSun Life Asia's latest Passing the Torch: When legacy means more than money report found a significant shift in how people across Asia think about the legacy they want to leave behind. [3]\n\nToday: 🇱🇦 Laos’ Eurovision Asia Song Decided, 🇨🇾 Cyprus & 🇫🇷 France Reveal for Junior Eurovision\n\nToday, the song that has won Laos’ national selection for Eurovision Asia 2026 will be revealed, while Cyprus and France will reveal their Junior Eurovision 2026 songs. [2]\n\nAsia First - Thu 24 Sep 2026\n\nFrom the opening bell across markets in Southeast Asia and China, to the biggest business interviews and top financial stories, tune in to Asia First to kick-start your business day. [4]\n\nSources: [1] The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback (abbeys.com.au)  [2] "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "latest news from Asia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.7,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.86,
+            "title": "The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529952599"
+          },
+          {
+            "ageHours": 114.3,
+            "domain": "eurovoix.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T23:24:14.000Z",
+            "relevance": 0.76,
+            "title": "Today: 🇱🇦 Laos’ Eurovision Asia Song Decided, 🇨🇾 Cyprus & 🇫🇷 France Reveal for Junior Eurovision",
+            "url": "https://eurovoix.com/2026/09/24/eurovision-september-24"
+          },
+          {
+            "ageHours": 84.7,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T05:00:57.000Z",
+            "relevance": 0.76,
+            "title": "Passing on wealth is easier than preparing heirs to manage it, Sun Life Asia study finds",
+            "url": "https://www.thehindubusinessline.com/brandhub/pr-release/passing-on-wealth-is-easier-than-preparing-heirs-to-manage-it-sun-life-asia-study-finds/article71507191.ece"
+          },
+          {
+            "ageHours": 106.7,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:00:00.000Z",
+            "relevance": 0.75,
+            "title": "Asia First - Thu 24 Sep 2026",
+            "url": "https://www.channelnewsasia.com/watch/asia-first/thu-24-sep-2026-6407191"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 3.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.783,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2916,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 967,
+        "statesFreshness": false,
+        "text": "12 Species of Asian Wild Pigs May Go Extinct from African Swine Fever\n\nAsia’s wild pig population is moving toward extinction. [4]\n\nKeep reading with a 7-day free trial\n\nSubscribe to Asia Sentinel to keep reading this post and get 7 days of free access to the full post archives. [5]\n\nOver 50 investors, women entrepreneurs, industry representatives and ecosystem leaders convened at the Networking Gala Dinner of the TiE Women Asia Summit 2026 in Hyderabad, providing women founders across Asia with an opportunity to network with investors, mentors and potential partners. [8]\n\nRichard Lloyd Parry is Asia Editor of The Times. [1]\n\nSources: [1] The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback (abbeys.com.au)  [2] SMK Asajaya duo win bronze at World Robot Olympiad Open Champ Asia Pacific 2026 in India (dayakdaily.com)  [3] Asia Thigpen leads No. 3 Kentucky past No. 7 Texas, 3-"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "Asia news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.7,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 1,
+            "title": "The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529952599"
+          },
+          {
+            "ageHours": 6.2,
+            "domain": "dayakdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:32:02.000Z",
+            "relevance": 1,
+            "title": "SMK Asajaya duo win bronze at World Robot Olympiad Open Champ Asia Pacific 2026 in India",
+            "url": "https://dayakdaily.com/smk-asajaya-duo-win-bronze-at-world-robot-olympiad-open-champ-asia-pacific-2026-in-india"
+          },
+          {
+            "ageHours": 17.6,
+            "domain": "lex18.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:06:51.000Z",
+            "relevance": 0.92,
+            "title": "Asia Thigpen leads No. 3 Kentucky past No. 7 Texas, 3-0",
+            "url": "https://www.lex18.com/sports/bbn-tonight/asia-thigpen-leads-no-3-kentucky-past-no-7-texas-3-0"
+          },
+          {
+            "ageHours": 4.4,
+            "domain": "a-z-animals.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:17:09.000Z",
+            "relevance": 0.82,
+            "title": "Asia’s Wild Pigs Are Vanishing",
+            "url": "https://a-z-animals.com/blog/asias-wild-pigs-are-vanishing"
+          },
+          {
+            "ageHours": 16.6,
+            "domain": "asiasentinel.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:07:44.000Z",
+            "relevance": 0.75,
+            "title": "Asia Sentinel",
+            "url": "https://www.asiasentinel.com/p/vietnam-strategic-partnership-canada-test"
+          },
+          {
+            "ageHours": 3.7,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.67,
+            "title": "Tasting Words by Dezh Azaad | 9780593700051 | Hardback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9780593700051"
+          },
+          {
+            "ageHours": 19.2,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T22:34:44.000Z",
+            "relevance": 0.66,
+            "title": "World Rabies Day 2026: Why Is It Celebrated on September 28? Know the History, Significance, Theme, Importance",
+            "url": "https://sundayguardianlive.com/trending/world-rabies-day-2026-why-is-it-celebrated-on-september-28-know-the-history-significance-theme-importance-how-to-celebrate-294151"
+          },
+          {
+            "ageHours": 18.9,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T22:50:37.000Z",
+            "relevance": 0.66,
+            "title": "TiE Women Asia Summit 2026 provides platform for women founders",
+            "url": "https://www.thehansindia.com/featured/women/tie-women-asia-summit-2026-provides-platform-for-women-founders-1126324"
+          },
+          {
+            "ageHours": 26.2,
+            "domain": "aviationa2z.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:32:03.000Z",
+            "relevance": 0.62,
+            "title": "American Airlines Aircraft Technician and Engineer Salary in 2026",
+            "url": "https://aviationa2z.com/index.php/2026/09/27/american-airlines-technician-engineer-salary-2026"
+          },
+          {
+            "ageHours": 40.7,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:59:53.000Z",
+            "relevance": 0.61,
+            "title": "What is the largest salt lake in the world?",
+            "url": "https://visitfranceguide.com/what-is-the-largest-salt-lake-in-the-world"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 3.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.771,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1706,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1329,
+        "statesFreshness": true,
+        "text": "The departments of Russia and China are currently discussing how to prepare a legal framework for permission to visit China by private vehicle,\" Russian Deputy Foreign Minister Andrei Rudenko said in an interview with TASS. [4]\n\nThe Complex Reality\n\nHowever, it's essential to recognize that China is not without its challenges. [6]\n\nThe Future of US-China Relations\n\nThe current state visit between Trump and Xi is more about maintaining the status quo than reaching groundbreaking agreements. [6]\n\nChina says it ‘respects’ Trump’s calling AI ‘super intelligence’\n\nBEIJING, Sept 26 — China “respects” Washington’s switch in phrasing from artificial intelligence to “super intelligence”, the foreign ministry said today, after Donald Trump said Xi Jinping appeared to like the rewording. [2]\n\nSources: [1] US Stock Market Today: Dow Falls 0.2%, S&P 500 Slips 0.4% and Nasdaq Drops 0.8% as Yields and "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "current situation in China",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 97.5,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:13:16.000Z",
+            "relevance": 1,
+            "title": "US Stock Market Today: Dow Falls 0.2%, S&P 500 Slips 0.4% and Nasdaq Drops 0.8% as Yields and Oil Surge Ahead ",
+            "url": "https://sundayguardianlive.com/business/us-stock-market-today-dow-falls-02-sp-500-slips-04-and-nasdaq-drops-08-as-yields-and-oil-surge-ahead-of-us-china-talks-heres-what-investors-need-to-know-291941"
+          },
+          {
+            "ageHours": 53.9,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T11:51:54.000Z",
+            "relevance": 0.98,
+            "title": "China says it ‘respects’ Trump’s calling AI ‘super intelligence’",
+            "url": "https://www.malaymail.com/news/world/2026/09/26/china-says-it-respects-trumps-super-intelligence-switch-from-ai/236655"
+          },
+          {
+            "ageHours": 83.7,
+            "domain": "biblebyte.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:00:12.000Z",
+            "relevance": 0.95,
+            "title": "Hong Kong, China's Cricket Team Bounces Back! | Ayush Shukla & Mohammad Ghazanfar Star in Oman Win (2026)",
+            "url": "https://biblebyte.org/article/hong-kong-china-s-cricket-team-bounces-back-ayush-shukla-mohammad-ghazanfar-star-in-oman-win"
+          },
+          {
+            "ageHours": 68.3,
+            "domain": "news-pravda.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:23:32.000Z",
+            "relevance": 0.86,
+            "title": "Daniil Bezsonov: #Newsday. The trip to the APEC summit will depend on the situation inside Russia",
+            "url": "https://news-pravda.com/world/2026/09/25/2621060.html"
+          },
+          {
+            "ageHours": 51.1,
+            "domain": "gulfnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:39:34.000Z",
+            "relevance": 0.78,
+            "title": "China says it 'respects' Trump's 'super intelligence' switch from AI",
+            "url": "https://gulfnews.com/world/asia/china/china-says-it-respects-trumps-super-intelligence-switch-from-ai-1.500688763"
+          },
+          {
+            "ageHours": 91.1,
+            "domain": "pnwbcrescue.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T22:36:32.000Z",
+            "relevance": 0.77,
+            "title": "Why the US-China Relationship is Thawing: A Look at Changing Perceptions (2026)",
+            "url": "https://pnwbcrescue.org/article/why-the-us-china-relationship-is-thawing-a-look-at-changing-perceptions"
+          },
+          {
+            "ageHours": 117.1,
+            "domain": "cubaheadlines.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T20:40:26.000Z",
+            "relevance": 0.59,
+            "title": "China Donates 200 Solar System Containers to Cuba",
+            "url": "https://www.cubaheadlines.com/articles/341034"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 51.1,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.847,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1004,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1119,
+        "statesFreshness": false,
+        "text": "24, 2026 /PRNewswire/ -- Digital travel platform Agoda has released a new study showing that software developers across Southeast Asia and India are rapidly transitioning from using AI assistants for individual tasks to deploying autonomous AI agents across the software-development lifecycle. [1]\n\nAgoda Releases AI Developer Report 2026: Agentic AI Adoption Outpaces Enterprise Readiness Across Southeast Asia and India\n\n53% of surveyed developers now have AI agents in production or broad use, but only 38% consider their codebase ready for full autonomy. [1]\n\nAsia First - Thu 24 Sep 2026\n\nFrom the opening bell across markets in Southeast Asia and China, to the biggest business interviews and top financial stories, tune in to Asia First to kick-start your business day. [2]\n\nCost is now the top barrier to broader AI adoption, cited by 28% of developers as the primary obstacle to wider AI age"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "latest news from Southeast Asia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 110.7,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T03:00:34.000Z",
+            "relevance": 0.82,
+            "title": "Agoda Releases AI Developer Report 2026: Agentic AI Adoption Outpaces Enterprise Readiness Across Southeast As",
+            "url": "https://www.thehindu.com/brandhub/pr-release/agoda-releases-ai-developer-report-2026-agentic-ai-adoption-outpaces-enterprise-readiness-across-southeast-asia-and-india/article71502629.ece"
+          },
+          {
+            "ageHours": 106.7,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:00:00.000Z",
+            "relevance": 0.63,
+            "title": "Asia First - Thu 24 Sep 2026",
+            "url": "https://www.channelnewsasia.com/watch/asia-first/thu-24-sep-2026-6407191"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 106.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.725,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1711,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1429,
+        "statesFreshness": true,
+        "text": "Australian firms lag on AI cyber risk understanding\n\nThu, 24th Sep 2026 (Today)Only 20% of Australian organisations have a detailed understanding of AI cyber risks, according to Herbert Smith Freehills Kramer's latest survey of legal leaders across corporate Australia. [3]\n\nCanaccord Genuity’s Australian CEO goes global with new gig\n\nMid-market investment bank Canaccord Genuity’s Australian chief executive Marcus Freeman is stepping into a newly created international role as global head of capital markets. [4]\n\nNews Briefs 24-09-2026\n\nIt has been brought to my attention that I need to be ‘less negative’ when writing the briefs 😒\n\nSo here’s hoping more people subscribe to our Patreon, so I can switch from coffee to cocaine 🤪\n\n68% of physicists don’t think that time started at the Big Bang. [1]\n\nOpenAI hacked Australian Medicare govt site, probed data providers\n\nOpenAI agents targeted pu"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "latest Australian news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 111.3,
+            "domain": "dailygrail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T02:26:44.000Z",
+            "relevance": 0.77,
+            "title": "News Briefs 24-09-2026",
+            "url": "https://www.dailygrail.com/2026/09/news-briefs-24-09-2026"
+          },
+          {
+            "ageHours": 104.1,
+            "domain": "bleepingcomputer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T09:38:53.000Z",
+            "relevance": 0.76,
+            "title": "OpenAI hacked Australian Medicare govt site, probed data providers",
+            "url": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers"
+          },
+          {
+            "ageHours": 115,
+            "domain": "securitybrief.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T22:45:05.000Z",
+            "relevance": 0.76,
+            "title": "Australian firms lag on AI cyber risk understanding",
+            "url": "https://securitybrief.com.au/story/australian-firms-lag-on-ai-cyber-risk-understanding"
+          },
+          {
+            "ageHours": 18.5,
+            "domain": "afr.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T23:12:39.000Z",
+            "relevance": 0.69,
+            "title": "Canaccord Genuity’s Australian CEO goes global with new gig",
+            "url": "https://www.afr.com/street-talk/canaccord-genuity-s-australian-ceo-goes-global-with-new-gig-20260928-p610y3?ref=rss"
+          },
+          {
+            "ageHours": 20.1,
+            "domain": "athletics.org.nz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T21:40:04.000Z",
+            "relevance": 0.63,
+            "title": "Weekly Round Up – 28 September 2026",
+            "url": "https://athletics.org.nz/weekly-round-up-28-september-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 18.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.722,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1026,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1127,
+        "statesFreshness": true,
+        "text": "WATCH THE VIDEO ABOVE: Bogong moths swarm east coast homes\n\nKnow the news with the 7NEWS app: Download today\n\nThousands of people reported seeing the moths through the Invertebrates Australia-run website Bogong Watch. [1]\n\nFragmented workplace chats cost Australia AUD $4.46 billion\n\nMon, 28th Sep 2026 (Today)Corro has released research estimating that fragmented workplace communication costs the Australian economy AUD $4.46 billion a year. [5]\n\nPharmacy DailyPharmacy Daily | PBS turns 80\n\nTODAY marks 80 years since the referendum that saw the creation of Australia’s Pharmaceutical Benefits Scheme (PBS), with over eight billion prescriptions dispensed. [6]\n\nGiant bogong moths swarm southeast Australia during their annual migration\n\nThousands of the moths have been reported by locals across the coast. [1]\n\nSources: [1] Giant bogong moths swarm southeast Australia during their annual migrat"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "Australia news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 16.5,
+            "domain": "7news.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:12:10.000Z",
+            "relevance": 1,
+            "title": "Giant bogong moths swarm southeast Australia during their annual migration",
+            "url": "https://7news.com.au/news/animals/giant-bogong-moths-swarm-southeast-australia-during-their-annual-migration-c-22935475"
+          },
+          {
+            "ageHours": 5.6,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:05:22.000Z",
+            "relevance": 1,
+            "title": "Multi-Country Payroll Australia | Ramco Systems",
+            "url": "https://www.adproceed.com/ads/multi-country-payroll-australia-ramco-systems"
+          },
+          {
+            "ageHours": 14.2,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T03:30:00.000Z",
+            "relevance": 0.99,
+            "title": "COP31 hosts Australia and Türkiye face the fossil-fuel question",
+            "url": "https://www.thehindu.com/sci-tech/energy-and-environment/cop31-hosts-australia-and-turkiye-face-the-fossil-fuel-question/article71515307.ece"
+          },
+          {
+            "ageHours": 30.1,
+            "domain": "aussiepokiesclub.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T11:39:44.000Z",
+            "relevance": 0.88,
+            "title": "Casino Software Providers -",
+            "url": "https://aussiepokiesclub.com/providers"
+          },
+          {
+            "ageHours": 19.2,
+            "domain": "channellife.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T22:30:06.000Z",
+            "relevance": 0.84,
+            "title": "Fragmented workplace chats cost Australia AUD $4.46 billion",
+            "url": "https://channellife.com.au/story/fragmented-workplace-chats-cost-australia-aud-4-46-billion"
+          },
+          {
+            "ageHours": 16.1,
+            "domain": "pharmacydaily.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:36:42.000Z",
+            "relevance": 0.84,
+            "title": "Pharmacy DailyPharmacy Daily | PBS turns 80",
+            "url": "https://pharmacydaily.com.au/news/pbs-turns-80/123149"
+          },
+          {
+            "ageHours": 41.7,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.68,
+            "title": "A Cornish Dream by Hilary Boyd - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/a-cornish-dream-9781405970365"
+          },
+          {
+            "ageHours": 4.7,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:00:04.000Z",
+            "relevance": 0.67,
+            "title": "Lineup for WWE Raw (September 28, 2026) - Oba Femi & Stephanie Vaquer to appear; Lola Vice takes on Roxanne Pe",
+            "url": "https://khelnow.com/wwe/lineup-wwe-raw-tonight-september-28-202609"
+          },
+          {
+            "ageHours": 23.2,
+            "domain": "freemagazines.top",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T18:30:01.000Z",
+            "relevance": 0.66,
+            "title": "What Doctors Don’t Tell You Australia/NZ – Issue 44 Oct/Nov 2026",
+            "url": "https://freemagazines.top/what-doctors-dont-tell-you-australia-nz-issue-44-oct-nov-2026"
+          },
+          {
+            "ageHours": 20.1,
+            "domain": "athletics.org.nz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T21:40:04.000Z",
+            "relevance": 0.63,
+            "title": "Weekly Round Up – 28 September 2026",
+            "url": "https://athletics.org.nz/weekly-round-up-28-september-2026"
+          },
+          {
+            "ageHours": 39.7,
+            "domain": "thewest.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:00:16.000Z",
+            "relevance": 0.62,
+            "title": "Five stylist finalists in the 2026 Hart & Co. Kitchen Design Awards",
+            "url": "https://thewest.com.au/lifestyle/stm/five-stylist-finalists-in-the-2026-hart-co-kitchen-design-awards--c-22902836"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 4.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.801,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1547,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1174,
+        "statesFreshness": false,
+        "text": "The most destructive bushfire season in terms of property loss since the 2008–09 Australian bushfire season, occurred in the summer of 2015–16, with the loss of 408 houses and at least 500 non-residential buildings as a result of wild fires between 1 June 2015 and 31 May 2016. [1]\n\nThe 2019–20 Australian bushfire season, also known as the Black Summer, was one of the most intense and catastrophic fire seasons on record in Australia. [2]\n\nThis paper introduces a new framework of algebraic equivalence relations between time series and new distance metrics between them, then applies these to investigate the Australian ``Black Summer'' bushfire season of 2019-2020. [3]\n\nStay safe this bushfire season with a new layer on Google Maps As summer heats up across the country, Australians may turn to Google for updates on fire … [7]\n\nSources: [1] 2015–16 Australian bushfire season (en.wikipedia.org"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "Australian bushfire season",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "title": "2015–16 Australian bushfire season",
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Australian_bushfire_season"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "title": "2019–20 Australian bushfire season",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Australian_bushfire_season"
+          },
+          {
+            "ageHours": 58215.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2020-02-07T02:32:33Z",
+            "relevance": 0.92,
+            "title": "Equivalence relations and $L^p$ distances between time series with application to the Black Summer Australian ",
+            "url": "http://arxiv.org/abs/2002.02592v3"
+          },
+          {
+            "ageHours": 59105.7,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2020-01-01",
+            "relevance": 0.86,
+            "title": "Causes of the Widespread 2019–2020 Australian Bushfire Season",
+            "url": "https://doi.org/10.1029/2020ef001671"
+          },
+          {
+            "ageHours": 32801.7,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2023-01-01",
+            "relevance": 0.86,
+            "title": "Air quality impacts on rooftop photovoltaic energy production during the 2019–2020 Australian bushfires season",
+            "url": "https://doi.org/10.1016/j.solener.2023.04.014"
+          },
+          {
+            "ageHours": 1031.8,
+            "domain": "wwf.org.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T17:56:47.000Z",
+            "relevance": 0.85,
+            "title": "AUSTRALIAN BUSHFIRES",
+            "url": "https://wwf.org.au/blogs/what-more-can-you-do-to-support-bushfire-recovery"
+          },
+          {
+            "ageHours": null,
+            "domain": "blog.google",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "Stay safe this bushfire season with a new layer on Google Maps",
+            "url": "https://blog.google/intl/en-au/products/explore-get-answers/new-bushfire-layer-google-maps"
+          },
+          {
+            "ageHours": null,
+            "domain": "abc.net.au",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "Australian bushfire season's long-term health effects subject of…",
+            "url": "https://www.abc.net.au/news/2020-06-28/bushfire-smoke-health-impacts-to-be-studied-by-uts/12395906"
+          },
+          {
+            "ageHours": null,
+            "domain": "crikey.com.au",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "bushfire season • Crikey",
+            "url": "https://www.crikey.com.au/topic/bushfire-season"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "Australian bushfire season",
+            "url": "http://www.wikidata.org/entity/Q73712633"
+          },
+          {
+            "ageHours": 34689.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2022-10-14T08:17:11Z",
+            "relevance": 0.75,
+            "title": "Analysing Donors' Behaviour in Non-profit Organisations for Disaster Resilience: The 2019--2020 Australian Bus",
+            "url": "http://arxiv.org/abs/2210.09034v1"
+          },
+          {
+            "ageHours": 1015.7,
+            "domain": "uysc.vic.edu.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T10:00:35.000Z",
+            "relevance": 0.65,
+            "title": "Bushfire Season",
+            "url": "https://www.uysc.vic.edu.au/bushfire-season"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1015.7,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"Australian bushfire season\" right now — "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.828,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 7491,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1182,
+        "statesFreshness": true,
+        "text": "RBA interest rate rise threatens CBA, Westpac and NAB profits as Australian mortgage and house prices weaken\n\nThe major banks face a fresh profit squeeze as rising rates slow mortgage growth, housing weakens and lenders compete harder for borrowers, with ANZ emerging as the pricing standout. [1]\n\nThe Latest Home Loan Interest Rates: Sep 25, 2026\n\nWhat are the various fixed and floating interest rates on offer for home loans today? [2]\n\nThe Latest Fixed Deposit Interest Rates: Sep 25, 2026\n\nA fixed deposit is a trusted way to maintain liquidity and earn an assured rate of return on the capital. [3]\n\nThe major banks’ profit margins are set to fall as higher interest rates slow mortgage growth and force lenders to offer borrowers more attractive interest rates. [1]\n\nSources: [1] RBA interest rate rise threatens CBA, Westpac and NAB profits as Australian mortgage and house prices weaken (the"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "current Australian interest rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 115.9,
+            "domain": "thenightly.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T21:53:12.000Z",
+            "relevance": 0.89,
+            "title": "RBA interest rate rise threatens CBA, Westpac and NAB profits as Australian mortgage and house prices weaken",
+            "url": "https://thenightly.com.au/business/rba-interest-rate-rise-threatens-cba-westpac-and-nab-profits-as-australian-mortgage-and-house-prices-weaken-c-22917765"
+          },
+          {
+            "ageHours": 76.2,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 0.82,
+            "title": "The Latest Home Loan Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-home-loan-interest-rates-sep-25-2026/article64808517.ece"
+          },
+          {
+            "ageHours": 76.2,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 0.82,
+            "title": "The Latest Fixed Deposit Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-fixed-deposit-interest-rates-sep-25-2026/article64808518.ece"
+          },
+          {
+            "ageHours": 107.5,
+            "domain": "proactiveinvestors.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T06:15:00.000Z",
+            "relevance": 0.82,
+            "title": "MARKETS LIVE: FTSE called lower as US bond yields surge to 2007 high",
+            "url": "https://www.proactiveinvestors.com/companies/news/1099040/markets-live-ftse-called-lower-as-us-bond-yields-surge-to-2007-high-1099040.html"
+          },
+          {
+            "ageHours": 8.7,
+            "domain": "wsj.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T09:02:11.000Z",
+            "relevance": 0.81,
+            "title": "Mortgage Rates Today, September 28, 2026: 30-Year Rates Climb to 7.22%",
+            "url": "https://www.wsj.com/buyside/personal-finance/mortgage/mortgage-rates-today-9-28-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 8.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.832,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 3059,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1529,
+        "statesFreshness": false,
+        "text": "French Rafales Return to Japan for PEGASE 2026\n\nFour Rafale F4s, supported by three A330 MRTTs and two A400Ms, stopped over at Hyakuri Air Base during the latest edition of the PEGASE long-range airpower projection mission. [7]\n\nTIFFCOM 2026 adds four speakers for Japan’s IP expansion session\n\nMUMBAI: Japanese IP is stepping out of the TV frame and into a much bigger world. [6]\n\nJapan’s new ambassador will test Manila’s China balancing act\n\nAs Manila and Tokyo mark the 70th anniversary of normalized diplomatic relations, elevate their ties to a Comprehensive Strategic Partnership, and face rising security tensions in the West Philippine Sea, the arrival of Kitagawa Katsuro as Japan’s new ambassador to the Philippines comes at a pivotal moment in regional geopolitics. [1]\n\nWTTC, JATA and Tourism Expo Japan Join Forces to Drive Japan's Global Tourism Growth\n\nIn Brief: The World Travel & To"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "latest Japan news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 82.7,
+            "domain": "asiatimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:04:20.000Z",
+            "relevance": 0.72,
+            "title": "Japan’s new ambassador will test Manila’s China balancing act",
+            "url": "https://asiatimes.com/2026/09/japans-new-ambassador-will-test-manilas-china-balancing-act"
+          },
+          {
+            "ageHours": 74.1,
+            "domain": "hotelnewsresource.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T15:37:17.000Z",
+            "relevance": 0.72,
+            "title": "WTTC, JATA and Tourism Expo Japan Join Forces to Drive Japan's Global Tourism Growth",
+            "url": "https://www.hotelnewsresource.com/article143061.html"
+          },
+          {
+            "ageHours": 100.7,
+            "domain": "watchlistnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T13:00:57.000Z",
+            "relevance": 0.67,
+            "title": "Franklin FTSE Japan ETF (NYSEARCA:FLJP) Hits New 1-Year High – Still a Buy?",
+            "url": "https://www.watchlistnews.com/franklin-ftse-japan-etf-nysearcafljp-hits-new-1-year-high-still-a-buy/11234541.html"
+          },
+          {
+            "ageHours": 106.9,
+            "domain": "japan-forward.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T06:51:08.000Z",
+            "relevance": 0.65,
+            "title": "India and Japan Chart a New Maritime Alliance for the Indo-Pacific",
+            "url": "https://japan-forward.com/india-maritime-cooperation-trade-resilience"
+          },
+          {
+            "ageHours": 106.5,
+            "domain": "share-talk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:14:25.000Z",
+            "relevance": 0.59,
+            "title": "What happened overnight – Thursday 24th September 2026",
+            "url": "https://www.share-talk.com/what-happened-overnight-thursday-24th-september-2026"
+          },
+          {
+            "ageHours": 98,
+            "domain": "animationxpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T15:42:15.000Z",
+            "relevance": 0.59,
+            "title": "TIFFCOM 2026 adds four speakers for Japan’s IP expansion session",
+            "url": "https://animationxpress.com/latest-news/tiffcom-2026-adds-four-speakers-for-japans-ip-expansion-session"
+          },
+          {
+            "ageHours": 102.6,
+            "domain": "theaviationist.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T11:08:21.000Z",
+            "relevance": 0.59,
+            "title": "French Rafales Return to Japan for PEGASE 2026",
+            "url": "https://theaviationist.com/2026/09/24/french-rafales-japan-pegase-2026"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 74.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.647,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1032,
+      "vertical": "news"
+    }
+  ],
+  "total": 138
+}

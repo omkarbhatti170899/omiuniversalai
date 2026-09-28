@@ -86,8 +86,6 @@ const MIN_ATTEMPT_MS = 1_500;
  * dead" — and it guarantees the fallback is actually tried.
  */
 const BASE_FLOOR_MS = 4_000;
-/** Attempts allowed against the (measured-broken) public floor. */
-const MAX_PUBLIC_ATTEMPTS = 6;
 
 /** Upstream engines this process has seen answer, newest-first, bounded. */
 const observedEngines: string[] = [];

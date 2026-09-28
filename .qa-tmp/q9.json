@@ -1,0 +1,1817 @@
+{
+  "answerContract": {
+    "allSourcesDated": 10,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 14,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 1
+  },
+  "byCategory": {
+    "current-events": {
+      "fresh": 3,
+      "kept": 8,
+      "n": 3
+    },
+    "historical": {
+      "fresh": 5,
+      "kept": 48,
+      "n": 6
+    },
+    "obscure": {
+      "fresh": 3,
+      "kept": 24,
+      "n": 6
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 3,
+      "kept": 8,
+      "n": 4
+    },
+    "current": {
+      "fresh": 0,
+      "kept": 2,
+      "n": 2
+    },
+    "latest": {
+      "fresh": 1,
+      "kept": 7,
+      "n": 2
+    },
+    "none": {
+      "fresh": 6,
+      "kept": 59,
+      "n": 6
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 4,
+      "n": 1
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 120,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 312,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n[1] Latest Weather Forecast - Saturday 26th September, 2026 (6 am) — Latest Weather Forecast - Saturday 26th September, 2026 (6 am)\n\nForecast Period: 6:00 am 26th September, 2026 to 12:00 noon 26th September, 2026\n\nForecast Period: 6:00 am 26 th Sep"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Kerguelen Islands current research station status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "shares no subject word": 2,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 55.5,
+            "domain": "meteo.gov.vc",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:20:14.000Z",
+            "relevance": 0.62,
+            "title": "Latest Weather Forecast - Saturday 26th September, 2026 (6 am)",
+            "url": "https://meteo.gov.vc/meteo/index.php/45-weather-bulletin/8863-latest-weather-forecast-saturday-26th-september-2026-6-am"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 55.5,
+        "normalizedCount": 7,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4950ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4950ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4954ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4954ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.62,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 20344,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 559,
+        "statesFreshness": false,
+        "text": "Like Mongolia, dusty Western Australia, the Faroe Islands, and the middle of the Atlantic Ocean. [1]\n\nAnd as ever, explore roadandtrack.com for the latest news and reviews. [1]\n\nPoint is: The South of France is as lovely as advertised, but the nowheres of the world are jam-packed with mind-altering surprises. [1]\n\nSources: [1] Unknown Pleasures: The Delights of Nowhere (roadandtrack.com)  [2] Latest Weather Forecast - Saturday 26th September, 2026 (12 noon) (meteo.gov.vc)  [3] Latest Weather Forecast - Saturday 26th September, 2026 (6 am) (meteo.gov.vc)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest news about the Faroe Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "shares no subject word": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 117.8,
+            "domain": "roadandtrack.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T20:00:00.000Z",
+            "relevance": 0.88,
+            "title": "Unknown Pleasures: The Delights of Nowhere",
+            "url": "https://www.roadandtrack.com/car-culture/a73555054/vol-37-nowhere-issue-editors-letter"
+          },
+          {
+            "ageHours": 49.5,
+            "domain": "meteo.gov.vc",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T16:20:16.000Z",
+            "relevance": 0.64,
+            "title": "Latest Weather Forecast - Saturday 26th September, 2026 (12 noon)",
+            "url": "https://meteo.gov.vc/meteo/index.php/45-weather-bulletin/8864-latest-weather-forecast-saturday-26th-september-2026-12-noon"
+          },
+          {
+            "ageHours": 55.5,
+            "domain": "meteo.gov.vc",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:20:14.000Z",
+            "relevance": 0.64,
+            "title": "Latest Weather Forecast - Saturday 26th September, 2026 (6 am)",
+            "url": "https://meteo.gov.vc/meteo/index.php/45-weather-bulletin/8863-latest-weather-forecast-saturday-26th-september-2026-6-am"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 49.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.72,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 3471,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1031,
+        "statesFreshness": false,
+        "text": "The Svalbard Global Seed Vault (Norwegian: Svalbard globale frøhvelv) is a secure backup facility for the Earth's crop diversity on the Norwegian island of Spitsbergen in the remote Arctic Svalbard archipelago. [3]\n\nSvalbard Global Seed Vault\n\nThe Svalbard Global Seed Vault is the world’s largest crop diversity storage facility. [5]\n\nSafe haven for the world’s crop diversity\n\nWith all this in mind, in 2008 The Svalbard Global Seed Vault was built aiming to provide a safe place for one of the world’s most important natural resources – our diminishing amounts of seeds. [1]\n\nSeeds of Love (136) The Svalbard Global Seed Vault\n\nThe Svalbard Global Seed Vault, tucked away in the Arctic Circle between Norway and the North Pole, has received a new intake of 50,000 seeds from all over the world. [2]\n\nSources: [1] Keeping the World’s Seeds Safe (greenlivingideas.com)  [2] Seeds of Love (136) The S"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Svalbard Global Seed Vault capacity",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1015.4,
+            "domain": "greenlivingideas.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T10:26:29.000Z",
+            "relevance": 0.93,
+            "title": "Keeping the World’s Seeds Safe",
+            "url": "https://greenlivingideas.com/2011/08/29/keeping-the-worlds-seeds-safe"
+          },
+          {
+            "ageHours": 1070,
+            "domain": "sbs.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T03:49:15.000Z",
+            "relevance": 0.86,
+            "title": "Seeds of Love (136) The Svalbard Global Seed Vault",
+            "url": "https://www.sbs.com.au/language/vietnamese/en/podcast-episode/seeds-of-love-136-the-svalbard-global-seed-vault/9du6a10cc"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "Svalbard Global Seed Vault",
+            "url": "https://en.wikipedia.org/wiki/Svalbard_Global_Seed_Vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "Strategic reserve",
+            "url": "https://en.wikipedia.org/wiki/Strategic_reserve"
+          },
+          {
+            "ageHours": 1066.5,
+            "domain": "bbva.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T07:16:12.000Z",
+            "relevance": 0.78,
+            "title": "'Seeds for the future': Partners in the fight against biodiversity loss",
+            "url": "https://www.bbva.com/en/sustainability/seeds-for-the-future-partners-in-the-fight-against-biodiversity-loss"
+          },
+          {
+            "ageHours": 17237.6,
+            "domain": "croptrust.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2024-10-10T12:12:06.000Z",
+            "relevance": 0.75,
+            "title": "Svalbard Global Seed Vault Deposit - May 2024 - Crop Trust",
+            "url": "https://www.croptrust.org/news-events/events/svalbard-global-seed-vault-deposit-may-2024-1"
+          },
+          {
+            "ageHours": 2289.8,
+            "domain": "croptrust.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-25T08:01:23.000Z",
+            "relevance": 0.74,
+            "title": "Svalbard Global Seed Vault - Crop Trust",
+            "url": "https://www.croptrust.org/work/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": 102929.8,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2015-01-01",
+            "relevance": 0.74,
+            "title": "Saving Seeds: The Svalbard Global Seed Vault, Native American Seed-Savers, and Problems of Property",
+            "url": "https://doi.org/10.5304/jafscd.2015.052.016"
+          },
+          {
+            "ageHours": 76625.8,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2018-01-01",
+            "relevance": 0.66,
+            "title": "The Svalbard Global Seed Vault: 10 Years—1 Million Samples",
+            "url": "https://doi.org/10.1089/bio.2018.0025"
+          },
+          {
+            "ageHours": 28084.1,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2023-07-16T13:41:39Z",
+            "relevance": 0.59,
+            "title": "Planting a SEED of Vision in Large Language Model",
+            "url": "http://arxiv.org/abs/2307.08041v2"
+          },
+          {
+            "ageHours": 129649.9,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2011-12-14T15:53:48Z",
+            "relevance": 0.48,
+            "title": "Solar activity and Svalbard temperatures",
+            "url": "http://arxiv.org/abs/1112.3256v1"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 1015.4,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 504",
+          "Mwmbl (free, open, independent index) timed out after 12000ms"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.743,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12426,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1009,
+        "statesFreshness": true,
+        "text": "Britain knew about the Holocaust as it happened. [2]\n\n(The Sault Star, May 14, 1956.)\n\nNobody today remembers what exactly happened to the old ball and crown steeple. [4]\n\nIn the early ’70s, George — who was married to model Pattie Boyd — began an affair with Ringo's wife Maureen. [1]\n\nEven wilder, Beatles insider Chris O’Dell says she was actually sitting at Ringo’s kitchen table when George finally told him, “I’m in love with your wife.” According to O’Dell, Ringo responded, “Better you than someone we don’t know.” O’Dell said Ringo was nevertheless heartbroken by what happened. [1]\n\nSources: [1] 17 Shocking Celeb Scandals From Before The Internet We Could Never Handle Today (aol.com)  [2] Britain knew about the Holocaust as it happened. A new exhibition reckons with that truth (theguardian.com)  [3] Wake Forest Was Supposed to Be an ACC Afterthought. Jake Dickert Has Other Ideas (spor"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "what happened in Tuvalu today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 5.8,
+            "domain": "aol.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:01:03.000Z",
+            "relevance": 0.86,
+            "title": "17 Shocking Celeb Scandals From Before The Internet We Could Never Handle Today",
+            "url": "https://www.aol.com/articles/17-shocking-celeb-scandals-internet-120103000.html"
+          },
+          {
+            "ageHours": 27.8,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:01:07.000Z",
+            "relevance": 0.85,
+            "title": "Britain knew about the Holocaust as it happened. A new exhibition reckons with that truth",
+            "url": "https://www.theguardian.com/world/2026/sep/27/britain-knew-about-holocaust-as-it-happened-exhibition"
+          },
+          {
+            "ageHours": 23.2,
+            "domain": "sportsnaut.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T18:38:41.000Z",
+            "relevance": 0.83,
+            "title": "Wake Forest Was Supposed to Be an ACC Afterthought. Jake Dickert Has Other Ideas",
+            "url": "https://sportsnaut.com/college-football/wake-forest-was-supposed-to-be-an-acc-afterthought-jake-dickert-has-other-ideas"
+          },
+          {
+            "ageHours": 26.8,
+            "domain": "sootoday.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:00:00.000Z",
+            "relevance": 0.8,
+            "title": "The vanished crown: why the old Post Office clock tower looks different today",
+            "url": "https://www.sootoday.com/columns/remember-this/the-vanished-crown-why-the-old-post-office-clock-tower-looks-different-today-12825360"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 5.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.835,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 3545,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 465,
+        "statesFreshness": false,
+        "text": "Xbox's Latest Merger Kills Iconic Racing Series\n\nBergen County's Population: Exploring the Most and Least Populated Towns\n\nThe Vvaan Movie: Sidharth Malhotra and Tamannaah Bhatia's Film Sells 8000 Tickets in Advance! [1]\n\n178 Fossil Fuel Giants Locked In Centuries of Warming: What You Need to Know\n\nCanada's Population Growth at 80-Year Low: What's Happening? [1]\n\nSources: [1] Meta Connect 2026: Unveiling the Future of VR and Smart Glasses (2026) (biblebyte.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "current population of Pitcairn Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 1,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 117.8,
+            "domain": "biblebyte.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T19:58:15.000Z",
+            "relevance": 0.54,
+            "title": "Meta Connect 2026: Unveiling the Future of VR and Smart Glasses (2026)",
+            "url": "https://biblebyte.org/article/meta-connect-2026-unveiling-the-future-of-vr-and-smart-glasses"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 117.8,
+        "normalizedCount": 9,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.54,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2163,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1131,
+        "statesFreshness": true,
+        "text": "JU VC releases latest issue of University's Multidisciplinary Research Journal\n\nExcelsior Correspondent JAMMU, Sept 24: Professor Umesh Rai, Vice Chancellor of the University of Jammu, today officially released Vol. [3]\n\nIndependent research firm names RWS a Leader in latest Localization Services analyst report\n\nRWS achieves maximum scores across 18 criteria, including Vision; Innovation; AI search, semantics, and knowledge enablement; and Hyperlocalization and cultural adaptation\n\nMAIDENHEAD, England, Sept. [4]\n\nLatest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [2]\n\nResearcher is a bi-annual, multidisciplinary, and double-blind peer-reviewed journal. [3]\n\nSources: [1] Grow Your Business with Social Media Marketing, Dallas (adproceed.com)  [2] Today’s AI News – July 15, 2024 ("
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest research on tardigrades",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 5.6,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:10:50.000Z",
+            "relevance": 0.85,
+            "title": "Grow Your Business with Social Media Marketing, Dallas",
+            "url": "https://www.adproceed.com/ads/grow-your-business-with-social-media-marketing-dallas"
+          },
+          {
+            "ageHours": 39.7,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 0.81,
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 95.1,
+            "domain": "dailyexcelsior.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:44:06.000Z",
+            "relevance": 0.76,
+            "title": "JU VC releases latest issue of University's Multidisciplinary Research Journal",
+            "url": "https://www.dailyexcelsior.com/ju-vc-releases-latest-issue-of-universitys-multidisciplinary-research-journal"
+          },
+          {
+            "ageHours": 106.8,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:00:00.000Z",
+            "relevance": 0.76,
+            "title": "Independent research firm names RWS a Leader in latest Localization Services analyst report",
+            "url": "https://www.prnewswire.co.uk/news-releases/independent-research-firm-names-rws-a-leader-in-latest-localization-services-analyst-report-302888009.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 5.6,
+        "normalizedCount": 6,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 0.795,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2083,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1085,
+        "statesFreshness": false,
+        "text": "Bolt’s race\n\n#JAM Usain Bolt wins his heat in the men's 100m with a 10.07 time at #Rio2016 #Athletics https://t.co/JAoL0ve2RK https://t.co/aWKt3JuxUC\n\n— CBC Olympics (@CBCOlympics) August 13, 2016\n\nCanadians Aaron Brown, who went sub-10 earlier this year, was eliminated in the heats as was Akeem Haynes. [1]\n\nThe men's 100 metres event at the 2016 Summer Olympics took place between 13–14 August at the Olympic Stadium. [3]\n\nAthletics: Koike wins men's 100m in rain-hit Oda Memorial HIROSHIMA (Kyodo) -- Yuki Koike, who made his Olympic debut in Tokyo last summer, won the men's… [10]\n\n— Athletics Australia (@AthsAust) August 15, 2016\n\nBolt, De Grasse, Gatlin, Vicaut, Meite, Simbine, Blake and Bromell make the men’s 100m final. [4]\n\nSources: [1] Andre De Grasse eyes 100m gold: “I don’t want to wait, I want to do it now” (runningmagazine.ca)  [2] Olympics men's 100m final: How Noah Lyles won th"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Who won the 2016 Olympics men's 100m?",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1044.3,
+            "domain": "runningmagazine.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T05:27:53.000Z",
+            "relevance": 1,
+            "title": "Andre De Grasse eyes 100m gold: “I don’t want to wait, I want to do it now”",
+            "url": "https://runningmagazine.ca/sections/runs-races/rio-2016/andre-de-grasse-eyes-100m-gold-i-dont-want-to-wait-i-want-to-do-it-now"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.co.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "title": "Olympics men's 100m final: How Noah Lyles won the greatest race …",
+            "url": "http://www.bbc.co.uk/sport/olympics/articles/clwyy8jwp2go"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "Athletics at the 2016 Summer Olympics – Men's 100 metres",
+            "url": "https://en.wikipedia.org/wiki/Athletics_at_the_2016_Summer_Olympics_%E2%80%93_Men's_100_metres"
+          },
+          {
+            "ageHours": 985,
+            "domain": "runnerstribe.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T16:49:51.000Z",
+            "relevance": 0.82,
+            "title": "Aussie Rio Updates Via Social Media: Day 3 EVENING",
+            "url": "https://runnerstribe.com/australian-olympic-team/olympic-news/aussie-rio-updates-via-social-media-day-3-evening"
+          },
+          {
+            "ageHours": 1324.6,
+            "domain": "performancelabofcalifornia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:43.000Z",
+            "relevance": 0.8,
+            "title": "Usain Bolt Top Speed Explained: The Fastest Human Ever",
+            "url": "https://www.performancelabofcalifornia.com/usain-bolt"
+          },
+          {
+            "ageHours": 1237.8,
+            "domain": "essentiallysports.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:10.000Z",
+            "relevance": 0.8,
+            "title": "How Many mph Can Olympics Legend Usain Bolt Run?",
+            "url": "https://www.essentiallysports.com/olympics-news-how-many-mph-can-olympics-legend-usain-bolt-run"
+          },
+          {
+            "ageHours": null,
+            "domain": "viewtube.io",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.79,
+            "title": "1984年〜2016年　Every  Olympics men's 100m final :: Athletics Soul :…",
+            "url": "https://viewtube.io/watch?v=N3MJ0rYrYSc"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.7,
+            "title": "2016 Summer Olympics medal table",
+            "url": "https://en.wikipedia.org/wiki/2016_Summer_Olympics_medal_table"
+          },
+          {
+            "ageHours": 89477.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2016-07-14T12:17:10Z",
+            "relevance": 0.69,
+            "title": "The Oxford Olympics Study 2016: Cost and Cost Overrun at the Games",
+            "url": "http://arxiv.org/abs/1607.04484v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "mainichi.jp",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "title": "Athletics: Koike wins men's 100m in rain-hit Oda Memorial - The …",
+            "url": "http://mainichi.jp/english/articles/20220429/p2g/00m/0sp/063000c"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 985,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.798,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1696,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 870,
+        "statesFreshness": false,
+        "text": "During the ultra-low interest rate era following the 2008 financial crisis, TSX passive income darlings got treated like high-yielding bond substitutes. [1]\n\nConstitutional crisis in Somalia, Controversies of Hassan Sheikh Mohamud [2]\n\nAre These Still the Best Dividend Stocks in Canada? [1]\n\nWith 10-year treasury yields becoming more elevated in 2026 and generous financial houses offering 1-year guaranteed investment certificates (GICs) at rates up to 3.8% and 3-year terms at 4.3%, income seekers face a stark reality: Why take on significant equity risk for a 2% or 3% dividend yield when risk-free GICs pay noticeably more while guaranteeing your principal? [1]\n\nSources: [1] Are These Still the Best Dividend Stocks in Canada? (fool.ca)  [2] Armed conflicts and attacks: Constitutional crisis in Somalia, Controversies of Hassan Sheikh Mohamud (en.wikipedia.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "what happened in the 2008 financial crisis",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 89.8,
+            "domain": "fool.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:00:08.000Z",
+            "relevance": 1,
+            "title": "Are These Still the Best Dividend Stocks in Canada?",
+            "url": "https://www.fool.ca/2026/09/24/are-these-still-the-best-dividend-stocks-in-canada-2"
+          },
+          {
+            "ageHours": 17.8,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.54,
+            "title": "Armed conflicts and attacks: Constitutional crisis in Somalia, Controversies of Hassan Sheikh Mohamud",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 17.8,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.77,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1798,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1004,
+        "statesFreshness": false,
+        "text": "The Battle of Waterloo was fought on Sunday 18 June 1815, near Waterloo (then in the United Kingdom of the Netherlands, now in Belgium), being the last engagement with Napoleon I. [1]\n\n2006 · 17 citations\nThe social backdrop, vividly described, to one of the greatest battles in European history, Waterloo 1815 The summer of 1815 saw the final and desperate efforts of European powers to usurp Napoleon's reign over France. [4]\n\nAlessandro Barbero · 2005 — Waterloo, Battle of, Waterloo, Belgium, 1815, Military - Napoleonic Wars, Campaigns, Military History, Napoleonic Wars, 1800-1815, Waterloo, Bataille de, 1815 [5]\n\nManuel Komroff · 1936 — Elba and the Hundred Days, 1814-1815, Waterloo, Battle of, Waterloo, Belgium, 1815, The Battle of Waterloo, Battles, History, Fiction [6]\n\nSources: [1] Battle of Waterloo (en.wikipedia.org)  [2] Waterloo, Belgium (en.wikipedia.org)  [3] How you can use th"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "when was the Battle of Waterloo",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "Battle of Waterloo",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Waterloo, Belgium",
+            "url": "https://en.wikipedia.org/wiki/Waterloo%2C_Belgium"
+          },
+          {
+            "ageHours": 1237.9,
+            "domain": "artuk.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:54:23.000Z",
+            "relevance": 0.93,
+            "title": "How you can use this image",
+            "url": "https://artuk.org/discover/artworks/the-opening-of-waterloo-bridge-whitehall-stairs-june-18th-1817-117764"
+          },
+          {
+            "ageHours": 181817.8,
+            "domain": "openalex.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2006-01-01",
+            "relevance": 0.92,
+            "title": "Dancing into Battle: A Social History of the Battle of Waterloo",
+            "url": "https://openalex.org/W622484625"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The Battle (2005)",
+            "url": "https://openlibrary.org/works/OL136014W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The Battle of Waterloo (1936)",
+            "url": "https://openlibrary.org/works/OL4481467W"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "Battle of Waterloo service attended by Royal Family - BBC News",
+            "url": "http://www.bbc.com/news/uk-33178490"
+          },
+          {
+            "ageHours": 2604.9,
+            "domain": "en.metapedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-12T04:53:46.000Z",
+            "relevance": 0.85,
+            "title": "Battle of Waterloo - Metapedia",
+            "url": "http://en.metapedia.org/m/index.php?oldid=528619&title=Battle_of_Waterloo"
+          },
+          {
+            "ageHours": 978.6,
+            "domain": "de.zxc.wiki",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T23:09:40.000Z",
+            "relevance": 0.85,
+            "title": "Battle of Waterloo",
+            "url": "https://de.zxc.wiki/wiki/Schlacht_von_Waterloo"
+          },
+          {
+            "ageHours": 991.5,
+            "domain": "de.zxc.wiki",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T10:18:06.000Z",
+            "relevance": 0.85,
+            "title": "Battle of Waterloo",
+            "url": "https://de.zxc.wiki/wiki/Schlacht_bei_Waterloo"
+          },
+          {
+            "ageHours": 208121.8,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2003-01-01",
+            "relevance": 0.85,
+            "title": "Napoleon and Wellington: the Battle of Waterloo--and the great commanders who fought it",
+            "url": "https://doi.org/10.5860/choice.40-5339"
+          },
+          {
+            "ageHours": 313313.8,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1991-01-01",
+            "relevance": 0.85,
+            "title": "The age of battles: the quest for decisive warfare from Breitenfeld to Waterloo",
+            "url": "https://doi.org/10.5860/choice.29-1693"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 978.6,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"Battle Waterloo\" right now — Omi will no"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.888,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1113,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1374,
+        "statesFreshness": false,
+        "text": "The History of the Decline and Fall of the Roman Empire, sometimes shortened to Decline and Fall of the Roman Empire, is a six-volume work by the English historian Edward Gibbon. [2]\n\nThe history of the Roman Empire covers the history of ancient Rome from the traditional end of the Roman Republic in 27 BC until the abdication of Romulus Augustulus in AD 476 in the West, and the Fall of Constantinople in the East in 1453. [1]\n\nYouTube obviously has great videos on subjects like &quot;What is a derivative&quot;, &quot;Germany post world war 2&quot; or &quot;History of the roman empire&quot; but it won&#x27;t always have great videos for more niche subjects like say &quot;Swedish monetary theory through history&quot; or & [7]\n\nThe six volumes cover, from 98 to 1590, the peak of the Roman Empire, the history of early Christianity and its emergence as the Roman state religion, the fall of the"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "history of the Roman Empire",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "History of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "The History of the Decline and Fall of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/The_History_of_the_Decline_and_Fall_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "History of the Decline and Fall of the Roman Empire Complete and Unabridged (1776)",
+            "url": "https://openlibrary.org/works/OL1285005W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The social and economic history of the Roman Empire (1899)",
+            "url": "https://openlibrary.org/works/OL256996W"
+          },
+          {
+            "ageHours": 1324.6,
+            "domain": "farmersalmanac.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:37.000Z",
+            "relevance": 0.86,
+            "title": "When Is the Next Leap Year? 2028 – Date, History, and the Rule",
+            "url": "https://www.farmersalmanac.com/when-is-leap-year"
+          },
+          {
+            "ageHours": 1577.6,
+            "domain": "historyworld.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-25T00:13:41.000Z",
+            "relevance": 0.83,
+            "title": "HISTORY OF THE ROMAN EMPIRE",
+            "url": "https://www.historyworld.net/history/romanEmpire/531?heading=revivalOfThePaganCult&section=christianRome"
+          },
+          {
+            "ageHours": 7490.3,
+            "domain": "explanans.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2025-11-20T15:30:10Z",
+            "relevance": 0.83,
+            "title": "Show HN: Explanans – Personalized video lectures for any topic",
+            "url": "https://explanans.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "history of the Roman Empire",
+            "url": "http://www.wikidata.org/entity/Q2671119"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "History of the Roman Empire Category",
+            "url": "https://duckduckgo.com/c/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "Timeline of Roman history - This is a timeline of Roman history, comprising important legal and territorial ch",
+            "url": "https://duckduckgo.com/Timeline_of_Roman_history"
+          },
+          {
+            "ageHours": 602585.8,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1958-01-01",
+            "relevance": 0.76,
+            "title": "The Social and Economic History of the Roman Empire",
+            "url": "https://doi.org/10.2307/4344057"
+          },
+          {
+            "ageHours": 593825.8,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1959-01-01",
+            "relevance": 0.76,
+            "title": "The Social and Economic History of the Roman Empire",
+            "url": "https://doi.org/10.2307/292184"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1324.6,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"history Roman Empire\" right now — Omi wi"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.838,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2197,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Asian Games 2018 medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 4,
+          "outside freshness window": 7
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 11,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2342,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 768,
+        "statesFreshness": false,
+        "text": "Schwartz\n\nThe Olympic games originated in ancient Greece as a religious and athletic festival, providing a forum of friendly competition among otherwise factious city-states. [2]\n\nAbout the First Modern Olympic Games in 1896\n\nIt’s true that the Ancient Greeks founded the original Olympic Games. [6]\n\nThe Summer Olympic Games , also known as the Summer Olympics or the Games of the Olympiad , are a major international multi-sport event normally held once every four years. [3]\n\nThe originating Olympic Games are traditionally dated to 776 BC. [4]\n\nSources: [1] Athens 2004 (olympics.fandom.com)  [2] Hoover and the 1932 Olympic Games – Hoover Heads (hoover.blogs.archives.gov)  [3] Summer Olympic Games (en.wikipedia.org)  [4] Ancient Olympic Games (en.wikipedia.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "origin of the Olympic Games",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1237.8,
+            "domain": "olympics.fandom.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:00:53.000Z",
+            "relevance": 0.9,
+            "title": "Athens 2004",
+            "url": "https://olympics.fandom.com/wiki/Athens_2004"
+          },
+          {
+            "ageHours": 49859.8,
+            "domain": "hoover.blogs.archives.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-01-20T06:00:00.000Z",
+            "relevance": 0.83,
+            "title": "Hoover and the 1932 Olympic Games – Hoover Heads",
+            "url": "https://hoover.blogs.archives.gov/2021/01/20/hoover-and-the-1932-olympic-games?replytocom=1967370"
+          },
+          {
+            "ageHours": 1237.8,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:59:58.000Z",
+            "relevance": 0.83,
+            "title": "Summer Olympic Games",
+            "url": "https://en.wikipedia.org/wiki/Summer_Olympic_Games"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "Ancient Olympic Games",
+            "url": "https://en.wikipedia.org/wiki/Ancient_Olympic_Games"
+          },
+          {
+            "ageHours": 1044.2,
+            "domain": "pricecharting.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T05:35:43.000Z",
+            "relevance": 0.74,
+            "title": "Asterix at the Olympic Games Xbox 360",
+            "url": "https://www.pricecharting.com/game/xbox-360/asterix-at-the-olympic-games"
+          },
+          {
+            "ageHours": 1026.1,
+            "domain": "greekboston.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T23:44:18.000Z",
+            "relevance": 0.74,
+            "title": "About the First Modern Olympic Games in 1896",
+            "url": "https://www.greekboston.com/culture/modern-history/first-modern-olympics"
+          },
+          {
+            "ageHours": 120449.8,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2013-01-01",
+            "relevance": 0.73,
+            "title": "Oral health and impact on performance of athletes participating in the London 2012 Olympic Games: a cross-sect",
+            "url": "https://doi.org/10.1136/bjsports-2013-092891"
+          },
+          {
+            "ageHours": 1062.2,
+            "domain": "assignmentpoint.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T11:38:12.000Z",
+            "relevance": 0.72,
+            "title": "The Olympic Games - Assignment Point",
+            "url": "https://assignmentpoint.com/the-olympic-games"
+          },
+          {
+            "ageHours": 146753.8,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2010-01-01",
+            "relevance": 0.6,
+            "title": "Highly time-resolved chemical characterization of atmospheric submicron particles during 2008 Beijing Olympic ",
+            "url": "https://doi.org/10.5194/acp-10-8933-2010"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "title": "The Olympic Games at Athens | Sport | The Guardian",
+            "url": "http://www.theguardian.com/sport/1896/apr/07/1"
+          },
+          {
+            "ageHours": 1237.8,
+            "domain": "guinnessworldrecords.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:10.000Z",
+            "relevance": 0.6,
+            "title": "First city to host Summer and Winter Olympic Games",
+            "url": "https://www.guinnessworldrecords.com/world-records/694622-first-city-to-host-summer-and-winter-olympic-games"
+          },
+          {
+            "ageHours": null,
+            "domain": "harpers.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.55,
+            "title": "The Olympic Games, by John Roberts Tunis",
+            "url": "https://harpers.org/archive/1928/08/the-olympic-games"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1026.1,
+        "normalizedCount": 12,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"origin Olympic report\" right now — Omi w"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.722,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 3329,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1180,
+        "statesFreshness": true,
+        "text": "Asian Games 2026: Updated Indian medal tally after 27th September\n\nIndia now have 37 medals – 4 gold, 16 silver and 17 bronze and are placed 12th in the overall standings. [2]\n\nAsian Games 2026: India fail to win individual badminton medal after 12 years\n\nThe Indian badminton contingent finished without 0 individual medals in the Asian Games. [1]\n\nRelated: Asian Games 2026: India’s medal winners, live medal tally, results\n\nWhat to expect from the Indian contingent on 28th September? [2]\n\nAsian Games 2026 Medal Tally: India’s Medal Count Reaches 14\n\nIndia’s medal haul has increased to 14 medals, comprising one gold, six silver and seven bronze medals, at the Aichi-Nagoya Asian Games 2026. [3]\n\nSources: [1] Asian Games 2026: India fail to win individual badminton medal after 12 years (indiatoday.in)  [2] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [3] A"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "Indian contingent medals tally in Asian Games 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 35.3,
+            "domain": "indiatoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T06:30:58.000Z",
+            "relevance": 1.06,
+            "title": "Asian Games 2026: India fail to win individual badminton medal after 12 years",
+            "url": "https://www.indiatoday.in/sports/badminton/story/asian-games-2026-india-fail-to-win-individual-badminton-medal-after-12-years-3004018-2026-09-27"
+          },
+          {
+            "ageHours": 17.7,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:09:28.000Z",
+            "relevance": 1,
+            "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+            "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+          },
+          {
+            "ageHours": 106.8,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:01:23.000Z",
+            "relevance": 1,
+            "title": "Asian Games 2026 Medals Tally LIVE Update: Check Latest Aichi-Nagoya Medal Count, India’s Position and Gold, S",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-medal-count-indias-position-and-gold-silver-bronze-medals-count-291580"
+          },
+          {
+            "ageHours": 26.4,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:21:40.000Z",
+            "relevance": 0.9,
+            "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+          },
+          {
+            "ageHours": 24.3,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 0.9,
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 17.7,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.972,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2121,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 983,
+        "statesFreshness": false,
+        "text": "He stands at 6'3\" and is also coming off recording two assists in for games while representing Latvia at the Milano Cortina 2026 Winter Olympics. [2]\n\nHellebuyck’s future in Winnipeg had been a popular topic of discussion amidst a wave of American players requesting trades out of Canadian markets, particularly after Team USA captured gold at the 2026 Winter Olympics; the 33-year-old goaltender finally confirmed the news of his trade request on Aug. [1]\n\n2026-27 NHL team preview: Winnipeg Jets\n\nLAST SEASON\n\nAfter winning the Presidents’ Trophy in 2024-25, the Winnipeg Jets very much did not replicate that feat in 2025-26. [1]\n\nOnly six teams in the entire NHL scored fewer goals than last year’s Jets, which might not have been so bad if not for their similarly unimpressive goal and chance suppression results. [1]\n\nSources: [1] 2026-27 NHL team preview: Winnipeg Jets (dailyfaceoff.com)  [2]"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "2026 Winter Olympics results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "outside freshness window": 4,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 25.9,
+            "domain": "dailyfaceoff.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:52:33.000Z",
+            "relevance": 1.02,
+            "title": "2026-27 NHL team preview: Winnipeg Jets",
+            "url": "https://www.dailyfaceoff.com/news/winnipeg-jets-2026-27-season-nhl-team-preview-predictions-roster-additions-departures"
+          },
+          {
+            "ageHours": 65.8,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:00:00.000Z",
+            "relevance": 0.95,
+            "title": "NY Rangers' Alberts Smits Has Proven He Deserves a Spot and Can Be a Star",
+            "url": "https://www.si.com/nhl/rangers/onsi/news/ny-rangers-alberts-smits-has-proven-he-deserves-a-spot-and-can-be-a-star"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 25.9,
+        "normalizedCount": 9,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.985,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1981,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 939,
+        "statesFreshness": true,
+        "text": "Airship Recognized in 2026 Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for Second Consecutive Year\n\nSAN FRANCISCO — Airship, the mobile-first customer experience company, today announced its recognition in the Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for two years in a row. [1]\n\nOur decades of deep mobile expertise, paired with our outcome-led AI, are why the world’s leading brands rely on Airship to achieve significant business outcomes such as loyalty, growth, and revenue.” [1]\n\n“We are proud to be recognized in the Gartner report, which we believe validates our relentless focus on delivering measurable business results for top brands,” said Brett Caine, CEO of Airship. [1]\n\n“Mobile is where customer loyalty is earned and revenue is accelerated. [1]\n\nSources: [1] Airship Recognized in 2026 Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for Seco"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "COP31 2026 outcome",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 4.6,
+            "domain": "financialpost.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:11:35.000Z",
+            "relevance": 1.04,
+            "title": "Airship Recognized in 2026 Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for Second Consecutive Ye",
+            "url": "https://financialpost.com/pmn/business-wire-news-releases-pmn/airship-recognized-in-2026-gartner-magic-quadrant-for-multichannel-marketing-hubs-for-second-consecutive-year"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 4.6,
+        "normalizedCount": 9,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 1.04,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1447,
+      "vertical": "general"
+    }
+  ],
+  "total": 138
+}
