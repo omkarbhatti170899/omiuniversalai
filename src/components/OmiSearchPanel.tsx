@@ -148,6 +148,16 @@ function AndromedaPipelineCard() {
           disabled={running}
         />
 
+        {/* While the pipeline runs, hold its space with a calm skeleton —
+            the card must not collapse and re-grow when the answer lands. */}
+        {running && (
+          <div className="space-y-2" aria-hidden>
+            <Skeleton className="h-16 w-full" />
+            <Skeleton className="h-4 w-2/3" />
+            <Skeleton className="h-4 w-1/2" />
+          </div>
+        )}
+
         {result && (
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
             <div className="flex flex-wrap items-center gap-2 text-[11px]">
@@ -310,9 +320,10 @@ type WebSearch = {
 };
 
 const EXAMPLE_QUERIES = [
-  "What are customers saying about our competitors' support quality?",
-  "Latest AI trends for customer support teams",
-  "Best practices for de-escalating angry customers",
+  "Indian contingent medals tally in Asian Games 2026",
+  "latest India news",
+  "current weather in Mumbai",
+  "today's technology news",
 ];
 
 function renderAnswer(answer: string) {
