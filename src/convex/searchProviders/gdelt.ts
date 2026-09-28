@@ -4,6 +4,37 @@ import {
   type SearchProviderResult,
 } from "./types";
 
+/**
+ * IS GDELT PART OF THE SEARCH PATH? No — and that is a deliberate decision.
+ *
+ * MEASURED across three separate sessions from the Convex runtime: DNS resolves
+ * (7 ms) and raw TCP 443 is accepted (35 ms), but BOTH the documented API path
+ * and the bare host fail to answer — `error sending request for url
+ * https://api.gdeltpr…` after ~10.5 s, every time, with 0% availability in the
+ * provider benchmark. `diagnoseGdeltTls` localises it: the origin accepts the
+ * socket and then never completes the HTTPS exchange for this egress, which is
+ * an origin-side block or routing problem. NOT a DNS fault, NOT a bad query
+ * parameter, and not something a code change can fix.
+ *
+ * The ADAPTER already isolates its own failures (a 429 degrades to an empty
+ * result rather than throwing), but an unreachable provider still costs a real
+ * 15–20 s of every freshness-gated fan-out in which it is listed — latency the
+ * user pays for a source that has never once answered. So it is switched OFF in
+ * the product, which is the honest version of "disable it cleanly instead of
+ * allowing it to block search".
+ *
+ * This is a FEATURE FLAG, not a deletion: the adapter, its tests and the
+ * `diagnoseGdelt` / `diagnoseGdeltTls` diagnostics all stay, so re-enabling is
+ * one reviewable line once the egress problem is understood. `ENABLE_GDELT=true`
+ * forces it on (used to re-measure from inside the runtime that has the keys).
+ */
+export const GDELT_ENABLED = false;
+
+/** The provider is in the search path only when the flag is on. */
+export function isGdeltEnabled(): boolean {
+  return GDELT_ENABLED || process.env.ENABLE_GDELT === "true";
+}
+
 const DOC_URL = "https://api.gdeltproject.org/api/v2/doc/doc";
 const UA = "OmiSearch/1.0 (https://ominnovations.example; contact: omi@ominnovations.example)";
 /** GDELT's documented floor: about one request every 5 seconds. */
@@ -73,8 +104,17 @@ export function createGdeltProvider(): SearchProvider {
   return {
     id: "gdelt",
     label: "GDELT (global news index)",
-    missingKeyHint: "",
-    isConfigured: () => true,
+    // Not a configuration gap — a product decision, recorded so the status
+    // surface says WHY rather than implying someone forgot a key.
+    missingKeyHint: isGdeltEnabled()
+      ? ""
+      : "Disabled by product decision: GDELT has measured 0% availability from the Convex runtime (TCP connects, HTTPS never answers). Set ENABLE_GDELT=true to force it back into the fan-out for re-measurement.",
+    /**
+     * GATED ON THE FEATURE FLAG, not just on reachability. A provider that is
+     * switched off must be ABSENT from the fan-out, or an unreachable source
+     * keeps costing 15–20 s on every freshness-gated turn.
+     */
+    isConfigured: () => isGdeltEnabled(),
 
     async search(query, numResults, opts): Promise<SearchProviderResult> {
       // Scope discipline: news index only for news-phrased queries.

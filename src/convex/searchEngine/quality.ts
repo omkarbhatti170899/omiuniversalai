@@ -132,16 +132,56 @@ export function relevanceScore(c: WebCitation, keywords: string[]): number {
 }
 
 /**
- * The TOPIC words of a question — the query's keywords minus bare numbers.
+ * Words that say WHEN or WHAT KIND — never WHAT ABOUT.
  *
- * A year is a scoping constraint, not a topic. "2026" appears on holiday
- * packages, tender notices and unrelated press releases, so a source that
- * shares nothing with the question but the year looks on-topic to a naive
- * overlap test. In the live run this is exactly what let a "Sri Lanka Maldives
- * Twin Centre Holiday Package 2026/2027" page through a medal-tally gate.
+ * MEASURED DEFECT (freshness benchmark, 2026-09-28): the topic floor was
+ * dropping the FRESHEST dated source on every generic news question. For
+ * "latest world news" the topic set was {latest, news, world}, and a Wikipedia
+ * Current Events wire item dated 8.6 h earlier — genuinely today's world news —
+ * shared none of those three words, so it was discarded while 3-day-old
+ * articles were kept. Same class of failure for "latest science news" and
+ * "today's technology news".
+ *
+ * This is the same rule already applied to years: "2026" is a scoping
+ * constraint, not a topic, because it appears on holiday packages and tender
+ * notices. "Latest" and "news" are equally non-topical — they describe when the
+ * user wants information and what form it should take, and no wire headline
+ * ever contains the word "latest". Requiring a match on them drops exactly the
+ * evidence the freshness gate exists to find.
+ *
+ * The subject words are untouched: "medals", "tally", "asian", "games",
+ * "india", "kubernetes". So the floor still catches the case it was written
+ * for (a Maldives holiday package under a medal-tally question), and it still
+ * turns itself OFF when a question has no subject words left — a question we
+ * cannot characterise is not evidence that a source is off-topic.
+ */
+const ASPECT_WORDS = new Set([
+  "latest", "newest", "news", "today", "tonight", "tomorrow", "yesterday",
+  "current", "currently", "now", "recent", "recently", "update", "updates",
+  "breaking", "live", "headline", "headlines", "information", "happening",
+  "world", "worldwide", "global", "international", "top",
+]);
+
+/**
+ * Possessives and plurals of an aspect word are still aspect words.
+ * `keywordSet` keeps the apostrophe (it allows `'` inside a token), so
+ * "today's" never equals "today" and would survive as a fake topic word.
+ */
+export function isAspectWord(word: string): boolean {
+  return ASPECT_WORDS.has(word.replace(/['\u2019]s?$/, ""));
+}
+
+/**
+ * The TOPIC words of a question — its keywords minus bare numbers and minus
+ * the words that only describe when/what-kind of information is wanted.
  */
 export function topicKeywords(query: string): string[] {
-  return keywordSet(query).filter((w) => !/^\d+$/.test(w));
+  return keywordSet(query).filter((w) => !/^\d+$/.test(w) && !isAspectWord(w));
+}
+
+/** Exported for tests: the aspect vocabulary above, as a set. */
+export function aspectWords(): ReadonlySet<string> {
+  return ASPECT_WORDS;
 }
 
 /**

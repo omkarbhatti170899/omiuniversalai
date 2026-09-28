@@ -26,6 +26,7 @@
  */
 
 import { internalAction } from "./_generated/server";
+import { v } from "convex/values";
 import { createSearxProvider, searxngHealth } from "./searchProviders/searxng";
 import { createMwmblProvider } from "./searchProviders/mwmbl";
 import { createDuckDuckGoInstantProvider } from "./searchProviders/duckduckgoInstant";
@@ -172,12 +173,28 @@ function unmeasuredReason(
       ? `configured but PROBED UNREACHABLE — an outage, not a setup gap (${String(searxDetail).slice(0, 160)})`
       : "needs SEARXNG_BASE_URL (not set)";
   }
+  if (id === "gdelt") {
+    // A DISABLE is a fourth category, distinct from all three above: nothing
+    // is missing and nothing is broken — the provider was taken out of the
+    // fan-out on measured evidence. Saying "not configured" here would send
+    // someone hunting for a credential that does not exist.
+    return "disabled by product decision (GDELT_ENABLED=false) after measuring 0% availability from the Convex runtime — set ENABLE_GDELT=true to re-measure";
+  }
   return "not configured";
 }
 
 export const runProviderBenchmark = internalAction({
-  args: {},
-  handler: async () => {
+  /**
+   * Optional narrowing, added because the full run (22 queries x 7 providers)
+   * cannot finish inside a single non-interactive command, and an unrunnable
+   * benchmark is one nobody runs. `providers` selects a subset; `maxCases`
+   * truncates the query set. Both default to the full, comparable run.
+   */
+  args: {
+    providers: v.optional(v.array(v.string())),
+    maxCases: v.optional(v.number()),
+  },
+  handler: async (_ctx, args) => {
     // Presence booleans only. Never a value, never a length, never a prefix.
     const envPresence = {
       LANGSEARCH_API_KEY_present: Boolean(process.env.LANGSEARCH_API_KEY?.trim()),
@@ -228,9 +245,15 @@ export const runProviderBenchmark = internalAction({
 
     const searx = await searxngHealth();
 
+    const wanted = args.providers && args.providers.length > 0 ? new Set(args.providers) : null;
+    const maxCases = args.maxCases && args.maxCases > 0 ? args.maxCases : Infinity;
+
     const out: Array<Record<string, unknown>> = [];
     for (const { id, p, categories, evalOnly } of candidates) {
-      const applicable = CASES.filter((c) => !categories || categories.includes(c.category));
+      if (wanted && !wanted.has(id)) continue;
+      const applicable = CASES
+        .filter((c) => !categories || categories.includes(c.category))
+        .slice(0, maxCases);
       // The evaluation bypass applies ONLY here, inside the diagnostic.
       const toRun = evalOnly ?? p;
       // HONESTY: unconfigured is NOT 0% availability. It is no measurement.

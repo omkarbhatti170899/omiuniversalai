@@ -37,7 +37,11 @@ import {
   createDuckDuckGoInstantProvider,
   DUCK_DUCK_GO_INSTANT_RETURNS_TIMESTAMPS,
 } from "../src/convex/searchProviders/duckduckgoInstant";
-import { createGdeltProvider, describeGdeltFailure } from "../src/convex/searchProviders/gdelt";
+import {
+  createGdeltProvider,
+  describeGdeltFailure,
+  isGdeltEnabled,
+} from "../src/convex/searchProviders/gdelt";
 import { getProviderStatus } from "../src/convex/searchProviders";
 import { freshnessPolicyFor } from "../src/convex/searchEngine/freshness";
 import { decideSearch } from "../src/convex/searchEngine/decision";
@@ -174,7 +178,20 @@ describe("honest failure reporting — an outage is not a missing key", () => {
   });
 
   it("is still registered and reports a $0 cost", () => {
-    expect(getProviderStatus().some((p) => p.id === "gdelt")).toBe(true);
-    expect(createGdeltProvider().isConfigured()).toBe(true);
+    // Registered, its cost still stated honestly — but GATED ON THE FEATURE
+    // FLAG. GDELT measured 0% availability from the Convex runtime across three
+    // sessions (TCP connects, HTTPS never answers), so it is out of the fan-out
+    // rather than costing every freshness-gated turn 15–20 s of latency. The
+    // disable is a product decision with a recorded reason, not a missing key:
+    // the status hint says which, and `ENABLE_GDELT=true` forces it back on.
+    const status = getProviderStatus().find((p) => p.id === "gdelt");
+    expect(status).toBeDefined();
+    expect(status?.cost).toMatch(/\$0/);
+    expect(status?.enabled).toBe(isGdeltEnabled());
+    expect(createGdeltProvider().isConfigured()).toBe(isGdeltEnabled());
+    if (!isGdeltEnabled()) {
+      expect(String(status?.hint)).toMatch(/Disabled by product decision/i);
+      expect(String(status?.hint)).not.toMatch(/API key/i);
+    }
   });
 });

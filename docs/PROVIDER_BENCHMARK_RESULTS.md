@@ -258,3 +258,29 @@ The candidate evaluation above has been superseded by the post-enablement run in
   relevance score and the fact that answer correctness is still unverified by a
   human.
 
+---
+
+# 11. SearXNG is DOWN, GDELT is OFF, and the freshness defect was in our gating
+
+See **`docs/SEARXNG_AND_FRESHNESS_FIX_RUN.md`** for the full run. Headlines that
+change how this document should be read:
+
+- **SearXNG is currently unmeasured for a different reason than before.** It is
+  *configured but PROBED UNREACHABLE* — `search.lumy.live` does not answer
+  within 15 s. That is an outage, not a setup gap, and the benchmark now words
+  those two cases differently.
+- **GDELT is disabled by product decision** (`GDELT_ENABLED = false`) after
+  measuring 0% availability from the Convex runtime across three sessions. It is
+  absent from the fan-out and reported as *disabled*, not as *unconfigured*.
+- **The earlier "SearXNG dates only 5% of results" conclusion was the wrong
+  diagnosis.** The adapter reads and validates `publishedDate`, `pubdate` and
+  `metadata[]`, and the live payload does carry dates. The reason a fresh
+  question came back old was the **topical floor**, which compared aspect words
+  ("latest", "news", "world") as if they were subjects and discarded the
+  freshest dated source — a wire item 8.6 h old. With that fixed, the newest
+  surviving source for `latest world news` moved from 76.6 h to 8.7 h.
+- **LangSearch is the load-bearing dated source today** (100% dated, 0.955
+  availability, p50 849 ms), with Wikipedia Current Events at 100% dated as the
+  keyless floor. That is why LangSearch must stay optional-but-available rather
+  than becoming a dependency.
+

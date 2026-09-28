@@ -12,7 +12,7 @@ import { createHackerNewsProvider } from "./hackernews";
 import { createOpenverseProvider } from "./openverse";
 import { createCommonCrawlProvider } from "./commoncrawl";
 import { createGitHubProvider } from "./github";
-import { createGdeltProvider } from "./gdelt";
+import { createGdeltProvider, isGdeltEnabled } from "./gdelt";
 import { createOpenMeteoProvider } from "./openmeteo";
 import { createWikipediaCurrentEventsProvider } from "./wikipediaCurrentEvents";
 import { createMarketRatesProvider } from "./markets";
@@ -65,7 +65,14 @@ export type ProviderStatus = {
  *   Openverse    — openly-licensed images (image-category specialist)
  *   Common Crawl — open web index metadata (AWS open data; provenance/diversity)
  *   GitHub       — public repository search, tech queries only (keyless 10/min)
- *   GDELT        — global news index (scope-gated to news-phrased queries)
+ *   GDELT        — DISABLED by product decision (GDELT_ENABLED = false).
+ *                  Global news index, keyless, and a genuinely good source in
+ *                  principle — but measured 0% availability from the Convex
+ *                  runtime across three sessions (TCP connects, HTTPS never
+ *                  answers). Left out of the fan-out so an unreachable source
+ *                  cannot cost every freshness-gated turn 15–20 s of latency.
+ *                  `ENABLE_GDELT=true` forces it back on for re-measurement;
+ *                  the adapter, tests and `diagnoseGdelt` stay in place.
  *   Wikipedia Current Events — today's dated news, keyless, the reliable
  *                  current-events floor when the general-web floor is unavailable
  *   Open-Meteo   — weather/structured open data (scope-gated, CC-BY attribution)
@@ -210,7 +217,12 @@ export function getProviderStatus(): ProviderStatus[] {
     // `enabled` is the provider's own feature flag, not a hardcoded true. A
     // provider switched off must SAY it is off, or an operator reading /status
     // cannot tell "disabled" from "enabled but missing credentials".
-    enabled: p.id === "langsearch" ? isLangSearchEnabled() : true,
+    enabled:
+      p.id === "langsearch"
+        ? isLangSearchEnabled()
+        : p.id === "gdelt"
+          ? isGdeltEnabled()
+          : true,
     configured: p.isConfigured(),
     cost: PROVIDER_COST[idOf(p)] ?? "$0 per query",
     // MEASURED GAP FIXED: this used to be hardcoded to SearXNG, so a

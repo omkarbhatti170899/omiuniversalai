@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  MissingKeyError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -71,7 +70,13 @@ export function createHackerNewsProvider(): SearchProvider {
           };
         });
 
-      if (citations.length === 0) throw new MissingKeyError("hackernews");
+      // MEASURED BUG (freshness benchmark, 2026-09-28): an EMPTY RESULT was
+      // thrown as `MissingKeyError`, so a French-language query surfaced as
+      // `Search provider "hackernews" is not configured.` — the exact
+      // misdiagnosis already fixed for GDELT. HN is keyless; a query that
+      // matches nothing is a legitimate empty answer, not a missing
+      // credential, and a wrong diagnosis sends whoever is debugging in the
+      // wrong direction. Empty means empty.
       return { citations };
     },
   };

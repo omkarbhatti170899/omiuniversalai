@@ -28,6 +28,7 @@ import {
 import { internal } from "./_generated/api";
 import { guardedCall } from "./searchEngine/resilience";
 import { recordProviderObservation } from "./searchEngine/providerHealth";
+import { providerTimeoutMs } from "./searchEngine/providerTimeouts";
 // §45 — single source of truth for product identity, shared by every surface.
 import { creatorIdentityBlock } from "./omiIdentity";
 import type { ActionCtx } from "./_generated/server";
@@ -54,55 +55,20 @@ const PER_ENGINE_LIMIT = 6;
 const MAX_CITATIONS = 8;
 
 /**
- * Per-provider timeout budgets, from MEASURED latency.
+ * Per-provider timeout budgets and their override names now live in
+ * `searchEngine/providerTimeouts.ts`.
  *
- * A single uniform budget is a real defect, not a simplification. It was 12 s
- * for every provider, which is correct for the fast keyless indexes (mwmbl
- * ~130 ms, hackernews ~210 ms) and wrong for the two that carry the most
- * weight on a freshness question:
- *
- *   searxng  14.7 s (time_range=day), 26.4 s (no filter), 46.6 s (plain probe)
- *   gdelt    10.3 s (429) / 13.2 s (HTTP 200 JSON)
- *
- * Under a 12 s ceiling those two are cut off mid-flight, so a provider that
- * demonstrably answers is recorded as `timedOut` and reported as unavailable.
- * That is how GDELT reached a measured "0% availability" while a single manual
- * call returned HTTP 200 with valid JSON. The budget was the bug.
- *
- * These are ceilings, not targets — a fast instance still returns in
- * milliseconds, and the circuit breaker plus the measured health store demote
- * a provider that is consistently slow, so paying this cost is a measured
- * decision rather than a permanent one. Each is env-overridable so a
- * self-hosted SearXNG (sub-second in practice) can be tightened again.
+ * They were extracted because the override name is a correctness rule, not a
+ * detail: provider ids legitimately contain hyphens
+ * ("wikipedia-current-events", "duckduckgo-instant") and an environment
+ * variable name may not, so the name must be sanitised to
+ * `SEARCH_TIMEOUT_MS_WIKIPEDIA_CURRENT_EVENTS`. Spelling it with the hyphen
+ * makes Convex THROW rather than return undefined — a throw that propagated
+ * out of the fan-out and turned every search into a hard refusal. Keeping the
+ * rule in a pure module lets the test suite pin the exact hyphenated id that
+ * caused the outage, which this file cannot do (it is a `"use node"` action
+ * that pulls in the generated Convex API).
  */
-const PROVIDER_TIMEOUT_MS: Record<string, number> = {
-  searxng: 30_000,
-  gdelt: 20_000,
-};
-
-function providerTimeoutMs(id: string, fallback: number): number {
-  // NOTE: this lookup MUST be wrapped. Provider ids legitimately contain
-  // hyphens ("wikipedia-current-events", "duckduckgo-instant"), and
-  // `process.env["SEARCH_TIMEOUT_MS_WIKIPEDIA-CURRENT-EVENTS"]` does not
-  // return undefined — Convex THROWS "environment variable name ... is
-  // invalid", which propagated out of the fan-out and turned every search into
-  // a hard refusal. Found by the §8 real-world suite, which is precisely the
-  // class of failure it exists to catch: the bug was invisible to every unit
-  // test because no test constructs a hyphenated id through this path.
-  //
-  // The name is sanitised, and the whole lookup is defensive, because a
-  // timeout override must never be able to fail a search.
-  const safe = id.replace(/[^A-Za-z0-9]/g, "_").toUpperCase();
-  try {
-    const raw = process.env[`SEARCH_TIMEOUT_MS_${safe}`];
-    const override = Number(raw ?? NaN);
-    if (Number.isFinite(override) && override > 0) return override;
-  } catch {
-    // A malformed or unreadable override is ignored in favour of the
-    // measured default — never fatal.
-  }
-  return PROVIDER_TIMEOUT_MS[id] ?? fallback;
-}
 
 /**
  * Fans out across every configured engine, merges results with dedupe and

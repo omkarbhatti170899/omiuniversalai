@@ -97,6 +97,7 @@ import type * as searchEngine_freshness from "../searchEngine/freshness.js";
 import type * as searchEngine_intent from "../searchEngine/intent.js";
 import type * as searchEngine_limits from "../searchEngine/limits.js";
 import type * as searchEngine_providerHealth from "../searchEngine/providerHealth.js";
+import type * as searchEngine_providerTimeouts from "../searchEngine/providerTimeouts.js";
 import type * as searchEngine_quality from "../searchEngine/quality.js";
 import type * as searchEngine_resilience from "../searchEngine/resilience.js";
 import type * as searchEngine_retrieval from "../searchEngine/retrieval.js";
@@ -121,6 +122,7 @@ import type * as searchProviders_openmeteo from "../searchProviders/openmeteo.js
 import type * as searchProviders_openverse from "../searchProviders/openverse.js";
 import type * as searchProviders_pageFetcher from "../searchProviders/pageFetcher.js";
 import type * as searchProviders_searxng from "../searchProviders/searxng.js";
+import type * as searchProviders_searxngEngineHealth from "../searchProviders/searxngEngineHealth.js";
 import type * as searchProviders_sports from "../searchProviders/sports.js";
 import type * as searchProviders_types from "../searchProviders/types.js";
 import type * as searchProviders_wikidata from "../searchProviders/wikidata.js";
@@ -230,6 +232,7 @@ declare const fullApi: ApiFromModules<{
   "searchEngine/intent": typeof searchEngine_intent;
   "searchEngine/limits": typeof searchEngine_limits;
   "searchEngine/providerHealth": typeof searchEngine_providerHealth;
+  "searchEngine/providerTimeouts": typeof searchEngine_providerTimeouts;
   "searchEngine/quality": typeof searchEngine_quality;
   "searchEngine/resilience": typeof searchEngine_resilience;
   "searchEngine/retrieval": typeof searchEngine_retrieval;
@@ -254,6 +257,7 @@ declare const fullApi: ApiFromModules<{
   "searchProviders/openverse": typeof searchProviders_openverse;
   "searchProviders/pageFetcher": typeof searchProviders_pageFetcher;
   "searchProviders/searxng": typeof searchProviders_searxng;
+  "searchProviders/searxngEngineHealth": typeof searchProviders_searxngEngineHealth;
   "searchProviders/sports": typeof searchProviders_sports;
   "searchProviders/types": typeof searchProviders_types;
   "searchProviders/wikidata": typeof searchProviders_wikidata;
