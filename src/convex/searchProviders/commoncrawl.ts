@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  MissingKeyError,
+  ProviderUnavailableError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -70,8 +70,10 @@ export function createCommonCrawlProvider(): SearchProvider {
         }
         return { citations };
       } catch (err) {
-        throw new MissingKeyError(
-          `commoncrawl: ${err instanceof Error ? err.message : "unavailable"}`,
+        // Keyless open data (AWS Open Data) — an upstream failure is an
+        // availability problem, never a missing credential.
+        throw new ProviderUnavailableError(
+          `commoncrawl: upstream unavailable — ${err instanceof Error ? err.message : "unknown error"}`,
         );
       }
     },

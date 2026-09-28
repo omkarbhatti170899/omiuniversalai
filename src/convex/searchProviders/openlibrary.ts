@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  MissingKeyError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -63,7 +62,7 @@ export function createOpenLibraryProvider(): SearchProvider {
           };
         });
 
-      if (citations.length === 0) throw new MissingKeyError("openlibrary");
+      // An EMPTY result is a valid answer. The library catalogue is keyless.
       return { citations };
     },
   };

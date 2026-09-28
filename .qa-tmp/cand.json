@@ -1,0 +1,80 @@
+{
+  "healthy": [],
+  "healthyCount": 0,
+  "note": "healthy means the instance served JSON WITH a `results` array from this runtime. A configured instance keeps priority; these are fallbacks it can hand over to.",
+  "probed": 12,
+  "rows": [
+    {
+      "base": "https://search.lumy.live",
+      "detail": "unreachable: timeout of 7000ms exceeded",
+      "healthy": false,
+      "ms": 7032
+    },
+    {
+      "base": "https://searx.be",
+      "detail": "Endpoint answered 200 with text/html instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an instance that has.",
+      "healthy": false,
+      "ms": 298
+    },
+    {
+      "base": "https://search.inetol.net",
+      "detail": "Endpoint answered 200 with text/html instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an instance that has.",
+      "healthy": false,
+      "ms": 432
+    },
+    {
+      "base": "https://baresearch.org",
+      "detail": "Endpoint answered 200 with text/html; charset=utf-8 instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an insta",
+      "healthy": false,
+      "ms": 111
+    },
+    {
+      "base": "https://search.hbubli.cc",
+      "detail": "Endpoint answered 200 with text/html; charset=utf-8 instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an insta",
+      "healthy": false,
+      "ms": 422
+    },
+    {
+      "base": "https://searxng.site",
+      "detail": "Endpoint answered 403 with text/html; charset=iso-8859-1 instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an ",
+      "healthy": false,
+      "ms": 530
+    },
+    {
+      "base": "https://search.rhscz.eu",
+      "detail": "Endpoint answered 429 with text/html; charset=utf-8 instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an insta",
+      "healthy": false,
+      "ms": 648
+    },
+    {
+      "base": "https://paulgo.io",
+      "detail": "unreachable: timeout of 7000ms exceeded",
+      "healthy": false,
+      "ms": 7005
+    },
+    {
+      "base": "https://priv.au",
+      "detail": "Endpoint answered 429 with text/html; charset=utf-8 instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an insta",
+      "healthy": false,
+      "ms": 177
+    },
+    {
+      "base": "https://opnxng.com",
+      "detail": "Endpoint answered 429 with text/html; charset=utf-8 instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an insta",
+      "healthy": false,
+      "ms": 1051
+    },
+    {
+      "base": "https://searx.work",
+      "detail": "unreachable: unable to get local issuer certificate",
+      "healthy": false,
+      "ms": 115
+    },
+    {
+      "base": "https://search.inetol.net",
+      "detail": "Endpoint answered 200 with text/html instead of JSON — this instance has search.formats JSON disabled. Enable it in settings.yml, or set SEARXNG_BASE_URL to an instance that has.",
+      "healthy": false,
+      "ms": 312
+    }
+  ]
+}

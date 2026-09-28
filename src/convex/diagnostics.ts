@@ -15,8 +15,13 @@
  */
 
 import { internalAction } from "./_generated/server";
+import { v } from "convex/values";
 import { verifyImageBytes } from "./aiProviders/imageVerify";
 import { createSearxProvider, probeInstance, searxngHealth } from "./searchProviders/searxng";
+import { createOpenMeteoProvider } from "./searchProviders/openmeteo";
+import { createSportsProvider } from "./searchProviders/sports";
+import { createMarketRatesProvider } from "./searchProviders/markets";
+import { withTimeout } from "./searchEngine/resilience";
 
 const EDITS_URL = "https://gen.pollinations.ai/v1/images/edits";
 const GEN_URL = "https://gen.pollinations.ai/v1/images/generations";
@@ -251,6 +256,101 @@ export const stressSearxng = internalAction({
       averageResults: okRuns.length === 0 ? 0 : Math.round((okRuns.reduce((s, r) => s + r.results, 0) / okRuns.length) * 10) / 10,
       isConfigured: provider.isConfigured(),
       runs,
+    };
+  },
+});
+
+/**
+ * DIRECT PROBE of the three STRUCTURED providers (weather, sports, markets).
+ *
+ * WHY: the 138-query quality benchmark showed these three verticals returning
+ * NOTHING for every query routed to them — 12 sports queries, 7 weather
+ * queries and 4 finance queries, all `kept=0`, most with `ran=NONE` because the
+ * vertical is a HARD constraint and the single provider answered empty.
+ *
+ * That result is NOT diagnosable from the pipeline: "the provider returned no
+ * results", "the provider threw", and "the provider was never called" look
+ * identical from outside. Each is a different fix, so this calls each provider
+ * DIRECTLY, with its real query, from inside the runtime where its network
+ * access lives, and reports the raw outcome plus the first citation.
+ *
+ * Scope-gated providers legitimately return [] for an out-of-scope query, so
+ * the cases are chosen to be IN scope for the provider under test.
+ */
+export const probeStructuredProviders = internalAction({
+  args: { queries: v.optional(v.array(v.string())) },
+  handler: async (_ctx, args) => {
+    const cases = args.queries?.length
+      ? args.queries
+      : [
+          "current weather in Mumbai",
+          "weather in Delhi today",
+          "current temperature in New York",
+          "today's forecast for Sydney",
+          "live football scores",
+          "current Premier League standings",
+          "football results today",
+          "current USD to INR rate",
+          "live sensex level",
+          "current Indian rupee exchange rate",
+          "current price of bitcoin",
+        ];
+    const providers = [
+      createOpenMeteoProvider(),
+      createSportsProvider(),
+      createMarketRatesProvider(),
+    ];
+    const out: Array<Record<string, unknown>> = [];
+    for (const q of cases) {
+      for (const p of providers) {
+        if (!p.isConfigured()) {
+          out.push({ query: q, provider: p.id, configured: false });
+          continue;
+        }
+        const t0 = Date.now();
+        try {
+          const r = await withTimeout(
+            p.search(q, 5, { timeRange: "day", page: 1 }),
+            15_000,
+            p.label,
+          );
+          const first = r.citations[0];
+          out.push({
+            query: q,
+            provider: p.id,
+            configured: true,
+            ok: r.citations.length > 0,
+            n: r.citations.length,
+            ms: Date.now() - t0,
+            first: first
+              ? {
+                  title: first.title.slice(0, 100),
+                  url: first.url.slice(0, 100),
+                  publishedAt: first.publishedAt ?? null,
+                }
+              : null,
+            error: null,
+          });
+        } catch (e) {
+          out.push({
+            query: q,
+            provider: p.id,
+            configured: true,
+            ok: false,
+            n: 0,
+            ms: Date.now() - t0,
+            first: null,
+            error: (e instanceof Error ? e.message : String(e)).slice(0, 200),
+          });
+        }
+      }
+    }
+    return {
+      cases: cases.length,
+      note:
+        "n=0 with error=null means the provider RAN and returned nothing (scope gate or a real empty answer). " +
+        "An error means it failed. Neither is visible from the pipeline.",
+      out,
     };
   },
 });

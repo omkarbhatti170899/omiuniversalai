@@ -1,0 +1,4385 @@
+{
+  "answerContract": {
+    "allSourcesDated": 25,
+    "citationsResolve": 36,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 28,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 8
+  },
+  "byCategory": {
+    "australia": {
+      "fresh": 1,
+      "kept": 17,
+      "n": 2
+    },
+    "current-events": {
+      "fresh": 2,
+      "kept": 15,
+      "n": 6
+    },
+    "historical": {
+      "fresh": 5,
+      "kept": 48,
+      "n": 6
+    },
+    "japan": {
+      "fresh": 3,
+      "kept": 29,
+      "n": 4
+    },
+    "multilingual": {
+      "fresh": 5,
+      "kept": 45,
+      "n": 9
+    },
+    "obscure": {
+      "fresh": 4,
+      "kept": 23,
+      "n": 6
+    },
+    "south-korea": {
+      "fresh": 3,
+      "kept": 25,
+      "n": 3
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 2,
+      "kept": 12,
+      "n": 5
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 24,
+      "n": 5
+    },
+    "latest": {
+      "fresh": 5,
+      "kept": 40,
+      "n": 11
+    },
+    "none": {
+      "fresh": 10,
+      "kept": 108,
+      "n": 11
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 18,
+      "n": 4
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 102,
+  "ran": 36,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 984,
+        "statesFreshness": false,
+        "text": "The 2019–20 Australian bushfire season, also known as the Black Summer, was one of the most intense and catastrophic fire seasons on record in Australia. [1]\n\nThe 2023–24 Australian bushfire season was the summer season of bushfires in Australia. [2]\n\nThis paper introduces a new framework of algebraic equivalence relations between time series and new distance metrics between them, then applies these to investigate the Australian ``Black Summer'' bushfire season of 2019-2020. [3]\n\nStay safe this bushfire season with a new layer on Google Maps As summer heats up across the country, Australians may turn to Google for updates on fire … [7]\n\nSources: [1] 2019–20 Australian bushfire season (en.wikipedia.org)  [2] 2023–24 Australian bushfire season (en.wikipedia.org)  [3] Equivalence relations and $L^p$ distances between time series with application to the Black Summer Australian bushfires (arx"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "Australian bushfire season",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "title": "2019–20 Australian bushfire season",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Australian_bushfire_season"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "title": "2023–24 Australian bushfire season",
+            "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_Australian_bushfire_season"
+          },
+          {
+            "ageHours": 58206.9,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2020-02-07T02:32:33Z",
+            "relevance": 0.92,
+            "title": "Equivalence relations and $L^p$ distances between time series with application to the Black Summer Australian ",
+            "url": "http://arxiv.org/abs/2002.02592v3"
+          },
+          {
+            "ageHours": 59097.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2020-01-01",
+            "relevance": 0.86,
+            "title": "Causes of the Widespread 2019–2020 Australian Bushfire Season",
+            "url": "https://doi.org/10.1029/2020ef001671"
+          },
+          {
+            "ageHours": 32793.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2023-01-01",
+            "relevance": 0.86,
+            "title": "Air quality impacts on rooftop photovoltaic energy production during the 2019–2020 Australian bushfires season",
+            "url": "https://doi.org/10.1016/j.solener.2023.04.014"
+          },
+          {
+            "ageHours": 1023.5,
+            "domain": "wwf.org.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T17:56:47.000Z",
+            "relevance": 0.85,
+            "title": "AUSTRALIAN BUSHFIRES",
+            "url": "https://wwf.org.au/blogs/what-more-can-you-do-to-support-bushfire-recovery"
+          },
+          {
+            "ageHours": null,
+            "domain": "blog.google",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "Stay safe this bushfire season with a new layer on Google Maps",
+            "url": "https://blog.google/intl/en-au/products/explore-get-answers/new-bushfire-layer-google-maps"
+          },
+          {
+            "ageHours": null,
+            "domain": "abc.net.au",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "Australian bushfire season's long-term health effects subject of…",
+            "url": "https://www.abc.net.au/news/2020-06-28/bushfire-smoke-health-impacts-to-be-studied-by-uts/12395906"
+          },
+          {
+            "ageHours": null,
+            "domain": "crikey.com.au",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "bushfire season • Crikey",
+            "url": "https://www.crikey.com.au/topic/bushfire-season"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "Australian bushfire season",
+            "url": "http://www.wikidata.org/entity/Q73712633"
+          },
+          {
+            "ageHours": 34681.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2022-10-14T08:17:11Z",
+            "relevance": 0.75,
+            "title": "Analysing Donors' Behaviour in Non-profit Organisations for Disaster Resilience: The 2019--2020 Australian Bus",
+            "url": "http://arxiv.org/abs/2210.09034v1"
+          },
+          {
+            "ageHours": 1007.5,
+            "domain": "uysc.vic.edu.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T10:00:35.000Z",
+            "relevance": 0.65,
+            "title": "Bushfire Season",
+            "url": "https://www.uysc.vic.edu.au/bushfire-season"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1007.5,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4516ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4602ms exceeded",
+          "Search provider \"openlibrary\" is not configured.",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "TheSportsDB has no current fixture for \"Australian bushfire season\" right now — "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.828,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 21999,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1119,
+        "statesFreshness": true,
+        "text": "RBA interest rate rise threatens CBA, Westpac and NAB profits as Australian mortgage and house prices weaken\n\nThe major banks face a fresh profit squeeze as rising rates slow mortgage growth, housing weakens and lenders compete harder for borrowers, with ANZ emerging as the pricing standout. [1]\n\nThe Latest Home Loan Interest Rates: Sep 25, 2026\n\nWhat are the various fixed and floating interest rates on offer for home loans today? [2]\n\nThe Latest Fixed Deposit Interest Rates: Sep 25, 2026\n\nA fixed deposit is a trusted way to maintain liquidity and earn an assured rate of return on the capital. [3]\n\nChecking the current rate and calculating the expected interest can make financial planning easier. [5]\n\nSources: [1] RBA interest rate rise threatens CBA, Westpac and NAB profits as Australian mortgage and house prices weaken (thenightly.com.au)  [2] The Latest Home Loan Interest Rates: Sep 2"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "current Australian interest rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 107.6,
+            "domain": "thenightly.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T21:53:12.000Z",
+            "relevance": 0.89,
+            "title": "RBA interest rate rise threatens CBA, Westpac and NAB profits as Australian mortgage and house prices weaken",
+            "url": "https://thenightly.com.au/business/rba-interest-rate-rise-threatens-cba-westpac-and-nab-profits-as-australian-mortgage-and-house-prices-weaken-c-22917765"
+          },
+          {
+            "ageHours": 68,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 0.86,
+            "title": "The Latest Home Loan Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-home-loan-interest-rates-sep-25-2026/article64808517.ece"
+          },
+          {
+            "ageHours": 68,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 0.86,
+            "title": "The Latest Fixed Deposit Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-fixed-deposit-interest-rates-sep-25-2026/article64808518.ece"
+          },
+          {
+            "ageHours": 99.2,
+            "domain": "proactiveinvestors.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T06:15:00.000Z",
+            "relevance": 0.82,
+            "title": "MARKETS LIVE: FTSE called lower as US bond yields surge to 2007 high",
+            "url": "https://www.proactiveinvestors.com/companies/news/1099040/markets-live-ftse-called-lower-as-us-bond-yields-surge-to-2007-high-1099040.html"
+          },
+          {
+            "ageHours": 119.9,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T09:35:45.000Z",
+            "relevance": 0.81,
+            "title": "Check Bajaj Gold Loan Rate Today and Plan Your Borrowing",
+            "url": "https://www.adproceed.com/ads/check-bajaj-gold-loan-rate-today-and-plan-your-borrowing"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 68,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4900ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4899ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4929ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4928ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.848,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 20475,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1529,
+        "statesFreshness": false,
+        "text": "French Rafales Return to Japan for PEGASE 2026\n\nFour Rafale F4s, supported by three A330 MRTTs and two A400Ms, stopped over at Hyakuri Air Base during the latest edition of the PEGASE long-range airpower projection mission. [7]\n\nTIFFCOM 2026 adds four speakers for Japan’s IP expansion session\n\nMUMBAI: Japanese IP is stepping out of the TV frame and into a much bigger world. [6]\n\nWTTC, JATA and Tourism Expo Japan Join Forces to Drive Japan's Global Tourism Growth\n\nIn Brief: The World Travel & Tourism Council (WTTC), Japan Association of Travel Agents (JATA), and Tourism Expo Japan have announced a partnership aimed at accelerating Japan's international tourism growth through joint initiatives and strategic promotion. [1]\n\nJapan’s new ambassador will test Manila’s China balancing act\n\nAs Manila and Tokyo mark the 70th anniversary of normalized diplomatic relations, elevate their ties to a "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "latest Japan news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 65.9,
+            "domain": "hotelnewsresource.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T15:37:17.000Z",
+            "relevance": 0.76,
+            "title": "WTTC, JATA and Tourism Expo Japan Join Forces to Drive Japan's Global Tourism Growth",
+            "url": "https://www.hotelnewsresource.com/article143061.html"
+          },
+          {
+            "ageHours": 74.4,
+            "domain": "asiatimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:04:20.000Z",
+            "relevance": 0.72,
+            "title": "Japan’s new ambassador will test Manila’s China balancing act",
+            "url": "https://asiatimes.com/2026/09/japans-new-ambassador-will-test-manilas-china-balancing-act"
+          },
+          {
+            "ageHours": 92.5,
+            "domain": "watchlistnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T13:00:57.000Z",
+            "relevance": 0.67,
+            "title": "Franklin FTSE Japan ETF (NYSEARCA:FLJP) Hits New 1-Year High – Still a Buy?",
+            "url": "https://www.watchlistnews.com/franklin-ftse-japan-etf-nysearcafljp-hits-new-1-year-high-still-a-buy/11234541.html"
+          },
+          {
+            "ageHours": 98.6,
+            "domain": "japan-forward.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T06:51:08.000Z",
+            "relevance": 0.65,
+            "title": "India and Japan Chart a New Maritime Alliance for the Indo-Pacific",
+            "url": "https://japan-forward.com/india-maritime-cooperation-trade-resilience"
+          },
+          {
+            "ageHours": 98.2,
+            "domain": "share-talk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:14:25.000Z",
+            "relevance": 0.59,
+            "title": "What happened overnight – Thursday 24th September 2026",
+            "url": "https://www.share-talk.com/what-happened-overnight-thursday-24th-september-2026"
+          },
+          {
+            "ageHours": 89.8,
+            "domain": "animationxpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T15:42:15.000Z",
+            "relevance": 0.59,
+            "title": "TIFFCOM 2026 adds four speakers for Japan’s IP expansion session",
+            "url": "https://animationxpress.com/latest-news/tiffcom-2026-adds-four-speakers-for-japans-ip-expansion-session"
+          },
+          {
+            "ageHours": 94.3,
+            "domain": "theaviationist.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T11:08:21.000Z",
+            "relevance": 0.59,
+            "title": "French Rafales Return to Japan for PEGASE 2026",
+            "url": "https://theaviationist.com/2026/09/24/french-rafales-japan-pegase-2026"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 65.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.653,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2630,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1064,
+        "statesFreshness": false,
+        "text": "Create An Account\n\nPassword Reset\n\nFrom the author of the Number one bestselling Abroad in Japan, Journey Across Japan is the essential guide to all 47 prefectures of the Land of the Rising Sun. [3]\n\nNews in Pics | September 27, 2026: Best photos from around the world\n\nKochi: The full moon rises behind the cross at Manjummel Church, in Kochi. [1]\n\nTakashi Nagai was a Japanese Catholic physician specializing in radiology, an author, and a survivor of the atomic bombing of Nagasaki. [2]\n\nAbout Longeveron\n\nLongeveron Inc., a clinical stage biotechnology company, develops cellular therapies for aging-related and life-threatening conditions in the United States and Japan. [4]\n\nSources: [1] News in Pics | September 27, 2026: Best photos from around the world (deccanherald.com)  [2] The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback (abbeys.com.au)  [3] Journey Across Japan by C"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japan news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 33,
+            "domain": "deccanherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:31:50.000Z",
+            "relevance": 1,
+            "title": "News in Pics | September 27, 2026: Best photos from around the world",
+            "url": "https://www.deccanherald.com/india/news-in-pics-september-27-2026-best-photos-from-around-the-world-4161205"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 1,
+            "title": "The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529952599"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.93,
+            "title": "Journey Across Japan by Chris Broad | 9780857508300 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9780857508300"
+          },
+          {
+            "ageHours": 31.2,
+            "domain": "themarketsdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:14:53.000Z",
+            "relevance": 0.88,
+            "title": "Critical Comparison: ProQR Therapeutics (NASDAQ:PRQR) and Longeveron (NASDAQ:LGVN)",
+            "url": "https://www.themarketsdaily.com/2026/09/27/critical-comparison-proqr-therapeutics-nasdaqprqr-and-longeveron-nasdaqlgvn.html"
+          },
+          {
+            "ageHours": 31.1,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:20:20.000Z",
+            "relevance": 0.86,
+            "title": "'Aapne Humko Chhatrachhaya Di Hai': Axar Patel Gives Hilarious Response After Getting Caught In Rain Alongside",
+            "url": "https://www.freepressjournal.in/sports/aapne-humko-chhatrachhaya-di-hai-axar-patel-gives-hilarious-response-after-getting-caught-in-rain-alongside-abhishek-sharma-ahead-of-asian-games-2026-video"
+          },
+          {
+            "ageHours": 31.3,
+            "domain": "koreaherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:13:46.000Z",
+            "relevance": 0.62,
+            "title": "Age is just a number. These gamers, 41.7 on average, have the gold to prove it",
+            "url": "https://www.koreaherald.com/article/10885168"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.882,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2117,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 856,
+        "statesFreshness": false,
+        "text": "Japanese economy at risk of shrinking again due to omicron The likelihood is growing that Japan’s economy will shrink again this quarter, according to an… [12]\n\n1991 · 265 citations\nA comparative perspective and an analytic approach grounded in mainstream economics distinguish this broad, accessible introduction to the Japanese economy. [3]\n\nJapanese economy shrank in fourth quarter Japan's economy shrank 2.3% in the fourth quarter as manufacturers were hit by the strong yen, weak export dema… [7]\n\nThe Japanese economic miracle (Japanese: 高度経済成長, romanized: Kōdo keizai seichō) refers to a period of economic growth in post–World War II Japan. [2]\n\nSources: [1] Japanese asset price bubble (en.wikipedia.org)  [2] Japanese economic miracle (en.wikipedia.org)  [3] The Japanese Economy (openalex.org)  [4] The Japanese economy (2010) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japanese economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Japanese asset price bubble",
+            "url": "https://en.wikipedia.org/wiki/Japanese_asset_price_bubble"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Japanese economic miracle",
+            "url": "https://en.wikipedia.org/wiki/Japanese_economic_miracle"
+          },
+          {
+            "ageHours": 313305.5,
+            "domain": "openalex.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1991-01-01",
+            "relevance": 0.92,
+            "title": "The Japanese Economy",
+            "url": "https://openalex.org/W2075498665"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The Japanese economy (2010)",
+            "url": "https://openlibrary.org/works/OL19998796W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The Japanese Economy (2000)",
+            "url": "https://openlibrary.org/works/OL8014910W"
+          },
+          {
+            "ageHours": null,
+            "domain": "money.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "title": "Japanese economy shrinks 1.4% in fourth quarter",
+            "url": "http://money.cnn.com/2016/02/14/news/economy/japan-economy-shrinks/index.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "title": "Japanese economy shrank in fourth quarter | Global economy | The…",
+            "url": "https://www.theguardian.com/business/2012/feb/13/japan-economy-shrank-fourth-quarter"
+          },
+          {
+            "ageHours": 339609.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1988-01-01",
+            "relevance": 0.85,
+            "title": "Information, Incentives and Bargaining in the Japanese Economy",
+            "url": "https://doi.org/10.1017/cbo9780511571701"
+          },
+          {
+            "ageHours": 330825.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1989-01-01",
+            "relevance": 0.85,
+            "title": "Information, incentives, and bargaining in the Japanese economy",
+            "url": "https://doi.org/10.5860/choice.26-5742"
+          },
+          {
+            "ageHours": null,
+            "domain": "dspace.mit.edu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "Long-run projection of the Japanese economy",
+            "url": "http://dspace.mit.edu/handle/1721.1/83006"
+          },
+          {
+            "ageHours": 117326.1,
+            "domain": "nytimes.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-05-10T19:25:04Z",
+            "relevance": 0.82,
+            "title": "Pro-Inflation Policies Show Signs of Helping Japanese Economy",
+            "url": "http://www.nytimes.com/2013/05/11/business/global/pro-inflation-policies-show-signs-of-helping-japan-economy.html?_r=0&pagewanted=all"
+          },
+          {
+            "ageHours": null,
+            "domain": "japantimes.co.jp",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "Japanese economy at risk of shrinking again due to omicron - The…",
+            "url": "https://www.japantimes.co.jp/news/2022/02/02/business/economy-shrink-covid-omicron"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 117326.1,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "TheSportsDB has no current fixture for \"Japanese economy\" right now — Omi will n"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.873,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1959,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1506,
+        "statesFreshness": false,
+        "text": "Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery\n\nHome » Gallery » Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery\n\nPosted By: Social News XYZ September 26, 2026\n\n-\n\nNagoya: India’s Unnathi Aiyappa Bollanda (2nd from left) competes during the womens 200m Round 1 at the Asian Games 2026 in Nagoya, Japan, on Saturday, September 26, 2026. [1]\n\nAsian Games 2026: Baranica Elangovan wins bronze in women’s pole vault\n\nShe became the first Indian to win a medal in this event at the Asian Games\n\nIndia’s Baranica Elangovan made history at the Asian Games 2026 in Aichi-Nagoya, Japan, clinching a bronze medal in the women’s pole vault event at the Nagoya City Mizuho Park Athletic Stadium on Friday, September 25. [2]\n\nGo Ad Lite\n\nHome sports hockey\n\nAsian Games 2026 | Indian women overcome spunky Japan to book semi-final spot\n\nMarijne acknowledged as much but felt his players had"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japan 2026 events",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 44.4,
+            "domain": "socialnews.xyz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T13:04:11.000Z",
+            "relevance": 1,
+            "title": "Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery",
+            "url": "https://www.socialnews.xyz/2026/09/26/nagoya-asian-games-2026-womens-200m-round-1-gallery"
+          },
+          {
+            "ageHours": 61.5,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T20:01:33.000Z",
+            "relevance": 0.82,
+            "title": "Asian Games 2026: Baranica Elangovan wins bronze in women’s pole vault",
+            "url": "https://khelnow.com/asian-games/baranica-elangovan-bronze-asian-games-202609"
+          },
+          {
+            "ageHours": 61.2,
+            "domain": "deccanherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T20:17:50.000Z",
+            "relevance": 0.8,
+            "title": "Asian Games 2026 | Indian women overcome spunky Japan to book semi-final spot",
+            "url": "https://www.deccanherald.com/sports/hockey/asian-games-2026-indian-women-overcome-spunky-japan-to-book-semi-final-spot-4160137"
+          },
+          {
+            "ageHours": 70.7,
+            "domain": "hawa4arab.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:44:15.000Z",
+            "relevance": 0.8,
+            "title": "Japan's Economy Shifts: Abenomics Era Ends, What's Next for Yen & Interest Rates? (2026)",
+            "url": "https://hawa4arab.com/article/japan-s-economy-shifts-abenomics-era-ends-what-s-next-for-yen-interest-rates"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 44.4,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.855,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1575,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1393,
+        "statesFreshness": true,
+        "text": "Russia Ukraine War Latest News: South Korea’s President Lee Jee Myung Accuses Ukraine of Breaching Confidentiality Agreement After Zelensky’s POW Transfer Announcement\n\nRussia Ukraine War Latest News: Lee Jae Myung, the President of South Korea has criticised Ukraine for allegedly breaking a confidentiality agreement. [2]\n\nBetting Tips & Odds\n\nSouth Korea to win\nSon Heung-min to score\nGoals over 3.5\n\nInjury and Team News\n\nAll of the selected players are fit and ready to be in action for both South Korea and Uruguay. [1]\n\nNorth Korea warns South Korea could become target for retaliation\n\nSeoul, Sept 25:\n\nNorth Korea has warned that South Korea could become a “decisive target” for collective retaliation if it is used as a central hub for a US-led collective defence system in the region. [3]\n\nMatch Facts\n\nSouth Korea have secured three wins in their last five matches. [1]\n\nSources: [1] Sout"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "latest South Korea news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 61.7,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:44:53.000Z",
+            "relevance": 1,
+            "title": "South Korea vs Uruguay Preview – prediction, team news, lineups | International friendly 2026",
+            "url": "https://khelnow.com/football/south-korea-vs-uruguay-preview-international-friendly-202609"
+          },
+          {
+            "ageHours": 71.2,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:14:11.000Z",
+            "relevance": 0.84,
+            "title": "Russia Ukraine War Latest News: South Korea’s President Lee Jee Myung Accuses Ukraine of Breaching Confidentia",
+            "url": "https://sundayguardianlive.com/world/russia-ukraine-war-latest-news-south-koreas-president-lee-jee-myung-accuses-ukraine-of-breaching-confidentiality-agreement-after-zelenskys-pow-transfer-announcement-292486"
+          },
+          {
+            "ageHours": 75.2,
+            "domain": "newstodaynet.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:17:28.000Z",
+            "relevance": 0.83,
+            "title": "North Korea warns South Korea could become target for retaliation",
+            "url": "https://newstodaynet.com/2026/09/25/north-korea-warns-south-korea-could-become-target-for-retaliation"
+          },
+          {
+            "ageHours": 81.5,
+            "domain": "straitstimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:01:52.000Z",
+            "relevance": 0.83,
+            "title": "North Korea says South Korea a target if it becomes US collective defence hub",
+            "url": "https://www.straitstimes.com/asia/north-korea-says-south-korea-a-target-if-it-becomes-us-collective-defence-hub"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.57,
+            "title": "Law and crime: Crime in South Africa",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "euronews.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.56,
+            "title": "Law and crime: Ten people are killed and 11 others are injured in a mass shooting at a store in Lwandle, City ",
+            "url": "https://www.euronews.com/2026/09/27/two-mass-shootings-in-south-africa-leave-at-least-27-dead"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.772,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 3209,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 958,
+        "statesFreshness": false,
+        "text": "Suji Park is an author/illustrator born in South Korea. [2]\n\nTen people are killed and 11 others are injured in a mass shooting at a store in Lwandle, City of Cape Town, South Africa. [7]\n\nHe advises policymakers around the world, including in the U.S., Japan, Taiwan, South Korea, the Philippines, Australia, United Kingdom, the Netherlands, and Belgium. [1]\n\nOn Saturday, the two joined Lee Kwang-noh to beat host Japan 5-2 in the Asian Games fighting games final, giving South Korea its first esports gold of the Aichi-Nagoya Games. [3]\n\nSources: [1] The Left's War on Reality by Michael Shellenberger | 9780063498112 | Paperback (abbeys.com.au)  [2] All I Want For Christmas: A Holiday Countdown by Phaea Crede | 9781368119177 | Hardback (abbeys.com.au)  [3] Age is just a number. These gamers, 41.7 on average, have the gold to prove it (koreaherald.com)  [4] Kazakhstan wants Malaysian universi"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "South Korea news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 1,
+            "title": "The Left's War on Reality by Michael Shellenberger | 9780063498112 | Paperback",
+            "url": "https://www.abbeys.com.au/book/pathocracy-9780063498112.do"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 1,
+            "title": "All I Want For Christmas: A Holiday Countdown by Phaea Crede | 9781368119177 | Hardback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781368119177"
+          },
+          {
+            "ageHours": 31.3,
+            "domain": "koreaherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:13:46.000Z",
+            "relevance": 0.96,
+            "title": "Age is just a number. These gamers, 41.7 on average, have the gold to prove it",
+            "url": "https://www.koreaherald.com/article/10885168"
+          },
+          {
+            "ageHours": 31.5,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:00:56.000Z",
+            "relevance": 0.94,
+            "title": "Kazakhstan wants Malaysian universities back as it revives its education ties",
+            "url": "https://www.malaymail.com/news/malaysia/2026/09/27/kazakhstan-wants-malaysian-universities-back-as-it-revives-its-education-ties/236664"
+          },
+          {
+            "ageHours": 30.9,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:33:19.000Z",
+            "relevance": 0.93,
+            "title": "Which country eats the most fish in the world?",
+            "url": "https://visitfranceguide.com/which-country-eats-the-most-fish-in-the-world"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.57,
+            "title": "Law and crime: Crime in South Africa",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "euronews.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.56,
+            "title": "Law and crime: Ten people are killed and 11 others are injured in a mass shooting at a store in Lwandle, City ",
+            "url": "https://www.euronews.com/2026/09/27/two-mass-shootings-in-south-africa-leave-at-least-27-dead"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.851,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1724,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1112,
+        "statesFreshness": false,
+        "text": "Seoul Bets Big: What South Korea’s $518 Billion Semiconductor Gamble Means For Global Tech Companies\n\nwithin Strategy topic(s)\nwithin Strategy, Wealth Management and Law Practice Management topic(s)\n\nThe South Korean government has just placed one of the most consequential industrial bets we have seen in more than 25 years of advising technology companies. [5]\n\nThe South Korean technology firm is looking for ways to sustain earnings momentum after reviving its mobile profits by restructuring its product line-up. [7]\n\nSAMSUNG(103 articles) samsung is a south korean technology company with its headquarters in seoul. [9]\n\nA union representing workers at South Korean technology giant Samsung Electronics has called on its roughly 30,000 members to go on strike indefinitely, … [8]\n\nSources: [1] South Korea Data Center Physical Security - Market Share Analysis, Industry Trends & Statistics, Gro"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "South Korean technology sector",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 979,
+            "domain": "researchandmarkets.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T14:31:40.000Z",
+            "relevance": 0.86,
+            "title": "South Korea Data Center Physical Security - Market Share Analysis, Industry Trends & Statistics, Growth Foreca",
+            "url": "https://www.researchandmarkets.com/report/south-korea-data-center-security-market"
+          },
+          {
+            "ageHours": 1229.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:59:52.000Z",
+            "relevance": 0.86,
+            "title": "Samsung",
+            "url": "https://en.wikipedia.org/wiki/Samsung"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "South Korea",
+            "url": "https://en.wikipedia.org/wiki/South_Korea"
+          },
+          {
+            "ageHours": 260697.5,
+            "domain": "openalex.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1997-01-01",
+            "relevance": 0.78,
+            "title": "Imitation to Innovation: The Dynamics of Korea's Technological Learning",
+            "url": "https://openalex.org/W1490135749"
+          },
+          {
+            "ageHours": 1009.5,
+            "domain": "mondaq.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T07:56:36.000Z",
+            "relevance": 0.72,
+            "title": "Seoul Bets Big: What South Korea’s $518 Billion Semiconductor Gamble Means For Global Tech Companies",
+            "url": "https://www.mondaq.com/technology/1823102/seoul-bets-big-what-south-koreas-%24518-billion-semiconductor-gamble-means-for-global-tech-companies"
+          },
+          {
+            "ageHours": 2755.8,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-05T13:39:46.000Z",
+            "relevance": 0.72,
+            "title": "hp memory chip shortage: Latest News & Videos, Photos about hp memory chip shortage | The Economic Times - Pag",
+            "url": "https://economictimes.indiatimes.com/topic/hp-memory-chip-shortage"
+          },
+          {
+            "ageHours": null,
+            "domain": "reuters.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.71,
+            "title": "Samsung plans refurbished smartphone program: source | Reuters",
+            "url": "https://www.reuters.com/article/us-samsung-elec-phones-refurbishment-idUSKCN10X0FT"
+          },
+          {
+            "ageHours": null,
+            "domain": "lemmy.ml",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.68,
+            "title": "Samsung Electronics union goes on indefinite strike - Lemmy",
+            "url": "https://lemmy.ml/post/17837411"
+          },
+          {
+            "ageHours": null,
+            "domain": "designboom.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.68,
+            "title": "samsung | designboom.com",
+            "url": "https://www.designboom.com/tag/samsung"
+          },
+          {
+            "ageHours": null,
+            "domain": "advanced-television.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.68,
+            "title": "Advanced Television | Tag Archive | chips",
+            "url": "https://advanced-television.com/tag/chips"
+          },
+          {
+            "ageHours": null,
+            "domain": "tomshardware.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "title": "Samsung Withdraws Apple Ban Request in Europe | Tom's Hardware",
+            "url": "https://www.tomshardware.com/news/Samsung-Apple-Ban-Europe-iOS,19867.html"
+          },
+          {
+            "ageHours": 978.6,
+            "domain": "researchandmarkets.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T14:55:54.000Z",
+            "relevance": 0.59,
+            "title": "South Korea Semiconductor Market Report and Forecast 2025-2034",
+            "url": "https://www.researchandmarkets.com/reports/6096265/south-korea-semiconductor-market-report-forecast"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 978.6,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"South Korean technology sector\" right no"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.73,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2124,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1268,
+        "statesFreshness": true,
+        "text": "Which river is classified as the largest river in France? [3]\n\nWhether you are interested in scenic boat cruises, historic landmarks, or simply enjoying the natural beauty of France’s rivers, there is something for everyone to discover along these waterways. [3]\n\nExploring the Significance of Key Rivers in France: A Comprehensive Guide\n\nIn France, rivers play a vital role in shaping the landscape, culture, and history of the country. [1]\n\nUefa Nations League today: How to watch Turkey v France, TV channels & live stream Friday 25 September\n\nAfter 14 years of ‘Deschamps-ball,’ France will start a new era under Zinedine Zidane against Turkey in the Uefa Nations League with the new Les Bleus manager calling up several new faces to his squad. [2]\n\nSources: [1] What are the three most important rivers in France? (visitfranceguide.com)  [2] Uefa Nations League today: How to watch Turkey v Fran"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "dernières nouvelles France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 35.7,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:45:56.000Z",
+            "relevance": 0.74,
+            "title": "What are the three most important rivers in France?",
+            "url": "https://visitfranceguide.com/what-are-the-three-most-important-rivers-in-france"
+          },
+          {
+            "ageHours": 67.5,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T14:01:23.000Z",
+            "relevance": 0.72,
+            "title": "Uefa Nations League today: How to watch Turkey v France, TV channels & live stream Friday 25 September",
+            "url": "https://www.theguardian.com/football/2026/sep/25/how-to-match-uefa-nations-league-france-turkey"
+          },
+          {
+            "ageHours": 39.5,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T17:57:43.000Z",
+            "relevance": 0.65,
+            "title": "The Ultimate Guide to France’s Largest River: Discovering the Mighty Waterways of France",
+            "url": "https://visitfranceguide.com/which-river-is-classified-as-the-largest-river-in-france"
+          },
+          {
+            "ageHours": 63.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T17:33:24.000Z",
+            "relevance": 0.63,
+            "title": "Turkey vs France Match Prediction: Can Zinedine Zidane Begin France Era With A UEFA Nations League Victory In ",
+            "url": "https://sundayguardianlive.com/sports/turkey-national-football-team-vs-france-national-football-team-match-prediction-can-zinedine-zidane-begin-france-era-with-a-uefa-nations-league-victory-in-kocaeli-latest-team-news-predicted-score-292719"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 35.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.685,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1652,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "aktuelle Nachrichten Deutschland",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1440,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "日本の最新ニュース",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2024,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "últimas noticias España",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2044,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "ultime notizie Italia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 6,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1384,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1129,
+        "statesFreshness": false,
+        "text": "Travaillant tous les jours avec des écosystèmes de PME, de start-up et des entreprises innovantes en France, Huawei et EuraTechnologies ont donc souhaité lancé le plus grand concours de start-up privé en France, afin de soutenir l'émergence de projets innovants valorisant l'expertise française dans les domaines d'avenir des nouvelles technologies. [1]\n\nExploring the Natural Beauty: A Guide to the Lakes of France\n\nFrance is home to a diverse range of landscapes, from rolling vineyards to snow-capped mountains. [5]\n\nFrom the glacial lakes of the Alps to the tranquil waters of the Loire Valley, there are countless lakes in France waiting to be explored. [5]\n\nFor those looking to discover the beauty of France’s lake region, a guide to the country’s most picturesque lakes is essential. [5]\n\nSources: [1] Inno'start récompense les entreprises innovantes (lillesagency.com)  [2] Inno'start récomp"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "nouvelles du jour en France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 18.4,
+            "domain": "lillesagency.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:06:18.000Z",
+            "relevance": 0.88,
+            "title": "Inno'start récompense les entreprises innovantes",
+            "url": "https://www.lillesagency.com/blog-business/zoom-sur/innostart-recompense-les-entreprises-innovantes"
+          },
+          {
+            "ageHours": 18.4,
+            "domain": "lillesagency.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:06:18.000Z",
+            "relevance": 0.88,
+            "title": "Inno'start récompense les entreprises innovantes",
+            "url": "https://lillesagency.com/blog-business/zoom-sur/innostart-recompense-les-entreprises-innovantes"
+          },
+          {
+            "ageHours": 49.8,
+            "domain": "gadgtecs.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T07:41:25.000Z",
+            "relevance": 0.7,
+            "title": "Rabona casino en ligne en France : guide complet et pratique",
+            "url": "https://gadgtecs.com/2026/09/26/rabona-casino-en-ligne-en-france-guide-complet-et-pratique"
+          },
+          {
+            "ageHours": 47.3,
+            "domain": "skans.edu.pk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:14:15.000Z",
+            "relevance": 0.7,
+            "title": "Joka Casino – Guide complet du casino joka en ligne pour les joueurs français",
+            "url": "https://skans.edu.pk/joka-casino-guide-complet-du-casino-joka-en-ligne-pour-les-joueurs-francais"
+          },
+          {
+            "ageHours": 42,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T15:32:15.000Z",
+            "relevance": 0.55,
+            "title": "Is there a lake region in France?",
+            "url": "https://visitfranceguide.com/is-there-a-lake-region-in-france"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 18.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.742,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1484,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1010,
+        "statesFreshness": false,
+        "text": "Últimas noticias sobre la economía de México y el mundo. [1]\n\nXHTVM-TDT (channel 40) is a television station in Mexico City, Mexico, owned by Televisora del Valle de México and operated by TV Azteca. [4]\n\nIt is branded as adn Noticias and available over the air in much of Mexico on TV Azteca's transmitters. [4]\n\nInformación financiera y noticias actuales de economía, negocios, política, tipo de cambio, tecnología\n\nÚltimas Noticias de New York, USA, y El Mundo. [1]\n\nSources: [1] Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy, Covid-19. (topbinhpgzdvkr.netlify.app)  [2] A fin de dictar la Junta principal de Caridad varias providencias ... necesita reunir algunas noticias y saber con puntualidad y distincion el n©ðmero de enfermos que est©♭n curados ©đ sanos de las actuales viruelas [&c.]. (1797) (openlibrary.org)  [3] Nacional "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "noticias actuales de México",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1851.6,
+            "domain": "topbinhpgzdvkr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-13T05:55:43.000Z",
+            "relevance": 0.86,
+            "title": "Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy,",
+            "url": "https://topbinhpgzdvkr.netlify.app/isadore80199goqe/cubl-es-la-mejor-fuente-de-noticias-en-lnnea-no.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "A fin de dictar la Junta principal de Caridad varias providencias ... necesita reunir algunas noticias y saber",
+            "url": "https://openlibrary.org/works/OL17679852W"
+          },
+          {
+            "ageHours": null,
+            "domain": "publimetro.com.mx",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "Nacional | Noticias actuales y de última hora en México - Publim…",
+            "url": "http://www.publimetro.com.mx/nacional"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.72,
+            "title": "XHTVM-TDT",
+            "url": "https://en.wikipedia.org/wiki/XHTVM-TDT"
+          },
+          {
+            "ageHours": 1616.6,
+            "domain": "mx.online-listing.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-23T00:52:52.000Z",
+            "relevance": 0.67,
+            "title": "Day: February 14, 2024",
+            "url": "https://www.mx.online-listing.com/Noticias/Blogger/2024/02/14"
+          },
+          {
+            "ageHours": 1761.6,
+            "domain": "mx.online-listing.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-16T23:54:38.000Z",
+            "relevance": 0.65,
+            "title": "Category: Compras en México",
+            "url": "https://www.mx.online-listing.com/Noticias/Blogger/category/compras-en-mexico"
+          },
+          {
+            "ageHours": null,
+            "domain": "laguiadelciclismo.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.64,
+            "title": "Noticias actuales sobre ciclismo profesional - Página 4 de 203- …",
+            "url": "https://laguiadelciclismo.com/actualidad/page/4"
+          },
+          {
+            "ageHours": null,
+            "domain": "laprensa.hn",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "title": "Videos de Noticias Actuales | La Prensa",
+            "url": "http://www.laprensa.hn/video"
+          },
+          {
+            "ageHours": null,
+            "domain": "elpais.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "title": "Los rostros actuales de la pobreza | Noticias de la Comunidad Va…",
+            "url": "https://elpais.com/ccaa/2012/06/02/valencia/1338669912_508193.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "mamaingeniosa.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "title": "Noticias actuales y familiares de Mama ingeniosa. Viajes y mucha…",
+            "url": "https://mamaingeniosa.com/category/noticias"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "title": "2018 Mexican general election",
+            "url": "https://en.wikipedia.org/wiki/2018_Mexican_general_election"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "title": "Noticia histórica de la riqueza minera de México y de su actual estado de explotacion (1884)",
+            "url": "https://openlibrary.org/works/OL6493804W"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1616.6,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.673,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1185,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 815,
+        "statesFreshness": false,
+        "text": "'Battalions Party'), officially the Kataeb Party – Lebanese Social Democratic Party (Arabic: حزب الكتائب اللبنانية – الحزب الديمقراطي الاجتماعي اللبناني Ḥizb al-Katā'ib al-Lubnānīya), historically known as the Phalangist Party, is a Lebanese nationalist political party in Lebanon. [1]\n\nBonjus (Arabic: بون جوس, from French: good juice) is a Lebanese brand of juice, ice cream and dairy products, famous for its \"Pyramid-shaped\" (الهرم) juicebox (actually tetrahedral). [2]\n\nDepartamento de Economía\n\nNovedades\n\n21/06/2022 [3]\n\nيحيى غالي ياسين · 2018 — الحسين بن علي الشهيد عليه السلام, الامام الثالث, 4 – 61 للهجرة, شهادة, واقعة كربلاء, 61 للهجرة [4]\n\nSources: [1] Kataeb Party (en.wikipedia.org)  [2] Bonjus (en.wikipedia.org)  [3] Departamento de Economía (utdt.edu)  [4] القضية الحسينية (2018) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "آخر الأخبار",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.61,
+            "title": "Kataeb Party",
+            "url": "https://en.wikipedia.org/wiki/Kataeb_Party"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.61,
+            "title": "Bonjus",
+            "url": "https://en.wikipedia.org/wiki/Bonjus"
+          },
+          {
+            "ageHours": 1316.2,
+            "domain": "utdt.edu",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:46.000Z",
+            "relevance": 0.6,
+            "title": "Departamento de Economía",
+            "url": "https://www.utdt.edu/ver_novedad.php?id_novedad=4958&id_item_menu=436"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.56,
+            "title": "القضية الحسينية (2018)",
+            "url": "https://openlibrary.org/works/OL19646346W"
+          },
+          {
+            "ageHours": 120441.5,
+            "domain": "openalex.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2013-01-01",
+            "relevance": 0.55,
+            "title": "2013 - Issue 2 - Arabic Version",
+            "url": "https://openalex.org/W7210966749"
+          },
+          {
+            "ageHours": null,
+            "domain": "arabic.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.55,
+            "title": "آخر الأخبار السياسية والرياضية والفنية وأحدث تقارير الفيديو | CN…",
+            "url": "http://arabic.cnn.com"
+          },
+          {
+            "ageHours": 2644,
+            "domain": "bestoptionsclmbdbr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-10T05:28:10.000Z",
+            "relevance": 0.53,
+            "title": "آخر الأخبار nrl egtxi",
+            "url": "https://bestoptionsclmbdbr.netlify.app/lukens35411heq/nrl-for"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.53,
+            "title": "الفرق بين المعاجز الإلهية وبين السحر وتحضير الأرواح (2018)",
+            "url": "https://openlibrary.org/works/OL19367404W"
+          },
+          {
+            "ageHours": 1105,
+            "domain": "kashmirsearch.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:27:53.000Z",
+            "relevance": 0.53,
+            "title": "Products",
+            "url": "http://kashmirsearch.com/Products/Schools%20and%20Colleges/TYNDALE-BISCOE-AND-MALLINSON-HIGH-SECONDARY-SCHOOL"
+          },
+          {
+            "ageHours": 2496,
+            "domain": "banten.akurat.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-16T09:31:10.000Z",
+            "relevance": 0.53,
+            "title": "Penculikan Nekat di Kawasan Super Aman PIK: Korban Lansia 70 Tahun Masih Trauma Keluar Sendirian",
+            "url": "https://banten.akurat.co/news/865793/penculikan-nekat-di-kawasan-super-aman-pik-korban-lansia-70-tahun-masih-trauma-keluar-sendirian"
+          },
+          {
+            "ageHours": 59097.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2020-01-01",
+            "relevance": 0.53,
+            "title": "اتجاهات الصحفیین والقیادات نحو توظیف تقنیات الذکاء الاصطناعی داخل غرف الأخبار بالمؤسسات الصحفیة المصریة",
+            "url": "https://doi.org/10.21608/joa.2020.127847"
+          },
+          {
+            "ageHours": 76617.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2018-01-01",
+            "relevance": 0.53,
+            "title": "الخطاب الإعلامي للرئيس ترامب في الانتخابات الأمريكية دراسة في المواقع الإخبارية الالكترونية / CNN ARABIC نموذج",
+            "url": "https://doi.org/10.33282/abaa.v10i42.220"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1105,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Search provider \"arxiv\" is not configured.",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.555,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1170,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 736,
+        "statesFreshness": false,
+        "text": "Lima is the capital and largest city of Peru, as well as a primate city. [1]\n\nTrujillo (Spanish: [tɾuˈxiʝo]; Quechua: Truhillu; Mochica: Cɥimor) is a city in coastal northwestern Peru and the capital of the Department of La Libertad. [2]\n\nPERU'S CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU'S CAPITAL\n\nCrossword Puzzle Infos\n\nPeru's capital is LIMA, a four-letter word. [3]\n\nPERU CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU CAPITAL\n\nCrossword Puzzle Infos\n\nThe capital of Peru is LIMA, which is a four-letter word. [4]\n\nSources: [1] Lima (en.wikipedia.org)  [2] Trujillo, Peru (en.wikipedia.org)  [3] PERU'S CAPITAL Crossword Clue (crossword-dictionary.com)  [4] PERU CAPITAL Crossword Clue (crossword-dictionary.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "what is the capital of Peru",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "Lima",
+            "url": "https://en.wikipedia.org/wiki/Lima"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Trujillo, Peru",
+            "url": "https://en.wikipedia.org/wiki/Trujillo%2C_Peru"
+          },
+          {
+            "ageHours": 1050.5,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T14:56:51.000Z",
+            "relevance": 0.91,
+            "title": "PERU'S CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-s-capital"
+          },
+          {
+            "ageHours": 1056.7,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T08:47:22.000Z",
+            "relevance": 0.91,
+            "title": "PERU CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-capital"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "A guide to Lima, the capital of Peru (1949)",
+            "url": "https://openlibrary.org/works/OL2002609W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Lima, or Sketches of the capital of Peru (1866)",
+            "url": "https://openlibrary.org/works/OL45640253W"
+          },
+          {
+            "ageHours": 190569.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2005-01-01",
+            "relevance": 0.85,
+            "title": "Understanding sources and types of social capital in Peru",
+            "url": "https://doi.org/10.1093/cdj/bsi071"
+          },
+          {
+            "ageHours": 208113.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2003-01-01",
+            "relevance": 0.85,
+            "title": "International Capital Versus Local Population: The Environmental Conflict of the Tambogrande Mining Project, P",
+            "url": "https://doi.org/10.1080/08941920309166"
+          },
+          {
+            "ageHours": 42573.4,
+            "domain": "mapsofworld.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-11-19T12:04:39.000Z",
+            "relevance": 0.85,
+            "title": "Peru South America Map",
+            "url": "https://www.mapsofworld.com/peru/peru-political-map.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "everything2.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "title": "Lima - Everything2.com",
+            "url": "http://everything2.com/title/LIMA"
+          },
+          {
+            "ageHours": 977.5,
+            "domain": "spanishdict.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T16:01:03.000Z",
+            "relevance": 0.81,
+            "title": "The capital of Peru is Lima.",
+            "url": "https://www.spanishdict.com/translate/The%20capital%20of%20Peru%20is%20Lima."
+          },
+          {
+            "ageHours": 23103.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2024-02-08T18:16:47Z",
+            "relevance": 0.66,
+            "title": "GET-Tok: A GenAI-Enriched Multimodal TikTok Dataset Documenting the 2022 Attempted Coup in Peru",
+            "url": "http://arxiv.org/abs/2402.05882v1"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 977.5,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.858,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1314,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 958,
+        "statesFreshness": false,
+        "text": "MLS Player Status Report: Matchday 28 - Who's In, Who's Out? [2]\n\nA drone strikes Tigrai Television's headquarters in Mekelle, Tigray Region, Ethiopia, forcing the station off air, while Tigray People's Liberation Front forces capture Erebti, Afar Region, and advance toward Afdera [3]\n\n(2026)\n\nLet's dive into the fascinating world of MLS player status reports and uncover some intriguing insights. [2]\n\nThe Impact of International Duty\n\nOne thing that immediately stands out is the significant number of players absent due to international duty. [2]\n\nSources: [1] Latest Weather Forecast - Saturday 26th September, 2026 (6 am) (meteo.gov.vc)  [2] MLS Player Status Report: Matchday 28 - Who's In, Who's Out? (2026) (musichits.org)  [3] Armed conflicts and attacks: A drone strikes Tigrai Television's headquarters in Mekelle, Tigray Region, Ethiopia, forcing the station off air, while Tigray Peopl"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Kerguelen Islands current research station status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "shares no subject word": 2,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 47.2,
+            "domain": "meteo.gov.vc",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:20:14.000Z",
+            "relevance": 0.62,
+            "title": "Latest Weather Forecast - Saturday 26th September, 2026 (6 am)",
+            "url": "https://meteo.gov.vc/meteo/index.php/45-weather-bulletin/8863-latest-weather-forecast-saturday-26th-september-2026-6-am"
+          },
+          {
+            "ageHours": 56.5,
+            "domain": "musichits.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:57:12.000Z",
+            "relevance": 0.53,
+            "title": "MLS Player Status Report: Matchday 28 - Who's In, Who's Out? (2026)",
+            "url": "https://musichits.org/article/mls-player-status-report-matchday-28-who-s-in-who-s-out"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.48,
+            "title": "Armed conflicts and attacks: A drone strikes Tigrai Television's headquarters in Mekelle, Tigray Region, Ethio",
+            "url": "https://www.france24.com/en/live-news/20260927-tigray-tv-station-hit-by-drone-rebels-advance-in-north-ethiopia"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 8,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.543,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1256,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 777,
+        "statesFreshness": false,
+        "text": "Bakkafrost is a Faroese salmon farming company based in Glyvrar on the island of Eysturoy in the Faroe Islands. [2]\n\nBakkafrost is the largest fish farming company in the Faroe Islands and touts iteslef as the world’s third-largest fish farming company. [2]\n\nLike Mongolia, dusty Western Australia, the Faroe Islands, and the middle of the Atlantic Ocean. [1]\n\nAnd as ever, explore roadandtrack.com for the latest news and reviews. [1]\n\nSources: [1] Unknown Pleasures: The Delights of Nowhere (roadandtrack.com)  [2] Bakkafrost Scotland Wins Enterprise Award for Excellence in Innovation (perishablenews.com)  [3] Latest Weather Forecast - Saturday 26th September, 2026 (12 noon) (meteo.gov.vc)  [4] Latest Weather Forecast - Saturday 26th September, 2026 (6 am) (meteo.gov.vc)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest news about the Faroe Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "shares no subject word": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 109.5,
+            "domain": "roadandtrack.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T20:00:00.000Z",
+            "relevance": 0.88,
+            "title": "Unknown Pleasures: The Delights of Nowhere",
+            "url": "https://www.roadandtrack.com/car-culture/a73555054/vol-37-nowhere-issue-editors-letter"
+          },
+          {
+            "ageHours": 120,
+            "domain": "perishablenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T09:29:26.000Z",
+            "relevance": 0.69,
+            "title": "Bakkafrost Scotland Wins Enterprise Award for Excellence in Innovation",
+            "url": "https://perishablenews.com/seafood/bakkafrost-scotland-wins-enterprise-award-for-excellence-in-innovation"
+          },
+          {
+            "ageHours": 41.2,
+            "domain": "meteo.gov.vc",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T16:20:16.000Z",
+            "relevance": 0.64,
+            "title": "Latest Weather Forecast - Saturday 26th September, 2026 (12 noon)",
+            "url": "https://meteo.gov.vc/meteo/index.php/45-weather-bulletin/8864-latest-weather-forecast-saturday-26th-september-2026-12-noon"
+          },
+          {
+            "ageHours": 47.2,
+            "domain": "meteo.gov.vc",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:20:14.000Z",
+            "relevance": 0.64,
+            "title": "Latest Weather Forecast - Saturday 26th September, 2026 (6 am)",
+            "url": "https://meteo.gov.vc/meteo/index.php/45-weather-bulletin/8863-latest-weather-forecast-saturday-26th-september-2026-6-am"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 41.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.713,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2085,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 968,
+        "statesFreshness": false,
+        "text": "The Svalbard Global Seed Vault (Norwegian: Svalbard globale frøhvelv) is a secure backup facility for the Earth's crop diversity on the Norwegian island of Spitsbergen in the remote Arctic Svalbard archipelago. [3]\n\nSvalbard Global Seed Vault\n\nThe Svalbard Global Seed Vault is the world’s largest crop diversity storage facility. [6]\n\nSvalbard Global Seed Vault Known as the “doomsday vault,” the Global Seed Vault on the archipelago of Svalbard, Norway, is built to protect the world’s s… [10]\n\nSafe haven for the world’s crop diversity\n\nWith all this in mind, in 2008 The Svalbard Global Seed Vault was built aiming to provide a safe place for one of the world’s most important natural resources – our diminishing amounts of seeds. [1]\n\nSources: [1] Keeping the World’s Seeds Safe (greenlivingideas.com)  [2] Seeds of Love (136) The Svalbard Global Seed Vault (sbs.com.au)  [3] Svalbard Global See"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Svalbard Global Seed Vault capacity",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1007,
+            "domain": "greenlivingideas.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T10:26:29.000Z",
+            "relevance": 0.93,
+            "title": "Keeping the World’s Seeds Safe",
+            "url": "https://greenlivingideas.com/2011/08/29/keeping-the-worlds-seeds-safe"
+          },
+          {
+            "ageHours": 1061.7,
+            "domain": "sbs.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T03:49:15.000Z",
+            "relevance": 0.86,
+            "title": "Seeds of Love (136) The Svalbard Global Seed Vault",
+            "url": "https://www.sbs.com.au/language/vietnamese/en/podcast-episode/seeds-of-love-136-the-svalbard-global-seed-vault/9du6a10cc"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "Svalbard Global Seed Vault",
+            "url": "https://en.wikipedia.org/wiki/Svalbard_Global_Seed_Vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "Strategic reserve",
+            "url": "https://en.wikipedia.org/wiki/Strategic_reserve"
+          },
+          {
+            "ageHours": null,
+            "domain": "croptrust.org",
+            "providers": [
+              "mwmbl",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "title": "Svalbard Global Seed Vault - Crop Trust",
+            "url": "https://www.croptrust.org/work/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": 1058.2,
+            "domain": "bbva.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T07:16:12.000Z",
+            "relevance": 0.78,
+            "title": "'Seeds for the future': Partners in the fight against biodiversity loss",
+            "url": "https://www.bbva.com/en/sustainability/seeds-for-the-future-partners-in-the-fight-against-biodiversity-loss"
+          },
+          {
+            "ageHours": 17229.3,
+            "domain": "croptrust.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2024-10-10T12:12:06.000Z",
+            "relevance": 0.75,
+            "title": "Svalbard Global Seed Vault Deposit - May 2024 - Crop Trust",
+            "url": "https://www.croptrust.org/news-events/events/svalbard-global-seed-vault-deposit-may-2024-1"
+          },
+          {
+            "ageHours": null,
+            "domain": "nationalgeographic.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.69,
+            "title": "Svalbard Global Seed Vault Protects Earth's Food's Supply—Here’s…",
+            "url": "https://www.nationalgeographic.com/environment/article/norway-svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "abc.net.au",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.69,
+            "title": "Svalbard Global Seed Vault drafts plans for first 'return-to-sen…",
+            "url": "https://www.abc.net.au/news/rural/2015-08-24/seed-crop-varieties-svalbard-vault-genebank/6720522"
+          },
+          {
+            "ageHours": null,
+            "domain": "ideas.ted.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.69,
+            "title": "Svalbard Global Seed Vault |",
+            "url": "https://ideas.ted.com/tag/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "seedvault.no",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "title": "About – Svalbard Global Seed Vault",
+            "url": "https://www.seedvault.no/about"
+          },
+          {
+            "ageHours": 28075.8,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2023-07-16T13:41:39Z",
+            "relevance": 0.59,
+            "title": "Planting a SEED of Vision in Large Language Model",
+            "url": "http://arxiv.org/abs/2307.08041v2"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1007,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Search provider \"openlibrary\" is not configured.",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.755,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1112,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "what happened in Tuvalu today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 7
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1909,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 465,
+        "statesFreshness": false,
+        "text": "Xbox's Latest Merger Kills Iconic Racing Series\n\nBergen County's Population: Exploring the Most and Least Populated Towns\n\nThe Vvaan Movie: Sidharth Malhotra and Tamannaah Bhatia's Film Sells 8000 Tickets in Advance! [1]\n\n178 Fossil Fuel Giants Locked In Centuries of Warming: What You Need to Know\n\nCanada's Population Growth at 80-Year Low: What's Happening? [1]\n\nSources: [1] Meta Connect 2026: Unveiling the Future of VR and Smart Glasses (2026) (biblebyte.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "current population of Pitcairn Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 1,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 109.5,
+            "domain": "biblebyte.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T19:58:15.000Z",
+            "relevance": 0.54,
+            "title": "Meta Connect 2026: Unveiling the Future of VR and Smart Glasses (2026)",
+            "url": "https://biblebyte.org/article/meta-connect-2026-unveiling-the-future-of-vr-and-smart-glasses"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 109.5,
+        "normalizedCount": 9,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.54,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2283,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1055,
+        "statesFreshness": true,
+        "text": "JU VC releases latest issue of University's Multidisciplinary Research Journal\n\nExcelsior Correspondent JAMMU, Sept 24: Professor Umesh Rai, Vice Chancellor of the University of Jammu, today officially released Vol. [2]\n\nIndependent research firm names RWS a Leader in latest Localization Services analyst report\n\nRWS achieves maximum scores across 18 criteria, including Vision; Innovation; AI search, semantics, and knowledge enablement; and Hyperlocalization and cultural adaptation\n\nMAIDENHEAD, England, Sept. [3]\n\nLatest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [1]\n\nResearcher is a bi-annual, multidisciplinary, and double-blind peer-reviewed journal. [2]\n\nSources: [1] Today’s AI News – July 15, 2024 (bn.edu.pl)  [2] JU VC releases latest issue of University's Multidisciplinar"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest research on tardigrades",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 31.4,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 0.81,
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 86.8,
+            "domain": "dailyexcelsior.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:44:06.000Z",
+            "relevance": 0.76,
+            "title": "JU VC releases latest issue of University's Multidisciplinary Research Journal",
+            "url": "https://www.dailyexcelsior.com/ju-vc-releases-latest-issue-of-universitys-multidisciplinary-research-journal"
+          },
+          {
+            "ageHours": 98.5,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:00:00.000Z",
+            "relevance": 0.76,
+            "title": "Independent research firm names RWS a Leader in latest Localization Services analyst report",
+            "url": "https://www.prnewswire.co.uk/news-releases/independent-research-firm-names-rws-a-leader-in-latest-localization-services-analyst-report-302888009.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 31.4,
+        "normalizedCount": 5,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 5,
+        "relevanceAvg": 0.777,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2142,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1085,
+        "statesFreshness": false,
+        "text": "Bolt’s race\n\n#JAM Usain Bolt wins his heat in the men's 100m with a 10.07 time at #Rio2016 #Athletics https://t.co/JAoL0ve2RK https://t.co/aWKt3JuxUC\n\n— CBC Olympics (@CBCOlympics) August 13, 2016\n\nCanadians Aaron Brown, who went sub-10 earlier this year, was eliminated in the heats as was Akeem Haynes. [1]\n\nThe men's 100 metres event at the 2016 Summer Olympics took place between 13–14 August at the Olympic Stadium. [3]\n\nAthletics: Koike wins men's 100m in rain-hit Oda Memorial HIROSHIMA (Kyodo) -- Yuki Koike, who made his Olympic debut in Tokyo last summer, won the men's… [10]\n\n— Athletics Australia (@AthsAust) August 15, 2016\n\nBolt, De Grasse, Gatlin, Vicaut, Meite, Simbine, Blake and Bromell make the men’s 100m final. [4]\n\nSources: [1] Andre De Grasse eyes 100m gold: “I don’t want to wait, I want to do it now” (runningmagazine.ca)  [2] Olympics men's 100m final: How Noah Lyles won th"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Who won the 2016 Olympics men's 100m?",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1036,
+            "domain": "runningmagazine.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T05:27:53.000Z",
+            "relevance": 1,
+            "title": "Andre De Grasse eyes 100m gold: “I don’t want to wait, I want to do it now”",
+            "url": "https://runningmagazine.ca/sections/runs-races/rio-2016/andre-de-grasse-eyes-100m-gold-i-dont-want-to-wait-i-want-to-do-it-now"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.co.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "title": "Olympics men's 100m final: How Noah Lyles won the greatest race …",
+            "url": "http://www.bbc.co.uk/sport/olympics/articles/clwyy8jwp2go"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "Athletics at the 2016 Summer Olympics – Men's 100 metres",
+            "url": "https://en.wikipedia.org/wiki/Athletics_at_the_2016_Summer_Olympics_%E2%80%93_Men's_100_metres"
+          },
+          {
+            "ageHours": 976.7,
+            "domain": "runnerstribe.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T16:49:51.000Z",
+            "relevance": 0.82,
+            "title": "Aussie Rio Updates Via Social Media: Day 3 EVENING",
+            "url": "https://runnerstribe.com/australian-olympic-team/olympic-news/aussie-rio-updates-via-social-media-day-3-evening"
+          },
+          {
+            "ageHours": 1316.2,
+            "domain": "performancelabofcalifornia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:43.000Z",
+            "relevance": 0.8,
+            "title": "Usain Bolt Top Speed Explained: The Fastest Human Ever",
+            "url": "https://www.performancelabofcalifornia.com/usain-bolt"
+          },
+          {
+            "ageHours": 1229.5,
+            "domain": "essentiallysports.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:10.000Z",
+            "relevance": 0.8,
+            "title": "How Many mph Can Olympics Legend Usain Bolt Run?",
+            "url": "https://www.essentiallysports.com/olympics-news-how-many-mph-can-olympics-legend-usain-bolt-run"
+          },
+          {
+            "ageHours": null,
+            "domain": "viewtube.io",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.79,
+            "title": "1984年〜2016年　Every  Olympics men's 100m final :: Athletics Soul :…",
+            "url": "https://viewtube.io/watch?v=N3MJ0rYrYSc"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.7,
+            "title": "2016 Summer Olympics medal table",
+            "url": "https://en.wikipedia.org/wiki/2016_Summer_Olympics_medal_table"
+          },
+          {
+            "ageHours": 89469.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2016-07-14T12:17:10Z",
+            "relevance": 0.69,
+            "title": "The Oxford Olympics Study 2016: Cost and Cost Overrun at the Games",
+            "url": "http://arxiv.org/abs/1607.04484v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "mainichi.jp",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "title": "Athletics: Koike wins men's 100m in rain-hit Oda Memorial - The …",
+            "url": "http://mainichi.jp/english/articles/20220429/p2g/00m/0sp/063000c"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 976.7,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.798,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1906,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 906,
+        "statesFreshness": false,
+        "text": "During the ultra-low interest rate era following the 2008 financial crisis, TSX passive income darlings got treated like high-yielding bond substitutes. [1]\n\nAnd in October 2008, the financial crisis produced another wild stretch of volatility and losses. [2]\n\nAre These Still the Best Dividend Stocks in Canada? [1]\n\nWith 10-year treasury yields becoming more elevated in 2026 and generous financial houses offering 1-year guaranteed investment certificates (GICs) at rates up to 3.8% and 3-year terms at 4.3%, income seekers face a stark reality: Why take on significant equity risk for a 2% or 3% dividend yield when risk-free GICs pay noticeably more while guaranteeing your principal? [1]\n\nSources: [1] Are These Still the Best Dividend Stocks in Canada? (fool.ca)  [2] October’s Strange Place in Market History (investorplace.com)  [3] Business and economy: Turkish economic crisis (en.wikipedi"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "what happened in the 2008 financial crisis",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 81.5,
+            "domain": "fool.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:00:08.000Z",
+            "relevance": 1,
+            "title": "Are These Still the Best Dividend Stocks in Canada?",
+            "url": "https://www.fool.ca/2026/09/24/are-these-still-the-best-dividend-stocks-in-canada-2"
+          },
+          {
+            "ageHours": 112.5,
+            "domain": "investorplace.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T17:00:00.000Z",
+            "relevance": 0.91,
+            "title": "October’s Strange Place in Market History",
+            "url": "https://investorplace.com/smartmoney/2026/09/october-surprise-wall-street-how-prepare"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.54,
+            "title": "Business and economy: Turkish economic crisis",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.817,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2607,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 912,
+        "statesFreshness": false,
+        "text": "The Battle of Waterloo was fought on Sunday 18 June 1815, near Waterloo (then in the United Kingdom of the Netherlands, now in Belgium), being the last engagement with Napoleon I. [1]\n\nAlessandro Barbero · 2005 — Waterloo, Battle of, Waterloo, Belgium, 1815, Military - Napoleonic Wars, Campaigns, Military History, Napoleonic Wars, 1800-1815, Waterloo, Bataille de, 1815 [4]\n\nManuel Komroff · 1936 — Elba and the Hundred Days, 1814-1815, Waterloo, Battle of, Waterloo, Belgium, 1815, The Battle of Waterloo, Battles, History, Fiction [5]\n\nBattle of Waterloo\n\nThe Battle of Waterloo (German: Schlacht bei Belle Alliance) was fought on Sunday 18 June 1815 near Waterloo in present-day Walloon Brabant in Belgium south of Brussels. [7]\n\nSources: [1] Battle of Waterloo (en.wikipedia.org)  [2] Waterloo, Belgium (en.wikipedia.org)  [3] How you can use this image (artuk.org)  [4] The Battle (2005) (open"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "when was the Battle of Waterloo",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "Battle of Waterloo",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Waterloo, Belgium",
+            "url": "https://en.wikipedia.org/wiki/Waterloo%2C_Belgium"
+          },
+          {
+            "ageHours": 1229.6,
+            "domain": "artuk.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:54:23.000Z",
+            "relevance": 0.93,
+            "title": "How you can use this image",
+            "url": "https://artuk.org/discover/artworks/the-opening-of-waterloo-bridge-whitehall-stairs-june-18th-1817-117764"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The Battle (2005)",
+            "url": "https://openlibrary.org/works/OL136014W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The Battle of Waterloo (1936)",
+            "url": "https://openlibrary.org/works/OL4481467W"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "Battle of Waterloo service attended by Royal Family - BBC News",
+            "url": "http://www.bbc.com/news/uk-33178490"
+          },
+          {
+            "ageHours": 2596.6,
+            "domain": "en.metapedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-12T04:53:46.000Z",
+            "relevance": 0.85,
+            "title": "Battle of Waterloo - Metapedia",
+            "url": "http://en.metapedia.org/m/index.php?oldid=528619&title=Battle_of_Waterloo"
+          },
+          {
+            "ageHours": 970.3,
+            "domain": "de.zxc.wiki",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T23:09:40.000Z",
+            "relevance": 0.85,
+            "title": "Battle of Waterloo",
+            "url": "https://de.zxc.wiki/wiki/Schlacht_von_Waterloo"
+          },
+          {
+            "ageHours": 983.2,
+            "domain": "de.zxc.wiki",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T10:18:06.000Z",
+            "relevance": 0.85,
+            "title": "Battle of Waterloo",
+            "url": "https://de.zxc.wiki/wiki/Schlacht_bei_Waterloo"
+          },
+          {
+            "ageHours": 150663.9,
+            "domain": "raymondpronk.wordpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2009-07-21T17:36:40.000Z",
+            "relevance": 0.85,
+            "title": "Battle of Waterloo–Videos",
+            "url": "https://raymondpronk.wordpress.com/2009/07/21/battle-of-waterloo-videos?replytocom=16380"
+          },
+          {
+            "ageHours": 99091.2,
+            "domain": "theguardian.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-06-09T14:20:04Z",
+            "relevance": 0.83,
+            "title": "Belgium defies France as it mints €2.50 coin to mark Battle of Waterloo",
+            "url": "http://www.theguardian.com/world/2015/jun/08/belgium-france-coin-battle-waterloo-euro-napoleon"
+          },
+          {
+            "ageHours": 99496.7,
+            "domain": "economist.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-05-23T16:44:41Z",
+            "relevance": 0.82,
+            "title": "The Battle of Waterloo: A Near-Run Thing",
+            "url": "http://www.economist.com/news/books-and-arts/21651775-appallingly-bloody-yet-decisive-battle-waterloo-june-1815-deserves"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 970.3,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.878,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1318,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1374,
+        "statesFreshness": false,
+        "text": "The History of the Decline and Fall of the Roman Empire, sometimes shortened to Decline and Fall of the Roman Empire, is a six-volume work by the English historian Edward Gibbon. [2]\n\nThe history of the Roman Empire covers the history of ancient Rome from the traditional end of the Roman Republic in 27 BC until the abdication of Romulus Augustulus in AD 476 in the West, and the Fall of Constantinople in the East in 1453. [1]\n\nYouTube obviously has great videos on subjects like &quot;What is a derivative&quot;, &quot;Germany post world war 2&quot; or &quot;History of the roman empire&quot; but it won&#x27;t always have great videos for more niche subjects like say &quot;Swedish monetary theory through history&quot; or & [7]\n\nThe six volumes cover, from 98 to 1590, the peak of the Roman Empire, the history of early Christianity and its emergence as the Roman state religion, the fall of the"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "history of the Roman Empire",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "History of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "The History of the Decline and Fall of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/The_History_of_the_Decline_and_Fall_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "History of the Decline and Fall of the Roman Empire Complete and Unabridged (1776)",
+            "url": "https://openlibrary.org/works/OL1285005W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The social and economic history of the Roman Empire (1899)",
+            "url": "https://openlibrary.org/works/OL256996W"
+          },
+          {
+            "ageHours": 1316.3,
+            "domain": "farmersalmanac.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:37.000Z",
+            "relevance": 0.86,
+            "title": "When Is the Next Leap Year? 2028 – Date, History, and the Rule",
+            "url": "https://www.farmersalmanac.com/when-is-leap-year"
+          },
+          {
+            "ageHours": 1569.3,
+            "domain": "historyworld.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-25T00:13:41.000Z",
+            "relevance": 0.83,
+            "title": "HISTORY OF THE ROMAN EMPIRE",
+            "url": "https://www.historyworld.net/history/romanEmpire/531?heading=revivalOfThePaganCult&section=christianRome"
+          },
+          {
+            "ageHours": 7482,
+            "domain": "explanans.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2025-11-20T15:30:10Z",
+            "relevance": 0.83,
+            "title": "Show HN: Explanans – Personalized video lectures for any topic",
+            "url": "https://explanans.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "history of the Roman Empire",
+            "url": "http://www.wikidata.org/entity/Q2671119"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "History of the Roman Empire Category",
+            "url": "https://duckduckgo.com/c/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "Timeline of Roman history - This is a timeline of Roman history, comprising important legal and territorial ch",
+            "url": "https://duckduckgo.com/Timeline_of_Roman_history"
+          },
+          {
+            "ageHours": 73294.3,
+            "domain": "theatlantic.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2018-05-19T11:12:45Z",
+            "relevance": 0.76,
+            "title": "A year-by-year history of pollution in the Roman Empire",
+            "url": "https://www.theatlantic.com/science/archive/2018/05/scientists-reclaim-the-long-lost-economic-history-of-rome/560339?single_page=true"
+          },
+          {
+            "ageHours": 73276.6,
+            "domain": "kottke.org",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2018-05-20T04:56:01Z",
+            "relevance": 0.76,
+            "title": "A year-by-year history of economic growth and pollution in the Roman Empire",
+            "url": "https://kottke.org/18/05/a-year-by-year-history-of-economic-growth-and-pollution-in-the-roman-empire"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1316.3,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.838,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1695,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Asian Games 2018 medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 2,
+          "outside freshness window": 8
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2324,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 768,
+        "statesFreshness": false,
+        "text": "Schwartz\n\nThe Olympic games originated in ancient Greece as a religious and athletic festival, providing a forum of friendly competition among otherwise factious city-states. [2]\n\nAbout the First Modern Olympic Games in 1896\n\nIt’s true that the Ancient Greeks founded the original Olympic Games. [6]\n\nThe Summer Olympic Games , also known as the Summer Olympics or the Games of the Olympiad , are a major international multi-sport event normally held once every four years. [3]\n\nThe originating Olympic Games are traditionally dated to 776 BC. [4]\n\nSources: [1] Athens 2004 (olympics.fandom.com)  [2] Hoover and the 1932 Olympic Games – Hoover Heads (hoover.blogs.archives.gov)  [3] Summer Olympic Games (en.wikipedia.org)  [4] Ancient Olympic Games (en.wikipedia.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "origin of the Olympic Games",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1229.5,
+            "domain": "olympics.fandom.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:00:53.000Z",
+            "relevance": 0.9,
+            "title": "Athens 2004",
+            "url": "https://olympics.fandom.com/wiki/Athens_2004"
+          },
+          {
+            "ageHours": 49851.5,
+            "domain": "hoover.blogs.archives.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-01-20T06:00:00.000Z",
+            "relevance": 0.83,
+            "title": "Hoover and the 1932 Olympic Games – Hoover Heads",
+            "url": "https://hoover.blogs.archives.gov/2021/01/20/hoover-and-the-1932-olympic-games?replytocom=1967370"
+          },
+          {
+            "ageHours": 1229.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:59:58.000Z",
+            "relevance": 0.83,
+            "title": "Summer Olympic Games",
+            "url": "https://en.wikipedia.org/wiki/Summer_Olympic_Games"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "Ancient Olympic Games",
+            "url": "https://en.wikipedia.org/wiki/Ancient_Olympic_Games"
+          },
+          {
+            "ageHours": 1035.9,
+            "domain": "pricecharting.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T05:35:43.000Z",
+            "relevance": 0.74,
+            "title": "Asterix at the Olympic Games Xbox 360",
+            "url": "https://www.pricecharting.com/game/xbox-360/asterix-at-the-olympic-games"
+          },
+          {
+            "ageHours": 1017.8,
+            "domain": "greekboston.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T23:44:18.000Z",
+            "relevance": 0.74,
+            "title": "About the First Modern Olympic Games in 1896",
+            "url": "https://www.greekboston.com/culture/modern-history/first-modern-olympics"
+          },
+          {
+            "ageHours": 1053.9,
+            "domain": "assignmentpoint.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T11:38:12.000Z",
+            "relevance": 0.72,
+            "title": "The Olympic Games - Assignment Point",
+            "url": "https://assignmentpoint.com/the-olympic-games"
+          },
+          {
+            "ageHours": 1229.5,
+            "domain": "guinnessworldrecords.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:10.000Z",
+            "relevance": 0.6,
+            "title": "First city to host Summer and Winter Olympic Games",
+            "url": "https://www.guinnessworldrecords.com/world-records/694622-first-city-to-host-summer-and-winter-olympic-games"
+          },
+          {
+            "ageHours": 1316.3,
+            "domain": "olympics.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:21.000Z",
+            "relevance": 0.48,
+            "title": "Aizanat MURTAZAEVA",
+            "url": "https://olympics.com/en/athletes/aizanat-murtazaeva"
+          },
+          {
+            "ageHours": 40552.3,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2022-02-11T17:09:32Z",
+            "relevance": 0.48,
+            "title": "Visualising Multiplayer Game Spaces",
+            "url": "http://arxiv.org/abs/2202.05773v1"
+          },
+          {
+            "ageHours": 13746.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2025-03-04T14:58:59Z",
+            "relevance": 0.46,
+            "title": "Seeding for Success: Skill and Stochasticity in Tabletop Games",
+            "url": "http://arxiv.org/abs/2503.02686v1"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 1017.8,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "Mwmbl (free, open, independent index) timed out after 12000ms"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.691,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12496,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1436,
+        "statesFreshness": false,
+        "text": "Asian Games 2026 Medal Tally: India’s Medal Count Reaches 14\n\nIndia’s medal haul has increased to 14 medals, comprising one gold, six silver and seven bronze medals, at the Aichi-Nagoya Asian Games 2026. [2]\n\nRELATED: Asian Games 2026: India’s medal winners, live medal tally, results\n\nHowever, the 29-year-old had to wait for her first Asiad medal, having narrowly missed out on the athletics contingent for the Hangzhou 2022 Games. [1]\n\nAlso Read: Asian Games 2026: India bag silver in Men’s 50m Rifle 3P; Aishwary, Niraj enter individual final\n\nBaranica Elangovan’s record-breaking season\n\nCatch Every Update, Anytime, Anywhere\n\nElangovan entered the Aichi-Nagoya Games as one of the brightest medal prospects in athletics. [1]\n\nAsian Games 2026: India Women Retain Asian Games Kabaddi Gold, Beat Iran 37-34 in Thriller\n\nIndia secured its third gold medal at the 2026 Asian Games as the women's ka"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "Indian contingent medals tally in Asian Games 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 61.5,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T20:01:33.000Z",
+            "relevance": 1.06,
+            "title": "Asian Games 2026: Baranica Elangovan wins bronze in women’s pole vault",
+            "url": "https://khelnow.com/asian-games/baranica-elangovan-bronze-asian-games-202609"
+          },
+          {
+            "ageHours": 98.5,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:01:23.000Z",
+            "relevance": 1,
+            "title": "Asian Games 2026 Medals Tally LIVE Update: Check Latest Aichi-Nagoya Medal Count, India’s Position and Gold, S",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-medal-count-indias-position-and-gold-silver-bronze-medals-count-291580"
+          },
+          {
+            "ageHours": 52,
+            "domain": "republicworld.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T05:30:36.000Z",
+            "relevance": 0.98,
+            "title": "Asian Games 2026: India Women Retain Asian Games Kabaddi Gold, Beat Iran 37-34 in Thriller",
+            "url": "https://www.republicworld.com/sports/asian-games-2026-india-women-retain-asian-games-kabaddi-gold-beat-iran-37-34-in-thriller-2026-09-26-137735"
+          },
+          {
+            "ageHours": 46.5,
+            "domain": "pratidintime.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T11:00:03.000Z",
+            "relevance": 0.98,
+            "title": "Asian Games 2026: Sawan Barwal Ends India’s 44-Year Marathon Medal Wait",
+            "url": "https://www.pratidintime.com/sports/sawan-barwal-marathon-silver-asian-games-12577317"
+          },
+          {
+            "ageHours": 43,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:31:54.000Z",
+            "relevance": 0.9,
+            "title": "Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India R",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medal-tally-day-8-kabaddi-teams-bag-twin-golds-tajinderpal-toor-sawan-barwal-help-india-rise-to-10th"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 43,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4959ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4958ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4961ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4960ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.984,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 20554,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1204,
+        "statesFreshness": false,
+        "text": "He stands at 6'3\" and is also coming off recording two assists in for games while representing Latvia at the Milano Cortina 2026 Winter Olympics. [1]\n\nHeld in New York City at the Ziegfeld Ballroom, this year’s gala will feature Team USA’s best ski and snowboard athletes from the 2026 Milano-Cortina Winter Olympics and Paralympics, alongside some of the team’s biggest legends dating back to the 1960s. [2]\n\nMany of the planned attendees are medalists from the 2026 Milano Cortina Olympic and Paralympic Games, including the most decorated Winter Paralympian of all time and 24x Paralympic medalist Oksana Masters, Olympic champion Breezy Johnson, 2x Olympic silver medalist Ryan Cochran-Siegle, Olympic gold and silver medalist Alex Hall, Olympic bronze medalist Jake Canter, and many more. [2]\n\nLapsed fan's guide to the NHL season: Top teams, players, storylines for 2026-27\n\nThe 2025-26 NHL sea"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "2026 Winter Olympics results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "outside freshness window": 4,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 57.5,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:00:00.000Z",
+            "relevance": 0.95,
+            "title": "NY Rangers' Alberts Smits Has Proven He Deserves a Spot and Can Be a Star",
+            "url": "https://www.si.com/nhl/rangers/onsi/news/ny-rangers-alberts-smits-has-proven-he-deserves-a-spot-and-can-be-a-star"
+          },
+          {
+            "ageHours": 67.6,
+            "domain": "snowbrains.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:54:18.000Z",
+            "relevance": 0.87,
+            "title": "U.S. Ski and Snowboard to Host 60th Annual Gold Medal Gala",
+            "url": "https://snowbrains.com/u-s-ski-and-snowboard-to-host-60th-annual-gold-medal-gala"
+          },
+          {
+            "ageHours": 68.8,
+            "domain": "abc7.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T12:42:40.000Z",
+            "relevance": 0.76,
+            "title": "Lapsed fan's guide to the NHL season: Top teams, players, storylines for 2026-27",
+            "url": "https://abc7.com/post/lapsed-fans-guide-nhl-season-top-teams-players-storylines-2026-27/19870884"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 57.5,
+        "normalizedCount": 10,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.86,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2242,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "COP31 2026 outcome",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "undated": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 8,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1554,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 909,
+        "statesFreshness": false,
+        "text": "Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy; and Russian-occupied Enerhodar, all in Ukraine; and Russia's Belgorod Oblast [1]\n\nIn tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defeating Ukraine 2–0 in the final in Shenzhen, Guangdong, China [3]\n\nSources: [1] Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy… (apnews.com)  [2] Sports: 2026 Billie Jean King Cup finals (en.wikipedia.org)  [3] Sports: In tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defeating Ukraine 2–0 in the final in Shenzhen, Guangdong, China "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "current status of the Rugby World Cup",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "apnews.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.56,
+            "title": "Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in ",
+            "url": "https://apnews.com/article/russia-ukraine-war-germany-drones-strikes-f91ac88ee287bad2a3c99d2608975f53"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.54,
+            "title": "Sports: 2026 Billie Jean King Cup finals",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "afp.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.5,
+            "title": "Sports: In tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defe",
+            "url": "https://www.afp.com/en/czech-republic-beat-ukraine-win-bjk-cup-0"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.533,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1689,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1353,
+        "statesFreshness": false,
+        "text": "The AI Pact That Might Change Everything (2026)\n\nIn the world of international politics and awards, the Nobel Peace Prize is a highly coveted honor, and it seems that former US President Donald Trump has his sights set on it. [1]\n\nExploring and Settling Space with the Help of Artificial Intelligence [Blog]\n\nReflections from the Nobel Prize Dialogue Seoul 2026\n\nBy Bill Maloney, Guest Writer, Red Planet Bound\n\nThis past Sunday, I attended the “Nobel Prize Dialogue Seoul 2026” as a representative of The Mars Society’s Mars Technology Institute (MTI). [3]\n\n'Sundowning' Trump prepping to 'punish the nation': Nobel Prize winner\n\nNobel Prize-winning economist Paul Krugman says there's no more room for doubt: President Donald Trump's United Nations address confirms he's deep into what Krugman calls his \"sundowning\" period. [4]\n\nThis article delves into the intriguing story behind Trump's pursuit"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "latest on the Nobel Prize 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 81.9,
+            "domain": "freevods.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T23:33:41.000Z",
+            "relevance": 1,
+            "title": "Could Trump Win the Nobel Peace Prize? The AI Pact That Might Change Everything (2026)",
+            "url": "https://freevods.com/article/could-trump-win-the-nobel-peace-prize-the-ai-pact-that-might-change-everything"
+          },
+          {
+            "ageHours": 60.1,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:24:17.000Z",
+            "relevance": 1,
+            "title": "From Lab Bench to Bedside: Medical Breakthroughs of 2026",
+            "url": "https://que.com/from-lab-bench-to-bedside-medical-breakthroughs-of-2026"
+          },
+          {
+            "ageHours": 60,
+            "domain": "marssociety.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:31:39.000Z",
+            "relevance": 1,
+            "title": "Exploring and Settling Space with the Help of Artificial Intelligence [Blog]",
+            "url": "https://www.marssociety.org/red-planet-bound/2026/09/25/exploring-and-settling-space-with-the-help-of-artificial-intelligence-blog"
+          },
+          {
+            "ageHours": 112.3,
+            "domain": "rawstory.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T17:12:49.000Z",
+            "relevance": 0.89,
+            "title": "'Sundowning' Trump prepping to 'punish the nation': Nobel Prize winner",
+            "url": "https://www.rawstory.com/trump-sundowning-2677923498"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 60,
+        "normalizedCount": 6,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 0.973,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 996,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "upcoming general elections",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1086,
+      "vertical": "election"
+    }
+  ],
+  "total": 138
+}

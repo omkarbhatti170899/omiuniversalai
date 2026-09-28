@@ -1,0 +1,573 @@
+{
+  "answerContract": {
+    "allSourcesDated": 6,
+    "citationsResolve": 6,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 6,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "current-news": {
+      "fresh": 4,
+      "kept": 19,
+      "n": 6
+    }
+  },
+  "byTemporal": {
+    "current": {
+      "fresh": 0,
+      "kept": 1,
+      "n": 1
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 11,
+      "n": 3
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 7,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 6,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 938,
+        "statesFreshness": true,
+        "text": "China is also a strong contender for the title of the oldest history in the world, with a civilization that dates back thousands of years. [4]\n\nToday, we will delve into the history of the architect who played a crucial role in shaping the city’s skyline and capturing the hearts of millions around the world. [3]\n\nEach of these civilizations has a rich and storied past that has shaped the world as we know it today. [4]\n\nSEANAN McGUIRE is the author of the Hugo, Nebula, Alex, and Locus Award-winning Wayward Children series, the October Daye series, the InCryptid series, and other works. [2]\n\nSources: [1] The Girls by John Bowen | 9781529970982 | Paperback (abbeys.com.au)  [2] A Divided Duty: An October Daye Novel by Seanan McGuire | 9781250375278 | Hardback (abbeys.com.au)  [3] Who is the architect who built Paris? (visitfranceguide.com)  [4] The Top Country with the Richest History in the"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is happening in the world today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 1,
+            "title": "The Girls by John Bowen | 9781529970982 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529970982"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.87,
+            "title": "A Divided Duty: An October Daye Novel by Seanan McGuire | 9781250375278 | Hardback",
+            "url": "https://www.abbeys.com.au/book/a-divided-duty-an-october-daye-novel-9781250375278.do"
+          },
+          {
+            "ageHours": 18.4,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:53:06.000Z",
+            "relevance": 0.83,
+            "title": "Who is the architect who built Paris?",
+            "url": "https://visitfranceguide.com/who-is-the-architect-who-built-paris"
+          },
+          {
+            "ageHours": 13.8,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T19:26:57.000Z",
+            "relevance": 0.82,
+            "title": "The Top Country with the Richest History in the World Revealed",
+            "url": "https://visitfranceguide.com/which-country-has-the-most-history-in-the-world"
+          },
+          {
+            "ageHours": 33.3,
+            "domain": "books.apple.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.62,
+            "title": "Her Last Vow (A Rachel Gift FBI Suspense Thriller—Book 25) by Blake Pierce on Apple Books",
+            "url": "https://books.apple.com/gb/book/her-last-vow-a-rachel-gift-fbi-suspense-thriller-book-25/id6753352215"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 13.8,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4926ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4947ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4947ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4946ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.828,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 21135,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1009,
+        "statesFreshness": true,
+        "text": "SEANAN McGUIRE is the author of the Hugo, Nebula, Alex, and Locus Award-winning Wayward Children series, the October Daye series, the InCryptid series, and other works. [1]\n\nHighly recommended.\"\" --Library Journal (starred) \"\"The book is solidly in the idiom McGuire has established for Toby (last seen in The Innocent Sleep, 2023), down to the epic battles and blood loss, with a loose end that promises more fascinating knots to untangle in further stories. [1]\n\nCarlene O'Connor is the USA Today bestselling author of the acclaimed Irish Village Mysteries, the County Kerry Novels, and the Home to Ireland Mysteries. [2]\n\nThe most resilient knight EVER.\"\" --Charlaine Harris, New York Times and USA Today bestselling author of The Southern Vampire Mysteries \"\"The top of my urban-paranormal series list! [1]\n\nSources: [1] A Divided Duty: An October Daye Novel by Seanan McGuire | 9781250375278 | H"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "today's top stories",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.95,
+            "title": "A Divided Duty: An October Daye Novel by Seanan McGuire | 9781250375278 | Hardback",
+            "url": "https://www.abbeys.com.au/book/a-divided-duty-an-october-daye-novel-9781250375278.do"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.95,
+            "title": "Murder in Galway by Carlene O'Connor | 9781496764294 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781496764294"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 5,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 5,
+        "relevanceAvg": 0.95,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2984,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 931,
+        "statesFreshness": true,
+        "text": "Today in Norway Members only\n\nToday in Norway: A roundup of the latest news on Thursday\n\nNo end in sight for Norway train strike, record October heat forecast, Norges Bank raises interest rate, and more news on Thursday. [1]\n\nNews Briefs 24-09-2026\n\nIt has been brought to my attention that I need to be ‘less negative’ when writing the briefs 😒\n\nSo here’s hoping more people subscribe to our Patreon, so I can switch from coffee to cocaine 🤪\n\n68% of physicists don’t think that time started at the Big Bang. [2]\n\nGreat news: the Futuro UFO-like homes are making a comeback. [2]\n\nShare your own views and experience and if you have a question or suggestion for our journalists then email us at news@thelocal.no. [1]\n\nSources: [1] Today in Norway: A roundup of the latest news on Thursday (thelocal.no)  [2] News Briefs 24-09-2026 (dailygrail.com)  [3] Armed conflicts and attacks: Houthi–Saudi Arab"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 96.5,
+            "domain": "thelocal.no",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:47:27.000Z",
+            "relevance": 1,
+            "title": "Today in Norway: A roundup of the latest news on Thursday",
+            "url": "https://www.thelocal.no/20260924/today-in-norway-a-roundup-of-the-latest-news-on-thursday-251"
+          },
+          {
+            "ageHours": 102.8,
+            "domain": "dailygrail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T02:26:44.000Z",
+            "relevance": 0.68,
+            "title": "News Briefs 24-09-2026",
+            "url": "https://www.dailygrail.com/2026/09/news-briefs-24-09-2026"
+          },
+          {
+            "ageHours": 9.3,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.59,
+            "title": "Armed conflicts and attacks: Houthi–Saudi Arabian conflict",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.757,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2321,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 994,
+        "statesFreshness": true,
+        "text": "Today in Norway Members only\n\nToday in Norway: A roundup of the latest news on Thursday\n\nNo end in sight for Norway train strike, record October heat forecast, Norges Bank raises interest rate, and more news on Thursday. [3]\n\nChina is also a strong contender for the title of the oldest history in the world, with a civilization that dates back thousands of years. [1]\n\nNews Briefs 24-09-2026\n\nIt has been brought to my attention that I need to be ‘less negative’ when writing the briefs 😒\n\nSo here’s hoping more people subscribe to our Patreon, so I can switch from coffee to cocaine 🤪\n\n68% of physicists don’t think that time started at the Big Bang. [2]\n\nUltimately, the question of which country has the most history in the world is a complex and subjective one. [1]\n\nSources: [1] The Top Country with the Richest History in the World Revealed (visitfranceguide.com)  [2] News Briefs 24-09-2026"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest world news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.8,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T19:26:57.000Z",
+            "relevance": 0.82,
+            "title": "The Top Country with the Richest History in the World Revealed",
+            "url": "https://visitfranceguide.com/which-country-has-the-most-history-in-the-world"
+          },
+          {
+            "ageHours": 102.9,
+            "domain": "dailygrail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T02:26:44.000Z",
+            "relevance": 0.77,
+            "title": "News Briefs 24-09-2026",
+            "url": "https://www.dailygrail.com/2026/09/news-briefs-24-09-2026"
+          },
+          {
+            "ageHours": 96.5,
+            "domain": "thelocal.no",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:47:27.000Z",
+            "relevance": 0.74,
+            "title": "Today in Norway: A roundup of the latest news on Thursday",
+            "url": "https://www.thelocal.no/20260924/today-in-norway-a-roundup-of-the-latest-news-on-thursday-251"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 13.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.777,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 6497,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1464,
+        "statesFreshness": true,
+        "text": "https://sputnikglobe.com/20260926/iran-has-lost-trust-in-negotiations-with-us--president-1124795584.html\n\nIran Has Lost Trust in Negotiations With US – President\n\nSputnik International\n\nIran no longer has trust in the negotiation process with the United States after attacks and sanctions, Iranian President Masoud Pezeshkian said. [3]\n\n\"That is why we deliberately bring together people who do not normally share the same room. [1]\n\nAt a time when there is an extraordinary amount of noise around energy, AI, technology and Canada's future, we want to create a place for curiosity, respectful debate, and better questions.\"\n\nThe 2026 program reflects that approach, bringing Canadian, American and international perspectives together across disciplines and industries. [1]\n\nThis panel will bring together some of the sharpest geopolitical minds for a conversation that looks beyond today's headlines"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest international headlines",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 93,
+            "domain": "newswire.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:15:02.000Z",
+            "relevance": 0.95,
+            "title": "As Energy, AI and Geopolitics Collide, Energy Disruptors: UNITE 2026 is Primed to Put the Whole System in One ",
+            "url": "https://www.newswire.ca/news-releases/as-energy-ai-and-geopolitics-collide-energy-disruptors-unite-2026-is-primed-to-put-the-whole-system-in-one-room-834544990.html"
+          },
+          {
+            "ageHours": 9.3,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.61,
+            "title": "International relations: China–United States relations",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 44.5,
+            "domain": "sputnikglobe.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:50:13.000Z",
+            "relevance": 0.61,
+            "title": "Iran Has Lost Trust in Negotiations With US – President",
+            "url": "https://sputnikglobe.com/20260926/iran-has-lost-trust-in-negotiations-with-us--president-1124795584.html"
+          },
+          {
+            "ageHours": 9.3,
+            "domain": "dawn.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.58,
+            "title": "International relations: Two giant pandas, Ping Ping and Fu Shuang, arrive at the Atlanta zoo in Georgia, U.S.",
+            "url": "https://www.dawn.com/news/2033172/two-giant-pandas-sent-by-china-arrive-in-us"
+          },
+          {
+            "ageHours": 114,
+            "domain": "gosugamers.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T15:15:13.000Z",
+            "relevance": 0.57,
+            "title": "OG reveal new roster headlined by Topson's return",
+            "url": "https://www.gosugamers.net/dota2/news/79247-og-reveal-new-roster-headlined-by-topson-s-return"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 9.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.664,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 5344,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 519,
+        "statesFreshness": false,
+        "text": "Supported by Korea’s Ministry of Trade, Industry and Resources, the event will bring together more than 300 biotechnology, healthcare, and pharmaceutical companies from around the world. [1]\n\nSEOUL, South Korea, September 16, 2026 — BIOPLUS-INTERPHEX KOREA 2026 (BIX 2026), Korea’s largest biotechnology and pharmaceutical convention, will be held from October 28 to 30 at COEX, Seoul. [1]\n\nSources: [1] BIX 2026 Names Canada as Country of Honor Showcasing Bioindustry Trends from BCI To Biotech Foods (news.prfree.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "current events around the world",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 2,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 75.2,
+            "domain": "news.prfree.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:03:28.000Z",
+            "relevance": 0.68,
+            "title": "BIX 2026 Names Canada as Country of Honor Showcasing Bioindustry Trends from BCI To Biotech Foods",
+            "url": "https://news.prfree.org/@rx-prandmedia/bix-2026-names-canada-as-country-of-honor-showcasing-bioindustry-trends-from-bci-to-biotech-foods-21pit17k1wh7"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 75.2,
+        "normalizedCount": 10,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.68,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 7250,
+      "vertical": "general"
+    }
+  ],
+  "total": 138
+}

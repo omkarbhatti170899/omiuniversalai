@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  MissingKeyError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -67,7 +66,9 @@ export function createArxivProvider(): SearchProvider {
         if (citations.length >= numResults) break;
       }
 
-      if (citations.length === 0) throw new MissingKeyError("arxiv");
+      // An EMPTY result is a valid answer. It was thrown as a missing-key
+      // error, which told the user arXiv “is not configured” — while arXiv is
+      // keyless and the real reason was that nothing matched.
       return { citations };
     },
   };

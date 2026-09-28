@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  MissingKeyError,
+  ProviderUnavailableError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -115,14 +115,7 @@ export function createOpenMeteoProvider(): SearchProvider {
       if (!isWeatherQuery(query)) return { citations: [] };
 
       try {
-        // Extract a place name: strip weather words, take what's left.
-        const place = query
-          .replace(
-            /\b(weather|temperature|forecast|rain(?:fall)?|snow|humidity|wind|uv index|heat ?wave|today|tomorrow|now|current|in|at|the|what'?s|is)\b/gi,
-            " ",
-          )
-          .replace(/\s+/g, " ")
-          .trim();
+        const place = extractPlace(query);
         if (place.length < 3) return { citations: [] };
 
         const geo = await axios.get(GEOCODE_URL, {
@@ -148,10 +141,61 @@ export function createOpenMeteoProvider(): SearchProvider {
           ? { citations: numResults > 0 ? [citation] : [] }
           : { citations: [] };
       } catch (err) {
-        throw new MissingKeyError(
-          `openmeteo: ${err instanceof Error ? err.message : "unavailable"}`,
+        // NOT a missing key: Open-Meteo is free and keyless. This used to be
+        // reported as `Search provider "openmeteo: Request failed with status
+        // code 429" is not configured.` — a sentence that sends an operator
+        // hunting for a credential that does not exist.
+        throw new ProviderUnavailableError(
+          `openmeteo: upstream unavailable — ${err instanceof Error ? err.message : "unknown error"}`,
         );
       }
     },
   };
+}
+
+/**
+ * Extract a PLACE NAME from a weather question.
+ *
+ * MEASURED DEFECT (search-quality benchmark, 2026-09-28): the previous
+ * implementation stripped a word list and kept whatever was left, which broke
+ * on ordinary phrasing in two ways:
+ *
+ *   "today's weather"              -> "'s"              (possessive not stripped)
+ *   "today's forecast for Sydney"  -> "'s for Sydney"   ("for" never stripped)
+ *   "weather in Delhi today"       -> worked
+ *
+ * The first returned nothing at all, and the second sent "'s for Sydney" to
+ * the geocoder, which of course found no such place. So the two questions a
+ * user is most likely to type were the two that failed. Possessives, leading
+ * prepositions and punctuation are now removed, and the remainder is checked
+ * for letters so a purely punctuation/particle string can never be geocoded.
+ *
+ * Returns "" when the question names no place — the caller must then return no
+ * citations, because guessing a location is a wrong forecast, not a missing one.
+ */
+export function extractPlace(query: string): string {
+  let s = ` ${query ?? ""} `;
+  // Possessives/contractions FIRST, so "today's" becomes "today " and not "'s".
+  s = s.replace(/['\u2019](?:s|re|ll|ve|d)?\b/gi, " ");
+  // Weather vocabulary.
+  s = s.replace(
+    /\b(weather|temperature|temperatures|forecast|forecasts|rain(?:fall)?|raining|snow(?:ing|fall)?|humidity|wind(?:y|s)?|uv index|heat ?wave|cold ?wave|conditions?|climate)\b/gi,
+    " ",
+  );
+  // Time vocabulary — describes WHEN, never WHERE.
+  s = s.replace(
+    /\b(today|tonight|tomorrow|yesterday|now|currently|current|right now|latest|this (?:morning|afternoon|evening|week|weekend|month))\b/gi,
+    " ",
+  );
+  // Function words, including the prepositions that previously survived.
+  s = s.replace(
+    /\b(what'?s|whats|what is|what|how|is|are|was|will it|it|the|a|an|do i need|need|like|please|tell me|me|and|in|at|for|of|near|around|on|to|from|about)\b/gi,
+    " ",
+  );
+  // Anything that is not a letter/digit/space/comma/hyphen/apostrophe.
+  s = s.replace(/[^\p{L}\p{N}\s,'-]/gu, " ");
+  s = s.replace(/[,\-']/g, " ").replace(/\s+/g, " ").trim();
+  // A place name contains letters; a string of particles does not.
+  if (!/\p{L}/u.test(s)) return "";
+  return s.slice(0, 80);
 }

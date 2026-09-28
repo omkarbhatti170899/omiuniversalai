@@ -1,0 +1,2832 @@
+{
+  "answerContract": {
+    "allSourcesDated": 26,
+    "citationsResolve": 30,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 16,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 14
+  },
+  "byCategory": {
+    "current-news": {
+      "fresh": 5,
+      "kept": 47,
+      "n": 6
+    },
+    "india": {
+      "fresh": 7,
+      "kept": 59,
+      "n": 12
+    },
+    "sports": {
+      "fresh": 2,
+      "kept": 8,
+      "n": 12
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 4,
+      "kept": 21,
+      "n": 5
+    },
+    "current": {
+      "fresh": 0,
+      "kept": 5,
+      "n": 4
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 8,
+      "n": 6
+    },
+    "live": {
+      "fresh": 1,
+      "kept": 9,
+      "n": 3
+    },
+    "none": {
+      "fresh": 4,
+      "kept": 47,
+      "n": 5
+    },
+    "now": {
+      "fresh": 1,
+      "kept": 8,
+      "n": 1
+    },
+    "recent": {
+      "fresh": 0,
+      "kept": 2,
+      "n": 1
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 5
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 12,
+  "ran": 30,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1021,
+        "statesFreshness": true,
+        "text": "Latest Odisha Breaking News Updates | Thursday, 24 September 2026\n\nStay ahead with Odisha Bytes Breaking News – your source for fast, comprehensive, and accurate updates from Odisha and beyond. [2]\n\nNews Briefs 24-09-2026\n\nIt has been brought to my attention that I need to be ‘less negative’ when writing the briefs 😒\n\nSo here’s hoping more people subscribe to our Patreon, so I can switch from coffee to cocaine 🤪\n\n68% of physicists don’t think that time started at the Big Bang. [7]\n\nLeo Horoscope Today: September 24, 2026\n\nOverthinking much? [1]\n\nLibra Horoscope Today: September 27, 2026\n\nYou’ve been looking back a little too much, replaying what went wrong, what you lost and all the “what ifs” that never got their moment, Libra. [4]\n\nSources: [1] Horoscope Today: September 24, 2026 (vogue.in)  [2] Latest Odisha Breaking News Updates | Thursday, 24 September 2026 (odishabytes.com)  [3] "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news in 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 104.9,
+            "domain": "vogue.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T00:30:00.000Z",
+            "relevance": 1.1,
+            "title": "Horoscope Today: September 24, 2026",
+            "url": "https://www.vogue.in/content/horoscope-today-september-24-2026"
+          },
+          {
+            "ageHours": 110.9,
+            "domain": "odishabytes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T18:33:02.000Z",
+            "relevance": 1.07,
+            "title": "Latest Odisha Breaking News Updates | Thursday, 24 September 2026",
+            "url": "https://odishabytes.com/latest-odisha-breaking-news-updates-thursday-24-september-2026"
+          },
+          {
+            "ageHours": 33.4,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 1,
+            "title": "Armed conflicts and attacks: 2026 Yemen offensives",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "vogue.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:30:00.000Z",
+            "relevance": 0.93,
+            "title": "Horoscope Today: September 27, 2026",
+            "url": "https://www.vogue.in/content/horoscope-today-september-27-2026"
+          },
+          {
+            "ageHours": 70.8,
+            "domain": "nerdschalk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:35:03.000Z",
+            "relevance": 0.93,
+            "title": "Parseword Hints and Solutions Today: September 26, 2026",
+            "url": "https://nerdschalk.com/parseword-hints-and-solutions-today-september-26-2026"
+          },
+          {
+            "ageHours": 87.3,
+            "domain": "mi3dot.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:07:10.000Z",
+            "relevance": 0.89,
+            "title": "What's New on Streaming: A Guide to the Latest Shows and Movies (2026)",
+            "url": "https://mi3dot.org/article/what-s-new-on-streaming-a-guide-to-the-latest-shows-and-movies"
+          },
+          {
+            "ageHours": 103,
+            "domain": "dailygrail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T02:26:44.000Z",
+            "relevance": 0.89,
+            "title": "News Briefs 24-09-2026",
+            "url": "https://www.dailygrail.com/2026/09/news-briefs-24-09-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 32.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4754ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4841ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4825ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4806ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.973,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 22353,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          10,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1057,
+        "statesFreshness": false,
+        "text": "The World Marathon Majors (WMM) is a championship-style competition for marathon runners that started in 2006. [2]\n\nAccessing and understanding contemporary and historical events of global impact such as the US elections and the Olympic Games is a major prerequisite for cross-lingual event analytics that investigate event causes, perception and consequences across country borders. [11]\n\nOfficial commends Tsiamalili for staging major events\n\nAN official has commended outgoing Papua New Guinea Sports Foundation (PNGSF) executive director and Bougainville presidential hopeful Peter Tsiamalili Jr for helping stage major events in the country. [5]\n\nMultiple studies in the past have analyzed the role and dynamics of the Twitter social network during real world events. [10]\n\nSources: [1] List of major World Wonder Ring Stardom events (en.wikipedia.org)  [2] World Marathon Majors (en.wikipedia.o"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "major world events",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "title": "List of major World Wonder Ring Stardom events",
+            "url": "https://en.wikipedia.org/wiki/List_of_major_World_Wonder_Ring_Stardom_events"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "title": "World Marathon Majors",
+            "url": "https://en.wikipedia.org/wiki/World_Marathon_Majors"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The stock exchange specialist and unexpected major world events (1974)",
+            "url": "https://openlibrary.org/works/OL538142W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Major Events in World History (2021)",
+            "url": "https://openlibrary.org/works/OL25464948W"
+          },
+          {
+            "ageHours": 1019.8,
+            "domain": "thenational.com.pg",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T21:37:38.000Z",
+            "relevance": 0.85,
+            "title": "Official commends Tsiamalili for staging major events",
+            "url": "https://www.thenational.com.pg/official-commends-tsiamalili-for-staging-major-events"
+          },
+          {
+            "ageHours": 94272.8,
+            "domain": "10keythings.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-12-27T08:37:55Z",
+            "relevance": 0.77,
+            "title": "10 Leaders who highly influenced the world in 2015 and the Major World Events",
+            "url": "https://10keythings.com/leaders-2015"
+          },
+          {
+            "ageHours": 10913.3,
+            "domain": "signalslice.sebastianalexis.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2025-06-30T16:07:51Z",
+            "relevance": 0.76,
+            "title": "Detecting Major World Events Using Osint, Through Google Maps and Pizza",
+            "url": "https://signalslice.sebastianalexis.com"
+          },
+          {
+            "ageHours": 55070.5,
+            "domain": "legiblenews.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2020-06-16T18:54:16Z",
+            "relevance": 0.76,
+            "title": "An unbiased condensed version of major world events",
+            "url": "http://legiblenews.com"
+          },
+          {
+            "ageHours": 112623,
+            "domain": "businessinsider.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-11-22T18:23:25Z",
+            "relevance": 0.76,
+            "title": "How Major World Events Affect Viewing Of Online Porn ",
+            "url": "http://www.businessinsider.com/how-porn-viewing-habits-are-affected-by-major-world-events-2013-11"
+          },
+          {
+            "ageHours": 108351.4,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2014-05-19T18:00:16Z",
+            "relevance": 0.72,
+            "title": "It Doesn't Break Just on Twitter. Characterizing Facebook content During Real World Events",
+            "url": "http://arxiv.org/abs/1405.4820v1"
+          },
+          {
+            "ageHours": 31385.4,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2023-02-28T15:58:28Z",
+            "relevance": 0.72,
+            "title": "OEKG: The Open Event Knowledge Graph",
+            "url": "http://arxiv.org/abs/2302.14688v1"
+          },
+          {
+            "ageHours": 5359.5,
+            "domain": "github.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-02-17T01:52:37Z",
+            "relevance": 0.47,
+            "title": "Show HN: OpenEntropy – 47 hardware entropy sources from your computer's physics",
+            "url": "https://github.com/amenti-labs/openentropy"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1019.8,
+        "normalizedCount": 12,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "TheSportsDB has no current fixture for \"major world events\" right now — Omi will",
+          "Mwmbl (free, open, independent index) timed out after 12000ms"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.782,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12687,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1087,
+        "statesFreshness": false,
+        "text": "Three developments are particularly salient:\n\nThe fluid and often ambiguous relationships between the three principal poles of power — the West, the East, and the increasingly assertive Global South, which has gained new geopolitical visibility since 2020. [1]\n\nA new global geopolitical landscape is now coming into\n\nview as the post-Cold War international order dissolves. [7]\n\nA new global geopolitical landscape is now coming into view as the post-Cold War international scene dissolves. [9]\n\n[ANALYSIS] Towards a ‘hegemonic transition’ or ‘hegemonic stalemate?’\n\nAT A GLANCE\n\nThe current geopolitical landscape is marked by a crisis in American hegemony, characterized by economic decline, ideological disaffection, and political instability, which raises questions about the future of global leadership. [10]\n\nSources: [1] News , | 07/29/2025 : Eurasia Rising? (rosalux.de)  [2] Prisoners of Ge"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "geopolitical developments",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1036.6,
+            "domain": "rosalux.de",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T04:49:29.000Z",
+            "relevance": 0.94,
+            "title": "News , | 07/29/2025 : Eurasia Rising?",
+            "url": "https://www.rosalux.de/en/news/id/53671/eurasia-rising"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Prisoners of Geography",
+            "url": "https://en.wikipedia.org/wiki/Prisoners_of_Geography"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "The Hague Centre for Strategic Studies",
+            "url": "https://en.wikipedia.org/wiki/The_Hague_Centre_for_Strategic_Studies"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "The Kurdish status and geopolitical developments in the Middle East (1993)",
+            "url": "https://openlibrary.org/works/OL44370875W"
+          },
+          {
+            "ageHours": 9065.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2025-09-15T16:12:42Z",
+            "relevance": 0.65,
+            "title": "Geopolitical Barriers to Globalization",
+            "url": "http://arxiv.org/abs/2509.12084v4"
+          },
+          {
+            "ageHours": 10751.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2025-07-07T09:56:07Z",
+            "relevance": 0.65,
+            "title": "Measuring Geopolitical Alignment and Economic Growth",
+            "url": "http://arxiv.org/abs/2507.04833v6"
+          },
+          {
+            "ageHours": 2091.4,
+            "domain": "barrycasselman.blogspot.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-03T05:59:01.000Z",
+            "relevance": 0.59,
+            "title": "barrycasselman: June 2026",
+            "url": "https://barrycasselman.blogspot.com/2026/06"
+          },
+          {
+            "ageHours": 1060.3,
+            "domain": "greaterkashmir.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T05:04:24.000Z",
+            "relevance": 0.59,
+            "title": "Global geopolitical situation: EAM calls for unity, reform at G-20 session",
+            "url": "https://www.greaterkashmir.com/national/global-geopolitical-situation-eam-calls-for-unity-reform-at-g-20-session"
+          },
+          {
+            "ageHours": 1945.7,
+            "domain": "barrycasselman.blogspot.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-09T07:41:56.000Z",
+            "relevance": 0.56,
+            "title": "barrycasselman: THE PRAIRIE EDITOR: A New Global Geopolitical Landscape",
+            "url": "http://barrycasselman.blogspot.com/2026/02/the-prairie-editor-new-global.html"
+          },
+          {
+            "ageHours": 1051.7,
+            "domain": "rappler.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T13:45:16.000Z",
+            "relevance": 0.56,
+            "title": "[ANALYSIS] Towards a ‘hegemonic transition’ or ‘hegemonic stalemate?’",
+            "url": "https://www.rappler.com/voices/thought-leaders/analysis-hegemonic-transition-stalemate"
+          },
+          {
+            "ageHours": 5272.4,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-02-20T17:03:05Z",
+            "relevance": 0.53,
+            "title": "Ask HN: Anyone else exhausted by too rapid development of news?",
+            "url": "https://news.ycombinator.com/item?id=47090622"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 1036.6,
+        "normalizedCount": 12,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "TheSportsDB has no current fixture for \"geopolitical developments\" right now — O",
+          "Mwmbl (free, open, independent index) timed out after 12000ms"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.711,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12483,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what happened today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 7
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2530,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1336,
+        "statesFreshness": true,
+        "text": "Add Free Press access to your Brandon Sun subscription for only an additional\n\n$1 for the first 4 weeks*\n\nEnjoy unlimited reading on winnipegfreepress.com\nRead the E-Edition, our digital replica newspaper\nAccess News Break, our award-winning app\nPlay interactive puzzles\n\n*Your next Brandon Sun subscription payment will increase by $1.00 and you will be charged $17.95 plus GST for four weeks. [2]\n\nDockers fans stranded at Melbourne airport as flights back to Perth cancelled\n\nDisappointed Dockers fans are facing a new headache today with multiple flights out of Melbourne cancelled at short notice. [3]\n\nSEANAN McGUIRE is the author of the Hugo, Nebula, Alex, and Locus Award-winning Wayward Children series, the October Daye series, the InCryptid series, and other works. [4]\n\nLatest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "breaking news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 31.4,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 0.99,
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "winnipegfreepress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:32:21.000Z",
+            "relevance": 0.99,
+            "title": "New York’s Cameron Young and New Jersey’s Chris Gotterup team up for 2 US wins at Presidents Cup",
+            "url": "https://www.winnipegfreepress.com/sports/golf/2026/09/26/new-yorks-cameron-young-and-new-jerseys-chris-gotterup-team-up-for-2-us-wins-at-presidents-cup"
+          },
+          {
+            "ageHours": 32.6,
+            "domain": "thewest.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:50:48.000Z",
+            "relevance": 0.98,
+            "title": "Dockers fans stranded at Melbourne airport as flights back to Perth cancelled",
+            "url": "https://thewest.com.au/news/travel/dockers-fans-stranded-at-melbourne-airport-as-flights-back-to-perth-cancelled--c-22932515"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.78,
+            "title": "A Divided Duty: An October Daye Novel by Seanan McGuire | 9781250375278 | Hardback",
+            "url": "https://www.abbeys.com.au/book/a-divided-duty-an-october-daye-novel-9781250375278.do"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.78,
+            "title": "Demons and Diplomacy by Megan Frampton | 9798217189663 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9798217189663"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "vogue.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:30:00.000Z",
+            "relevance": 0.72,
+            "title": "Horoscope Today: September 27, 2026",
+            "url": "https://www.vogue.in/content/horoscope-today-september-27-2026"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.59,
+            "title": "Armed conflicts and attacks: Houthi–Saudi Arabian conflict",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "apnews.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.48,
+            "title": "Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in ",
+            "url": "https://apnews.com/article/russia-ukraine-war-germany-drones-strikes-f91ac88ee287bad2a3c99d2608975f53"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.45,
+            "title": "Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, kill",
+            "url": "https://www.reuters.com/world/middle-east/seven-people-killed-strike-market-yemen-houthi-run-health-ministry-says-2026-09-27"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.751,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1475,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1107,
+        "statesFreshness": false,
+        "text": "Sign up for the California Morning Report newsletter\n\nThe biggest news, opinion and culture shaping California right now. [1]\n\nIf the necessary conditions are met, the strait can be reopened, and normal maritime passage restored within seven days.”\n\n“The choice now rests with the US. [6]\n\nSo now they’re wasting no time, building homes for the elders who were part of the planning, right down to the youngest member of the community, a three-month-old boy. [2]\n\nQuestion: I don't know before the season starts if you look at it like you have a quarter of the season, you hit the halfway mark, but, just sitting where you're at right now, 2-2, I think there's nine other teams in this conference that have a conference loss. [3]\n\nSources: [1] Trump to roll back fuel-efficiency rules in boost for automakers (nypost.com)  [2] ‘To bring everybody home’: New village opens on North Vancouver Island (ch"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news right now",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 32.6,
+            "domain": "nypost.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:48:15.000Z",
+            "relevance": 1,
+            "title": "Trump to roll back fuel-efficiency rules in boost for automakers",
+            "url": "https://nypost.com/2026/09/26/us-news/trump-to-roll-back-fuel-efficiency-rules-in-boost-automakers"
+          },
+          {
+            "ageHours": 32.7,
+            "domain": "cheknews.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:44:53.000Z",
+            "relevance": 0.96,
+            "title": "‘To bring everybody home’: New village opens on North Vancouver Island",
+            "url": "https://cheknews.ca/to-bring-everybody-home-new-village-opens-on-north-vancouver-island-1350326"
+          },
+          {
+            "ageHours": 31.3,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:07:22.000Z",
+            "relevance": 0.96,
+            "title": "Mike Norvell On FSU Football's Win Over Central Arkansas: 'Some Things We Got To Clean Up'",
+            "url": "https://www.si.com/college/fsu/florida-state-seminoles-college-football/mike-norvell-fsu-football-win-central-arkansas-some-things-clean-up-"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "wilx.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:32:07.000Z",
+            "relevance": 0.81,
+            "title": "Federal officials tour Stockbridge oil terminal, back Line 5 tunnel project",
+            "url": "https://www.wilx.com/2026/09/27/federal-officials-tour-stockbridge-oil-terminal-back-line-5-tunnel-project"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "tastingtable.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:30:00.000Z",
+            "relevance": 0.8,
+            "title": "How Discarded Tortillas Became A Billion-Dollar Industry Thanks To One Woman",
+            "url": "https://www.tastingtable.com/2263410/how-discarded-tortillas-became-billion-dollar-industry-thanks-one-woman"
+          },
+          {
+            "ageHours": 32.6,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:47:50.000Z",
+            "relevance": 0.78,
+            "title": "No deal: Trump rejects Iran truce proposal to reopen Hormuz",
+            "url": "https://www.malaymail.com/news/world/2026/09/27/no-deal-trump-rejects-iran-truce-proposal-to-reopen-hormuz/236671"
+          },
+          {
+            "ageHours": 32.5,
+            "domain": "awfulannouncing.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:57:10.000Z",
+            "relevance": 0.78,
+            "title": "Steve Sarkisian blames media, Twitter for player’s urination celebration",
+            "url": "https://awfulannouncing.com/college-football/steve-sarkisian-blames-media-twitter-colin-simmons-urination-celebration.html"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "theguardian.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.66,
+            "title": "Politics and elections: The National Rally clears the 10-seat threshold in the Senate of France, allowing the ",
+            "url": "https://www.theguardian.com/world/2026/sep/28/french-election-2026-far-right-senate-elections"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 9.4,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.844,
+        "wrongYearKept": 0
+      },
+      "temporal": "now",
+      "totalMs": 1073,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1174,
+        "statesFreshness": true,
+        "text": "Whirlpool of India shares jump 20% today; here's what analysts say\n\nShares of Whirlpool of India Ltd surged 20 per cent on Wednesday to touch a high of Rs 865.35. [1]\n\nSchool Assembly News Headlines Today – September 25, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 25, 2026: Students can begin the day with important national, international, education and sports updates. [2]\n\nJohn Bowen (1924-2019) was born in what was then Calcutta, India, before being sent to England at the age of four to be reared by an uncle and aunt. [3]\n\nThis collaboration arrives at a pivotal juncture in the sporting relations between India and New Zealand, as 2026 marks a century of athletic camaraderie between the two nations. [4]\n\nSources: [1] Whirlpool of India shares jump 20% today; here's what analysts say (businesstoday.in)  [2] School Assembly News"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "latest India news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 119.4,
+            "domain": "businesstoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T10:03:26.000Z",
+            "relevance": 0.95,
+            "title": "Whirlpool of India shares jump 20% today; here's what analysts say",
+            "url": "https://www.businesstoday.in/markets/trending-stocks/story/whirlpool-of-india-shares-jump-20-today-heres-what-analysts-say-557305-2026-09-23"
+          },
+          {
+            "ageHours": 78,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T03:23:08.000Z",
+            "relevance": 0.95,
+            "title": "School Assembly News Headlines Today – September 25, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-25-2026-national-international-education-spo-066103.html"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.87,
+            "title": "The Girls by John Bowen | 9781529970982 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529970982"
+          },
+          {
+            "ageHours": 75.4,
+            "domain": "rswebsols.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:00:00.000Z",
+            "relevance": 0.76,
+            "title": "AI and Smartphone Collaborations for India’s Historic Tour of New Zealand",
+            "url": "https://www.rswebsols.com/news/ai-and-smartphone-collaborations-for-indias-historic-tour-of-new-zealand"
+          },
+          {
+            "ageHours": 93.4,
+            "domain": "trueconf.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:01:52.000Z",
+            "relevance": 0.59,
+            "title": "TrueConf at InfoComm India 2026",
+            "url": "https://trueconf.com/blog/events/trueconf-at-infocomm-india-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.824,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1488,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1136,
+        "statesFreshness": true,
+        "text": "John Bowen (1924-2019) was born in what was then Calcutta, India, before being sent to England at the age of four to be reared by an uncle and aunt. [1]\n\nA modern-day Adrian Mole about negotiating life today while struggling with the innate difficulty of being a teenage boy, from the inimitable Lissa Evans. [2]\n\nAustralian PM Anthony Albanese Credits PM Modi For India’s Unprecedented Energy Access Expansion\n\nAustralian PM Anthony Albanese credited Narendra Modi with expanding energy access in India on a scale he described as unmatched across any decade, region or country in human history. [3]\n\nNews in Pics | September 27, 2026: Best photos from around the world\n\nKochi: The full moon rises behind the cross at Manjummel Church, in Kochi. [4]\n\nSources: [1] The Girls by John Bowen | 9781529970982 | Paperback (abbeys.com.au)  [2] My Name is Mackenzie Bly by Lissa Evans - Penguin Books Austral"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 1,
+            "title": "The Girls by John Bowen | 9781529970982 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529970982"
+          },
+          {
+            "ageHours": 33.4,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.94,
+            "title": "My Name is Mackenzie Bly by Lissa Evans - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/my-name-is-mackenzie-bly-9781529962987"
+          },
+          {
+            "ageHours": 32.6,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:51:53.000Z",
+            "relevance": 0.85,
+            "title": "Australian PM Anthony Albanese Credits PM Modi For India’s Unprecedented Energy Access Expansion",
+            "url": "https://www.freepressjournal.in/world/australian-pm-anthony-albanese-credits-pm-modi-for-indias-unprecedented-energy-access-expansion"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "deccanherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:31:50.000Z",
+            "relevance": 0.81,
+            "title": "News in Pics | September 27, 2026: Best photos from around the world",
+            "url": "https://www.deccanherald.com/india/news-in-pics-september-27-2026-best-photos-from-around-the-world-4161205"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:31:31.000Z",
+            "relevance": 0.78,
+            "title": "Asian Games 2026 India Schedule September 27: Anahat Singh, Abhay Singh Chase Squash Gold; Animesh Kujur In 20",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-27-anahat-singh-abhay-singh-chase-squash-gold-animesh-kujur-in-200m-final-medal-events-time-live-streaming-293577"
+          },
+          {
+            "ageHours": 31.1,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:18:19.000Z",
+            "relevance": 0.76,
+            "title": "India widens UN outreach in New York",
+            "url": "https://www.thehansindia.com/news/international/india-widens-un-outreach-in-new-york-1126097"
+          },
+          {
+            "ageHours": 33.4,
+            "domain": "kashitaxi.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.62,
+            "title": "Ramlila Dussehra Varanasi 2026 - Book Airport Taxi Guide",
+            "url": "https://www.kashitaxi.in/en/ultimate-guide-ramlila-dussehra-varanasi-2025"
+          },
+          {
+            "ageHours": 33.4,
+            "domain": "kashitaxi.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.62,
+            "title": "Ramlila Dussehra Varanasi 2026 - Book Airport Taxi Guide",
+            "url": "https://www.kashitaxi.in/en/ultimate-guide-ramlila-dussehra-varanasi-2026"
+          },
+          {
+            "ageHours": 32.8,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:35:58.000Z",
+            "relevance": 0.61,
+            "title": "India must engage with its archive of economic ideas",
+            "url": "https://www.hindustantimes.com/opinion/india-must-engage-with-its-archive-of-economic-ideas-101790448636705.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.777,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1673,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1292,
+        "statesFreshness": true,
+        "text": "India, France, UAE review West Asia situation at UNGA meet\n\nIndia, France and the UAE held a trilateral ministerial meeting in New York on the sidelines of the UN General Assembly. [2]\n\nGermany ready to sign ‘forward leaning’ deal with India for submarines: German Ambassador to India\n\nGermany is ready to sign a “forward leaning” deal with India for six submarines worth $8 billion, said its new ambassador to India, Jasper Wieck. [4]\n\nThe meeting took place on the sidelines of UN General Assembly, with their discussions focused on the sanctions issue as well as the situations in the Gulf and Ukraine. [1]\n\nIndia, France and the United Arab Emirates on Tuesday held a trilateral ministerial meeting on the margins of the UN General Assembly, where they discussed the situation in West Asia and reviewed progress in cooperation in areas including space and artificial intelligence. [2]\n\nSources: ["
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "current situation in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 115.1,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T14:21:08.000Z",
+            "relevance": 1,
+            "title": "Jaishankar Meets Rubio At UN, Raises India’s Concerns Over Russia Sanctions Bill",
+            "url": "https://www.dynamitenews.com/international/jaishankar-meets-rubio-at-un-raises-indias-concerns-over-russia-sanctions-bill"
+          },
+          {
+            "ageHours": 115.8,
+            "domain": "indiatoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T13:34:27.000Z",
+            "relevance": 0.9,
+            "title": "India, France, UAE review West Asia situation at UNGA meet",
+            "url": "https://www.indiatoday.in/world/story/india-france-uae-trilateral-meeting-west-asia-ai-space-cooperation-ptag-3001363-2026-09-23"
+          },
+          {
+            "ageHours": 119.4,
+            "domain": "businesstoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T10:03:26.000Z",
+            "relevance": 0.77,
+            "title": "Whirlpool of India shares jump 20% today; here's what analysts say",
+            "url": "https://www.businesstoday.in/markets/trending-stocks/story/whirlpool-of-india-shares-jump-20-today-heres-what-analysts-say-557305-2026-09-23"
+          },
+          {
+            "ageHours": 112.4,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T17:03:48.000Z",
+            "relevance": 0.76,
+            "title": "Germany ready to sign ‘forward leaning’ deal with India for submarines: German Ambassador to India",
+            "url": "https://www.thehindu.com/news/national/germany-ready-to-sign-forward-leaning-deal-with-india-for-submarines-german-ambassador-to-india/article71501130.ece"
+          },
+          {
+            "ageHours": 93.4,
+            "domain": "trueconf.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:01:52.000Z",
+            "relevance": 0.59,
+            "title": "TrueConf at InfoComm India 2026",
+            "url": "https://trueconf.com/blog/events/trueconf-at-infocomm-india-2026"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 93.4,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.804,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2073,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1403,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today – September 25, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 25, 2026: Students can begin the day with important national, international, education and sports updates. [1]\n\nTrueConf at InfoComm India 2026\n\nOn September 16—18, we participated in InfoComm India 2026, one of the largest professional AV and IT exhibitions in India and South Asia. [2]\n\nSIPLACE V Placement Platform Makes India Debut at Productronica India 2026\n\nSIPLACE V Placement Platform – ASMPT SMT Solutions, the global market and technology leader in integrated hardware and software solutions for electronics manufacturing, received a strong response from visitors at Productronica India 2026 in Bengaluru. [4]\n\nToday's key stories include developments in food safety and railway infrastructure in India, major discussions at the Un"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 78,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T03:23:08.000Z",
+            "relevance": 1.1,
+            "title": "School Assembly News Headlines Today – September 25, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-25-2026-national-international-education-spo-066103.html"
+          },
+          {
+            "ageHours": 93.4,
+            "domain": "trueconf.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:01:52.000Z",
+            "relevance": 1,
+            "title": "TrueConf at InfoComm India 2026",
+            "url": "https://trueconf.com/blog/events/trueconf-at-infocomm-india-2026"
+          },
+          {
+            "ageHours": 44.8,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:34:17.000Z",
+            "relevance": 0.98,
+            "title": "Yono Game App 2026 | Discover the Latest Gaming Experience",
+            "url": "https://www.adproceed.com/ads/yono-game-app-2026-discover-the-latest-gaming-experience"
+          },
+          {
+            "ageHours": 96.7,
+            "domain": "electronicsmedia.info",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:45:22.000Z",
+            "relevance": 0.78,
+            "title": "SIPLACE V Placement Platform Makes India Debut at Productronica India 2026",
+            "url": "https://www.electronicsmedia.info/2026/09/24/siplace-v-placement-platform"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 44.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.965,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 912,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 790,
+        "statesFreshness": false,
+        "text": "Economy News The India Economy Review prepared by the Ministry of Finance said that the agricultural sector -- which is estimated to constitute 18 per ce… [9]\n\nIndian Economy is the sixth largest economy in the world in terms of nominal GDP ($1.15 billion) as of May, 2026. [12]\n\nIndia has a developing market-oriented economy with substantial state participation in strategic sectors. [1]\n\nIndus Valley Civilisation, the early civilisation of India and Pakistan, developed the economy of agriculture and craft which later spread into central India. [2]\n\nSources: [1] Economy of India (en.wikipedia.org)  [2] Economic history of India (en.wikipedia.org)  [3] How Vulnerable is India's Economy to Foreign Sanctions? (arxiv.org)  [4] Indian economy since independence (2008) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "Economy of India",
+            "url": "https://en.wikipedia.org/wiki/Economy_of_India"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Economic history of India",
+            "url": "https://en.wikipedia.org/wiki/Economic_history_of_India"
+          },
+          {
+            "ageHours": 4792.9,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2026-03-12T16:30:34Z",
+            "relevance": 0.91,
+            "title": "How Vulnerable is India's Economy to Foreign Sanctions?",
+            "url": "http://arxiv.org/abs/2603.12128v2"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "Indian economy since independence (2008)",
+            "url": "https://openlibrary.org/works/OL19746731W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "India's economy (2003)",
+            "url": "https://openlibrary.org/works/OL5250162W"
+          },
+          {
+            "ageHours": 721.9,
+            "domain": "statista.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-29T07:28:29.000Z",
+            "relevance": 0.86,
+            "title": "Nominal GDP growth of U.S. states 2025",
+            "url": "https://www.statista.com/statistics/248023/us-gross-domestic-product-gdp-by-state"
+          },
+          {
+            "ageHours": 1105,
+            "domain": "anantamias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:27:54.000Z",
+            "relevance": 0.85,
+            "title": "Golden Revolution and Horticulture Sector in India (UPSC Economy)",
+            "url": "https://anantamias.com/golden-revolution"
+          },
+          {
+            "ageHours": 1017.6,
+            "domain": "drishtiias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T23:46:34.000Z",
+            "relevance": 0.83,
+            "title": "Indian Economy",
+            "url": "https://www.drishtiias.com/current-affairs-news-analysis-editorials/news-analysis/30-07-2026"
+          },
+          {
+            "ageHours": null,
+            "domain": "ibtimes.co.in",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "India & World Economy News – IBTimes India : page 2",
+            "url": "http://www.ibtimes.co.in/economy/page/2"
+          },
+          {
+            "ageHours": 61508.2,
+            "domain": "nytimes.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2019-09-22T13:16:13Z",
+            "relevance": 0.82,
+            "title": "From Underwear to Cars, India’s Economy Is Fraying",
+            "url": "https://www.nytimes.com/2019/09/21/business/economy/india-economy-trade.html"
+          },
+          {
+            "ageHours": 17009.7,
+            "domain": "economist.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2024-10-19T15:45:26Z",
+            "relevance": 0.82,
+            "title": "Is India's economy slowing down?",
+            "url": "https://www.economist.com/asia/2024/10/10/is-indias-economy-slowing-down"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "title": "economy of India",
+            "url": "http://www.wikidata.org/entity/Q233623"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 721.9,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"India economy\" right now — Omi will not "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.869,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1197,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "latest Indian stock market news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 5,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 5,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 951,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1244,
+        "statesFreshness": false,
+        "text": "Liza Black is a citizen of Cherokee Nation and an associate professor of history and of Native American and Indigenous studies at Indiana University. [2]\n\nGoogle picks four Indian startups for its Inaugural AI for the Planet Accelerator\n\nFile Photo: Visitors walk near a logo of Google at Bharat Mandapam, one of the venues for AI Impact Summit, in New Delhi, India. [5]\n\nBRIAN MARACLE is an award-winning journalist and a member of the Mohawk Nation, originally from the Six Nations of the Grand River Territory near Brantford, Ontario. [1]\n\n“Because to play Ravana, who is so disliked, it took someone like him to have the courage to come on board as a producer and really support our aspiration of making ‘Ramayana’ not just to make every Indian proud, but also to take it to the entire world. [4]\n\nSources: [1] Crazywater: Native Voices on Addiction and Recovery by Brian Maracle | 9781037803390 "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "Indian railways news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.78,
+            "title": "Crazywater: Native Voices on Addiction and Recovery by Brian Maracle | 9781037803390 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781037803390"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.78,
+            "title": "How Settlers Get Away with Murder: The Killing of Indigenous Women and Two-Spirit People in the Americas by Li",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9780807024775"
+          },
+          {
+            "ageHours": 7.2,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T02:10:41.000Z",
+            "relevance": 0.72,
+            "title": "Why Morne Brabant?",
+            "url": "https://visitfranceguide.com/why-morne-brabant"
+          },
+          {
+            "ageHours": 33.3,
+            "domain": "odishatv.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:08:31.000Z",
+            "relevance": 0.57,
+            "title": "Ramayana: Namit Malhotra reveals why Yash was the only choice to play Ravana, watch",
+            "url": "https://odishatv.in/entertainment/ramayana-namit-malhotra-reveals-why-yash-was-the-only-choice-to-play-ravana-watch-12580479"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "deccanherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:30:00.000Z",
+            "relevance": 0.55,
+            "title": "Gadgets Weekly: Beats 360 headphones, Sennheiser MOMENTUM 5 and more",
+            "url": "https://www.deccanherald.com/technology/gadgets-weekly-beats-360-headphones-sennheiser-momentum-5-and-more-4159430"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.68,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2316,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "current Indian rupee exchange rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1816,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "live India cricket score",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1053,
+        "statesFreshness": false,
+        "text": "Bihar Government Plans Free Ayurvedic Medicines & Dedicated Wings in Hospitals (2026)\n\nThe Indian government's decision to establish dedicated Ayurveda wings in government hospitals is a significant step towards integrating traditional healthcare practices into the mainstream. [1]\n\nBy doing so, the government is enabling doctors to prescribe these medicines and making them available to patients free of charge. [1]\n\nThe government's commitment to making these services accessible to villages and economically disadvantaged communities is a step in the right direction, addressing a long-standing issue in the healthcare sector. [1]\n\nShantanu Moitra To Receive National Lata Mangeshkar Award 2026 In Indore\n\nMusic composer Shantanu Moitra will receive Madhya Pradesh’s National Lata Mangeshkar Award 2026 in Indore on September 28. [2]\n\nSources: [1] Bihar Government Plans Free Ayurvedic Medicines "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "recent Indian government announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "shares no subject word": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 111.5,
+            "domain": "biblebyte.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T17:58:17.000Z",
+            "relevance": 0.92,
+            "title": "Bihar Government Plans Free Ayurvedic Medicines & Dedicated Wings in Hospitals (2026)",
+            "url": "https://biblebyte.org/article/bihar-government-plans-free-ayurvedic-medicines-dedicated-wings-in-hospitals"
+          },
+          {
+            "ageHours": 110.8,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T18:37:33.000Z",
+            "relevance": 0.68,
+            "title": "Shantanu Moitra To Receive National Lata Mangeshkar Award 2026 In Indore",
+            "url": "https://www.freepressjournal.in/indore/shantanu-moitra-to-receive-national-lata-mangeshkar-award-2026-in-indore"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 110.8,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1297,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1320,
+        "statesFreshness": true,
+        "text": "Pokémon GO Festival of Lights 2026: India Exclusive Event\n\nStarts\nat Local Time\nEnds\nat Local Time\n\nThe Festival of Lights event is back with its 2026 edition, giving Pokémon GO players in India more chances to catch the popular duo of Pikachu wearing a saree and Pikachu wearing a kurta! [5]\n\nIndia jumps 9 spots to rank 31st in WEF travel & tourism index 2026; Japan tops list\n\nREAD THIS: Top 10 countries for science education: China leads global ranking, Singapore follows\n\nIndia improves its tourism standing\n\nIndia’s nine-place rise was supported by improvements in tourism infrastructure, cultural assets and business travel resources. [4]\n\nThe Latest Fixed Deposit Interest Rates: Sep 25, 2026\n\nA fixed deposit is a trusted way to maintain liquidity and earn an assured rate of return on the capital. [2]\n\nThe Latest Home Loan Interest Rates: Sep 25, 2026\n\nWhat are the various fixed and floa"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India budget 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 44.9,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:34:17.000Z",
+            "relevance": 0.98,
+            "title": "Yono Game App 2026 | Discover the Latest Gaming Experience",
+            "url": "https://www.adproceed.com/ads/yono-game-app-2026-discover-the-latest-gaming-experience"
+          },
+          {
+            "ageHours": 67.9,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 0.98,
+            "title": "The Latest Fixed Deposit Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-fixed-deposit-interest-rates-sep-25-2026/article64808518.ece"
+          },
+          {
+            "ageHours": 67.9,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 0.98,
+            "title": "The Latest Home Loan Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-home-loan-interest-rates-sep-25-2026/article64808517.ece"
+          },
+          {
+            "ageHours": 57.3,
+            "domain": "businesstoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:05:02.000Z",
+            "relevance": 0.82,
+            "title": "India jumps 9 spots to rank 31st in WEF travel & tourism index 2026; Japan tops list",
+            "url": "https://www.businesstoday.in/latest/world/story/india-jumps-9-spots-to-rank-31st-in-wef-travel-tourism-index-2026-japan-tops-list-557948-2026-09-26"
+          },
+          {
+            "ageHours": 68.7,
+            "domain": "pokemongohub.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T12:44:14.000Z",
+            "relevance": 0.82,
+            "title": "Pokémon GO Festival of Lights 2026: India Exclusive Event",
+            "url": "https://pokemongohub.net/post/event/pokemon-go-festival-of-lights-2026-india-exclusive-event"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 44.9,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.916,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1746,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 807,
+        "statesFreshness": true,
+        "text": "The Department of Space (DoS) is an Indian government department responsible for administration of the Indian space programme. [1]\n\nIndian Space Programme is a remarkable example of India’s progress in the field of Technology. [4]\n\nIndian Space Programme\n\nThe Indian Space Programme is one of the most successful space programmes in the world, with a rich history of achievements and contributions to scientific research and national development. [3]\n\nThe Indian space programme under the DoS aims to promote the development and application of space science and technology for the socio-economic benefit of the country. [1]\n\nSources: [1] Department of Space (en.wikipedia.org)  [2] List of Indian satellites (en.wikipedia.org)  [3] Indian Space Programme (gktoday.in)  [4] Indian Space Programme (rajras.in)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "Indian space programme",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "Department of Space",
+            "url": "https://en.wikipedia.org/wiki/Department_of_Space"
+          },
+          {
+            "ageHours": 1229.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:57:38.000Z",
+            "relevance": 1,
+            "title": "List of Indian satellites",
+            "url": "https://en.wikipedia.org/wiki/List_of_Indian_satellites"
+          },
+          {
+            "ageHours": 1062.6,
+            "domain": "gktoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T02:46:42.000Z",
+            "relevance": 0.93,
+            "title": "Indian Space Programme",
+            "url": "https://www.gktoday.in/indian-space-programme"
+          },
+          {
+            "ageHours": 970.3,
+            "domain": "rajras.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T23:10:04.000Z",
+            "relevance": 0.93,
+            "title": "Indian Space Programme",
+            "url": "https://rajras.in/ras/mains/paper-2/science/indian-space-programme"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "The Indian Space Programme (2017)",
+            "url": "https://openlibrary.org/works/OL20826855W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "The Japanese and Indian Space Programmes (2000)",
+            "url": "https://openlibrary.org/works/OL7949279W"
+          },
+          {
+            "ageHours": 114051.9,
+            "domain": "thehindu.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-09-24T05:30:57Z",
+            "relevance": 0.76,
+            "title": "NSA targets Indian politics, space & N-programmes",
+            "url": "http://www.thehindu.com/news/national/nsa-targets-indian-politics-space-nprogrammes/article5161299.ece"
+          },
+          {
+            "ageHours": null,
+            "domain": "eu-space.europa.eu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.7,
+            "title": "EU Space Programme | EU Space Policy",
+            "url": "https://eu-space.europa.eu"
+          },
+          {
+            "ageHours": 1104.5,
+            "domain": "testbook.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:54:35.000Z",
+            "relevance": 0.68,
+            "title": "Rohini Satellite RS-1: India's First Indigenous Satellite Launch (1980)",
+            "url": "https://testbook.com/ias-preparation/rohini-satellite-rs-1-isro-space-mission"
+          },
+          {
+            "ageHours": 1229.4,
+            "domain": "csis.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:08.000Z",
+            "relevance": 0.67,
+            "title": "Another Leap Forward: India’s Historic Moon Landing and the Space Competition Underway",
+            "url": "https://www.csis.org/analysis/another-leap-forward-indias-historic-moon-landing-and-space-competition-underway"
+          },
+          {
+            "ageHours": null,
+            "domain": "m.economictimes.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "title": "indian space research organisation: Latest News & Videos, Photos…",
+            "url": "https://m.economictimes.com/topic/indian-space-research-organisation"
+          },
+          {
+            "ageHours": null,
+            "domain": "space.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.61,
+            "title": "Russian and Indian Space Junk Buzzes Space Station | Space",
+            "url": "https://www.space.com/17814-space-junk-buzzes-space-station.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 970.3,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.803,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1412,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "football results today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest cricket match result",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "live football scores",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Premier League standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 996,
+        "statesFreshness": true,
+        "text": "Russian strikes hit Kyivstar's headquarters and multiple data centres in Kyiv, including a facility struck twice that injures two children and an adult. [3]\n\nLaavanya Negi is Journalist and education news reporter. [1]\n\nThey can also reach out on the official email address at cheeapcet@gmail.com. [1]\n\nAt Jagran Josh, Laavanya covers the full spectrum of international, national, and regional education news - ranging from CBSE and State Board results to major entrance exams like CUET, JEE, and NEET, and college admissions and counselling. [1]\n\nSources: [1] AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter - Link Here (jagranjosh.com)  [2] Council Meeting, Monday, September 28, 2026, 7pm (grayville-il.gov)  [3] Armed conflicts and attacks: Russian strikes hit Kyivstar's headquarters and multiple data centres in Kyiv, including a fa"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest IPL news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 96.8,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:34:33.000Z",
+            "relevance": 0.95,
+            "title": "AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter ",
+            "url": "https://www.jagranjosh.com/news/ap-barch-admissions-2026-seat-allotment-result-release-at-cap-apcfss-in-download-allocation-letter-pdf-direct-link-here-187732"
+          },
+          {
+            "ageHours": 84.9,
+            "domain": "grayville-il.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T20:31:16.000Z",
+            "relevance": 0.71,
+            "title": "Council Meeting, Monday, September 28, 2026, 7pm",
+            "url": "https://grayville-il.gov/council-meeting-monday-september-28-2026-7pm"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "indiatoday.in",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.5,
+            "title": "Armed conflicts and attacks: Russian strikes hit Kyivstar's headquarters and multiple data centres in Kyiv, in",
+            "url": "https://www.indiatoday.in/world/story/russia-ukraine-strikes-largest-mobile-provider-kyivstar-hq-vodafone-data-centre-kyiv-3004342-2026-09-27"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.72,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2320,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Formula 1 2026 season results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "NBA standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest tennis tournament results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "today's match fixtures",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "who won the most recent F1 race",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1308,
+        "statesFreshness": false,
+        "text": "Asian Games 2026 India Schedule: Check September 26 Matches and 13 Medal Events\n\nAsian Games 2026: Check India’s complete schedule for September 26, 2026, including match timings, participating athletes and all 13 medal event details. [2]\n\nIndia witnessed a positive day at the Asian Games 2026 on Friday, adding 5 medals to its tally. [2]\n\nAlso Read: Asian Games 2026: India bag silver in Men’s 50m Rifle 3P; Aishwary, Niraj enter individual final\n\nBaranica Elangovan’s record-breaking season\n\nCatch Every Update, Anytime, Anywhere\n\nElangovan entered the Aichi-Nagoya Games as one of the brightest medal prospects in athletics. [3]\n\nRELATED: Asian Games 2026: India’s medal winners, live medal tally, results\n\nHowever, the 29-year-old had to wait for her first Asiad medal, having narrowly missed out on the athletics contingent for the Hangzhou 2022 Games. [3]\n\nSources: [1] Asian Games 2026 Medal "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 medal tally India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 42.9,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:31:54.000Z",
+            "relevance": 1.05,
+            "title": "Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India R",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medal-tally-day-8-kabaddi-teams-bag-twin-golds-tajinderpal-toor-sawan-barwal-help-india-rise-to-10th"
+          },
+          {
+            "ageHours": 67.9,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:32:57.000Z",
+            "relevance": 1.05,
+            "title": "Asian Games 2026 India Schedule: Check September 26 Matches and 13 Medal Events",
+            "url": "https://www.jagranjosh.com/general-knowledge/asian-games-2026-india-schedule-check-september-26-matches-and-13-medal-events-1820012523-1"
+          },
+          {
+            "ageHours": 61.4,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T20:01:33.000Z",
+            "relevance": 1.05,
+            "title": "Asian Games 2026: Baranica Elangovan wins bronze in women’s pole vault",
+            "url": "https://khelnow.com/asian-games/baranica-elangovan-bronze-asian-games-202609"
+          },
+          {
+            "ageHours": 46.4,
+            "domain": "pratidintime.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T11:00:03.000Z",
+            "relevance": 1.05,
+            "title": "Asian Games 2026: Sawan Barwal Ends India’s 44-Year Marathon Medal Wait",
+            "url": "https://www.pratidintime.com/sports/sawan-barwal-marathon-silver-asian-games-12577317"
+          },
+          {
+            "ageHours": 51.9,
+            "domain": "republicworld.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T05:30:36.000Z",
+            "relevance": 1.05,
+            "title": "Asian Games 2026: India Women Retain Asian Games Kabaddi Gold, Beat Iran 37-34 in Thriller",
+            "url": "https://www.republicworld.com/sports/asian-games-2026-india-women-retain-asian-games-kabaddi-gold-beat-iran-37-34-in-thriller-2026-09-26-137735"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 42.9,
+        "normalizedCount": 11,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 1.05,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1688,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest Asian Games 2026 results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1,
+      "vertical": "sports"
+    }
+  ],
+  "total": 138
+}

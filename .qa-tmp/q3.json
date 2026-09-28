@@ -1,0 +1,3157 @@
+{
+  "answerContract": {
+    "allSourcesDated": 25,
+    "citationsResolve": 30,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 25,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 5
+  },
+  "byCategory": {
+    "finance": {
+      "fresh": 3,
+      "kept": 49,
+      "n": 12
+    },
+    "science": {
+      "fresh": 3,
+      "kept": 22,
+      "n": 4
+    },
+    "sports": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 2
+    },
+    "technology": {
+      "fresh": 6,
+      "kept": 61,
+      "n": 12
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 3
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 22,
+      "n": 6
+    },
+    "latest": {
+      "fresh": 1,
+      "kept": 17,
+      "n": 7
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "none": {
+      "fresh": 5,
+      "kept": 60,
+      "n": 6
+    },
+    "recent": {
+      "fresh": 1,
+      "kept": 5,
+      "n": 2
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 16,
+      "n": 5
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 42,
+  "ran": 30,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Olympic medal table",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "history of the World Cup final",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 896,
+        "statesFreshness": true,
+        "text": "Best Crypto Casinos With Awesome Welcome Bonus 2025\n\nWelcome bonuses are tempting, so no one is shocked that every single online casino is trying to be innovative and differentiate from the others in today's overflowing market. [4]\n\nTwo Wallys today in Stock for Irving Family Racing at Bakersfield! [5]\n\nCoupang: Which E-Commerce Stock Should You Invest In for 2026? [1]\n\nIn today's digital landscape, video content has become the most powerful medium for engaging audiences and driving business growth. [2]\n\nSources: [1] Alibaba vs. Coupang: Which E-Commerce Stock Should You Invest In for 2026? (rswebsols.com)  [2] 5 AI Video Marketing Strategies Your SaaS Brand Cant Afford to Miss in 2025 | Leo AI (leo-ai.io)  [3] Salesforce Stock Plummets in Worst Loss Since 2008, Leading to Dow Slump of 380 Points (ub.edu.pl)  [4] Best Crypto Casinos With Awesome Welcome Bonus 2025 (thebonusblitz.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "stock market today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 31.4,
+            "domain": "rswebsols.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:00:00.000Z",
+            "relevance": 0.99,
+            "title": "Alibaba vs. Coupang: Which E-Commerce Stock Should You Invest In for 2026?",
+            "url": "https://www.rswebsols.com/news/alibaba-vs-coupang-which-e-commerce-stock-should-you-invest-in-for-2026"
+          },
+          {
+            "ageHours": 0,
+            "domain": "leo-ai.io",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T09:34:18.000Z",
+            "relevance": 0.87,
+            "title": "5 AI Video Marketing Strategies Your SaaS Brand Cant Afford to Miss in 2025 | Leo AI",
+            "url": "https://leo-ai.io/blog/5-AI-Video-Marketing-Strategies-Your-SaaS-Brand-Cant-Afford-to-Miss-in-2025"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "ub.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:30:48.000Z",
+            "relevance": 0.81,
+            "title": "Salesforce Stock Plummets in Worst Loss Since 2008, Leading to Dow Slump of 380 Points",
+            "url": "https://ub.edu.pl/salesforce-stock-plummets-in-worst-loss-since-2008-leading-to-dow-slump-of-380-points.html"
+          },
+          {
+            "ageHours": 24,
+            "domain": "thebonusblitz.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T09:23:40.000Z",
+            "relevance": 0.81,
+            "title": "Best Crypto Casinos With Awesome Welcome Bonus 2025",
+            "url": "https://thebonusblitz.com/best-crypto-casinos-with-awesome-welcome-bonus"
+          },
+          {
+            "ageHours": 32.5,
+            "domain": "forabodiesonly.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:56:37.000Z",
+            "relevance": 0.8,
+            "title": "Two Wallys today in Stock for Irving Family Racing at Bakersfield!",
+            "url": "https://www.forabodiesonly.com/mopar/threads/two-wallys-today-in-stock-for-irving-family-racing-at-bakersfield.605172"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "tastingtable.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:30:00.000Z",
+            "relevance": 0.8,
+            "title": "How Discarded Tortillas Became A Billion-Dollar Industry Thanks To One Woman",
+            "url": "https://www.tastingtable.com/2263410/how-discarded-tortillas-became-billion-dollar-industry-thanks-one-woman"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 6,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: Request failed with status code 429",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4933ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: Request failed with status code 429",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4921ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 0.847,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 23084,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 735,
+        "statesFreshness": true,
+        "text": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? [1]\n\nThe rate for 22K gold is Rs 14,011 per gram, while 18K gold is priced at Rs 11,464 per gram. [1]\n\nCheck 22K, 18K, 10 Gram And 100 Gram Prices, Plus City-Wise Gold Rates\n\nGold prices in India remained at Rs 15,285 per gram for 24K gold on Saturday, September 26. [1]\n\nGold Price Today Per Gram in India\n\nGold Purity Price Per Gram\n\n24K ₹15,285\n\n22K ₹14,011\n\n18K ₹11,464\n\n24K gold has a purity of 99.9%, while 22K gold has 91.6% purity and 18K gold has 75% purity. [1]\n\nSources: [1] Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 Gram Prices, Plus City-Wise Gold Rates (sundayguardianlive.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest gold price",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 55.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:09:47.000Z",
+            "relevance": 0.99,
+            "title": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 G",
+            "url": "https://sundayguardianlive.com/business/gold-rate-today-in-india-september-26-2026-how-much-is-24k-gold-per-gram-check-22k-18k-10-gram-and-100-gram-prices-plus-city-wise-gold-rates-292891"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 55.3,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.99,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2742,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1384,
+        "statesFreshness": true,
+        "text": "1 USD = 95.9279 INR (rate updated Mon, 28 Sep 2026 00:02:31 +0000). [1]\n\nKey factors include:\n\nGlobal gold prices\nUSD-INR exchange rate\nInterest rate expectations\nInflation and economic conditions\nGeopolitical developments\nJewellery and investment demand\nImport duties and taxes\n\nSilver prices are also influenced by industrial demand, particularly from sectors such as electronics, manufacturing and emerging technologies. [2]\n\nInJ Fund, an Indo-Japan Opportunity Fund, to Deploy USD 100 Million into India’s Emerging Riverine Economy Over the Next Three Years\n\nMumbai, Maharashtra, India – Business Wire India\n\nPartnership integrates Japanese engineering in low-emission vessels, automated ports and precision logistics to cut operational friction and deliver over 30–40% cost savings versus road freight. [3]\n\nGold rates are influenced by both domestic and international market conditions. [2]\n\nSo"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "current USD to INR rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.4,
+            "domain": "xe.com",
+            "providers": [
+              "market-rates",
+              "Open Exchange Rates (keyless)"
+            ],
+            "publishedAt": "2026-09-28T00:02:31.000Z",
+            "relevance": 1,
+            "title": "1 USD = 95.9279 INR",
+            "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
+          },
+          {
+            "ageHours": 55.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:09:47.000Z",
+            "relevance": 1,
+            "title": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 G",
+            "url": "https://sundayguardianlive.com/business/gold-rate-today-in-india-september-26-2026-how-much-is-24k-gold-per-gram-check-22k-18k-10-gram-and-100-gram-prices-plus-city-wise-gold-rates-292891"
+          },
+          {
+            "ageHours": 66.8,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T14:39:01.000Z",
+            "relevance": 1,
+            "title": "InJ Fund, an Indo-Japan Opportunity Fund, to Deploy USD 100 Million into India’s Emerging Riverine Economy Ove",
+            "url": "https://www.thehindubusinessline.com/brandhub/pr-release/inj-fund-an-indo-japan-opportunity-fund-to-deploy-usd-100-million-into-indias-emerging-riverine-economy-over-the-next-three-years/article71507454.ece"
+          },
+          {
+            "ageHours": 57.3,
+            "domain": "globalbankingandfinance.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:10:18.000Z",
+            "relevance": 0.62,
+            "title": "NEAR Protocol gains 6.48% over 24-hour window to 26 September 2026",
+            "url": "https://www.globalbankingandfinance.com/near-protocol-rises-6-48-percent-near-2026-09-26"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 9.4,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.905,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1267,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "live sensex level",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9,
+          "shares no subject word": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1449,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 800,
+        "statesFreshness": false,
+        "text": "IBIT options price trading more calmly after Bitcoin rebound\n\nIBIT’s expected volatility sits near the bottom of its 12-month range, according to Saxo Bank’s analysis of options data from Sept. [1]\n\nVolatility and recent price action\n\nBitcoin traded above $86,000 briefly in September 2026 before settling near $84,000. [2]\n\nOptions on BlackRock’s iShares Bitcoin Trust (IBIT) are pricing smaller swings than the fund experienced during Bitcoin’s recent rebound, according to Saxo Bank. [1]\n\nImplied volatility reflects expectations of future price swings embedded in options prices, while realized volatility measures past movements. [1]\n\nSources: [1] IBIT options price trading more calmly after Bitcoin rebound (cointelegraph.com)  [2] Can Bitcoin reach ‘$1 million’ in 2026, or not (filmdaily.co)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "current price of bitcoin",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 70.2,
+            "domain": "cointelegraph.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T11:14:34.000Z",
+            "relevance": 1,
+            "title": "IBIT options price trading more calmly after Bitcoin rebound",
+            "url": "https://cointelegraph.com/markets/ibit-options-trading-bitcoins-rebound"
+          },
+          {
+            "ageHours": 36,
+            "domain": "filmdaily.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:23:27.000Z",
+            "relevance": 0.99,
+            "title": "Can Bitcoin reach ‘$1 million’ in 2026, or not",
+            "url": "https://filmdaily.co/news/can-bitcoin-reach-1-million-in-2026-or-not"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 36,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.995,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1120,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1493,
+        "statesFreshness": true,
+        "text": "US Jobs Report and Economic Data in Focus\n\nInvestors are also looking ahead to upcoming US employment and inflation data as they assess the economy and the Federal Reserve’s next policy moves. [1]\n\nPakistan’s weekly inflation rises by 0.99 percent\n\nPakistan’s weekly inflation picked up pace in the latest week, with prices of several essential household items rising, led by a sharp increase in electricity charges, reported 24NewsHD TV channel. [3]\n\nArgentina's statistics agency, INDEC, is due to release poverty data for the first half of 2026 on Thursday. [6]\n\nArgentina’s poverty rate rises above 30% under President Milei, reversing recent decline\n\nBUENOS AIRES, Argentina — Argentina's poverty rate jumped to 32.3% in the first half of 2026, official data showed Thursday, as incomes failed to keep pace with the rising cost of basic goods, a setback for libertarian President Javier Milei li"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest inflation data",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 68.8,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T12:35:51.000Z",
+            "relevance": 1,
+            "title": "Dow Jones Today: Dow Futures Rise Ahead of US Jobs Report as Nvidia, Oil Prices & Treasury Yields Drive Wall S",
+            "url": "https://sundayguardianlive.com/business/dow-jones-today-dow-futures-rise-ahead-of-us-jobs-report-as-nvidia-oil-prices-treasury-yields-drive-wall-street-outlook-check-what-investors-should-know-292589"
+          },
+          {
+            "ageHours": 98.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:08:38.000Z",
+            "relevance": 0.95,
+            "title": "UK Stock Market Forecast Today: Will FTSE 100 Open Higher or Lower on September 24? Oil Prices, Inflation and ",
+            "url": "https://sundayguardianlive.com/business/uk-stock-market-forecast-today-will-ftse-100-open-higher-or-lower-on-september-24-oil-prices-inflation-and-geopolitical-risks-in-focus-291585"
+          },
+          {
+            "ageHours": 70.9,
+            "domain": "24newshd.tv",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:30:09.000Z",
+            "relevance": 0.81,
+            "title": "Pakistan’s weekly inflation rises by 0.99 percent",
+            "url": "https://www.24newshd.tv/25-Sep-2026/pakistan-s-weekly-inflation-rises-0-99-percent"
+          },
+          {
+            "ageHours": 84.1,
+            "domain": "kiro7.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T21:18:50.000Z",
+            "relevance": 0.77,
+            "title": "Argentina’s poverty rate rises above 30% under President Milei, reversing recent decline",
+            "url": "https://www.kiro7.com/news/business/argentinas-poverty/3OGYQPHU744PNJPWZV3RMQ37PE"
+          },
+          {
+            "ageHours": 96.7,
+            "domain": "coincentral.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:41:48.000Z",
+            "relevance": 0.76,
+            "title": "Gold Prices Fall as Oil Surge and Strong US Data Boost Rate Hike Expectations",
+            "url": "https://coincentral.com/gold-prices-fall-as-oil-surge-and-strong-us-data-boost-rate-hike-expectations"
+          },
+          {
+            "ageHours": 95.3,
+            "domain": "straitstimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T10:07:03.000Z",
+            "relevance": 0.76,
+            "title": "Poverty rate tests Argentina's Milei ahead of election",
+            "url": "https://www.straitstimes.com/world/poverty-rate-tests-argentinas-milei-ahead-of-election"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 68.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.842,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2363,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 633,
+        "statesFreshness": true,
+        "text": "The Latest Home Loan Interest Rates: Sep 25, 2026\n\nWhat are the various fixed and floating interest rates on offer for home loans today? [1]\n\nThe Latest Fixed Deposit Interest Rates: Sep 25, 2026\n\nA fixed deposit is a trusted way to maintain liquidity and earn an assured rate of return on the capital. [2]\n\nLet's take a comprehensive look at interest rates across banks and housing finance companies. [1]\n\nInterest rates vary from one bank to another. [2]\n\nSources: [1] The Latest Home Loan Interest Rates: Sep 25, 2026 (thehindubusinessline.com)  [2] The Latest Fixed Deposit Interest Rates: Sep 25, 2026 (thehindubusinessline.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "interest rates 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 67.9,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 1.14,
+            "title": "The Latest Home Loan Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-home-loan-interest-rates-sep-25-2026/article64808517.ece"
+          },
+          {
+            "ageHours": 67.9,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 1.14,
+            "title": "The Latest Fixed Deposit Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-fixed-deposit-interest-rates-sep-25-2026/article64808518.ece"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 67.9,
+        "normalizedCount": 11,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 1.14,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1948,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 916,
+        "statesFreshness": false,
+        "text": "The S&P 500 (Standard and Poor's 500) is a stock market index tracking the stock performance of 500 companies listed on stock exchanges in the United States that are considered to have large market capitalizations. [1]\n\nIt is one of the most commonly followed equity indices.[5]\n\nThe S&P 500 index is a capitalization-weighted index and the 10 largest companies in the index account for 27.5% of the market capitalization of the index. [3]\n\nS&P 500 (Standard and Poor's 500)[12] is a stock market index tracking the stock performance of 500 leading companies listed on stock exchanges in the United States. [4]\n\nThe S&amp;P 500 index is considered the most popular trading instrument in financial markets. [5]\n\nSources: [1] S&P 500 (en.wikipedia.org)  [2] Precio de cierre de s & p 500 hoy rljmm (topoptionsbqwis.netlify.app)  [3] S&P 500 - Wikipedia (web.archive.org)  [4] S&P 500 - Wikipedia (trans"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "S&P 500 index",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "title": "S&P 500",
+            "url": "https://en.wikipedia.org/wiki/S%26P_500"
+          },
+          {
+            "ageHours": 2656,
+            "domain": "topoptionsbqwis.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-09T17:28:19.000Z",
+            "relevance": 0.94,
+            "title": "Precio de cierre de s & p 500 hoy rljmm",
+            "url": "https://topoptionsbqwis.netlify.app/pinkstaff2939vy/precio-de-cierre-de-s-p-500-hoy-lypo"
+          },
+          {
+            "ageHours": 207676.6,
+            "domain": "web.archive.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2003-01-19T04:53:03.000Z",
+            "relevance": 0.94,
+            "title": "S&P 500 - Wikipedia",
+            "url": "https://web.archive.org/web/20210418225854/https:/en.wikipedia.org/wiki/S&P_500"
+          },
+          {
+            "ageHours": 207676.6,
+            "domain": "translate.google.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2003-01-19T04:53:03.000Z",
+            "relevance": 0.94,
+            "title": "S&P 500 - Wikipedia",
+            "url": "https://translate.google.com/website?hl=ko&sl=auto&tl=ko&u=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FS%26P_500"
+          },
+          {
+            "ageHours": 26172.3,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2023-10-03T21:07:54Z",
+            "relevance": 0.93,
+            "title": "Bitcoin versus S&amp;P 500 Index: Return and Risk Analysis",
+            "url": "http://arxiv.org/abs/2310.02436v1"
+          },
+          {
+            "ageHours": 35216.1,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2022-09-22T01:19:59Z",
+            "relevance": 0.93,
+            "title": "A Real Data-Driven Analytical Model to Predict Information Technology Sector Index Price of S&amp;P 500",
+            "url": "http://arxiv.org/abs/2209.10720v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "title": "List of S&P 500 companies",
+            "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "A test of efficiency for the S&P 500 index option market using variance forecasts (1993)",
+            "url": "https://openlibrary.org/works/OL13587082W"
+          },
+          {
+            "ageHours": null,
+            "domain": "bloomberg.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "title": "SPX Quote - S&P 500 INDEX - Bloomberg",
+            "url": "https://www.bloomberg.com/quote/SPX:IND?sref=byKgOh1x"
+          },
+          {
+            "ageHours": null,
+            "domain": "cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "title": "Tesla set to join the S&P 500 Index in December | CNN Business",
+            "url": "http://www.cnn.com/2020/11/16/investing/tesla-sp-500/index.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Predictable dynamics in the S&P 500 index options implied volatility surface (2005)",
+            "url": "https://openlibrary.org/works/OL5893683W"
+          },
+          {
+            "ageHours": 53060,
+            "domain": "nytimes.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2020-09-08T13:26:57Z",
+            "relevance": 0.83,
+            "title": "Tesla Shares Fall as It Fails to Make It into S&P 500 Index",
+            "url": "https://www.nytimes.com/reuters/2020/09/08/business/08reuters-tesla-stocks.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2656,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "TheSportsDB has no current fixture for \"S&P 500 index\" right now — Omi will not "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.907,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1223,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "rupee exchange rate today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, market-rates, langsearch | SearXNG: circuit open (cooling down"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1152,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 898,
+        "statesFreshness": true,
+        "text": "1.76 lakh layoffs in 9 months: AI, cost cuts and the changing world of work\n\nGlobal layoffs in 2026 have spread beyond tech, hitting automakers, banks, retailers, and media companies. [2]\n\nIntel’s layoffs come on the heels of several rounds of job cuts across the tech industry in California. [1]\n\nOracle employees also woke up to shocking early morning termination emails on Sept 14, informing them it would be their last day at the tech giant in its latest round of layoffs. [1]\n\nThe tech giant sent out termination emails at 6 a.m., citing “broader organizational change” as the reason for the layoffs. [1]\n\nSources: [1] California tech giant slashes jobs across the Bay Area (nypost.com)  [2] 1.76 lakh layoffs in 9 months: AI, cost cuts and the changing world of work (indiatoday.in)  [3] It took 20 years to start regulating social media - will AI controls come sooner? (securitybrief.com.au)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "recently announced layoffs in tech",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 108.4,
+            "domain": "nypost.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T20:59:40.000Z",
+            "relevance": 1,
+            "title": "California tech giant slashes jobs across the Bay Area",
+            "url": "https://nypost.com/2026/09/23/us-news/bay-area-tech-giant-to-slash-manufacturing-jobs-at-santa-clara-hq"
+          },
+          {
+            "ageHours": 116.9,
+            "domain": "indiatoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T12:35:05.000Z",
+            "relevance": 0.9,
+            "title": "1.76 lakh layoffs in 9 months: AI, cost cuts and the changing world of work",
+            "url": "https://www.indiatoday.in/jobs/deep-dive/story/176-lakh-layoffs-in-9-months-ai-cost-cuts-and-the-changing-world-of-work-educ-3000903-2026-09-23"
+          },
+          {
+            "ageHours": 75.2,
+            "domain": "securitybrief.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:15:05.000Z",
+            "relevance": 0.68,
+            "title": "It took 20 years to start regulating social media - will AI controls come sooner?",
+            "url": "https://securitybrief.com.au/story/it-took-20-years-to-start-regulating-social-media-will-ai-controls-come-sooner"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 75.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.86,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 2751,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1343,
+        "statesFreshness": false,
+        "text": "Quantitative easing (QE) is a monetary policy action where a central bank purchases predetermined amounts of government bonds, company shares, or other financial assets (liquidity) in order to artificially stimulate economic activity. [1]\n\nCarbon quantitative easing (CQE) is an unconventional monetary policy or monetary program that is featured in a proposed international climate policy, called a global carbon reward or simply, the carbon reward. [2]\n\nIn agreement with the recent research findings in the econophysics, we propose that the nonlinear dynamic chaos can be generated by the turbulent capital flows in both the quantitative easing transmission channels and the transaction networks channels, when there are the laminar turbulent capital flows transitions in the financial system. [3]\n\nQuantitative easing\n\nQuantitative easing (QE) is a monetary policy tool where central banks buy la"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "what is quantitative easing",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "Quantitative easing",
+            "url": "https://en.wikipedia.org/wiki/Quantitative_easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Carbon quantitative easing",
+            "url": "https://en.wikipedia.org/wiki/Carbon_quantitative_easing"
+          },
+          {
+            "ageHours": 117000.3,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2013-05-24T09:05:48Z",
+            "relevance": 0.91,
+            "title": "To the problem of turbulence in quantitative easing transmission channels and transactions network channels at",
+            "url": "http://arxiv.org/abs/1305.5656v2"
+          },
+          {
+            "ageHours": 1058.2,
+            "domain": "capital.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T07:16:55.000Z",
+            "relevance": 0.89,
+            "title": "Quality investing",
+            "url": "https://capital.com/en-eu/learn/glossary/q"
+          },
+          {
+            "ageHours": 975.8,
+            "domain": "capital.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T17:40:50.000Z",
+            "relevance": 0.89,
+            "title": "Quality investing",
+            "url": "https://capital.com/en-gb/learn/glossary/q"
+          },
+          {
+            "ageHours": null,
+            "domain": "blogs.lse.ac.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "Quantitative easing | Euro Crisis in the Press",
+            "url": "https://blogs.lse.ac.uk/eurocrisispress/tag/quantitative-easing"
+          },
+          {
+            "ageHours": 118433.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2013-03-25T15:57:19Z",
+            "relevance": 0.88,
+            "title": "Quantitative easing is an incomplete strategy that must be accompanied by the nullification of debt",
+            "url": "http://arxiv.org/abs/1303.6183v3"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.mit.edu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "title": "Explained: Quantitative easing | MIT News | Massachusetts Instit…",
+            "url": "https://news.mit.edu/2010/explained-quantitative-easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Quantitative Easing (1920)",
+            "url": "https://openlibrary.org/works/OL21668065W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Quantitative Easing and Credit Rating Agencies (2022)",
+            "url": "https://openlibrary.org/works/OL28441463W"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "Quantitative easing 'is good for the rich, bad for the poor' | Q…",
+            "url": "https://www.theguardian.com/business/2011/aug/14/quantitative-easing-riots"
+          },
+          {
+            "ageHours": 1060.3,
+            "domain": "greatdreams.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T05:07:47.000Z",
+            "relevance": 0.85,
+            "title": "New Banker Bailout Disguised As QE3",
+            "url": "http://www.greatdreams.com/blog-2012-3/dee-blog300.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 975.8,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.891,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1789,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 732,
+        "statesFreshness": true,
+        "text": "September 25, 2026 09:48Market view by Nischal Shetty, Founder, WazirX“The cryptocurrency market remained positive, with total market capitalisation rising 1.52% to $2.89 trillion. [1]\n\nThe Altcoin Season Index stood at 51, suggesting participation is becoming more evenly distributed between Bitcoin and alternative cryptocurrencies. [1]\n\nOverall, the spot-market recovery remains constructive, but declining leverage suggests traders are reducing risk. [1]\n\nTheir seven-day gains stood at 10.55% and 9.83%, respectively, reflecting a broader market recovery. [1]\n\nSources: [1] Sensex today | Stock Market Highlights: Sensex gains 315 pts, Nifty ends at 23,140 as oil prices bite; Rupee closes at 95.80/$ (thehindubusinessline.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest crypto market news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 11
+        },
+        "finalSources": [
+          {
+            "ageHours": 70.8,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:36:08.000Z",
+            "relevance": 0.77,
+            "title": "Sensex today | Stock Market Highlights: Sensex gains 315 pts, Nifty ends at 23,140 as oil prices bite; Rupee c",
+            "url": "https://www.thehindubusinessline.com/markets/sensex-nifty50-today-stock-market-highlights-25-september-2026/article71503684.ece"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 70.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.77,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2246,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1196,
+        "statesFreshness": true,
+        "text": "Latest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [1]\n\nPublisher Description\n\nWhen users of a popular fitness tracking app begin dying exactly when the algorithm predicts they'll reach their \"optimal health peak,\" FBI Agent Rachel Gift must determine if technology has turned deadly. [2]\n\nIndia widens UN outreach in New York\n\nIn Short\n\nIndia expanded its diplomatic engagement during the UN General Assembly in New York through meetings with Mexico, the World Food Programme and the UN mission in Afghanistan, focusing on technology, health, humanitarian challenges and support for the Afghan people. [3]\n\nIn the realm of accessibility, Virginia Congresswoman Jennifer Wexton is advocating for advancements in AI voice technology to benefit individuals with disabilities. [1]\n\nSources: "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "today's technology news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 31.4,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 0.81,
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 33.4,
+            "domain": "books.apple.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.7,
+            "title": "Her Last Vow (A Rachel Gift FBI Suspense Thriller—Book 25) by Blake Pierce on Apple Books",
+            "url": "https://books.apple.com/gb/book/her-last-vow-a-rachel-gift-fbi-suspense-thriller-book-25/id6753352215"
+          },
+          {
+            "ageHours": 31.1,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:18:19.000Z",
+            "relevance": 0.6,
+            "title": "India widens UN outreach in New York",
+            "url": "https://www.thehansindia.com/news/international/india-widens-un-outreach-in-new-york-1126097"
+          },
+          {
+            "ageHours": 32.7,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:46:17.000Z",
+            "relevance": 0.6,
+            "title": "EAM Jaishankar warns of Global South’s ‘4F crisis’",
+            "url": "https://www.thehansindia.com/news/international/eam-jaishankar-warns-of-global-souths-4f-crisis-1126070"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 31.1,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.678,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1860,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest AI announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9,
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1843,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 856,
+        "statesFreshness": true,
+        "text": "How to Compare LLM API Providers: Stop Comparing Models\n\nThe usual way to compare LLM API providers is to line up model prices and pick the lowest row. [4]\n\nWhich AI Business Models Are Generating the Highest Revenue Today? [1]\n\nAmong all AI business models, AI-as-a-Service (AIaaS) is currently leading the revenue race. [1]\n\nTop 10 AI Tools for Developers 2026: Revolutionize Your Coding Workflow\n\nAI is transforming software development. [3]\n\nSources: [1] Which AI Business Models Are Generating the Highest Revenue Today? (ewebdiscussion.com)  [2] Black Ferns vs British & Irish Lions Women: Historic Tour Preview | Rugby 2027 (2026) (hawa4arab.com)  [3] Top 10 AI Tools for Developers 2026 - DeveloperAman - AI Productivity Guide | DeveloperAman (developeraman.vercel.app)  [4] How to Compare LLM API Providers: Stop Comparing Models (kahawatungu.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "current top AI models",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 36.2,
+            "domain": "ewebdiscussion.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:16:49.000Z",
+            "relevance": 0.78,
+            "title": "Which AI Business Models Are Generating the Highest Revenue Today?",
+            "url": "https://www.ewebdiscussion.com/threads/which-ai-business-models-are-generating-the-highest-revenue-today.404898"
+          },
+          {
+            "ageHours": 73.7,
+            "domain": "hawa4arab.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:44:14.000Z",
+            "relevance": 0.77,
+            "title": "Black Ferns vs British & Irish Lions Women: Historic Tour Preview | Rugby 2027 (2026)",
+            "url": "https://hawa4arab.com/article/black-ferns-vs-british-irish-lions-women-historic-tour-preview-rugby-2027"
+          },
+          {
+            "ageHours": 105.4,
+            "domain": "developeraman.vercel.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T00:00:00.000Z",
+            "relevance": 0.77,
+            "title": "Top 10 AI Tools for Developers 2026 - DeveloperAman - AI Productivity Guide | DeveloperAman",
+            "url": "https://developeraman.vercel.app/blog/top-10-ai-tools-developers-2025"
+          },
+          {
+            "ageHours": 107.1,
+            "domain": "kahawatungu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T22:20:09.000Z",
+            "relevance": 0.76,
+            "title": "How to Compare LLM API Providers: Stop Comparing Models",
+            "url": "https://kahawatungu.com/how-to-compare-llm-api-providers-stop-comparing-models"
+          },
+          {
+            "ageHours": 88.9,
+            "domain": "timothysykes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:33:00.000Z",
+            "relevance": 0.76,
+            "title": "Twist Bioscience Stock Jumps As AI Deals Fuel Bullish Target Hike",
+            "url": "https://www.timothysykes.com/news/twist-bioscience-corporation-twst-news-2026_09_24"
+          },
+          {
+            "ageHours": 115.9,
+            "domain": "techgig.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T13:33:16.000Z",
+            "relevance": 0.74,
+            "title": "Enterprise AI adoption disrupts traditional managed services models: Cognizant’s Rohit Kumar",
+            "url": "https://techgig.com/news/software-devops/enterprise-ai-adoption-disrupts-traditional-managed-services-models-cognizants-rohit-kumar/134429203"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 36.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.763,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 3005,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1227,
+        "statesFreshness": false,
+        "text": "Latest Odisha Breaking News Updates | Thursday, 24 September 2026\n\nStay ahead with Odisha Bytes Breaking News – your source for fast, comprehensive, and accurate updates from Odisha and beyond. [1]\n\nConclusion\n\nSeptember 2026 may well be remembered as the month the AI industry shifted from a power race to an efficiency race. [4]\n\nAI\n2 min read\n\nQCon AI New York 2026 to focus on AI as systems engineering\n\nQCon AI New York 2026 will feature 23 sessions addressing the evolution of AI engineering into systems engineering. [5]\n\nDisney's AI Revolution: Layoffs and a New Director of AI Enablement (2026)\n\nWhen we think about artificial intelligence disrupting the entertainment industry, our minds usually race straight to the creative side—vfx artists sweating over digital rendering, scriptwriters fighting algorithms, or digital actors replacing human talent on the silver screen. [6]\n\nSources: [1"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "AI news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 110.9,
+            "domain": "odishabytes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T18:33:02.000Z",
+            "relevance": 1.07,
+            "title": "Latest Odisha Breaking News Updates | Thursday, 24 September 2026",
+            "url": "https://odishabytes.com/latest-odisha-breaking-news-updates-thursday-24-september-2026"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 1,
+            "title": "Armed conflicts and attacks: 2026 Yemen offensives",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 118.4,
+            "domain": "itsecuritynews.info",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T11:05:13.000Z",
+            "relevance": 0.89,
+            "title": "IT Security News Hourly Summary 2026-09-23 13h : 8 posts",
+            "url": "https://www.itsecuritynews.info/it-security-news-hourly-summary-2026-09-23-13h-8-posts"
+          },
+          {
+            "ageHours": 117.1,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T12:22:16.000Z",
+            "relevance": 0.87,
+            "title": "AI Price War Intensifies as Efficiency Becomes the New Battleground",
+            "url": "https://que.com/ai-price-war-intensifies-as-efficiency-becomes-the-new-battleground"
+          },
+          {
+            "ageHours": 62.4,
+            "domain": "techgig.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:05:05.000Z",
+            "relevance": 0.8,
+            "title": "QCon AI New York 2026 to focus on AI as systems engineering",
+            "url": "https://techgig.com/news/ai/qcon-ai-new-york-2026-to-focus-on-ai-as-systems-engineering/134486863"
+          },
+          {
+            "ageHours": 58.3,
+            "domain": "mi3dot.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T23:07:12.000Z",
+            "relevance": 0.8,
+            "title": "Disney's AI Revolution: Layoffs and a New Director of AI Enablement (2026)",
+            "url": "https://mi3dot.org/article/disney-s-ai-revolution-layoffs-and-a-new-director-of-ai-enablement"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 9.4,
+        "normalizedCount": 11,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0.905,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1027,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 761,
+        "statesFreshness": false,
+        "text": "Kubernetes (), also known as K8s, is an open-source container orchestration system for automating software deployment, scaling, and management. [1]\n\nKubernetes is an open-source software for automating management of computerized services. [2]\n\nKubernetes is an open-source Container Management tool which automates container deployment, container (de)scaling & container load balancing. [7]\n\nRecent years have seen Kubernetes emerge as a primary choice for container orchestration. [3]\n\nSources: [1] Kubernetes (en.wikipedia.org)  [2] XI Commandments of Kubernetes Security: A Systematization of Knowledge Related to Kubernetes Security Practices (arxiv.org)  [3] Rearchitecting Kubernetes for the Edge (arxiv.org)  [4] Borg (cluster manager) (en.wikipedia.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "what is kubernetes",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "Kubernetes",
+            "url": "https://en.wikipedia.org/wiki/Kubernetes"
+          },
+          {
+            "ageHours": 54821.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2020-06-27T03:57:48Z",
+            "relevance": 0.92,
+            "title": "XI Commandments of Kubernetes Security: A Systematization of Knowledge Related to Kubernetes Security Practice",
+            "url": "http://arxiv.org/abs/2006.15275v1"
+          },
+          {
+            "ageHours": 48022.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2021-04-06T10:56:42Z",
+            "relevance": 0.92,
+            "title": "Rearchitecting Kubernetes for the Edge",
+            "url": "http://arxiv.org/abs/2104.02423v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "title": "Borg (cluster manager)",
+            "url": "https://en.wikipedia.org/wiki/Borg_(cluster_manager)"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "Kubernetes in Action (2017)",
+            "url": "https://openlibrary.org/works/OL19542950W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "Managing Kubernetes: Operating Kubernetes Clusters in the Real World (2018)",
+            "url": "https://openlibrary.org/works/OL19541992W"
+          },
+          {
+            "ageHours": 1048.6,
+            "domain": "slideserve.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T16:48:35.000Z",
+            "relevance": 0.85,
+            "title": "Kubernetes Architecture | Understanding Kubernetes Components | Kubernetes Tutorial | Edureka",
+            "url": "https://www.slideserve.com/EdurekaIN/kubernetes-architecture-understanding-kubernetes-components-kubernetes-tutorial-edureka-powerpoint-ppt-presentation"
+          },
+          {
+            "ageHours": 0.9,
+            "domain": "github.com",
+            "providers": [
+              "github"
+            ],
+            "publishedAt": "2026-09-28T08:35:13Z",
+            "relevance": 0.85,
+            "title": "kubernetes/kubernetes",
+            "url": "https://github.com/kubernetes/kubernetes"
+          },
+          {
+            "ageHours": 1698.5,
+            "domain": "db-blog.web.cern.ch",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-19T14:54:00.000Z",
+            "relevance": 0.83,
+            "title": "CERN Accelerating science",
+            "url": "https://db-blog.web.cern.ch/index.php/tags/kubernetes"
+          },
+          {
+            "ageHours": 57568.1,
+            "domain": "cloud.google.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2020-03-04T17:20:56Z",
+            "relevance": 0.83,
+            "title": "Google Kubernetes Engine is introducing a cluster management fee on June 6",
+            "url": "https://cloud.google.com/kubernetes-engine/pricing"
+          },
+          {
+            "ageHours": null,
+            "domain": "blog.kubernetes.io",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "title": "Kubernetes Blog | Kubernetes",
+            "url": "http://blog.kubernetes.io"
+          },
+          {
+            "ageHours": 20.5,
+            "domain": "github.com",
+            "providers": [
+              "github"
+            ],
+            "publishedAt": "2026-09-27T12:58:52Z",
+            "relevance": 0.81,
+            "title": "helm/helm",
+            "url": "https://github.com/helm/helm"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 0.9,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.876,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1176,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1304,
+        "statesFreshness": false,
+        "text": "Mivi Launches Smartphone Mivi One 5G in India, Available on Flipkart at an Introductory BBD Price of Rs. [2]\n\nBehemoth batteries and ultra cameras – smartphones are taking an interesting new direction\n\nQuick summary\n\nThe first phones announced for 2027 show a leap in camera specification backed up by huge battery capacity designed to extend the experience for longer. [1]\n\nEvery year in September there's a flurry of smartphone launches. [1]\n\nBack Market Calls For Legally Mandated 10-Year Device Standard With Launch of 'Mine My Phone' a New Platform Exposing The Hidden Costs of Smartphone Extraction\n\nCoalition call anchors on global platform revealing the hidden extraction costs behind every smartphone device\n\nPARIS and NEW YORK, Sept. [3]\n\nSources: [1] Behemoth batteries and ultra cameras – smartphones are taking an interesting new direction (t3.com)  [2] Mivi Launches Smartphone Mivi One"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest smartphone launches",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 57.4,
+            "domain": "t3.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:00:00.000Z",
+            "relevance": 0.88,
+            "title": "Behemoth batteries and ultra cameras – smartphones are taking an interesting new direction",
+            "url": "https://www.t3.com/tech/phones/behemoth-batteries-and-ultra-cameras-smartphones-are-taking-an-interesting-new-direction"
+          },
+          {
+            "ageHours": 41.4,
+            "domain": "rswebsols.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T16:00:00.000Z",
+            "relevance": 0.81,
+            "title": "Mivi Launches Smartphone Mivi One 5G in India, Available on Flipkart at an Introductory BBD Price of Rs. 11,99",
+            "url": "https://www.rswebsols.com/news/mivi-launches-smartphone-mivi-one-5g-in-india-available-on-flipkart-at-an-introductory-bbd-price-of-rs-11999"
+          },
+          {
+            "ageHours": 119.4,
+            "domain": "prnewswire.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T10:00:34.000Z",
+            "relevance": 0.77,
+            "title": "Back Market Calls For Legally Mandated 10-Year Device Standard With Launch of 'Mine My Phone' a New Platform E",
+            "url": "https://www.prnewswire.com/news-releases/back-market-calls-for-legally-mandated-10-year-device-standard-with-launch-of-mine-my-phone-a-new-platform-exposing-the-hidden-costs-of-smartphone-extraction-302886883.html"
+          },
+          {
+            "ageHours": 117.2,
+            "domain": "news.prfree.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T12:15:19.000Z",
+            "relevance": 0.76,
+            "title": "Mobile World Launches Its 12th Store in Vadodara with the Grand Opening of Its Signature Store at Bhayli",
+            "url": "https://news.prfree.org/@mobileworldstore/mobile-world-launches-its-12th-store-in-vadodara-with-the-grand-opening-of-its-signature-store-at-bhayli-wr16vmiymdzu"
+          },
+          {
+            "ageHours": 51.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T05:34:16.000Z",
+            "relevance": 0.61,
+            "title": "Oppo X10 Series Launch in India: Oppo Series Expected to Launch in India Ahead of Diwali – Check Expected Date",
+            "url": "https://sundayguardianlive.com/tech-news/oppo-x10-series-launch-in-india-oppo-series-expected-to-launch-in-india-ahead-of-diwali-check-expected-date-time-price-specs-features-what-to-expect-293001"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 41.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.766,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2352,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 880,
+        "statesFreshness": false,
+        "text": "Open-weight vs open-source\n\nSo while the benchmarks around Xiaomi’s latest model are notable in their own right, it’s the company’s approach that is generating much of the fanfare so far. [1]\n\nAnd so MiMo-V2.6 goes further than most open-source releases. [1]\n\nIndeed, MiMo-V2.6 serves as a useful example of a distinction that often gets muddied in the AI sphere: “open-weight” and “open-source” are routinely used as though they mean the same thing, but they don’t. [1]\n\nMeta, for example, has often referred to its Llama models as open-source despite significant restrictions that have led open-source advocates to push back heavily on that description. [1]\n\nSources: [1] “Impressive level of openness”: Xiaomi goes way beyond the usual open-weight playbook with MiMo-V2.6 (thenewstack.io)  [2] Adform says AI assistants can access 800 of its ad platform capabilities (ppc.land)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "recent open source releases",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 109.4,
+            "domain": "thenewstack.io",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T20:00:14.000Z",
+            "relevance": 0.82,
+            "title": "“Impressive level of openness”: Xiaomi goes way beyond the usual open-weight playbook with MiMo-V2.6",
+            "url": "https://thenewstack.io/xiaomi-mimo-vs-6-open-source"
+          },
+          {
+            "ageHours": 39.9,
+            "domain": "ppc.land",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T17:30:57.000Z",
+            "relevance": 0.72,
+            "title": "Adform says AI assistants can access 800 of its ad platform capabilities",
+            "url": "https://ppc.land/adform-says-ai-assistants-can-access-800-of-its-ad-platform-capabilities"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 39.9,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.77,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1209,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 867,
+        "statesFreshness": false,
+        "text": "Major PlayStation Portal System Update Rolled Out for September\n\nSony Interactive Entertainment has rolled out PS Portal system software update 7.1.7, which brings significant changes. [1]\n\nMake sure to update your PlayStation Link device to the latest device software version to connect to PlayStation Portal. [1]\n\nA full upsert of all episodes on every run, even though my pipeline does not reprocess known episodes. [2]\n\nAußerdem sagten wir doch in typescript/javascript? [2]\n\nSources: [1] Major PlayStation Portal System Update Rolled Out for September (playstationlifestyle.net)  [2] Cursor Projects: a plan rewritten 111 times and read once - DEV Community (dev.to)  [3] L'aggiornamento Chrome di oggi contiene 108 correzioni di sicurezza (telefonino.net)  [4] SLEEPING WITH SIRENS – RELEASE REPRISE OF ’09 TRACK ‘I’M COMING HOME (BIG GULPS)’ (rocknloadmag.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "current version of TypeScript",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 94.4,
+            "domain": "playstationlifestyle.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T11:03:26.000Z",
+            "relevance": 0.76,
+            "title": "Major PlayStation Portal System Update Rolled Out for September",
+            "url": "https://www.playstationlifestyle.net/2026/09/24/ps-portal-system-update-septemebr-2026-patch-notes"
+          },
+          {
+            "ageHours": 81.4,
+            "domain": "dev.to",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:01:44.000Z",
+            "relevance": 0.67,
+            "title": "Cursor Projects: a plan rewritten 111 times and read once - DEV Community",
+            "url": "https://dev.to/lutz_leonhardt/cursor-projects-a-plan-rewritten-111-times-and-read-once-4j77"
+          },
+          {
+            "ageHours": 73.3,
+            "domain": "telefonino.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T08:08:51.000Z",
+            "relevance": 0.59,
+            "title": "L'aggiornamento Chrome di oggi contiene 108 correzioni di sicurezza",
+            "url": "https://www.telefonino.net/notizie/aggiornamento-chrome-di-oggi-contiene-108-correzioni-di-sicurezza"
+          },
+          {
+            "ageHours": 113.9,
+            "domain": "rocknloadmag.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T15:35:22.000Z",
+            "relevance": 0.59,
+            "title": "SLEEPING WITH SIRENS – RELEASE REPRISE OF ’09 TRACK ‘I’M COMING HOME (BIG GULPS)’",
+            "url": "https://rocknloadmag.com/sleeping-with-sirens-release-reprise-of-09-track-im-coming-home-big-gulps"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 73.3,
+        "normalizedCount": 10,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.653,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2468,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 930,
+        "statesFreshness": false,
+        "text": "I was trying out some benchmarking of the multi-threaded webserver example in the Rust book and for comparison I built something similar in Go and ran a … [7]\n\nThe Rust programming language is widely credited with eliminating entire classes of memory-safety and concurrency vulnerabilities, but the security implications of adopting it in practice extend well beyond memory safety. [2]\n\nThe purpose of this question is assess Rust&#x27;s cargo feature relative to GO insofar as build dependency management goes. [6]\n\nRUST VS GO: Which programming language to choose? [1]\n\nSources: [1] Rust vs Go: Which is the best programming language to use in 2022? (terasol.medium.com)  [2] Rust for Secure Backend Development: A Critical Review and Extended Vulnerability Comparison with Node.js and Django (arxiv.org)  [3] Rust vs. C vs. Go runtime speed comparison (github.com)  [4] Rust vs. Go: Why They’re Be"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "rust vs go comparison",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 38019.9,
+            "domain": "terasol.medium.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2022-05-28T05:33:44.000Z",
+            "relevance": 0.94,
+            "title": "Rust vs Go: Which is the best programming language to use in 2022?",
+            "url": "https://terasol.medium.com/rust-vs-go-which-is-the-best-programming-language-to-use-in-2022-ea1838271c32"
+          },
+          {
+            "ageHours": 851.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2026-08-23T22:15:10Z",
+            "relevance": 0.93,
+            "title": "Rust for Secure Backend Development: A Critical Review and Extended Vulnerability Comparison with Node.js and ",
+            "url": "http://arxiv.org/abs/2608.22624v1"
+          },
+          {
+            "ageHours": 2808,
+            "domain": "github.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-03T09:26:31.000Z",
+            "relevance": 0.85,
+            "title": "Rust vs. C vs. Go runtime speed comparison",
+            "url": "https://github.com/oscar6echo/rust-c-go-speed"
+          },
+          {
+            "ageHours": 1077.9,
+            "domain": "thenewstack.io",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-14T11:34:09.000Z",
+            "relevance": 0.85,
+            "title": "Rust vs. Go: Why They’re Better Together",
+            "url": "https://thenewstack.io/rust-vs-go-why-theyre-better-together"
+          },
+          {
+            "ageHours": null,
+            "domain": "elixirforum.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "Portability: Rust - Go Comparison - #3 by OvermindDL1 - General …",
+            "url": "https://elixirforum.com/t/portability-rust-go-comparison/20115/3"
+          },
+          {
+            "ageHours": 46502,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-06-08T19:29:05Z",
+            "relevance": 0.81,
+            "title": "Ask HN: Go vs. Rust Dependency Management",
+            "url": "https://news.ycombinator.com/item?id=27439681"
+          },
+          {
+            "ageHours": null,
+            "domain": "stackoverflow.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "concurrency - Rust vs Go concurrent webserver, why is Rust slow …",
+            "url": "https://stackoverflow.com/a/65029740"
+          },
+          {
+            "ageHours": null,
+            "domain": "lobste.rs",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "Rust Vs Go: A Hands-On Comparison | Lobsters",
+            "url": "http://lobste.rs/s/g44oeq/rust_vs_go_hands_on_comparison"
+          },
+          {
+            "ageHours": 64809.8,
+            "domain": "github.com",
+            "providers": [
+              "github"
+            ],
+            "publishedAt": "2019-05-07T23:37:01Z",
+            "relevance": 0.79,
+            "title": "jbelmont/rust-vs-go-cli-comparison",
+            "url": "https://github.com/jbelmont/rust-vs-go-cli-comparison"
+          },
+          {
+            "ageHours": 16486.3,
+            "domain": "users.rust-lang.org",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2024-11-10T11:11:26Z",
+            "relevance": 0.77,
+            "title": "Rust vs. C vs. Go runtime speed comparison (2023)",
+            "url": "https://users.rust-lang.org/t/rust-vs-c-vs-go-runtime-speed-comparison/104107"
+          },
+          {
+            "ageHours": 26322.1,
+            "domain": "shuttle.rs",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2023-09-27T15:22:29Z",
+            "relevance": 0.76,
+            "title": "Rust vs Go: A Hands-On Comparison",
+            "url": "https://www.shuttle.rs/blog/2023/09/27/rust-vs-go-comparison"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.67,
+            "title": "Comparison of the AK-47 and M16",
+            "url": "https://en.wikipedia.org/wiki/Comparison_of_the_AK-47_and_M16"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 851.2,
+        "normalizedCount": 12,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.816,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1066,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1090,
+        "statesFreshness": false,
+        "text": "EU Ministers Push New Chips Act 2.0 for Tech Sovereignty – Brussels\n\nBrussels, Belgium, 25 September, (Brussels Morning Newspaper) – European Union industry ministers have debated Chips Act 2.0, with member states broadly supporting efforts to strengthen Europe’s semiconductor industry, reduce strategic dependencies and make critical chip supply chains more resilient. [1]\n\nIG’s latest indication placed the blue-chip index at around 10,751, down 26 points or 0.2%. [2]\n\nThe proposed legislation, presented on 3 June 2026, is designed to build on the EU’s existing semiconductor policy as global competition intensifies over advanced chips, artificial intelligence and other critical technologies. [1]\n\nEU Ministers Discuss Semiconductor Capacity\n\nMinisters focused on Europe’s ability to manufacture semiconductors and secure reliable access to chips used across major industries. [1]\n\nSources: [1"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest chip manufacturing news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 73.3,
+            "domain": "brusselsmorning.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T08:06:25.000Z",
+            "relevance": 0.98,
+            "title": "EU Ministers Push New Chips Act 2.0 for Tech Sovereignty – Brussels",
+            "url": "https://brusselsmorning.com/chips-act-2-0-eu-ministers/103909"
+          },
+          {
+            "ageHours": 99.2,
+            "domain": "proactiveinvestors.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T06:15:00.000Z",
+            "relevance": 0.68,
+            "title": "MARKETS LIVE: FTSE called lower as US bond yields surge to 2007 high",
+            "url": "https://www.proactiveinvestors.com/companies/news/1099040/markets-live-ftse-called-lower-as-us-bond-yields-surge-to-2007-high-1099040.html"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 73.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.83,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1778,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 996,
+        "statesFreshness": true,
+        "text": "Latest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [1]\n\nWelcome to “AI News Today,” your go-to source for the latest updates in the AI industry. [1]\n\nPublisher Description\n\nWhen users of a popular fitness tracking app begin dying exactly when the algorithm predicts they'll reach their \"optimal health peak,\" FBI Agent Rachel Gift must determine if technology has turned deadly. [2]\n\nIn today’s roundup, we have some exciting developments that are shaping the future of artificial intelligence. [1]\n\nSources: [1] Today’s AI News – July 15, 2024 (bn.edu.pl)  [2] Her Last Vow (A Rachel Gift FBI Suspense Thriller—Book 25) by Blake Pierce on Apple Books (books.apple.com)  [3] UK study says silicon solar cells could cut satellite power costs by up to 90% (thecooldown.com)  [4] Premier Lea"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "technology news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 31.4,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 0.99,
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 33.4,
+            "domain": "books.apple.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.81,
+            "title": "Her Last Vow (A Rachel Gift FBI Suspense Thriller—Book 25) by Blake Pierce on Apple Books",
+            "url": "https://books.apple.com/gb/book/her-last-vow-a-rachel-gift-fbi-suspense-thriller-book-25/id6753352215"
+          },
+          {
+            "ageHours": 32.6,
+            "domain": "thecooldown.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:50:13.000Z",
+            "relevance": 0.81,
+            "title": "UK study says silicon solar cells could cut satellite power costs by up to 90%",
+            "url": "https://www.thecooldown.com/green-tech/silicon-solar-cells-cut-satellite-costs"
+          },
+          {
+            "ageHours": 32.7,
+            "domain": "digg.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:43:57.000Z",
+            "relevance": 0.8,
+            "title": "Premier League reportedly pushes for record points deduction that would relegate Manchester City",
+            "url": "https://digg.com/sports/wnk1clbv"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 31.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.853,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1365,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1381,
+        "statesFreshness": true,
+        "text": "Google Health 5.09 Update: Unlocking New Features for Your Health Journey (2026)\n\nThe Future of Health Tracking: Google Health 5.09 Unveiled\n\nThe world of health technology is buzzing with the latest update from Google Health. [1]\n\nSchool Assembly News Headlines (September 26, 2026): 70,000 Youth Skill Drive, PM Modi Interacts with Seva Yatris, NCERT Class 9 Maths Update & Other News\n\nGet today's top school assembly news headlines for September 26, 2026. [3]\n\nSchool Assembly News Headlines September 26, 2026: Here we have gathered the main headlines for the school assembly today, covering important updates from national and international affairs, sports, economy and business, science, and technology. [3]\n\nHeart Health and Beyond\n\nOne of the standout features is the ability to track blood pressure trends, a crucial aspect of cardiovascular health. [1]\n\nSources: [1] Google Health 5.09 Upda"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "2026 technology trends",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 1,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 60.8,
+            "domain": "pnwbcrescue.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T20:36:36.000Z",
+            "relevance": 0.98,
+            "title": "Google Health 5.09 Update: Unlocking New Features for Your Health Journey (2026)",
+            "url": "https://pnwbcrescue.org/article/google-health-5-09-update-unlocking-new-features-for-your-health-journey"
+          },
+          {
+            "ageHours": 60.9,
+            "domain": "freevods.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T20:33:37.000Z",
+            "relevance": 0.98,
+            "title": "9 Stunning Surfaces to Transform Your Interiors | Wallpapers, Tiles & More! (2026)",
+            "url": "https://freevods.com/article/9-stunning-surfaces-to-transform-your-interiors-wallpapers-tiles-more"
+          },
+          {
+            "ageHours": 68.9,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T12:31:49.000Z",
+            "relevance": 0.98,
+            "title": "School Assembly News Headlines (September 26, 2026): 70,000 Youth Skill Drive, PM Modi Interacts with Seva Yat",
+            "url": "https://www.jagranjosh.com/articles/school-assembly-news-headlines-september-26-2026-70000-youth-skill-drive-pm-modi-interacts-with-seva-yatris-ncert-class-9-maths-update-other-news-1800016997-1"
+          },
+          {
+            "ageHours": 67.3,
+            "domain": "techcrunch.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T14:06:34.000Z",
+            "relevance": 0.98,
+            "title": "Last 24 hours to save up to $200 on TechCrunch Disrupt 2026. Reason 5/5 to attend: Leave further ahead.",
+            "url": "https://techcrunch.com/2026/09/25/last-24-hours-to-save-up-to-200-on-techcrunch-disrupt-2026-reason-5-5-to-attend"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 60.8,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.98,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1217,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1150,
+        "statesFreshness": false,
+        "text": "The New Frontier of Life Extension and Longevity Science\n\nThe Paradigm Shift in Gerontology and Human Longevity\n\nThe quest to extend the human lifespan has evolved from a pursuit of anecdotal bio-hacks into a rigorous, multi-disciplinary scientific frontier. [1]\n\nNew Vision students excel in TG science drama competition\n\nIn Short\n\nThe drama focused on marine pollution, plastic waste and environmental protection, highlighting the impact of pollution on oceans and the need for greater environmental responsibility. [2]\n\nThis distinction is critical; the goal of modern longevity science is not the indefinite prolongation of life in a state of frailty, but the preservation of youthful function well into the later decades of existence. [1]\n\nKhammam: Students of New Vision Concept School, who represented Khammam district at the State-level Science Drama competitions, secured third prize with th"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "latest science news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 98,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:24:16.000Z",
+            "relevance": 0.57,
+            "title": "The New Frontier of Life Extension and Longevity Science",
+            "url": "https://que.com/the-new-frontier-of-life-extension-and-longevity-science"
+          },
+          {
+            "ageHours": 82.8,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T22:39:32.000Z",
+            "relevance": 0.57,
+            "title": "New Vision students excel in TG science drama competition",
+            "url": "https://www.thehansindia.com/news/cities/khammam/new-vision-students-excel-in-tg-science-drama-competition-1125425"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 82.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.57,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1107,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1218,
+        "statesFreshness": true,
+        "text": "4 Astronauts Headed Into Space for ISS Mission\n\nNASA is preparing for another major step in human spaceflight with an international crew set to take part in a new long-duration mission aboard the International Space Station. [3]\n\nTop Space Stocks Worth Watching – September 25th\n\nSpaceX, Rocket Lab, and GE Aerospace are the three Space stocks to watch today, according to MarketBeat’s stock screener tool. [4]\n\nA Journey to the Stars and Beyond\n\nThe primary goal of the Crew-14 mission is to conduct scientific research and technology demonstrations that will pave the way for future exploration missions to the Moon and Mars. [5]\n\nSpace Stocks Worth Watching – September 23rd\n\nSpaceX, Boeing, Rocket Lab, GE Aerospace, RTX, Lockheed Martin, and AST SpaceMobile are the seven Space stocks to watch today, according to MarketBeat’s stock screener tool. [6]\n\nSources: [1] Cobb climate summary & weathe"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current space missions",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 71.3,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:11:45.000Z",
+            "relevance": 0.81,
+            "title": "Cobb climate summary & weather forecast for Friday, September 25, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-friday-september-25-2026"
+          },
+          {
+            "ageHours": 46.6,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:50:51.000Z",
+            "relevance": 0.81,
+            "title": "Cobb climate summary & weather forecast for Saturday, September 26, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-saturday-september-26-2026"
+          },
+          {
+            "ageHours": 62.9,
+            "domain": "incrediblethings.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T18:32:36.000Z",
+            "relevance": 0.81,
+            "title": "4 Astronauts Headed Into Space for ISS Mission",
+            "url": "https://incrediblethings.com/nasa-spacex-crew-14-mission"
+          },
+          {
+            "ageHours": 61.9,
+            "domain": "themarketsdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:34:48.000Z",
+            "relevance": 0.78,
+            "title": "Top Space Stocks Worth Watching – September 25th",
+            "url": "https://www.themarketsdaily.com/2026/09/25/top-space-stocks-worth-watching-september-25th.html"
+          },
+          {
+            "ageHours": 82.8,
+            "domain": "pnwbcrescue.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T22:36:34.000Z",
+            "relevance": 0.77,
+            "title": "NASA's SpaceX Crew-14: Meet the Astronauts Going to the ISS in 2027 (2026)",
+            "url": "https://pnwbcrescue.org/article/nasa-s-spacex-crew-14-meet-the-astronauts-going-to-the-iss-in-2027"
+          },
+          {
+            "ageHours": 110.4,
+            "domain": "themarketsdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T19:03:03.000Z",
+            "relevance": 0.74,
+            "title": "Space Stocks Worth Watching – September 23rd",
+            "url": "https://www.themarketsdaily.com/2026/09/23/space-stocks-worth-watching-september-23rd.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 46.6,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.787,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2352,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1251,
+        "statesFreshness": true,
+        "text": "China is also a strong contender for the title of the oldest history in the world, with a civilization that dates back thousands of years. [1]\n\nThe ancient Chinese civilization made significant contributions to science, art, and philosophy, and is known for its impressive Great Wall and Forbidden City. [1]\n\nCal Orey, M.A., is a health expert, food writer, on-air personality and author of The Healing Powers series, including The Healing Powers of Vinegar, The Healing Powers of Olive Oil, The Healing Powers of Tea, The Healing Powers of Honey and The Healing Powers of Essential Oils. [2]\n\nPraise for The Healing Powers Books by Cal Orey \"\"The cure is in the cupboard with this book's insights that will tempt your taste buds--and revive you from head to toe.\"\" --Ann Louise Gittleman, Ph.D., author of Radical Metabolism on The Healing Powers of Herbs and Spices \"\"In The Healing Powers of Super"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "science news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 14,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T19:26:57.000Z",
+            "relevance": 0.98,
+            "title": "The Top Country with the Richest History in the World Revealed",
+            "url": "https://visitfranceguide.com/which-country-has-the-most-history-in-the-world"
+          },
+          {
+            "ageHours": 0,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.87,
+            "title": "The Healing Powers of Honey: Revised and Updated: A Complete Guide to Nature's Remarkable Nectar by Cal Orey |",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9780806545721"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.925,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1189,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 895,
+        "statesFreshness": false,
+        "text": "CRISPR (; acronym for clustered regularly interspaced short palindromic repeats) is a family of DNA sequences found in the genomes of prokaryotic organisms such as bacteria and archaea. [1]\n\nJennifer Anne  Doudna  (; born February 19, 1964) is an American biochemist who has pioneered work in CRISPR gene editing, and made other fundamental contributions in biochemistry and genetics. [3]\n\nCRISPR-Cas systems are an adaptive immunity that protects prokaryotes against foreign genetic elements. [7]\n\nCRISPR systems experience off-target effects that interfere with the ability to accurately perform genetic edits. [4]\n\nSources: [1] CRISPR (en.wikipedia.org)  [2] Making sense of it all: Ethical reflections on the conditions surrounding the first genome-edited babies (ncbi.nlm.nih.gov)  [3] Jennifer Doudna (en.wikipedia.org)  [4] Proofreading mechanism of Class 2 CRISPR-Cas systems (arxiv.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "what is CRISPR",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "title": "CRISPR",
+            "url": "https://en.wikipedia.org/wiki/CRISPR"
+          },
+          {
+            "ageHours": 1229.4,
+            "domain": "ncbi.nlm.nih.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:17.000Z",
+            "relevance": 1,
+            "title": "Making sense of it all: Ethical reflections on the conditions surrounding the first genome-edited babies",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8340653"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "title": "Jennifer Doudna",
+            "url": "https://en.wikipedia.org/wiki/Jennifer_Doudna"
+          },
+          {
+            "ageHours": 56444.9,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2020-04-20T12:34:44Z",
+            "relevance": 0.93,
+            "title": "Proofreading mechanism of Class 2 CRISPR-Cas systems",
+            "url": "http://arxiv.org/abs/2004.09237v1"
+          },
+          {
+            "ageHours": 1229.4,
+            "domain": "journals.lww.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:00:48.000Z",
+            "relevance": 0.93,
+            "title": "Genetically Modified Babies and a First Application of Clustered Regularly Interspaced Short Palindromic Repea",
+            "url": "https://journals.lww.com/greenjournal/fulltext/2019/07000/genetically_modified_babies_and_a_first.23.aspx"
+          },
+          {
+            "ageHours": 1105,
+            "domain": "journals.plos.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:28:36.000Z",
+            "relevance": 0.93,
+            "title": "Gene-edited babies: What went wrong and what could go wrong",
+            "url": "https://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.3000224"
+          },
+          {
+            "ageHours": 40469.7,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2022-02-15T03:47:26Z",
+            "relevance": 0.91,
+            "title": "Investigating the genomic background of CRISPR-Cas genomes for CRISPR-based antimicrobials",
+            "url": "http://arxiv.org/abs/2202.07171v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "CRISPR-Cas (2016)",
+            "url": "https://openlibrary.org/works/OL21294749W"
+          },
+          {
+            "ageHours": 716.6,
+            "domain": "mdpi.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-29T12:52:00.000Z",
+            "relevance": 0.86,
+            "title": "",
+            "url": "https://www.mdpi.com/2223-7747/13/15/2156"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Crispr (2022)",
+            "url": "https://openlibrary.org/works/OL25315045W"
+          },
+          {
+            "ageHours": 1006.1,
+            "domain": "pypi.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T11:22:14.000Z",
+            "relevance": 0.86,
+            "title": "crispr 0.2.1",
+            "url": "https://pypi.org/project/crispr"
+          },
+          {
+            "ageHours": null,
+            "domain": "npr.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "crispr : NPR",
+            "url": "http://www.npr.org/tags/419142387/crispr"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 716.6,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.912,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1026,
+      "vertical": "general"
+    }
+  ],
+  "total": 138
+}

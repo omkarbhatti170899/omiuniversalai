@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  MissingKeyError,
+  ProviderUnavailableError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -91,8 +91,10 @@ export function createWikipediaProvider(): SearchProvider {
         }
       }
 
-      throw new MissingKeyError(
-        `wikipedia: ${lastErr instanceof Error ? lastErr.message : "unavailable"}`,
+      // Keyless. Exhausting the retries against the Wikipedia API is an
+      // upstream availability problem, not a configuration one.
+      throw new ProviderUnavailableError(
+        `wikipedia: upstream unavailable — ${lastErr instanceof Error ? lastErr.message : "unknown error"}`,
       );
     },
   };

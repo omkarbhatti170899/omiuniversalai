@@ -79,6 +79,13 @@ function positiveEnvNumber(name: string): number | null {
 }
 /** Below this there is no point starting another request. */
 const MIN_ATTEMPT_MS = 1_500;
+/**
+ * The least time a fallback base is given, even if the preferred instance ate
+ * the budget. A healthy instance answers in well under a second, so a few
+ * seconds is enough to tell "this fallback works" from "this fallback is also
+ * dead" — and it guarantees the fallback is actually tried.
+ */
+const BASE_FLOOR_MS = 4_000;
 /** Attempts allowed against the (measured-broken) public floor. */
 const MAX_PUBLIC_ATTEMPTS = 6;
 
@@ -132,6 +139,74 @@ const PUBLIC_INSTANCES = [
  * honestly instead of claiming to be ready.
  */
 const SEARXNG_FLOOR_HEALTHY = false;
+
+/**
+ * ADDITIONAL CANDIDATE INSTANCES — a fallback list, not a dependency.
+ *
+ * MEASURED 2026-09-28: the configured instance (`search.lumy.live`) resolves
+ * DNS (71 ms) and accepts TCP 443 (97 ms), but NEVER sends an HTTP response —
+ * both `/` and `/search?format=json` time out at 60 s, while a control instance
+ * (`searx.be`) answered in 276 ms from the same runtime. That is an
+ * instance-side outage, not our egress, DNS, TLS or endpoint configuration.
+ *
+ * The consequence was worse than "SearXNG is down": with `SEARXNG_BASE_URL`
+ * set, the adapter tried THAT base and nothing else, so one dead community host
+ * removed general-web breadth from the whole product. A configured instance is
+ * now the PREFERRED base, not the only one.
+ *
+ * These are candidates to PROBE, never to assume: `probeSearxngCandidates`
+ * measures each from inside the runtime, and only instances that actually
+ * served a JSON `results` array are used. Guessing here would reintroduce the
+ * original "reported ready, returned HTML" bug.
+ */
+export const CANDIDATE_INSTANCES = [
+  ...PUBLIC_INSTANCES,
+  "https://searxng.site",
+  "https://search.rhscz.eu",
+  "https://paulgo.io",
+  "https://priv.au",
+  "https://opnxng.com",
+  "https://searx.work",
+  "https://search.inetol.net",
+];
+
+/** Instances this isolate has PROBED and found serving JSON. */
+let verifiedInstances: string[] = [];
+
+/** The probing results of the last `probeSearxngCandidates` run in this isolate. */
+export function verifiedSearxngInstances(): string[] {
+  return [...verifiedInstances];
+}
+
+/**
+ * Probe every candidate and remember the ones that actually answered JSON.
+ * Never throws; a probe failing is the normal case for most candidates.
+ */
+export async function probeSearxngCandidates(
+  timeoutMs = 8_000,
+): Promise<Array<{ base: string; healthy: boolean; ms: number; detail: string }>> {
+  const configured = process.env.SEARXNG_BASE_URL?.replace(/\/+$/, "");
+  const targets = configured
+    ? [configured, ...CANDIDATE_INSTANCES.filter((b) => b !== configured)]
+    : CANDIDATE_INSTANCES;
+  const out: Array<{ base: string; healthy: boolean; ms: number; detail: string }> = [];
+  const healthy: string[] = [];
+  for (const base of targets) {
+    const t0 = Date.now();
+    const r = await probeInstance(base, timeoutMs);
+    out.push({ base, healthy: r.healthy, ms: Date.now() - t0, detail: String(r.detail).slice(0, 180) });
+    if (r.healthy) healthy.push(base);
+  }
+  // The configured instance keeps its priority when it is healthy; the rest are
+  // fallbacks in measured order.
+  verifiedInstances = healthy.filter((b) => b !== configured);
+  return out;
+}
+
+/** For tests: clear the measured fallback list. */
+export function resetVerifiedSearxngInstances(): void {
+  verifiedInstances = [];
+}
 
 /** Cached reachability verdict, so the status page never probes on a render. */
 type ProbeResult = { healthy: boolean; checkedAt: number; detail: string };
@@ -327,7 +402,11 @@ export async function probeInstance(
 export async function searxngHealth(): Promise<ProbeResult> {
   if (lastProbe && Date.now() - lastProbe.checkedAt < PROBE_TTL_MS) return lastProbe;
   const configuredBase = process.env.SEARXNG_BASE_URL?.replace(/\/+$/, "");
-  const targets = configuredBase ? [configuredBase] : PUBLIC_INSTANCES;
+  // The configured base is probed first; the MEASURED fallbacks are probed
+  // after it, because "our instance is down" must not mean "no general web".
+  const targets = configuredBase
+    ? [configuredBase, ...verifiedInstances]
+    : PUBLIC_INSTANCES;
   const findings: string[] = [];
   let healthy = false;
   for (const base of targets) {
@@ -335,7 +414,7 @@ export async function searxngHealth(): Promise<ProbeResult> {
     // frequently take 8-15s) must not be judged broken by an arbitrarily
     // short probe. The public floor keeps the shorter budget; a configured
     // instance gets the same 15s the search path already allows it.
-    const r = await probeInstance(base, configuredBase ? 15000 : 8000);
+    const r = await probeInstance(base, base === configuredBase ? 15000 : 8000);
     findings.push(`${base}: ${r.healthy ? "OK" : r.detail}`);
     if (r.healthy) {
       healthy = true;
@@ -510,7 +589,25 @@ export function createSearxProvider(): SearchProvider {
       numResults,
       opts = {},
     ): Promise<SearchProviderResult> {
-      const bases = configuredBase ? [configuredBase] : PUBLIC_INSTANCES;
+      // EVERY base we are willing to try, best first. The configured instance
+      // is preferred but is NOT the only option: a dead community host once
+      // removed general-web breadth from the entire product.
+      // ONLY MEASURED FALLBACKS. `verifiedInstances` is filled by
+      // `probeSearxngCandidates`, which has to find an instance that actually
+      // served JSON. Falling back to the unmeasured public floor would send
+      // requests we already know answer HTML — the original "reports ready,
+      // returns nothing" bug in a new place.
+      //
+      // MEASURED 2026-09-28: 0 of 12 public instances serve JSON from this
+      // runtime (most answer 200 + HTML because `search.formats` omits `json`;
+      // some 403/429; one has a bad certificate). So today this list is empty,
+      // the adapter tries the configured base alone, and the general-web floor
+      // is honestly absent until a self-hosted instance exists.
+      const bases = configuredBase
+        ? [configuredBase, ...verifiedInstances.filter((b) => b !== configuredBase)]
+        : verifiedInstances.length > 0
+          ? verifiedInstances
+          : PUBLIC_INSTANCES;
       // MEASURED 2026-09-27 against search.lumy.live: DNS 1 ms, TCP 95 ms,
       // but /search?format=json took 14.7 s (day), 7.5 s (month), 13.1 s
       // (year) and 46.6 s for a plain probe. The real fix is self-hosting
@@ -556,9 +653,7 @@ export function createSearxProvider(): SearchProvider {
           : query;
       const variants = scopedQuery === query ? [query] : [scopedQuery, query];
 
-      const maxAttempts = configuredBase
-        ? ladder.length * 2 + 2
-        : MAX_PUBLIC_ATTEMPTS;
+      const maxAttempts = (ladder.length + 1) * Math.max(1, bases.length) + 2;
       // BOUNDED RETRY. At most two passes over the plan, and never past the
       // total budget — which is the whole point. One pass is the common case;
       // the second exists so ONE transient failure on a shared instance is
@@ -573,27 +668,42 @@ export function createSearxProvider(): SearchProvider {
 
       for (let pass = 0; pass < maxPasses && !stop; pass++) {
         for (const q of variants) {
-          for (const base of bases) {
+          for (let b = 0; b < bases.length && !stop; b++) {
+            const base = bases[b];
+            // EVERY BASE GETS ITS OWN SLICE OF THE BUDGET.
+            //
+            // Without this, a dead preferred instance would consume the whole
+            // total budget and the fallback would never get a chance — which is
+            // exactly how one hung community host removed general-web breadth
+            // from the product. The first base (the configured one) may use the
+            // full per-request ceiling; later bases divide whatever remains.
+            const basesLeft = bases.length - b;
+            const baseDeadline = Math.min(
+              deadline,
+              Date.now() +
+                (b === 0
+                  ? perTryTimeout
+                  : Math.max(BASE_FLOOR_MS, Math.floor((deadline - Date.now()) / basesLeft))),
+            );
+            // `break` inside this loop moves to the NEXT BASE, which is the
+            // desired behaviour for every failure below: running out of one
+            // instance's slice must not end the whole call.
             for (const range of ladder) {
               if (attempts >= maxAttempts) {
                 stop = true;
                 break;
               }
-              const remaining = deadline - Date.now();
-              // The FIRST attempt is always allowed to start, however small the
-              // budget: a short `SEARXNG_TIMEOUT_MS` is a tight per-request
-              // ceiling, not a request to skip the provider entirely.
-              // MIN_ATTEMPT_MS only stops LATER attempts from starting with a
-              // budget too small to answer, which is where a retry stops being
-              // worth its latency.
-              if (remaining <= 0) {
-                stop = true;
-                break;
-              }
-              if (attempts > 0 && remaining < MIN_ATTEMPT_MS) {
-                stop = true;
-                break;
-              }
+              // TWO CLOCKS, deliberately. `globalRemaining` decides whether a
+              // retry is worth starting; `remaining` (this base's slice) is the
+              // request timeout. Comparing the retry decision against the
+              // per-base slice was a bug: a base whose slice equals the
+              // per-request ceiling always looked "too small to bother with" on
+              // the second pass, so the bounded retry never ran.
+              const globalRemaining = deadline - Date.now();
+              if (globalRemaining <= 0) break;
+              if (attempts > 0 && globalRemaining < MIN_ATTEMPT_MS) break;
+              const remaining = Math.min(baseDeadline, deadline) - Date.now();
+              if (remaining <= 0) break;
               attempts += 1;
               try {
                 const outcome = await fetchInstance(
@@ -609,18 +719,19 @@ export function createSearxProvider(): SearchProvider {
                 if (outcome.citations.length > 0) {
                   return { citations: outcome.citations };
                 }
-                // Empty result set is a valid answer — but only trust it from
-                // the configured (non-gated) instance, and only from the final,
-                // widest rung of the UNSCOPED query. A scoped query returning
-                // nothing is exactly the fail-open case that must fall through.
-                if (configuredBase && range === undefined && q === query) {
+                // Empty result set is a valid answer — but only from a
+                // configured (non-gated) instance, on the final, widest rung of
+                // the UNSCOPED query. A scoped query returning nothing is the
+                // fail-open case that must fall through; and a gated public
+                // instance may be serving a challenge.
+                if (base === configuredBase && range === undefined && q === query) {
                   return { citations: [] };
                 }
-                if (configuredBase) {
-                  lastError = new Error(`no results for time_range=${range}`);
-                  continue;
-                }
-                lastError = new Error(`${base} returned no results`);
+                lastError = new Error(
+                  base === configuredBase
+                    ? `no results for time_range=${range}`
+                    : `${base} returned no results`,
+                );
               } catch (err) {
                 lastError = err;
                 // A TIMEOUT OR CONNECTION FAILURE IS NOT A NARROW FILTER.
@@ -628,14 +739,13 @@ export function createSearxProvider(): SearchProvider {
                 // with JSON and simply had nothing inside the window. A host
                 // that never replied will not reply for `month` either, so
                 // walking the rest of the ladder just multiplies the wait —
-                // which is how a dead instance turned into a 46 s call. Move
-                // on (next base, or the single retry pass) instead.
+                // which is how a dead instance turned into a 46 s call. Move on
+                // to the NEXT BASE instead, which is the whole point of having
+                // one.
                 break;
               }
             }
-            if (stop) break;
           }
-          if (stop) break;
         }
       }
 

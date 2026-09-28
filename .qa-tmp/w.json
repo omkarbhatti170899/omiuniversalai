@@ -1,0 +1,129 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "no weather terms added — the query already expresses that"
+    ],
+    "primary": "weather in Mumbai",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "weather in Mumbai latest",
+      "weather in Mumbai today",
+      "weather in Mumbai 2026-09-28"
+    ]
+  },
+  "retrievalQuery": "weather in Mumbai",
+  "summary": "[search] \"current weather in Mumbai\" intent=current fresh=true vertical=weather years=- raw=1 kept=1 stale-rejected=0 domains=1 conflicts=0 verdict=answer-caveated searchMs=948 totalMs=948",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 1,
+        "provider": "openmeteo",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 1,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"current\""
+    ],
+    "independentDomains": 1,
+    "intent": "current",
+    "liveData": "weather",
+    "providersFailed": [],
+    "providersSearched": [
+      "openmeteo"
+    ],
+    "query": "current weather in Mumbai",
+    "rawCount": 1,
+    "rejectedStale": [],
+    "rejectedStaleCount": 0,
+    "requiresFreshness": true,
+    "searchMs": 948,
+    "selectedCount": 1,
+    "sources": [
+      {
+        "age": "just now",
+        "domain": "open-meteo.com",
+        "providers": [
+          "openmeteo"
+        ],
+        "publishedAt": "2026-09-28T09:34:14.613Z",
+        "reason": "kept as current evidence",
+        "score": 0.99,
+        "selected": true,
+        "title": "Current weather — Mumbai, Maharashtra, India",
+        "url": "https://open-meteo.com?latitude=19.07283&longitude=72.88261"
+      }
+    ],
+    "totalMs": 948,
+    "verification": {
+      "failedChecks": [
+        "authority",
+        "corroboration"
+      ],
+      "passRate": 0.6,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Only one source is available, so this is unconfirmed."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "weather"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.90 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.0 day(s) old, within the 1-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "only 1 domain in the result set",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "1/1 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 1,
+    "independentDomains": 1,
+    "newestSourceAgeHours": 0,
+    "newestSourceAt": "2026-09-28T09:34:14.613Z",
+    "passRate": 0.6,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Only one source is available, so this is unconfirmed."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

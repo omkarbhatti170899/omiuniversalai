@@ -219,18 +219,49 @@ export function marketValueDemanded(query: string): boolean {
  * case, not a neutral one. `shouldEscalateForFreshness` treats it as
  * "escalate" for exactly that reason.
  */
+/**
+ * How far into the FUTURE a publication date may be before we stop believing
+ * it. Small negative ages are ordinary clock skew between a publisher and us;
+ * anything beyond this is a broken page, not a scoop.
+ */
+export const MAX_FUTURE_SKEW_HOURS = 12;
+
+/**
+ * Age in HOURS, or null when the date is missing or implausible.
+ *
+ * MEASURED DEFECT (search-quality benchmark, 2026-09-28): a bookseller's
+ * product listing stamped `2026-09-28T14:00:00Z` — five hours IN THE FUTURE —
+ * was ranked as the freshest possible evidence for "today's top stories", at
+ * age 0. A future timestamp is not a fresh scoop; it is a broken or
+ * pre-scheduled page, and no real report can be dated tomorrow. It is now
+ * treated exactly like a missing date. Tiny negative ages are still clamped to
+ * 0, because publisher/consumer clock skew is normal and harmless.
+ *
+ * Shared by `minAgeHours` and `ageInDays` so the two can never disagree — they
+ * did: `minAgeHours` skipped every negative age while `ageInDays` clamped to 0,
+ * so a future-dated source counted as "no dated evidence" for escalation and
+ * "maximally fresh" for ranking, at the same time.
+ */
+export function plausibleAgeHours(
+  publishedAt: string | null | undefined,
+  now: number,
+): number | null {
+  if (!publishedAt) return null;
+  const at = Date.parse(publishedAt);
+  if (!Number.isFinite(at)) return null;
+  const hours = (now - at) / 3_600_000;
+  if (hours < -MAX_FUTURE_SKEW_HOURS) return null;
+  return Math.max(0, hours);
+}
+
 export function minAgeHours(
   sources: Array<{ publishedAt?: string | null }>,
   now: number,
 ): number | null {
   let best: number | null = null;
   for (const s of sources) {
-    if (!s.publishedAt) continue;
-    const at = Date.parse(s.publishedAt);
-    if (Number.isNaN(at)) continue;
-    const hours = (now - at) / 3_600_000;
-    // A future-dated timestamp is a broken page, not fresh evidence.
-    if (hours < 0) continue;
+    const hours = plausibleAgeHours(s.publishedAt, now);
+    if (hours === null) continue;
     if (best === null || hours < best) best = hours;
   }
   return best;
@@ -461,12 +492,16 @@ const VERTICAL_LABEL: Record<Vertical, string> = {
 
 // --- Timestamps -------------------------------------------------------------
 
-/** Age of a result in days, or null when it carries no usable date. */
+/**
+ * Age of a result in days, or null when it carries no USABLE date.
+ *
+ * "Usable" means parseable and not implausibly future — see
+ * `plausibleAgeHours`, which this delegates to so ranking, gating and the
+ * prompt can never disagree about whether a date exists.
+ */
 export function ageInDays(publishedAt: string | undefined, now = Date.now()): number | null {
-  if (!publishedAt) return null;
-  const t = Date.parse(publishedAt);
-  if (!Number.isFinite(t)) return null;
-  return Math.max(0, (now - t) / 86_400_000);
+  const hours = plausibleAgeHours(publishedAt, now);
+  return hours === null ? null : hours / 24;
 }
 
 /** True when a result is recent enough to be evidence for a current question. */

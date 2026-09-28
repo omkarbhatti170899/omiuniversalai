@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  MissingKeyError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -58,7 +57,8 @@ export function createOpenverseProvider(): SearchProvider {
           imageUrl: r.thumbnail ?? undefined,
         }));
 
-      if (citations.length === 0) throw new MissingKeyError("openverse");
+      // An EMPTY result is a valid answer. Openverse needs no key (anonymous
+      // access is upstream rate-limited, which is an availability property).
       return { citations };
     },
   };

@@ -226,9 +226,42 @@ export function directnessScore(c: WebCitation, keywords: string[]): number {
 }
 
 /**
- * Blended source score (0..1): relevance dominates; authority, freshness
+ * True when a source shares at least one SUBJECT word with the question.
+ *
+ * Same vocabulary as `isOffTopic` (aspect words and bare numbers removed), so
+ * ranking and gating can never disagree about what "about the question" means.
+ * `true` when the question has no subject words left, because a question we
+ * cannot characterise is not evidence that a source is off-topic.
+ */
+export function sharesTopic(c: WebCitation, keywords: string[]): boolean {
+  const topic = keywords.filter((w) => !/^\d+$/.test(w) && !isAspectWord(w));
+  if (topic.length === 0) return true;
+  const hay = `${c.title ?? ""} ${c.snippet ?? ""}`.toLowerCase();
+  return topic.some((k) => hay.includes(k));
+}
+
+/**
+ * Blended source score (0..1): relevance and authority dominate; freshness
  * (weighted up when the request is freshness-sensitive), directness and
  * completeness contribute per spec §12.
+ *
+ * MEASURED CHANGE (2026-09-28) — FRESHNESS IS CREDITED ONLY FOR A SOURCE THAT
+ * IS ABOUT THE QUESTION.
+ *
+ * Freshness is evidence of CURRENCY, never of SUBJECT. The previous weights
+ * gave a `now`-tier question freshness 0.40 against relevance 0.28, so a page
+ * published an hour ago about the wrong subject collected more than a relevant
+ * article did — and the "newest timestamp wins" behaviour that produces is
+ * exactly what a user reads as "it answered with something unrelated". An
+ * off-topic source now earns NO freshness credit at all, which is also
+ * CONSISTENT with the topical floor that drops it a moment later: ranking and
+ * gating agree.
+ *
+ * The rest of the budget is nudged toward AUTHORITY (0.18 → 0.22) and away
+ * from raw recency (0.40 → 0.34 for `now`), so a brand-new low-quality page
+ * cannot outrank a reliable source merely by being new. Recency still outranks
+ * relevance for "today" — answering with yesterday's number is wrong, not
+ * merely less good — so the freshness guarantee is preserved.
  *
  * For a year- or event-scoped question the whole score is then multiplied by
  * `temporalPenalty`, which drives a confidently-wrong-year source to the
@@ -245,8 +278,8 @@ export function scoreSource(
     /**
      * "now" | "recent" | "live-feed" | "none". How aggressively recency
      * outranks everything else. For "now" (the user said today/now) freshness
-     * is worth 0.40 — more than relevance — because answering with yesterday's
-     * number is wrong, not merely less good.
+     * is worth 0.34 — still more than relevance — because answering with
+     * yesterday's number is wrong, not merely less good.
      */
     freshnessTier?: string;
   } = {},
@@ -258,12 +291,18 @@ export function scoreSource(
   const ft = opts.freshnessTier;
   // Freshness weight by demand. Without this, a 3-day-old authoritative page
   // and a 2-hour-old one ranked identically.
-  const freshW = !opts.freshnessMatters ? 0.06 : ft === "now" ? 0.4 : ft === "live-feed" ? 0.3 : 0.22;
-  // Relevance is deliberately de-weighted as freshness demand rises.
-  const relW = ft === "now" ? 0.28 : 0.5;
-  const rest = Math.max(0, 1 - relW - 0.18 - freshW - 0.12 - 0.08);
+  const freshW = !opts.freshnessMatters ? 0.06 : ft === "now" ? 0.34 : ft === "live-feed" ? 0.28 : 0.22;
+  // Relevance is de-weighted as freshness demand rises, but no longer below
+  // the authority tier's contribution.
+  const relW = ft === "now" ? 0.32 : 0.5;
+  const authorityW = 0.22;
+  const rest = Math.max(0, 1 - relW - authorityW - freshW - 0.12 - 0.08);
   const direct = 0.08 * directnessScore(c, keywords);
-  const base = relW * rel + 0.18 * tier + freshW * fresh + 0.12 * comp + direct + rest;
+  // Off-topic ⇒ zero freshness credit. On-topic is judged with the same
+  // vocabulary the topical floor uses, so the two can never disagree.
+  const freshnessCredit = sharesTopic(c, keywords) ? fresh : 0;
+  const base =
+    relW * rel + authorityW * tier + freshW * freshnessCredit + 0.12 * comp + direct + rest;
 
   // Temporal matching is only meaningful when the question is actually scoped
   // to a year or an event. Applying it unconditionally would penalise every

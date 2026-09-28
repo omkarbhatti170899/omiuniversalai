@@ -64,10 +64,40 @@ export type SearchProvider = {
 /**
  * Thrown by a provider that requires configuration which is missing.
  * The orchestrator treats it as "this source unavailable; try next".
+ *
+ * READ THE CONTRACT BEFORE USING THIS CLASS. "Not configured" means a
+ * credential or an instance URL is absent — a SETUP task for an operator. It
+ * does not mean "returned nothing", "timed out", or "upstream returned 4xx";
+ * those are availability conditions with completely different fixes.
  */
 export class MissingKeyError extends Error {
   constructor(providerId: string) {
     super(`Search provider "${providerId}" is not configured.`);
     this.name = "MissingKeyError";
+  }
+}
+
+/**
+ * Thrown by a provider that IS configured and WAS called, but could not serve
+ * the request — an upstream failure, not a missing credential.
+ *
+ * MEASURED DEFECT this replaces (search-quality benchmark, 2026-09-28): EIGHT
+ * providers threw `MissingKeyError` for conditions that have nothing to do with
+ * configuration. Because the message is composed as
+ * `Search provider "<id>" is not configured.`, a user (and the benchmark) saw:
+ *
+ *   Search provider "openmeteo: Request failed with status code 429" is not configured.
+ *   Search provider "hackernews" is not configured.        // keyless, and empty
+ *   Search provider "arxiv" is not configured.             // keyless, and empty
+ *
+ * Every one of those sends an operator looking for a credential that does not
+ * exist, while the real causes were upstream rate limiting, an upstream 5xx,
+ * and an ordinary empty result set. A wrong diagnosis is worse than no
+ * diagnosis: it costs the debugging time AND hides the true failure.
+ */
+export class ProviderUnavailableError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "ProviderUnavailableError";
   }
 }

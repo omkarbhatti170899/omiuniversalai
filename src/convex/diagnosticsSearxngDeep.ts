@@ -33,6 +33,7 @@ import { internalAction } from "./_generated/server";
 import { v } from "convex/values";
 import { lookup as dnsLookup } from "node:dns/promises";
 import type { Socket } from "node:net";
+import { probeSearxngCandidates as probeCandidates } from "./searchProviders/searxng";
 
 const PROBE_QUERY = "Indian contingent medals tally Asian Games 2026";
 const UA =
@@ -610,6 +611,42 @@ async function connectTls(host: string, port: number, timeoutMs: number) {
     });
   });
 }
+
+/**
+ * §1 — WHICH SEARXNG INSTANCES ACTUALLY WORK FROM THIS RUNTIME?
+ *
+ * MEASURED 2026-09-28: the configured instance resolves DNS (71 ms) and accepts
+ * TCP 443 (97 ms), but never sends an HTTP response — both `/` and
+ * `/search?format=json` time out at 60 s while a control instance answers in
+ * 276 ms from the same runtime. That is an INSTANCE-SIDE outage.
+ *
+ * The fix is not to keep retrying it: it is to stop depending on a single
+ * unknown host. This action measures every candidate from inside the runtime
+ * and records which ones serve a JSON `results` array. Only measured ones are
+ * used as fallbacks — guessing would reintroduce the "reported ready, returned
+ * HTML" bug.
+ *
+ * Reports one row per candidate: HTTP status, content-type, latency, and whether
+ * the body was JSON WITH a results array (the only definition of "works" that
+ * matters here).
+ */
+export const probeSearxngCandidates = internalAction({
+  args: { timeoutMs: v.optional(v.number()) },
+  handler: async (_ctx, args) => {
+    const timeout = args.timeoutMs && args.timeoutMs > 0 ? args.timeoutMs : 8_000;
+    const rows = await probeCandidates(timeout);
+    const healthy = rows.filter((r) => r.healthy).map((r) => r.base);
+    return {
+      probed: rows.length,
+      healthyCount: healthy.length,
+      healthy,
+      note:
+        "healthy means the instance served JSON WITH a `results` array from this runtime. " +
+        "A configured instance keeps priority; these are fallbacks it can hand over to.",
+      rows,
+    };
+  },
+});
 
 export const deepProbeSearxng = internalAction({
   args: { query: v.optional(v.string()) },

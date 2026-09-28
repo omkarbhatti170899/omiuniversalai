@@ -1,0 +1,2295 @@
+{
+  "answerContract": {
+    "allSourcesDated": 27,
+    "citationsResolve": 30,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 13,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 17
+  },
+  "byCategory": {
+    "asia": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 4
+    },
+    "australia": {
+      "fresh": 1,
+      "kept": 1,
+      "n": 2
+    },
+    "europe": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 5
+    },
+    "science": {
+      "fresh": 3,
+      "kept": 19,
+      "n": 6
+    },
+    "usa": {
+      "fresh": 4,
+      "kept": 10,
+      "n": 5
+    },
+    "weather": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 8
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 2,
+      "kept": 5,
+      "n": 3
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 6,
+      "n": 6
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 9,
+      "n": 8
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 33,
+      "n": 4
+    },
+    "recent": {
+      "fresh": 0,
+      "kept": 2,
+      "n": 1
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 4,
+      "n": 7
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 72,
+  "ran": 30,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1204,
+        "statesFreshness": false,
+        "text": "The Quiet Normalization of Space: Why Rocket Lab's Latest Launch Matters More Than You Think\n\nThere is a peculiar kind of magic that has quietly drained out of rocket launches over the last few years, and honestly, I have mixed feelings about it. [3]\n\nClimate, however, is the average of weather over time and space.”\n\nThe climate report for the Atlanta area for the previous month shows how much departure from the average temperatures that month represents. [1]\n\nIn my opinion, we have entered an era where orbital mechanics have become routine, and that normalization is perhaps the most profound shift in the history of spaceflight. [3]\n\nThis is Rocket Lab's 18th launch of 2026 alone, marking a relentless tempo that used to be the exclusive domain of state superpowers, not nimble commercial players. [3]\n\nSources: [1] Cobb climate summary & weather forecast for Friday, September 25, 2026 (cob"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "space missions 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 71.3,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:11:45.000Z",
+            "relevance": 0.98,
+            "title": "Cobb climate summary & weather forecast for Friday, September 25, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-friday-september-25-2026"
+          },
+          {
+            "ageHours": 46.6,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:50:51.000Z",
+            "relevance": 0.98,
+            "title": "Cobb climate summary & weather forecast for Saturday, September 26, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-saturday-september-26-2026"
+          },
+          {
+            "ageHours": 62.3,
+            "domain": "mi3dot.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:07:09.000Z",
+            "relevance": 0.82,
+            "title": "Rocket Lab Launches 'Owlright, Owlright, Owlright' Synspective Radar Satellite (2026)",
+            "url": "https://mi3dot.org/article/rocket-lab-launches-owlright-owlright-owlright-synspective-radar-satellite"
+          },
+          {
+            "ageHours": 55,
+            "domain": "musichits.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:27:09.000Z",
+            "relevance": 0.82,
+            "title": "AI in Real Estate: The Good, the Bad, and the Ugly (2026)",
+            "url": "https://musichits.org/article/ai-in-real-estate-the-good-the-bad-and-the-ugly"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 46.6,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4953ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4952ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4951ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4950ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.9,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 20617,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1486,
+        "statesFreshness": true,
+        "text": "Oklahoma doctors highlight progress in childhood cancer treatment\n\nDuring Childhood Cancer Awareness Month, experts at the Jimmy Everest Center in Oklahoma are sharing how research is improving outcomes for young cancer patients, including a near 100% cure rate for certain leukemia cases. [4]\n\nOver the past 30 years, breast cancer deaths have declined by 44 percent,[3] while treatment options have expanded from a single targeted treatment in 1993 to more than 30 today, demonstrating the extraordinary progress that sustained investment in research and precision medicine can make possible. [1]\n\n“Well, cancer research is actually what has brought us here, in terms of having treatment options that we could have never imagined 30 years ago,” Bonilla told reporters. [2]\n\nSeptember is Childhood Cancer Awareness Month, and doctors at the Jimmy Everest Center at Oklahoma Children's OU Health are "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "latest research on cancer treatment",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 52,
+            "domain": "newswire.co.kr",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T05:30:00.000Z",
+            "relevance": 1,
+            "title": "The Estée Lauder Companies and the Breast Cancer Research Foundation Launch Largest Global Research Initiative",
+            "url": "https://www.newswire.co.kr/newsRead.php?no=1043393"
+          },
+          {
+            "ageHours": 111.5,
+            "domain": "sudbury.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-23T18:00:00.000Z",
+            "relevance": 1,
+            "title": "Oncologist talks genetic focused cancer treatment at annual Luncheon of Hope",
+            "url": "https://www.sudbury.com/local-news/oncologist-talks-genetic-focused-cancer-treatment-at-annual-luncheon-of-hope-12813171"
+          },
+          {
+            "ageHours": 36.2,
+            "domain": "scienmag.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:16:35.000Z",
+            "relevance": 0.91,
+            "title": "When Should Cancer Patients Switch Treatment? Researchers Build a Standard Rulebook for a Key Clinical Milesto",
+            "url": "https://scienmag.com/when-should-cancer-patients-switch-treatment-researchers-build-a-standard-rulebook-for-a-key-clinical-milestone"
+          },
+          {
+            "ageHours": 84.1,
+            "domain": "koco.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T21:22:20.000Z",
+            "relevance": 0.89,
+            "title": "Oklahoma doctors highlight progress in childhood cancer treatment",
+            "url": "https://www.koco.com/article/oklahoma-doctors-highlight-progress-childhood-cancer-treatment/73874005"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 36.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.95,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 3768,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 963,
+        "statesFreshness": true,
+        "text": "One paper has been published under the Science &Technology and five in Social Sciences section, one papers under the section of Business Studies, and the Arts & Humanities section has five papers. [1]\n\nMaine author's new book helping kids, adults cope with complex emotions\n\nCharlotte Agell, a longtime educator, author, and artist from Brunswick, is helping Maine's kids and adults find common ground in the stories they're reading. [2]\n\nJU VC releases latest issue of University's Multidisciplinary Research Journal\n\nExcelsior Correspondent JAMMU, Sept 24: Professor Umesh Rai, Vice Chancellor of the University of Jammu, today officially released Vol. [1]\n\nThe current edition features a total of twelve peer-reviewed papers spanning various disciplines. [1]\n\nSources: [1] JU VC releases latest issue of University's Multidisciplinary Research Journal (dailyexcelsior.com)  [2] Maine author's new "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "recently published physics papers",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 86.7,
+            "domain": "dailyexcelsior.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:44:06.000Z",
+            "relevance": 0.89,
+            "title": "JU VC releases latest issue of University's Multidisciplinary Research Journal",
+            "url": "https://www.dailyexcelsior.com/ju-vc-releases-latest-issue-of-universitys-multidisciplinary-research-journal"
+          },
+          {
+            "ageHours": 58.3,
+            "domain": "wmtw.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T23:09:01.000Z",
+            "relevance": 0.7,
+            "title": "Maine author's new book helping kids, adults cope with complex emotions",
+            "url": "https://www.wmtw.com/article/maine-authors-new-book-helping-kids-adults-cope-with-complex-emotions/73668406"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 58.3,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.795,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 2603,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1104,
+        "statesFreshness": false,
+        "text": "The evolution of photosynthesis refers to the origin and subsequent evolution of photosynthesis, the process by which light energy is used to assemble sugars from carbon dioxide and a hydrogen and electron source such as water. [5]\n\nPhotosynthesis first step mechanism concerns the sunlight absorption and both negative and positive charges separation. [1]\n\nPhotosynthesis may very well be one of the most important biological processes that happen on our planet Earth. [4]\n\nRecent and important photosynthesis literature claims that this mechanism is quantum mechanics controlled, however without presenting qualitative or quantitative scientifically based mechanism. [1]\n\nSources: [1] Can the photosynthesis first step quantum mechanism be explained? (arxiv.org)  [2] Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science (2024) (openlibrary."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "photosynthesis explained",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 143682.4,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2010-05-08T15:03:14Z",
+            "relevance": 0.91,
+            "title": "Can the photosynthesis first step quantum mechanism be explained?",
+            "url": "http://arxiv.org/abs/1005.1337v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
+            "url": "https://openlibrary.org/works/OL39212144W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
+            "url": "https://openlibrary.org/works/OL38617647W"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldatlas.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "Photosynthesis Explained - WorldAtlas",
+            "url": "https://www.worldatlas.com/feature/photosynthesis-explained.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "title": "Evolution of photosynthesis",
+            "url": "https://en.wikipedia.org/wiki/Evolution_of_photosynthesis"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.64,
+            "title": "Chlorophyll",
+            "url": "https://en.wikipedia.org/wiki/Chlorophyll"
+          },
+          {
+            "ageHours": 3652.3,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2026-04-29T05:10:13Z",
+            "relevance": 0.63,
+            "title": "Towards a Frugal Photosynthesis Sensing Toolkit for Data-Driven Plant Science Education and Exploration",
+            "url": "http://arxiv.org/abs/2604.26305v2"
+          },
+          {
+            "ageHours": 111451.3,
+            "domain": "ucl.ac.uk",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2014-01-10T14:08:38Z",
+            "relevance": 0.56,
+            "title": "Quantum mechanics explains efficiency of photosynthesis",
+            "url": "http://www.ucl.ac.uk/news/news-articles/0114/090114-Quantum-mechanics-explains-efficiency-of-photosynthesis"
+          },
+          {
+            "ageHours": 67228.8,
+            "domain": "theconversation.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2019-01-27T04:41:15Z",
+            "relevance": 0.49,
+            "title": "Explainer: why can’t humans photosynthesise?",
+            "url": "http://theconversation.com/explainer-why-cant-humans-photosynthesise-51635"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 3652.3,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "Search provider \"commoncrawl: Request failed with status code 404\" is not config",
+          "TheSportsDB has no current fixture for \"photosynthesis explained\" right now — Om",
+          "Request failed with status code 502",
+          "Request failed with status code 502"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.712,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1542,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current Mars rover status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 502",
+          "Request failed with status code 502",
+          "Request failed with status code 502",
+          "Request failed with status code 502"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1675,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "climate report 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1,
+          "undated": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 479,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's weather",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 0,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current weather in Mumbai",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo | Search provider \"openmeteo: Request failed with status code"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 792,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "live weather radar in London",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 102,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "weather in Delhi today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo | Search provider \"openmeteo: Request failed with status code"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 199,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "will it rain in Tokyo tomorrow",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 100,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current temperature in New York",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo | Search provider \"openmeteo: Request failed with status code"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 215,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's forecast for Sydney",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 99,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 751,
+        "statesFreshness": false,
+        "text": "Freezing rain is rain maintained at temperatures below freezing by the ambient air mass that causes freezing on contact with surfaces. [1]\n\n$\\begingroup$(Looks like carbon dioxide causes rain to have pH around 5.6, but the term acid rain is more often used for special cases when sulfur dioxid… [3]\n\nPreface Have you ever wondered what causes the rain? [4]\n\nIce pellets (sleet) frequently occurs mixed in with freezing\nrain, and is made of frozen raindrops. [5]\n\nSources: [1] Freezing rain (en.wikipedia.org)  [2] What causes acid rain? (1992) (openlibrary.org)  [3] atmosphere - If there was less carbon dioxide, would rain be bas… (earthscience.stackexchange.com)  [4] What Causes Rain - Process of Rainfall, Formation of Clouds & Th… (testbook.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "what causes rain",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "title": "Freezing rain",
+            "url": "https://en.wikipedia.org/wiki/Freezing_rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "What causes acid rain? (1992)",
+            "url": "https://openlibrary.org/works/OL14959607W"
+          },
+          {
+            "ageHours": null,
+            "domain": "earthscience.stackexchange.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "title": "atmosphere - If there was less carbon dioxide, would rain be bas…",
+            "url": "https://earthscience.stackexchange.com/a/26312"
+          },
+          {
+            "ageHours": null,
+            "domain": "testbook.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "title": "What Causes Rain - Process of Rainfall, Formation of Clouds & Th…",
+            "url": "https://testbook.com/biology/rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "answers.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.75,
+            "title": "What causes rain to become sleet? - Answers",
+            "url": "https://www.answers.com/Q/What_causes_rain_to_become_sleet"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "title": "Acid rain",
+            "url": "https://en.wikipedia.org/wiki/Acid_rain"
+          },
+          {
+            "ageHours": 147753.1,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2009-11-20T00:22:59Z",
+            "relevance": 0.65,
+            "title": "A non arbitrary definition of rain event: the case of stratiform rain",
+            "url": "http://arxiv.org/abs/0911.3941v1"
+          },
+          {
+            "ageHours": 16230.6,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2024-11-21T02:51:52Z",
+            "relevance": 0.65,
+            "title": "Hugging Rain Man: A Novel Facial Action Units Dataset for Analyzing Atypical Facial Expressions in Children wi",
+            "url": "http://arxiv.org/abs/2411.13797v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.61,
+            "title": "Acid rain (2000)",
+            "url": "https://openlibrary.org/works/OL5954174W"
+          },
+          {
+            "ageHours": null,
+            "domain": "esv.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.55,
+            "title": "James 4 - What causes quarrels and what causes fights among you?…",
+            "url": "http://www.esv.org/Jm4.1"
+          },
+          {
+            "ageHours": 31634.8,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2023-02-18T06:42:05Z",
+            "relevance": 0.55,
+            "title": "Ask HN: Did the Fukushima cloud cause cancer?",
+            "url": "https://news.ycombinator.com/item?id=34844586"
+          },
+          {
+            "ageHours": 108514.4,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2014-05-12T23:03:42Z",
+            "relevance": 0.53,
+            "title": "Show HN: Original Rap about Databases",
+            "url": "https://news.ycombinator.com/item?id=7735899"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 16230.6,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.698,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 385,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 864,
+        "statesFreshness": false,
+        "text": "Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy; and Russian-occupied Enerhodar, all in Ukraine; and Russia's Belgorod Oblast [2]\n\nSaudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, killing seven people and wounding 40 more [3]\n\nSources: [1] Armed conflicts and attacks: Houthi–Saudi Arabian conflict (en.wikipedia.org)  [2] Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy… (apnews.com)  [3] Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, killing seven people and wounding 40 more (reuters.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest US news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.59,
+            "title": "Armed conflicts and attacks: Houthi–Saudi Arabian conflict",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "apnews.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.48,
+            "title": "Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in ",
+            "url": "https://apnews.com/article/russia-ukraine-war-germany-drones-strikes-f91ac88ee287bad2a3c99d2608975f53"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.45,
+            "title": "Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, kill",
+            "url": "https://www.reuters.com/world/middle-east/seven-people-killed-strike-market-yemen-houthi-run-health-ministry-says-2026-09-27"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.507,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 123,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 864,
+        "statesFreshness": false,
+        "text": "Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy; and Russian-occupied Enerhodar, all in Ukraine; and Russia's Belgorod Oblast [2]\n\nSaudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, killing seven people and wounding 40 more [3]\n\nSources: [1] Armed conflicts and attacks: Houthi–Saudi Arabian conflict (en.wikipedia.org)  [2] Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in Ukraine and one in Russia, hitting Kyiv and its outskirts; the Kharkiv and Odesa Oblasts; Sumy… (apnews.com)  [3] Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, killing seven people and wounding 40 more (reuters.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.59,
+            "title": "Armed conflicts and attacks: Houthi–Saudi Arabian conflict",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "apnews.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.48,
+            "title": "Armed conflicts and attacks: Russian and Ukrainian forces exchange strikes that kill at least eight people in ",
+            "url": "https://apnews.com/article/russia-ukraine-war-germany-drones-strikes-f91ac88ee287bad2a3c99d2608975f53"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.45,
+            "title": "Armed conflicts and attacks: Saudi Arabia's air forces carry out an airstrike at a market in Taiz, Yemen, kill",
+            "url": "https://www.reuters.com/world/middle-east/seven-people-killed-strike-market-yemen-houthi-run-health-ministry-says-2026-09-27"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.507,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 295,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 623,
+        "statesFreshness": false,
+        "text": "The National Rally clears the 10-seat threshold in the Senate of France, allowing the party to meet qualifications to form a far-right parliamentary group [2]\n\nSão Toméans vote to elect 55 members of the National Assembly [3]\n\nSources: [1] Politics and elections: 2026 French Senate election (en.wikipedia.org)  [2] Politics and elections: The National Rally clears the 10-seat threshold in the Senate of France, allowing the party to meet qualifications to form a far-right parliamentary group (theguardian.com)  [3] Politics and elections: São Toméans vote to elect 55 members of the National Assembly (macaubusiness.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "current US politics",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.89,
+            "title": "Politics and elections: 2026 French Senate election",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "theguardian.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.75,
+            "title": "Politics and elections: The National Rally clears the 10-seat threshold in the Senate of France, allowing the ",
+            "url": "https://www.theguardian.com/world/2026/sep/28/french-election-2026-far-right-senate-elections"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "macaubusiness.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.67,
+            "title": "Politics and elections: São Toméans vote to elect 55 members of the National Assembly",
+            "url": "https://macaubusiness.com/jobs-and-youth-exodus-dominate-sao-tome-election"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 4,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 4,
+        "relevanceAvg": 0.77,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 546,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest NASA mission",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 4,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 4,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 456,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 148,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n[1] Politics and elections: 2026 French Senate election — 2026 French Senate election"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US election news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 1,
+            "title": "Politics and elections: 2026 French Senate election",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 242,
+      "vertical": "election"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest European Union news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 229,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "news in Europe today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 273,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "current EU policy",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 686,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 658,
+        "statesFreshness": false,
+        "text": "The Berlin Marathon is held in Germany, with Guye Adola and Tigst Assefa winning their respective marathon races although Assefa sustained cramps prior to the finish line [2]\n\nA bus carrying Filipino tourists veers off a highway near Munich, Germany, killing two people and wounding 25 more [1]\n\nSources: [1] Disasters and accidents: A bus carrying Filipino tourists veers off a highway near Munich, Germany, killing two people and wounding 25 more (apnews.com)  [2] Sports: The Berlin Marathon is held in Germany, with Guye Adola and Tigst Assefa winning their respective marathon races although Assefa sustained cramps prior to the finish line (apnews.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest news from Germany",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "apnews.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.66,
+            "title": "Disasters and accidents: A bus carrying Filipino tourists veers off a highway near Munich, Germany, killing tw",
+            "url": "https://apnews.com/article/germany-philippines-tourists-bus-crash-b32abd29e5b2c05aef1d285ac8636fc7"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "apnews.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.63,
+            "title": "Sports: The Berlin Marathon is held in Germany, with Guye Adola and Tigst Assefa winning their respective mara",
+            "url": "https://apnews.com/article/berlin-marathon-world-record-assefa-adola-f037a7546b40afce0df1eab1c9294691"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.645,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 230,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1022,
+        "statesFreshness": false,
+        "text": "Growth in the 12-nation eurozone economy increased by 0.5% in the second quarter, and 2.0% on a 12-month basis, said EU statistics office Eurostat. [3]\n\nEurozone economy still in troubled waters The eurozone economy grew by a meagre 0.1 percent in the last three months, showing that optimism about recover… [10]\n\nMichele Chang, Federico Steinberg, Francisco Torres · 2019 — Financial crises, Economic stabilization, European union countries, economic conditions, European union countries, economic policy, Global Financial Crisis, 2008-2009, Eurozone [1]\n\nEurozone stuck in longest recession A harsh winter held back construction activity in Germany, contributing to a sharper than expected fall in first quar… [4]\n\nSources: [1] Political Economy of Adjustment Throughout and Beyond the Eurozone Crisis (2019) (openlibrary.org)  [2] Political Economy of the Eurozone (2017) (openlibrary.org)  [3] BB"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "eurozone economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "title": "Political Economy of Adjustment Throughout and Beyond the Eurozone Crisis (2019)",
+            "url": "https://openlibrary.org/works/OL25752536W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "title": "Political Economy of the Eurozone (2017)",
+            "url": "https://openlibrary.org/works/OL21149456W"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.bbc.co.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "title": "BBC NEWS | Business | Eurozone economy continues growth",
+            "url": "http://news.bbc.co.uk/2/hi/business/3561558.stm"
+          },
+          {
+            "ageHours": null,
+            "domain": "money.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "title": "Eurozone economy shrinks again",
+            "url": "http://money.cnn.com/2013/05/15/news/economy/europe-recession"
+          },
+          {
+            "ageHours": 102401.4,
+            "domain": "theguardian.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-01-22T16:06:00Z",
+            "relevance": 0.83,
+            "title": "ECB unveils €1.1tn QE plan to stimulate eurozone economy",
+            "url": "http://www.theguardian.com/business/2015/jan/22/ecb-unveils-1-trillion-qe-plan-stimulate-eurozoen-economy"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "title": "How resilient is the eurozone economy to new Covid curbs?",
+            "url": "https://www.ft.com/content/ff11f527-e0a3-4498-89ee-e9d1ad29fc89"
+          },
+          {
+            "ageHours": 75910.3,
+            "domain": "wsj.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2018-01-30T11:08:13Z",
+            "relevance": 0.82,
+            "title": "Eurozone Economy Records Strongest Growth in a Decade",
+            "url": "https://www.wsj.com/articles/french-economy-accelerates-at-fastest-pace-in-six-years-1517303003?mod=e2tweu"
+          },
+          {
+            "ageHours": 28989.9,
+            "domain": "wsj.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2023-06-08T11:35:41Z",
+            "relevance": 0.82,
+            "title": "Inflation Drags Eurozone Economy into Recession",
+            "url": "https://www.wsj.com/articles/inflation-drags-eurozone-economy-into-recession-b6ff6158"
+          },
+          {
+            "ageHours": null,
+            "domain": "theweek.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "title": "Eurozone economy shrinks at record rate | The Week",
+            "url": "https://theweek.com/coronavirus/106882/eurozone-economy-shrinks-at-record-rate"
+          },
+          {
+            "ageHours": null,
+            "domain": "euobserver.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "title": "Eurozone economy still in troubled waters",
+            "url": "http://euobserver.com/article/122119"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.79,
+            "title": "Eurozone economy did not grow at all in last quarter of 2009",
+            "url": "http://www.wikidata.org/entity/Q17655943"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "title": "economy of Eurozone",
+            "url": "http://www.wikidata.org/entity/Q100874038"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 28989.9,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.833,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 438,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "latest news from Asia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 238,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "Asia news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 201,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 812,
+        "statesFreshness": false,
+        "text": "In tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defeating Ukraine 2–0 in the final in Shenzhen, Guangdong, China [2]\n\nTwo giant pandas, Ping Ping and Fu Shuang, arrive at the Atlanta zoo in Georgia, U.S., as part of an agreement signed between China and the U.S. [3]\n\nSources: [1] International relations: China–United States relations (en.wikipedia.org)  [2] Sports: In tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defeating Ukraine 2–0 in the final in Shenzhen, Guangdong, China (afp.com)  [3] International relations: Two giant pandas, Ping Ping and Fu Shuang, arrive at the Atlanta zoo in Georgia, U.S., as part of an agreement signed between China and the U.S. during Chinese leader Xi Jinping's… (dawn.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "current situation in China",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.61,
+            "title": "International relations: China–United States relations",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "afp.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.6,
+            "title": "Sports: In tennis, the Czech Republic wins its 12th Billie Jean King Cup title and first since 2018 after defe",
+            "url": "https://www.afp.com/en/czech-republic-beat-ukraine-win-bjk-cup-0"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "dawn.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.58,
+            "title": "International relations: Two giant pandas, Ping Ping and Fu Shuang, arrive at the Atlanta zoo in Georgia, U.S.",
+            "url": "https://www.dawn.com/news/2033172/two-giant-pandas-sent-by-china-arrive-in-us"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 4,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 4,
+        "relevanceAvg": 0.597,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 619,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "latest news from Southeast Asia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 250,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "latest Australian news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 256,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 432,
+        "statesFreshness": false,
+        "text": "In cycling, Brandon McNulty of the United States wins the men's road race world title in Montreal, Canada, becoming the first American champion in 33 years after finishing 13 seconds ahead of Australia's Michael Matthews [1]\n\nSources: [1] Sports: In cycling, Brandon McNulty of the United States wins the men's road race world title in Montreal, Canada, becoming the first American champion in 33 years after finishing 13… (afp.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "Australia news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "afp.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.63,
+            "title": "Sports: In cycling, Brandon McNulty of the United States wins the men's road race world title in Montreal, Can",
+            "url": "https://www.afp.com/en/stunned-mcnulty-wins-miracle-road-race-world-title"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 9.5,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.63,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 223,
+      "vertical": "news"
+    }
+  ],
+  "total": 138
+}

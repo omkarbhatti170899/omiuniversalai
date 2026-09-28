@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  MissingKeyError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -89,7 +88,8 @@ export function createOpenAlexProvider(): SearchProvider {
         })
         .filter((c) => c.url.startsWith("http"));
 
-      if (citations.length === 0) throw new MissingKeyError("openalex");
+      // An EMPTY result is a valid answer, not a configuration problem —
+      // OpenAlex is keyless.
       return { citations };
     },
   };

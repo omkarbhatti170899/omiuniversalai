@@ -1,0 +1,384 @@
+{
+  "cases": 11,
+  "note": "n=0 with error=null means the provider RAN and returned nothing (scope gate or a real empty answer). An error means it failed. Neither is visible from the pipeline.",
+  "out": [
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:21.713Z",
+        "title": "Current weather — Mumbai, Maharashtra, India",
+        "url": "https://open-meteo.com/?latitude=19.07283&longitude=72.88261"
+      },
+      "ms": 832,
+      "n": 1,
+      "ok": true,
+      "provider": "openmeteo",
+      "query": "current weather in Mumbai"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:21.713Z",
+        "title": "Singapore v Bangladesh 0 – 0 (FIFA ASEAN Cup · 32 · 2026-09-28 09:00:00)",
+        "url": "https://www.thesportsdb.com/team/140152"
+      },
+      "ms": 552,
+      "n": 4,
+      "ok": true,
+      "provider": "sports-scores",
+      "query": "current weather in Mumbai"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "current weather in Mumbai"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:22.469Z",
+        "title": "Current weather — Delhi, National Capital Territory of Delhi, India",
+        "url": "https://open-meteo.com/?latitude=28.65195&longitude=77.23149"
+      },
+      "ms": 204,
+      "n": 1,
+      "ok": true,
+      "provider": "openmeteo",
+      "query": "weather in Delhi today"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:22.469Z",
+        "title": "Singapore v Bangladesh 0 – 0 (FIFA ASEAN Cup · 32 · 2026-09-28 09:00:00)",
+        "url": "https://www.thesportsdb.com/team/140152"
+      },
+      "ms": 243,
+      "n": 4,
+      "ok": true,
+      "provider": "sports-scores",
+      "query": "weather in Delhi today"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "weather in Delhi today"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:22.916Z",
+        "title": "Current weather — New York, New York, United States",
+        "url": "https://open-meteo.com/?latitude=40.71427&longitude=-74.00597"
+      },
+      "ms": 204,
+      "n": 1,
+      "ok": true,
+      "provider": "openmeteo",
+      "query": "current temperature in New York"
+    },
+    {
+      "configured": true,
+      "error": "TheSportsDB has no current fixture for \"temperature New York\" right now — Omi will not invent a scoreline.",
+      "first": null,
+      "ms": 109,
+      "n": 0,
+      "ok": false,
+      "provider": "sports-scores",
+      "query": "current temperature in New York"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "current temperature in New York"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 108,
+      "n": 0,
+      "ok": false,
+      "provider": "openmeteo",
+      "query": "today's forecast for Sydney"
+    },
+    {
+      "configured": true,
+      "error": "TheSportsDB has no current fixture for \"'s forecast for Sydney\" right now — Omi will not invent a scoreline.",
+      "first": null,
+      "ms": 112,
+      "n": 0,
+      "ok": false,
+      "provider": "sports-scores",
+      "query": "today's forecast for Sydney"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "today's forecast for Sydney"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "openmeteo",
+      "query": "live football scores"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:23.245Z",
+        "title": "Singapore v Bangladesh 0 – 0 (FIFA ASEAN Cup · 32 · 2026-09-28 09:00:00)",
+        "url": "https://www.thesportsdb.com/team/140152"
+      },
+      "ms": 0,
+      "n": 2,
+      "ok": true,
+      "provider": "sports-scores",
+      "query": "live football scores"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "live football scores"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "openmeteo",
+      "query": "current Premier League standings"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-24T10:00:07.000Z",
+        "title": "English Premier League — league standings (5 teams shown)",
+        "url": "https://www.thesportsdb.com/league/4328"
+      },
+      "ms": 91,
+      "n": 1,
+      "ok": true,
+      "provider": "sports-scores",
+      "query": "current Premier League standings"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "current Premier League standings"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "openmeteo",
+      "query": "football results today"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:23.336Z",
+        "title": "Singapore v Bangladesh 0 – 0 (FIFA ASEAN Cup · 32 · 2026-09-28 09:00:00)",
+        "url": "https://www.thesportsdb.com/team/140152"
+      },
+      "ms": 0,
+      "n": 2,
+      "ok": true,
+      "provider": "sports-scores",
+      "query": "football results today"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "football results today"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 1,
+      "n": 0,
+      "ok": false,
+      "provider": "openmeteo",
+      "query": "current USD to INR rate"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:23.337Z",
+        "title": "Singapore v Bangladesh 0 – 0 (FIFA ASEAN Cup · 32 · 2026-09-28 09:00:00)",
+        "url": "https://www.thesportsdb.com/team/140152"
+      },
+      "ms": 244,
+      "n": 4,
+      "ok": true,
+      "provider": "sports-scores",
+      "query": "current USD to INR rate"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T00:02:31.000Z",
+        "title": "1 USD = 95.9279 INR",
+        "url": "https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=INR"
+      },
+      "ms": 30,
+      "n": 1,
+      "ok": true,
+      "provider": "market-rates",
+      "query": "current USD to INR rate"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "openmeteo",
+      "query": "live sensex level"
+    },
+    {
+      "configured": true,
+      "error": "TheSportsDB has no current fixture for \"sensex level\" right now — Omi will not invent a scoreline.",
+      "first": null,
+      "ms": 105,
+      "n": 0,
+      "ok": false,
+      "provider": "sports-scores",
+      "query": "live sensex level"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "live sensex level"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "openmeteo",
+      "query": "current Indian rupee exchange rate"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:23.716Z",
+        "title": "Singapore v Bangladesh 0 – 0 (FIFA ASEAN Cup · 32 · 2026-09-28 09:00:00)",
+        "url": "https://www.thesportsdb.com/team/140152"
+      },
+      "ms": 242,
+      "n": 4,
+      "ok": true,
+      "provider": "sports-scores",
+      "query": "current Indian rupee exchange rate"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "current Indian rupee exchange rate"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "openmeteo",
+      "query": "current price of bitcoin"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": {
+        "publishedAt": "2026-09-28T09:33:23.958Z",
+        "title": "Singapore v Bangladesh 0 – 0 (FIFA ASEAN Cup · 32 · 2026-09-28 09:00:00)",
+        "url": "https://www.thesportsdb.com/team/140152"
+      },
+      "ms": 242,
+      "n": 4,
+      "ok": true,
+      "provider": "sports-scores",
+      "query": "current price of bitcoin"
+    },
+    {
+      "configured": true,
+      "error": null,
+      "first": null,
+      "ms": 0,
+      "n": 0,
+      "ok": false,
+      "provider": "market-rates",
+      "query": "current price of bitcoin"
+    }
+  ]
+}

@@ -128,6 +128,7 @@ import type * as searchProviders_types from "../searchProviders/types.js";
 import type * as searchProviders_wikidata from "../searchProviders/wikidata.js";
 import type * as searchProviders_wikipedia from "../searchProviders/wikipedia.js";
 import type * as searchProviders_wikipediaCurrentEvents from "../searchProviders/wikipediaCurrentEvents.js";
+import type * as searchQualityBenchmark from "../searchQualityBenchmark.js";
 import type * as searchStatus from "../searchStatus.js";
 import type * as searchTelemetry from "../searchTelemetry.js";
 import type * as universalSearch from "../universalSearch.js";
@@ -263,6 +264,7 @@ declare const fullApi: ApiFromModules<{
   "searchProviders/wikidata": typeof searchProviders_wikidata;
   "searchProviders/wikipedia": typeof searchProviders_wikipedia;
   "searchProviders/wikipediaCurrentEvents": typeof searchProviders_wikipediaCurrentEvents;
+  searchQualityBenchmark: typeof searchQualityBenchmark;
   searchStatus: typeof searchStatus;
   searchTelemetry: typeof searchTelemetry;
   universalSearch: typeof universalSearch;

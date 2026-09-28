@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  MissingKeyError,
+  ProviderUnavailableError,
   type SearchProvider,
   type SearchProviderResult,
 } from "./types";
@@ -63,8 +63,9 @@ export function createWikidataProvider(): SearchProvider {
         if (citations.length > 0) return { citations };
         return { citations: [] };
       } catch (err) {
-        throw new MissingKeyError(
-          `wikidata: ${err instanceof Error ? err.message : "unavailable"}`,
+        // Keyless CC0 knowledge graph — availability, not configuration.
+        throw new ProviderUnavailableError(
+          `wikidata: upstream unavailable — ${err instanceof Error ? err.message : "unknown error"}`,
         );
       }
     },
