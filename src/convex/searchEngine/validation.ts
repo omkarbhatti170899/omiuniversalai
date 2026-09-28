@@ -311,6 +311,55 @@ function newestIso(citations: WebCitation[], now: number): string | undefined {
  * answer is NOT being supplied, and never dresses a model-memory guess up as a
  * finding — which is the exact behaviour the report asked us to eliminate.
  */
+export type MemoryProtectionDecision = {
+  /** True when the answer must be replaced by the honest refusal text. */
+  replace: boolean;
+  /** Why the replacement fired — recorded to telemetry, shown nowhere. */
+  reason: string;
+};
+
+/**
+ * ENFORCED MEMORY PROTECTION (2026-09-28).
+ *
+ * Until now, "a current question with no verified evidence must not be answered
+ * from model memory" lived only in the orchestrator note — i.e. it depended on
+ * the model OBEYING the note. A disobedient, confused, or partially-streamed
+ * model could still produce a confident, uncited, memory-flavoured answer to a
+ * question we had just failed to verify.
+ *
+ * The contract is now enforced mechanically at the call site: when a current
+ * turn ends with unverified evidence, anything the model produced that is NOT
+ * itself the honest refusal is REPLACED by the refusal. No citation can rescue
+ * the answer, because there are no sources to cite.
+ */
+export function enforceMemoryProtection(args: {
+  /** The turn was a current-information turn with unverified evidence. */
+  memoryProtected: boolean;
+  /** The final answer text that is about to be shown to the user. */
+  content: string;
+}): MemoryProtectionDecision {
+  const { memoryProtected, content } = args;
+  if (!memoryProtected) return { replace: false, reason: "not required" };
+
+  const text = content.trim();
+
+  // Honest paths — already telling the truth, keep them.
+  if (
+    /^I could not verify/i.test(text) ||
+    /^I could not find any live sources/i.test(text) ||
+    /deliberately not filling this in from my training data/i.test(text)
+  ) {
+    return { replace: false, reason: "already an honest refusal" };
+  }
+
+  // The model produced SOMETHING for a question we could not verify. That is
+  // precisely the memory answer the contract forbids — replace it.
+  return {
+    replace: true,
+    reason: "current question with unverified evidence got a generated answer",
+  };
+}
+
 export function cannotVerifyMessage(
   query: string,
   report: ValidationReport,

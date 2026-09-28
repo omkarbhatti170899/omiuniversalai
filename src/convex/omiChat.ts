@@ -13,6 +13,7 @@ import { friendlyAiError } from "./aiErrors";
 import { classifyFailure } from "../lib/failureRecovery";
 import { summarize } from "../lib/observability";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
+import { enforceMemoryProtection } from "./searchEngine/validation";
 import { decideSearch, extractUrl } from "./searchEngine/decision";
 import {
   evaluateExpression,
@@ -524,6 +525,12 @@ async function runTurn(
     let searchBlock = "";
     let fallbackAnswer: string | null = null;
     let orchestratorNote = "";
+    // ENFORCED MEMORY PROTECTION: set when a current-information turn ends
+    // with unverified evidence (search failed / nothing usable / validation
+    // refused). Whatever the model then produces must be replaced by the
+    // honest refusal — the orchestrator note alone only asked, not enforced.
+    let memoryProtected = false;
+    let policyVertical: Parameters<typeof noVerificationMessage>[1] | undefined;
     const attachmentBlock = attachmentTextBlock(attachments);
     if (attachmentBlock) {
       await patchStreaming({
@@ -710,6 +717,7 @@ async function runTurn(
       // cache was not bypassed, and a week-old cached result could answer
       // "what's the latest news".
       const policy = freshnessPolicyFor(trimmed, decision.intent);
+      policyVertical = policy.vertical;
 
       // A current question missing a required input (a city for weather, a
       // pair for a rate) is answered with ONE precise question, not a search
@@ -879,6 +887,7 @@ async function runTurn(
             // Results came back but none were recent enough to be evidence.
             // Say exactly that rather than answering from memory.
             searchBlock = "";
+            memoryProtected = true;
             orchestratorNote = `NO_VERIFIED_RESULTS ${noVerificationMessage(trimmed, policy.vertical)}`;
           } else if (policy.requiresFreshness) {
             // --- VALIDATION GATE -----------------------------------------
@@ -912,6 +921,7 @@ async function runTurn(
 
             if (validation.verdict === "refuse") {
               searchBlock = "";
+              memoryProtected = true;
               orchestratorNote = `NO_VERIFIED_RESULTS ${cannotVerifyMessage(trimmed, validation)}`;
             } else {
               const statement = freshnessStatement(usable, policy.maxAgeDays);
@@ -989,6 +999,7 @@ async function runTurn(
           error: e instanceof Error ? e.message : String(e),
         });
         searchBlock = "";
+        if (policy.requiresFreshness) memoryProtected = true;
         orchestratorNote = policy.requiresFreshness
           ? `NO_VERIFIED_RESULTS ${noVerificationMessage(trimmed, policy.vertical)}` +
             (attachmentBlock
@@ -1073,6 +1084,38 @@ async function runTurn(
       const split = splitReasoning(result.content);
       content = split.content;
       reasoning = split.reasoning;
+
+      // ENFORCED MEMORY PROTECTION — the mechanical half of the contract.
+      // A current turn with unverified evidence must not show a generated,
+      // uncited, memory-flavoured answer, no matter what the model produced.
+      // The refusal message is rebuilt here (with the query) rather than
+      // smuggled through closure state from the search block.
+      const protection = enforceMemoryProtection({ memoryProtected, content });
+      if (protection.replace) {
+        await recordTurn(ctx, {
+          subsystem: "search",
+          event: "memory_protection.replaced",
+          ok: false,
+          code: protection.reason,
+        });
+        content = memoryProtected
+          ? // The refusal the turn owed the user, rebuilt here because the
+            // model did not produce it itself.
+            `NO_VERIFIED_RESULTS ${noVerificationMessage(trimmed, policyVertical ?? "general")}`.replace(
+              "NO_VERIFIED_RESULTS ",
+              "",
+            )
+          : content;
+        reasoning = "Memory protection enforced — the model answered a current question from training data after retrieval could not verify it.";
+      } else if (protection.reason !== "not required") {
+        await recordTurn(ctx, {
+          subsystem: "search",
+          event: "memory_protection.honoured",
+          ok: true,
+          code: protection.reason,
+        });
+      }
+
       // A provider that died mid-stream kept its partial answer: say so
       // plainly instead of passing off a truncated reply as complete.
       if (result.partial) {
