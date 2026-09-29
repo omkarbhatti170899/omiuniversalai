@@ -110,6 +110,14 @@ const LIVE_NOUN_RE =
 const TALLY_RE = /\b(tally|tallies|medal|medals|medal table|gold count)\b/i;
 const STANDING_RE = /\b(standings|standing|league table|leaderboard)\b/i;
 /**
+ * MEASURED (golden-suite F1 test): "who is leading the F1 2026 drivers
+ * championship" produced liveData=null — "leader"/"leading" names a ranking
+ * position without using the word "standings", so the live-data detection
+ * missed it and the source-quality gate for standings never armed. A
+ * championship LEADER is a standings fact by any reading.
+ */
+const LEADER_RE = /\b(leader|leading|leads the|top of the (?:table|standings)|ahead in the (?:race|championship))\b/i;
+/**
  * Score/result wording. Kept deliberately in step with `scoreDemanded` in
  * freshness.ts — "Arsenal vs Chelsea RESULT" names no sport at all, and a
  * narrower list here silently sent it to the general web floor.
@@ -293,7 +301,7 @@ export function namesEvent(query: string, event: string | null): boolean {
 function detectLiveKind(q: string): LiveDataKind | null {
   if (WEATHER_RE.test(q)) return "weather";
   if (TALLY_RE.test(q)) return "tally";
-  if (STANDING_RE.test(q)) return "standing";
+  if (STANDING_RE.test(q) || LEADER_RE.test(q)) return "standing";
   if (SCORE_RE.test(q)) return "score";
   if (BOX_OFFICE_RE.test(q)) return "price";
   if (FLIGHT_RE.test(q)) return "flight";

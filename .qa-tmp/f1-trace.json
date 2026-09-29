@@ -1,0 +1,416 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "event \"formula 1\" already named in the query",
+      "added sports terms: result, report",
+      "added the strong recency word \"today\" to the primary query",
+      "removed filler words from the retrieval query"
+    ],
+    "primary": "leading F1 2026 drivers championship result report today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "leading F1 2026 drivers championship result report today latest",
+      "leading the F1 2026 drivers championship today",
+      "leading the F1 2026 drivers championship 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "leading F1 2026 drivers championship result report today",
+  "summary": "[search] \"who is leading the F1 2026 drivers championship\" intent=knowledge fresh=true vertical=sports years=2026 raw=10 kept=1 stale-rejected=9 domains=1 conflicts=0 verdict=answer-caveated searchMs=21301 totalMs=21301",
+  "trace": {
+    "askedEvent": "formula 1",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 1,
+        "provider": "langsearch",
+        "retrieved": 2
+      },
+      {
+        "kept": 0,
+        "provider": "searxng",
+        "retrieved": 8
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "names the current year (2026)"
+    ],
+    "independentDomains": 1,
+    "intent": "knowledge",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "who is leading the F1 2026 drivers championship",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 43.755583900462966,
+        "domain": "sillyseason.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sillyseason.com/motorsports/f1-standings-177973"
+      },
+      {
+        "ageDays": null,
+        "domain": "racingnews365.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://racingnews365.com/drivers/2026"
+      },
+      {
+        "ageDays": null,
+        "domain": "bbc.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.bbc.com/sport/formula1/live/c98klj2wn46t"
+      },
+      {
+        "ageDays": null,
+        "domain": "motorsport.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.motorsport.com/f1/standings/2026"
+      },
+      {
+        "ageDays": null,
+        "domain": "bbc.co.uk",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.bbc.co.uk/sport/formula1/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "bbc.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.bbc.com/sport/formula1/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "formula1.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.formula1.com/en/results/2026/drivers"
+      },
+      {
+        "ageDays": null,
+        "domain": "speedcafe.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-win-victory-kimi-anotnelli-mercedes-george-russell-race-report"
+      },
+      {
+        "ageDays": null,
+        "domain": "app.formula1dashboard.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://app.formula1dashboard.com/driver-standings"
+      }
+    ],
+    "rejectedStaleCount": 9,
+    "requiresFreshness": true,
+    "searchMs": 21301,
+    "selectedCount": 1,
+    "sources": [
+      {
+        "age": "1 months ago",
+        "domain": "sillyseason.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-16T20:33:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.86,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 0.86,
+          "freshness": 0.03,
+          "relevance": 0.36,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "F1 Standings 2026: Formula 1 Drivers and Constructors Standings 2026!",
+        "url": "https://sillyseason.com/motorsports/f1-standings-177973"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "racingnews365.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.81,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.04,
+          "final": 0.81,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "All F1 drivers in 2026. Results, teams, statistics and the latest...",
+        "url": "https://racingnews365.com/drivers/2026"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "bbc.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.8,
+        "scoreBreakdown": {
+          "authority": 0.17,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.8,
+          "freshness": 0.1,
+          "relevance": 0.29,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "F1 LIVE: Azerbaijan Grand Prix 2026 reaction & result as... - BBC Sport",
+        "url": "https://www.bbc.com/sport/formula1/live/c98klj2wn46t"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "motorsport.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.78,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.04,
+          "final": 0.78,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Formula 1 2026 results and standings for top drivers and teams",
+        "url": "https://www.motorsport.com/f1/standings/2026"
+      },
+      {
+        "age": "yesterday",
+        "domain": "realitytea.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T14:07:44.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.76,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.76,
+          "freshness": 0.17,
+          "relevance": 0.21,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Kim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source",
+        "url": "https://www.realitytea.com/2026/09/28/kim-kardashian-lewis-hamilton-f1-dream-team-rumors"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "bbc.co.uk",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.74,
+        "scoreBreakdown": {
+          "authority": 0.17,
+          "corroboration": 0.08,
+          "directness": 0.03,
+          "final": 0.74,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "F1 Standings - Drivers' & Constructors' World Championships - BBC....",
+        "url": "https://www.bbc.co.uk/sport/formula1/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "bbc.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.74,
+        "scoreBreakdown": {
+          "authority": 0.17,
+          "corroboration": 0.08,
+          "directness": 0.03,
+          "final": 0.74,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "F1 Standings - Drivers' & Constructors' World Championships",
+        "url": "https://www.bbc.com/sport/formula1/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "formula1.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.69,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.03,
+          "final": 0.69,
+          "freshness": 0.1,
+          "relevance": 0.14,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "2026 DRIVERS' STANDINGS | Formula 1® - The Official F1® Website",
+        "url": "https://www.formula1.com/en/results/2026/drivers"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "speedcafe.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.69,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.03,
+          "final": 0.69,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "F1 news: Kimi Antonelli charges from 19th to... - Speedcafe.com",
+        "url": "https://speedcafe.com/f1-news-2026-italian-grand-prix-monza-win-victory-kimi-anotnelli-mercedes-george-russell-race-report"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "app.formula1dashboard.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.69,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.03,
+          "final": 0.69,
+          "freshness": 0.1,
+          "relevance": 0.14,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "2026 F1 Driver Standings & Points Evolution | Formula 1 Dashboard",
+        "url": "https://app.formula1dashboard.com/driver-standings"
+      }
+    ],
+    "totalMs": 21301,
+    "verification": {
+      "failedChecks": [
+        "authority",
+        "corroboration"
+      ],
+      "passRate": 0.714,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Only one source is available, so this is unconfirmed."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.55 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "1 source(s) explicitly cover 2026",
+        "id": "year",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "1 source(s) cover the \"formula 1\"",
+        "id": "event",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 1.0 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "only 1 domain in the result set",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "1/1 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 1,
+    "independentDomains": 1,
+    "newestSourceAgeHours": 24.6,
+    "newestSourceAt": "2026-09-28T14:07:44.000Z",
+    "passRate": 0.7142857142857143,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Only one source is available, so this is unconfirmed."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

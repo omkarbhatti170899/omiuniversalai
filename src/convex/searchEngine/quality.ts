@@ -50,6 +50,18 @@ const NEWS_RE =
   /(^|\.)reuters\.com$|(^|\.)apnews\.com$|(^|\.)bbc\.(com|co\.uk)$|nytimes\.com$|theguardian\.com$|bloomberg\.com$|ft\.com$|economist\.com$|npr\.org$|aljazeera\.com$|cnn\.com$|wsj\.com$|cnbc\.com$|dw\.com$|lemonde\.fr$|spiegel\.de$/;
 const LOW_RE =
   /pinterest\.[a-z.]+$|quora\.com$|answers\.com$|ehow\.com$|ask\.com$|slideshare\.net$|scribd\.com$|coursehero\.com$/;
+
+/**
+ * AUTHORITATIVE SPORTS SOURCES: official competition bodies and the major
+ * sports desks. A standings/championship question must be answered from these
+ * when they are available — not from a celebrity-gossip blog that happened to
+ * mention a driver. Measured: "who is leading the F1 2026 drivers
+ * championship" kept ONLY realitytea.com (a Kim Kardashian F1 story) because
+ * nothing in the pipeline distinguished it from formula1.com/f1.com.
+ */
+export const SPORTS_AUTHORITY_RE =
+  /(^|\.)(formula1\.com|f1\.com|fia\.com|motorsport\.com|autosport\.com|cricket\.com|icc-cricket\.com|bcci\.tv|iplt20\.com|espncricinfo\.com|premierleague\.com|uefa\.com|fifa\.com|nba\.com|wnba\.com|nfl\.com|mlb\.com|nhl\.com|atptour\.com|wtatennis\.com|olympics\.com|worldathletics\.org|espn\.com|skysports\.com|bbc\.(?:com|co\.uk)$|cbssports\.com|thesportsdb\.com|sportskeeda\.com|cricbuzz\.com|hindustantimes\.com|ndtv\.com|indianexpress\.com)$|^sports\.[a-z.]+\.[a-z]{2,}$|(^|\.)news\.[a-z.]+/;export const SPORTS_ENTERTAINMENT_RE =
+  /(^|\.)realitytea\.com$|(^|\.)the-sun\.com$|(^|\.)dailystar\.co\.uk$|(^|\.)ladsbird\.com$|(^|\.)sportbible\.com$|(^|\.)ladbible\.com$|(^|\.)unilad\.com$|(^|\.)tyla\.com$/;
 const OFFICIAL_HINT_RE = /^(docs?|developer|developers|api|support)\./;
 
 // --- Content usefulness (the relevance/quality layer, 2026-09-29) ----------
@@ -228,6 +240,7 @@ export function sourceTier(url: string): { tier: SourceTier; weight: number } {
     return { tier: "reference", weight: 0.9 };
   }
   if (NEWS_RE.test(d)) return { tier: "news", weight: 0.85 };
+  if (SPORTS_AUTHORITY_RE.test(d)) return { tier: "news", weight: 0.85 };
   if (LOW_RE.test(d)) return { tier: "low", weight: 0.4 };
   return { tier: "general", weight: 0.6 };
 }

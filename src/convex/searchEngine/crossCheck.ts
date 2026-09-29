@@ -65,6 +65,12 @@ export type CrossCheckReport = {
 const EXTRACTORS: Array<{ metric: string; re: RegExp }> = [
   { metric: "medals", re: /\b(\d{1,3})\s*(?:gold|silver|bronze)\s+medals?\b/gi },
   { metric: "medals", re: /\b(?:total|won|winning)\s+(\d{1,3})\s+medals?\b/gi },
+  // BREAKDOWN CAPTURE: "gold 12, silver 18, bronze 16" (no "medals" word on
+  // each) — needed so the arithmetic reconstruction in resolveConflict can
+  // cross-check a total against its own components.
+  { metric: "gold-count", re: /\bgold\s*[-–—:]?\s*(\d{1,3})\b/gi },
+  { metric: "silver-count", re: /\bsilver\s*[-–—:]?\s*(\d{1,3})\b/gi },
+  { metric: "bronze-count", re: /\bbronze\s*[-–—:]?\s*(\d{1,3})\b/gi },
   { metric: "medals", re: /\b(\d{1,3})\s+medals?\b/gi },
   { metric: "score", re: /\b(\d{1,2})\s*[-–]\s*(\d{1,2})\b(?!\d)/g },
   { metric: "gold price", re: /\b(?:rs\.?|inr|₹|\$|usd)\s?([\d,]{2,12}(?:\.\d+)?)/gi },
@@ -96,7 +102,9 @@ export function claimsFromSource(source: FreshnessSource, now = Date.now()): Cla
         publishedAt: source.publishedAt,
         ageDays: ageInDays(source.publishedAt, now),
       });
-      if (out.length >= 40) return out; // bounded
+      if (out.length >= 60) return out; // bounded (raised: breakdown claims
+      // (gold+silver+bronze) consume extractor slots; the arithmetic
+      // reconstruction in resolveConflict needs both the total AND the parts)
     }
   }
   return out;
@@ -200,4 +208,114 @@ export function conflictNotice(report: CrossCheckReport, now = Date.now()): stri
     "\nTreat these as unconfirmed and check the official source before relying on a figure.",
   );
   return lines.join("\n");
+}
+
+// --- CONFLICT RESOLUTION (measured: 37/45/46 medal readings) ---------------
+
+export type ResolvedReading = {
+  value: string;
+  domain: string;
+  publishedAt?: string;
+  evidence: string;
+  /** Why this reading was selected as the answer figure. */
+  basis: "authoritative-newest" | "newest" | "most-corroborated" | "arithmetic-reconstructed";
+  /** Citations that DIRECTLY support this number. */
+  supportingDomains: string[];
+};
+
+export type ConflictResolution = {
+  metric: string;
+  /** The single figure Omi presents, with its citation. */
+  resolution: ResolvedReading;
+  /** Values that were considered and set aside, each with its reason. */
+  setAside: Array<{ value: string; domain: string; reason: string }>;
+  /** Sources still disagree (e.g. race is live) — say so explicitly. */
+  stillContested: boolean;
+};
+
+/**
+ * Resolve one conflicting metric to ONE figure — or declare it contested.
+ *
+ * Precedence (deliberate, per the contract):
+ *   1. AUTHORITATIVE source (official competition body, major outlet) — its
+ *      newest reading wins even against a newer blog.
+ *   2. NEWEST otherwise — a live tally moves; the freshest number is the best
+ *      estimate, but each set-aside value is still reported with its source.
+ *   3. ARITHMETIC RECONSTRUCTION: when one reading can be independently
+ *      reconstructed from component claims in ANOTHER source (gold+silver+
+ *      bronze == total), the reading whose arithmetic checks out is preferred.
+ * When readings remain that are BOTH authoritative AND newer than the chosen
+ * one's window, the metric is declared stillContested and Omi must say that
+ * sources disagree — never present two numbers as simultaneously correct.
+ */
+export function resolveConflict(
+  conflict: ConflictingClaim,
+  opts: { authoritativeDomains?: Set<string> } = {},
+): ConflictResolution {
+  const auth = opts.authoritativeDomains ?? new Set<string>();
+  const isAuth = (r: ConflictingClaim["readings"][number]) => auth.has(r.domain);
+
+  // Arithmetic cross-check: "gold X, silver Y, bronze Z" in one source should
+  // sum to that source's total claim. A reading whose sibling breakdown sums
+  // to it gains trust; one contradicted by its own breakdown loses it.
+  const sumChecks = new Map<string, boolean>(); // domain -> breakdown sums to total
+  for (const r of conflict.readings) {
+    const m = /\b(?:gold|g)\s*[-–—:]?\s*(\d{1,3})\b[\s\S]{0,80}?\b(?:silver|s)\s*[-–—:]?\s*(\d{1,3})\b[\s\S]{0,80}?\b(?:bronze|b)\s*[-–—:]?\s*(\d{1,3})\b/i.exec(
+      r.evidence,
+    );
+    if (m) sumChecks.set(r.domain, Number(m[1]) + Number(m[2]) + Number(m[3]) === Number(r.value));
+  }
+
+  const parseTime = (r: ConflictingClaim["readings"][number]) => {
+    const t = r.publishedAt ? Date.parse(r.publishedAt) : NaN;
+    return Number.isFinite(t) ? t : 0;
+  };
+
+  const authoritative = conflict.readings.filter(isAuth);
+  const pool = authoritative.length > 0 ? authoritative : conflict.readings;
+  const ranked = [...pool].sort((a, b) => {
+    const aSum = sumChecks.get(a.domain);
+    const bSum = sumChecks.get(b.domain);
+    // A reading whose own breakdown arithmetically confirms it outranks one
+    // whose breakdown contradicts it (when both provide breakdowns).
+    if (aSum === true && bSum === false) return -1;
+    if (aSum === false && bSum === true) return 1;
+    return parseTime(b) - parseTime(a); // newest first within the pool
+  });
+  const winner = ranked[0];
+
+  const basis: ResolvedReading["basis"] = authoritative.length > 0
+    ? "authoritative-newest"
+    : sumChecks.get(winner.domain) === true
+      ? "arithmetic-reconstructed"
+      : "newest";
+
+  const winnerTime = parseTime(winner);
+  const stillContested =
+    authoritative.length > 1 &&
+    authoritative.some((r) => r !== winner && r.value !== winner.value && parseTime(r) >= winnerTime);
+
+  return {
+    metric: conflict.metric,
+    resolution: {
+      value: winner.value,
+      domain: winner.domain,
+      publishedAt: winner.publishedAt,
+      evidence: winner.evidence,
+      basis,
+      supportingDomains: [winner.domain],
+    },
+    setAside: conflict.readings
+      .filter((r) => r !== winner)
+      .map((r) => ({
+        value: r.value,
+        domain: r.domain,
+        reason: isAuth(r)
+          ? parseTime(r) > winnerTime
+            ? "newer authoritative reading exists"
+            : "older than the selected authoritative reading"
+          : "source is not authoritative for this metric",
+      })),
+    stillContested,
+  };
 }

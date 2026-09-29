@@ -134,7 +134,7 @@ function recordSearchDebugTrace(args: {
   console.log(summarizeTrace(trace));
 }
 import { parseKnowledgeMode, routeKnowledge, knowledgeOnlyRefusal } from "./knowledgeEngine/mode";
-import { isOffTopic, isNonSequiturForBroadNews, entityInSource, topicKeywords, usefulnessPenalty } from "./searchEngine/quality";
+import { isOffTopic, isNonSequiturForBroadNews, entityInSource, topicKeywords, usefulnessPenalty, SPORTS_ENTERTAINMENT_RE, sourceTier, domainOf } from "./searchEngine/quality";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -907,7 +907,16 @@ async function runTurn(
           // The USER's words, not the rewritten retrieval string: the rewriter
           // appends recency words ("today", "latest") that describe WHEN, not
           // WHAT, and matching on those would let any fresh page through.
+          const classifiedCurrent = classifyCurrentIntent(trimmed, decision.intent);
           const topic = topicKeywords(trimmed);
+          // Live-data sports fact (standings/leader/tally)? The source-quality
+          // gate below only arms for these — a gossip blog naming a driver is
+          // not a championship standings source.
+          const isSportsFactQuestion =
+            policy.vertical === "sports" &&
+            (classifiedCurrent.liveData === "standing" ||
+              classifiedCurrent.liveData === "tally" ||
+              classifiedCurrent.liveData === "score");
           // FRESHNESS-REQUIRED AND RELEVANCE-REQUIRED — BOTH must pass.
           // MEASURED FAIL 3 (user report, commit f190e36): "current Premier
           // League standings" kept a 112-hour-old source (inside the 5-day
@@ -937,8 +946,30 @@ async function runTurn(
                 })()) &&
               (policy.years.length === 0 && !policy.event
                 ? true
-                : !isWrongYear(matchTemporal(c, policy.years, null))),
+                : !isWrongYear(matchTemporal(c, policy.years, null))) &&
+              // SOURCE-QUALITY GATE (measured, F1 golden test): for a live-data
+              // fact (standings/leader/tally) a celebrity-gossip blog that
+              // merely mentions the entity must NOT carry the answer. When the
+              // question demands current sports facts, low-authority
+              // entertainment domains are rejected outright even when fresh.
+              // A structured feed citation is accepted by construction.
+              (!isSportsFactQuestion ||
+                (c as WebCitation).providers?.includes("sports-scores") === true ||
+                !SPORTS_ENTERTAINMENT_RE.test(domainOf(c.url))),
           );
+          // TRUST GATE for standings/tally questions: at least one authoritative
+          // (news-weight ≥0.85: official competition body or major sports desk)
+          // source must survive the usable filter. If only weak sources remain,
+          // Omi says verification is unavailable instead of synthesizing from
+          // them — the realitytea-only failure mode.
+          let authoritativeUsable = usable;
+          if (isSportsFactQuestion && usable.length > 0) {
+            authoritativeUsable = usable.filter(
+              (c) =>
+                (c as WebCitation).providers?.includes("sports-scores") === true ||
+                sourceTier(c.url).weight >= 0.85,
+            );
+          }
           await patchStreaming({
             content: `Reading ${usable.length} sources…`,
           });
@@ -957,6 +988,15 @@ async function runTurn(
             searchBlock = "";
             memoryProtected = true;
             orchestratorNote = `NO_VERIFIED_RESULTS ${noVerificationMessage(trimmed, policy.vertical)}`;
+          } else if (isSportsFactQuestion && authoritativeUsable.length === 0) {
+            // SOURCE-QUALITY GATE FAIL: sources survived the freshness and
+            // relevance floors, but NONE is authoritative for a live sports
+            // fact (measured: realitytea.com alone for a championship-standings
+            // question). A weak-only set is not evidence — say verification is
+            // unavailable rather than synthesize an answer from it.
+            searchBlock = "";
+            memoryProtected = true;
+            orchestratorNote = `NO_VERIFIED_RESULTS Only low-authority sources were found for this sports result; no official or major-outlet source could verify it. ${noVerificationMessage(trimmed, policy.vertical)}`;
           } else if (policy.requiresFreshness) {
             // --- VALIDATION GATE -----------------------------------------
             // Seven checks before Omi is allowed to answer a current question
