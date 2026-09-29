@@ -1,0 +1,363 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "world news today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "world news today latest",
+      "world news 2026-09-29",
+      "world news"
+    ]
+  },
+  "retrievalQuery": "world news today",
+  "summary": "[search] \"latest world news\" intent=news fresh=true vertical=news years=- raw=10 kept=7 stale-rejected=3 domains=7 conflicts=0 verdict=answer searchMs=4023 totalMs=4023",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 4,
+        "provider": "searxng",
+        "retrieved": 6
+      },
+      {
+        "kept": 3,
+        "provider": "langsearch",
+        "retrieved": 4
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 7,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "latest world news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 7.505181145833333,
+        "domain": "nota-news.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://nota-news.com/news/world"
+      },
+      {
+        "ageDays": 6.870053831018519,
+        "domain": "sundayguardianlive.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-23-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-290509"
+      },
+      {
+        "ageDays": null,
+        "domain": "washingtonpost.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.washingtonpost.com/press-freedom-desk/2026/09/28/world-news-day-2026"
+      }
+    ],
+    "rejectedStaleCount": 3,
+    "requiresFreshness": true,
+    "searchMs": 4023,
+    "selectedCount": 7,
+    "sources": [
+      {
+        "age": "18 hours ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T20:08:39.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.06,
+          "final": 1,
+          "freshness": 0.21,
+          "relevance": 0.5,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+      },
+      {
+        "age": "8 days ago",
+        "domain": "nota-news.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T01:49:49.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.96,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.04,
+          "final": 0.96,
+          "freshness": 0.07,
+          "relevance": 0.5,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "World news in simple English and Spanish — Nota",
+        "url": "https://nota-news.com/news/world"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "euronews.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-27T13:38:10.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.94,
+          "freshness": 0.17,
+          "relevance": 0.5,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Are you in pain? In some cases, exercising may be as good... | Euronews",
+        "url": "https://www.euronews.com/2026/09/27/are-you-in-pain-in-some-cases-exercising-may-be-as-good-as-painkillers"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T17:04:24.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.93,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.06,
+          "final": 0.93,
+          "freshness": 0.13,
+          "relevance": 0.5,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "School Assembly News Headlines Today [23 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-23-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-290509"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "indiatoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T16:28:31.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.87,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.87,
+          "freshness": 0.13,
+          "relevance": 0.5,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Russia hybrid attacks in Europe: NATO says plans ready... - India Today",
+        "url": "https://www.indiatoday.in/world/story/russia-hybrid-attacks-europe-nato-ready-denmark-warns-escalation-ptag-3002289-2026-09-24"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "newsy-today.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T07:41:41.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.87,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.87,
+          "freshness": 0.13,
+          "relevance": 0.5,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Iran Offers US Hormuz Strait Opening Within Seven... - Newsy Today",
+        "url": "https://www.newsy-today.com/iran-offers-us-hormuz-strait-opening-within-seven-days"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "hindustantimes.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-25T17:16:16.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.84,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.03,
+          "final": 0.84,
+          "freshness": 0.13,
+          "relevance": 0.33,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Italy's women senators pose in short skirts amid row over deputy...",
+        "url": "https://www.hindustantimes.com/world-news/less-pretty-woman-longer-skirt-italian-minister-antonio-tajani-faces-backlash-over-sexist-remarks-101790331489202.html"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "washingtonpost.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.84,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.06,
+          "final": 0.84,
+          "freshness": 0.1,
+          "relevance": 0.5,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "World News Day 2026",
+        "url": "https://www.washingtonpost.com/press-freedom-desk/2026/09/28/world-news-day-2026"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "nytimes.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-27T10:00:07.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.82,
+        "scoreBreakdown": {
+          "authority": 0.17,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.82,
+          "freshness": 0.17,
+          "relevance": 0.33,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Today’s Wordle Hints for September 28, 2026 - The New York Times",
+        "url": "https://www.nytimes.com/2026/09/27/crosswords/wordle-review-1927.html"
+      },
+      {
+        "age": "19 hours ago",
+        "domain": "timeslive.co.za",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T19:00:22.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.82,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.04,
+          "final": 0.82,
+          "freshness": 0.21,
+          "relevance": 0.33,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "World News Day urges trust in ethical journalism",
+        "url": "https://www.timeslive.co.za/news/south-africa/2026-09-28-world-news-day-urges-trust-in-ethical-journalism"
+      }
+    ],
+    "totalMs": 4023,
+    "verification": {
+      "failedChecks": [],
+      "passRate": 1,
+      "unverifiable": [],
+      "verdict": "answer"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.90 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.7 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "best source tier weight 0.85",
+        "id": "authority",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "7 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "7/7 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 7,
+    "independentDomains": 7,
+    "newestSourceAgeHours": 17.8,
+    "newestSourceAt": "2026-09-28T20:08:39.000Z",
+    "passRate": 1,
+    "unverifiable": [],
+    "verdict": "answer"
+  }
+}

@@ -1,0 +1,424 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": "I could not verify a current, reliable answer to \"NBA standings\". Specifically: None of the results cover the \"nba\" — they appear to be about a different event. No primary or reputable source was found.\n\nI am deliberately not filling this in from my training data — my knowledge has a cutoff and is not a live feed, so a number I recalled could easily be out of date, and a plausible-looking but unverified figure is worse than no figure. Try narrowing it (name the specific event, team, pair or date), or press Retry Search.",
+  "retrievalPlan": {
+    "notes": [
+      "event \"nba\" already named in the query",
+      "no sports terms added — the query already expresses that",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "NBA standings today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "NBA standings today latest",
+      "NBA standings 2026-09-29",
+      "NBA standings"
+    ]
+  },
+  "retrievalQuery": "NBA standings today",
+  "summary": "[search] \"NBA standings\" intent=knowledge fresh=true vertical=sports years=- raw=10 kept=3 stale-rejected=7 domains=2 conflicts=0 verdict=refuse searchMs=21252 totalMs=21252",
+  "trace": {
+    "askedEvent": "nba",
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 3,
+        "provider": "langsearch",
+        "retrieved": 5
+      },
+      {
+        "kept": 0,
+        "provider": "wikipedia",
+        "retrieved": 2
+      },
+      {
+        "kept": 0,
+        "provider": "arxiv",
+        "retrieved": 2
+      },
+      {
+        "kept": 0,
+        "provider": "mwmbl",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "asks for a live value (\"standing\")"
+    ],
+    "independentDomains": 2,
+    "intent": "knowledge",
+    "liveData": "standing",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "wikidata",
+      "arxiv",
+      "openalex",
+      "openlibrary",
+      "hackernews",
+      "openverse",
+      "commoncrawl",
+      "github",
+      "openmeteo",
+      "market-rates",
+      "sports-scores",
+      "mwmbl",
+      "duckduckgo-instant",
+      "langsearch"
+    ],
+    "query": "NBA standings",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 56.033951863425926,
+        "domain": "espn.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.espn.com/nba/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals"
+      },
+      {
+        "ageDays": null,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://en.wikipedia.org/wiki/NBA_Cup"
+      },
+      {
+        "ageDays": 45.217528252314814,
+        "domain": "spokesman.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.spokesman.com/stories/2005/jan/21/nba-standings"
+      },
+      {
+        "ageDays": 1310.7899588078703,
+        "domain": "arxiv.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "http://arxiv.org/abs/2302.13386v1"
+      },
+      {
+        "ageDays": 1734.882366215278,
+        "domain": "arxiv.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "http://arxiv.org/abs/2112.14649v1"
+      },
+      {
+        "ageDays": null,
+        "domain": "usatoday.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "http://www.usatoday.com/sports/nba/standings"
+      }
+    ],
+    "rejectedStaleCount": 7,
+    "requiresFreshness": true,
+    "searchMs": 21252,
+    "selectedCount": 3,
+    "sources": [
+      {
+        "age": "2 months ago",
+        "domain": "espn.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-04T13:14:36.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.84,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.05,
+          "final": 0.84,
+          "freshness": 0.03,
+          "relevance": 0.37,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "NBA Standings 2025-26",
+        "url": "https://www.espn.com/nba/standings"
+      },
+      {
+        "age": "2 hours ago",
+        "domain": "si.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T11:34:58.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.82,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.01,
+          "final": 0.82,
+          "freshness": 0.23,
+          "relevance": 0.37,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Chris Mannix’s NBA Notes: The Latest on Jalen Duren and the Pistons",
+        "url": "https://www.si.com/nba/chris-mannix-nba-notes-latest-jalen-duren-and-pistons"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "wikipedia"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.8,
+        "scoreBreakdown": {
+          "authority": 0.18,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.8,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "2023 NBA Finals",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "wikipedia"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.8,
+        "scoreBreakdown": {
+          "authority": 0.18,
+          "corroboration": 0,
+          "directness": 0.04,
+          "final": 0.8,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "NBA Cup",
+        "url": "https://en.wikipedia.org/wiki/NBA_Cup"
+      },
+      {
+        "age": "yesterday",
+        "domain": "pippenainteasy.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T13:00:03.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.8,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.8,
+          "freshness": 0.17,
+          "relevance": 0.37,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Bryson Graham sees something in his NBA past worth placing in the Bulls’ future",
+        "url": "https://pippenainteasy.com/bryson-graham-nba-past-bulls-future"
+      },
+      {
+        "age": "yesterday",
+        "domain": "si.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-27T23:00:00.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.8,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.8,
+          "freshness": 0.17,
+          "relevance": 0.37,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Rockets Star Amen Thompson Sets Clear Goal for NBA Future",
+        "url": "https://www.si.com/nba/rockets/onsi/rockets-star-amen-thompson-sets-clear-goal-for-nba-future-01m3ht9bxw8e"
+      },
+      {
+        "age": "2 months ago",
+        "domain": "spokesman.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-15T08:50:15.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.74,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.03,
+          "final": 0.74,
+          "freshness": 0.03,
+          "relevance": 0.37,
+          "sourceQuality": 0.04
+        },
+        "selected": false,
+        "title": "NBA standings",
+        "url": "https://www.spokesman.com/stories/2005/jan/21/nba-standings"
+      },
+      {
+        "age": "over a year ago",
+        "domain": "arxiv.org",
+        "providers": [
+          "arxiv"
+        ],
+        "publishedAt": "2023-02-26T19:05:57Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.71,
+        "scoreBreakdown": {
+          "authority": 0.19,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.71,
+          "freshness": 0.01,
+          "relevance": 0.37,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "NBA2Vec: Dense feature representations of NBA players",
+        "url": "http://arxiv.org/abs/2302.13386v1"
+      },
+      {
+        "age": "over a year ago",
+        "domain": "arxiv.org",
+        "providers": [
+          "arxiv"
+        ],
+        "publishedAt": "2021-12-29T16:52:53Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.71,
+        "scoreBreakdown": {
+          "authority": 0.19,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.71,
+          "freshness": 0.01,
+          "relevance": 0.37,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Tired of Misattribution, Modeling Player Fatigue in the NBA",
+        "url": "http://arxiv.org/abs/2112.14649v1"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "usatoday.com",
+        "providers": [
+          "mwmbl"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.71,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.06,
+          "final": 0.71,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "2023-24 NBA Standings | USA TODAY",
+        "url": "http://www.usatoday.com/sports/nba/standings"
+      }
+    ],
+    "totalMs": 21252,
+    "verification": {
+      "failedChecks": [
+        "event",
+        "authority"
+      ],
+      "passRate": 0.667,
+      "unverifiable": [
+        "None of the results cover the \"nba\" — they appear to be about a different event.",
+        "No primary or reputable source was found."
+      ],
+      "verdict": "refuse"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.55 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "no source names the \"nba\" — the results are about something else",
+        "id": "event",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.1 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "2 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "3/3 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 3,
+    "independentDomains": 2,
+    "newestSourceAgeHours": 2.5,
+    "newestSourceAt": "2026-09-29T11:34:58.000Z",
+    "passRate": 0.6666666666666666,
+    "unverifiable": [
+      "None of the results cover the \"nba\" — they appear to be about a different event.",
+      "No primary or reputable source was found."
+    ],
+    "verdict": "refuse"
+  }
+}

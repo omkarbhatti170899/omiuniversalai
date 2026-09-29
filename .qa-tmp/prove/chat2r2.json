@@ -1,0 +1,54 @@
+{
+  "row": {
+    "answer": "Live: High school football scores in the Baton Rouge area for Week 4 of the 2026 season\n\nIt's Week 4 of the high school football season in the Baton Rouge area, and this will be the place to keep up with scores from the big prep contests across South Louisiana. [3]\n\nNations League & Women's EURO Live football scores & stats. [7]\n\nCalifornia High School Football Schedule, Scores & Live Updates - September 25\n\nFull California High School Football Scoreboard - September 25 (select to view full scoreboard)\n\nThe California top matchups are Pacifica vs. [1]\n\n2026 Maryland high school football scores and schedules by HSFA & ScoreStream\n\nHigh School Football America is your source for Maryland high school football scores and schedules. [4]\n\nSources: [1] California High School Football Schedule, Scores & Live Updates - September 25 (si.com)  [2] England 2-3 Spain: Nations League football – as it... | The Guardian (theguardian.com)  [3] Live: High school football scores in the Baton Rouge area for Week 4 of the 2026 season (theadvocate.com)  [4] 2026 Maryland high school football scores and schedules by HSFA & ScoreStream (highschoolfootballamerica.com)",
+    "detail": "12 fresh result(s) from 2 source(s) in 3433ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 12,
+    "freshness": "Based on 12 reports published in the last 5 days (newest: 3 hours ago).",
+    "intent": "current",
+    "query": "live football scores",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 3433,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-25T20:00:00.000Z",
+        "title": "California High School Football Schedule, Scores & Live Updates - September 25",
+        "url": "https://www.si.com/high-school/california/california-high-school-football-schedule-scores-live-updates-september-25-01m3ab1mmscj"
+      },
+      {
+        "publishedAt": "2026-09-26T17:18:42.000Z",
+        "title": "England 2-3 Spain: Nations League football – as it... | The Guardian",
+        "url": "https://www.theguardian.com/football/live/2026/sep/26/england-v-spain-nations-league-football-live-score-updates"
+      },
+      {
+        "publishedAt": "2026-09-25T21:00:00.000Z",
+        "title": "Live: High school football scores in the Baton Rouge area for Week 4 of the 2026 season",
+        "url": "https://www.theadvocate.com/baton_rouge/sports/high_schools/scoreboard/preps-br-live-week-4-season/article_1137ede1-a7a6-4206-bf59-6f487eb442b8.html"
+      },
+      {
+        "publishedAt": "2026-09-26T02:16:46.000Z",
+        "title": "2026 Maryland high school football scores and schedules by HSFA & ScoreStream",
+        "url": "https://highschoolfootballamerica.com/2026-maryland-high-school-football-scores-and-schedules-by-hsfa-scorestream"
+      },
+      {
+        "publishedAt": "2026-09-29T01:33:37.000Z",
+        "title": "Vote: Who Is the Georgia High School Football Player of the Week? (Sept. 24-26)",
+        "url": "https://www.si.com/high-school/georgia/vote-who-is-the-georgia-high-school-football-player-of-the-week-sept-24-26-01m3n8extqat"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

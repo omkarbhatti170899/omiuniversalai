@@ -1,0 +1,164 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added sports terms: result, report",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "live football scores result report today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "live football scores result report today latest",
+      "live football scores today",
+      "live football scores 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "live football scores result report today",
+  "summary": "[search] \"live football scores\" intent=current fresh=true vertical=sports years=- raw=2 kept=2 stale-rejected=0 domains=1 conflicts=0 verdict=answer-caveated searchMs=788 totalMs=788",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 2,
+        "provider": "sports-scores",
+        "retrieved": 2
+      }
+    ],
+    "dedupedCount": 2,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"current\"",
+      "asks for a live value (\"score\")"
+    ],
+    "independentDomains": 1,
+    "intent": "current",
+    "liveData": "score",
+    "providersFailed": [],
+    "providersSearched": [
+      "sports-scores"
+    ],
+    "query": "live football scores",
+    "rawCount": 2,
+    "rejectedStale": [],
+    "rejectedStaleCount": 0,
+    "requiresFreshness": true,
+    "searchMs": 788,
+    "selectedCount": 2,
+    "sources": [
+      {
+        "age": "just now",
+        "domain": "thesportsdb.com",
+        "providers": [
+          "sports-scores"
+        ],
+        "publishedAt": "2026-09-29T13:23:26.448Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.86,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.04,
+          "final": 0.86,
+          "freshness": 0.24,
+          "relevance": 0.37,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Belgium U21 vs Wales U21 (UEFA European Under-21 Championship · 2026-09-29 18:00:00)",
+        "url": "https://www.thesportsdb.com/team/136848"
+      },
+      {
+        "age": "just now",
+        "domain": "thesportsdb.com",
+        "providers": [
+          "sports-scores"
+        ],
+        "publishedAt": "2026-09-29T13:23:26.448Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.86,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.04,
+          "final": 0.86,
+          "freshness": 0.24,
+          "relevance": 0.37,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Estonia U21 vs France U21 (UEFA European Under-21 Championship · 2026-09-29 15:00:00)",
+        "url": "https://www.thesportsdb.com/team/140205"
+      }
+    ],
+    "totalMs": 788,
+    "verification": {
+      "failedChecks": [
+        "authority",
+        "corroboration"
+      ],
+      "passRate": 0.6,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Only one source is available, so this is unconfirmed."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.58 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.0 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "only 1 domain in the result set",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "2/2 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 2,
+    "independentDomains": 1,
+    "newestSourceAgeHours": 0,
+    "newestSourceAt": "2026-09-29T13:23:26.448Z",
+    "passRate": 0.6,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Only one source is available, so this is unconfirmed."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

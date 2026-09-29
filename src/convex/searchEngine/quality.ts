@@ -111,6 +111,55 @@ const SPAM_DOMAIN_RE =
 const URL_SHORTENER_RE =
   /^(?:bit\.ly|tinyurl\.com|t\.co|goo\.gl|is\.gd|cutt\.ly|shorturl\.at|rb\.gy)$/i;
 
+/** Roundup/listings pages ("Things To Do This Week in Los Angeles") aggregate
+ * many unrelated subjects; a snippet mention of ANY entity does not make such
+ * a page ABOUT that entity. Measured: one ranked #1 for a Formula 1 question
+ * and was cited, purely because its snippet name-dropped the race weekend. */
+const ROUNDUP_TITLE_RE =
+  /\b(?:things to do|what'?s on|this week in|this weekend in|weekend (?:guide|roundup)|events? (?:this|next) (?:week|weekend|month)|(?:city|area) event calendar|round[- ]?up|weekly digest|newsletter)\b/i;
+
+/** Product/merch pages: a team store listing is not news or evidence, however
+ * current. Measured: a "2026 Unisex Pro Jacket" from an F1 team store was
+ * CITED for a Formula 1 results question because the store title carried the
+ * team/entity name and a fresh timestamp. */
+const PRODUCT_TITLE_RE =
+  /\b(?:unisex|hoodie|t-?shirt|jacket|polo shirt|baseball cap|scarf|replica (?:jersey|kit)|official (?:store|merchandise|product|shop)|buy (?:now|official|online)|add to cart|\d{1,3}\s?%\s?off)\b/i;
+
+/** ePaper/newspaper index pages: a daily landing page is not an article.
+ * Measured: "OrissaPOST Page: 2 - English Daily ePaper" kept for a news
+ * question. The commerce block also catches ticketing/subscription/upsell
+ * pages (measured: "Roaming Access and Platinum Platform Upgrade | Abu Dhabi
+ * GP" cited for a results question) — a purchase surface is not evidence. */
+const EPAPER_RE = /\b(?:e-?paper|today'?s (?:paper|edition)|page \d+)[\s:|]/i;
+const COMMERCE_TITLE_RE =
+  /\b(?:roaming access|platform upgrade|buy tickets?|book now|season pass|gift card|subscription plans?|membership plans?|premium access|store locator)\b/i;
+
+/**
+ * A DIFFERENT sport's core vocabulary in the TITLE. When a question is about
+ * one sport, a page headlined by another sport's competition is a mismatch —
+ * snippet mentions are cross-references, not subject. Measured: an MLB
+ * "World Series" prediction piece matched a Formula 1 question only through
+ * a stray snippet mention and outranked genuine F1 coverage.
+ */
+const EXTRA_SPORT_DOMAINS: Array<{ name: string; core: RegExp }> = [
+  {
+    name: "baseball",
+    core: /\b(?:mlb|world series|baseball|home run|grand slam|pitcher|strikeout|innings\b[^.]*\bbaseball|walk-off)\b/i,
+  },
+  {
+    name: "ice-hockey",
+    core: /\b(?:nhl|stanley cup|ice hockey|power play|slapshot|blue line|zamboni)\b/i,
+  },
+  {
+    name: "golf",
+    core: /\b(?:pga|golf|the open championship|masters tournament|birdie|eagle putt|fairway|caddie)\b/i,
+  },
+  {
+    name: "boxing-mma",
+    core: /\b(?:boxing|ufc|wwe|knockout|title fight|heavyweight|middleweight|octagon)\b/i,
+  },
+];
+
 export function usefulnessPenalty(c: WebCitation): number {
   const d = domainOf(c.url);
   const path = (() => {
@@ -142,6 +191,10 @@ export function usefulnessPenalty(c: WebCitation): number {
   penalty += baitHits * 0.2;
   if (CATEGORY_PAGE_RE.test(path)) penalty += 0.3;
   if (LISTICLE_TITLE_RE.test(title)) penalty += 0.25;
+  if (ROUNDUP_TITLE_RE.test(title)) penalty += 0.45;
+  if (PRODUCT_TITLE_RE.test(title)) penalty += 0.45;
+  if (EPAPER_RE.test(title)) penalty += 0.3;
+  if (COMMERCE_TITLE_RE.test(title)) penalty += 0.45;
   // A long, substantive snippet is weak evidence AGAINST noise: scrapes and
   // video descriptions are usually thin.
   if ((c.snippet?.length ?? 0) < 60 && penalty > 0) penalty += 0.1;
@@ -306,7 +359,14 @@ export const SPORT_DOMAINS: SportDomain[] = [
   },
   {
     name: "motorsport",
-    queryRe: /\b(?:formula ?1|f1|motogp|nascar|racing|grand prix)\b/i,
+    // MEASURED (2026-09-29): keywordSet drops the "1" token (a bare digit is
+    // useless for topical matching), so "Formula 1 2026 season results" joined
+    // its keywords as "formula 2026 season results" and the /formula ?1/ rule
+    // NEVER fired — the whole semantic layer was silently off for F1 queries.
+    // A bare "formula" in a question is motorsport in practice; the strict
+    // aboutRe still judges each source, so a math-formula page would simply
+    // score as not-about-racing rather than be forced in.
+    queryRe: /\b(?:formula\b|f1\b|motogp|nascar|racing|grand prix)\b/i,
     aboutRe:
       /\b(?:formula ?1|f1|motogp|nascar|grand prix|circuit|qualifying|pole position|lap time|pit stop|drs|constructor|championship standings|grid penalty|helmet|chassis)\b/i,
   },
@@ -495,6 +555,14 @@ export function isOffTopic(c: WebCitation, topic: string[]): boolean {
   // (a recipe, a college admission notice) speaks none of it and stays
   // off-topic, so the floor loses nothing it was built to catch.
   const sportDomain = detectSportDomain(topic.join(" "));
+  // STRUCTURED FEED PROVENANCE (measured 2026-09-29): a live AFCON-qualifying
+  // row — "Ethiopia v Senegal 0–1 (African Cup of Nations Qualifying)" — was
+  // rejected as off-topic for "live football scores" because neither the
+  // title nor the snippet contains any of the football result vocabulary. A
+  // citation from the structured score feed is on-topic BY CONSTRUCTION: the
+  // adapter resolves the league/team itself and does not scrape the open web,
+  // so web-relevance heuristics are a category error for it.
+  if (sportDomain && c.providers?.includes("sports-scores")) return false;
   if (sportDomain && sportRelevance(c, sportDomain) > 0) return false;
   const hay = `${c.title ?? ""} ${c.snippet ?? ""}`.toLowerCase();
   return !topic.some((k) => hay.includes(k));
@@ -684,6 +752,28 @@ export function scoreSourceDetailed(
   if ((opts.askedYears?.length ?? 0) > 0 || opts.askedEvent) {
     const match = matchTemporal(c, opts.askedYears ?? [], opts.askedEvent ?? null);
     final *= temporalPenalty(match);
+  }
+  // CROSS-SPORT TITLE MISMATCH: a question about one sport, a page headlined
+  // by another. The entity anchor cannot catch it (the page may mention the
+  // asked entity anywhere), so it is judged where the subject actually lives:
+  // the title.
+  if (sportDomain) {
+    const pageTitle = c.title ?? "";
+    const titleAboutSport = new RegExp(sportDomain.aboutRe.source, "i").test(pageTitle);
+    const other = EXTRA_SPORT_DOMAINS.find((s) => s.core.test(pageTitle));
+    if (other && other.name !== sportDomain.name && !titleAboutSport) {
+      final *= 0.2;
+    }
+    // TITLE-ENTITY MISMATCH (anti-garbage spec): a source whose TITLE never
+    // mentions the asked competition nor the sport is demoted — its entity
+    // match lives only in the snippet, which is a cross-reference, not a
+    // subject. Measured: "Alienware Game Arena College Championship Beijing
+    // 2026" (esports) was CITED for a Formula 1 question via a snippet mention.
+    const titleNamesEvent =
+      opts.askedEvent ? entityInSource({ ...c, snippet: "" }, opts.askedEvent) : true;
+    if (opts.askedEvent && !titleAboutSport && !titleNamesEvent) {
+      final *= 0.2;
+    }
   }
   // The noise penalty is multiplicative: freshness cannot buy it back.
   const noise = usefulnessPenalty(c);

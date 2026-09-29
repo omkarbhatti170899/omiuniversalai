@@ -1,0 +1,41 @@
+{
+  "row": {
+    "answer": "Live search is currently unavailable, so I can't reliably verify the latest information about \"live football scores\". I'm not going to answer this from memory, because my training data is not a live sports feed and could be months out of date. Omi could not reach a live score feed just now, so it will not invent a scoreline. Name the team or competition (for example \"Mumbai Indians score\" or \"Premier League scores today\") and press Retry Search.",
+    "detail": "Search ran (2 raw result(s)) but none survived the freshness window AND the relevance/quality floor. Omi would refuse rather than answer with stale or unrelated material.",
+    "droppedFresh": [
+      {
+        "reason": "off-topic",
+        "title": "Ethiopia v Senegal 0 – 1 (African Cup of Nations Qualifying · 31 · 2026-09-29 13:00:00)"
+      },
+      {
+        "reason": "off-topic",
+        "title": "Lesotho v Morocco 0 – 0 (African Cup of Nations Qualifying · 31 · 2026-09-29 13:00:00)"
+      }
+    ],
+    "enginesTried": [
+      "sports-scores"
+    ],
+    "enginesWithResults": [
+      "Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "freshResults": 0,
+    "freshSplitCounts": {
+      "fresh": 2,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": null,
+    "intent": "current",
+    "query": "live football scores",
+    "requiresFreshness": true,
+    "resultsFound": 2,
+    "searchMs": 2023,
+    "searchTriggered": true,
+    "sources": [],
+    "status": "fail",
+    "timeRange": "week",
+    "userMessage": "Live search is currently unavailable, so I can't reliably verify the latest information about \"live football scores\". I'm not going to answer this from memory, because my training data is not a live sports feed and could be months out of date. Omi could not reach a live score feed just now, so it will not invent a scoreline. Name the team or competition (for example \"Mumbai Indians score\" or \"Premier League scores today\") and press Retry Search.",
+    "vertical": "sports"
+  }
+}

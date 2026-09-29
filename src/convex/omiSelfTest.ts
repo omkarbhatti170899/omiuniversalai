@@ -32,6 +32,7 @@ import {
   isOffTopic,
   isNonSequiturForBroadNews,
   topicKeywords,
+  usefulnessPenalty,
 } from "./searchEngine/quality";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { complete } from "./aiProviders";
@@ -218,6 +219,11 @@ export type CurrentInfoRow = {
   failedEngines: string[];
   resultsFound: number;
   freshResults: number;
+  /** Diagnostic: the freshness split BEFORE the usability floor, plus what
+   * the floor dropped with reasons — proves whether a refusal came from the
+   * freshness gate or the relevance/quality floor. */
+  freshSplitCounts?: { fresh: number; undated: number; stale: number };
+  droppedFresh?: Array<{ title: string; reason: string }>;
   freshness: string | null;
   answer: string;
   sources: Array<{ title: string; url: string; publishedAt: string | null }>;
@@ -350,7 +356,13 @@ export async function probeCurrentInfo(
           policy.maxAgeDays,
         ).fresh;
         const merged = new Map<string, (typeof citations)[number]>();
-        for (const c of [...citations, ...secondFresh]) merged.set(c.url, c);
+        for (const c of [...citations, ...secondFresh]) {
+          // Noise floor on merged evidence (mirrors the chat turn): escalation
+          // results were recombined raw, so a floored page could re-enter via
+          // the second pass (measured: merch + esports pages cited for F1).
+          if (usefulnessPenalty(c) >= 0.45) continue;
+          merged.set(c.url, c);
+        }
         citations = [...merged.values()];
       }
     }
@@ -363,13 +375,22 @@ export async function probeCurrentInfo(
     // the product itself would have dropped (measured: the Ollie workshop
     // page survived here while omiChat filtered it).
     const topicWords = topicKeywords(query);
-    const usableFresh = split.fresh.filter(
-      (c) =>
-        !isOffTopic(c, topicWords) &&
-        !isNonSequiturForBroadNews(c, topicWords, {
+    const droppedFresh: Array<{ title: string; reason: string }> = [];
+    const usableFresh = split.fresh.filter((c) => {
+      if (isOffTopic(c, topicWords)) {
+        droppedFresh.push({ title: c.title, reason: "off-topic" });
+        return false;
+      }
+      if (
+        isNonSequiturForBroadNews(c, topicWords, {
           requiresFreshness: policy.requiresFreshness,
-        }),
-    );
+        })
+      ) {
+        droppedFresh.push({ title: c.title, reason: "non-sequitur" });
+        return false;
+      }
+      return true;
+    });
     const usableSplit = { ...split, fresh: usableFresh };
 
     const row: CurrentInfoRow = {
@@ -379,6 +400,12 @@ export async function probeCurrentInfo(
       failedEngines: result.failedEngines ?? [],
       resultsFound: result.citations.length,
       freshResults: usableSplit.fresh.length,
+      freshSplitCounts: {
+        fresh: split.fresh.length,
+        undated: split.undated.length,
+        stale: split.stale.length,
+      },
+      droppedFresh,
       freshness: freshnessStatement(usableSplit.fresh, policy.maxAgeDays),
       // FAIL 3 fix: the answer text must NEVER present stale information as
       // current. When the tier's preferFreshHours promise is not met by any

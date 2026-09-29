@@ -1,0 +1,376 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "India news today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "India news today latest",
+      "India news 2026-09-29",
+      "India news"
+    ]
+  },
+  "retrievalQuery": "India news today",
+  "summary": "[search] \"latest India news\" intent=news fresh=true vertical=news years=- raw=10 kept=6 stale-rejected=4 domains=5 conflicts=0 verdict=answer-caveated searchMs=2742 totalMs=2742",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 4,
+        "provider": "searxng",
+        "retrieved": 5
+      },
+      {
+        "kept": 2,
+        "provider": "langsearch",
+        "retrieved": 5
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 5,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "latest India news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 7.443062430555556,
+        "domain": "careerindia.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-22-2026-national-international-education-spo-065947.html"
+      },
+      {
+        "ageDays": 6.162205949074075,
+        "domain": "businesstoday.in",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.businesstoday.in/markets/trending-stocks/story/whirlpool-of-india-shares-jump-20-today-heres-what-analysts-say-557305-2026-09-23"
+      },
+      {
+        "ageDays": 6.574150393518519,
+        "domain": "edexlive.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.edexlive.com/sunshine-jottings/school-assembly-news-today-september-23-2026-top-headlines-thought-word-history"
+      },
+      {
+        "ageDays": 7.307229097222223,
+        "domain": "cricbuzz.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.cricbuzz.com/live-cricket-scores/171477/ind-vs-jpn-one-off-t20i-india-tour-of-japan-2026"
+      }
+    ],
+    "rejectedStaleCount": 4,
+    "requiresFreshness": true,
+    "searchMs": 2742,
+    "selectedCount": 6,
+    "sources": [
+      {
+        "age": "18 hours ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T20:08:39.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1.01,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.06,
+          "final": 1.01,
+          "freshness": 0.21,
+          "relevance": 0.5,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "ndtv.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T18:09:06.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.98,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.04,
+          "final": 0.98,
+          "freshness": 0.17,
+          "relevance": 0.5,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Temperature Drops As Rain Hits Delhi, Weather Office Issues Yellow...",
+        "url": "https://www.ndtv.com/india-news/temperature-drops-as-rain-hits-delhi-weather-office-issues-yellow-alert-12103095"
+      },
+      {
+        "age": "4 hours ago",
+        "domain": "indiatoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-29T09:28:54.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.97,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.06,
+          "final": 0.97,
+          "freshness": 0.23,
+          "relevance": 0.5,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "LPU violence probe focuses on 30-40 students, CCTV... - India Today",
+        "url": "https://www.indiatoday.in/education-today/news/story/lpu-violence-probe-focuses-on-30-40-students-cctv-damage-and-campus-vandalism-3005587-2026-09-29"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "careerindia.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T03:19:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.95,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.06,
+          "final": 0.95,
+          "freshness": 0.07,
+          "relevance": 0.5,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "School Assembly News Headlines Today – September 22, 2026 | National, International, Education & Sports News",
+        "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-22-2026-national-international-education-spo-065947.html"
+      },
+      {
+        "age": "yesterday",
+        "domain": "indiatoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T11:34:57.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.94,
+          "freshness": 0.17,
+          "relevance": 0.5,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "LPU protest: How hostel rumours spiralled into violence... - India Today",
+        "url": "https://www.indiatoday.in/education-today/news/story/lpu-protest-how-hostel-rumours-spiralled-into-violence-an-18-hour-highway-blockade-3004842-2026-09-28"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "businesstoday.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-23T10:03:26.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.93,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.06,
+          "final": 0.93,
+          "freshness": 0.13,
+          "relevance": 0.5,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Whirlpool of India shares jump 20% today; here's what analysts say",
+        "url": "https://www.businesstoday.in/markets/trending-stocks/story/whirlpool-of-india-shares-jump-20-today-heres-what-analysts-say-557305-2026-09-23"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "careerindia.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-25T03:23:08.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.93,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.06,
+          "final": 0.93,
+          "freshness": 0.13,
+          "relevance": 0.5,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "School Assembly News Headlines Today – September 25, 2026 | National, International, Education & Sports News",
+        "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-25-2026-national-international-education-spo-066103.html"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "edexlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-23T00:10:14.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.93,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.06,
+          "final": 0.93,
+          "freshness": 0.13,
+          "relevance": 0.5,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "School Assembly News Today, September 23, 2026: Top Headlines, Thought, Word & History",
+        "url": "https://www.edexlive.com/sunshine-jottings/school-assembly-news-today-september-23-2026-top-headlines-thought-word-history"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "cricbuzz.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T06:34:36.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.87,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 0.87,
+          "freshness": 0.07,
+          "relevance": 0.33,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Cricket commentary | JPN vs IND, One-off T20I, India tour of Japan...",
+        "url": "https://www.cricbuzz.com/live-cricket-scores/171477/ind-vs-jpn-one-off-t20i-india-tour-of-japan-2026"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "countercurrents.org",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-25T08:44:14.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.87,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.87,
+          "freshness": 0.13,
+          "relevance": 0.5,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "RSS: Celebrating Deendayal Upadhyay’s birthday is... | Countercurrents",
+        "url": "https://countercurrents.org/2026/09/rss-celebrating-deendayal-upadhyays-birthday-is-fine-but-tell-the-nation-who-murdered-him"
+      }
+    ],
+    "totalMs": 2742,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.8,
+      "unverifiable": [
+        "No primary or reputable source was found."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.82 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.2 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "5 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "6/6 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 6,
+    "independentDomains": 5,
+    "newestSourceAgeHours": 4.5,
+    "newestSourceAt": "2026-09-29T09:28:54.000Z",
+    "passRate": 0.8,
+    "unverifiable": [
+      "No primary or reputable source was found."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

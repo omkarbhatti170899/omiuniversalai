@@ -1,0 +1,57 @@
+{
+  "row": {
+    "answer": "Across this season's opening 50 Premier League matches, teams recording at least 60% possession have won only 36.4% of those games, while in 2023-24, the figure was 53.5%. [1]\n\n2026/27 Premier League Power Rankings: How Tottenham stack up after the September break\n\nMany predicted Spurs to finish in Champions League qualification. [2]\n\nManchester City remains defiant amid ongoing 115 Premier League FFP charges\n\nManchester City CEO and club statements continue defending against the Premier League's 115-rule breach investigation. [4]\n\nWhat Aston Villa’s Summer Reveals About a Potential Premier League ‘Big Short’ Moment\n\nManchester City’s Guilty Verdict and Consequences\n\nManchester City have been found guilty of 114 charges, but can there be meaningful punishment when doing so risks undermining and tarnishing the Premier League’s own product? [5]\n\nSources: [1] Premier League: Is top-flight possession football on way out? (bbc.co.uk)  [2] 2026/27 Premier League Power Rankings: How Tottenham stack up after the September break (hotspurhq.com)  [3] Man City CEO’s Defiant Vow Sets Up Next Chapter of Premier League Saga (si.com)  [4] Manchester City remains defiant amid ongoing 115 Premier League FFP charges (digg.com)",
+    "detail": "7 fresh result(s) from 1 source(s) in 1413ms (after a freshness escalation pass)",
+    "droppedFresh": [],
+    "enginesTried": [
+      "sports-scores"
+    ],
+    "enginesWithResults": [
+      "Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "freshResults": 7,
+    "freshSplitCounts": {
+      "fresh": 7,
+      "stale": 1,
+      "undated": 0
+    },
+    "freshness": "Based on 7 reports published in the last 5 days (newest: 3 hours ago).",
+    "intent": "current",
+    "query": "current Premier League standings",
+    "requiresFreshness": true,
+    "resultsFound": 1,
+    "searchMs": 1413,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T06:11:28.000Z",
+        "title": "Premier League: Is top-flight possession football on way out?",
+        "url": "https://www.bbc.co.uk/sport/football/articles/cmn45n5d8wq7o"
+      },
+      {
+        "publishedAt": "2026-09-29T10:00:02.000Z",
+        "title": "2026/27 Premier League Power Rankings: How Tottenham stack up after the September break",
+        "url": "https://hotspurhq.com/2026-27-premier-league-power-rankings-how-tottenham-stack-up-after-the-september-break-01m3m3p6xs35"
+      },
+      {
+        "publishedAt": "2026-09-29T11:05:00.000Z",
+        "title": "Man City CEO’s Defiant Vow Sets Up Next Chapter of Premier League Saga",
+        "url": "https://www.si.com/soccer/man-city-ceo-vow-next-chapter-premier-league-saga"
+      },
+      {
+        "publishedAt": "2026-09-28T20:17:32.000Z",
+        "title": "Manchester City remains defiant amid ongoing 115 Premier League FFP charges",
+        "url": "https://digg.com/sports/sfwmfeq4"
+      },
+      {
+        "publishedAt": "2026-09-28T16:15:06.000Z",
+        "title": "What Aston Villa’s Summer Reveals About a Potential Premier League ‘Big Short’ Moment",
+        "url": "https://myoldmansaid.com/what-aston-villas-summer-reveals-about-the-premier-leagues-potential-big-short-moment"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

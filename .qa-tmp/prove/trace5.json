@@ -1,0 +1,442 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": "I could not find any live sources for \"NBA standings\", so I can't verify a current answer.\n\nI am deliberately not filling this in from my training data — my knowledge has a cutoff and is not a live feed, so a figure I recalled could easily be out of date, and a plausible-looking but unverified number is worse than none. Press Retry Search, or switch a search provider in Settings.",
+  "retrievalPlan": {
+    "notes": [
+      "event \"nba\" already named in the query",
+      "no sports terms added — the query already expresses that",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "NBA standings today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "NBA standings today latest",
+      "NBA standings 2026-09-29",
+      "NBA standings"
+    ]
+  },
+  "retrievalQuery": "NBA standings today",
+  "summary": "[search] \"NBA standings\" intent=knowledge fresh=true vertical=sports years=- raw=10 kept=0 stale-rejected=10 domains=0 conflicts=0 verdict=refuse searchMs=56405 totalMs=56405",
+  "trace": {
+    "askedEvent": "nba",
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 0,
+        "provider": "searxng",
+        "retrieved": 10
+      },
+      {
+        "kept": 0,
+        "provider": "mwmbl",
+        "retrieved": 1
+      },
+      {
+        "kept": 0,
+        "provider": "langsearch",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "asks for a live value (\"standing\")"
+    ],
+    "independentDomains": 0,
+    "intent": "knowledge",
+    "liveData": "standing",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "wikidata",
+      "arxiv",
+      "openalex",
+      "openlibrary",
+      "hackernews",
+      "openverse",
+      "commoncrawl",
+      "github",
+      "openmeteo",
+      "market-rates",
+      "sports-scores",
+      "mwmbl",
+      "duckduckgo-instant",
+      "langsearch"
+    ],
+    "query": "NBA standings",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": null,
+        "domain": "nba.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.nba.com/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "usatoday.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "http://www.usatoday.com/sports/nba/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "cbssports.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.cbssports.com/nba/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "espn.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.espn.com/nba/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "fansided.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://fansided.com/nba/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "nytimes.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.nytimes.com/athletic/nba/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "oregonlive.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "http://www.oregonlive.com/nba"
+      },
+      {
+        "ageDays": null,
+        "domain": "sportsbook.fanduel.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sportsbook.fanduel.com/teams/nba/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "sportsnaut.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sportsnaut.com/nba-standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "news.bbc.co.uk",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "http://news.bbc.co.uk/sport/basketball/tables"
+      }
+    ],
+    "rejectedStaleCount": 10,
+    "requiresFreshness": true,
+    "searchMs": 56405,
+    "selectedCount": 0,
+    "sources": [
+      {
+        "age": "date not shown by the source",
+        "domain": "nba.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.98,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.03,
+          "final": 0.98,
+          "freshness": 0.1,
+          "relevance": 0.43,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "NBA Team Standings & Stats | NBA.com",
+        "url": "https://www.nba.com/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "usatoday.com",
+        "providers": [
+          "searxng",
+          "mwmbl"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.95,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.06,
+          "final": 0.95,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "2023-24 NBA Standings | USA TODAY",
+        "url": "http://www.usatoday.com/sports/nba/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "cbssports.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.05,
+          "final": 0.94,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "NBA Standings 2026-27 - CBS Sports",
+        "url": "https://www.cbssports.com/nba/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "espn.com",
+        "providers": [
+          "searxng",
+          "langsearch"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.05,
+          "final": 0.94,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "NBA Standings - 2026-27 season - ESPN",
+        "url": "https://www.espn.com/nba/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "fansided.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.05,
+          "final": 0.94,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "NBA Standings 2025 - Fansided",
+        "url": "https://fansided.com/nba/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "nytimes.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.17,
+          "corroboration": 0.16,
+          "directness": 0.05,
+          "final": 0.94,
+          "freshness": 0.1,
+          "relevance": 0.43,
+          "sourceQuality": 0.04
+        },
+        "selected": false,
+        "title": "2025 NBA Basketball Standings - Full Eastern and Western Confere…",
+        "url": "https://www.nytimes.com/athletic/nba/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "oregonlive.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.03,
+          "final": 0.94,
+          "freshness": 0.1,
+          "relevance": 0.5,
+          "sourceQuality": 0.04
+        },
+        "selected": false,
+        "title": "NBA News | NBA basketball news, rumors, scores, standings and mo…",
+        "url": "http://www.oregonlive.com/nba"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "sportsbook.fanduel.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.93,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 0.93,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "nba Standings | FanDuel Sportsbook",
+        "url": "https://sportsbook.fanduel.com/teams/nba/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "sportsnaut.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.92,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.05,
+          "final": 0.92,
+          "freshness": 0.1,
+          "relevance": 0.43,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "NBA standings: Best and worst NBA records in the 2023-24 regular…",
+        "url": "https://sportsnaut.com/nba-standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "news.bbc.co.uk",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.92,
+        "scoreBreakdown": {
+          "authority": 0.17,
+          "corroboration": 0.16,
+          "directness": 0.03,
+          "final": 0.92,
+          "freshness": 0.1,
+          "relevance": 0.43,
+          "sourceQuality": 0.04
+        },
+        "selected": false,
+        "title": "NBA Standings - Basketball - BBC Sport",
+        "url": "http://news.bbc.co.uk/sport/basketball/tables"
+      }
+    ],
+    "totalMs": 56405,
+    "verification": {
+      "failedChecks": [
+        "relevance",
+        "event",
+        "recency",
+        "authority",
+        "corroboration",
+        "timestamp"
+      ],
+      "passRate": 0,
+      "unverifiable": [
+        "No source clearly answers the question as asked.",
+        "None of the results cover the \"nba\" — they appear to be about a different event.",
+        "No source recent enough to speak to the current situation was found.",
+        "No primary or reputable source was found.",
+        "No sources were retrieved, so there is nothing to corroborate.",
+        "None of the sources showed a date, so their currency is unknown."
+      ],
+      "verdict": "refuse"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "no retrieved source directly addresses the question",
+        "id": "relevance",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source names the \"nba\" — the results are about something else",
+        "id": "event",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source carries a date, so recency is unverifiable",
+        "id": "recency",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no sources were retrieved at all",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no source carries a publication date",
+        "id": "timestamp",
+        "passed": false
+      }
+    ],
+    "datedSources": 0,
+    "independentDomains": 0,
+    "passRate": 0,
+    "unverifiable": [
+      "No source clearly answers the question as asked.",
+      "None of the results cover the \"nba\" — they appear to be about a different event.",
+      "No source recent enough to speak to the current situation was found.",
+      "No primary or reputable source was found.",
+      "No sources were retrieved, so there is nothing to corroborate.",
+      "None of the sources showed a date, so their currency is unknown."
+    ],
+    "verdict": "refuse"
+  }
+}

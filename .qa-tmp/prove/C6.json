@@ -1,0 +1,67 @@
+{
+  "row": {
+    "answer": "Check Credit Score.Stay updated with News18 for the latest India and world news, in-depth explainers, entertainment, sports, and cricket news. [1]\n\nAlso get top headlines and latest news from India and around the world at News9. [2]\n\nGet the latest India News, breaking headlines and real-time updates from across the country. [3]\n\nGet the latest India News, breaking headlines, and real-time updates from across the nation. [7]\n\nSources: [1] 'Yellow Alert' In Delhi As Light Rains Bring Subtle Hint Of... - News1... (news18.com)  [2] Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live (news9live.com)  [3] ‘Spoke to him at 10pm’: Greater Noida bus fire victims’ son searches... (hindustantimes.com)  [4] Eggs, Stones Hurled At Mamata Banerjee's MLA Kunal Ghosh's Car In... (ndtv.com)",
+    "detail": "11 fresh result(s) from 3 source(s) in 8353ms (after a freshness escalation pass)",
+    "droppedFresh": [
+      {
+        "reason": "non-sequitur",
+        "title": "FFLB THUET Helicopter Underwater Escape Training Mumbai INDIA"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 11,
+    "freshSplitCounts": {
+      "fresh": 12,
+      "stale": 1,
+      "undated": 0
+    },
+    "freshness": "Based on 11 reports published in the last 5 days (newest: 3 hours ago).",
+    "intent": "news",
+    "query": "latest India news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 8353,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-27T03:42:51.000Z",
+        "title": "'Yellow Alert' In Delhi As Light Rains Bring Subtle Hint Of... - News1...",
+        "url": "https://www.news18.com/india/yellow-alert-in-delhi-as-light-rains-bring-subtle-hint-of-winter-red-alert-for-uttarakhand-himachal-ws-l-10355118.html"
+      },
+      {
+        "publishedAt": "2026-09-25T14:50:13.000Z",
+        "title": "Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live",
+        "url": "https://www.news9live.com/india/biker-thrown-30-feet-into-air-as-speeding-tiago-ev-hits-6-vehicles-in-ludhiana-5-injured-3010709"
+      },
+      {
+        "publishedAt": "2026-09-24T16:03:53.000Z",
+        "title": "‘Spoke to him at 10pm’: Greater Noida bus fire victims’ son searches...",
+        "url": "https://www.hindustantimes.com/india-news/spoke-to-him-at-10pm-greater-noida-bus-fire-victims-son-searches-for-father-101790258620715.html"
+      },
+      {
+        "publishedAt": "2026-09-26T09:39:18.000Z",
+        "title": "Eggs, Stones Hurled At Mamata Banerjee's MLA Kunal Ghosh's Car In...",
+        "url": "https://www.ndtv.com/india-news/eggs-stones-hurled-at-mamata-banerjees-mla-kunal-ghoshs-car-in-bengal-12101315"
+      },
+      {
+        "publishedAt": "2026-09-29T01:30:58.000Z",
+        "title": "India among countries attending SCO national coordinators' meeting in Pakistan",
+        "url": "https://www.hindustantimes.com/india-news/india-among-countries-attending-sco-national-coordinators-meeting-in-pakistan-101790644274232.html"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

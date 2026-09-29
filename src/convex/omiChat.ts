@@ -95,15 +95,32 @@ function recordSearchDebugTrace(args: {
     rawCount: args.citations.length,
     dedupedCount: args.citations.length,            candidates: args.citations.map((citation) => {
       const selected = kept.has(citation.url);
+      const wrongYear = isWrongYear(matchTemporal(citation, args.policy.years, null));
+      const age = plausibleAgeHours(citation.publishedAt, Date.now());
+      const offTopic = isOffTopic(citation, topicKeywords(args.query));
+      const nonSeq = isNonSequiturForBroadNews(citation, topicKeywords(args.query), {
+        requiresFreshness: args.policy.requiresFreshness,
+      });
+      const pastPromise =
+        args.policy.requiresFreshness &&
+        (age === null || age > args.policy.preferFreshHours);
       return {
         citation,
         selected,
         score: citation.relevance,
         reason: selected
           ? "kept as current evidence"
-          : isWrongYear(matchTemporal(citation, args.policy.years, null))
+          : wrongYear
             ? "dropped: about a different year than asked"
-            : `dropped: outside the ${args.policy.maxAgeDays}-day freshness window or undated`,
+            : offTopic
+              ? "dropped: no topical overlap with the question"
+              : nonSeq
+                ? "dropped: evergreen non-news subject on a broad news question"
+                : pastPromise
+                  ? age === null
+                    ? "dropped: no publication date — cannot be presented as current"
+                    : `dropped: ${Math.round(age)}h old, past the ${args.policy.preferFreshHours}h freshness promise for this question`
+                  : `dropped: outside the ${args.policy.maxAgeDays}-day freshness window`,
       };
     }),
     maxAgeDays: args.policy.maxAgeDays,
@@ -117,7 +134,7 @@ function recordSearchDebugTrace(args: {
   console.log(summarizeTrace(trace));
 }
 import { parseKnowledgeMode, routeKnowledge, knowledgeOnlyRefusal } from "./knowledgeEngine/mode";
-import { isOffTopic, isNonSequiturForBroadNews, entityInSource, topicKeywords } from "./searchEngine/quality";
+import { isOffTopic, isNonSequiturForBroadNews, entityInSource, topicKeywords, usefulnessPenalty } from "./searchEngine/quality";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -859,7 +876,16 @@ async function runTurn(
               // Merge, keeping both passes: the tighter one often has the
               // newer pages, the first often has the richer ones.
               const merged = new Map<string, (typeof freshEnough)[number]>();
-              for (const c of [...freshEnough, ...secondFresh]) merged.set(c.url, c);
+              for (const c of [...freshEnough, ...secondFresh]) {
+                // The NOISE FLOOR applies to merged evidence too: the first
+                // pass was floored inside universalSearch, but raw escalation
+                // results were recombined here WITHOUT re-scoring, so a merch
+                // page and an esports listing (measured: cited for a Formula 1
+                // question) could enter after the fact. Usefulness noise ≥0.45
+                // is noise regardless of which pass found it.
+                if (usefulnessPenalty(c) >= 0.45) continue;
+                merged.set(c.url, c);
+              }
               citations = [...merged.values()];
             }
           }

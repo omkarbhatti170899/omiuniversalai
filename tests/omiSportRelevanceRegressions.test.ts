@@ -199,6 +199,63 @@ describe("FAIL 2: sport-domain semantic relevance", () => {
     const src = readFileSync("src/convex/omiChat.ts", "utf8");
     expect(src).toContain("!isOffTopic(c, topic)");
   });
+
+  test("a citation from the STRUCTURED score feed is on-topic by construction", () => {
+    // The measured AFCON row: no football word anywhere in title/snippet, yet
+    // it is real live score data from the adapter that resolved the league.
+    const row = cite({
+      url: "https://www.thesportsdb.com/team/123",
+      title: "Ethiopia v Senegal 0 – 1 (African Cup of Nations Qualifying · 31)",
+      snippet: "Ethiopia — 0-1, in play. Competition: African Cup of Nations Qualifying.",
+      providers: ["sports-scores"],
+    });
+    expect(isOffTopic(row, ["live", "football", "scores"])).toBe(false);
+    // ...while the same text without feed provenance stays judged by content.
+    const webCopy = { ...row, providers: ["searxng"] };
+    expect(isOffTopic(webCopy, ["live", "football", "scores"])).toBe(true);
+  });
+
+  test("anti-garbage: spam TLDs, shorteners and malformed URLs are floored", () => {
+    expect(usefulnessPenalty(cite({ url: "https://random-garbage.ru/post" }))).toBeGreaterThanOrEqual(0.45);
+    expect(usefulnessPenalty(cite({ url: "https://bit.ly/abc123" }))).toBeGreaterThanOrEqual(0.45);
+    expect(usefulnessPenalty(cite({ url: "not a url at all" }))).toBeGreaterThanOrEqual(0.45);
+    expect(usefulnessPenalty(cite({ url: "https://www.reuters.com/sport/story" }))).toBe(0);
+  });
+
+  test("roundup/listings pages never rank for a specific sports question", () => {
+    const la = cite({
+      url: "https://welikela.com/week",
+      title: "Things To Do This Week in Los Angeles [9-28-2026 to 10-2-2026]",
+      snippet: "Formula 1 race weekend, concerts, food events.",
+      publishedAt: iso(3),
+    });
+    expect(usefulnessPenalty(la)).toBeGreaterThanOrEqual(0.45);
+    const bd = scoreSourceDetailed(la, keywordSet("Formula 1 2026 season results"), {
+      askedEvent: "formula 1",
+      freshnessMatters: true,
+      freshnessTier: "now",
+    });
+    expect(bd.final).toBeLessThan(0.4);
+  });
+
+  test("a page headlined by ANOTHER sport is demoted below real coverage", () => {
+    const kw = keywordSet("Formula 1 2026 season results");
+    const mlb = cite({
+      url: "https://sports.example/mlb-predictions",
+      title: "MLB Exec Predicts Padres to Win 2026 World Series",
+      snippet: "The formula 1 calendar came up in conversation about season results.",
+      publishedAt: iso(3),
+    });
+    const real = cite({
+      url: "https://www.formula1.com/en/results.html/2026",
+      title: "F1 2026 Azerbaijan Grand Prix race results",
+      snippet: "Race results and formula 1 season standings from the Azerbaijan Grand Prix.",
+      publishedAt: iso(3),
+    });
+    const bdMlb = scoreSourceDetailed(mlb, kw, { askedEvent: "formula 1", freshnessMatters: true });
+    const bdReal = scoreSourceDetailed(real, kw, { askedEvent: "formula 1", freshnessMatters: true });
+    expect(bdReal.final).toBeGreaterThan(bdMlb.final * 3);
+  });
 });
 
 // ---------------------------------------------------------------------------

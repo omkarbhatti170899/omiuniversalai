@@ -1,0 +1,55 @@
+{
+  "row": {
+    "answer": "NBA Standings: Conference & Division Rankings (2026-27)What is the date of NBA Standings Update for NBA Season 2026-27?How Are NBA Standings Determined? [4]\n\nIn the apron-conscious NBA world of 2026, the implications of handing out any max player contract, especially designated rookie extensions (aka rookie max contracts), are worth factoring into any hypothetical projections about future team success for an NBA franchise. [2]\n\nJosh Giddey’s NBA development should heed Chris Finch’s offensive wisdom\n\nWhat if (near) triple-doubles don't translate to long-term NBA success? [1]\n\nTerrorists defy govt curfew to attack Plateau communities — NBA alleges\n\nThe Nigerian Bar Association, NBA, in Plateau State has alleged that terrorists attacked communities in the state despite government-imposed curfews. [5]\n\nSources: [1] Josh Giddey’s NBA development should heed Chris Finch’s offensive wisdom (pippenainteasy.com)  [2] Caleb Wilson’s Chicago Bulls roadmap to NBA max money has a few scenarios (pippenainteasy.com)  [3] 5 takeaways: Knicks begin NBA title defense at Media Day | NBA.com (nba.com)  [4] NBA Standings: Conference & Division Rankings (2026-27) (sports.okbet.com)",
+    "detail": "8 fresh result(s) from 1 source(s) in 22024ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded"
+    ],
+    "freshResults": 8,
+    "freshness": "Based on 8 reports published in the last 5 days (newest: about an hour ago).",
+    "intent": "knowledge",
+    "query": "NBA standings",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 22024,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Josh Giddey’s NBA development should heed Chris Finch’s offensive wisdom",
+        "url": "https://pippenainteasy.com/josh-giddey-nba-development-chris-finch-wisdom"
+      },
+      {
+        "publishedAt": "2026-09-28T12:00:00.000Z",
+        "title": "Caleb Wilson’s Chicago Bulls roadmap to NBA max money has a few scenarios",
+        "url": "https://pippenainteasy.com/caleb-wilson-chicago-bulls-nba-max-money-scenarios"
+      },
+      {
+        "publishedAt": "2026-09-28T22:05:23.000Z",
+        "title": "5 takeaways: Knicks begin NBA title defense at Media Day | NBA.com",
+        "url": "https://www.nba.com/news/5-takeaways-new-york-knicks-media-day-2026"
+      },
+      {
+        "publishedAt": "2026-09-29T08:50:51.000Z",
+        "title": "NBA Standings: Conference & Division Rankings (2026-27)",
+        "url": "https://sports.okbet.com/nba-standings-2026-27"
+      },
+      {
+        "publishedAt": "2026-09-28T14:36:48.000Z",
+        "title": "Terrorists defy govt curfew to attack Plateau communities — NBA alleges",
+        "url": "https://dailypost.ng/2026/09/28/terrorists-defy-govt-curfew-to-attack-plateau-communities-nba-alleges"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

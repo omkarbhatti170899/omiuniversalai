@@ -25,6 +25,7 @@ import { ageInDays, relativeAge } from "./freshness";
 import type { CurrentIntent } from "./intent";
 import type { ValidationReport } from "./validation";
 import type { CrossCheckReport } from "./crossCheck";
+import type { ScoreBreakdown } from "./quality";
 
 export type SourceDecision = {
   url: string;
@@ -37,15 +38,12 @@ export type SourceDecision = {
   selected: boolean;
   reason: string;
   score?: number;
-  /**
-   * Which provider(s) actually returned this URL.
-   *
-   * Without this the trace can only say WHICH ENGINES RAN, never whether a
-   * given engine contributed anything to the answer — so "LangSearch is
-   * enabled" and "LangSearch is in the answer" were indistinguishable, and the
-   * second claim could not be audited. Attribution is carried on the citation
-   * by the provider adapter itself; this only surfaces it.
-   */
+  /** The FULL published score breakdown, when the citation carries one —
+   * relevance/freshness/authority/quality/directness per source, so a trace
+   * can show WHY a page ranked where it did without recomputation. */
+  scoreBreakdown?: ScoreBreakdown;
+  /** The rejection bucket: temporal, quality, relevance, or none (kept). */
+  rejectionKind?: "kept" | "temporal" | "quality" | "relevance";
   providers?: string[];
 };
 
@@ -149,6 +147,16 @@ export function buildSearchTrace(input: TraceInput): SearchDebugTrace {
     selected,
     reason,
     score,
+    scoreBreakdown: citation.scoreBreakdown,
+    rejectionKind: selected
+      ? "kept"
+      : /wrong year|different year/i.test(reason)
+        ? "temporal"
+        : /off-topic|non-sequitur|entity|noise|relevance|freshness promise|not current/i.test(reason)
+          ? "relevance"
+          : /quality|noise floor/i.test(reason)
+            ? "quality"
+            : "temporal",
     providers: citation.providers,
   }));
 

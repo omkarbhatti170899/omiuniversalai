@@ -1,0 +1,415 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "event \"ipl\" already named in the query",
+      "added sports terms: result, report",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "IPL news result report today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "IPL news result report today latest",
+      "IPL news today",
+      "IPL news 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "IPL news result report today",
+  "summary": "[search] \"latest IPL news\" intent=news fresh=true vertical=sports years=- raw=10 kept=1 stale-rejected=9 domains=1 conflicts=0 verdict=answer-caveated searchMs=20116 totalMs=20116",
+  "trace": {
+    "askedEvent": "ipl",
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 1,
+        "provider": "langsearch",
+        "retrieved": 2
+      },
+      {
+        "kept": 0,
+        "provider": "searxng",
+        "retrieved": 8
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 1,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "latest IPL news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 6.686207604166667,
+        "domain": "samaa.tv",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.samaa.tv/2087357241-ipl-indian-domestic-cricket-face-fresh-match-fixing-allegations"
+      },
+      {
+        "ageDays": 6.102654363425926,
+        "domain": "ndtv.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.ndtv.com/entertainment/abhishek-bachchan-rahul-dravid-in-one-frame-at-european-t20-premier-league-we-didnt-see-it-coming-12086461"
+      },
+      {
+        "ageDays": 5.589980752314815,
+        "domain": "gamingfocusdailyhub.co.uk",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://gamingfocusdailyhub.co.uk/unbeatable-a-thing-of-the-past-the-reasons-indias-test-match-standing-is-in-tatters"
+      },
+      {
+        "ageDays": 5.631763159722222,
+        "domain": "iplt20.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.iplt20.com/news/article/google-india-and-bcci-partner-to-transform-the-ipl-fan-experience-with-the-ai-mode-in-google-search"
+      },
+      {
+        "ageDays": 5.632793252314815,
+        "domain": "dnaindia.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.dnaindia.com/cricket/report-don-t-go-there-manav-suthar-advised-to-prioritise-test-cricket-over-ipl-following-10-wicket-haul-in-galle-3218890"
+      },
+      {
+        "ageDays": 6.3096219560185185,
+        "domain": "cricinformer.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://cricinformer.com/meet-srilankas-new-mystery-spinner"
+      },
+      {
+        "ageDays": 3.385617326388889,
+        "domain": "thehindu.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.thehindu.com/sport/cricket/hardik-pandya-suffers-fresh-shin-injury-out-of-new-zealand-series/article71511591.ece"
+      },
+      {
+        "ageDays": 7.295709918981481,
+        "domain": "businesstoday.in",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.businesstoday.in/sports/ipl/story/i-got-rs-3-crore-for-5-ipl-matches-former-ranji-star-admits-ipl-match-fixing-556966-2026-09-22"
+      },
+      {
+        "ageDays": null,
+        "domain": "sportingnews.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.sportingnews.com/in/ipl/news/ipl-2027-transfers-confirmed-trade-rumours/128464bd7591f6a087b9a021"
+      }
+    ],
+    "rejectedStaleCount": 9,
+    "requiresFreshness": true,
+    "searchMs": 20116,
+    "selectedCount": 1,
+    "sources": [
+      {
+        "age": "3 hours ago",
+        "domain": "khaleejtimes.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T10:12:08.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1.08,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.04,
+          "final": 1.08,
+          "freshness": 0.23,
+          "relevance": 0.43,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Babar Azam to play in UAE's IPL style T20 league in November 2026",
+        "url": "https://www.khaleejtimes.com/sports/cricket/ilt20-cricket-league-uae-player-auction-babar-azam"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "samaa.tv",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T20:54:57.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.03,
+          "final": 1,
+          "freshness": 0.13,
+          "relevance": 0.43,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "IPL, Indian domestic cricket face fresh match-fixing... | SAMAA TV",
+        "url": "https://www.samaa.tv/2087357241-ipl-indian-domestic-cricket-face-fresh-match-fixing-allegations"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "ndtv.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T10:55:16.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.02,
+          "final": 1,
+          "freshness": 0.13,
+          "relevance": 0.37,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "Abhishek Bachchan, Rahul Dravid In One Frame At European T20...",
+        "url": "https://www.ndtv.com/entertainment/abhishek-bachchan-rahul-dravid-in-one-frame-at-european-t20-premier-league-we-didnt-see-it-coming-12086461"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "gamingfocusdailyhub.co.uk",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T23:13:31.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.96,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.01,
+          "final": 0.96,
+          "freshness": 0.13,
+          "relevance": 0.37,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Unbeatable A Thing of the Past: The Reasons India's Test Match...",
+        "url": "https://gamingfocusdailyhub.co.uk/unbeatable-a-thing-of-the-past-the-reasons-indias-test-match-standing-is-in-tatters"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "iplt20.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T22:13:21.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.92,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.92,
+          "freshness": 0.13,
+          "relevance": 0.43,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "Google India and BCCI Partner to Transform the IPL Fan Experience...",
+        "url": "https://www.iplt20.com/news/article/google-india-and-bcci-partner-to-transform-the-ipl-fan-experience-with-the-ai-mode-in-google-search"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "dnaindia.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T22:11:52.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.85,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.85,
+          "freshness": 0.13,
+          "relevance": 0.37,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "'Don't go there': Manav Suthar advised to prioritise Test cricket...",
+        "url": "https://www.dnaindia.com/cricket/report-don-t-go-there-manav-suthar-advised-to-prioritise-test-cricket-over-ipl-following-10-wicket-haul-in-galle-3218890"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "cricinformer.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T05:57:14.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.81,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.02,
+          "final": 0.81,
+          "freshness": 0.13,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Meet Srilanka's New Mystery Spinner: Combo of Anil Kumble and...",
+        "url": "https://cricinformer.com/meet-srilankas-new-mystery-spinner"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "thehindu.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-26T04:07:48.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.8,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.02,
+          "final": 0.8,
+          "freshness": 0.13,
+          "relevance": 0.3,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Hardik Pandya suffers fresh shin injury, out of New Zealand series",
+        "url": "https://www.thehindu.com/sport/cricket/hardik-pandya-suffers-fresh-shin-injury-out-of-new-zealand-series/article71511591.ece"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "businesstoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T06:17:16.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.79,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.04,
+          "final": 0.79,
+          "freshness": 0.07,
+          "relevance": 0.37,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "'I got ₹3 crore for 5 IPL matches': Former Ranji star... - BusinessTod...",
+        "url": "https://www.businesstoday.in/sports/ipl/story/i-got-rs-3-crore-for-5-ipl-matches-former-ranji-star-admits-ipl-match-fixing-556966-2026-09-22"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "sportingnews.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.78,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.78,
+          "freshness": 0.1,
+          "relevance": 0.37,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "IPL 2027 transfers: List of confirmed swaps, trade rumours as Hardik Pandya linked to CSK, DC, KKR move",
+        "url": "https://www.sportingnews.com/in/ipl/news/ipl-2027-transfers-confirmed-trade-rumours/128464bd7591f6a087b9a021"
+      }
+    ],
+    "totalMs": 20116,
+    "verification": {
+      "failedChecks": [
+        "authority",
+        "corroboration"
+      ],
+      "passRate": 0.667,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Only one source is available, so this is unconfirmed."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "1 source(s) cover the \"ipl\"",
+        "id": "event",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.1 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "only 1 domain in the result set",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "1/1 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 1,
+    "independentDomains": 1,
+    "newestSourceAgeHours": 3.2,
+    "newestSourceAt": "2026-09-29T10:12:08.000Z",
+    "passRate": 0.6666666666666666,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Only one source is available, so this is unconfirmed."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

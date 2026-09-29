@@ -1,0 +1,454 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": "I could not find any live sources for \"Formula 1 2026 season results\", so I can't verify a current answer.\n\nI am deliberately not filling this in from my training data — my knowledge has a cutoff and is not a live feed, so a figure I recalled could easily be out of date, and a plausible-looking but unverified number is worse than none. Press Retry Search, or switch a search provider in Settings.",
+  "retrievalPlan": {
+    "notes": [
+      "event \"formula 1\" already named in the query",
+      "no sports terms added — the query already expresses that",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "Formula 1 2026 season results today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "Formula 1 2026 season results today latest",
+      "Formula 1 2026 season results 2026-09-29",
+      "Formula 1 2026 season results"
+    ]
+  },
+  "retrievalQuery": "Formula 1 2026 season results today",
+  "summary": "[search] \"Formula 1 2026 season results\" intent=knowledge fresh=true vertical=sports years=2026 raw=10 kept=0 stale-rejected=10 domains=0 conflicts=0 verdict=refuse searchMs=37294 totalMs=37294",
+  "trace": {
+    "askedEvent": "formula 1",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 0,
+        "provider": "searxng",
+        "retrieved": 10
+      },
+      {
+        "kept": 0,
+        "provider": "mwmbl",
+        "retrieved": 2
+      },
+      {
+        "kept": 0,
+        "provider": "wikipedia",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "names the current year (2026)"
+    ],
+    "independentDomains": 0,
+    "intent": "knowledge",
+    "liveData": "score",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "wikidata",
+      "arxiv",
+      "openalex",
+      "openlibrary",
+      "hackernews",
+      "openverse",
+      "commoncrawl",
+      "github",
+      "openmeteo",
+      "market-rates",
+      "sports-scores",
+      "mwmbl",
+      "duckduckgo-instant",
+      "langsearch"
+    ],
+    "query": "Formula 1 2026 season results",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": null,
+        "domain": "racingnews365.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://racingnews365.com/f1-news"
+      },
+      {
+        "ageDays": null,
+        "domain": "app.formula1dashboard.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://app.formula1dashboard.com/results/spanish-gp/2026"
+      },
+      {
+        "ageDays": null,
+        "domain": "formula1.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.formula1.com/en/results/2026/races"
+      },
+      {
+        "ageDays": null,
+        "domain": "ea.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.ea.com/it/games/f1/f1-25"
+      },
+      {
+        "ageDays": null,
+        "domain": "f1cfa.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://f1cfa.com/podiums.asp"
+      },
+      {
+        "ageDays": null,
+        "domain": "mercedesamgf1.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.mercedesamgf1.com"
+      },
+      {
+        "ageDays": null,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://en.wikipedia.org/wiki/Formula_One"
+      },
+      {
+        "ageDays": null,
+        "domain": "formula-timer.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://formula-timer.com"
+      },
+      {
+        "ageDays": null,
+        "domain": "formula-1.website.yandexcloud.net",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://formula-1.website.yandexcloud.net"
+      },
+      {
+        "ageDays": null,
+        "domain": "westreamf1.st",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://westreamf1.st/race-archive?y=2026"
+      }
+    ],
+    "rejectedStaleCount": 10,
+    "requiresFreshness": true,
+    "searchMs": 37294,
+    "selectedCount": 0,
+    "sources": [
+      {
+        "age": "date not shown by the source",
+        "domain": "racingnews365.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.05,
+          "final": 1,
+          "freshness": 0.1,
+          "relevance": 0.4,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "F1 News | The latest Formula 1 news of today | RacingNews365",
+        "url": "https://racingnews365.com/f1-news"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "app.formula1dashboard.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.05,
+          "final": 1,
+          "freshness": 0.1,
+          "relevance": 0.4,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "Spanish Grand Prix 2026 Results: Race, Qualifying & Grid",
+        "url": "https://app.formula1dashboard.com/results/spanish-gp/2026"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "formula1.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.96,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.05,
+          "final": 0.96,
+          "freshness": 0.1,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "2026 RACE RESULTS",
+        "url": "https://www.formula1.com/en/results/2026/races"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "ea.com",
+        "providers": [
+          "searxng",
+          "mwmbl"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.96,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.05,
+          "final": 0.96,
+          "freshness": 0.1,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "EA SPORTS F1 25: 2026 SEASON PACK*",
+        "url": "https://www.ea.com/it/games/f1/f1-25"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "f1cfa.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.96,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.05,
+          "final": 0.96,
+          "freshness": 0.1,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Podiums Formula 1 2026 - f1cfa.com",
+        "url": "https://f1cfa.com/podiums.asp"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "mercedesamgf1.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.95,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 0.95,
+          "freshness": 0.1,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Official Mercedes-AMG PETRONAS F1 Team Website...",
+        "url": "https://www.mercedesamgf1.com"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "searxng",
+          "wikipedia",
+          "mwmbl"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.18,
+          "corroboration": 0.16,
+          "directness": 0.04,
+          "final": 0.94,
+          "freshness": 0.1,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Formula One",
+        "url": "https://en.wikipedia.org/wiki/Formula_One"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "formula-timer.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.88,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.05,
+          "final": 0.88,
+          "freshness": 0.1,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Formula-Timer | Formula 1 Live Timing",
+        "url": "https://formula-timer.com"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "formula-1.website.yandexcloud.net",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.88,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.05,
+          "final": 0.88,
+          "freshness": 0.1,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "F1 News, Standings & 2026 Race Schedule | VPE Sports F1",
+        "url": "https://formula-1.website.yandexcloud.net"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "westreamf1.st",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.88,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.05,
+          "final": 0.88,
+          "freshness": 0.1,
+          "relevance": 0.3,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "westreamf1.st/race-archive/?y=2026",
+        "url": "https://westreamf1.st/race-archive?y=2026"
+      }
+    ],
+    "totalMs": 37294,
+    "verification": {
+      "failedChecks": [
+        "relevance",
+        "year",
+        "event",
+        "recency",
+        "authority",
+        "corroboration",
+        "timestamp"
+      ],
+      "passRate": 0,
+      "unverifiable": [
+        "No source clearly answers the question as asked.",
+        "No source confirms coverage of 2026; anything available may describe a different year.",
+        "None of the results cover the \"formula 1\" — they appear to be about a different event.",
+        "No source recent enough to speak to the current situation was found.",
+        "No primary or reputable source was found.",
+        "No sources were retrieved, so there is nothing to corroborate.",
+        "None of the sources showed a date, so their currency is unknown."
+      ],
+      "verdict": "refuse"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "no retrieved source directly addresses the question",
+        "id": "relevance",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source states which year it covers",
+        "id": "year",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source names the \"formula 1\" — the results are about something else",
+        "id": "event",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source carries a date, so recency is unverifiable",
+        "id": "recency",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no sources were retrieved at all",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no source carries a publication date",
+        "id": "timestamp",
+        "passed": false
+      }
+    ],
+    "datedSources": 0,
+    "independentDomains": 0,
+    "passRate": 0,
+    "unverifiable": [
+      "No source clearly answers the question as asked.",
+      "No source confirms coverage of 2026; anything available may describe a different year.",
+      "None of the results cover the \"formula 1\" — they appear to be about a different event.",
+      "No source recent enough to speak to the current situation was found.",
+      "No primary or reputable source was found.",
+      "No sources were retrieved, so there is nothing to corroborate.",
+      "None of the sources showed a date, so their currency is unknown."
+    ],
+    "verdict": "refuse"
+  }
+}

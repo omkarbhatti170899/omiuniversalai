@@ -1,0 +1,47 @@
+{
+  "row": {
+    "answer": "Latest world news September 25th: Two debris in the hold reveal the mystery of the last moment of MH370; World gold prices are on the path to recovery [1]\n\nAlso get top headlines and latest news from India and around the world at News9. [2]\n\nSources: [1] World 24h: Two strong storms operating together, threatening to cause... (news.laodong.vn)  [2] Bangkok floods: Thousands evacuated as heavy rain... - News9live (news9live.com)",
+    "detail": "2 fresh result(s) from 3 source(s) in 5948ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshSplitCounts": {
+      "fresh": 2,
+      "stale": 3,
+      "undated": 0
+    },
+    "freshness": "Based on 2 reports published in the last 5 days (newest: yesterday).",
+    "intent": "news",
+    "query": "latest world news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 5948,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T12:12:26.000Z",
+        "title": "World 24h: Two strong storms operating together, threatening to cause...",
+        "url": "https://news.laodong.vn/podcast-tin-tuc/the-gioi-24h-hai-con-bao-manh-cung-hoat-dong-de-doa-gay-mua-lu-gio-manh-1774151.ldo"
+      },
+      {
+        "publishedAt": "2026-09-28T06:44:42.000Z",
+        "title": "Bangkok floods: Thousands evacuated as heavy rain... - News9live",
+        "url": "https://www.news9live.com/world/bangkok-floods-thousands-evacuated-as-heavy-rain-leaves-homes-roads-submerged-3011342"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

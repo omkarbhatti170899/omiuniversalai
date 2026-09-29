@@ -1,0 +1,422 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "event \"ipl\" already named in the query",
+      "added sports terms: result, report",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "IPL news result report today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "IPL news result report today latest",
+      "IPL news today",
+      "IPL news 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "IPL news result report today",
+  "summary": "[search] \"latest IPL news\" intent=news fresh=true vertical=sports years=- raw=10 kept=1 stale-rejected=9 domains=1 conflicts=0 verdict=answer-caveated searchMs=21897 totalMs=21897",
+  "trace": {
+    "askedEvent": "ipl",
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 1,
+        "provider": "langsearch",
+        "retrieved": 9
+      },
+      {
+        "kept": 0,
+        "provider": "wikipedia-current-events",
+        "retrieved": 1
+      },
+      {
+        "kept": 0,
+        "provider": "Wikipedia Current Events",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 1,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "latest IPL news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 3.412218703703704,
+        "domain": "thehindu.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.thehindu.com/sport/cricket/hardik-pandya-suffers-fresh-shin-injury-out-of-new-zealand-series/article71511591.ece"
+      },
+      {
+        "ageDays": 0.584302037037037,
+        "domain": "france24.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.france24.com/en/live-news/20260929-tokyo-suffers-longest-streak-of-rainy-days-on-record"
+      },
+      {
+        "ageDays": 5.226975648148148,
+        "domain": "jagranjosh.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.jagranjosh.com/news/ap-barch-admissions-2026-seat-allotment-result-release-at-cap-apcfss-in-download-allocation-letter-pdf-direct-link-here-187732"
+      },
+      {
+        "ageDays": 5.35220712962963,
+        "domain": "jagranjosh.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.jagranjosh.com/news/karnataka-neet-mds-2026-round-2-provisional-seat-allotment-result-released-at-cetonline-karnataka-gov-in-final-result-expected-soon-187718"
+      },
+      {
+        "ageDays": 6.721061296296296,
+        "domain": "nypost.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://nypost.com/2026/09/22/media/karoline-leavitt-says-reporters-privately-apologized-over-unfair-questions-performative"
+      },
+      {
+        "ageDays": 6.395598333333333,
+        "domain": "biospace.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.biospace.com/press-releases/als-association-statement-on-positive-phase-3-results-for-ulefnersen-in-fus-als"
+      },
+      {
+        "ageDays": 5.052473333333333,
+        "domain": "kiro7.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.kiro7.com/news/trending/presley-gerber-latest-his-death-what-is-resolution-living-center/AFKI6FUYWJD5FFICSUC4Y5YO54"
+      },
+      {
+        "ageDays": 0.11911685185185185,
+        "domain": "deccanherald.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.deccanherald.com/india/maharashtra/bombay-natural-history-society-launches-new-nature-magazine-aranya-for-young-readers-4163922"
+      },
+      {
+        "ageDays": 0.16718398148148148,
+        "domain": "mediabiasfactcheck.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://mediabiasfactcheck.com/2026/09/29/mbfcs-daily-vetted-fact-checks-for-09-29-2026"
+      }
+    ],
+    "rejectedStaleCount": 9,
+    "requiresFreshness": true,
+    "searchMs": 21897,
+    "selectedCount": 1,
+    "sources": [
+      {
+        "age": "4 hours ago",
+        "domain": "khaleejtimes.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T10:12:08.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1.08,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.04,
+          "final": 1.08,
+          "freshness": 0.23,
+          "relevance": 0.43,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Babar Azam to play in UAE's IPL style T20 league in November 2026",
+        "url": "https://www.khaleejtimes.com/sports/cricket/ilt20-cricket-league-uae-player-auction-babar-azam"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "thehindu.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-26T04:07:48.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.16,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.02,
+          "final": 0.16,
+          "freshness": 0.13,
+          "relevance": 0.3,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Hardik Pandya suffers fresh shin injury, out of New Zealand series",
+        "url": "https://www.thehindu.com/sport/cricket/hardik-pandya-suffers-fresh-shin-injury-out-of-new-zealand-series/article71511591.ece"
+      },
+      {
+        "age": "14 hours ago",
+        "domain": "france24.com",
+        "providers": [
+          "wikipedia-current-events",
+          "Wikipedia Current Events"
+        ],
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "Health and environment: The Japan Meteorological Agency reports rainfall in Tokyo for 34 consecutive days through today, the longest streak since records began in 1886 and one day longer than the…",
+        "url": "https://www.france24.com/en/live-news/20260929-tokyo-suffers-longest-streak-of-rainy-days-on-record"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "jagranjosh.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-24T08:34:33.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter - Link Here",
+        "url": "https://www.jagranjosh.com/news/ap-barch-admissions-2026-seat-allotment-result-release-at-cap-apcfss-in-download-allocation-letter-pdf-direct-link-here-187732"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "jagranjosh.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-24T05:34:13.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "Karnataka NEET MDS 2026: Round 2 Provisional Seat Allotment Result Released at cetonline.karnataka.gov.in, Final Result Expected Soon",
+        "url": "https://www.jagranjosh.com/news/karnataka-neet-mds-2026-round-2-provisional-seat-allotment-result-released-at-cetonline-karnataka-gov-in-final-result-expected-soon-187718"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "nypost.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T20:43:04.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "Karoline Leavitt says reporters privately apologized over ‘unfair’ questions: ‘Performative’",
+        "url": "https://nypost.com/2026/09/22/media/karoline-leavitt-says-reporters-privately-apologized-over-unfair-questions-performative"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "biospace.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-23T04:31:44.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "ALS Association Statement on Positive Phase 3 Results for Ulefnersen in FUS-ALS",
+        "url": "https://www.biospace.com/press-releases/als-association-statement-on-positive-phase-3-results-for-ulefnersen-in-fus-als"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "kiro7.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-24T12:45:50.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "Presley Gerber: Latest on his death, what is the Resolution Living Center?",
+        "url": "https://www.kiro7.com/news/trending/presley-gerber-latest-his-death-what-is-resolution-living-center/AFKI6FUYWJD5FFICSUC4Y5YO54"
+      },
+      {
+        "age": "3 hours ago",
+        "domain": "deccanherald.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T11:09:52.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "Bombay Natural History Society launches new nature magazine, 'Aranya' for young readers",
+        "url": "https://www.deccanherald.com/india/maharashtra/bombay-natural-history-society-launches-new-nature-magazine-aranya-for-young-readers-4163922"
+      },
+      {
+        "age": "4 hours ago",
+        "domain": "mediabiasfactcheck.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T10:00:39.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "MBFC’s Daily Vetted Fact Checks for 09/29/2026",
+        "url": "https://mediabiasfactcheck.com/2026/09/29/mbfcs-daily-vetted-fact-checks-for-09-29-2026"
+      }
+    ],
+    "totalMs": 21897,
+    "verification": {
+      "failedChecks": [
+        "authority",
+        "corroboration"
+      ],
+      "passRate": 0.667,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Only one source is available, so this is unconfirmed."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "1 source(s) cover the \"ipl\"",
+        "id": "event",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.2 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "only 1 domain in the result set",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "1/1 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 1,
+    "independentDomains": 1,
+    "newestSourceAgeHours": 3.8,
+    "newestSourceAt": "2026-09-29T10:12:08.000Z",
+    "passRate": 0.6666666666666666,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Only one source is available, so this is unconfirmed."
+    ],
+    "verdict": "answer-caveated"
+  }
+}
