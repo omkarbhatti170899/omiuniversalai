@@ -40,7 +40,12 @@ import {
   type FreshnessSource,
 } from "./searchEngine/freshness";
 import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
-import { crossCheckClaims, conflictNotice, type CrossCheckReport } from "./searchEngine/crossCheck";
+import {
+  crossCheckClaims,
+  conflictNotice,
+  conflictResolutionsNotice,
+  type CrossCheckReport,
+} from "./searchEngine/crossCheck";
 import { validateEvidence, cannotVerifyMessage, type ValidationReport } from "./searchEngine/validation";
 import { buildSearchTrace, summarizeTrace } from "./searchEngine/debugTrace";
 import { classifyCurrentIntent } from "./searchEngine/intent";
@@ -952,10 +957,16 @@ async function runTurn(
               // merely mentions the entity must NOT carry the answer. When the
               // question demands current sports facts, low-authority
               // entertainment domains are rejected outright even when fresh.
-              // A structured feed citation is accepted by construction.
+              // MEASURED LIVE (post-entertainment-gate): the next failure mode
+              // was a WRONG-SPORT article carrying the answer — si.com NASCAR
+              // coverage for an F1 championship question. A source that never
+              // names the asked competition is not evidence for it, however
+              // authoritative the outlet. The structured feed is accepted by
+              // construction; every other source must name the event.
               (!isSportsFactQuestion ||
                 (c as WebCitation).providers?.includes("sports-scores") === true ||
-                !SPORTS_ENTERTAINMENT_RE.test(domainOf(c.url))),
+                (!SPORTS_ENTERTAINMENT_RE.test(domainOf(c.url)) &&
+                  (!policy.event || entityInSource(c, policy.event)))),
           );
           // TRUST GATE for standings/tally questions: at least one authoritative
           // (news-weight ≥0.85: official competition body or major sports desk)
@@ -1033,8 +1044,32 @@ async function runTurn(
               orchestratorNote = `NO_VERIFIED_RESULTS ${cannotVerifyMessage(trimmed, validation)}`;
             } else {
               const statement = freshnessStatement(usable, policy.maxAgeDays);
-              // Disagreement is surfaced, never silently resolved. The model
-              // is told to present the conflict rather than pick a winner.
+              // RESOLVE, then surface what could not be resolved. For every
+              // conflict the pipeline picks ONE figure by authority→newest→
+              // arithmetic tie-break, each with a directly-attached citation,
+              // and reports every set-aside value with the reason it lost.
+              // Contradictory numbers are never listed as simultaneous truth.
+              // Authoritative = the gate that just survived: sourceTier ≥0.85
+              // or the structured sports feed. When even that fails (two
+              // authoritative sources, same freshness, different values) the
+              // block says sources disagree instead of picking.
+              const authoritativeDomains = new Set(
+                usable
+                  .filter(
+                    (c) =>
+                      sourceTier(c.url).weight >= 0.85 ||
+                      (c as WebCitation).providers?.includes("sports-scores") === true,
+                  )
+                  .map((c) => domainOf(c.url)),
+              );
+              const resolution = conflictResolutionsNotice(
+                crossCheck,
+                authoritativeDomains,
+                searchStarted,
+              );
+              // What the resolver could NOT resolve — feeds the caveats the
+              // answer must carry. Unresolved conflicts stay a validation
+              // failure, now with a distinct check id.
               const conflict = conflictNotice(crossCheck, searchStarted);
               const caveat = validation.unverifiable.length > 0
                 ? `UNVERIFIED ASPECTS — state these plainly in the answer: ${validation.unverifiable.join(" ")}`
@@ -1068,7 +1103,8 @@ async function runTurn(
                 freshnessInstruction(policy) +
                 (statement ? `\n${statement}\n` : "") +
                 (asOf ? `\n${asOf}\n` : "") +
-                (conflict ? `\n${conflict}\n` : "") +
+                (resolution ? `\n${resolution.text}\n` : "") +
+                (resolution?.contested ? `\n${conflict ?? ""}\n` : "") +
                 (caveat ? `\n${caveat}\n` : "") +
                 "\n" +
                 usable

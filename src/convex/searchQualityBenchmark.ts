@@ -98,6 +98,15 @@ const RAW: Array<[string, string, string]> = [
   ["conflict", "current", "India's current total medals at Asian Games 2026"],
   ["conflict", "current", "who is leading the F1 2026 drivers championship"],
   ["conflict", "current", "current inflation rate India"],
+  // GOLDEN ADDITIONS (2026-09-29 review): sports standings must survive the
+  // source-quality gate (official/reputable only — never a gossip blog), and
+  // current statistics must carry a verifiable figure. Conflict rows test
+  // resolution: ONE figure + citation, or an explicit disagreement statement.
+  ["conflict", "current", "current F1 championship leader"],
+  ["conflict", "current", "current cricket tournament standings"],
+  ["conflict", "current", "current football standings"],
+  ["statistics", "current", "current gold price"],
+  ["statistics", "current", "current inflation figure India"],
 
   // --- STALE-PRONE QUESTIONS ----------------------------------------------
  // Likely to surface old pages that still rank well; tests that the freshness

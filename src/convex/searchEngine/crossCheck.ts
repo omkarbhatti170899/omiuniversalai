@@ -31,6 +31,11 @@ export type Claim = {
   value: string;
   /** Verbatim text the figure was read from, for display. */
   evidence: string;
+  /** The bounded source text the figure was read from — carries the
+   * gold/silver/bronze BREAKDOWN the bare regex match omits, so the
+   * arithmetic reconstruction in resolveConflict can cross-check a total
+   * against its own components. */
+  sourceText: string;
   domain: string;
   url: string;
   publishedAt?: string;
@@ -40,7 +45,7 @@ export type Claim = {
 export type ConflictingClaim = {
   metric: string;
   /** The distinct values reported, each with the source that reported it. */
-  readings: Array<{ value: string; domain: string; url: string; publishedAt?: string; evidence: string }>;
+  readings: Array<{ value: string; domain: string; url: string; publishedAt?: string; evidence: string; sourceText?: string }>;
   /** How many independent domains reported each value. */
   independentDomains: number;
 };
@@ -97,6 +102,7 @@ export function claimsFromSource(source: FreshnessSource, now = Date.now()): Cla
         metric,
         value: value.replace(/,/g, "").toLowerCase(),
         evidence: m[0].trim(),
+        sourceText: hay.slice(0, 300),
         domain,
         url: source.url ?? "",
         publishedAt: source.publishedAt,
@@ -172,6 +178,7 @@ export function crossCheckClaims(
           url: best.url,
           publishedAt: best.publishedAt,
           evidence: best.evidence,
+          sourceText: best.sourceText,
         };
       }),
     });
@@ -241,12 +248,15 @@ export type ConflictResolution = {
  *      newest reading wins even against a newer blog.
  *   2. NEWEST otherwise — a live tally moves; the freshest number is the best
  *      estimate, but each set-aside value is still reported with its source.
- *   3. ARITHMETIC RECONSTRUCTION: when one reading can be independently
- *      reconstructed from component claims in ANOTHER source (gold+silver+
- *      bronze == total), the reading whose arithmetic checks out is preferred.
- * When readings remain that are BOTH authoritative AND newer than the chosen
- * one's window, the metric is declared stillContested and Omi must say that
- * sources disagree — never present two numbers as simultaneously correct.
+ *   3. ARITHMETIC RECONSTRUCTION is a TIE-BREAKER, not an override: a reading
+ *      whose own gold+silver+bronze breakdown sums to its total is preferred
+ *      WITHIN equal authority, and a reading contradicted by its own breakdown
+ *      is demoted within equal authority. Arithmetic can validate a figure; it
+ *      cannot outrank a stronger source class.
+ * When authoritative readings remain that report a DIFFERENT value and are at
+ * least as new as the chosen one, the metric is declared stillContested and
+ * Omi must say that sources disagree — never present two numbers as
+ * simultaneously correct.
  */
 export function resolveConflict(
   conflict: ConflictingClaim,
@@ -256,12 +266,15 @@ export function resolveConflict(
   const isAuth = (r: ConflictingClaim["readings"][number]) => auth.has(r.domain);
 
   // Arithmetic cross-check: "gold X, silver Y, bronze Z" in one source should
-  // sum to that source's total claim. A reading whose sibling breakdown sums
-  // to it gains trust; one contradicted by its own breakdown loses it.
+  // sum to that source's total claim. Checked against the reading's FULL
+  // source text (the bare regex match "46 medals" omits the breakdown). The
+  // separator is EITHER a dash/colon+spaces OR plain whitespace — never a dash
+  // ADJACENT TO A DIGIT — so "bronze 16 — 46 medals total" reads bronze=16 and
+  // not 46 (the em-dash before the total is not a separator here).
   const sumChecks = new Map<string, boolean>(); // domain -> breakdown sums to total
   for (const r of conflict.readings) {
-    const m = /\b(?:gold|g)\s*[-–—:]?\s*(\d{1,3})\b[\s\S]{0,80}?\b(?:silver|s)\s*[-–—:]?\s*(\d{1,3})\b[\s\S]{0,80}?\b(?:bronze|b)\s*[-–—:]?\s*(\d{1,3})\b/i.exec(
-      r.evidence,
+    const m = /\b(?:gold|g)(?:\s*[-–—:]\s*|\s+)(\d{1,3})\b[\s\S]{0,80}?\b(?:silver|s)(?:\s*[-–—:]\s*|\s+)(\d{1,3})\b[\s\S]{0,80}?\b(?:bronze|b)(?:\s*[-–—:]\s*|\s+)(\d{1,3})\b/i.exec(
+      r.sourceText ?? r.evidence,
     );
     if (m) sumChecks.set(r.domain, Number(m[1]) + Number(m[2]) + Number(m[3]) === Number(r.value));
   }
@@ -273,15 +286,21 @@ export function resolveConflict(
 
   const authoritative = conflict.readings.filter(isAuth);
   const pool = authoritative.length > 0 ? authoritative : conflict.readings;
-  const ranked = [...pool].sort((a, b) => {
-    const aSum = sumChecks.get(a.domain);
-    const bSum = sumChecks.get(b.domain);
-    // A reading whose own breakdown arithmetically confirms it outranks one
-    // whose breakdown contradicts it (when both provide breakdowns).
-    if (aSum === true && bSum === false) return -1;
-    if (aSum === false && bSum === true) return 1;
-    return parseTime(b) - parseTime(a); // newest first within the pool
-  });
+  // ARITHMETIC TIE-BREAKER within the authority pool: a breakdown-confirmed
+  // reading ranks ahead of one without a breakdown, and a breakdown-
+  // CONTRADICTED reading is demoted — but arithmetic never outranks the
+  // authoritative/newest precedence above. The rank key is computed PER
+  // READING (not per comparison branch): a comparator whose branches depend
+  // on argument order is inconsistent, and an inconsistent comparator makes
+  // Array#sort's output implementation-defined — measured here as the
+  // arithmetic check silently ignored depending on array position.
+  const arithmeticRank = (r: ConflictingClaim["readings"][number]): number => {
+    const s = sumChecks.get(r.domain);
+    return s === true ? 0 : s === false ? 2 : 1; // confirmed < unknown < contradicted
+  };
+  const ranked = [...pool].sort(
+    (a, b) => arithmeticRank(a) - arithmeticRank(b) || parseTime(b) - parseTime(a),
+  );
   const winner = ranked[0];
 
   const basis: ResolvedReading["basis"] = authoritative.length > 0
@@ -314,8 +333,54 @@ export function resolveConflict(
           ? parseTime(r) > winnerTime
             ? "newer authoritative reading exists"
             : "older than the selected authoritative reading"
-          : "source is not authoritative for this metric",
+          : parseTime(r) < winnerTime
+            ? "older than the selected reading and not authoritative"
+            : "newer than the selected reading but not authoritative for this metric",
       })),
     stillContested,
   };
+}
+
+/**
+ * The user-facing RESOLUTION block: one figure, its citation, every set-aside
+ * value with its reason — or, when the metric could not be resolved, the
+ * explicit statement that sources disagree.
+ *
+ * This is what makes the 37/45/46 failure mode impossible to repeat: the
+ * answer path no longer lists contradictory figures side by side. It presents
+ * ONE number with a directly-attached citation, says which readings were set
+ * aside and why, and only falls back to "sources disagree" when resolution
+ * itself failed (contested authoritative readings).
+ */
+export function conflictResolutionsNotice(
+  report: CrossCheckReport,
+  authoritativeDomains: Set<string>,
+  now = Date.now(),
+): { text: string; contested: boolean } | null {
+  if (report.conflicts.length === 0) return null;
+  const lines: string[] = [
+    "CONFLICT RESOLUTION — one figure per conflicting metric, each with its source. Set-aside values are NOT answers; do not list them as alternatives.",
+  ];
+  let contested = false;
+  for (const conflict of report.conflicts) {
+    const r = resolveConflict(conflict, { authoritativeDomains });
+    const when = relativeAge(r.resolution.publishedAt, now);
+    if (r.stillContested) {
+      contested = true;
+      lines.push(
+        `\n${r.metric.toUpperCase()}: sources disagree — Omi is NOT picking one. ` +
+          r.setAside
+            .map((s) => `${s.value} (${s.domain}, ${when}) — ${s.reason}`)
+            .join("; ") +
+          ". Treat as unconfirmed and check the official source.",
+      );
+    } else {
+      lines.push(
+        `\n${r.metric.toUpperCase()}: report ${r.resolution.value} as the current figure, cited to ${r.resolution.domain} (${when})` +
+          `${r.setAside.length > 0 ? ` — set aside: ${r.setAside.map((s) => `${s.value} (${s.domain}) — ${s.reason}`).join("; ")}` : ""}. ` +
+          `State this figure with its citation and the "set aside" note; do not present the set-aside numbers as equally valid.`,
+      );
+    }
+  }
+  return { text: lines.join("\n"), contested };
 }

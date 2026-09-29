@@ -22,12 +22,11 @@ import {
   normalizeUrl,
   domainOf,
   keywordSet,
-  scoreSource,
   dedupeSyndication,
 } from "./searchEngine/quality";
 import { internal } from "./_generated/api";
 import { guardedCall, strictVerticalFallbackFor } from "./searchEngine/resilience";
-import { scoreSourceDetailed, usefulnessPenalty, type ScoreBreakdown } from "./searchEngine/quality";
+import { scoreSourceDetailed, usefulnessPenalty } from "./searchEngine/quality";
 
 function round2(n: number): number {
   return Math.round(n * 100) / 100;

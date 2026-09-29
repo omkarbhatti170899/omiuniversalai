@@ -1,0 +1,54 @@
+{
+  "row": {
+    "answer": "Live search is currently unavailable, so I can't reliably verify the latest information about \"who is leading the F1 2026 drivers championship\". I'm not going to answer this from memory, because my training data is not a live sports feed and could be months out of date. Omi could not reach a live score feed just now, so it will not invent a scoreline. Name the team or competition (for example \"Mumbai Indians score\" or \"Premier League scores today\") and press Retry Search.",
+    "conflictResolution": null,
+    "detail": "Search ran (4 raw result(s)) but none survived the freshness window AND the relevance/quality floor. Omi would refuse rather than answer with stale or unrelated material.",
+    "droppedFresh": [
+      {
+        "reason": "low-authority (entertainment domain)",
+        "title": "Kim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source"
+      },
+      {
+        "reason": "off-topic",
+        "title": "Law and crime: 2026 Staškov school stabbing"
+      },
+      {
+        "reason": "wrong competition (question asked \"formula 1\")",
+        "title": "Reddick Concedes \"We Got Big Problems\" After Rough Kansas Outing"
+      },
+      {
+        "reason": "off-topic",
+        "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the…"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4990ms exceeded"
+    ],
+    "freshResults": 0,
+    "freshSplitCounts": {
+      "fresh": 4,
+      "stale": 4,
+      "undated": 0
+    },
+    "freshness": null,
+    "intent": "knowledge",
+    "query": "who is leading the F1 2026 drivers championship",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 20785,
+    "searchTriggered": true,
+    "sources": [],
+    "status": "fail",
+    "timeRange": null,
+    "userMessage": "Live search is currently unavailable, so I can't reliably verify the latest information about \"who is leading the F1 2026 drivers championship\". I'm not going to answer this from memory, because my training data is not a live sports feed and could be months out of date. Omi could not reach a live score feed just now, so it will not invent a scoreline. Name the team or competition (for example \"Mumbai Indians score\" or \"Premier League scores today\") and press Retry Search.",
+    "vertical": "sports"
+  }
+}

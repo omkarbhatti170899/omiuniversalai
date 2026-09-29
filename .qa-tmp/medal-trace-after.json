@@ -1,0 +1,452 @@
+{
+  "conflictNotice": "Sources currently report different values for this, so Omi is not picking one:\n\nMEDALS:\n• 45 — news.abplive.com (yesterday) — \"45 medals\"\n• 37 — khelnow.com (yesterday) — \"37 medals\"\n• 4 — freepressjournal.in (2 days ago) — \"4 Silver Medals\"\n• 38 — freepressjournal.in (2 days ago) — \"38 bronze medals\"\n\nTreat these as unconfirmed and check the official source before relying on a figure.",
+  "conflicts": [
+    {
+      "independentDomains": 5,
+      "metric": "medals",
+      "readings": [
+        {
+          "domain": "news.abplive.com",
+          "evidence": "45 medals",
+          "publishedAt": "2026-09-28T15:19:30.000Z",
+          "sourceText": "Asian Games Medal Tally On Day 10: Check Nation-Wise List — Check the Asian Games 2026 medal tally on Day 10 as India reaches 45 medals with seven wins on Monday, remaining 12th while China leads with 229.",
+          "url": "https://news.abplive.com/sports/asian-games-2026-medal-tally-day-10-india-45-medals-check-nation-wise-list-1868776",
+          "value": "45"
+        },
+        {
+          "domain": "khelnow.com",
+          "evidence": "37 medals",
+          "publishedAt": "2026-09-28T00:09:28.000Z",
+          "sourceText": "Asian Games 2026: India's medal tally after Day 8, 27th September — How many medals did India win on Day 8 (September 27) of Asian Games 2026?\n\nIndia won seven medals, four silver and three bronze, on day 8 of the continental event.\n\nWho were India’s medal winners on Day 8 (September 27) of Asian Ga",
+          "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609",
+          "value": "37"
+        },
+        {
+          "domain": "freepressjournal.in",
+          "evidence": "4 Silver Medals",
+          "publishedAt": "2026-09-27T15:21:40.000Z",
+          "sourceText": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 — China continues to lead the Asian Games 2026 medal standings by a significant margin. The hosts have won 119 gold, 48 silver and 38 bronze medals for a total of 205 medals. Japan is second with 157 m",
+          "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37",
+          "value": "4"
+        },
+        {
+          "domain": "freepressjournal.in",
+          "evidence": "38 bronze medals",
+          "publishedAt": "2026-09-27T15:21:40.000Z",
+          "sourceText": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 — China continues to lead the Asian Games 2026 medal standings by a significant margin. The hosts have won 119 gold, 48 silver and 38 bronze medals for a total of 205 medals. Japan is second with 157 m",
+          "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37",
+          "value": "38"
+        },
+        {
+          "domain": "freepressjournal.in",
+          "evidence": "205 medals",
+          "publishedAt": "2026-09-27T15:21:40.000Z",
+          "sourceText": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 — China continues to lead the Asian Games 2026 medal standings by a significant margin. The hosts have won 119 gold, 48 silver and 38 bronze medals for a total of 205 medals. Japan is second with 157 m",
+          "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37",
+          "value": "205"
+        },
+        {
+          "domain": "freepressjournal.in",
+          "evidence": "157 medals",
+          "publishedAt": "2026-09-27T15:21:40.000Z",
+          "sourceText": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 — China continues to lead the Asian Games 2026 medal standings by a significant margin. The hosts have won 119 gold, 48 silver and 38 bronze medals for a total of 205 medals. Japan is second with 157 m",
+          "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37",
+          "value": "157"
+        }
+      ]
+    }
+  ],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "event \"asian games\" already named in the query",
+      "added sports terms: result, report",
+      "added the strong recency word \"today\" to the primary query",
+      "dropped weak recency words (latest/recent/current) — measured to return staler results than 'today'",
+      "removed filler words from the retrieval query"
+    ],
+    "primary": "total medals at Asian Games 2026 result report today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "total medals at Asian Games 2026 result report today latest",
+      "India's current total medals at Asian Games 2026 today",
+      "India's current total medals at Asian Games 2026 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "total medals at Asian Games 2026 result report today",
+  "summary": "[search] \"India's current total medals at Asian Games 2026\" intent=current fresh=true vertical=sports years=2026 raw=10 kept=8 stale-rejected=2 domains=8 conflicts=1 verdict=answer-caveated searchMs=11710 totalMs=11710",
+  "trace": {
+    "askedEvent": "asian games",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [
+      "medals: 45 (news.abplive.com) vs 37 (khelnow.com) vs 4 (freepressjournal.in) vs 38 (freepressjournal.in) vs 205 (freepressjournal.in) vs 157 (freepressjournal.in)"
+    ],
+    "contributionsByProvider": [
+      {
+        "kept": 6,
+        "provider": "searxng",
+        "retrieved": 6
+      },
+      {
+        "kept": 2,
+        "provider": "langsearch",
+        "retrieved": 4
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"current\"",
+      "names the current year (2026)",
+      "asks for a live value (\"tally\")"
+    ],
+    "independentDomains": 8,
+    "intent": "current",
+    "liveData": "tally",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "India's current total medals at Asian Games 2026",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 5.434068055555556,
+        "domain": "sundayguardianlive.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-medal-count-indias-position-and-gold-silver-bronze-medals-count-291580"
+      },
+      {
+        "ageDays": 7.181938425925925,
+        "domain": "freepressjournal.in",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-day-4-medals-tally-india-jump-to-8th-after-cricket-gold-china-leads-with-53-medals-check-country-wise-list"
+      }
+    ],
+    "rejectedStaleCount": 2,
+    "requiresFreshness": true,
+    "searchMs": 11710,
+    "selectedCount": 8,
+    "sources": [
+      {
+        "age": "2 days ago",
+        "domain": "mykhel.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-27T09:47:23.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 1,
+          "freshness": 0.17,
+          "relevance": 0.38,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Asian Games 2026 India Medal Tally: India eye Medals Today - Full...",
+        "url": "https://www.mykhel.com/more-sports/asian-games-2026-india-medal-tally-india-eye-medals-today-full-list-of-medals-won-by-indians-till-454649.html"
+      },
+      {
+        "age": "7 hours ago",
+        "domain": "tbc.cgw26.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-29T10:00:09.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 1,
+          "freshness": 0.21,
+          "relevance": 0.38,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Asian Games 2026 Medal Tally | India Asian Games Medals Tally...",
+        "url": "https://tbc.cgw26.com/sports/asian-games/medal-tally"
+      },
+      {
+        "age": "2 hours ago",
+        "domain": "currentaffairs.adda247.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-29T15:20:19.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 1,
+          "freshness": 0.23,
+          "relevance": 0.31,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Asian Games 2026 Day 10: India Medal Winners, Results and Medal...",
+        "url": "https://currentaffairs.adda247.com/asian-games-2026-day-10-india-medal-winners-results-and-medal-tally"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-24T07:01:23.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 1,
+          "freshness": 0.13,
+          "relevance": 0.25,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Asian Games 2026 Medals Tally LIVE Update: Check Latest Aichi-Nagoya Medal Count, India’s Position and Gold, Silver, Bronze Medals",
+        "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-medal-count-indias-position-and-gold-silver-bronze-medals-count-291580"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "freepressjournal.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T13:04:27.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.05,
+          "final": 1,
+          "freshness": 0.07,
+          "relevance": 0.31,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Asian Games 2026 Day 4 Medals Tally: India Jump To 8th After Cricket Gold, China Leads With 53 Medals; Check Country-Wise List",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-day-4-medals-tally-india-jump-to-8th-after-cricket-gold-china-leads-with-53-medals-check-country-wise-list"
+      },
+      {
+        "age": "yesterday",
+        "domain": "news.abplive.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T15:19:30.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.97,
+        "scoreBreakdown": {
+          "authority": 0.17,
+          "corroboration": 0.16,
+          "directness": 0.04,
+          "final": 0.97,
+          "freshness": 0.17,
+          "relevance": 0.25,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Asian Games Medal Tally On Day 10: Check Nation-Wise List",
+        "url": "https://news.abplive.com/sports/asian-games-2026-medal-tally-day-10-india-45-medals-check-nation-wise-list-1868776"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "freepressjournal.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-27T15:21:40.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.97,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 0.97,
+          "freshness": 0.17,
+          "relevance": 0.31,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+      },
+      {
+        "age": "yesterday",
+        "domain": "khelnow.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T00:09:28.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.97,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 0.97,
+          "freshness": 0.17,
+          "relevance": 0.31,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+        "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+      },
+      {
+        "age": "13 hours ago",
+        "domain": "livemint.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-29T04:03:56.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.95,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.04,
+          "final": 0.95,
+          "freshness": 0.21,
+          "relevance": 0.25,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Asian Games 2026: India women's trap shooting team clinches silver...",
+        "url": "https://www.livemint.com/sports/news/asian-games-2026-india-womens-trap-shooting-team-clinches-silver-as-countrys-total-medal-tally-rises-to-46-11790653690711.html"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "news18.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-27T13:36:33.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.91,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 0.91,
+          "freshness": 0.17,
+          "relevance": 0.31,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Asian Games 2026 India Full Schedule, September 28... - News18",
+        "url": "https://www.news18.com/sports/other-sports/asian-games-2026-india-full-schedule-september-28-complete-list-of-events-and-timings-ws-l-10355857.html"
+      }
+    ],
+    "totalMs": 11710,
+    "verification": {
+      "failedChecks": [
+        "consistency"
+      ],
+      "passRate": 0.889,
+      "unverifiable": [
+        "Sources disagree: medals."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.95 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "8 source(s) explicitly cover 2026",
+        "id": "year",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "8 source(s) cover the \"asian games\"",
+        "id": "event",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.1 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "best source tier weight 0.85",
+        "id": "authority",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "8 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "8/8 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "sources disagree on: medals (45/37/4/38/205/157)",
+        "id": "consistency",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "40 comparable figure(s) extracted with verbatim evidence",
+        "id": "claim-verification",
+        "passed": true
+      }
+    ],
+    "datedSources": 8,
+    "independentDomains": 8,
+    "newestSourceAgeHours": 2.1,
+    "newestSourceAt": "2026-09-29T15:20:19.000Z",
+    "passRate": 0.8888888888888888,
+    "unverifiable": [
+      "Sources disagree: medals."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

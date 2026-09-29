@@ -1,0 +1,55 @@
+{
+  "row": {
+    "answer": "Reddick Concedes \"We Got Big Problems\" After Rough Kansas Outing\n\nAnother week, another bad race for Tyler Reddick, the once-favorite to win the 2026 Cup championship. [1]\n\n\"We got big problems,\" Tyler Reddick anguished after another rough outing in Sunday's NASCAR Cup Series Hollywood Casino 400 at Kansas Speedway, a track where he was expected to snap back into championship form. [1]\n\nSources: [1] Reddick Concedes \"We Got Big Problems\" After Rough Kansas Outing (si.com)",
+    "conflictResolution": null,
+    "detail": "1 fresh result(s) from 1 source(s) in 20700ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4989ms exceeded",
+    "droppedFresh": [
+      {
+        "reason": "low-authority (entertainment domain)",
+        "title": "Kim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source"
+      },
+      {
+        "reason": "off-topic",
+        "title": "Law and crime: 2026 Staškov school stabbing"
+      },
+      {
+        "reason": "off-topic",
+        "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the…"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4989ms exceeded"
+    ],
+    "freshResults": 1,
+    "freshSplitCounts": {
+      "fresh": 4,
+      "stale": 4,
+      "undated": 0
+    },
+    "freshness": "Based on 1 report published today (newest: 21 hours ago).",
+    "intent": "knowledge",
+    "query": "who is leading the F1 2026 drivers championship",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 20700,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T20:04:13.000Z",
+        "title": "Reddick Concedes \"We Got Big Problems\" After Rough Kansas Outing",
+        "url": "https://www.si.com/onsi/racing-america/news/reddick-concedes-we-got-big-problems-after-rough-kansas-outing"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

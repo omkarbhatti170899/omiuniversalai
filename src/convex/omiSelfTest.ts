@@ -33,6 +33,7 @@ import {
   isNonSequiturForBroadNews,
   topicKeywords,
   usefulnessPenalty,
+  entityInSource,
 } from "./searchEngine/quality";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { complete } from "./aiProviders";
@@ -63,6 +64,9 @@ import {
 } from "./searchEngine/calculator";
 import { CREATOR_STATEMENT, OMI_PRODUCT_NAME } from "./omiIdentity";
 import { freshnessPolicyFor, freshnessStatement, splitByFreshness, clarifyForMissingInput, noVerificationMessage } from "./searchEngine/freshness";
+import { crossCheckClaims, conflictResolutionsNotice } from "./searchEngine/crossCheck";
+import { sourceTier, domainOf } from "./searchEngine/quality";
+import { classifyCurrentIntent } from "./searchEngine/intent";
 import { runUniversalSearch, extractiveBrief } from "./universalSearch";
 
 /**
@@ -224,6 +228,9 @@ export type CurrentInfoRow = {
    * freshness gate or the relevance/quality floor. */
   freshSplitCounts?: { fresh: number; undated: number; stale: number };
   droppedFresh?: Array<{ title: string; reason: string }>;
+  /** Resolved figure(s) per conflicting metric, with citations — or the
+   * explicit "sources disagree" statement. Mirrors the chat turn. */
+  conflictResolution?: string | null;
   freshness: string | null;
   answer: string;
   sources: Array<{ title: string; url: string; publishedAt: string | null }>;
@@ -376,6 +383,15 @@ export async function probeCurrentInfo(
     // page survived here while omiChat filtered it).
     const topicWords = topicKeywords(query);
     const droppedFresh: Array<{ title: string; reason: string }> = [];
+    // Live-data sports fact (standings/leader/tally)? Mirrors the chat turn's
+    // source-quality gate: a gossip/entertainment domain is rejected for these
+    // unless the citation came from the structured sports feed.
+    const classifiedProbe = classifyCurrentIntent(query, decision.intent);
+    const isSportsFactQuery =
+      policy.vertical === "sports" &&
+      (classifiedProbe.liveData === "standing" ||
+        classifiedProbe.liveData === "tally" ||
+        classifiedProbe.liveData === "score");
     const usableFresh = split.fresh.filter((c) => {
       if (isOffTopic(c, topicWords)) {
         droppedFresh.push({ title: c.title, reason: "off-topic" });
@@ -389,9 +405,57 @@ export async function probeCurrentInfo(
         droppedFresh.push({ title: c.title, reason: "non-sequitur" });
         return false;
       }
+      if (
+        isSportsFactQuery &&
+        (c as { providers?: string[] }).providers?.includes("sports-scores") !== true
+      ) {
+        // Mirror of the chat turn's source-quality gate: entertainment domains
+        // AND sources that never name the asked competition are both rejected
+        // (measured: si.com NASCAR article answering an F1 question).
+        if (
+          /(?:realitytea|ladbible|the-sun|thesun|dailystar|dailymail|mirror\.co|buzzfeed|unilad|sportskeeda|givemesport|the-sun\.com)/i.test(
+            domainOf(c.url),
+          )
+        ) {
+          droppedFresh.push({ title: c.title, reason: "low-authority (entertainment domain)" });
+          return false;
+        }
+        if (policy.event && !entityInSource(c, policy.event)) {
+          droppedFresh.push({
+            title: c.title,
+            reason: `wrong competition (question asked "${policy.event}")`,
+          });
+          return false;
+        }
+      }
       return true;
     });
     const usableSplit = { ...split, fresh: usableFresh };
+
+    // CONFLICT RESOLUTION (mirrors the chat turn): resolve every conflicting
+    // metric to ONE cited figure — or report the contest honestly. The probe
+    // row carries the resolution so the benchmark evidence shows the resolved
+    // figure, not a list of contradictory numbers.
+    const probeCrossCheck = crossCheckClaims(usableSplit.fresh, t0);
+    const authoritativeDomains = new Set(
+      usableSplit.fresh
+        .filter(
+          (c) =>
+            sourceTier(c.url).weight >= 0.85 ||
+            (c as { providers?: string[] }).providers?.includes("sports-scores") === true,
+        )
+        .map((c) => domainOf(c.url)),
+    );
+    const resolution = conflictResolutionsNotice(
+      probeCrossCheck,
+      authoritativeDomains,
+      t0,
+    );
+    const probeConflictBlock = resolution
+      ? resolution.contested
+        ? `Sources currently report different values for this, so Omi is not picking one. ${resolution.text}`
+        : resolution.text
+      : "";
 
     const row: CurrentInfoRow = {
       ...searching,
@@ -407,6 +471,10 @@ export async function probeCurrentInfo(
       },
       droppedFresh,
       freshness: freshnessStatement(usableSplit.fresh, policy.maxAgeDays),
+      // CONFLICT RESOLUTION mirror: the answer carries ONE resolved figure per
+      // conflicting metric with its citation — or the explicit "sources
+      // disagree" statement. Never a bare list of contradictory numbers.
+      conflictResolution: probeConflictBlock || null,
       // FAIL 3 fix: the answer text must NEVER present stale information as
       // current. When the tier's preferFreshHours promise is not met by any
       // usable source, the answer is the honest refusal — not a summary built
@@ -418,7 +486,9 @@ export async function probeCurrentInfo(
             usableSplit.fresh.map((c) => ({ publishedAt: c.publishedAt })),
           ) ?? Infinity) > policy.preferFreshHours)
           ? noVerificationMessage(query, policy.vertical)
-          : extractiveBrief(query, usableSplit.fresh),
+          : probeConflictBlock
+            ? `${extractiveBrief(query, usableSplit.fresh)}\n\n${probeConflictBlock}`
+            : extractiveBrief(query, usableSplit.fresh),
       sources: usableSplit.fresh.slice(0, 5).map((c) => ({
         title: c.title,
         url: c.url,

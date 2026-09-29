@@ -16,6 +16,14 @@
  *   5. AUTHORITY   — is it a primary/reputable source?
  *   6. CORROBORATION — does an independent source agree?
  *   7. TIMESTAMPED — does it carry a date at all?
+ *   8. CONSISTENCY — do the sources agree with each other where they overlap?
+ *   9. CLAIM VERIFICATION — is the figure the answer would carry actually
+ *      extractable from a source's own text (verbatim evidence)?
+ *
+ * Fresh + dated + cited is NOT correct: recency (4) and timestamp (7) say a
+ * source is current, but only CONSISTENCY (8) catches sources contradicting
+ * each other, and only CLAIM VERIFICATION (9) checks that the specific figure
+ * exists in the source's own words rather than in a title or a snippet echo.
  *
  * The verdict is deliberately conservative and NEVER "confident" by default:
  *   "answer"        — all critical checks passed.
@@ -40,7 +48,9 @@ export type CheckId =
   | "recency"
   | "authority"
   | "corroboration"
-  | "timestamp";
+  | "timestamp"
+  | "consistency"
+  | "claim-verification";
 
 export type CheckResult = {
   id: CheckId;
@@ -258,17 +268,69 @@ export function validateEvidence(input: ValidationInput): ValidationReport {
     unverifiable.push("None of the sources showed a date, so their currency is unknown.");
   }
 
-  // Cross-source disagreement is a validation failure in its own right: even a
-  // fully-dated, high-authority set cannot be answered confidently when its
-  // members contradict each other.
-  if (input.crossCheck && input.crossCheck.conflicts.length > 0) {
+  // 8. CONSISTENCY — do the sources AGREE with each other where they overlap?
+  // Distinct from corroboration (6): corroboration asks whether INDEPENDENT
+  // sources exist; consistency asks whether they say the SAME thing. Fresh,
+  // dated, authoritative sources that report 37 / 45 / 46 medals all pass 4,
+  // 5 and 7 while being mutually contradictory — measured live on the Asian
+  // Games 2026 tally. Not CRITICAL: a live moving tally legitimately
+  // disagrees across hours; the conflict is resolved/caveated, not refused.
+  const conflicts = input.crossCheck?.conflicts ?? [];
+  const compared = input.crossCheck && !input.crossCheck.insufficientEvidence;
+  const consistencyOk = conflicts.length === 0;
+  checks.push({
+    id: "consistency",
+    passed: consistencyOk,
+    critical: false,
+    detail: consistencyOk
+      ? compared
+        ? `independent sources agree on every compared metric (${input.crossCheck?.claimCount ?? 0} claim(s))`
+        : "no overlapping figures to compare"
+      : `sources disagree on: ${conflicts.map((c) => `${c.metric} (${c.readings.map((r) => r.value).join("/")})`).join(", ")}`,
+  });
+  if (!consistencyOk) {
     unverifiable.push(
-      `Sources disagree: ${input.crossCheck.conflicts.map((c) => c.metric).join(", ")}.`,
+      `Sources disagree: ${conflicts.map((c) => c.metric).join(", ")}.`,
+    );
+  }
+
+  // 9. CLAIM VERIFICATION — can the figure the answer would carry be verified
+  // against a source's OWN text? For a numeric question ("medal tally",
+  // "price", "rate") the extractable claims are the verification: each claim
+  // carries the verbatim evidence it was read from. ZERO extractable claims
+  // on a numeric question means no figure in this evidence set can be cited —
+  // any number in the answer would come from the model, not the sources.
+  const queryWantsNumber =
+    /\b(tally|count|total|score|price|rate|how many|medal|percentage|inflation|standings|leader|leading)\b/i.test(
+      query,
+    );
+  const claimCount = input.crossCheck?.claimCount ?? 0;
+  // When the caller did not run claim extraction, this check is NOT ASSESSED
+  // rather than failed — a verdict derived from evidence that was never
+  // gathered would be exactly the manufactured confidence this gate exists
+  // to stop. The chat turn always passes crossCheck; bare callers skip it.
+  const crossCheckRan = input.crossCheck !== undefined;
+  const claimsVerifiable = !queryWantsNumber || !crossCheckRan || claimCount > 0;
+  checks.push({
+    id: "claim-verification",
+    passed: claimsVerifiable,
+    critical: false,
+    detail: !queryWantsNumber
+      ? "question is not numeric — no figure to verify"
+      : !crossCheckRan
+        ? "claim extraction not run — figure verification not assessed"
+        : claimsVerifiable
+          ? `${claimCount} comparable figure(s) extracted with verbatim evidence`
+          : `numeric question but NO comparable figure could be extracted from ${citations.length} source(s)`,
+  });
+  if (!claimsVerifiable) {
+    unverifiable.push(
+      "No figure could be extracted from the sources' own text, so any number in an answer would be unverified.",
     );
   }
 
   const criticalFailures = checks.filter((c) => c.critical && !c.passed);
-  const hasConflict = (input.crossCheck?.conflicts.length ?? 0) > 0;
+  const hasConflict = conflicts.length > 0;
   const passRate = checks.length === 0 ? 0 : checks.filter((c) => c.passed).length / checks.length;
 
   let verdict: ValidationVerdict;

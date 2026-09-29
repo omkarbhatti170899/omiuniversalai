@@ -1,0 +1,63 @@
+{
+  "row": {
+    "answer": "How many medals did India win on Day 8 (September 27) of Asian Games 2026? [1]\n\nWho leads the Asian Games 2026 medal tally after Day 8 (September 27)? [1]\n\nIndia Secures Multiple Medals at Asian Games 2026; Cricket Team Reaches Semifinals\n\nIndia earned silver and bronze medals across shooting, athletics, and kurash. [3]\n\nIn badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the title, defeating Japan's Akane Yamaguchi 21–17, 21–9 [4]\n\nSources: [1] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [2] Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games (en.wikipedia.org)  [3] India Secures Multiple Medals at Asian Games 2026; Cricket Team Reaches Semifinals (digg.com)  [4] Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the… (rfi.fr)",
+    "conflictResolution": null,
+    "detail": "4 fresh result(s) from 2 source(s) in 21211ms; failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4990ms exceeded",
+    "droppedFresh": [
+      {
+        "reason": "wrong competition (question asked \"asian games\")",
+        "title": "Overview"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4990ms exceeded"
+    ],
+    "freshResults": 4,
+    "freshSplitCounts": {
+      "fresh": 5,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": "Based on 4 reports published in the last 2 days (newest: 10 hours ago).",
+    "intent": "current",
+    "query": "What is India's Asian Games 2026 medal tally right now?",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 21211,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:09:28.000Z",
+        "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+        "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+      },
+      {
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "title": "Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games",
+        "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+      },
+      {
+        "publishedAt": "2026-09-29T07:45:19.000Z",
+        "title": "India Secures Multiple Medals at Asian Games 2026; Cricket Team Reaches Semifinals",
+        "url": "https://digg.com/sports/ugcxph7j"
+      },
+      {
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the…",
+        "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "sports"
+  }
+}

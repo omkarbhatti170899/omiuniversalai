@@ -465,7 +465,7 @@ describe("REGRESSION — the seven validation checks", () => {
     },
   ];
 
-  it("runs every one of the seven checks", () => {
+  it("runs every one of the nine checks (incl. consistency + claim verification)", () => {
     const report = validateEvidence({
       query: ASIAN_GAMES,
       citations: good,
@@ -476,6 +476,8 @@ describe("REGRESSION — the seven validation checks", () => {
     });
     expect(report.checks.map((c) => c.id).sort()).toEqual([
       "authority",
+      "claim-verification",
+      "consistency",
       "corroboration",
       "event",
       "recency",
@@ -483,6 +485,10 @@ describe("REGRESSION — the seven validation checks", () => {
       "timestamp",
       "year",
     ]);
+    // Fresh+dated+authoritative sources with no extracted conflicts pass both
+    // new checks; the old seven-check contract is unchanged otherwise.
+    expect(report.checks.find((c) => c.id === "consistency")!.passed).toBe(true);
+    expect(report.checks.find((c) => c.id === "claim-verification")!.passed).toBe(true);
   });
 
   it("answers confidently when all critical checks pass", () => {
