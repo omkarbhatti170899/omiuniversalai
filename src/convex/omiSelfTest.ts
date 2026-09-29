@@ -297,10 +297,10 @@ export async function probeCurrentInfo(
         skipCache: true,
         freshnessMatters: policy.requiresFreshness,
         strictVertical: policy.requiresFreshness ? policy.strict : false,
+        verticalName: policy.vertical,
         preferredProviders: policy.requiresFreshness
           ? policy.preferredProviders
           : undefined,
-        verticalName: policy.vertical,
       },
     );
 
@@ -369,7 +369,18 @@ export async function probeCurrentInfo(
       resultsFound: result.citations.length,
       freshResults: usableSplit.fresh.length,
       freshness: freshnessStatement(usableSplit.fresh, policy.maxAgeDays),
-      answer: extractiveBrief(query, usableSplit.fresh),
+      // FAIL 3 fix: the answer text must NEVER present stale information as
+      // current. When the tier's preferFreshHours promise is not met by any
+      // usable source, the answer is the honest refusal — not a summary built
+      // on 112-hour-old pages.
+      answer:
+        policy.requiresFreshness &&
+        (usableSplit.fresh.length === 0 ||
+          (minAgeHours(
+            usableSplit.fresh.map((c) => ({ publishedAt: c.publishedAt })),
+          ) ?? Infinity) > policy.preferFreshHours)
+          ? noVerificationMessage(query, policy.vertical)
+          : extractiveBrief(query, usableSplit.fresh),
       sources: usableSplit.fresh.slice(0, 5).map((c) => ({
         title: c.title,
         url: c.url,

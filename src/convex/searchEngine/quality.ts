@@ -6,7 +6,7 @@
  */
 
 import type { WebCitation } from "../searchProviders/types";
-import { matchTemporal, temporalPenalty } from "./temporal";
+import { matchTemporal, temporalPenalty, EVENT_TOKENS } from "./temporal";
 
 export function normalizeUrl(url: string): string {
   try {
@@ -217,6 +217,136 @@ export function relevanceScore(c: WebCitation, keywords: string[]): number {
   for (const k of keywords) if (hay.includes(k)) hits += 1;
   return hits / keywords.length;
 }
+
+// --- Entity-anchored relevance (the REAL relevance engine, 2026-09-29) -----
+
+/**
+ * MEASURED FAILURES this module answers (user report, commit f190e36):
+ *
+ * FAIL 1 — "latest IPL news" kept a B.Arch-admissions page and a Russian
+ * football salary page. Why: the query's keywords were {latest, ipl, news};
+ * the aspect-word floor removed {latest, news} leaving {ipl}; but the sources
+ * entered through the broad-news escalation path where the ORIGINAL query's
+ * topic set was checked — and the check was `shares some subject word`, which
+ * a Moto2/salary page could satisfy via a single stray token. Worse: nothing
+ * in the pipeline ever required the NAMED ENTITY to appear.
+ *
+ * FAIL 2 — "live football scores" had its ONLY results (the scoreboard)
+ * removed because they shared no literal word with the query. Keyword overlap
+ * is the wrong instrument across vocabulary domains (football⇄soccer,
+ * league⇄club names, scores⇄fixtures).
+ *
+ * The fix is a domain/entity model, not more keyword plumbing:
+ *
+ *   • SPORT_DOMAINS: each sport carries its query vocabulary (what the user
+ *     might type), its result vocabulary (what a genuinely about-this-sport
+ *     page contains — synonyms included), and optionally a domain anchor
+ *     (a word a page must contain to count as about the sport at all).
+ *   • `detectSportDomain(query)` — query understanding: which sport does the
+ *     user care about?
+ *   • `sportRelevance(c, domain)` — semantic, synonym-aware match against the
+ *     result vocabulary; replaces keyword overlap for scoring/gating.
+ *   • `entityRelevant(c, entity)` — a NAMED competition (IPL, Premier League,
+ *     NBA, Formula 1 …) must actually appear in the source (title/URL/snippet)
+ *     for the source to count as about the question. This is the anti-B.Arch
+ *     rule: "admissions 2026" satisfied the year gate, but it is not about
+ *     the IPL.
+ */
+
+export type SportDomain = {
+  /** Canonical name, for diagnostics. */
+  name: string;
+  /** Query vocabulary: any of these in the USER's words selects the domain. */
+  queryRe: RegExp;
+  /** Result vocabulary: a page matching these is ABOUT the sport. */
+  aboutRe: RegExp;
+};
+
+export const SPORT_DOMAINS: SportDomain[] = [
+  {
+    name: "football",
+    // The user's words: football OR soccer OR a football competition.
+    queryRe:
+      /\b(?:football|soccer|premier league|champions league|la liga|serie a|bundesliga|liga mx|mls|fifa|europa league)\b/i,
+    // What a football page says: club/competition vocabulary, synonym-safe.
+    aboutRe:
+      /\b(?:football|soccer|fifa|uefa|premier league|champions league|la liga|serie a|bundesliga|mls|league table|standings|fixtures?|match(?:es)? day|goal(?:s)?|striker|midfielder|defender|goalkeeper|penalty|free kick|corner kick|clean sheet|transfer window|promotion|relegation)\b/i,
+  },
+  {
+    name: "cricket",
+    queryRe: /\b(?:cricket|ipl|indian premier league|t20|test match|one day international|odi)\b/i,
+    aboutRe:
+      /\b(?:cricket|ipl|indian premier league|t20|odi|test (?:match|series)|wicket|overs?|innings|bowler|batsman|batter|run(?:s)? rate|six|four boundary|stumps|lbw|googly|bcci|icc)\b/i,
+  },
+  {
+    name: "basketball",
+    queryRe: /\b(?:basketball|nba|wnba|euroleague|ncaa basketball)\b/i,
+    aboutRe:
+      /\b(?:basketball|nba|wnba|euroleague|playoffs?|three[- ]pointer|dunk|rebound|free throw|point guard|shooting guard|center position|quarter|buzzer)\b/i,
+  },
+  {
+    name: "motorsport",
+    queryRe: /\b(?:formula ?1|f1|motogp|nascar|racing|grand prix)\b/i,
+    aboutRe:
+      /\b(?:formula ?1|f1|motogp|nascar|grand prix|circuit|qualifying|pole position|lap time|pit stop|drs|constructor|championship standings|grid penalty|helmet|chassis)\b/i,
+  },
+  {
+    name: "tennis",
+    queryRe: /\b(?:tennis|wimbledon|us open|australian open|french open|roland garros|atp|wta)\b/i,
+    aboutRe:
+      /\b(?:tennis|wimbledon|roland garros|atp|wta|grand slam|set point|match point|ace serve|break point|baseline|volley|deuce|rally)\b/i,
+  },
+  {
+    name: "american-football",
+    queryRe: /\b(?:nfl|american football|super bowl)\b/i,
+    aboutRe:
+      /\b(?:nfl|american football|super bowl|touchdown|field goal|quarterback|running back|wide receiver|yard line|interception|fumble|punt)\b/i,
+  },
+];
+
+/** Which sport does the QUESTION ask about? (null = not sport-specific.) */
+export function detectSportDomain(query: string): SportDomain | null {
+  for (const d of SPORT_DOMAINS) if (d.queryRe.test(query ?? "")) return d;
+  return null;
+}
+
+/**
+ * Semantic, synonym-aware relevance for a sport result. Unlike keyword
+ * overlap, this matches the sport's RESULT vocabulary: a Premier League
+ * table page that never says "football" still matches via
+ * "league table"/"standings"/club vocabulary, and a "goal" in a football
+ * story matches a "scores" query. 0..1.
+ */
+export function sportRelevance(c: WebCitation, domain: SportDomain): number {
+  const hay = `${c.title ?? ""} ${c.snippet ?? ""} ${c.url ?? ""}`;
+  if (!domain.aboutRe.test(hay)) return 0;
+  // Being about the sport at all earns the base; extra title mentions of the
+  // domain's core words earn more (a football SCORES page outranks a page
+  // that merely mentions football in passing).
+  const titleHits = (c.title ?? "").match(new RegExp(domain.aboutRe.source, "gi"))?.length ?? 0;
+  return Math.min(1, 0.6 + 0.13 * Math.min(3, titleHits));
+}
+
+/**
+ * The named-competition requirement. `entity` is the canonical event name
+ * from the intent classifier ("ipl", "premier league", "nba", "formula 1").
+ * A source counts as about the entity when the entity OR one of its known
+ * surface forms appears in title/URL/snippet. Title/URL matches rank above
+ * snippet-only matches.
+ */
+export function entityInSource(c: WebCitation, entity: string): boolean {
+  const entry = EVENT_TOKENS_LIKE.find((e) => e.name === entity);
+  const res: RegExp[] = entry ? [entry.re] : [new RegExp(`\\b${escapeRe(entity)}\\b`, "i")];
+  const titleUrl = `${c.title ?? ""} ${c.url ?? ""}`;
+  return res.some((re) => re.test(titleUrl)) || res.some((re) => re.test(c.snippet ?? ""));
+}
+
+function escapeRe(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Mirrors the intent classifier's event list for source-side matching. */
+const EVENT_TOKENS_LIKE = EVENT_TOKENS;
 
 /**
  * Words that say WHEN or WHAT KIND — never WHAT ABOUT.
@@ -469,7 +599,30 @@ export function scoreSourceDetailed(
     freshnessTier?: string;
   } = {},
 ): ScoreBreakdown {
-  const rel = relevanceScore(c, keywords);
+  // ENTITY ANCHOR: when the question names a competition, a source that never
+  // mentions it is not about the question — however fresh, however otherwise
+  // word-matching. This is the anti-B.Arch rule (FAIL 1): "admissions 2026"
+  // satisfied the year gate but was never about the IPL.
+  if (opts.askedEvent && !entityInSource(c, opts.askedEvent)) {
+    const empty: ScoreBreakdown = {
+      relevance: 0,
+      freshness: 0,
+      authority: 0,
+      sourceQuality: 0,
+      directness: 0,
+      corroboration: 0,
+      final: 0,
+    };
+    return empty;
+  }
+
+  // SPORT-DOMAIN SEMANTIC RELEVANCE: when the question is about a sport,
+  // relevance is judged by the sport's result vocabulary (synonym-aware),
+  // not literal keyword overlap. This fixes FAIL 2: a Premier League table
+  // page that never says "football" is fully relevant to "live football
+  // scores".
+  const sportDomain = detectSportDomain(keywords.join(" "));
+  const rel = sportDomain ? sportRelevance(c, sportDomain) : relevanceScore(c, keywords);
   const tier = sourceTier(c.url).weight;
   const fresh = freshnessScore(c.publishedAt);
   const comp = completenessScore(c);

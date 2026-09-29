@@ -338,7 +338,12 @@ export const runSearchQualityBenchmark = internalAction({
           freshnessMatters: policy.requiresFreshness,
           askedYears: policy.years,
           askedEvent: policy.event,
-          strictVertical: false,
+          // The benchmark previously hardened OFF strict mode, so score-demanded
+          // sports queries ran the full fan-out here while production ran
+          // sports-scores alone — the diagnostic disagreed with the product
+          // about the F1/NBA failures. Mirror production exactly.
+          strictVertical: policy.requiresFreshness ? policy.strict : false,
+          verticalName: policy.vertical,
           preferredProviders: policy.requiresFreshness
             ? policy.preferredProviders
             : undefined,

@@ -34,6 +34,7 @@ import {
   noVerificationMessage,
   splitByFreshness,
   minAgeHours as minAgeHoursShared,
+  plausibleAgeHours,
   shouldEscalateForFreshness,
   type FreshnessPolicy,
   type FreshnessSource,
@@ -115,7 +116,7 @@ function recordSearchDebugTrace(args: {
   console.log(summarizeTrace(trace));
 }
 import { parseKnowledgeMode, routeKnowledge, knowledgeOnlyRefusal } from "./knowledgeEngine/mode";
-import { isOffTopic, isNonSequiturForBroadNews, topicKeywords } from "./searchEngine/quality";
+import { isOffTopic, isNonSequiturForBroadNews, entityInSource, topicKeywords } from "./searchEngine/quality";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -864,6 +865,12 @@ async function runTurn(
           // appends recency words ("today", "latest") that describe WHEN, not
           // WHAT, and matching on those would let any fresh page through.
           const topic = topicKeywords(trimmed);
+          // FRESHNESS-REQUIRED AND RELEVANCE-REQUIRED — BOTH must pass.
+          // MEASURED FAIL 3 (user report, commit f190e36): "current Premier
+          // League standings" kept a 112-hour-old source (inside the 5-day
+          // ceiling) and ANSWERED from it as if current. The ceiling is the
+          // refusal bound, not the freshness promise — a source must ALSO be
+          // inside the tier's preferFreshHours to be presented as current.
           const usable = citations.filter(
             (c) =>
               !isOffTopic(c, topic) &&
@@ -872,6 +879,19 @@ async function runTurn(
               !isNonSequiturForBroadNews(c, topic, {
                 requiresFreshness: policy.requiresFreshness,
               }) &&
+              // Entity anchor: a source that never names the asked competition
+              // is not evidence for the question, however fresh it is.
+              (policy.event ? entityInSource(c, policy.event) : true) &&
+              // Explicit freshness promise for explicitly-current questions:
+              // the newest-accepted source must be inside preferFreshHours.
+              // (A 112h-old page on a "recent" question is NOT current.)
+              (!policy.requiresFreshness ||
+                (() => {
+                  const age = plausibleAgeHours(c.publishedAt, Date.now());
+                  // Undated ⇒ the freshness SPLIT already handled it; here an
+                  // undated source is not presentable as current either.
+                  return age !== null && age <= policy.preferFreshHours;
+                })()) &&
               (policy.years.length === 0 && !policy.event
                 ? true
                 : !isWrongYear(matchTemporal(c, policy.years, null))),

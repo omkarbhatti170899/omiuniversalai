@@ -175,14 +175,19 @@ export async function runUniversalSearch(
     const backstop = strictVerticalFallbackFor(opts?.verticalName);
     if (backstop) {
       const available = allProviders.filter((p) => backstop.includes(p.id));
-      if (available.length > 0) {
-        return runUniversalSearch(ctx, query, {
-          ...opts,
-          preferredProviders: available.map((p) => p.id),
-          strictVertical: false,
-          verticalName: opts?.verticalName,
-        });
-      }
+      // MEASURED DEFECT (2026-09-29): the configured providers list may be
+      // EMPTY in an isolate whose env vars are missing (cold start, sandbox)
+      // while the same deployment serves them elsewhere. Falling back to a
+      // filtered-empty list re-enters with zero providers and throws. Use the
+      // backstop ids directly — the recursive call re-resolves configured
+      // providers there, and its own empty-guard is the honest failure.
+      const backstopIds = available.length > 0 ? available.map((p) => p.id) : backstop;
+      return runUniversalSearch(ctx, query, {
+        ...opts,
+        preferredProviders: backstopIds,
+        strictVertical: false,
+        verticalName: opts?.verticalName,
+      });
     }
     // A strict vertical (weather, a requested scoreline) has exactly one
     // honest source type. If it is not available, say so — do not let a

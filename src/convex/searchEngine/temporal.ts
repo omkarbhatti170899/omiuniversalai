@@ -55,7 +55,12 @@ export function yearsInSource(c: WebCitation): number[] {
 }
 
 /** Event tokens a source mentions, from a small canonical vocabulary. */
-const EVENT_TOKENS: Array<{ re: RegExp; name: string }> = [
+/**
+ * Exported for the entity-anchored relevance engine in ./quality — one list,
+ * so the query side (intent) and the source side (this) can never disagree
+ * about what a named competition looks like.
+ */
+export const EVENT_TOKENS: Array<{ re: RegExp; name: string }> = [
   { re: /\basian games\b|\bag\b(?!\w)/i, name: "asian games" },
   { re: /\bolympic|\bolympics\b|\bteam gb\b|\bteam india\b/i, name: "olympics" },
   { re: /\bcommonwealth games\b/i, name: "commonwealth games" },

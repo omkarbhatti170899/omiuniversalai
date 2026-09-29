@@ -1,0 +1,40 @@
+{
+  "row": {
+    "answer": "Tony Arbolino's Moto2 Journey: A New Adventure with Forward Racing (2026)\n\nReferences\n\nhttps://www.crash.net/moto2/news/1105156/1/decision-my-heart-tony-arbolino-signs-new-moto2-adventure\n\nTop Articles\n\nCVS Now Offers Pet Prescription Services\n\nSuniel Shetty on KL Rahul, IPL, and His Love for Cricket\n\nLindsay Lohan Glows in Stunning Beach Photos with Sister Aliana & Family! [1]\n\nNFL salaries NBA salaries Golf earnings Tennis prize money F1 driver salaries IPL salaries. [2]\n\n| Celebrity Lifestyle\n\nLatest Posts\n\nSaving Kaanapali Beach: Maui's Fight Against Erosion\n\nFormer WWE & TNA Star, Doc Gallows, Spotted Backstage at AEW Tapings\n\nRecommended Articles\n\nGeorgia's University System: A Business-Minded Chancellor Pick\n\nAlberta’s Dual-Practice Model: Reducing Surgery Waits or Creating a Two-Tiered System? [1]\n\nUnvaulting Explained\n\nStacey Flood on the Rise of Irish Women’s Rugby: The Future is Bright! [1]\n\nSources: [1] Tony Arbolino's Moto2 Journey: A New Adventure with Forward Racing (2026) (pnwbcrescue.org)  [2] Akron Togliatti 2026/27 Player Wages Per Week | Salary Sport (salarysport.com)",
+    "detail": "2 fresh result(s) from 3 source(s) in 3109ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshness": "Based on 2 reports published in the last 5 days (newest: 9 hours ago).",
+    "intent": "news",
+    "query": "latest IPL news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 3109,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-24T12:07:14.000Z",
+        "title": "Tony Arbolino's Moto2 Journey: A New Adventure with Forward Racing (2026)",
+        "url": "https://pnwbcrescue.org/article/tony-arbolino-s-moto2-journey-a-new-adventure-with-forward-racing"
+      },
+      {
+        "publishedAt": "2026-09-28T17:33:34.000Z",
+        "title": "Akron Togliatti 2026/27 Player Wages Per Week | Salary Sport",
+        "url": "https://salarysport.com/en-au/football/russian-premier-league/akron-togliatti"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}
