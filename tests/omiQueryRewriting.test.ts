@@ -16,6 +16,7 @@
 
 import { describe, expect, it } from "bun:test";
 import { planRetrieval, providersForVariant, GENERAL_WEB_PROVIDERS } from "../src/convex/searchEngine/rewrite";
+import { officialDomainsFor } from "../src/convex/searchEngine/authority";
 import { classifyCurrentIntent, retrievalQuery, namesEvent } from "../src/convex/searchEngine/intent";
 import { freshnessPolicyFor } from "../src/convex/searchEngine/freshness";
 import { getProviderStatus } from "../src/convex/searchProviders";
@@ -94,9 +95,13 @@ describe("query rewriting — no added noise", () => {
   });
 
   it("drops an angle that only repeats a token already present", () => {
-    // "IPL standings ipl" bought nothing and cost a provider call.
+    // "IPL standings ipl" bought nothing and cost a provider call. A site:
+    // OPERATOR is exempt from the repeat rule: `site:iplt20.com` legitimately
+    // contains the topic token inside the operator's domain, and that angle
+    // is the official-source probe the authority policy depends on.
     for (const v of plan("current IPL standings").variants) {
-      expect(v.toLowerCase().match(/ipl/g) ?? []).toHaveLength(1);
+      const withoutOperator = v.replace(/site:\S+/gi, " ");
+      expect(withoutOperator.toLowerCase().match(/ipl/g) ?? []).toHaveLength(1);
     }
   });
 });
@@ -196,5 +201,26 @@ describe("query rewriting — works across the reported live queries", () => {
     expect(p.primary.toLowerCase()).not.toContain("latest");
     const policy = freshnessPolicyFor("Who won the 2016 Olympics men's 100m?");
     expect(policy.requiresFreshness).toBe(false);
+  });
+
+  it("the OFFICIAL-SOURCE angle always survives the three-variant cap (measured F1 failure)", () => {
+    // MEASURED 2026-09-29: the site: variant was pushed AFTER the recency
+    // angles, and `.slice(0, 3)` silently dropped it — the F1 ranking query's
+    // retrieval plan contained "latest / today / date" variants and NO
+    // official-source probe, so the authority angle the gates depend on was
+    // never sent to any engine. The authority variant is the point of the
+    // plan; recency angles are the ones that can yield the remaining slots.
+    for (const q of [
+      "Who is leading the F1 2026 drivers championship?",
+      "current IPL standings",
+      "current Premier League standings",
+    ]) {
+      const p = plan(q);
+      const official = officialDomainsFor(q);
+      if (official.length === 0) continue;
+      const site = official[0].replace(/^www\./, "");
+      expect(p.variants.some((v) => v.includes(`site:${site}`))).toBe(true);
+      expect(p.notes.join(" ")).toContain(`site:${site}`);
+    }
   });
 });
