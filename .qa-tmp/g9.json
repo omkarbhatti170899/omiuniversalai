@@ -1,0 +1,1618 @@
+{
+  "answerContract": {
+    "allSourcesDated": 7,
+    "citationsResolve": 10,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 8,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 2
+  },
+  "byCategory": {
+    "current-events": {
+      "fresh": 4,
+      "kept": 16,
+      "n": 6
+    },
+    "historical": {
+      "fresh": 3,
+      "kept": 36,
+      "n": 4
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 3,
+      "kept": 8,
+      "n": 4
+    },
+    "current": {
+      "fresh": 0,
+      "kept": 1,
+      "n": 1
+    },
+    "latest": {
+      "fresh": 1,
+      "kept": 7,
+      "n": 1
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 36,
+      "n": 4
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 128,
+  "ran": 10,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1036,
+        "statesFreshness": false,
+        "text": "The Battle of Waterloo was fought on 18 June 1815 between Napoleon’s French Army and a coalition led by the Duke of Wellington and Marshal Blücher.By mid-afternoon, news of the Prussians' arrival forced Napoleon to form a defensive line on his right. [1]\n\nThe Battle of Waterloo was fought on Sunday 18 June 1815, near Waterloo (then in the United Kingdom of the Netherlands, now in Belgium), being the last engagement with Napoleon I. [2]\n\nBattle of Waterloo (June 18, 1815), Napoleon’s final defeat at the hands of the duke of Wellington’s combined allied army and a Prussian army under Gebhard Leberecht von Blucher. [3]\n\nThe Battle of Waterloo, which took place in Belgium on June 18, 1815, marked the final defeat of Napoleon Bonaparte, who conquered much of Europe in the early 19th century. [6]\n\nSources: [1] Battle of Waterloo | National Army Museum (nam.ac.uk)  [2] Battle of Waterloo (en.wi"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "when was the Battle of Waterloo",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "nam.ac.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Battle of Waterloo | National Army Museum",
+            "url": "https://www.nam.ac.uk/explore/battle-waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo | Combatants, Maps, & Facts | Britannica",
+            "url": "https://www.britannica.com/event/Battle-of-Waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Waterloo, Belgium",
+            "url": "https://en.wikipedia.org/wiki/Waterloo%2C_Belgium"
+          },
+          {
+            "ageHours": 1246.4,
+            "domain": "artuk.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:54:23.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "How you can use this image",
+            "url": "https://artuk.org/discover/artworks/the-opening-of-waterloo-bridge-whitehall-stairs-june-18th-1817-117764"
+          },
+          {
+            "ageHours": null,
+            "domain": "history.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Battle of Waterloo: Napoleon & Duke of Wellington | HISTORY",
+            "url": "https://www.history.com/articles/battle-of-waterloo"
+          },
+          {
+            "ageHours": 181826.4,
+            "domain": "openalex.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2006-01-01",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Dancing into Battle: A Social History of the Battle of Waterloo",
+            "url": "https://openalex.org/W622484625"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldhistory.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo - World History Encyclopedia",
+            "url": "https://www.worldhistory.org/article/2303/battle-of-waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "How the Observer reported the Battle of Waterloo | The Guardian",
+            "url": "https://www.theguardian.com/world/from-the-archive-blog/2015/jun/18/battle-of-waterloo-observer-reports-1815"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Battle (2005)",
+            "url": "https://openlibrary.org/works/OL136014W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Battle of Waterloo (1936)",
+            "url": "https://openlibrary.org/works/OL4481467W"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.bbc.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "BBC News | EUROPE | Battle lines drawn at Waterloo",
+            "url": "http://news.bbc.co.uk/2/hi/europe/631041.stm"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1246.4,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"Battle Waterloo\" right now — Omi will no"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.929,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2774,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1118,
+        "statesFreshness": false,
+        "text": "The History of the Decline and Fall of the Roman Empire, sometimes shortened to Decline and Fall of the Roman Empire, is a six-volume work by the English historian Edward Gibbon. [3]\n\nThe history of the Roman Empire covers the history of ancient Rome from the traditional end of the Roman Republic in 27 BC until the abdication of Romulus Augustulus in AD 476 in the West, and the Fall of Constantinople in the East in 1453. [1]\n\nHistory, and their own institutions, had passed them by; and the \"Romans\" as a distinct people of Latium dissolved into the general population of the Empire. [12]\n\nRoman Empire, the ancient empire, centered on the city of Rome, that was established in 27 BCE following the demise of the Roman Republic and continuing to the final eclipse of the empire in the West in the 5th century CE. [2]\n\nSources: [1] History of the Roman Empire (en.wikipedia.org)  [2] Roman Empire "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "history of the Roman Empire",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "History of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Roman Empire | Definition, History, Time Period, Map... | Britannica",
+            "url": "https://www.britannica.com/place/Roman-Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The History of the Decline and Fall of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/The_History_of_the_Decline_and_Fall_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldhistory.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Roman Empire - World History Encyclopedia",
+            "url": "https://www.worldhistory.org/Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "History of the Decline and Fall of the Roman Empire Complete and Unabridged (1776)",
+            "url": "https://openlibrary.org/works/OL1285005W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The social and economic history of the Roman Empire (1899)",
+            "url": "https://openlibrary.org/works/OL256996W"
+          },
+          {
+            "ageHours": 1333.1,
+            "domain": "farmersalmanac.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:37.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "When Is the Next Leap Year? 2028 – Date, History, and the Rule",
+            "url": "https://www.farmersalmanac.com/when-is-leap-year"
+          },
+          {
+            "ageHours": null,
+            "domain": "history.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Ancient Rome: Facts, Location, Timeline & Fall | HISTORY",
+            "url": "https://www.history.com/articles/ancient-rome"
+          },
+          {
+            "ageHours": null,
+            "domain": "allthatsinteresting.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "How Big Was The Roman Empire At Its Peak?",
+            "url": "https://allthatsinteresting.com/how-big-was-the-roman-empire"
+          },
+          {
+            "ageHours": 1586.1,
+            "domain": "historyworld.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-25T00:13:41.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "HISTORY OF THE ROMAN EMPIRE",
+            "url": "https://www.historyworld.net/history/romanEmpire/531?heading=revivalOfThePaganCult&section=christianRome"
+          },
+          {
+            "ageHours": null,
+            "domain": "romanempiretimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Roman Road Study Finds Rome Was Not the Main Hub",
+            "url": "https://romanempiretimes.com/roman-road-analysis-empire-not-centred-on-rome"
+          },
+          {
+            "ageHours": null,
+            "domain": "friesian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rome and Romania, Roman Emperors, Byzantine Emperors, etc.",
+            "url": "https://friesian.com/romania.htm"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1333.1,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"history Roman Empire\" right now — Omi wi"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.893,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 10016,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Asian Games 2018 medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2676,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 966,
+        "statesFreshness": false,
+        "text": "Schwartz\n\nThe Olympic games originated in ancient Greece as a religious and athletic festival, providing a forum of friendly competition among otherwise factious city-states. [5]\n\nDiscover the history and enduring legacy of the Olympic games, from their ancient origins in Olympia to the modern spectacle of Paris 2024 and beyond.The Origins of the Games: In Honour of the Gods. [8]\n\nThe Olympic Games, which originated in ancient Greece nearly 3,000 years ago, were revived in the late 19th century and have become the world’s preeminent sporting competition. [10]\n\nThe Summer Olympic Games , also known as the Summer Olympics or the Games of the Olympiad , are a major international multi-sport event normally held once every four years. [4]\n\nSources: [1] Olympic Games, Medals, Results & Latest News | Olympics.com (olympics.com)  [2] Athens 2004 (olympics.fandom.com)  [3] Olympic Games - Wikiped"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "origin of the Olympic Games",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "olympics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.97,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic Games, Medals, Results & Latest News | Olympics.com",
+            "url": "https://www.olympics.com/en"
+          },
+          {
+            "ageHours": 1246.3,
+            "domain": "olympics.fandom.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:00:53.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Athens 2004",
+            "url": "https://olympics.fandom.com/wiki/Athens_2004"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic Games - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Olympic_Games"
+          },
+          {
+            "ageHours": 1246.4,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:59:58.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Summer Olympic Games",
+            "url": "https://en.wikipedia.org/wiki/Summer_Olympic_Games"
+          },
+          {
+            "ageHours": 49868.4,
+            "domain": "hoover.blogs.archives.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-01-20T06:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Hoover and the 1932 Olympic Games – Hoover Heads",
+            "url": "https://hoover.blogs.archives.gov/2021/01/20/hoover-and-the-1932-olympic-games?replytocom=1967370"
+          },
+          {
+            "ageHours": null,
+            "domain": "results.isu.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Event results for Olympic Winter Games 2026",
+            "url": "https://results.isu.org/results/season2526/owg2026"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic Games | 2026, Milano Cortina, History, Sports... | Britannica",
+            "url": "https://www.britannica.com/sports/Olympic-Games"
+          },
+          {
+            "ageHours": null,
+            "domain": "ashmolean.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "THE HISTORY OF THE OLYMPIC GAMES | Ashmolean Museum",
+            "url": "https://www.ashmolean.org/article/history-of-the-olympic-games-ancient-greece"
+          },
+          {
+            "ageHours": null,
+            "domain": "betus.com.pa",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "A History of the Winter Olympics: Origins, Sports, & Evolution",
+            "url": "https://www.betus.com.pa/olympic-games/a-history-of-the-winter-olympics-origins-sports-and-evolution-dama"
+          },
+          {
+            "ageHours": null,
+            "domain": "history.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "The Olympic Games: Facts, Ancient & Modern | HISTORY",
+            "url": "https://www.history.com/articles/olympic-games"
+          },
+          {
+            "ageHours": null,
+            "domain": "parade.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic History: Where and When Did the Olympics Start? - Parade",
+            "url": "https://parade.com/1225636/rose-maura-lorre/olympics-history"
+          },
+          {
+            "ageHours": null,
+            "domain": "thoughtco.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.75,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.04
+            },
+            "title": "thoughtco.com/origin-of-the-ancient-olympic-games-120122",
+            "url": "https://www.thoughtco.com/origin-of-the-ancient-olympic-games-120122"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1246.3,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"origin Olympic report\" right now — Omi w"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.833,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 4355,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1101,
+        "statesFreshness": false,
+        "text": "The Asian Games 2026 sees the Indian contingent looking to put in their best performance in hopes of adding more medals to their tally. [4]\n\nAsian Games 2026: Updated Indian medal tally after 27th September\n\nIndia now have 37 medals – 4 gold, 16 silver and 17 bronze and are placed 12th in the overall standings. [5]\n\nGo Ad Lite\n\nHome sports other sports\n\nAsian Games 2026 | Indian athletes' schedule for September 29\n\nOn the ninth day, the track and field contingent delivered its best performance for India, who will be eyeing more medals on the 10th day of the compeition. [1]\n\nWith Choudhary's bronze, the Indian contingent now has a total of four gold, 12 silver, and 14 bronze medals at the Asian Games 2026, as per IANS. [3]\n\nSources: [1] Asian Games 2026 | Indian athletes' schedule for September 29 (deccanherald.com)  [2] Asian Games 2026 Day 8 Live Updates: Abhay... - The Times of India ("
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "Indian contingent medals tally in Asian Games 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 10.1,
+            "domain": "deccanherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:16:50.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 | Indian athletes' schedule for September 29",
+            "url": "https://www.deccanherald.com/sports/other-sports/asian-games-2026-indian-athletes-schedule-for-september-29-4163061"
+          },
+          {
+            "ageHours": 52.6,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T21:46:37.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 Day 8 Live Updates: Abhay... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-live-updates-india-schedule-medal-tally-results-scores-latest-news/liveblog/134507649.cms"
+          },
+          {
+            "ageHours": 59,
+            "domain": "newsbytesapp.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:22:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.44,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026: India's Prachi Choudhary wins bronze in 400m",
+            "url": "https://www.newsbytesapp.com/news/sports/prachi-choudhary-adds-to-india-s-medals-tally-at-asian-games/story"
+          },
+          {
+            "ageHours": 69.3,
+            "domain": "indiatvnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T05:03:01.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.44,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026, Day 7 LIVE: India look to add to medal tally",
+            "url": "https://www.indiatvnews.com/sports/other/asian-games-2026-day-7-live-india-look-to-secure-gold-in-women-s-kabaddi-1055337"
+          },
+          {
+            "ageHours": 26.2,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:09:28.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+            "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+          },
+          {
+            "ageHours": 115.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:01:23.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.44,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medals Tally LIVE Update: Check Latest Aichi-Nagoya Medal Count, India’s Position and Gold, S",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-medal-count-indias-position-and-gold-silver-bronze-medals-count-291580"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 10.1,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.002,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1959,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 924,
+        "statesFreshness": false,
+        "text": "Hellebuyck’s future in Winnipeg had been a popular topic of discussion amidst a wave of American players requesting trades out of Canadian markets, particularly after Team USA captured gold at the 2026 Winter Olympics; the 33-year-old goaltender finally confirmed the news of his trade request on Aug. [1]\n\n2026-27 NHL team preview: Winnipeg Jets\n\nLAST SEASON\n\nAfter winning the Presidents’ Trophy in 2024-25, the Winnipeg Jets very much did not replicate that feat in 2025-26. [1]\n\nOnly six teams in the entire NHL scored fewer goals than last year’s Jets, which might not have been so bad if not for their similarly unimpressive goal and chance suppression results. [1]\n\n27, and after he failed to report to the Jets’ 2026 training camp despite being under contract, the Jets suspended Hellebuyck without pay for the start of the 2026-27 season. [1]\n\nSources: [1] 2026-27 NHL team preview: Winnipeg"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "2026 Winter Olympics results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 11
+        },
+        "finalSources": [
+          {
+            "ageHours": 34.5,
+            "domain": "dailyfaceoff.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:52:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "2026-27 NHL team preview: Winnipeg Jets",
+            "url": "https://www.dailyfaceoff.com/news/winnipeg-jets-2026-27-season-nhl-team-preview-predictions-roster-additions-departures"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 34.5,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2248,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 939,
+        "statesFreshness": true,
+        "text": "Airship Recognized in 2026 Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for Second Consecutive Year\n\nSAN FRANCISCO — Airship, the mobile-first customer experience company, today announced its recognition in the Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for two years in a row. [1]\n\nOur decades of deep mobile expertise, paired with our outcome-led AI, are why the world’s leading brands rely on Airship to achieve significant business outcomes such as loyalty, growth, and revenue.” [1]\n\n“We are proud to be recognized in the Gartner report, which we believe validates our relentless focus on delivering measurable business results for top brands,” said Brett Caine, CEO of Airship. [1]\n\n“Mobile is where customer loyalty is earned and revenue is accelerated. [1]\n\nSources: [1] Airship Recognized in 2026 Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for Seco"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "COP31 2026 outcome",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.2,
+            "domain": "financialpost.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:11:35.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Airship Recognized in 2026 Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for Second Consecutive Ye",
+            "url": "https://financialpost.com/pmn/business-wire-news-releases-pmn/airship-recognized-in-2026-gartner-magic-quadrant-for-multichannel-marketing-hubs-for-second-consecutive-year"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 13.2,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.01,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 10334,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 271,
+        "statesFreshness": false,
+        "text": "Australia has hung on for an extraordinary 42-38 upset win over rugby World Cup champion South Africa despite being reduced to 11 men against 15 for much of the last 10 minutes. [1]\n\nSources: [1] 11-man Australia hangs on to upset South Africa 42-38 in... - AOL (aol.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "current status of the Rugby World Cup",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 11
+        },
+        "finalSources": [
+          {
+            "ageHours": 36.6,
+            "domain": "aol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:44:20.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.21,
+              "sourceQuality": 0.07
+            },
+            "title": "11-man Australia hangs on to upset South Africa 42-38 in... - AOL",
+            "url": "https://www.aol.com/articles/australia-upsets-south-africa-42-120545000.html"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 36.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.86,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2502,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1380,
+        "statesFreshness": false,
+        "text": "The AI Pact That Might Change Everything (2026)\n\nIn the world of international politics and awards, the Nobel Peace Prize is a highly coveted honor, and it seems that former US President Donald Trump has his sights set on it. [2]\n\nExploring and Settling Space with the Help of Artificial Intelligence [Blog]\n\nReflections from the Nobel Prize Dialogue Seoul 2026\n\nBy Bill Maloney, Guest Writer, Red Planet Bound\n\nThis past Sunday, I attended the “Nobel Prize Dialogue Seoul 2026” as a representative of The Mars Society’s Mars Technology Institute (MTI). [5]\n\nNobel-Prize Winning, MacArthur Genius Grant Near Recipient writing to you regularly about Fitness, Wealth, and Wisdom - How to be happy and how to be healthy. [7]\n\nIt is a milestone that connects two of the most important threads in modern longevity science: the Nobel Prize-winning discovery of Yamanaka factors by Shinya Yamanaka, and the "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "latest on the Nobel Prize 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 59,
+            "domain": "improbable.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:20:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.04
+            },
+            "title": "Improbable Research – Page 2763 – Research that makes people...",
+            "url": "https://improbable.com/page/2763"
+          },
+          {
+            "ageHours": 98.8,
+            "domain": "freevods.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T23:33:41.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Could Trump Win the Nobel Peace Prize? The AI Pact That Might Change Everything (2026)",
+            "url": "https://freevods.com/article/could-trump-win-the-nobel-peace-prize-the-ai-pact-that-might-change-everything"
+          },
+          {
+            "ageHours": 77,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:24:17.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "From Lab Bench to Bedside: Medical Breakthroughs of 2026",
+            "url": "https://que.com/from-lab-bench-to-bedside-medical-breakthroughs-of-2026"
+          },
+          {
+            "ageHours": 25,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:24:15.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Cellular Reprogramming Enters Human Trials The 2026 Age Reversal Milestone",
+            "url": "https://que.com/cellular-reprogramming-enters-human-trials-the-2026-age-reversal-milestone"
+          },
+          {
+            "ageHours": 76.8,
+            "domain": "marssociety.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:31:39.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Exploring and Settling Space with the Help of Artificial Intelligence [Blog]",
+            "url": "https://www.marssociety.org/red-planet-bound/2026/09/25/exploring-and-settling-space-with-the-help-of-artificial-intelligence-blog"
+          },
+          {
+            "ageHours": 93.7,
+            "domain": "the-star.co.ke",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T04:38:35.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.97,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "The woman behind the Nobel",
+            "url": "https://www.the-star.co.ke/sasa/entertainment/2026-09-25-wangari-maathai"
+          },
+          {
+            "ageHours": 14.3,
+            "domain": "wilderwealthywise.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:00:56.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "The Weekend Ate My Homework – Wilder, Wealthy, and Wise",
+            "url": "https://wilderwealthywise.com/the-weekend-ate-my-homework"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 14.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.99,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1798,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "upcoming general elections",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "shares no subject word": 1,
+          "undated": 9
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1716,
+      "vertical": "election"
+    }
+  ],
+  "total": 138
+}

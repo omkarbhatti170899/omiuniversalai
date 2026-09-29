@@ -74,7 +74,10 @@ const OFFICIAL_HINT_RE = /^(docs?|developer|developers|api|support)\./;
 
 /** Platforms whose result pages are rarely citable evidence. */
 const VIDEO_SOCIAL_RE =
-  /(^|\.)youtube\.com$|(^|\.)youtu\.be$|tiktok\.com$|instagram\.com$|facebook\.com$|(^|\.)x\.com$|(^|\.)twitter\.com$|threads\.net$/;
+  /(^|\.)youtube\.com$|(^|\.)youtu\.be$|tiktok\.com$|instagram\.com$|facebook\.com$|(^|\.)x\.com$|(^|\.)twitter\.com$|threads\.net$|bitchute\.com$|rumble\.com$|vimeo\.com$|dailymotion\.com$|soundcloud\.com$|mixcloud\.com$|streamable\.com$|odysee\.com$/;
+
+/** URL paths that mark a video/audio player page even on unknown domains. */
+const VIDEO_PATH_RE = /\/watch(?:\/|$|\?)|\/embed\/|\/video\/|\/videos\/|\/media\/player|\/live\/video/;
 
 /** Title patterns that identify engagement bait rather than reporting. */
 const CLICKBAIT_RES: RegExp[] = [
@@ -91,6 +94,15 @@ const CLICKBAIT_RES: RegExp[] = [
 /** Tag/category/topic pages aggregate other pages; they do not answer. */
 const CATEGORY_PAGE_RE = /\/(?:tag|tags|category|categories|topic|topics|archive)\//i;
 
+/**
+ * Numbered listicles ("30 beautiful things happening…", "17 habits of…") are
+ * self-help/entertainment fillers that frequently carry a TODAY's date and
+ * temporal vocabulary, which is how they slipped past freshness AND the
+ * topical floor for broad questions like "what is happening in India right
+ * now?" (measured: a self-help listicle ranked top-3).
+ */
+const LISTICLE_TITLE_RE = /\b\d+\s+[\w-]+\s+(?:things|ways|reasons|lessons|habits|quotes|tips|ideas|facts)\b/i;
+
 export function usefulnessPenalty(c: WebCitation): number {
   const d = domainOf(c.url);
   const path = (() => {
@@ -103,9 +115,13 @@ export function usefulnessPenalty(c: WebCitation): number {
   const title = c.title ?? "";
   let penalty = 0;
   if (VIDEO_SOCIAL_RE.test(d)) penalty += 0.45;
+  // Video/audio PLAYER pages on domains the platform list cannot know
+  // (measured: a /video/ page from a small broadcaster ranked as news).
+  if (penalty === 0 && VIDEO_PATH_RE.test(path)) penalty += 0.45;
   const baitHits = CLICKBAIT_RES.filter((re) => re.test(title)).length;
   penalty += baitHits * 0.2;
   if (CATEGORY_PAGE_RE.test(path)) penalty += 0.3;
+  if (LISTICLE_TITLE_RE.test(title)) penalty += 0.25;
   // A long, substantive snippet is weak evidence AGAINST noise: scrapes and
   // video descriptions are usually thin.
   if ((c.snippet?.length ?? 0) < 60 && penalty > 0) penalty += 0.1;
@@ -241,6 +257,56 @@ const ASPECT_WORDS = new Set([
 export function isAspectWord(word: string): boolean {
   return ASPECT_WORDS.has(word.replace(/['\u2019]s?$/, ""));
 }
+
+// --- Broad-news non-sequitur floor (2026-09-29, second pass) ---------------
+
+/**
+ * A BROAD news question ("latest India news") has almost no topic vocabulary
+ * — "India" plus aspect words — so the topical floor can only reject a source
+ * that fails to mention India at all. Measured survivors of that weak floor:
+ * an actors-workshop promotion, a self-help listicle, and an evergreen
+ * corporate page. What they share is that their titles are about OTHER
+ * subjects entirely (workshops, habits, listings) — words a news question
+ * never implies.
+ *
+ * `isNonSequiturForBroadNews` is the second-pass floor for exactly that case:
+ * when a freshness-gated question's topic words are few and generic, a source
+ * whose TITLE+snippet discusses one of the evergreen non-news subjects below
+ * is treated as a non-sequitur regardless of its timestamp.
+ */
+const NON_NEWS_SUBJECT_RE =
+  /\b(?:workshop|masterclass|webinar|course|curriculum|lesson plan|self[- ](?:help|care|improvement)|habits of|things to do|gift ideas?|recipe(?:s)?|horoscope|makeup|skincare|hairstyle|decorat(?:e|ing)|furniture|real estate listing|floor plan|mortgage rate calculator|coupon|giveaway|personality quiz)\b/i;
+
+const EVERGREEN_CORPORATE_RE =
+  /\b(?:about us|our mission|careers?|join our team|contact us|privacy policy|terms of (?:service|use)|make in india|digital india|incredible india|in partnership with)\b/i;
+
+export function isNonSequiturForBroadNews(
+  c: WebCitation,
+  topic: string[],
+  opts: { requiresFreshness?: boolean } = {},
+): boolean {
+  if (!opts.requiresFreshness) return false;
+  // Only when the question itself is broad: few topic words, and none of
+  // them names a specific event, company, or person. "Asian Games 2026" is
+  // specific and NEVER hits this floor; "latest India news" is broad.
+  const specific = topic.filter((w) => !isBroadPlaceWord(w));
+  if (specific.length > 1) return false;
+  const hay = `${c.title ?? ""} ${c.snippet ?? ""}`;
+  return NON_NEWS_SUBJECT_RE.test(hay) || EVERGREEN_CORPORATE_RE.test(hay);
+}
+
+/** Place/geography words that appear in broad regional news questions. */
+function isBroadPlaceWord(word: string): boolean {
+  return BROAD_PLACE_WORDS.has(word) || BROAD_PLACE_WORDS.has(word.replace(/['\u2019]s?$/, ""));
+}
+
+const BROAD_PLACE_WORDS = new Set([
+  "india", "indian", "world", "usa", "america", "american", "europe", "european",
+  "asia", "asian", "australia", "australian", "japan", "japanese", "korea",
+  "korean", "south", "north", "africa", "african", "china", "chinese", "uk",
+  "britain", "british", "germany", "german", "france", "french", "brazil",
+  "canada", "canadian", "mumbai", "delhi", "tokyo", "seoul", "london", "york",
+]);
 
 /**
  * The TOPIC words of a question — its keywords minus bare numbers and minus

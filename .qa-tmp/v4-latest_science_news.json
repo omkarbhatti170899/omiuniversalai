@@ -1,0 +1,56 @@
+{
+  "row": {
+    "answer": "Daily science news on research developments and the latest scientific innovations. [2]\n\nfrom research organizations.View all the latest top news in the physical sciences & technology, or browse the topics below [4]\n\nThe latest science direct from the most respected people in their fields.Latest space news. [9]\n\nDiscover the latest in science, tech, and space with over 100,000 subscribers who rely on Phys.org for daily insights. [3]\n\nSources: [1] Light Science Technologies’ (LST) “House Stock” Rating Reiterated at Shore Capital Group (watchlistnews.com)  [2] Smoother perovskite films lift three-layer solar cell efficiency to 30.1% (techxplore.com)  [3] Why AI has trouble predicting the fury of hurricane intensity (phys.org)  [4] “We just need to go back” – Uranus’ moon Ariel may... | ScienceDaily (sciencedaily.com)",
+    "detail": "12 fresh result(s) from 3 source(s) in 7322ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 12,
+    "freshness": "Based on 12 reports published in the last 5 days (newest: 3 hours ago).",
+    "intent": "news",
+    "query": "latest science news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 7322,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-25T05:13:10.000Z",
+        "title": "Light Science Technologies’ (LST) “House Stock” Rating Reiterated at Shore Capital Group",
+        "url": "https://www.watchlistnews.com/light-science-technologies-lst-house-stock-rating-reiterated-at-shore-capital-group/11236245.html"
+      },
+      {
+        "publishedAt": "2026-09-26T13:40:36.000Z",
+        "title": "Smoother perovskite films lift three-layer solar cell efficiency to 30.1%",
+        "url": "https://techxplore.com/news/2026-09-smoother-perovskite-layer-solar-cell.html"
+      },
+      {
+        "publishedAt": "2026-09-27T00:30:17.000Z",
+        "title": "Why AI has trouble predicting the fury of hurricane intensity",
+        "url": "https://phys.org/news/2026-09-ai-fury-hurricane-intensity.html"
+      },
+      {
+        "publishedAt": "2026-09-24T11:37:26.000Z",
+        "title": "“We just need to go back” – Uranus’ moon Ariel may... | ScienceDaily",
+        "url": "https://www.sciencedaily.com/releases/2026/09/260923035951.htm"
+      },
+      {
+        "publishedAt": "2026-09-28T19:11:08.000Z",
+        "title": "New York’s Strange September Nor’easter Could Be A Winter Warning",
+        "url": "https://1045theteam.com/ixp/854/p/new-yorks-strange-september-noreaster-could-be-a-winter-preview"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

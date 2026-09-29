@@ -1,0 +1,56 @@
+{
+  "row": {
+    "answer": "Mission Paani.Stay updated with News18 for the latest India and world news, in-depth explainers, entertainment, sports, and cricket news. [1]\n\nAlso get top headlines and latest news from India and around the world at News9. [2]\n\nGet the latest India News, breaking headlines and real-time updates from across the country. [3]\n\nGet Current Updates on India News, Entertainment News, Cricket News along with Latest News and Web Stories from India and around the world. [4]\n\nSources: [1] ‘She Stays, I Stay’: Son, 28, Waits For Mother To Get Off... - News18 (news18.com)  [2] Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live (news9live.com)  [3] Flung to roadside, dragged for nearly 80m: Nuh accident kills... (hindustantimes.com)  [4] Four Killed as Car Collides with Truck on NH in... | Republic World (republicworld.com)",
+    "detail": "12 fresh result(s) from 3 source(s) in 7247ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 12,
+    "freshness": "Based on 12 reports published in the last 5 days (newest: 9 hours ago).",
+    "intent": "news",
+    "query": "latest India news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 7247,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-26T03:08:50.000Z",
+        "title": "‘She Stays, I Stay’: Son, 28, Waits For Mother To Get Off... - News18",
+        "url": "https://www.news18.com/india/she-stays-i-stay-son-28-waits-for-mother-to-get-off-burning-noida-bus-neither-survives-ws-l-10353771.html"
+      },
+      {
+        "publishedAt": "2026-09-25T14:50:13.000Z",
+        "title": "Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live",
+        "url": "https://www.news9live.com/india/biker-thrown-30-feet-into-air-as-speeding-tiago-ev-hits-6-vehicles-in-ludhiana-5-injured-3010709"
+      },
+      {
+        "publishedAt": "2026-09-24T05:40:37.000Z",
+        "title": "Flung to roadside, dragged for nearly 80m: Nuh accident kills...",
+        "url": "https://www.hindustantimes.com/india-news/flung-to-roadside-dragged-for-nearly-80m-nuh-accident-kills-4-including-three-children-speeding-truck-collision-bike-101790225147692.html"
+      },
+      {
+        "publishedAt": "2026-09-24T09:22:50.000Z",
+        "title": "Four Killed as Car Collides with Truck on NH in... | Republic World",
+        "url": "https://www.republicworld.com/india/four-killed-as-car-collides-with-truck-on-nh-in-jamshedpur-minister-deepika-pandey-singh-s-daughter-among-the-deceased-2026-09-24-137629"
+      },
+      {
+        "publishedAt": "2026-09-28T13:02:49.000Z",
+        "title": "India poll chief Gyanesh Kumar under pressure over alleged manipulation of electoral rolls",
+        "url": "https://www.straitstimes.com/asia/india-poll-chief-gyanesh-kumar-under-pressure-over-alleged-manipulation-of-electoral-rolls"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

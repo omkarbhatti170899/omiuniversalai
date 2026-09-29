@@ -1,0 +1,3196 @@
+{
+  "answerContract": {
+    "allSourcesDated": 11,
+    "citationsResolve": 16,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 12,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 4
+  },
+  "byCategory": {
+    "historical": {
+      "fresh": 2,
+      "kept": 19,
+      "n": 2
+    },
+    "multilingual": {
+      "fresh": 4,
+      "kept": 40,
+      "n": 8
+    },
+    "obscure": {
+      "fresh": 6,
+      "kept": 54,
+      "n": 6
+    }
+  },
+  "byTemporal": {
+    "current": {
+      "fresh": 3,
+      "kept": 25,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 30,
+      "n": 7
+    },
+    "none": {
+      "fresh": 4,
+      "kept": 43,
+      "n": 4
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 15,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 112,
+  "ran": 16,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "aktuelle Nachrichten Deutschland",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 11
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 5703,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "日本の最新ニュース",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 11
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1564,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "últimas noticias España",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1791,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "ultime notizie Italia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 11
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1053,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1200,
+        "statesFreshness": false,
+        "text": "Travaillant tous les jours avec des écosystèmes de PME, de start-up et des entreprises innovantes en France, Huawei et EuraTechnologies ont donc souhaité lancé le plus grand concours de start-up privé en France, afin de soutenir l'émergence de projets innovants valorisant l'expertise française dans les domaines d'avenir des nouvelles technologies. [1]\n\nCinq trophées imprimés en 3D ont été remis aux lauréats de ce concours national d'entreprises innovantes dont la 1ère édition s'est tenue ce jeudi 25 septembre dans l'auditorium d'EuraTechnologies à Lille. [1]\n\nPremier cluster numérique en Europe, et exemplaire dans la dynamique French Tech, EuraTechnologies contribue au dynamise de la filière IT en France. [1]\n\nLes exigences de mise sont raisonnables pour le secteur français : 30x le montant du bonus, avec un plafond de 20 € de mise maximale par tour. [3]\n\nSources: [1] Inno'start récompen"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "nouvelles du jour en France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 35.2,
+            "domain": "lillesagency.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:06:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Inno'start récompense les entreprises innovantes",
+            "url": "https://www.lillesagency.com/blog-business/zoom-sur/innostart-recompense-les-entreprises-innovantes"
+          },
+          {
+            "ageHours": 35.2,
+            "domain": "lillesagency.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:06:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Inno'start récompense les entreprises innovantes",
+            "url": "https://lillesagency.com/blog-business/zoom-sur/innostart-recompense-les-entreprises-innovantes"
+          },
+          {
+            "ageHours": 66.6,
+            "domain": "gadgtecs.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T07:41:25.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Rabona casino en ligne en France : guide complet et pratique",
+            "url": "https://gadgtecs.com/2026/09/26/rabona-casino-en-ligne-en-france-guide-complet-et-pratique"
+          },
+          {
+            "ageHours": 64.1,
+            "domain": "skans.edu.pk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:14:15.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Joka Casino – Guide complet du casino joka en ligne pour les joueurs français",
+            "url": "https://skans.edu.pk/joka-casino-guide-complet-du-casino-joka-en-ligne-pour-les-joueurs-francais"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 35.2,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.765,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1452,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 758,
+        "statesFreshness": false,
+        "text": "Stay Updated with Noticias Actuales México. [6]\n\nEntérate de lo mas importante que sucede en México y en todo el mundo: deportes, economía, finanzas, cultura, política y noticias actuales cada día, todos los días. [9]\n\nEl Informador :: Noticias de Jalisco, México, Deportes & Entretenimiento (in Mexican Spanish). [1]\n\nÚltimas noticias sobre la economía de México y el mundo. [4]\n\nSources: [1] 2025 Pacific hurricane season (en.wikipedia.org)  [2] Nacional | Noticias actuales y de última hora en México - Publim… (publimetro.com.mx)  [3] Noticias Actuales México - Apps on Google Play (play.google.com)  [4] Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy, Covid-19. (topbinhpgzdvkr.netlify.app)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "noticias actuales de México",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "2025 Pacific hurricane season",
+            "url": "https://en.wikipedia.org/wiki/2025_Pacific_hurricane_season"
+          },
+          {
+            "ageHours": null,
+            "domain": "publimetro.com.mx",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Nacional | Noticias actuales y de última hora en México - Publim…",
+            "url": "http://www.publimetro.com.mx/nacional"
+          },
+          {
+            "ageHours": null,
+            "domain": "play.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Noticias Actuales México - Apps on Google Play",
+            "url": "https://play.google.com/store/apps/details?id=noticias.hoy.actuales.locales.mexico.universal.deportes.politica&hl=en"
+          },
+          {
+            "ageHours": 1868.4,
+            "domain": "topbinhpgzdvkr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-13T05:55:43.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy,",
+            "url": "https://topbinhpgzdvkr.netlify.app/isadore80199goqe/cubl-es-la-mejor-fuente-de-noticias-en-lnnea-no.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A fin de dictar la Junta principal de Caridad varias providencias ... necesita reunir algunas noticias y saber",
+            "url": "https://openlibrary.org/works/OL17679852W"
+          },
+          {
+            "ageHours": null,
+            "domain": "filehippo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Media software for Android at Filehippo (19)",
+            "url": "https://filehippo.com/android/learning/media/19"
+          },
+          {
+            "ageHours": null,
+            "domain": "pinterest.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.08,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Find and save ideas about noticias de mexico on Pinterest.",
+            "url": "https://www.pinterest.com/ideas/noticias-de-mexico/957131744898"
+          },
+          {
+            "ageHours": null,
+            "domain": "apkz.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Noticias Actuales México - APKZ",
+            "url": "https://www.apkz.com/app/noticias.hoy.actuales.locales.mexico.universal.deportes.politica/en.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "channels.megatga.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "MÉXICO NOTICIAS – Canales y Grupos de Telegram",
+            "url": "https://channels.megatga.com/notmex"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "XHTVM-TDT",
+            "url": "https://en.wikipedia.org/wiki/XHTVM-TDT"
+          },
+          {
+            "ageHours": null,
+            "domain": "laprensa.hn",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Videos de Noticias Actuales | La Prensa",
+            "url": "http://www.laprensa.hn/video"
+          },
+          {
+            "ageHours": null,
+            "domain": "elpais.com",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Los rostros actuales de la pobreza | Noticias de la Comunidad Va…",
+            "url": "https://elpais.com/ccaa/2012/06/02/valencia/1338669912_508193.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1868.4,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"noticias actuales de México\" right now —"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.838,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1959,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 661,
+        "statesFreshness": false,
+        "text": "عصير الهرم بـ 500 ليرة: \"هيدي آخر الدني!\"\". [1]\n\nتُقدم CNN بالعربية تغطية بالصور والفيديو لأهم أخبار العالم والدول العربية والخليج والشرق الأوسط، مع موضوعات حصرية بينها سياسة وصحة ورياضة وسياحة وستايل وت… [2]\n\nشفق نيوز - وكالة إخبارية تنشر آخر الأخبار العاجلة وأبرز الأحداث السياسية والاقتصادية والرياضية في العراق وكوردستان والعالم لحظة بلحظة [3]\n\nحضور مليوني يستقبل جثمان خامنئي في كربلاء (صور)\". [4]\n\nSources: [1] Bonjus (en.wikipedia.org)  [2] آخر الأخبار السياسية والرياضية والفنية وأحدث تقارير الفيديو | CN… (arabic.cnn.com)  [3] شفق نيوز | آخر الأخبار العاجلة في العراق وكوردستان والعالم (shafaq.com)  [4] State funeral of Ali Khamenei (en.wikipedia.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "آخر الأخبار",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.74,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Bonjus",
+            "url": "https://en.wikipedia.org/wiki/Bonjus"
+          },
+          {
+            "ageHours": null,
+            "domain": "arabic.cnn.com",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "آخر الأخبار السياسية والرياضية والفنية وأحدث تقارير الفيديو | CN…",
+            "url": "http://arabic.cnn.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "shafaq.com",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.68,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "شفق نيوز | آخر الأخبار العاجلة في العراق وكوردستان والعالم",
+            "url": "https://shafaq.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.66,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "State funeral of Ali Khamenei",
+            "url": "https://en.wikipedia.org/wiki/State_funeral_of_Ali_Khamenei"
+          },
+          {
+            "ageHours": null,
+            "domain": "bahrainpost.gov.bh",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار",
+            "url": "https://bahrainpost.gov.bh/index.php?option=com_content&view=article&id=73"
+          },
+          {
+            "ageHours": null,
+            "domain": "palsawa.com",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار | وكالة سوا الإخبارية",
+            "url": "https://palsawa.com/latest"
+          },
+          {
+            "ageHours": null,
+            "domain": "akhbaralaan.net",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار - أخبار الآن",
+            "url": "http://www.akhbaralaan.net/latest"
+          },
+          {
+            "ageHours": null,
+            "domain": "safa.ps",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار | صفا",
+            "url": "https://safa.ps/latest"
+          },
+          {
+            "ageHours": null,
+            "domain": "phila.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار + الأحداث | مدينة فيلادلفيا",
+            "url": "https://www.phila.gov/ar/the-latest"
+          },
+          {
+            "ageHours": null,
+            "domain": "mfa.gov.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار",
+            "url": "http://www.mfa.gov.cn/ara/zxxx"
+          },
+          {
+            "ageHours": null,
+            "domain": "developer.android.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "الاشتراك لتلقّي آخر الأخبار التي تخصّ مطوّري تطبيقات Android  | …",
+            "url": "https://developer.android.com/updates?hl=ar"
+          },
+          {
+            "ageHours": null,
+            "domain": "developers.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار حول \"بحث Google\" وتحسين محركات البحث | مجموعة خدمات …",
+            "url": "https://developers.google.com/search/news?hl=ar"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.664,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1234,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 660,
+        "statesFreshness": false,
+        "text": "Lima is the capital and largest city of Peru, as well as a primate city. [1]\n\nPERU'S CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU'S CAPITAL\n\nCrossword Puzzle Infos\n\nPeru's capital is LIMA, a four-letter word. [3]\n\nPERU CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU CAPITAL\n\nCrossword Puzzle Infos\n\nThe capital of Peru is LIMA, which is a four-letter word. [4]\n\nLima is the capital of Peru and has a population of over 7 million. [5]\n\nSources: [1] Lima (en.wikipedia.org)  [2] Capital punishment in Peru (en.wikipedia.org)  [3] PERU'S CAPITAL Crossword Clue (crossword-dictionary.com)  [4] PERU CAPITAL Crossword Clue (crossword-dictionary.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "what is the capital of Peru",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima",
+            "url": "https://en.wikipedia.org/wiki/Lima"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Capital punishment in Peru",
+            "url": "https://en.wikipedia.org/wiki/Capital_punishment_in_Peru"
+          },
+          {
+            "ageHours": 1067.4,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T14:56:51.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PERU'S CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-s-capital"
+          },
+          {
+            "ageHours": 1073.5,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T08:47:22.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PERU CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-capital"
+          },
+          {
+            "ageHours": null,
+            "domain": "everything2.com",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima - Everything2.com",
+            "url": "http://everything2.com/title/LIMA"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima | Peru’s Capital City & Cultural Hub | Britannica",
+            "url": "https://www.britannica.com/place/Lima"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A guide to Lima, the capital of Peru (1949)",
+            "url": "https://openlibrary.org/works/OL2002609W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Lima, or Sketches of the capital of Peru (1866)",
+            "url": "https://openlibrary.org/works/OL45640253W"
+          },
+          {
+            "ageHours": 42590.3,
+            "domain": "mapsofworld.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-11-19T12:04:39.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Peru South America Map",
+            "url": "https://www.mapsofworld.com/peru/peru-political-map.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "stock.adobe.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima Perou Images – Browse 43,139 Stock Photos... | Adobe Stock",
+            "url": "https://stock.adobe.com/si/search?k=lima+perou"
+          },
+          {
+            "ageHours": 994.3,
+            "domain": "spanishdict.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T16:01:03.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "The capital of Peru is Lima.",
+            "url": "https://www.spanishdict.com/translate/The%20capital%20of%20Peru%20is%20Lima."
+          },
+          {
+            "ageHours": null,
+            "domain": "commons.wikimedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Atlas of Peru - Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/Atlas_of_Peru"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 994.3,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4993ms exceeded",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.887,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 20524,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 804,
+        "statesFreshness": false,
+        "text": "We are the world’s leading, independent, non-profit organization dedicated to ocean research, exploration, and education.Black-browed albatrosses nesting at the Kerguelen Islands. [1]\n\nResearchers discovered a new gentoo penguin species, Pygoscelis kerguelensis, living on the Kerguelen Islands in the Indian Ocean. [2]\n\nIts name derives from the Kerguelen Islands. [3]\n\nEuropa FT - Tromelin Island FT - Crozet Island FT - Kerguelen Island FT - Use AN for Antartica Stations ` FT - Amsterdam & St. [4]\n\nSources: [1] Can a species evolve fast enough to avoid extinction under a changing... (whoi.edu)  [2] Scientists Identify New Penguin Species for the First Time in More... (yahoo.com)  [3] First New Penguin Species in a Century Found on Kerguelen (intelligentliving.co)  [4] Directory | WWFF (wwff.co)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Kerguelen Islands current research station status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 101.5,
+            "domain": "whoi.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T20:53:01.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Can a species evolve fast enough to avoid extinction under a changing...",
+            "url": "https://www.whoi.edu/press-room/news-release/blackbrowedalbatross"
+          },
+          {
+            "ageHours": 12.4,
+            "domain": "yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:56:59.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Scientists Identify New Penguin Species for the First Time in More...",
+            "url": "https://www.yahoo.com/news/science/articles/scientists-identify-penguin-species-first-134649945.html"
+          },
+          {
+            "ageHours": 47.1,
+            "domain": "intelligentliving.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T03:13:18.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "First New Penguin Species in a Century Found on Kerguelen",
+            "url": "https://www.intelligentliving.co/new-penguin-species-kerguelen-islands"
+          },
+          {
+            "ageHours": 76.1,
+            "domain": "wwff.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T22:16:02.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.69,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Directory | WWFF",
+            "url": "https://wwff.co/directory?showRef=DLFF-1309"
+          },
+          {
+            "ageHours": 10.4,
+            "domain": "ecoportal.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:58:53.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.66,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "New penguin species identified after long isolation on remote island",
+            "url": "https://www.ecoportal.net/en/new-gentoo-penguin-species-earth/39771"
+          },
+          {
+            "ageHours": 59.5,
+            "domain": "sciencesprings.wordpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:49:03.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "From The Woods Hole Oceanographic Institution: [Climate change/Sea...",
+            "url": "https://sciencesprings.wordpress.com/2026/09/26/from-the-woods-hole-oceanographic-institution-climate-change-sea-birds-can-a-species-evolve-fast-enough-to-avoid-extinction-under-a-changing-climate"
+          },
+          {
+            "ageHours": 111.3,
+            "domain": "aisfriends.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T11:00:29.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "NEXTcontrol GmbH - AIS Station (Germany)",
+            "url": "https://www.aisfriends.com/stations/1247"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 10.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.724,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 9120,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 802,
+        "statesFreshness": false,
+        "text": "Join our email list for exclusive offers and the latest news.Faroe Islands (DKK kr.) [1]\n\nMoldova vs Faroe Islands team news and expert analysis. [6]\n\nStorm disrupts plans as Kazakhstan national team stranded en route to the Faroe Islands. [2]\n\nTÓRSHAVN — The Faroe Islands opened their UEFA Nations League campaign with a hard-fought 1-1 draw against Kazakhstan tonight, as a vibrant Tórsvøllur Stadium played host to what proved to be a captivating, if at times erratic, clash. [3]\n\nSources: [1] BlanBunny - The Radiant Children Behind a Healing Brand (blanbunnytea.com)  [2] Will the match go ahead? Storm disrupts plans as... | Dailysports (dailysports.net)  [3] News from the Faroe Islands — in English (local.fo)  [4] Faroe Islands vs Kazakhstan Prediction: 26.09.2026 UEFA... | Tips.GG (tips.gg)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest news about the Faroe Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 67.8,
+            "domain": "blanbunnytea.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T06:34:11.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "BlanBunny - The Radiant Children Behind a Healing Brand",
+            "url": "https://blanbunnytea.com/blogs/news/blanbunny-the-radiant-children-behind-a-healing-brand"
+          },
+          {
+            "ageHours": 107.5,
+            "domain": "dailysports.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T14:47:46.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Will the match go ahead? Storm disrupts plans as... | Dailysports",
+            "url": "https://dailysports.net/news/will-the-match-go-ahead-storm-disrupts-plans-as-kazakhstan-national-team-stranded-en-route-to-the-faroe-islands"
+          },
+          {
+            "ageHours": 50.6,
+            "domain": "local.fo",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T23:43:03.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.73,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "News from the Faroe Islands — in English",
+            "url": "https://local.fo/faroese-hold-kazakh-visitors-to-gritty-draw-in-nations-league-opener"
+          },
+          {
+            "ageHours": 110,
+            "domain": "tips.gg",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T12:21:13.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Faroe Islands vs Kazakhstan Prediction: 26.09.2026 UEFA... | Tips.GG",
+            "url": "https://tips.gg/article/faroe-islands-vs-kazakhstan-26-09-2026"
+          },
+          {
+            "ageHours": 54.2,
+            "domain": "sofascore.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T20:07:22.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Faroe Islands 1-1 Kazakhstan: Yerlanov 9.1 on Sofascore",
+            "url": "https://www.sofascore.com/news/faroe-islands-1-1-kazakhstan-yerlanov-9-1-on-sofascore"
+          },
+          {
+            "ageHours": 37,
+            "domain": "ratingbet.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:21:15.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Moldova vs Faroe Islands prediction: expert analysis, possible lineups...",
+            "url": "https://ratingbet.com/predictions/moldova-vs-faroe-islands-prediction-expert-analysis-possible-lineups-september-29-2026"
+          },
+          {
+            "ageHours": 40.9,
+            "domain": "ghanasoccernet.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T09:28:54.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Moldova vs Faroe Islands :, H2H Prediction (29 Sep 2026) Odds...",
+            "url": "https://ghanasoccernet.com/latest-predictions/moldova-vs-faroe-islands-prediction-preview-h2h-and-team-news-29-09-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 37,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.729,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 20023,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1008,
+        "statesFreshness": true,
+        "text": "The full capacity of the Svalbard Global Seed Vault is 4.5 million different seed types and it can therefore house duplicates of all the unique seed types found today in the gene banks around the world, as well as new seed types that will be gathered in the future. [5]\n\nThe Svalbard Global Seed Vault is located 400 feet inside a mountain near Longyearbyen and is home to over 1.4 million seed samples. [12]\n\nSvalbard Global Seed Vault top view at sunrise, February 2025. [1]\n\nSafe haven for the world’s crop diversity\n\nWith all this in mind, in 2008 The Svalbard Global Seed Vault was built aiming to provide a safe place for one of the world’s most important natural resources – our diminishing amounts of seeds. [2]\n\nSources: [1] Svalbard Global Seed Vault - Wikipedia (en.wikipedia.org)  [2] Keeping the World’s Seeds Safe (greenlivingideas.com)  [3] Artificial cooling of Arctic soil safeguards"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Svalbard Global Seed Vault capacity",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Svalbard Global Seed Vault - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Svalbard_Global_Seed_Vault"
+          },
+          {
+            "ageHours": 1023.9,
+            "domain": "greenlivingideas.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T10:26:29.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Keeping the World’s Seeds Safe",
+            "url": "https://greenlivingideas.com/2011/08/29/keeping-the-worlds-seeds-safe"
+          },
+          {
+            "ageHours": null,
+            "domain": "dtu.dk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Artificial cooling of Arctic soil safeguards global genetic material - DTU",
+            "url": "https://www.dtu.dk/english/news/all-news/nyhed?id=4deef47a-4c5d-4fd3-90fc-9b06d69e5f67"
+          },
+          {
+            "ageHours": 1078.5,
+            "domain": "sbs.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T03:49:15.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Seeds of Love (136) The Svalbard Global Seed Vault",
+            "url": "https://www.sbs.com.au/language/vietnamese/en/podcast-episode/seeds-of-love-136-the-svalbard-global-seed-vault/9du6a10cc"
+          },
+          {
+            "ageHours": null,
+            "domain": "global.chinadaily.com.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "More than 1 mln seed samples stored in Arctic 'Doomsday' vault",
+            "url": "https://global.chinadaily.com.cn/a/201802/28/WS5a960248a3106e7dcc13e87e.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "cimmyt.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Svalbard Global Seed Vault – CIMMYT",
+            "url": "https://www.cimmyt.org/news/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "croptrust.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Svalbard Global Seed Vault - Crop Trust",
+            "url": "https://www.croptrust.org/what-we-do/programs/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "ebsco.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Svalbard Global Seed Vault | Botany | Research... | EBSCO Research",
+            "url": "https://www.ebsco.com/research-starters/botany/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Strategic reserve",
+            "url": "https://en.wikipedia.org/wiki/Strategic_reserve"
+          },
+          {
+            "ageHours": null,
+            "domain": "seedvault.no",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Svalbard Global Seed Vault",
+            "url": "https://www.seedvault.no"
+          },
+          {
+            "ageHours": null,
+            "domain": "cgiar.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "The Svalbard Global Seed Vault: the ultimate... | CGIAR System",
+            "url": "https://www.cgiar.org/news-events/news/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "aol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "See what life is like in the world's northernmost town, where... - AOL",
+            "url": "https://www.aol.com/articles/see-life-worlds-northernmost-town-160942000.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1023.9,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.863,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2070,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1185,
+        "statesFreshness": true,
+        "text": "Victor Newman (Image via YouTube / Y&R INSIDER) What happened on The Young and the Restless today (September 28, 2026)? [5]\n\nRAF Fairford: What happened and who is behind the alleged terror plot? [2]\n\n‘The honeymoon in New England is over for Maye’: Tedy Bruschi’s thoughts on Drake Maye after Patriots’ loss\n\nBruschi said he ultimately still believes that New England under Mike Vrabel is \"going to get it right.\"\n\nSign up for the Today newsletter\n\nGet everything you need to know to start your day, delivered right to your inbox every morning. [4]\n\nThis live page will close soon.British counterterrorism police announced today that the five men – all London-based Britons in their mid-20s – had been freed on bail, and that officers were probing whether a “foreign state” could be involved. [1]\n\nSources: [1] Iran war updates: Trump says US officials met Iran war... | Al Jazeera (aljazeera.com)  "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "what happened in Tuvalu today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 26.2,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:05:43.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Iran war updates: Trump says US officials met Iran war... | Al Jazeera",
+            "url": "https://www.aljazeera.com/news/liveblog/2026/9/28/iran-war-live-tehran-warns-its-fully-prepared-for-war-amid-hormuz-tensions"
+          },
+          {
+            "ageHours": 14.8,
+            "domain": "independent.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:35:16.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Five men arrested over RAF Fairford ‘bomb plot’ are... | The Independent",
+            "url": "https://www.independent.co.uk/news/uk/crime/raf-fairford-arrests-latest-updates-investigation-police-b3057570.html"
+          },
+          {
+            "ageHours": 24.6,
+            "domain": "lightspeedmagazine.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T01:44:55.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Alterverse - Lightspeed Magazine",
+            "url": "https://www.lightspeedmagazine.com/fiction/alterverse"
+          },
+          {
+            "ageHours": 11.3,
+            "domain": "boston.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:02:41.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "‘The honeymoon in New England is over for Maye’: Tedy Bruschi’s thoughts on Drake Maye after Patriots’ loss",
+            "url": "https://www.boston.com/sports/morning-sports-update/2026/09/28/tedy-bruschis-thoughts-on-drake-maye-after-patriots-loss"
+          },
+          {
+            "ageHours": 7.6,
+            "domain": "primetimer.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:42:10.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "What happened on Days of Our Lives today... - PRIMETIMER",
+            "url": "https://www.primetimer.com/features/what-happened-on-days-of-our-lives-today-september-28-2026-marlena-faces-a-shocking-possibility-while-xander-backs-sarah"
+          },
+          {
+            "ageHours": 26.3,
+            "domain": "wltreport.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:03:09.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "AWESOME: President Trump Presents Trophy to Team USA After Epic Comeback at President’s Cup",
+            "url": "https://wltreport.com/2026/09/27/awesome-president-trump-presents-trophy-to-team-usa-after-epic-comeback-at-presidents-cup"
+          },
+          {
+            "ageHours": 9.7,
+            "domain": "lowendtalk.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:37:22.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "VSYS Host: UA data centers. What happened and... — LowEndTalk",
+            "url": "https://lowendtalk.com/discussion/221478/vsys-host-ua-data-centers-what-happened-and-where-recovery-stands/p2"
+          },
+          {
+            "ageHours": 11,
+            "domain": "malone.news",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:21:58.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "The Capture of MAHA - by Dr. Robert W. Malone - Malone News",
+            "url": "https://www.malone.news/p/the-capture-of-maha"
+          },
+          {
+            "ageHours": 8,
+            "domain": "rtrunews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:18:41.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Ukraine is asking for a truce. So why is it preparing for a bigger war?",
+            "url": "https://rtrunews.com/russia/646367-ukraine-is-asking-for-truce"
+          },
+          {
+            "ageHours": 18,
+            "domain": "crewonboard.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:22:01.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.69,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Master for General Cargo Vessel | CrewOnBoard - sea jobs, seafarer...",
+            "url": "https://crewonboard.net/vacancy/detail/23126"
+          },
+          {
+            "ageHours": 14.3,
+            "domain": "aol.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:01:03.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.65,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "17 Shocking Celeb Scandals From Before The Internet We Could Never Handle Today",
+            "url": "https://www.aol.com/articles/17-shocking-celeb-scandals-internet-120103000.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 7.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.804,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1965,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 870,
+        "statesFreshness": true,
+        "text": "In 2004, nearly one-third of the adult male population of the Pitcairn islands was convicted of child sex assault, even the mayor. [6]\n\nJoin our email list for exclusive offers and the latest news.Pitcairn Islands (NZD $). [1]\n\nWith a population of around a million, it remains spread across those same islands today, connected by dozens of bridges. [3]\n\nand the South Sandwich Islands GT: Guatemala GU: Guam GW: Guinea-Bissau GY: Guyana HK: Hong Kong HM: Heard Island and McDonald Islands HN: Honduras HR: Croatia HT: Haiti HU: Hungary ID: Indonesia IE: Ireland IL: Israel IM: Isle of Man IN: India IO... [5]\n\nSources: [1] BlanBunny - The Radiant Children Behind a Healing Brand (blanbunnytea.com)  [2] Survey aims to gauge the health of our population | Bermuda News... (bbc.bm)  [3] Flag of Sweden - Flagpie (flagpie.net)  [4] Travel Restrictions Eased (newsweek.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "current population of Pitcairn Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 67.8,
+            "domain": "blanbunnytea.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T06:34:11.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.87,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "BlanBunny - The Radiant Children Behind a Healing Brand",
+            "url": "https://blanbunnytea.com/blogs/news/blanbunny-the-radiant-children-behind-a-healing-brand"
+          },
+          {
+            "ageHours": 91.6,
+            "domain": "bbc.bm",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:42:06.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Survey aims to gauge the health of our population | Bermuda News...",
+            "url": "https://bbc.bm/survey-aims-to-gauge-the-health-of-our-population"
+          },
+          {
+            "ageHours": 38.3,
+            "domain": "flagpie.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T12:01:38.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Flag of Sweden - Flagpie",
+            "url": "https://flagpie.net/flag-sweden"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "newsweek.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:48:54.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Travel Restrictions Eased",
+            "url": "https://www.newsweek.com/hawaii-tourist-accused-of-hurling-rock-at-seal-has-restrictions-eased-12496308"
+          },
+          {
+            "ageHours": 69.9,
+            "domain": "forecastvibes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T04:29:15.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.68,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Regardless of the weather, it's always chill here.",
+            "url": "https://www.forecastvibes.com"
+          },
+          {
+            "ageHours": 7.7,
+            "domain": "factrepublic.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:41:31.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.68,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.04
+            },
+            "title": "50 Random Facts List #188 - Page 1590488604 of 2 - Fact Republic",
+            "url": "https://factrepublic.com/50-random-facts-list-188/1590488604"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 7.7,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.78,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1791,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1007,
+        "statesFreshness": true,
+        "text": "The researchers in this study were trying to find out how tardigrades survive extreme doses of ionizing radiation that can shred DNA. [1]\n\nResearchers have discovered a new species of tardigrade with sand dunes adaptations and provide new evidence that some tardigrades select places to colonise by riding inside snails in two investigations. [3]\n\nThe researchers reckon this explains why heavily irradiated tardigrades survive, but become sterile. [9]\n\nJU VC releases latest issue of University's Multidisciplinary Research Journal\n\nExcelsior Correspondent JAMMU, Sept 24: Professor Umesh Rai, Vice Chancellor of the University of Jammu, today officially released Vol. [10]\n\nSources: [1] Biology — Journal Vol. 2 — Youth STEM Journal Club (youthstemjournal.org)  [2] New Animal Species Reported in Svalbard | Polar Journal (polarjournal.net)  [3] Researchers Discovered A Brand-New Species Of Tardig"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest research on tardigrades",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 38.3,
+            "domain": "youthstemjournal.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T12:01:45.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Biology — Journal Vol. 2 — Youth STEM Journal Club",
+            "url": "https://www.youthstemjournal.org/journal/v2/biology"
+          },
+          {
+            "ageHours": 99.2,
+            "domain": "polarjournal.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T23:08:09.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "New Animal Species Reported in Svalbard | Polar Journal",
+            "url": "https://polarjournal.net/new-animal-species-reported-in-svalbard"
+          },
+          {
+            "ageHours": 108.6,
+            "domain": "thehansindia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T13:45:12.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Researchers Discovered A Brand-New Species Of Tardigrade",
+            "url": "https://www.thehansindia.com/offbeat/researchers-discovered-a-brand-new-species-of-tardigrade-769967"
+          },
+          {
+            "ageHours": 63.3,
+            "domain": "nature.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T10:59:40.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Oxidative Stress Resistance Mechanisms in Deinococcus... | Nature",
+            "url": "https://www.nature.com/subjects/oxidative-stress-resistance-mechanisms-in-deinococcus-bacteria"
+          },
+          {
+            "ageHours": 14.2,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:10:50.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Grow Your Business with Social Media Marketing, Dallas",
+            "url": "https://www.adproceed.com/ads/grow-your-business-with-social-media-marketing-dallas"
+          },
+          {
+            "ageHours": 48.3,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 73.2,
+            "domain": "yellow.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T01:08:16.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Can Dogecoin Really Hit $3? Whale Bets Collide With Hard Math | Yellow",
+            "url": "https://yellow.com/news/dogecoin-3-whale-bets-hard-math"
+          },
+          {
+            "ageHours": 85.8,
+            "domain": "highschool.latimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T12:32:09.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Opinion: open letter to the American Society of Transplantation...",
+            "url": "https://highschool.latimes.com/opinion/opinion-open-letter-to-the-american-society-of-transplantation-trehalose-a-tardigrade-sugar-could-save-lives"
+          },
+          {
+            "ageHours": 38.3,
+            "domain": "youthstemjournal.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T12:01:55.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "YSJC 2026 Volume 2 Literature Review",
+            "url": "https://www.youthstemjournal.org/pdfs/ysjc-volume-2-summer-2026.pdf"
+          },
+          {
+            "ageHours": 103.6,
+            "domain": "dailyexcelsior.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:44:06.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "JU VC releases latest issue of University's Multidisciplinary Research Journal",
+            "url": "https://www.dailyexcelsior.com/ju-vc-releases-latest-issue-of-universitys-multidisciplinary-research-journal"
+          },
+          {
+            "ageHours": 115.3,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:00:00.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Independent research firm names RWS a Leader in latest Localization Services analyst report",
+            "url": "https://www.prnewswire.co.uk/news-releases/independent-research-firm-names-rws-a-leader-in-latest-localization-services-analyst-report-302888009.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 14.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.828,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2013,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1186,
+        "statesFreshness": false,
+        "text": "Bolt’s race\n\n#JAM Usain Bolt wins his heat in the men's 100m with a 10.07 time at #Rio2016 #Athletics https://t.co/JAoL0ve2RK https://t.co/aWKt3JuxUC\n\n— CBC Olympics (@CBCOlympics) August 13, 2016\n\nCanadians Aaron Brown, who went sub-10 earlier this year, was eliminated in the heats as was Akeem Haynes. [2]\n\nWatch Usain Bolt in the video above win the 100m event at the Rio 2016 Olympics and claim a historic seventh gold medal. [3]\n\nThe men's 100 metres event at the 2016 Summer Olympics took place between 13–14 August at the Olympic Stadium. [5]\n\nWhile the focus of the finish of the men’s 4x100m final at the 2016 Rio Olympics was on Jamaica’s Usain Bolt, who had just run his final Olympic race and added yet another gold medal to his resume, a runner was down on the ground behind the celebration. [9]\n\nSources: [1] Athletics at the 2016 Summer Olympics – Men's 100 metres - Wikipedia (en.wik"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Who won the 2016 Olympics men's 100m?",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Athletics at the 2016 Summer Olympics – Men's 100 metres - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Athletics_at_the_2016_Summer_Olympics_%E2%80%93_Men%27s_100_metres"
+          },
+          {
+            "ageHours": 1052.9,
+            "domain": "runningmagazine.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T05:27:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Andre De Grasse eyes 100m gold: “I don’t want to wait, I want to do it now”",
+            "url": "https://runningmagazine.ca/sections/runs-races/rio-2016/andre-de-grasse-eyes-100m-gold-i-dont-want-to-wait-i-want-to-do-it-now"
+          },
+          {
+            "ageHours": null,
+            "domain": "irishmirror.ie",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Watch Usain Bolt win 100m at Rio 2016 Olympics to... - Irish Mirror",
+            "url": "https://www.irishmirror.ie/sport/other-sport/athletics/watch-usain-bolt-win-100m-8633234"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.co.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympics men's 100m final: How Noah Lyles won the greatest race …",
+            "url": "http://www.bbc.co.uk/sport/olympics/articles/clwyy8jwp2go"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Athletics at the 2016 Summer Olympics – Men's 100 metres",
+            "url": "https://en.wikipedia.org/wiki/Athletics_at_the_2016_Summer_Olympics_%E2%80%93_Men's_100_metres"
+          },
+          {
+            "ageHours": 993.5,
+            "domain": "runnerstribe.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T16:49:51.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Aussie Rio Updates Via Social Media: Day 3 EVENING",
+            "url": "https://runnerstribe.com/australian-olympic-team/olympic-news/aussie-rio-updates-via-social-media-day-3-evening"
+          },
+          {
+            "ageHours": 1333.1,
+            "domain": "performancelabofcalifornia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:43.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Usain Bolt Top Speed Explained: The Fastest Human Ever",
+            "url": "https://www.performancelabofcalifornia.com/usain-bolt"
+          },
+          {
+            "ageHours": 1246.3,
+            "domain": "essentiallysports.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:10.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "How Many mph Can Olympics Legend Usain Bolt Run?",
+            "url": "https://www.essentiallysports.com/olympics-news-how-many-mph-can-olympics-legend-usain-bolt-run"
+          },
+          {
+            "ageHours": null,
+            "domain": "nbcdfw.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Inside 100m Sprinter Trayvon Bromell's Way Back to the Olympics",
+            "url": "https://www.nbcdfw.com/news/sports/tokyo-summer-olympics/inside-100m-sprinter-trayvon-bromells-way-back-to-the-olympics/2700124"
+          },
+          {
+            "ageHours": null,
+            "domain": "sportingnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "sportingnews.com/ca/olympics/news/usain-bolt-worlds-fastest-man...",
+            "url": "https://www.sportingnews.com/ca/olympics/news/usain-bolt-worlds-fastest-man-100-meter-dash-world-record-retired/aa09e2c39af1092f64f6a91b"
+          },
+          {
+            "ageHours": null,
+            "domain": "newsweek.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "How Noah Lyles Won 100M Olympic Title, According to... - Newsweek",
+            "url": "https://www.newsweek.com/noah-lyles-100m-olympics-data-how-win-1934533"
+          },
+          {
+            "ageHours": null,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.76,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Tokyo Day 9 Highlights: Dressel Wins Gold in Swimming, Italians Stun...",
+            "url": "https://www.nytimes.com/live/2021/07/31/sports/olympics"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 993.5,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.866,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2407,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 728,
+        "statesFreshness": false,
+        "text": "Indeed, the volume of the alarm is in marked contrast to events leading to the great financial crisis of 2008. [6]\n\nIs the US heading for another 2008-style financial crisis? [7]\n\nThe speaker argues that while the 2008 financial crisis was extremely damaging, the situation brewing now is structurally different and could be worse. [2]\n\nAnother similarity: In the buildup to the 2008 financial crisis, even as it was... [1]\n\nSources: [1] It’s as though 2008 never even happened. (nytimes.com)  [2] Video Summary - This is MUCH Worse Than 2008… what is coming... (youtubesummary.com)  [3] Are These Still the Best Dividend Stocks in Canada? (fool.ca)  [4] NDLI: Leaders debate finance crisis as bad news mounts (ndl.iitkgp.ac.in)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "what happened in the 2008 financial crisis",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 63.3,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:00:41.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "It’s as though 2008 never even happened.",
+            "url": "https://www.nytimes.com/2026/09/26/opinion/ai-bubble-banking-crisis-too-big-to-fail.html"
+          },
+          {
+            "ageHours": 64.5,
+            "domain": "youtubesummary.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T09:49:41.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Video Summary - This is MUCH Worse Than 2008… what is coming...",
+            "url": "https://youtubesummary.com/summary/TKGehlIYKQM"
+          },
+          {
+            "ageHours": 98.3,
+            "domain": "fool.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:00:08.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Are These Still the Best Dividend Stocks in Canada?",
+            "url": "https://www.fool.ca/2026/09/24/are-these-still-the-best-dividend-stocks-in-canada-2"
+          },
+          {
+            "ageHours": 111.5,
+            "domain": "ndl.iitkgp.ac.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T10:50:40.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.13,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "NDLI: Leaders debate finance crisis as bad news mounts",
+            "url": "https://ndl.iitkgp.ac.in/nw_document/economictimes/economictimes/39760_85"
+          },
+          {
+            "ageHours": 117,
+            "domain": "eir.news",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:20:34.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "British PM Burnham Urges 'Move Quickly,' Like 2008, To Ward Off the...",
+            "url": "https://eir.news/2026/09/news/british-pm-burnham-urges-move-quickly-like-2008-to-ward-off-the-crisis"
+          },
+          {
+            "ageHours": 101,
+            "domain": "thisismoney.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T21:19:07.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "The bond market and stock market are both sounding... | This is Money",
+            "url": "https://www.thisismoney.co.uk/money/markets/article-16158257/The-bond-market-stock-market-sounding-alarm-crash-coming-ALEX-BRUMMER.html"
+          },
+          {
+            "ageHours": 11.2,
+            "domain": "triangle-investor.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:09:47.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Melody Wright on America's Foreclosure Crisis: Is Another 2008...",
+            "url": "https://triangle-investor.com/interviews/americas-foreclosure-crisis-another-2008-housing-crash-melody-wright"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 11.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.976,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2100,
+      "vertical": "news"
+    }
+  ],
+  "total": 138
+}

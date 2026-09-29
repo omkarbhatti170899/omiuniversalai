@@ -1,0 +1,4186 @@
+{
+  "answerContract": {
+    "allSourcesDated": 16,
+    "citationsResolve": 18,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 18,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "current-news": {
+      "fresh": 16,
+      "kept": 159,
+      "n": 18
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 0,
+      "kept": 2,
+      "n": 1
+    },
+    "current": {
+      "fresh": 1,
+      "kept": 14,
+      "n": 2
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 22,
+      "n": 3
+    },
+    "live": {
+      "fresh": 3,
+      "kept": 32,
+      "n": 3
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 24,
+      "n": 2
+    },
+    "now": {
+      "fresh": 2,
+      "kept": 22,
+      "n": 2
+    },
+    "recent": {
+      "fresh": 2,
+      "kept": 12,
+      "n": 2
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 31,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 18,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1394,
+        "statesFreshness": true,
+        "text": "With the threat from Russia rising in the real world, a new series from Sky brings together former ministers and military chiefs to test what might happen if the UK faced an attack.Fairford is dominating the headlines today, but the media’s response is not happening in a vacuum. [4]\n\nSchool Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [3]\n\nBy :India Today World Desk.The current restriction is focused on certain new H-1B workers who are outside the United States. [7]\n\nThese updates cover key national, international, sports, and general news to help you stay informed about what is happening around the world. [3]\n\nSources: [1]"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is happening in the world today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2,
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.1,
+            "domain": "bleacherreport.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:00:30.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Bleacher Report & WWE Reach Multi-Year Global Content Partnership",
+            "url": "https://bleacherreport.com/articles/25503996-bleacher-report-wwe-reach-multi-year-global-content-partnership"
+          },
+          {
+            "ageHours": 18.1,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:05:46.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Stock market today: Dow, S&P 500, Nasdaq slip as AI safety concerns...",
+            "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-september-28-dow-sp-500-nasdaq-080420627.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 10.4,
+            "domain": "rtrunews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:45:33.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Escalation watch: Live updates as West ramps up war rhetoric",
+            "url": "https://rtrunews.com/news/646370-uk-fairford-escalation-rhetoric-russia"
+          },
+          {
+            "ageHours": 18.3,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:50:05.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Poland scrambles military aircraft in response to... | The Guardian",
+            "url": "https://www.theguardian.com/world/live/2026/sep/28/europe-ukraine-defence-ministers-pope-leo-france-visit-latest-news-updates"
+          },
+          {
+            "ageHours": 26.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:05:43.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Iran war updates: Trump says US officials met Iran war... | Al Jazeera",
+            "url": "https://www.aljazeera.com/news/liveblog/2026/9/28/iran-war-live-tehran-warns-its-fully-prepared-for-war-amid-hormuz-tensions"
+          },
+          {
+            "ageHours": 10.8,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:22:55.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "H1B visa, JD Vance warns recruiters of tougher scrutiny. - India Today",
+            "url": "https://www.indiatoday.in/world/us-news/story/h1b-visa-jd-vance-warns-recruiters-of-tougher-scrutiny-what-it-means-for-indian-workers-3005103-2026-09-28"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "democracynow.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:38:55.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "“Britain’s Gaza Secrets Exposed”: How... | Democracy Now!",
+            "url": "https://www.democracynow.org/2026/9/28/britain_s_gaza_secrets_exposed"
+          },
+          {
+            "ageHours": 5.9,
+            "domain": "mickeyblog.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:13:27.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Stay Warm This Fall With the Latest Walt Disney World Hoodies",
+            "url": "https://mickeyblog.com/2026/09/28/stay-warm-this-fall-with-the-latest-walt-disney-world-hoodies"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 5.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.926,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 14950,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 897,
+        "statesFreshness": true,
+        "text": "On top of that, Wall Street analysts, including Deutsche Bank's Lauren Silberman, soured on last week's developments and said the turnaround inflection point for the quick-service Big Mac chain has been delayed.Today's Top Stories. [4]\n\nLast week a piece of news crossed the tape that deserved a hell of a lot more attention than it got.Today's Top Stories. [8]\n\nRead Today's E-edition\n\nTucson's Top Stories: September 28\n\nCopy article link\n\nA\n\nLee Enterprises\n\n, Incorporated newspaper. [1]\n\nToday, China invokes Zheng He’s voyages to bestow historical legitimacy upon Chinese-Middle Eastern relations.Top trending stories. [7]\n\nSources: [1] Topics (tucson.com)  [2] As Republicans break with Trump, one gets a brushback: From the... (nbcnews.com)  [3] Hybrid warfare: The threat of Russia looms over the... - France 24 (france24.com)  [4] It's A 'McDisaster' <!-- --> | ZeroHedge (zerohedge.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "today's top stories",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.2,
+            "domain": "tucson.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:00:00.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Topics",
+            "url": "https://tucson.com/news/local/video_d80aba3e-f036-52b9-ad19-b77f52336a07.html"
+          },
+          {
+            "ageHours": 2.6,
+            "domain": "nbcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:31:11.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "As Republicans break with Trump, one gets a brushback: From the...",
+            "url": "https://www.nbcnews.com/politics/politics-news/republicans-break-trump-one-gets-brushback-politics-desk-rcna600385"
+          },
+          {
+            "ageHours": 10.4,
+            "domain": "france24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:47:59.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Hybrid warfare: The threat of Russia looms over the... - France 24",
+            "url": "https://www.france24.com/en/europe/20260928-hybrid-warfare-the-threat-of-russia-looms-over-the-mediterranean"
+          },
+          {
+            "ageHours": 15.2,
+            "domain": "zerohedge.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:57:36.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "It's A 'McDisaster' <!-- --> | ZeroHedge",
+            "url": "https://www.zerohedge.com/markets/its-mcdisaster"
+          },
+          {
+            "ageHours": 3.4,
+            "domain": "france24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:47:28.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Evicted 87-year-old Spanish pensioner to return home after... - France 24",
+            "url": "https://www.france24.com/en/europe/20260928-evicted-spanish-pensioner-to-return-home-after-housing-protest-deal-spain-madrid"
+          },
+          {
+            "ageHours": 12.5,
+            "domain": "thestatesman.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:40:13.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India’s industrial output growth accelerates to 8% in... - The Statesman",
+            "url": "https://www.thestatesman.com/business/indias-industrial-output-growth-accelerates-to-8-in-august-manufacturing-leads-1503644178.html"
+          },
+          {
+            "ageHours": 25.9,
+            "domain": "asiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:15:40.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Struggle over Hormuz and Bab el‑Mandeb straits is... - Asia Times",
+            "url": "https://asiatimes.com/2026/09/struggle-over-hormuz-and-bab-el-mandeb-straits-is-centuries-old"
+          },
+          {
+            "ageHours": 12.7,
+            "domain": "zerohedge.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:25:37.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Adding Leverage To America’s Gambling Problem<!-- --> | ZeroHedge",
+            "url": "https://www.zerohedge.com/news/2026-09-28/adding-leverage-americas-gambling-problem"
+          },
+          {
+            "ageHours": 10.3,
+            "domain": "conservativereview.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:49:31.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Don’t Miss What’s Happening in the Midterms - Conservative Review",
+            "url": "https://www.conservativereview.com/dont-miss-whats-happening-in-the-midterms-2677953776.html"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "democracynow.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:38:55.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "“Britain’s Gaza Secrets Exposed”: How... | Democracy Now!",
+            "url": "https://www.democracynow.org/2026/9/28/britain_s_gaza_secrets_exposed"
+          },
+          {
+            "ageHours": 13.4,
+            "domain": "clashreport.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:46:19.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Wargame Meant to Show European Resolve Exposes Deeper...",
+            "url": "https://clashreport.com/world/articles/wargame-meant-to-show-european-resolve-exposes-deeper-weaknesses-1t6sv2fejc2"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 2.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.971,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2888,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 755,
+        "statesFreshness": true,
+        "text": "Latest news bulletin | September 28th, 2026 – Evening. [5]\n\nAI orchestration and integration news today includes OpenAI stopping work on its most powerful models after a test… [2]\n\nIn the news: Schwab’s future, Bürgenstock army, toxic leak, machine exports and Turkish mafia.How poring over old journals gives insight into right-wing extremism today. [4]\n\n5 min readNew DelhiSep 26, 2026 12:21 PM IST. [1]\n\nSources: [1] Zohra Sehgal Festival turns 10: Remembering an... - The Indian Express (indianexpress.com)  [2] Cybersecurity and frontier AI news today includes cPanel, Mailchimp... (linkedin.com)  [3] The hotel that rescues Freddie Mercury's Munich and turns it into the... (mundoamerica.com)  [4] Switzerland Today - SWI swissinfo.ch (swissinfo.ch)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 67.2,
+            "domain": "indianexpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T06:56:06.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Zohra Sehgal Festival turns 10: Remembering an... - The Indian Express",
+            "url": "https://indianexpress.com/article/news-today/zohra-sehgal-festival-turns-10-remembering-an-artiste-that-refused-to-sit-still-10894657"
+          },
+          {
+            "ageHours": 11.9,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:15:15.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Cybersecurity and frontier AI news today includes cPanel, Mailchimp...",
+            "url": "https://www.linkedin.com/pulse/cybersecurity-frontier-ai-news-today-includes-cpanel-mailchimp-joe-c72gc"
+          },
+          {
+            "ageHours": 13.4,
+            "domain": "mundoamerica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:43:22.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The hotel that rescues Freddie Mercury's Munich and turns it into the...",
+            "url": "https://www.mundoamerica.com/entertainment/2026/09/28/6aba5d40e9cf4a5b548b458a.html"
+          },
+          {
+            "ageHours": 9,
+            "domain": "swissinfo.ch",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:07:12.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Switzerland Today - SWI swissinfo.ch",
+            "url": "https://www.swissinfo.ch/eng/archive-swiss-diaspora/switzerland-today/78289744"
+          },
+          {
+            "ageHours": 36.5,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:38:10.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Are you in pain? In some cases, exercising may be as good... | Euronews",
+            "url": "https://www.euronews.com/2026/09/27/are-you-in-pain-in-some-cases-exercising-may-be-as-good-as-painkillers"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.946,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1592,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1418,
+        "statesFreshness": true,
+        "text": "We give you the latest climate facts from the world’s leading source, analyse the trends and explain how our planet is changing.Top News Stories Today. [2]\n\nOrissaPOST ePaper : English Newspaper provide all latest news from India and world, current headlines, breaking news on business, sports, entertainment and world. [3]\n\nSchool Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [1]\n\nWorld News Day urges trust in ethical journalism\n\nStory audio is generated using AI\n\nWorld News Day is observed annually on September 28 to celebrate fact-based journalism, promote media literacy and highlight the essential role of trusted news in s"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest world news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 36.5,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:38:10.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Are you in pain? In some cases, exercising may be as good... | Euronews",
+            "url": "https://www.euronews.com/2026/09/27/are-you-in-pain-in-some-cases-exercising-may-be-as-good-as-painkillers"
+          },
+          {
+            "ageHours": 93.1,
+            "domain": "odishapostepaper.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T05:05:30.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "OrissaPOST Page: 2 - English Daily ePaper | Today Newspaper",
+            "url": "https://odishapostepaper.com/edition/5899/orissapost/page/2"
+          },
+          {
+            "ageHours": 93.1,
+            "domain": "odishapostepaper.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T05:05:30.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "OrissaPOST Page: 8 - English Daily ePaper | Today Newspaper",
+            "url": "https://odishapostepaper.com/edition/5899/orissapost/page/8"
+          },
+          {
+            "ageHours": 105.7,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:28:31.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Russia hybrid attacks in Europe: NATO says plans ready... - India Today",
+            "url": "https://www.indiatoday.in/world/story/russia-hybrid-attacks-europe-nato-ready-denmark-warns-escalation-ptag-3002289-2026-09-24"
+          },
+          {
+            "ageHours": 107.7,
+            "domain": "tass.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T14:28:46.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Russia makes revolution in jet-powered UAVs — newspaper - World",
+            "url": "https://tass.com/world/2192315"
+          },
+          {
+            "ageHours": 80.9,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T17:16:16.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Italy's women senators pose in short skirts amid row over deputy...",
+            "url": "https://www.hindustantimes.com/world-news/less-pretty-woman-longer-skirt-italian-minister-antonio-tajani-faces-backlash-over-sexist-remarks-101790331489202.html"
+          },
+          {
+            "ageHours": 40.2,
+            "domain": "nytimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T10:00:07.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Today’s Wordle Hints for September 28, 2026 - The New York Times",
+            "url": "https://www.nytimes.com/2026/09/27/crosswords/wordle-review-1927.html"
+          },
+          {
+            "ageHours": 7.1,
+            "domain": "timeslive.co.za",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:00:22.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "World News Day urges trust in ethical journalism",
+            "url": "https://www.timeslive.co.za/news/south-africa/2026-09-28-world-news-day-urges-trust-in-ethical-journalism"
+          },
+          {
+            "ageHours": 21.5,
+            "domain": "kahawatungu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:40:24.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "News media must stay relevant or ‘society will struggle’, says World News Day boss",
+            "url": "https://kahawatungu.com/news-media-must-stay-relevant-or-society-will-struggle-says-world-news-day-boss"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.873,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1355,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 832,
+        "statesFreshness": true,
+        "text": "Korean Man’s Alleged Participation In Horrific, 5+ Hour Gang Rape Makes International Headlines. [7]\n\nListen to and Follow ‘The Headlines’.Subscribe today at nytimes.com/subscription/audio or on Apple Podcasts and Spotify. [4]\n\nTriple Crown.International Thoroughbred horse racing previews, recaps, video, sales and breeding. [5]\n\n\"That is why we deliberately bring together people who do not normally share the same room. [3]\n\nSources: [1] School Assembly News Headlines Today – September... - Careerindia (careerindia.com)  [2] School Assembly News Headlines Today [29 September]: Top... (sundayguardianlive.com)  [3] As Energy, AI and Geopolitics Collide, Energy Disruptors: UNITE 2026 is Primed to Put the Whole System in One Room (newswire.ca)  [4] Possible Terror Plot Thwarted at U.K. Base, and Amazon Drones... (nytimes.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest international headlines",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 21.5,
+            "domain": "careerindia.com",
+            "providers": [
+              "searxng",
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:38:49.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "School Assembly News Headlines Today – September... - Careerindia",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 5.8,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "searxng",
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:24:06.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top...",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 109.9,
+            "domain": "newswire.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:15:02.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "As Energy, AI and Geopolitics Collide, Energy Disruptors: UNITE 2026 is Primed to Put the Whole System in One ",
+            "url": "https://www.newswire.ca/news-releases/as-energy-ai-and-geopolitics-collide-energy-disruptors-unite-2026-is-primed-to-put-the-whole-system-in-one-room-834544990.html"
+          },
+          {
+            "ageHours": 16.1,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:00:25.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Possible Terror Plot Thwarted at U.K. Base, and Amazon Drones...",
+            "url": "https://www.nytimes.com/2026/09/28/podcasts/the-headlines/terror-plot-base-amazon-drones-texas.html"
+          },
+          {
+            "ageHours": 62.1,
+            "domain": "bloodhorse.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T12:03:50.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "International Headlines - Page 3542 of 376 - BloodHorse",
+            "url": "https://www.bloodhorse.com/horse-racing/articles/section/international/3542"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:52:20.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "See the latest updates, context, and perspectives about this story.",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pRaTctSkVoSFF2UzJWaldERzNpZ0FQAQ?hl=en-US&gl=US&ceid=US%3Aen"
+          },
+          {
+            "ageHours": 47.6,
+            "domain": "koreaboo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T02:33:32.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.74,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Korean Man's Alleged Participation In Horrific, 5+ Hour... - Koreaboo",
+            "url": "https://www.koreaboo.com/news/korean-mans-alleged-participation-in-horrific-5-hour-gang-rape-makes-international-headlines"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 5.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.879,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1376,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1263,
+        "statesFreshness": true,
+        "text": "From free scream clubs to island forest getaways, events around the world are encouraging participants to release their pent-up anger together. [7]\n\nNow, I'm hosting workshops and events around the world, helping other women to find their calling, stepping into the fulfilled life they have been craving and contribute to my mission of lighting up the world one woman at a time. [9]\n\nAround the world in 2 minutes\n\nOwner of rehab center where supermodel’s son died had drug arrests\n\nDetails are emerging about the controversial owner of the rehab center where the 27-year-old son of supermodel Cindy Crawford and businessman Rande Gerber died. [3]\n\nHelp reach the lost and equip the church with the living and active truth of God's Word in our world today.Of News Events Around The World. [1]\n\nSources: [1] Dehumanizing Ideological Opponents: Roughly... - Harbinger's Daily (harbingersdaily.com)  [2]"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "current events around the world",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 116.5,
+            "domain": "harbingersdaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:40:49.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Dehumanizing Ideological Opponents: Roughly... - Harbinger's Daily",
+            "url": "https://harbingersdaily.com/dehumanizing-ideological-opponents-roughly-one-third-of-democrats-would-feel-positive-if-trump-were-assassinated"
+          },
+          {
+            "ageHours": 112.4,
+            "domain": "dezeen.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T09:43:13.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "\"It's time Norway realises we need to change\" says Line Ramstad",
+            "url": "https://www.dezeen.com/2026/09/24/line-ramstad-oslo-architecture-triennale"
+          },
+          {
+            "ageHours": 43.2,
+            "domain": "postandcourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T07:00:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Around the world in 2 minutes",
+            "url": "https://www.postandcourier.com/nation-world/around-the-world-in-2-minutes/article_879cbccb-d887-4af8-9c5d-48289f02bd31.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 5.1,
+            "domain": "greatperformances.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:03:04.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Exciting Events Around Town: October 2026... | Great Performances",
+            "url": "https://greatperformances.com/blog/exciting-events-around-town-october-2026"
+          },
+          {
+            "ageHours": 83,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:08:47.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "‘Robust little’ vessel begins treacherous 22,000km journey around...",
+            "url": "https://www.theguardian.com/environment/2026/sep/26/saildrone-unmanned-hurricane-proof-ship-antarctica-climate-hobart"
+          },
+          {
+            "ageHours": 16.9,
+            "domain": "bloomberg.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:16:59.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "At These Wellness Retreats, Screaming and Anger Are... - Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-09-28/at-these-wellness-retreats-screaming-and-anger-are-therapeutic"
+          },
+          {
+            "ageHours": 58,
+            "domain": "paddleworldwide.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T16:06:58.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "ICF will take more events around the world... | Paddle Worldwide",
+            "url": "https://paddleworldwide.com/news/icf-will-take-more-events-around-world-konietzko"
+          },
+          {
+            "ageHours": 70.2,
+            "domain": "events.karysann.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T03:58:46.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Made for MORE",
+            "url": "https://events.karysann.com"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 5.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.874,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1306,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1185,
+        "statesFreshness": true,
+        "text": "PCR and Mike Farris discuss the world situation, which is worse than is realized. [3]\n\nWorld First Aid Day Observed Today: Skills That Can Mean the Difference\n\nToday marks World First Aid Day, a crucial reminder that immediate care can be the deciding factor in emergencies like road accidents and sudden health crises. [1]\n\n2026-09-26T12:42+0000\n\n2026-09-26T12:42+0000\n\n2026-09-26T12:42+0000 world vladimir putin aleksandar vucic serbia ukraine russia state duma kremlin https://cdn1.img.sputnikglobe.com/img/106014/25/1060142513_0:277:3147:2047_1920x0_80_0_0_1d294a320f1eb969fa56f07cada6e4e4.jpg\n\n\"Pressing issues on the international agenda were addressed, including the conflict in Ukraine,\" the statement read. [2]\n\nIn a critical situation, this cheburbublik remembered the most useless advice of his life. [5]\n\nSources: [1] World First Aid Day Observed Today: Skills That Can Mean the Differenc"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is the current situation in the world",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 110.9,
+            "domain": "telugunow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T11:15:23.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "World First Aid Day Observed Today: Skills That Can Mean the Difference",
+            "url": "https://telugunow.com/health-tips-in-telugu/world-first-aid-day-emergency-care-skills.html"
+          },
+          {
+            "ageHours": 61.3,
+            "domain": "sputnikglobe.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:50:14.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Putin, Vucic Discuss Pressing Int'l Issues, Including Conflict in Ukraine - Kremlin",
+            "url": "https://sputnikglobe.com/20260926/putin-vucic-discuss-pressing-intl-issues-including-conflict-in-ukraine---kremlin-1124795390.html"
+          },
+          {
+            "ageHours": 86.1,
+            "domain": "paulcraigroberts.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T12:05:23.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "09/25/2026 – Paul Craig Roberts",
+            "url": "https://paulcraigroberts.org/2026/09/25"
+          },
+          {
+            "ageHours": 86.1,
+            "domain": "paulcraigroberts.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T12:05:23.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "PCR and Mike Farris discuss the world situation, which is worse than...",
+            "url": "https://paulcraigroberts.org/pcr-and-mike-farris-discuss-the-world-situation-which-is-worse-than-is-realized"
+          },
+          {
+            "ageHours": 85,
+            "domain": "news-pravda.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T13:07:47.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "\"The world community no longer sees Washington as a leader, its eyes...",
+            "url": "https://news-pravda.com/world/2026/09/25/2619870.html"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 61.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.82,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1157,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1030,
+        "statesFreshness": false,
+        "text": "My knees are killing me right now…” Sam hissed.“What the hell is going on?!” George demanded to know once he reached the scene. [3]\n\ncan't start the game, what's going on i am crying right now.After I uninstalled the game and reinstalled version 42.19, it worked. [4]\n\nGrab the 5 working Race Horses codes right now to claim your free treats like Carrots and Golden Apples.If you want to keep the momentum going on the track, check out our Horse Racing Legends Codes page to claim extra freebies! [7]\n\n“Right now, the way all of this is now, no, I wouldn’t wish it on them,” he said about farming.Yeley is not sure he’ll earn a profit this season, even with prices up for for his corn and soybeans. [1]\n\nSources: [1] ‘Is it really worth it to keep going on?’ Economic pain hits... (edition.cnn.com)  [2] 4 Zodiac Signs Attract Powerful Abundance & Luck On... | YourTango (yourtango.com)  [3] Data-Bir"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is going on right now",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 17,
+            "domain": "edition.cnn.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:06:44.000Z",
+            "relevance": 1.02,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 1.02,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "‘Is it really worth it to keep going on?’ Economic pain hits...",
+            "url": "https://edition.cnn.com/2026/09/28/business/american-farmers-economic-pain-diesel"
+          },
+          {
+            "ageHours": 9.1,
+            "domain": "yourtango.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:04:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "4 Zodiac Signs Attract Powerful Abundance & Luck On... | YourTango",
+            "url": "https://www.yourtango.com/2026401280/zodiac-signs-abundance-luck-september-29-2026"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "fembotwiki.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:57:13.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Data-Bird Break - FembotWiki",
+            "url": "https://www.fembotwiki.com/index.php?title=Data-Bird_Break"
+          },
+          {
+            "ageHours": 12.7,
+            "domain": "steamcommunity.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:29:55.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Game crashing on start after the update :: Project Zomboid Support",
+            "url": "https://steamcommunity.com/app/108600/discussions/1/586187095760126170"
+          },
+          {
+            "ageHours": 5.9,
+            "domain": "seahawksdraftblog.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:12:50.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Instant: Seahawks winning streak ends in slop-fest in Washington...",
+            "url": "https://seahawksdraftblog.com/instant-seahawks-winning-streak-ends-in-slop-fest-in-washington"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "books.apple.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "What Could Possibly Go Right? by Danny Meyer on Apple Books",
+            "url": "https://books.apple.com/us/book/what-could-possibly-go-right/id6761399003"
+          },
+          {
+            "ageHours": 8.5,
+            "domain": "progameguides.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:36:31.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Race Horses Codes (September 2026)... | Pro Game Guides",
+            "url": "https://progameguides.com/roblox/race-horses-codes?src=recirc&rp=1&rw=c"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "books.apple.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "What Could Possibly Go Right?: The Essential Journey to Scale an Enduring Culture (Unabridged) by Danny Meyer ",
+            "url": "https://books.apple.com/us/audiobook/what-could-possibly-go-right-the-essential-journey-to/id1890066413"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "audiobooks.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Listen Free to What Could Possibly Go Right?: The Essential Journey to Scale an Enduring Culture by Danny Meye",
+            "url": "https://www.audiobooks.com/audiobook/what-could-possibly-go-right-the-essential-journey-to-scale-an-enduring-culture/1041476"
+          },
+          {
+            "ageHours": 7.5,
+            "domain": "theeconomiccollapseblog.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:37:02.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.89,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Next Stop 6 Percent - The Treasury Bond Crisis Is Officially Out Of...",
+            "url": "https://theeconomiccollapseblog.com/next-stop-6-percent-the-treasury-bond-crisis-is-officially-out-of-control-and-it-is-starting-to-look-a-lot-like-2008-all-over-again"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "I Want to Be Famous by Lindsey Weber (EBook) - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/i-want-to-be-famous-9798217088331"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "I Want to Be Famous by Lindsey Weber (Audio Download) - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/i-want-to-be-famous-9798217406951"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.952,
+        "wrongYearKept": 0
+      },
+      "temporal": "now",
+      "totalMs": 1260,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1216,
+        "statesFreshness": true,
+        "text": "CoinGape delivers live crypto news, reporting, market analysis, project analysis, listicles, reviews & ratings, combining macro coverage to surface real market signals.SpaceX Stock LIVE Updates Today Sept. [3]\n\n7NEWS live updates: Female constable killed in crash under lights and sirens in Redfern, Sydney\n\nFollow along as we bring you all of the big crime, traffic and weather updates. [4]\n\nSchool Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [8]\n\nLIVE Club GAA minute-by-minute live updates\n\nThere's knockout action with football quarter-finals in Cork, hurling in Limerick, Clare, Kilkenny. [1]\n\nSources: [1] LIVE Club GAA minu"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "live news updates",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 36.1,
+            "domain": "irishexaminer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:05:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "LIVE Club GAA minute-by-minute live updates",
+            "url": "https://www.irishexaminer.com/sport/gaa/arid-41916292.html"
+          },
+          {
+            "ageHours": 50.5,
+            "domain": "oregonlive.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T23:42:10.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Oregon State Beavers at UTEP Miners: Live updates today",
+            "url": "https://www.oregonlive.com/beavers/2026/09/oregon-state-beavers-at-utep-miners-live-updates-today.html"
+          },
+          {
+            "ageHours": 10.5,
+            "domain": "coingape.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:41:20.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Donald Trump Oval Office Speech LIVE Updates Today Sept.",
+            "url": "https://coingape.com/donald-trump-oval-office-speech-live-updates-today-sept-28-what-to-expect-from-trump-mystery-reveal"
+          },
+          {
+            "ageHours": 101.9,
+            "domain": "7news.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T20:14:22.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "7NEWS live updates: Female constable killed in crash under lights and sirens in Redfern, Sydney",
+            "url": "https://7news.com.au/news/7news-live-updates-female-constable-killed-in-crash-under-lights-and-sirens-in-redfern-sydney-c-22923676"
+          },
+          {
+            "ageHours": 102.2,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T19:59:53.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Sports News Highlights: Team India creates... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/sports/news/sports-breaking-news-live-23rd-sep-top-sports-event-chess-olympiad-india-vs-bangladesh-gavaskar-trophy-ravichandran-ashwin-rishabh-pant-latest-updates-today/liveblog/113582008.cms?curpg=2"
+          },
+          {
+            "ageHours": 96.6,
+            "domain": "ndtvprofit.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T01:36:02.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Stock Market Live Blog Updates Today, September 25, GIFT Nifty...",
+            "url": "https://www.ndtvprofit.com/markets/stock-market-live-blog-updates-today-september-25-gift-nifty-gap-down-sensex-nifty-brent-crude-105-us-iran-war-middle-east-trump-xi-oil-12095070"
+          },
+          {
+            "ageHours": 73.2,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T00:56:04.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "North Dallas Tollway closure today: Is it completely... | Hindustan Times",
+            "url": "https://www.hindustantimes.com/world-news/us-news/north-dallas-tollway-closure-today-is-it-completely-closed-when-will-it-reopen-latest-updates-101790382991452.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 120,
+            "domain": "ndtv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T02:11:07.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Sensex Today, Stock Market LIVE Updates | Nifty | Share Market...",
+            "url": "https://www.ndtv.com/business-news/stock-market-sensex-share-market-nifty-live-updates-today-24-september-us-iran-war-oil-price-12089640"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.928,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1279,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1208,
+        "statesFreshness": false,
+        "text": "Seong Ghi-hong, a senior presidential adviser for Lee on public relations, expressed “strong regret” on Sunday over Ukraine’s latest actions and demanded an official apology and explanation.24/7 coverage of breaking news and live events. [8]\n\nTurn on desktop notifications for breaking stories about interest?24/7 coverage of breaking news and live events. [9]\n\nWe're pausing our live coverage of the war in Ukraine. [2]\n\nSiriusXM NHL Network RadioTM gears up for the 2026-27 NHL® season with comprehensive coverage from opening night through the Stanley Cup® Final\n\nFans can hear live play-by-play of every NHL® game, plus expert analysis, exclusive interviews and original programming all season long on SiriusXM radios and the SiriusXM app. [3]\n\nSources: [1] AOS APP [Tested] Mint: Markets & News Ver. 5.8.4 MOD APK | Subscription Unlocked (platinmods.com)  [2] Ukraine war latest: Kyiv landmark a"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "live breaking coverage",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 13,
+            "domain": "platinmods.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:09:29.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "AOS APP [Tested] Mint: Markets & News Ver. 5.8.4 MOD APK | Subscription Unlocked",
+            "url": "https://platinmods.com/threads/mint-markets-news-ver-5-8-4-mod-apk-subscription-unlocked.283833"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "news.sky.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:21:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News",
+            "url": "https://news.sky.com/story/ukraine-war-latest-kyiv-putin-zelenskyy-moscow-strikes-attacks-live-12541713"
+          },
+          {
+            "ageHours": 13,
+            "domain": "financialpost.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:09:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "SiriusXM NHL Network RadioTM gears up for the 2026-27 NHL® season with comprehensive coverage from opening nig",
+            "url": "https://financialpost.com/press-releases/pr-newswire/siriusxm-nhl-network-radio-gears-up-for-the-2026-27-nhl-season-with-comprehensive-coverage-from-opening-night-through-the-stanley-cup-final"
+          },
+          {
+            "ageHours": 26.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:05:43.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Iran war updates: Trump says US officials met Iran war... | Al Jazeera",
+            "url": "https://www.aljazeera.com/news/liveblog/2026/9/28/iran-war-live-tehran-warns-its-fully-prepared-for-war-amid-hormuz-tensions"
+          },
+          {
+            "ageHours": 11.4,
+            "domain": "radiotimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:42:23.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "WSL TV schedule 2026/27: Women's Super League coverage, TV fixtures and live stream",
+            "url": "https://www.radiotimes.com/tv/sport/football/womens-super-league-2026-27-tv-schedule"
+          },
+          {
+            "ageHours": 2.7,
+            "domain": "deadline.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:27:10.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Deadline",
+            "url": "https://deadline.com/print-article/1237115559?KeepThis=1&TB_iframe=1&height=500&width=750"
+          },
+          {
+            "ageHours": 7.7,
+            "domain": "newsshopper.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:24:37.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "A224 Orpington crash: Man taken to hospital | News Shopper",
+            "url": "https://www.newsshopper.co.uk/news/26589014.a224-orpington-crash-man-taken-hospital"
+          },
+          {
+            "ageHours": 19.3,
+            "domain": "abcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:48:50.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Seoul demands apology after Zelenskyy reveals North... - ABC News",
+            "url": "https://abcnews.com/International/wireStory/seoul-demands-apology-after-zelenskyy-unilaterally-reveals-north-136814400"
+          },
+          {
+            "ageHours": 3.2,
+            "domain": "abcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:55:55.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Pentagon breach exposed sensitive data on nearly... - ABC News",
+            "url": "https://abcnews.com/Politics/pentagon-breach-exposed-sensitive-data-3-million-people/story?id=136832909"
+          },
+          {
+            "ageHours": 12.5,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:38:47.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Investigation focuses on alleged plot against RAF...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2kzejZPSkVoRUFSckJyVkRDUVBDZ0FQAQ?hl=en-US&gl=US&ceid=US%3Aen"
+          },
+          {
+            "ageHours": 23.8,
+            "domain": "fightful.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:22:32.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Fightful | WWE News, AEW News, Pro Wrestling Backstage News",
+            "url": "https://www.fightful.com/wrestling/wrestling-world-remembers-pac-benjamin-satterley"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 2.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.865,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1388,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1241,
+        "statesFreshness": true,
+        "text": "Today, Uzbekistan positions itself as a global IT hub and a center for exporting digital solutions, which is why Moscow’s developments and experience are of vital importance to the republic. [2]\n\nMidAmerican Global Ventures, LLC, Launches New Digital Platform to Connect Global Investors with Ohio Development Opportunities\n\nNew website showcases Ohio EB-5 projects, regional center capabilities, and MAGV's track record of bringing international capital to job-creating developments\n\nCOLUMBUS, Ohio, Sept. [4]\n\nInvestors are tracking key global developments. [3]\n\nSensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions\n\nSensex declined over 500 points as rising crude oil prices and global uncertainty affected investor sentiment. [1]\n\nSources: [1] Sensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions (dynamitenews.com)  [2] Moscow and Uzbekist"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "recent global developments",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 21.5,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:41:29.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions",
+            "url": "https://www.dynamitenews.com/business/sensex-crashes-over-500-points-why-stock-market-fell-today-amid-global-tensions"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "moscowforesight.ru",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:40:36.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Moscow and Uzbekistan are developing cooperation in all sectors...",
+            "url": "https://moscowforesight.ru/publications/among-the-top-three"
+          },
+          {
+            "ageHours": 112.4,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T09:45:14.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Why Is Stock Market Falling Today? Sensex Crashes Over 1,000 Points as Global Tensions Hit Dalal Street",
+            "url": "https://www.dynamitenews.com/business/why-is-stock-market-falling-today-sensex-crashes-over-1000-points-as-global-tensions-hit-dalal-street"
+          },
+          {
+            "ageHours": 108.7,
+            "domain": "prweb.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T13:30:17.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "MidAmerican Global Ventures, LLC, Launches New Digital Platform to Connect Global Investors with Ohio Developm",
+            "url": "https://www.prweb.com/releases/midamerican-global-ventures-llc-launches-new-digital-platform-to-connect-global-investors-with-ohio-development-opportunities-302887341.html"
+          },
+          {
+            "ageHours": 103.7,
+            "domain": "newindianexpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T18:28:31.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "EAM Jaishankar discusses regional, global developments with foreign...",
+            "url": "https://www.newindianexpress.com/india/2026/Sep/24/eam-jaishankar-discusses-regional-global-developments-with-foreign-counterparts"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 11.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.93,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 2188,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1076,
+        "statesFreshness": true,
+        "text": "The Australian government has announced immigration policy changes including converting working holiday visa extensions to a lottery system and restricting students' ability to bring family members. [2]\n\nTL;DR.No official policy changes have been announced. [1]\n\nAre there any confirmed policy changes from the EU Commission? [1]\n\nThe broader market backdrop is important for Nvidia because large-cap technology stocks have played a major role in recent Wall Street gains, while changes in Treasury yields and expectations for monetary policy can affect valuations across the sector. [4]\n\nSources: [1] Daily News 24 / 09 / 2026 - Hours Today List (hourstodaylist.com)  [2] Australia Introduces Lottery System for Working Holiday Second and... (iworldstudy.com)  [3] Andy Burnham announces new homes scheme for... | The Guardian (theguardian.com)  [4] Nvidia Stock Today: NVDA Falls 0.43% to $223.55 a"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "recently announced policy changes",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 105.2,
+            "domain": "hourstodaylist.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:56:41.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Daily News 24 / 09 / 2026 - Hours Today List",
+            "url": "https://hourstodaylist.com/government-services/daily-news-24-09-2026"
+          },
+          {
+            "ageHours": 66.4,
+            "domain": "iworldstudy.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T07:47:35.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Australia Introduces Lottery System for Working Holiday Second and...",
+            "url": "https://www.iworldstudy.com/en/news/2026-09-australia-migration-policy-working-holiday-student-visa"
+          },
+          {
+            "ageHours": 57.8,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T16:22:03.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Andy Burnham announces new homes scheme for... | The Guardian",
+            "url": "https://www.theguardian.com/politics/2026/sep/26/andy-burnham-announces-new-scheme-for-first-time-home-buyers-england"
+          },
+          {
+            "ageHours": 79.6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T18:32:14.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Nvidia Stock Today: NVDA Falls 0.43% to $223.55 as AI Stocks Stay in Focus;Check Latest Nvidia Shares Update a",
+            "url": "https://sundayguardianlive.com/business/nvidia-stock-today-nvda-falls-043-to-22355-as-ai-stocks-stay-in-focuscheck-latest-nvidia-shares-update-as-ai-stocks-rally-oil-prices-ease-investors-track-jensen-huang-ai-demand-wall-street-292753"
+          },
+          {
+            "ageHours": 115.9,
+            "domain": "ndl.iitkgp.ac.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T06:14:31.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "NDLI: Govt likely to announce policy change on import of raw sugar",
+            "url": "https://ndl.iitkgp.ac.in/nw_document/economictimes/economictimes/39842_108"
+          },
+          {
+            "ageHours": 94.2,
+            "domain": "irishtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T04:00:00.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "‘It’s such an exciting time to become a pharmacist’: RCSI students prepare for big changes in the industry",
+            "url": "https://www.irishtimes.com/sponsored/2026/09/25/its-such-an-exciting-time-to-become-a-pharmacist-rcsi-students-prepare-for-big-changes-in-the-industry"
+          },
+          {
+            "ageHours": 4.8,
+            "domain": "openlibrary.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:22:33.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "recentchanges/2026/09/28/edit-book/174235551 | Open Library",
+            "url": "https://openlibrary.org/recentchanges/2026/09/28/edit-book/174235551"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 4.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.814,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 2289,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 490,
+        "statesFreshness": true,
+        "text": "Newsy Today.Shield AI, founded in 2015, has developed Hivemind to enable autonomous operations in environments with no GPS or communication. [1]\n\nAir Force in February 2026 for its Collaborative Combat Aircraft program. [1]\n\nMoroccans vote in parliamentary elections amid economic uncertainty. [2]\n\nSources: [1] AI Innovations: Shield AI, Waabi, and GM at Disrupt... - Newsy Today (newsy-today.com)  [2] PAM wins big in Morocco parliament elections but falls... | Al Jazeera (aljazeera.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news in 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 106.9,
+            "domain": "newsy-today.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:15:22.000Z",
+            "relevance": 1.04,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.04,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "AI Innovations: Shield AI, Waabi, and GM at Disrupt... - Newsy Today",
+            "url": "https://www.newsy-today.com/ai-innovations-shield-ai-waabi-and-gm-at-disrupt-2026"
+          },
+          {
+            "ageHours": 69.8,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T04:24:02.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "PAM wins big in Morocco parliament elections but falls... | Al Jazeera",
+            "url": "https://www.aljazeera.com/news/2026/9/26/pam-wins-big-in-morocco-parliament-elections-but-falls-short-of-majority"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 69.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.02,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 7057,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          10,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1027,
+        "statesFreshness": false,
+        "text": "This is a list of major NJPW events, detailing all notable professional wrestling cards promoted on pay-per-view (PPV), aired on live TV broadcasts by TV Asahi, or streamed on New Japan Pro-Wrestling World by New Japan Pro-Wrestling (NJPW). [1]\n\nWorld Events are a mechanic added to Wynncraft in the 2.1 update.Some World Events are unique in that they are rarer in occurrence and also tougher than standard World Events, called Major World Events. [10]\n\nMajor World Events (MWE) significantly impact international stock market prices, prompting spillover effects. [2]\n\nWhen major world events happen, avoid putting the spotlight on your brand, and focus instead on offering value in a way that’s relevant to your identity and purpose. [11]\n\nSources: [1] List of major NJPW events (en.wikipedia.org)  [2] Major World Events Impact on Stock Market Prices -­‐ An event study (academia.edu)  [3] World M"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "major world events",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "List of major NJPW events",
+            "url": "https://en.wikipedia.org/wiki/List_of_major_NJPW_events"
+          },
+          {
+            "ageHours": null,
+            "domain": "academia.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Major World Events Impact on Stock Market Prices -­‐ An event study",
+            "url": "https://www.academia.edu/27536364/Major_World_Events_Impact_on_Stock_Market_Prices_An_event_study"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "World Marathon Majors",
+            "url": "https://en.wikipedia.org/wiki/World_Marathon_Majors"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The stock exchange specialist and unexpected major world events (1974)",
+            "url": "https://openlibrary.org/works/OL538142W"
+          },
+          {
+            "ageHours": null,
+            "domain": "astrologyforaquarius.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Astrology for Aquarius - Major world events November 2017",
+            "url": "https://astrologyforaquarius.com/articles/167/major-world-events-november-2017"
+          },
+          {
+            "ageHours": 190586.2,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2005-01-01",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Major world events and discrimination",
+            "url": "https://doi.org/10.1111/j.1467-839x.2005.00166.x"
+          },
+          {
+            "ageHours": 330842.2,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1989-01-01",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Assumptive Worlds and the Stress of Traumatic Events: Applications of the Schema Construct",
+            "url": "https://doi.org/10.1521/soco.1989.7.2.113"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Major Events in World History (2021)",
+            "url": "https://openlibrary.org/works/OL25464948W"
+          },
+          {
+            "ageHours": 1036.5,
+            "domain": "thenational.com.pg",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T21:37:38.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Official commends Tsiamalili for staging major events",
+            "url": "https://www.thenational.com.pg/official-commends-tsiamalili-for-staging-major-events"
+          },
+          {
+            "ageHours": null,
+            "domain": "wynncraft.wiki.gg",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "World Events - Official Wynncraft Wiki",
+            "url": "https://wynncraft.wiki.gg/wiki/World_Events"
+          },
+          {
+            "ageHours": null,
+            "domain": "tme.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Marketing When Major World Events Occur [3 Main...] - TME.NET",
+            "url": "https://tme.net/blog/marketing-major-world-events"
+          },
+          {
+            "ageHours": null,
+            "domain": "astrologyforaquarius.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Astrology for Aquarius - Major world events February 2021",
+            "url": "https://astrologyforaquarius.com/articles/12370/major-world-events-february-2021"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1036.5,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"major world events\" right now — Omi will"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.88,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 5502,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 640,
+        "statesFreshness": false,
+        "text": "Geopolitical Developments is the evolution of global political dynamics shaped by geographical factors and power relations. [11]\n\nGeopolitical developments can weigh on the foreign trade balance through energy prices and global supply chains. [1]\n\nMany geopolitical developments unfolded largely as we expected. [7]\n\nTop 10 geopolitical developments in 2026 ey.com.Thanks for highlighting! [8]\n\nSources: [1] Merkezin Güncesi - Türkiye Cumhuriyet Merkez Bankası (tcmb.gov.tr)  [2] News , | 07/29/2025 : Eurasia Rising? (rosalux.de)  [3] Prisoners of Geography (en.wikipedia.org)  [4] The Hague Centre for Strategic Studies (en.wikipedia.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "geopolitical developments",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "tcmb.gov.tr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Merkezin Güncesi - Türkiye Cumhuriyet Merkez Bankası",
+            "url": "https://www.tcmb.gov.tr/wps/wcm/connect/blog/en/main+menu/analyses/how_have_geopolitical_developments_reshaped_foreign_trade"
+          },
+          {
+            "ageHours": 1053.3,
+            "domain": "rosalux.de",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T04:49:29.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.95,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "News , | 07/29/2025 : Eurasia Rising?",
+            "url": "https://www.rosalux.de/en/news/id/53671/eurasia-rising"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Prisoners of Geography",
+            "url": "https://en.wikipedia.org/wiki/Prisoners_of_Geography"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The Hague Centre for Strategic Studies",
+            "url": "https://en.wikipedia.org/wiki/The_Hague_Centre_for_Strategic_Studies"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Kurdish status and geopolitical developments in the Middle East (1993)",
+            "url": "https://openlibrary.org/works/OL44370875W"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Top 10 geopolitical developments in 2026 | Martin Cardell",
+            "url": "https://www.linkedin.com/posts/martincardell_top-10-geopolitical-developments-in-2026-activity-7406946986513506304-p4C9"
+          },
+          {
+            "ageHours": null,
+            "domain": "ey.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Top 10 geopolitical risks for 2024 | EY - Global",
+            "url": "https://www.ey.com/en_lv/insights/geostrategy/2024-geostrategic-outlook"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "2026 Geostrategic Outlook: Emerging Rules & Norms, Geopolitics of...",
+            "url": "https://www.linkedin.com/posts/sameeranand1_top-10-geopolitical-developments-in-2026-activity-7413587908584124416-wYT1"
+          },
+          {
+            "ageHours": null,
+            "domain": "thongmarketintelligence.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Geopolitical Developments - April 01... - Thong Market Intelligence",
+            "url": "https://thongmarketintelligence.com/post/1368/geopolitical-developments-april-01-2026-eod"
+          },
+          {
+            "ageHours": null,
+            "domain": "ifimes.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Geopolitical developments in the first quarter of the 21st century...",
+            "url": "https://www.ifimes.org/en/researches/geopolitical-developments-in-the-first-quarter-of-the-21st-century-romanias-position-and-strategic-outlook-toward-2050/5591"
+          },
+          {
+            "ageHours": null,
+            "domain": "researchcentre.trtworld.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Geopolitical Developments: Definition, Conceptual Context & Why It...",
+            "url": "https://researchcentre.trtworld.com/dictionary/geopolitical-developments"
+          },
+          {
+            "ageHours": null,
+            "domain": "kpmg.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Geopolitical Developments",
+            "url": "https://kpmg.com/nl/en/insights/geopolitical-developments.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1053.3,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "arXiv timed out after 12000ms",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"geopolitical developments\" right now — O"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.871,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12693,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 946,
+        "statesFreshness": true,
+        "text": "Here’s what happened today.It offered a brief window of stability, a transactional pause, in exchange for what would have amounted to a de facto relaxation of US pressure. [2]\n\nDaily Debrief: What Happened Today (Sep 25). [4]\n\nTrump at one point Sunday night bragged about a planned late-night dinner at the White House with the wealthy head of a leading AI firm and indirectly took on critics’ observations about his own health.He deserves a lot of the credit for what happened today.” [7]\n\nHere's a recap of all that's happened today. [10]\n\nSources: [1] J&K Statehood Row: Sajad Lone Says ‘Our Promise Is The Promise Of 1947’; Rejects 2019 As Point of Reference (dynamitenews.com)  [2] Iran war updates: Trump says US officials met Iran war... | Al Jazeera (aljazeera.com)  [3] What happened on Days of Our Lives today... - PRIMETIMER (primetimer.com)  [4] Daily Debrief: What Happened Today (Sep 2"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what happened today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 12,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:10:39.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "J&K Statehood Row: Sajad Lone Says ‘Our Promise Is The Promise Of 1947’; Rejects 2019 As Point of Reference",
+            "url": "https://www.dynamitenews.com/national/jk-statehood-row-sajad-lone-says-our-promise-is-the-promise-of-1947-rejects-2019-as-point-of-reference"
+          },
+          {
+            "ageHours": 26.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:05:43.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Iran war updates: Trump says US officials met Iran war... | Al Jazeera",
+            "url": "https://www.aljazeera.com/news/liveblog/2026/9/28/iran-war-live-tehran-warns-its-fully-prepared-for-war-amid-hormuz-tensions"
+          },
+          {
+            "ageHours": 7.5,
+            "domain": "primetimer.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:42:10.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What happened on Days of Our Lives today... - PRIMETIMER",
+            "url": "https://www.primetimer.com/features/what-happened-on-days-of-our-lives-today-september-28-2026-marlena-faces-a-shocking-possibility-while-xander-backs-sarah"
+          },
+          {
+            "ageHours": 15,
+            "domain": "businesstimes.com.sg",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:10:42.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Daily Debrief: What Happened Today (Sep 28) - The Business Times",
+            "url": "https://www.businesstimes.com.sg/singapore/daily-debrief-what-happened-today-sep-281"
+          },
+          {
+            "ageHours": 17,
+            "domain": "cointelegraph.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:12:08.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Bitcoin Order-Book Liquidity Games Return as Price Dips Under $83,000",
+            "url": "https://cointelegraph.com/markets/bitcoin-drops-under-83k-as-liquidity-hunting-keeps-bulls-from-targeting-yearly-open"
+          },
+          {
+            "ageHours": 19,
+            "domain": "contendingfortruth.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:10:40.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Newsletter: Emergency Freedom Alerts: 9-29-26 – Contending for Truth",
+            "url": "https://www.contendingfortruth.com/newsletter-emergency-freedom-alerts-9-29-26"
+          },
+          {
+            "ageHours": 4.9,
+            "domain": "rollcall.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:13:16.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Midterms looming, Trump opts for football, golf and a late dinner with...",
+            "url": "https://rollcall.com/2026/09/28/midterms-looming-trump-opts-for-football-golf-and-a-late-dinner-with-dario-amodei"
+          },
+          {
+            "ageHours": 26.1,
+            "domain": "wltreport.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:03:09.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "AWESOME: President Trump Presents Trophy to Team USA After Epic Comeback at President’s Cup",
+            "url": "https://wltreport.com/2026/09/27/awesome-president-trump-presents-trophy-to-team-usa-after-epic-comeback-at-presidents-cup"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "lowendtalk.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:37:22.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "VSYS Host: UA data centers. What happened and... — LowEndTalk",
+            "url": "https://lowendtalk.com/discussion/221478/vsys-host-ua-data-centers-what-happened-and-where-recovery-stands/p2"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "news.sky.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:21:38.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News",
+            "url": "https://news.sky.com/story/ukraine-war-latest-kyiv-putin-zelenskyy-moscow-strikes-attacks-live-12541713"
+          },
+          {
+            "ageHours": 18.4,
+            "domain": "deadline.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:44:06.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Deadline",
+            "url": "https://deadline.com/print-article/75619?KeepThis=1&TB_iframe=1&height=500&width=750"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 4.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.979,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 3433,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8,
+          9,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1232,
+        "statesFreshness": true,
+        "text": "Get timely updates on major events from around the globe with CGTN Breaking News. [8]\n\nEntertainment News LIVE Today (Sept 28): Salman Khan Calls Out AI Misuse; The Vvaan Records Weekend Jump\n\nEntertainment News Live Updates Today (September 28, 2026): It's Monday again, and yes, the Monday blues are hitting hard! [2]\n\nSchool Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [9]\n\nABC News is weighing a major shakeup at “Good Morning America” after the iconic broadcast lost its No. [12]\n\nSources: [1] School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News (careerindia.com)  [2]"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "breaking news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 21.6,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 21.5,
+            "domain": "filmibeat.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:40:27.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Entertainment News LIVE Today (Sept 28): Salman Khan Calls Out AI Misuse; The Vvaan Records Weekend Jump",
+            "url": "https://www.filmibeat.com/bollywood/news/2026/entertainment-news-live-today-india-salman-khan-calls-out-ai-misuse-the-vvaan-weekend-box-office-532705.html"
+          },
+          {
+            "ageHours": 14.7,
+            "domain": "dailyadvance.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:30:00.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Perquimans sheriff to get 8 new patrol cars pending state approval",
+            "url": "https://www.dailyadvance.com/news/local/perquimans-sheriff-to-get-8-new-patrol-cars-pending-state-approval/article_ec020fcc-fcb4-4326-9c36-25cd5572f6e7.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "winnipegfreepress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:07:35.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Contradicting Trump, Pope Leo says artificial intelligence safety concerns not ‘fake news’",
+            "url": "https://www.winnipegfreepress.com/arts-and-life/life/faith/2026/09/28/contradicting-trump-pope-leo-says-artificial-intelligence-safety-concerns-not-fake-news"
+          },
+          {
+            "ageHours": 10,
+            "domain": "wrestlezone.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:09:46.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "AEW’s Marina Shafir Makes Heartfelt Plea to Fans After Breaking Down Over Pac’s Passing",
+            "url": "https://www.wrestlezone.com/news/1664485-marina-shafir-pac-passing-heartfelt-plea-fans"
+          },
+          {
+            "ageHours": 11.4,
+            "domain": "the74million.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:44:15.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "SEED Act Gives Early Educators the Same Tax Break Long Available in K-12",
+            "url": "https://www.the74million.org/zero2eight/seed-act-gives-early-educators-the-same-tax-break-long-available-in-k-12"
+          },
+          {
+            "ageHours": 5.7,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:27:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Pope Leo XIV AI risks: Vatican urges urgent debate... - India Today",
+            "url": "https://www.indiatoday.in/world/story/pope-leo-xiv-ai-risks-vatican-urges-urgent-debate-guardrails-regulation-ptag-3005287-2026-09-29"
+          },
+          {
+            "ageHours": 21.2,
+            "domain": "news.cgtn.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:00:37.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Saudi Foreign Minister meets today in Washington with his... - CGTN",
+            "url": "https://news.cgtn.com/news/2026-09-28/news-1QNPoRMjcHu/p.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 7,
+            "domain": "click2houston.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:12:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Heights Residents weigh in on new restaurant, Lawrence Park breaks ground and latest on Shepherd/Durham crossw",
+            "url": "https://www.click2houston.com/community-creators/the-heights/2026/09/28/heights-residents-weigh-in-on-new-restaurant-lawrence-park-breaks-ground-and-latest-on-shepherddurham-crosswalks"
+          },
+          {
+            "ageHours": 10.5,
+            "domain": "mockpaperscissors.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:37:20.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Today In Conspiracy News: | Mock Paper Scissors",
+            "url": "https://mockpaperscissors.com/2026/09/28/today-in-conspiracy-news"
+          },
+          {
+            "ageHours": 4.9,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:17:02.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Exclusive | ABC News weighs major shakeup at 'GMA' after ratings...",
+            "url": "https://nypost.com/2026/09/28/media/abc-news-weighs-major-shakeup-at-gma-after-ratings-loss-to-today-sources"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 4.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.002,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1423,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 828,
+        "statesFreshness": true,
+        "text": "Here we are to serve you with news right now. [1]\n\nNo comments right now, check back later.Ben's reporting has appeared in Rolling Stone, The Verge, Automotive News, USA Today, AutoBody News, LGBTQ Nation, TopSpeed, and Out Magazine. [7]\n\nBe sure to catch up on everything happening in Celebrity News right now. [9]\n\n\"That is happening right now.\" We'll bring you live live updates throughout the day.Goodbye for now - here's a recap. [3]\n\nSources: [1] Donald Trump to meet Anthropic CEO as White House focuses on AI (azernews.az)  [2] Poland scrambles military aircraft in response to... | The Guardian (theguardian.com)  [3] Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News (news.sky.com)  [4] Sara Gonzales mocks media outrage over White House ban: 'You are literally covering him right now' (theblaze.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news right now",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 18.7,
+            "domain": "azernews.az",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:28:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Donald Trump to meet Anthropic CEO as White House focuses on AI",
+            "url": "https://www.azernews.az/region/264606.html"
+          },
+          {
+            "ageHours": 18.3,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:50:05.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Poland scrambles military aircraft in response to... | The Guardian",
+            "url": "https://www.theguardian.com/world/live/2026/sep/28/europe-ukraine-defence-ministers-pope-leo-france-visit-latest-news-updates"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "news.sky.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:21:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News",
+            "url": "https://news.sky.com/story/ukraine-war-latest-kyiv-putin-zelenskyy-moscow-strikes-attacks-live-12541713"
+          },
+          {
+            "ageHours": 12.2,
+            "domain": "theblaze.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sara Gonzales mocks media outrage over White House ban: 'You are literally covering him right now'",
+            "url": "https://www.theblaze.com/shows/sara-gonzales-unfiltered/sara-gonzales-mocks-media-outrage-over-white-house-ban-you-are-literally-covering-him-right-now"
+          },
+          {
+            "ageHours": 6.4,
+            "domain": "zerohedge.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:43:06.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Boeing Extends Losses After FAA Delays 737 Max 10... | ZeroHedge",
+            "url": "https://www.zerohedge.com/markets/boeing-sinks-after-wsj-report-737-max-10-software-glitch"
+          },
+          {
+            "ageHours": 14.2,
+            "domain": "aol.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:00:18.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Is Bitcoin a Good Investment Right Now After a 42% Quarter?",
+            "url": "https://www.aol.com/articles/bitcoin-good-investment-now-42-120018000.html"
+          },
+          {
+            "ageHours": 5.7,
+            "domain": "businessinsider.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:26:05.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Tesla Delays Roadster Reveal Due to Severe Weather - Business Insider",
+            "url": "https://www.businessinsider.com/tesla-roadster-reveal-weather-delay-2026-9"
+          },
+          {
+            "ageHours": 12.2,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:58:09.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Russian drones hammer apartments, offices and a cultural landmark in...",
+            "url": "https://nypost.com/2026/09/28/world-news/russian-drones-hammer-apartments-offices-and-a-cultural-landmark-in-ukraine-killing-7"
+          },
+          {
+            "ageHours": 13.1,
+            "domain": "soapspoiler.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:01:43.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Barron Trump Has Just Made This Major Change In His... - Soap Spoiler",
+            "url": "https://soapspoiler.com/2026/09/28/barron-trump-has-just-made-this-major-change-in-his-life"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "results4america.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "A new learning opportunity to explore how a right to counsel for tenants promotes housing stability and how ci",
+            "url": "https://results4america.org/solutions-accelerator-sprint"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 2.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.975,
+        "wrongYearKept": 0
+      },
+      "temporal": "now",
+      "totalMs": 1948,
+      "vertical": "news"
+    }
+  ],
+  "total": 18
+}

@@ -1,0 +1,47 @@
+{
+  "row": {
+    "answer": "Join us for the latest in our regular quarterly webinar on business and current affairs, Japan Macro Salon with Jesper and Bill.This event will be conducted online and is open to the public. [3]\n\nDiscover Japanese year-end traditions through ōsōji cleaning, modern greetings, osechi food and New Year moments, plus tips for enjoying winter in Japan.Check seasonal events, explore the Japanese calendar, or build an itinerary around your dates, interests, and travel style. [1]\n\nWest Japan Railway is trading at a lower price-to-earnings ratio than Uber Technologies, indicating that it is currently the more affordable of the two stocks. [2]\n\nValuation and Earnings\n\nThis table compares West Japan Railway and Uber Technologies”s revenue, earnings per share and valuation. [2]\n\nSources: [1] Winter in Japan: Simple Traditions and Warm Experiences (thewastory.com)  [2] Analyzing Uber Technologies (NYSE:UBER) & West Japan Railway (OTCMKTS:WJRYY) (watchlistnews.com)  [3] Japan Macro Salon with Jesper and Bill #18 | Asia Society (asiasociety.org)",
+    "detail": "3 fresh result(s) from 4 source(s) in 7309ms",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "Wikipedia",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 3,
+    "freshness": "Based on 3 reports published in the last 5 days (newest: 22 hours ago).",
+    "intent": "current",
+    "query": "current events in Japan",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 7309,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T03:26:02.000Z",
+        "title": "Winter in Japan: Simple Traditions and Warm Experiences",
+        "url": "https://thewastory.com/winter-in-japan-old"
+      },
+      {
+        "publishedAt": "2026-09-26T10:15:40.000Z",
+        "title": "Analyzing Uber Technologies (NYSE:UBER) & West Japan Railway (OTCMKTS:WJRYY)",
+        "url": "https://www.watchlistnews.com/analyzing-uber-technologies-nyseuber-west-japan-railway-otcmktswjryy/11238778.html"
+      },
+      {
+        "publishedAt": "2026-09-27T04:01:45.000Z",
+        "title": "Japan Macro Salon with Jesper and Bill #18 | Asia Society",
+        "url": "https://asiasociety.org/japan/events/japan-macro-salon-jesper-and-bill-18"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "general"
+  }
+}

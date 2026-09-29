@@ -1,0 +1,56 @@
+{
+  "row": {
+    "answer": "Science & Technology.Brian Gerrish, Mike Robinson, and Charles Malet present today's UK Column News. [1]\n\nSky News - back to home sky news logo.America's bid to return to the moon is riding on SpaceX - but it could turn to a rival. [4]\n\nThe authors say the automating of AI R&D is the most likely source of an intelligence explosion, because AIs are already contributing to improving their own technology and the resulting... [5]\n\nSchool Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [2]\n\nSources: [1] UK Column News — 28th September 2026 | UK Column (ukcolumn.org)  [2] School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News (careerindia.com)  [3] Astronomers find radio emissions from an exoplanet | The Daily Star (thedailystar.net)  [4] SpaceX latest: Starship makes explosive landing in Pacific... | Sky News (news.sky.com)",
+    "detail": "5 fresh result(s) from 3 source(s) in 2530ms",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 5,
+    "freshness": "Based on 5 reports published today (newest: 11 hours ago).",
+    "intent": "news",
+    "query": "today's technology news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2530,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T14:03:18.000Z",
+        "title": "UK Column News — 28th September 2026 | UK Column",
+        "url": "https://www.ukcolumn.org/video/uk-column-news-28th-september-2026"
+      },
+      {
+        "publishedAt": "2026-09-28T04:36:51.000Z",
+        "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+        "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+      },
+      {
+        "publishedAt": "2026-09-28T13:16:22.000Z",
+        "title": "Astronomers find radio emissions from an exoplanet | The Daily Star",
+        "url": "https://www.thedailystar.net/news/technology/news/astronomers-find-radio-emissions-exoplanet-4285226"
+      },
+      {
+        "publishedAt": "2026-09-28T10:37:20.000Z",
+        "title": "SpaceX latest: Starship makes explosive landing in Pacific... | Sky News",
+        "url": "https://news.sky.com/story/spacex-launch-latest-starship-rocket-heading-for-earths-orbit-for-first-time-13592625"
+      },
+      {
+        "publishedAt": "2026-09-28T15:07:54.000Z",
+        "title": "AI godfathers warn of runaway ‘intelligence explosion | The Guardian",
+        "url": "https://www.theguardian.com/technology/2026/sep/28/ai-godfathers-warn-of-runaway-intelligence-explosion"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "news"
+  }
+}

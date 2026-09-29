@@ -2,6 +2,13 @@
 
 ## RELEVANCE + SOURCE-QUALITY LAYER (2026-09-29) — freshness no longer dominates
 
+**Final measured state (138 queries, fully-hardened pipeline):** kept 121/138
+(88%) · freshnessMet 104 (75%) · kept sources 932, **77% dated** ·
+**noise in kept sets: 2** (both finance, topic-relevant, final ≥0.81) ·
+**non-sequiturs dropped by the broad-news floor: 14** · citations resolve
+138/138 · duplicate URLs 0 · contract untouched (cache bypass, memory
+protection, year/event gate, strict-vertical fallback).
+
 Trigger: freshness was passing, but broad-news kept sets contained weak or
 unrelated material — a YouTube result and evergreen "Make in India" content
 for "latest news in India", an unrelated actors-workshop page for "what

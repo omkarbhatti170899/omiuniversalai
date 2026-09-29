@@ -28,6 +28,11 @@
 
 import { internalQuery } from "./_generated/server";
 import { internal } from "./_generated/api";
+import {
+  isOffTopic,
+  isNonSequiturForBroadNews,
+  topicKeywords,
+} from "./searchEngine/quality";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { complete } from "./aiProviders";
 import { getAiStatus } from "./aiProviders/catalog";
@@ -342,6 +347,19 @@ export async function probeCurrentInfo(
     const split = policy.requiresFreshness
       ? splitByFreshness(citations, policy.maxAgeDays)
       : { fresh: citations, undated: [], stale: [] };
+    // Broad-news floor — the SAME one the chat turn applies in its usable
+    // filter, so the probe's "what Omi would say" cannot showcase a source
+    // the product itself would have dropped (measured: the Ollie workshop
+    // page survived here while omiChat filtered it).
+    const topicWords = topicKeywords(query);
+    const usableFresh = split.fresh.filter(
+      (c) =>
+        !isOffTopic(c, topicWords) &&
+        !isNonSequiturForBroadNews(c, topicWords, {
+          requiresFreshness: policy.requiresFreshness,
+        }),
+    );
+    const usableSplit = { ...split, fresh: usableFresh };
 
     const row: CurrentInfoRow = {
       ...searching,
@@ -349,10 +367,10 @@ export async function probeCurrentInfo(
       enginesWithResults: result.enginesWithResults ?? [],
       failedEngines: result.failedEngines ?? [],
       resultsFound: result.citations.length,
-      freshResults: split.fresh.length,
-      freshness: freshnessStatement(split.fresh, policy.maxAgeDays),
-      answer: extractiveBrief(query, split.fresh),
-      sources: split.fresh.slice(0, 5).map((c) => ({
+      freshResults: usableSplit.fresh.length,
+      freshness: freshnessStatement(usableSplit.fresh, policy.maxAgeDays),
+      answer: extractiveBrief(query, usableSplit.fresh),
+      sources: usableSplit.fresh.slice(0, 5).map((c) => ({
         title: c.title,
         url: c.url,
         publishedAt: c.publishedAt ?? null,
@@ -360,23 +378,24 @@ export async function probeCurrentInfo(
       searchMs: result.searchMs ?? Date.now() - t0,
     };
 
-    if (split.fresh.length === 0) {
+    if (usableSplit.fresh.length === 0) {
       return {
         ...row,
         status: "fail",
         userMessage: noVerificationMessage(query, policy.vertical),
         detail:
-          `Search ran (${row.resultsFound} raw result(s)) but none were recent enough to be evidence ` +
-          `within ${policy.maxAgeDays} day(s). Omi would refuse to answer rather than use stale data.`,
+          `Search ran (${row.resultsFound} raw result(s)) but none survived the freshness window AND the ` +
+          `relevance/quality floor. Omi would refuse rather than answer with stale or unrelated material.`,
       };
-    }      return {
-        ...row,
-        status: "pass",
-        detail:
-          `${split.fresh.length} fresh result(s) from ${row.enginesWithResults.length} source(s) ` +
-          `in ${row.searchMs}ms${escalated ? " (after a freshness escalation pass)" : ""}` +
-          `${row.failedEngines.length > 0 ? `; failed engines: ${row.failedEngines.join(", ")}` : ""}`,
-      };
+    }
+    return {
+      ...row,
+      status: "pass",
+      detail:
+        `${usableSplit.fresh.length} fresh result(s) from ${row.enginesWithResults.length} source(s) ` +
+        `in ${row.searchMs}ms${escalated ? " (after a freshness escalation pass)" : ""}` +
+        `${row.failedEngines.length > 0 ? `; failed engines: ${row.failedEngines.join(", ")}` : ""}`,
+    };
   } catch (err) {
     return {
       ...base,

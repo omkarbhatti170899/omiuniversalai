@@ -1,0 +1,56 @@
+{
+  "row": {
+    "answer": "Get the latest India News and Live updates.Kanchan Yadav is a writer at The Times of India, where she covers business, politics, international affairs and social issues. [2]\n\nMission Paani.Stay updated with News18 for the latest India and world news, in-depth explainers, entertainment, sports, and cricket news. [1]\n\nAlso get top headlines and latest news from India and around the world at News9. [3]\n\nGet the latest India News, breaking headlines and real-time updates from across the country. [4]\n\nSources: [1] ‘She Stays, I Stay’: Son, 28, Waits For Mother To Get Off... - News18 (news18.com)  [2] NDA ally Jitan Ram Manjhi seeks more speaking... - The Times of India (timesofindia.indiatimes.com)  [3] Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live (news9live.com)  [4] ‘Spoke to him at 10pm’: Greater Noida bus fire victims’ son searches... (hindustantimes.com)",
+    "detail": "12 fresh result(s) from 3 source(s) in 7774ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 12,
+    "freshness": "Based on 12 reports published in the last 5 days (newest: 6 hours ago).",
+    "intent": "news",
+    "query": "latest India news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 7774,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-26T03:08:50.000Z",
+        "title": "‘She Stays, I Stay’: Son, 28, Waits For Mother To Get Off... - News18",
+        "url": "https://www.news18.com/india/she-stays-i-stay-son-28-waits-for-mother-to-get-off-burning-noida-bus-neither-survives-ws-l-10353771.html"
+      },
+      {
+        "publishedAt": "2026-09-26T04:48:03.000Z",
+        "title": "NDA ally Jitan Ram Manjhi seeks more speaking... - The Times of India",
+        "url": "https://timesofindia.indiatimes.com/india/nda-ally-jitan-ram-manjhi-seeks-more-speaking-time-for-sc/st-mps-in-parliament/articleshow/134497219.cms"
+      },
+      {
+        "publishedAt": "2026-09-25T14:50:13.000Z",
+        "title": "Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live",
+        "url": "https://www.news9live.com/india/biker-thrown-30-feet-into-air-as-speeding-tiago-ev-hits-6-vehicles-in-ludhiana-5-injured-3010709"
+      },
+      {
+        "publishedAt": "2026-09-24T16:03:53.000Z",
+        "title": "‘Spoke to him at 10pm’: Greater Noida bus fire victims’ son searches...",
+        "url": "https://www.hindustantimes.com/india-news/spoke-to-him-at-10pm-greater-noida-bus-fire-victims-son-searches-for-father-101790258620715.html"
+      },
+      {
+        "publishedAt": "2026-09-28T13:02:49.000Z",
+        "title": "India poll chief Gyanesh Kumar under pressure over alleged manipulation of electoral rolls",
+        "url": "https://www.straitstimes.com/asia/india-poll-chief-gyanesh-kumar-under-pressure-over-alleged-manipulation-of-electoral-rolls"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

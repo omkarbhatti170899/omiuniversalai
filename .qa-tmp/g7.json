@@ -1,0 +1,3785 @@
+{
+  "answerContract": {
+    "allSourcesDated": 13,
+    "citationsResolve": 16,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 16,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "asia": {
+      "fresh": 4,
+      "kept": 32,
+      "n": 4
+    },
+    "australia": {
+      "fresh": 4,
+      "kept": 40,
+      "n": 4
+    },
+    "japan": {
+      "fresh": 4,
+      "kept": 34,
+      "n": 4
+    },
+    "multilingual": {
+      "fresh": 1,
+      "kept": 4,
+      "n": 1
+    },
+    "south-korea": {
+      "fresh": 3,
+      "kept": 33,
+      "n": 3
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 2,
+      "n": 1
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 18,
+      "n": 2
+    },
+    "latest": {
+      "fresh": 6,
+      "kept": 40,
+      "n": 6
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 36,
+      "n": 3
+    },
+    "today": {
+      "fresh": 4,
+      "kept": 47,
+      "n": 4
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 96,
+  "ran": 16,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 631,
+        "statesFreshness": true,
+        "text": "Bringing you yesterday's news from Japan and Asia, today. [4]\n\nAsian shares trade mixed as oil prices rise. [1]\n\nToday's news: Xi and Trump: US-China dialogue channel on AI risks and benefits. [3]\n\nPakistan thwarts an Afghan Taliban attack in Gulistan.AsiaNews Weekly News from Asia that matters. [3]\n\nSources: [1] Google News - News about stocks • oil prices - Overview (news.google.com)  [2] Top Asian News 5:38 a.m. GMT - Yahoo News UK (uk.news.yahoo.com)  [3] Schools in Riyadh still closed a week after Houthi attacks | AsiaNews (asianews.it)  [4] Tons of used books in Japan being... | SoraNews24 —Japan News (soranews24.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "latest news from Asia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 16,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:18:43.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - News about stocks • oil prices - Overview",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pjbnJhSEVoR1FpLW43STZzbDhDZ0FQAQ?hl=en-US&gl=US&ceid=US%3Aen"
+          },
+          {
+            "ageHours": 90.3,
+            "domain": "uk.news.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T07:59:18.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Top Asian News 5:38 a.m. GMT - Yahoo News UK",
+            "url": "https://uk.news.yahoo.com/top-asian-news-4-19-040000790.html"
+          },
+          {
+            "ageHours": 16.9,
+            "domain": "asianews.it",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:21:43.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Schools in Riyadh still closed a week after Houthi attacks | AsiaNews",
+            "url": "https://www.asianews.it/en/news/press-review/schools-in-riyadh-still-closed-a-week-after-houthi-attacks"
+          },
+          {
+            "ageHours": 12.2,
+            "domain": "soranews24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:03:58.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Tons of used books in Japan being... | SoraNews24 —Japan News",
+            "url": "https://soranews24.com/2026/09/28/tons-of-used-books-in-japan-being-bought-up-by-someone-or-something"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529952599"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 12.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.956,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 8862,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 785,
+        "statesFreshness": true,
+        "text": "Search quotes, news & videos.Oil prices climbed more than 1% Monday in early Asia trading after U.S. [3]\n\nAsia.Get bite-sized news via a new cards interface. [8]\n\nToday’s Paper.But this fall, ninth-grade students across the country are being required to read the novel in full, according to Chinese state media . [1]\n\nGNTTV.North Korea is often at odds with South Korea, Japan and the United States, which are closely aligned on security matters in East Asia. [6]\n\nSources: [1] Why China Is Requiring Ninth Graders to Read ‘Jane Eyre’ (nytimes.com)  [2] Global News Brief: Key Developments Around the World, September... (openchronicle.org)  [3] Oil price today: WTI, Brent, Trump, Iran (cnbc.com)  [4] The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback (abbeys.com.au)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "Asia news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 20.3,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:59:15.000Z",
+            "relevance": 1.02,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 1.02,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Why China Is Requiring Ninth Graders to Read ‘Jane Eyre’",
+            "url": "https://www.nytimes.com/2026/09/28/world/asia/china-jane-eyre-required-reading-literature.html"
+          },
+          {
+            "ageHours": 18.4,
+            "domain": "openchronicle.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:52:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Global News Brief: Key Developments Around the World, September...",
+            "url": "https://openchronicle.org/2026/09/28/global-news-brief-key-developments-around-the-world-september-28-2026"
+          },
+          {
+            "ageHours": 26.2,
+            "domain": "cnbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:03:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Oil price today: WTI, Brent, Trump, Iran",
+            "url": "https://www.cnbc.com/2026/09/28/oil-price-today-wti-brent-trump-iran.html"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529952599"
+          },
+          {
+            "ageHours": 14.8,
+            "domain": "dayakdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:32:02.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "SMK Asajaya duo win bronze at World Robot Olympiad Open Champ Asia Pacific 2026 in India",
+            "url": "https://dayakdaily.com/smk-asajaya-duo-win-bronze-at-world-robot-olympiad-open-champ-asia-pacific-2026-in-india"
+          },
+          {
+            "ageHours": 6.6,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:43:27.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "North Korea UN speech: Pyongyang backs... - India Today",
+            "url": "https://www.indiatoday.in/world/story/north-korea-un-speech-multilateralism-nuclear-deterrent-no-direct-threat-ptag-3005283-2026-09-29"
+          },
+          {
+            "ageHours": 26,
+            "domain": "asiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:15:40.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Struggle over Hormuz and Bab el‑Mandeb straits is... - Asia Times",
+            "url": "https://asiatimes.com/2026/09/struggle-over-hormuz-and-bab-el-mandeb-straits-is-centuries-old"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:48:19.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Air quality in all Singapore regions in unhealthy range - CNA",
+            "url": "https://www.channelnewsasia.com/singapore/air-quality-haze-unhealthy-regions-sep-29-6413481"
+          },
+          {
+            "ageHours": 6.2,
+            "domain": "presstv.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:08:23.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Media reports of Iran showing nuclear flexibility false; US trapped in...",
+            "url": "https://www.presstv.co.uk/Detail/2026/09/28/777222/Source--Media-reports-of-Iran-showing-nuclear-flexibility-are-false--US-trapped-in-Hormuz-Strait"
+          },
+          {
+            "ageHours": 4,
+            "domain": "bloomberg.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:19:42.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Stock Market Today: Dow, S&P Live Updates for September 29",
+            "url": "https://www.bloomberg.com/news/articles/2026-09-28/stock-market-today-dow-s-p-live-updates"
+          },
+          {
+            "ageHours": 26.2,
+            "domain": "lex18.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:06:51.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Asia Thigpen leads No. 3 Kentucky past No. 7 Texas, 3-0",
+            "url": "https://www.lex18.com/sports/bbn-tonight/asia-thigpen-leads-no-3-kentucky-past-no-7-texas-3-0"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.96,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 6999,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1215,
+        "statesFreshness": true,
+        "text": "The China situation represents just one element among numerous challenges Boeing currently faces. [10]\n\nChina.Amid a volatile international situation, China is ready to work with Kenya and other African countries, as well as international organizations and think tanks in Africa, to advance global development and improve global governance, Guo said. [8]\n\nAmid the volatile international situation, China will stay committed to skills and talent development to empower economic and social progress... [6]\n\nThe departments of Russia and China are currently discussing how to prepare a legal framework for permission to visit China by private vehicle,\" Russian Deputy Foreign Minister Andrei Rudenko said in an interview with TASS. [9]\n\nSources: [1] Trump asked Xi Jinping if China would like to buy US... | The Guardian (theguardian.com)  [2] US Stock Market Today: Dow Falls 0.2%, S&P 500 Slips 0.4% "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "current situation in China",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 25.3,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:57:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Trump asked Xi Jinping if China would like to buy US... | The Guardian",
+            "url": "https://www.theguardian.com/world/2026/sep/28/trump-xi-jinping-china-buy-weapons"
+          },
+          {
+            "ageHours": 106.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:13:16.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "US Stock Market Today: Dow Falls 0.2%, S&P 500 Slips 0.4% and Nasdaq Drops 0.8% as Yields and Oil Surge Ahead ",
+            "url": "https://sundayguardianlive.com/business/us-stock-market-today-dow-falls-02-sp-500-slips-04-and-nasdaq-drops-08-as-yields-and-oil-surge-ahead-of-us-china-talks-heres-what-investors-need-to-know-291941"
+          },
+          {
+            "ageHours": 62.4,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T11:51:54.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "China says it ‘respects’ Trump’s calling AI ‘super intelligence’",
+            "url": "https://www.malaymail.com/news/world/2026/09/26/china-says-it-respects-trumps-super-intelligence-switch-from-ai/236655"
+          },
+          {
+            "ageHours": 90.5,
+            "domain": "bastillepost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T07:45:31.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Int'l figures, obervers expect Xi's US visit to add more stability to....",
+            "url": "https://www.bastillepost.com/global/article/6191852-intl-figures-obervers-expect-xis-us-visit-to-add-more-stability-to-turbulent-world"
+          },
+          {
+            "ageHours": 92.3,
+            "domain": "biblebyte.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:00:12.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Hong Kong, China's Cricket Team Bounces Back! | Ayush Shukla & Mohammad Ghazanfar Star in Oman Win (2026)",
+            "url": "https://biblebyte.org/article/hong-kong-china-s-cricket-team-bounces-back-ayush-shukla-mohammad-ghazanfar-star-in-oman-win"
+          },
+          {
+            "ageHours": 2.9,
+            "domain": "cy.china-embassy.gov.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:23:31.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Foreign Ministry Spokesperson Guo Jiakun’s Regular Press...",
+            "url": "https://cy.china-embassy.gov.cn/eng/fyrth/202609/t20260923_12029735.htm"
+          },
+          {
+            "ageHours": 66.3,
+            "domain": "zamin.uz",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T08:01:07.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Sharp TVs start failing en masse in China – Zamin.uz, 26.09.2026",
+            "url": "https://zamin.uz/en/technology/222595-sharp-tvs-start-failing-en-masse-in-china.html"
+          },
+          {
+            "ageHours": 60.7,
+            "domain": "english.news.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T13:36:34.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Seminar in Kenya highlights China-proposed global initiatives for...",
+            "url": "https://english.news.cn/20260926/59ddb5367d7f4518ac9d3b8b229abe93/c.html"
+          },
+          {
+            "ageHours": 76.9,
+            "domain": "news-pravda.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:23:32.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Daniil Bezsonov: #Newsday. The trip to the APEC summit will depend on the situation inside Russia",
+            "url": "https://news-pravda.com/world/2026/09/25/2621060.html"
+          },
+          {
+            "ageHours": 101.3,
+            "domain": "parameter.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T20:59:49.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Boeing (BA) Stock Slides as Trump-Xi Meeting Expected... - Parameter",
+            "url": "https://parameter.io/boeing-ba-stock-slides-as-trump-xi-meeting-expected-to-yield-no-major-aircraft-deal"
+          },
+          {
+            "ageHours": 59.6,
+            "domain": "gulfnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:39:34.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "China says it 'respects' Trump's 'super intelligence' switch from AI",
+            "url": "https://gulfnews.com/world/asia/china/china-says-it-respects-trumps-super-intelligence-switch-from-ai-1.500688763"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 2.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.892,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2146,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1253,
+        "statesFreshness": true,
+        "text": "24, 2026 /PRNewswire/ -- Digital travel platform Agoda has released a new study showing that software developers across Southeast Asia and India are rapidly transitioning from using AI assistants for individual tasks to deploying autonomous AI agents across the software-development lifecycle. [1]\n\nSoutheast Asia is well-positioned to capture this shift, with destinations close together and well-connected for more frequent, seamless travel.\" Travelers looking to explore Southeast Asia can browse the full range of options on the Agoda travel platform, where flights... [2]\n\nAgoda Releases AI Developer Report 2026: Agentic AI Adoption Outpaces Enterprise Readiness Across Southeast Asia and India\n\nSINGAPORE , Sept. [1]\n\nGan observed that Southeast Asia today faces a harder path to industrial upgrading. [3]\n\nSources: [1] Agoda Releases AI Developer Report 2026: Agentic AI Adoption Outpaces Ent"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "latest news from Southeast Asia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 119.3,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T03:00:44.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Agoda Releases AI Developer Report 2026: Agentic AI Adoption Outpaces Enterprise Readiness Across Southeast As",
+            "url": "https://www.thehindubusinessline.com/brandhub/pr-release/agoda-releases-ai-developer-report-2026-agentic-ai-adoption-outpaces-enterprise-readiness-across-southeast-asia-and-india/article71502632.ece"
+          },
+          {
+            "ageHours": 42.2,
+            "domain": "en.fuyongyulonghotel.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T08:09:00.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Agoda Reveals Sustained Intra-Regional Travel Interest Across...",
+            "url": "https://en.fuyongyulonghotel.cn/newsdetail-831106.html"
+          },
+          {
+            "ageHours": 91.8,
+            "domain": "mothership.sg",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:29:40.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "S'pore must help local workers & firms benefit from global opportunitie...",
+            "url": "https://mothership.sg/2026/09/local-workers-firms-benefit-global-opportunities-gan-kim-yong"
+          },
+          {
+            "ageHours": 99.8,
+            "domain": "asianews.it",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T22:28:56.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Hanoi residents protest against Red River mega-project | AsiaNews",
+            "url": "https://www.asianews.it/en/south-east-asia/vietnam/hanoi-residents-protest-against-red-river-mega-project"
+          },
+          {
+            "ageHours": 92.5,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T05:46:55.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Meet Southeast Asia's first okapi calf, born at Singapore's Rainforest Wild Adventure",
+            "url": "https://www.channelnewsasia.com/living/first-baby-okapi-calf-southeast-asia-singapore-mandai-6410151"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 42.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.866,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1265,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1103,
+        "statesFreshness": true,
+        "text": "Australian Rural & Regional News Independent news from across rural and regional Australia.Today’s artists continue this tradition, bringing fresh perspectives to the shifting relationship between people and the environment. [1]\n\nAustralian schools expand use of education tech & AI\n\nMon, 28th Sep 2026 (Today)Australian schools are increasing their use of education technology, according to new research from Campion Education, with particularly strong interest in education-specific generative AI. [5]\n\nThe well-known lyrebird and the rare, ground-dwelling scrub-bird are thought to be the Australian songbirds with the oldest lineage. [7]\n\nAustralian PM Anthony Albanese praised PM Narendra Modi in New York on the sidelines of the UN General Assembly session. [2]\n\nSources: [1] Essence of place I Australian Rural & Regional News (arr.news)  [2] Prime Minister Narendra Modi achieved what no one "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "latest Australian news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 73.2,
+            "domain": "arr.news",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T01:05:11.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Essence of place I Australian Rural & Regional News",
+            "url": "https://arr.news/2026/09/25/essence-of-place"
+          },
+          {
+            "ageHours": 17.4,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:52:38.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Prime Minister Narendra Modi achieved what no one in... - India Today",
+            "url": "https://www.indiatoday.in/world/story/australia-anthony-albanese-praise-pm-modi-middle-east-war-unga-new-york-itspc-3004592-2026-09-28"
+          },
+          {
+            "ageHours": 2.6,
+            "domain": "abc.net.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:44:46.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "How young Australians are navigating their parents' support for One...",
+            "url": "https://www.abc.net.au/news/2026-09-29/one-nation-family-dynamics-aus-politics/107206530"
+          },
+          {
+            "ageHours": 70.4,
+            "domain": "thewest.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T03:52:32.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Attention is nothing without trust | The West Australian",
+            "url": "https://thewest.com.au/business/the-debrief/attention-is-nothing-without-trust--c-22891690"
+          },
+          {
+            "ageHours": 27.6,
+            "domain": "itbrief.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T22:45:05.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Australian schools expand use of education tech & AI",
+            "url": "https://itbrief.com.au/story/australian-schools-expand-use-of-education-tech-ai"
+          },
+          {
+            "ageHours": 117.6,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T04:44:32.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Anthony Albanese reveals OpenAI breach of Medicare...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lNX3VLR0VoR3VQRGlydzlNSWJDZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen"
+          },
+          {
+            "ageHours": 11,
+            "domain": "phys.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:20:36.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "The joy of song: Where songbirds came from and why we should listen...",
+            "url": "https://phys.org/news/2026-09-joy-song-songbirds.html"
+          },
+          {
+            "ageHours": 112.7,
+            "domain": "bleepingcomputer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T09:38:53.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "OpenAI hacked Australian Medicare govt site, probed data providers",
+            "url": "https://www.bleepingcomputer.com/news/security/openai-hacked-australian-medicare-govt-site-probed-data-providers"
+          },
+          {
+            "ageHours": 115.6,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T06:42:09.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Australian PM says rogue OpenAI model hacked government health portal",
+            "url": "https://www.malaymail.com/news/world/2026/09/24/australian-pm-says-rogue-openai-model-hacked-government-health-portal/236338"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 2.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.798,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1651,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 959,
+        "statesFreshness": true,
+        "text": "DailyPod Australia delivers fresh daily podcasts and news articles covering Australian current affairs, culture, and lifestyle insights for engaged listeners.Today's Top Highlights. [2]\n\nWATCH THE VIDEO ABOVE: Bogong moths swarm east coast homes\n\nKnow the news with the 7NEWS app: Download today\n\nThousands of people reported seeing the moths through the Invertebrates Australia-run website Bogong Watch. [5]\n\n1 source of news for every West Australian. [11]\n\n60 Minutes.An Australian human rights activist is missing in Cambodia amid fears he has been abducted by Vietnamese authorities. [4]\n\nSources: [1] RBA interest rates decision: $2.5 trillion noose tightening... | Nine.com.au (nine.com.au)  [2] DailyPod Australia: Latest News, Podcasts & Australian Stories (dailypod.au)  [3] Australia news LIVE: RBA interest rate rise expected; Larissa Waters... (theage.com.au)  [4] Tran Hiep: Australian "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "Australia news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 6.7,
+            "domain": "nine.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:35:49.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "RBA interest rates decision: $2.5 trillion noose tightening... | Nine.com.au",
+            "url": "https://www.nine.com.au/australia-news/rba-interest-rates-decision-2-5-trillion-noose-tightening-around-australia-and-it-s-about-to-get-worse-20260929-p6118a.html"
+          },
+          {
+            "ageHours": 16.3,
+            "domain": "dailypod.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:02:14.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "DailyPod Australia: Latest News, Podcasts & Australian Stories",
+            "url": "https://dailypod.au"
+          },
+          {
+            "ageHours": 4.7,
+            "domain": "theage.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:36:01.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Australia news LIVE: RBA interest rate rise expected; Larissa Waters...",
+            "url": "https://www.theage.com.au/national/australia-news-live-rba-expected-to-announce-fourth-rate-rise-this-year-greens-leader-larissa-waters-steps-down-due-to-illness-trump-denies-asking-xi-about-potential-us-arms-sales-20260929-p6118p.html"
+          },
+          {
+            "ageHours": 2.7,
+            "domain": "nine.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:36:10.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Tran Hiep: Australian human rights activist feared... | Nine.com.au",
+            "url": "https://www.nine.com.au/australia-news/australian-tran-hiep-missing-in-cambodia-20260929-p6119n.html"
+          },
+          {
+            "ageHours": 25.1,
+            "domain": "7news.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:12:10.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Giant bogong moths swarm southeast Australia during their annual migration",
+            "url": "https://7news.com.au/news/animals/giant-bogong-moths-swarm-southeast-australia-during-their-annual-migration-c-22935475"
+          },
+          {
+            "ageHours": 14.2,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:05:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Multi-Country Payroll Australia | Ramco Systems",
+            "url": "https://www.adproceed.com/ads/multi-country-payroll-australia-ramco-systems"
+          },
+          {
+            "ageHours": 2.8,
+            "domain": "canberratimes.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:32:14.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "GWM wants to be Australia's Chinese giant | The Canberra Times",
+            "url": "https://www.canberratimes.com.au/story/9359121/gwm-wants-to-be-australias-chinese-giant"
+          },
+          {
+            "ageHours": 22.8,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T03:30:00.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "COP31 hosts Australia and Türkiye face the fossil-fuel question",
+            "url": "https://www.thehindu.com/sci-tech/energy-and-environment/cop31-hosts-australia-and-turkiye-face-the-fossil-fuel-question/article71515307.ece"
+          },
+          {
+            "ageHours": 5.3,
+            "domain": "smh.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:58:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Australia news LIVE: RBA expected to announce fourth rate rise this...",
+            "url": "https://www.smh.com.au/national/australia-news-live-rba-expected-to-announce-fourth-rate-rise-this-year-greens-leader-larissa-waters-steps-down-due-to-illness-trump-denies-asking-xi-about-potential-us-arms-sales-20260929-p6118p.html"
+          },
+          {
+            "ageHours": 14.4,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:55:16.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Fact Check: Traditional welcome of Brazil team in... - India Today",
+            "url": "https://www.indiatoday.in/fact-check/story/fact-check-brazil-team-brisbane-aboriginal-welcome-video-falsely-shared-as-indian-3004883-2026-09-28"
+          },
+          {
+            "ageHours": 25.6,
+            "domain": "thewest.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:44:09.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Andrew Miller: Even the fleeting memories make us who we are today...",
+            "url": "https://thewest.com.au/opinion/andrew-miller-even-the-fleeting-memories-make-us-who-we-are-today-so-take-time-to-reminisce--c-22932998"
+          },
+          {
+            "ageHours": 5,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:15:50.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.88,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Morning Mail: Larissa Waters quits as Greens leader... | The Guardian",
+            "url": "https://www.theguardian.com/australia-news/2026/sep/29/morning-mail-tuesday-ntwnfb"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.971,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2036,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 975,
+        "statesFreshness": false,
+        "text": "We’re often told the Australian bushfire season is starting earlier. [12]\n\nThe 2019–20 Australian bushfire season, also known as the Black Summer, was one of the most intense and catastrophic fire seasons on record in Australia. [1]\n\nUntil the 2019–2020 Australian bushfire season, the forests in Australia were thought to reabsorb all the carbon released in bushfires across the country. [2]\n\nThis paper introduces a new framework of algebraic equivalence relations between time series and new distance metrics between them, then applies these to investigate the Australian ``Black Summer'' bushfire season of 2019-2020. [4]\n\nSources: [1] 2019–20 Australian bushfire season (en.wikipedia.org)  [2] Bushfires in Australia - Wikipedia (en.wikipedia.org)  [3] 2019–20 Australian bushfires—frequently asked questions: a quick... (aph.gov.au)  [4] Equivalence relations and $L^p$ distances between time s"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "Australian bushfire season",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "2019–20 Australian bushfire season",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Australian_bushfire_season"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Bushfires in Australia - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Bushfires_in_Australia"
+          },
+          {
+            "ageHours": null,
+            "domain": "aph.gov.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "2019–20 Australian bushfires—frequently asked questions: a quick...",
+            "url": "https://www.aph.gov.au/About_Parliament/Parliamentary_departments/Parliamentary_Library/Research/Quick_Guides/2019-20/AustralianBushfires"
+          },
+          {
+            "ageHours": 58223.8,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2020-02-07T02:32:33Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Equivalence relations and $L^p$ distances between time series with application to the Black Summer Australian ",
+            "url": "http://arxiv.org/abs/2002.02592v3"
+          },
+          {
+            "ageHours": null,
+            "domain": "firerescue.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.91,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Challenges Of The 2019-20 Black Summer Bushfires",
+            "url": "https://www.firerescue.com.au/bushfire"
+          },
+          {
+            "ageHours": null,
+            "domain": "unep.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ten impacts of the Australian bushfires",
+            "url": "https://www.unep.org/news-and-stories/story/ten-impacts-australian-bushfires"
+          },
+          {
+            "ageHours": 1040.4,
+            "domain": "wwf.org.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T17:56:47.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "AUSTRALIAN BUSHFIRES",
+            "url": "https://wwf.org.au/blogs/what-more-can-you-do-to-support-bushfire-recovery"
+          },
+          {
+            "ageHours": null,
+            "domain": "ultralightgear.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Hiking Safe in Bushfire Season: What You Need to... — Ultralight Gear",
+            "url": "https://ultralightgear.com.au/blogs/all/hiking-safe-in-bushfire-season-what-you-need-to-know"
+          },
+          {
+            "ageHours": null,
+            "domain": "youi.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Australian Bushfire Season: What Can We Expect in 2024-25?",
+            "url": "https://www.youi.com.au/home-insurance/articles/what-do-we-know-about-the-coming-australian-bushfire-season"
+          },
+          {
+            "ageHours": null,
+            "domain": "researchgate.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "(PDF) Causes of the Widespread 2019-2020 Australian Bushfire...",
+            "url": "https://www.researchgate.net/publication/345769698_Causes_of_the_Widespread_2019-2020_Australian_Bushfire_Season"
+          },
+          {
+            "ageHours": null,
+            "domain": "ebsco.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "2019–20 Australian bushfire season (black summer) | EBSCOhost",
+            "url": "https://www.ebsco.com/research-starters/history/2019-20-australian-bushfire-season-black-summer"
+          },
+          {
+            "ageHours": null,
+            "domain": "theconversation.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "It’s only October, so what’s with all these bushfires? New research...",
+            "url": "https://theconversation.com/its-only-october-so-whats-with-all-these-bushfires-new-research-explains-it-124091"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1040.4,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"Australian bushfire season\" right now — "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.888,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 10752,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 906,
+        "statesFreshness": false,
+        "text": "Interest rates.The Reserve Bank’s fourth cash rate hike of the year is all but locked in, and it would push interest rates to a level Australians have not seen since 2011 and make them the second highest among advanced economies. [1]\n\nNearly 30,000 Australian households are effectively barred from home ownership every time interest rates rise, new research has revealed. [4]\n\nNAB says Australian interest rates have moved from near the bottom of the G10 range to near the top. [3]\n\nAustralian interest rates.Sunday 27 September 2026. [7]\n\nSources: [1] RBA interest rates decision: $2.5 trillion noose... | Nine.com.au (nine.com.au)  [2] No wonder Aussie mortgage holders are hurting - MacroBusiness (macrobusiness.com.au)  [3] NAB sees RBA hike supporting AUD near term, but the medium-term... (investinglive.com)  [4] In one move, another 30,000 are locked out of the great Australian... (domain.c"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "current Australian interest rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 6.7,
+            "domain": "nine.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:35:49.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "RBA interest rates decision: $2.5 trillion noose... | Nine.com.au",
+            "url": "https://www.nine.com.au/australia-news/rba-interest-rates-decision-2-5-trillion-noose-tightening-around-australia-and-it-s-about-to-get-worse-20260929-p6118a.html"
+          },
+          {
+            "ageHours": 7.1,
+            "domain": "macrobusiness.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:11:51.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "No wonder Aussie mortgage holders are hurting - MacroBusiness",
+            "url": "https://www.macrobusiness.com.au/2026/09/no-wonder-aussie-mortgage-holders-are-hurting"
+          },
+          {
+            "ageHours": 3,
+            "domain": "investinglive.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:16:24.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.93,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "NAB sees RBA hike supporting AUD near term, but the medium-term...",
+            "url": "https://investinglive.com/central-banks/nab-sees-rba-hike-supporting-aud-near-term-but-the-medium-term-risk-points-the-other-way"
+          },
+          {
+            "ageHours": 96.9,
+            "domain": "domain.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T01:27:09.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "In one move, another 30,000 are locked out of the great Australian...",
+            "url": "https://www.domain.com.au/news/in-one-move-another-30000-are-locked-out-of-the-great-australian-dream-1561064"
+          },
+          {
+            "ageHours": 92.1,
+            "domain": "yourlifechoices.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:14:56.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Your Japan holiday just got a lot cheaper, thanks to the Aussie dollar",
+            "url": "https://www.yourlifechoices.com.au/finance/your-japan-holiday-just-got-a-lot-cheaper-thanks-to-the-aussie-dollar"
+          },
+          {
+            "ageHours": 27.9,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T22:24:44.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "The RBNZ’s “own goal” with NZ dollar depreciation - Roger's Weekly...",
+            "url": "https://www.linkedin.com/pulse/rbnzs-own-goal-nz-dollar-depreciation-rogers-weekly-roger-kerr-srbne"
+          },
+          {
+            "ageHours": 23.2,
+            "domain": "macrobusiness.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:05:29.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Nibble on bonds? - MacroBusiness",
+            "url": "https://www.macrobusiness.com.au/2026/09/nibble-on-bonds"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.896,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2502,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1016,
+        "statesFreshness": true,
+        "text": "Follow Bhaskar English for latest global viral news, Japan family rental and Delhi trends. [7]\n\nJapan is using its traditional food culture to deepen people-to-people relations with Nigeria, while seeking to expand business cooperation.The News You Need, Delivered To You. [1]\n\n...a 4-year-old and 1-year-old, were conscious when they were rushed to hospital, and their injuries are not believed to be life-threatening, as reported by Japan Today and Nagoya TV News. [2]\n\nCovering geo-political news and current affairs across Asia.Kitagawa Katsuro’s arrival will contribute to deeper Japan-Philippine defense ties while sharpening the risk of provoking China. [3]\n\nSources: [1] Japan deepens Nigeria ties through washoku (guardian.ng)  [2] Japanese father throws 2 young daughters from the sixth-floor balcony... (economictimes.indiatimes.com)  [3] Japan's new ambassador will test Manila's China..."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "latest Japan news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 53.8,
+            "domain": "guardian.ng",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T20:28:03.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Japan deepens Nigeria ties through washoku",
+            "url": "https://guardian.ng/news/japan-deepens-nigeria-ties-through-washoku"
+          },
+          {
+            "ageHours": 43.5,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T06:46:58.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese father throws 2 young daughters from the sixth-floor balcony...",
+            "url": "https://economictimes.indiatimes.com/news/international/us/japanese-father-throws-2-young-daughters-from-the-sixth-floor-balcony-moment-caught-on-camera-heres-what-happened-next/articleshow/134515892.cms"
+          },
+          {
+            "ageHours": 91,
+            "domain": "asiatimes.com",
+            "providers": [
+              "searxng",
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:18:02.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan's new ambassador will test Manila's China... - Asia Times",
+            "url": "https://asiatimes.com/2026/09/japans-new-ambassador-will-test-manilas-china-balancing-act"
+          },
+          {
+            "ageHours": 24.3,
+            "domain": "soranews24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:02:08.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Robot bartender bar opening in Kyoto... | SoraNews24 —Japan News",
+            "url": "https://soranews24.com/2026/09/28/robot-bartender-bar-opening-in-kyoto-and-no-theyre-not-controlled-by-ai"
+          },
+          {
+            "ageHours": 91.3,
+            "domain": "mainichi.jp",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T07:02:55.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Easy Japanese news in translation: Biggest taro stew... - The Mainichi",
+            "url": "https://mainichi.jp/english/articles/20260925/p2a/00m/0li/017000c"
+          },
+          {
+            "ageHours": 71.5,
+            "domain": "tokyoreporter.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:50:42.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Top Roppongi hostess busted for cocaine after... - TokyoReporter",
+            "url": "https://www.tokyoreporter.com/japan-news/top-roppongi-hostess-busted-for-cocaine-after-6-month-secret-police-probe"
+          },
+          {
+            "ageHours": 25.5,
+            "domain": "bhaskarenglish.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:50:28.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Rent Family Members in Japan & Unusual Global Stories | Viral List",
+            "url": "https://www.bhaskarenglish.in/national/news/japan-rent-family-members-china-large-families-delhi-resignation-party-139173886.html"
+          },
+          {
+            "ageHours": 7,
+            "domain": "abc.net.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:18:05.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "The surprising origin of Tasmania's cherry blossom festival - ABC News",
+            "url": "https://www.abc.net.au/news/2026-09-29/tasmanian-cherry-blossoms-link-to-japan-cultural-connection/107176340"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.866,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1004,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 870,
+        "statesFreshness": true,
+        "text": "Bringing you yesterday's news from Japan and Asia, today. [1]\n\nBtc very bad news today now dwon side.Bank of Japan debated need for faster rate hikes, July minutes show. [3]\n\nFast forward to today: Policymakers in Japan and the United States are trying to thread a tiny, sharp needle. [2]\n\nIn 2006, Kouichi Kawamura and colleagues published a genetic study in the journal Molecular Ecology that found that almost all the bluegill fish swimming in Japan’s lakes and rivers today are descendants of just 15 fish. [5]\n\nSources: [1] How to get into this beautiful... | SoraNews24 —Japan News (soranews24.com)  [2] The revival of Japan’s economy isn’t all good news. (nytimes.com)  [3] Japan's Top Currency Diplomat Mimura: Japanese... | Forex Factory (forexfactory.com)  [4] Articles about politics, economy, culture, history, sports, tourism in DPRK (pyongyangtimes.com.kp)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japan news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 10.2,
+            "domain": "soranews24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:04:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "How to get into this beautiful... | SoraNews24 —Japan News",
+            "url": "https://soranews24.com/2026/09/29/how-to-get-into-this-beautiful-off-the-beaten-path-kyoto-temple-earlier-than-the-general-public"
+          },
+          {
+            "ageHours": 17.2,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:04:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The revival of Japan’s economy isn’t all good news.",
+            "url": "https://www.nytimes.com/2026/09/28/opinion/bond-market-japan-yen.html"
+          },
+          {
+            "ageHours": 18.3,
+            "domain": "forexfactory.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:00:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan's Top Currency Diplomat Mimura: Japanese... | Forex Factory",
+            "url": "https://www.forexfactory.com/news/1428775-japans-top-currency-diplomat-mimura-japanese-prime-minister"
+          },
+          {
+            "ageHours": 20.2,
+            "domain": "pyongyangtimes.com.kp",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:07:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Articles about politics, economy, culture, history, sports, tourism in DPRK",
+            "url": "http://www.pyongyangtimes.com.kp/blog?page=today-news&blogid=6ab85b0d3e49c505a489f96b"
+          },
+          {
+            "ageHours": 21.8,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:31:17.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "A 1960 aquarium gift left Japan's future emperor with 15 bluegill; their descendants spread across the country",
+            "url": "https://www.hindustantimes.com/world-news/a-1960-aquarium-gift-left-japans-future-emperor-with-15-bluegill-their-descendants-spread-across-the-country-101790419028451.html"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529952599"
+          },
+          {
+            "ageHours": 17.1,
+            "domain": "daikin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:12:41.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Daikin Global | Press Releases | Daikin Releases Integrated Report...",
+            "url": "https://www.daikin.com/press/2026/20260928"
+          },
+          {
+            "ageHours": 6.9,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:24:17.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Modern Pilgrimage Trails Reshape Transformative Travel in 2026",
+            "url": "https://que.com/modern-pilgrimage-trails-reshape-transformative-travel-in-2026"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Journey Across Japan by Chris Broad | 9780857508300 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9780857508300"
+          },
+          {
+            "ageHours": 23.6,
+            "domain": "tass.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:40:50.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Russia does not believe in Japan’s promises to remove US... - TASS",
+            "url": "https://tass.com/politics/2193705"
+          },
+          {
+            "ageHours": 10,
+            "domain": "mynintendonews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:20:10.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan: Fire Emblem: Fortune’s Weave shifts... - My Nintendo News",
+            "url": "https://mynintendonews.com/2026/09/28/japan-fire-emblem-fortunes-weave-shifts-127k-physical-copies-and-switch-2-sells-34k-units"
+          },
+          {
+            "ageHours": 2.3,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Journey Across Japan by Chris Broad - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/journey-across-japan-9780857508300"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.903,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1183,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          10,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 636,
+        "statesFreshness": false,
+        "text": "Japanese economy shrank in fourth quarter Japan's economy shrank 2.3% in the fourth quarter as manufacturers were hit by the strong yen, weak export dema… [6]\n\nCan she deliver what has eluded the Japanese economy for decades: faster growth? [8]\n\nThe yen's muted response to higher Japanese interest rates may point to deeper constraints in the Japanese economy. [10]\n\n#2026 might see the Japanese economy decelerating. [11]\n\nSources: [1] Japanese asset price bubble (en.wikipedia.org)  [2] Japanese economic miracle (en.wikipedia.org)  [3] The Japanese economy (2010) (openlibrary.org)  [4] The Japanese Economy (2000) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japanese economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Japanese asset price bubble",
+            "url": "https://en.wikipedia.org/wiki/Japanese_asset_price_bubble"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Japanese economic miracle",
+            "url": "https://en.wikipedia.org/wiki/Japanese_economic_miracle"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Japanese economy (2010)",
+            "url": "https://openlibrary.org/works/OL19998796W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Japanese Economy (2000)",
+            "url": "https://openlibrary.org/works/OL8014910W"
+          },
+          {
+            "ageHours": null,
+            "domain": "money.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese economy shrinks 1.4% in fourth quarter",
+            "url": "http://money.cnn.com/2016/02/14/news/economy/japan-economy-shrinks/index.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese economy shrank in fourth quarter | Global economy | The…",
+            "url": "https://www.theguardian.com/business/2012/feb/13/japan-economy-shrank-fourth-quarter"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The yen is everything to Japan’s economy",
+            "url": "https://www.ft.com/content/07276a3f-7ba8-45b2-8017-a886faf1fb71?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan election: Can Sanae Takaichi fix the economy?",
+            "url": "https://www.bbc.com/news/articles/cddn7qed35eo"
+          },
+          {
+            "ageHours": null,
+            "domain": "dspace.mit.edu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Long-run projection of the Japanese economy",
+            "url": "http://dspace.mit.edu/handle/1721.1/83006"
+          },
+          {
+            "ageHours": 36.2,
+            "domain": "globaltimes.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T14:08:27.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.04,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese economy shrouded in greater uncertainty as... - Global Times",
+            "url": "https://www.globaltimes.cn/page/202609/1371430.shtml"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan Economic Outlook: Balancing Contraction | LinkedIn",
+            "url": "https://www.linkedin.com/posts/davidhasenbalg_japan-economic-outlook-january-2026-activity-7429528912709398528-GF8Y"
+          },
+          {
+            "ageHours": null,
+            "domain": "business.inquirer.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese economy contracts as Takaichi readies stimulus",
+            "url": "https://business.inquirer.net/558671/japanese-economy-contracts-as-takaichi-readies-stimulus"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 36.2,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.871,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 10977,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 929,
+        "statesFreshness": false,
+        "text": "Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery\n\nHome » Gallery » Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery\n\nPosted By: Social News XYZ September 26, 2026\n\n-\n\nNagoya: India’s Unnathi Aiyappa Bollanda (2nd from left) competes during the womens 200m Round 1 at the Asian Games 2026 in Nagoya, Japan, on Saturday, September 26, 2026. [1]\n\n(Photo: Xinhua via IANS)\n\n-\n\nNagoya: India’s Unnathi Aiyappa Bollanda (2nd from left) competes during the womens 200m Round 1 at the Asian Games 2026 in Nagoya, Japan, on Saturday, September 26, 2026. [1]\n\nIt covers Gossips, Politics, Movies, Technolgy, and Sports News and Photo Galleries and Live Coverage of Events via Youtube. [1]\n\n(Photo: IANS/Biplab Banerjee)\n\nAn Indo-American News website. [2]\n\nSources: [1] Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery (socialnews.xyz)  [2] Nagoya: Asian Games 2026 – Men’s High J"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japan 2026 events",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 61.2,
+            "domain": "socialnews.xyz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T13:04:11.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery",
+            "url": "https://www.socialnews.xyz/2026/09/26/nagoya-asian-games-2026-womens-200m-round-1-gallery"
+          },
+          {
+            "ageHours": 34.7,
+            "domain": "socialnews.xyz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:34:13.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Nagoya: Asian Games 2026 – Men’s High Jump #Gallery",
+            "url": "https://www.socialnews.xyz/2026/09/27/nagoya-asian-games-2026-mens-high-jump-gallery"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 34.7,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 5526,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1089,
+        "statesFreshness": true,
+        "text": "Kim Soo-yeon, 김수연.2003 -- A Russian rocket carrying a South Korean scientific research satellite is successfully launched from Russia's Plesetsk Cosmodrome base near the Arctic Ocean. [1]\n\nBetting Tips & Odds\n\nSouth Korea to win\nSon Heung-min to score\nGoals over 3.5\n\nInjury and Team News\n\nAll of the selected players are fit and ready to be in action for both South Korea and Uruguay. [2]\n\nNorth Korea warns South Korea could become target for retaliation\n\nSeoul, Sept 25:\n\nNorth Korea has warned that South Korea could become a “decisive target” for collective retaliation if it is used as a central hub for a US-led collective defence system in the region. [8]\n\nMatch Facts\n\nSouth Korea have secured three wins in their last five matches. [2]\n\nSources: [1] Today in Korean history | Yonhap News Agency (en.yna.co.kr)  [2] South Korea vs Uruguay Preview – prediction, team news, lineups | Internati"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "latest South Korea news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 69.2,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T05:05:23.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Today in Korean history | Yonhap News Agency",
+            "url": "https://en.yna.co.kr/view/AEN20260926000700315"
+          },
+          {
+            "ageHours": 78.6,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:44:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "South Korea vs Uruguay Preview – prediction, team news, lineups | International friendly 2026",
+            "url": "https://khelnow.com/football/south-korea-vs-uruguay-preview-international-friendly-202609"
+          },
+          {
+            "ageHours": 86.6,
+            "domain": "upi.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:44:22.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "British anti-migrant activist pleads not guilty in dinghy slashing - UPI.com",
+            "url": "https://www.upi.com/Top_News/World-News/2026/09/25/anti-migrant-activist-denies-dinghy-slashing-charges/6571790333449"
+          },
+          {
+            "ageHours": 116.9,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:27:27.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Today in Korean history | Yonhap News Agency",
+            "url": "https://en.yna.co.kr/view/AEN20260924001800315"
+          },
+          {
+            "ageHours": 21.1,
+            "domain": "thepattayanews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:15:48.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Body Believed to be Missing South Korean Man... - The Pattaya News",
+            "url": "https://thepattayanews.com/2026/09/28/body-believed-to-be-missing-south-korean-man-recovered-from-flooded-canal-near-pattaya-golf-course"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "en.sedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:24:45.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Record 330 mm Rain Floods Bangkok, Stranding Hundreds of Koreans",
+            "url": "https://en.sedaily.com/international/2026/09/28/record-330-mm-rain-floods-bangkok-stranding-hundreds-of"
+          },
+          {
+            "ageHours": 13.4,
+            "domain": "abcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:55:04.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "S. Korea says border blasts injured 3 officers was likely... - ABC News",
+            "url": "https://abcnews.com/International/wireStory/south-korea-border-blasts-injured-3-officers-caused-136818573"
+          },
+          {
+            "ageHours": 92,
+            "domain": "newstodaynet.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:17:28.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "North Korea warns South Korea could become target for retaliation",
+            "url": "https://newstodaynet.com/2026/09/25/north-korea-warns-south-korea-could-become-target-for-retaliation"
+          },
+          {
+            "ageHours": 98.3,
+            "domain": "straitstimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:01:52.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "North Korea says South Korea a target if it becomes US collective defence hub",
+            "url": "https://www.straitstimes.com/asia/north-korea-says-south-korea-a-target-if-it-becomes-us-collective-defence-hub"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 13.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.878,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1576,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 991,
+        "statesFreshness": true,
+        "text": "SEOUL, South Korea (AP) — North Korea likely planted the land mines that injured three South Korean soldiers last week along the heavily fortified border separating the countries, South Korea's military said Monday.Today's news. [10]\n\nSeoul Full Forecast.29 (Yonhap) -- The following are the top headlines in major South Korean newspapers on Sept. [3]\n\nToday’s Paper.South Korean President Lee Jae-myung speaks at a press conference with people raising their hands in the foreground. [2]\n\nKim, a 37-year-old South Korean, told Yonhap News that they had been scheduled to fly home with eight family members on a Thai Airways flight at 11:10 p.m. [7]\n\nSources: [1] South Korea demands apology from Ukraine over North... | Daryo (daryo.uz)  [2] South Korea fumes at Ukraine after Zelensky dishes on transfer of... (nypost.com)  [3] Top headlines in major S. Korean newspapers | Yonhap News Agency (en.yn"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "South Korea news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 19.9,
+            "domain": "daryo.uz",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:25:13.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea demands apology from Ukraine over North... | Daryo",
+            "url": "https://daryo.uz/en/2026/09/28/south-korea-demands-apology-from-ukraine-over-north-korean-pow-disclosure"
+          },
+          {
+            "ageHours": 12.5,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:48:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea fumes at Ukraine after Zelensky dishes on transfer of...",
+            "url": "https://nypost.com/2026/09/28/world-news/south-korea-fumes-at-ukraine-after-zelensky-dishes-on-transfer-of-captured-north-korean-soldiers"
+          },
+          {
+            "ageHours": 3.9,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:23:45.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Top headlines in major S. Korean newspapers | Yonhap News Agency",
+            "url": "https://en.yna.co.kr/view/AEN20260929000600315"
+          },
+          {
+            "ageHours": 19.7,
+            "domain": "apnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:34:29.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea demands an apology over Zelenskyy's POW... | AP News",
+            "url": "https://apnews.com/article/south-korea-ukraine-prisoners-of-war-russia-17df235a34d773c7dcf20a6b73f2b997"
+          },
+          {
+            "ageHours": 18.4,
+            "domain": "openchronicle.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:52:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Global News Brief: Key Developments Around the World, September...",
+            "url": "https://openchronicle.org/2026/09/28/global-news-brief-key-developments-around-the-world-september-28-2026"
+          },
+          {
+            "ageHours": 14,
+            "domain": "vavel.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:17:04.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea vs Uruguay LIVE Score, Guillermo Varela scores the third (0-3)",
+            "url": "https://www.vavel.com/en-us/soccer/2026/09/28/1273145-south-korea-vs-uruguay-live-score-friendly.html"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "en.sedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:24:45.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Record 330 mm Rain Floods Bangkok, Stranding Hundreds of Koreans",
+            "url": "https://en.sedaily.com/international/2026/09/28/record-330-mm-rain-floods-bangkok-stranding-hundreds-of"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "The Left's War on Reality by Michael Shellenberger | 9780063498112 | Paperback",
+            "url": "https://www.abbeys.com.au/book/pathocracy-9780063498112.do"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "All I Want For Christmas: A Holiday Countdown by Phaea Crede | 9781368119177 | Hardback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781368119177"
+          },
+          {
+            "ageHours": 10.6,
+            "domain": "uk.news.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:43:25.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea says border blasts that injured... - Yahoo News UK",
+            "url": "https://uk.news.yahoo.com/south-korea-says-border-blasts-114615434.html"
+          },
+          {
+            "ageHours": 6.6,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:43:27.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "North Korea UN speech: Pyongyang backs... - India Today",
+            "url": "https://www.indiatoday.in/world/story/north-korea-un-speech-multilateralism-nuclear-deterrent-no-direct-threat-ptag-3005283-2026-09-29"
+          },
+          {
+            "ageHours": 22.4,
+            "domain": "newsy-today.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:56:30.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "South Korea Records 15.05 Million Foreign Visitors... - Newsy Today",
+            "url": "https://www.newsy-today.com/south-korea-records-15-05-million-foreign-visitors-through-august"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 3.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.987,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1844,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1061,
+        "statesFreshness": false,
+        "text": "According to South Korean government figures, between 2016 and 2023, Chinese entities were able to steal more technology from the country’s display sector than from any other industry apart from the chip sector. [1]\n\nThe South Korean technology firm is looking for ways to sustain earnings momentum after reviving its mobile profits by restructuring its product line-up. [9]\n\nSeoul Bets Big: What South Korea’s $518 Billion Semiconductor Gamble Means For Global Tech Companies\n\nwithin Strategy topic(s)\nwithin Strategy, Wealth Management and Law Practice Management topic(s)\n\nThe South Korean government has just placed one of the most consequential industrial bets we have seen in more than 25 years of advising technology companies. [10]\n\nMajor Players in the Korean Technology Sector. [2]\n\nSources: [1] Samsung and LG join forces against Chinese rivals in battle for display... (ft.com)  [2] Korea"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "South Korean technology sector",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Samsung and LG join forces against Chinese rivals in battle for display...",
+            "url": "https://www.ft.com/content/ac590d5c-dd22-49cd-93cf-42fe3f08b110?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "voiceovers.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Korea Technology Firms: Driving Global Innovation... - Voiceovers.com",
+            "url": "https://www.voiceovers.com/blog/korea-technology-firms"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/South_Korea"
+          },
+          {
+            "ageHours": 1246.3,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:59:52.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Samsung",
+            "url": "https://en.wikipedia.org/wiki/Samsung"
+          },
+          {
+            "ageHours": 995.8,
+            "domain": "researchandmarkets.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T14:31:40.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "South Korea Data Center Physical Security - Market Share Analysis, Industry Trends & Statistics, Growth Foreca",
+            "url": "https://www.researchandmarkets.com/report/south-korea-data-center-security-market"
+          },
+          {
+            "ageHours": null,
+            "domain": "disfold.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Top 6 largest South Korean Technology Companies 2026",
+            "url": "https://disfold.com/south-korea/sector/technology/companies"
+          },
+          {
+            "ageHours": null,
+            "domain": "biruksidea.medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "The Logic Of Korean Mobile And Web UI/UX | by Biruk... | Medium",
+            "url": "https://biruksidea.medium.com/the-logic-of-korean-mobile-and-web-ui-ux-71b8e58ed325?responsesOpen=true"
+          },
+          {
+            "ageHours": null,
+            "domain": "disfold.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "South Korean Technology Sector Analysis",
+            "url": "https://disfold.com/south-korea/sector/technology"
+          },
+          {
+            "ageHours": null,
+            "domain": "reuters.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Samsung plans refurbished smartphone program: source | Reuters",
+            "url": "https://www.reuters.com/article/us-samsung-elec-phones-refurbishment-idUSKCN10X0FT"
+          },
+          {
+            "ageHours": 1026.4,
+            "domain": "mondaq.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T07:56:36.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.73,
+              "freshness": 0.01,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Seoul Bets Big: What South Korea’s $518 Billion Semiconductor Gamble Means For Global Tech Companies",
+            "url": "https://www.mondaq.com/technology/1823102/seoul-bets-big-what-south-koreas-%24518-billion-semiconductor-gamble-means-for-global-tech-companies"
+          },
+          {
+            "ageHours": null,
+            "domain": "tassnewsagency.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.69,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "TASS News Agency | Breaking Russian News & World Updates",
+            "url": "https://tassnewsagency.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "lemmy.ml",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.69,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Samsung Electronics union goes on indefinite strike - Lemmy",
+            "url": "https://lemmy.ml/post/17837411"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 995.8,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Open Library timed out after 12000ms",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.82,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12448,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1369,
+        "statesFreshness": false,
+        "text": "Tinubu still hiding in France doing housekeeping duties – Atiku’s camp fires Presidency\n\nThe camp of the African Democratic Congress, ADC, presidential candidate, Atiku Abubakar, has fired back at the Presidency over the prolonged absence of President Bola Tinubu from Nigeria. [1]\n\nThis is in response to the latest defence of President Tinubu’s prolonged stay in France\n\nAtiku’s camp added that the issue is not whether the President is hale and hearty, questioning why he remains abroad beyond the three-week vacation announced by the Presidency on August 30. [1]\n\nKylian Mbappe injury news: Latest update on France, Real Madrid superstar\n\nThe latest Kylian Mbappe injury news is not what fans of Real Madrid, and France, want to hear. [3]\n\nFour face-off for Milan tonight as Belgium play France in Nations League\n\nTonight, AC Milan will potentially see four of their players face off, as Belgium "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "dernières nouvelles France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.2,
+            "domain": "dailypost.ng",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:08:20.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Tinubu still hiding in France doing housekeeping duties – Atiku’s camp fires Presidency",
+            "url": "https://dailypost.ng/2026/09/28/tinubu-still-hiding-in-france-doing-housekeeping-duties-atikus-camp-fires-presidency"
+          },
+          {
+            "ageHours": 15.1,
+            "domain": "sempremilan.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:14:21.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.67,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Four face-off for Milan tonight as Belgium play France in Nations League",
+            "url": "https://sempremilan.com/four-milan-face-off-belgium-france-nations-league"
+          },
+          {
+            "ageHours": 58.3,
+            "domain": "nbcsports.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T16:00:35.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.64,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Kylian Mbappe injury news: Latest update on France, Real Madrid superstar",
+            "url": "https://www.nbcsports.com/soccer/news/kylian-mbappe-injury-news-latest-update-on-france-real-madrid-superstar"
+          },
+          {
+            "ageHours": 65.3,
+            "domain": "livescore.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T09:00:46.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.64,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Vincenzo Montella hails 'incredible' Turkey performance despite France defeat",
+            "url": "https://www.livescore.com/en/news/football/more/vincenzo-montella-hails-incredible-turkey-performance-despite-france-defeat-goal"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 14.2,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.658,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 4684,
+      "vertical": "news"
+    }
+  ],
+  "total": 138
+}

@@ -1,0 +1,51 @@
+{
+  "row": {
+    "answer": "Here’s what happened today.On its surface, US President Donald Trump’s rejection of a temporary truce in the world’s most vital energy corridor appears to be a reckless gamble – a provocation inviting the very conflagration the West seeks to avoid. [2]\n\nRelated: Here’s what happened in crypto today. [4]\n\nYour next level starts with getting in the room with people who know what it takes to succeed. [1]\n\nSpend the day learning from industry professionals, sharpening your craft, gaining real-world insight, making valuable connections, and preparing yourself for your next opportunity. [1]\n\nSources: [1] Dr. Ollie’s Masterclass Actors Workshop (myk104.com)  [2] Iran war updates: Trump says US officials met Iran war... | Al Jazeera (aljazeera.com)  [3] What happened on Days of Our Lives today... - PRIMETIMER (primetimer.com)  [4] Bitcoin Order-Book Liquidity Games Return as Price Dips Under $83,000 (cointelegraph.com)",
+    "detail": "4 fresh result(s) from 3 source(s) in 2019ms",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 4,
+    "freshness": "Based on 4 reports published in the last 2 days (newest: 6 hours ago).",
+    "intent": "news",
+    "query": "what happened in the world today?",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2019,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T20:20:02.000Z",
+        "title": "Dr. Ollie’s Masterclass Actors Workshop",
+        "url": "https://myk104.com/4620/dr-ollies-masterclass-actors-workshop"
+      },
+      {
+        "publishedAt": "2026-09-28T00:05:43.000Z",
+        "title": "Iran war updates: Trump says US officials met Iran war... | Al Jazeera",
+        "url": "https://www.aljazeera.com/news/liveblog/2026/9/28/iran-war-live-tehran-warns-its-fully-prepared-for-war-amid-hormuz-tensions"
+      },
+      {
+        "publishedAt": "2026-09-28T18:42:10.000Z",
+        "title": "What happened on Days of Our Lives today... - PRIMETIMER",
+        "url": "https://www.primetimer.com/features/what-happened-on-days-of-our-lives-today-september-28-2026-marlena-faces-a-shocking-possibility-while-xander-backs-sarah"
+      },
+      {
+        "publishedAt": "2026-09-28T09:12:08.000Z",
+        "title": "Bitcoin Order-Book Liquidity Games Return as Price Dips Under $83,000",
+        "url": "https://cointelegraph.com/markets/bitcoin-drops-under-83k-as-liquidity-hunting-keeps-bulls-from-targeting-yearly-open"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "news"
+  }
+}

@@ -1,0 +1,2819 @@
+{
+  "answerContract": {
+    "allSourcesDated": 14,
+    "citationsResolve": 16,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 15,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 1
+  },
+  "byCategory": {
+    "europe": {
+      "fresh": 5,
+      "kept": 40,
+      "n": 5
+    },
+    "usa": {
+      "fresh": 4,
+      "kept": 42,
+      "n": 5
+    },
+    "weather": {
+      "fresh": 5,
+      "kept": 16,
+      "n": 6
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 10,
+      "n": 1
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 4,
+      "kept": 26,
+      "n": 4
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 25,
+      "n": 3
+    },
+    "today": {
+      "fresh": 4,
+      "kept": 23,
+      "n": 4
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 80,
+  "ran": 16,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "live weather radar in London",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 449,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 245,
+        "statesFreshness": false,
+        "text": "Weather in Delhi, National Capital Territory of Delhi, India: 23°C, clear sky, wind 5 km/h, humidity 92%, precipitation chance 0% (next hour). [1]\n\nSources: [1] Current weather — Delhi, National Capital Territory of Delhi, India (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "weather in Delhi today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T02:16:41.152Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Delhi, National Capital Territory of Delhi, India",
+            "url": "https://open-meteo.com?latitude=28.65195&longitude=77.23149"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 645,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 191,
+        "statesFreshness": false,
+        "text": "Weather in Tokyo, Tokyo, Japan: 21°C, heavy drizzle, wind 2 km/h, humidity 87%, precipitation chance 100% (next hour). [1]\n\nSources: [1] Current weather — Tokyo, Tokyo, Japan (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "will it rain in Tokyo tomorrow",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T02:16:41.742Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.24,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Tokyo, Tokyo, Japan",
+            "url": "https://open-meteo.com?latitude=35.6895&longitude=139.69171"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.62,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 512,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 213,
+        "statesFreshness": false,
+        "text": "Weather in New York, New York, United States: 14°C, clear sky, wind 7 km/h, humidity 91%, precipitation chance 1% (next hour). [1]\n\nSources: [1] Current weather — New York, New York, United States (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current temperature in New York",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T02:16:42.250Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — New York, New York, United States",
+            "url": "https://open-meteo.com?latitude=40.71427&longitude=-74.00597"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 198,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 216,
+        "statesFreshness": false,
+        "text": "Weather in Sydney, New South Wales, Australia: 19°C, clear sky, wind 14 km/h, humidity 49%, precipitation chance 1% (next hour). [1]\n\nSources: [1] Current weather — Sydney, New South Wales, Australia (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's forecast for Sydney",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T02:16:42.449Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.24,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Sydney, New South Wales, Australia",
+            "url": "https://open-meteo.com?latitude=-33.86785&longitude=151.20732"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.62,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 202,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 789,
+        "statesFreshness": false,
+        "text": "Freezing rain is rain maintained at temperatures below freezing by the ambient air mass that causes freezing on contact with surfaces. [2]\n\nWhat Causes Rainfall?What are the Effects of Rain? [5]\n\nOfficial websites use .gov A .gov website belongs to an official government organization in the United States.While a small portion of the SO2 and NOX that cause acid rain is from natural sources such as volcanoes, most of it comes from the burning of fossil fuels. [3]\n\nWhen clouds develop or rain occurs, something is making the air rise. [6]\n\nSources: [1] What Are Clouds? (Grades 5-8) - NASA (nasa.gov)  [2] Freezing rain (en.wikipedia.org)  [3] Introduction to acid rain including its causes and the different types of... (epa.gov)  [4] What causes it to rain or snow? (edinformatics.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "what causes rain",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "nasa.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What Are Clouds? (Grades 5-8) - NASA",
+            "url": "https://www.nasa.gov/learning-resources/for-kids-and-students/what-are-clouds-grades-5-8"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Freezing rain",
+            "url": "https://en.wikipedia.org/wiki/Freezing_rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "epa.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Introduction to acid rain including its causes and the different types of...",
+            "url": "https://www.epa.gov/acidrain/what-acid-rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "edinformatics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What causes it to rain or snow?",
+            "url": "https://www.edinformatics.com/math_science/what_causes_rain.htm"
+          },
+          {
+            "ageHours": null,
+            "domain": "vedantu.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "How Rain Is Formed: Step-by-Step Process for Kids",
+            "url": "https://www.vedantu.com/evs/how-rain-is-formed"
+          },
+          {
+            "ageHours": null,
+            "domain": "weatherwizkids.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Weather Wiz Kids weather information for kids",
+            "url": "https://www.weatherwizkids.com/weather-rain.htm"
+          },
+          {
+            "ageHours": null,
+            "domain": "www3.epa.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Acid Rain Students Site: What causes acid rain?",
+            "url": "https://www3.epa.gov/acidrain/education/site_students/whatcauses.html"
+          },
+          {
+            "ageHours": 988.6,
+            "domain": "en.uncyclopedia.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T21:41:44.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rain",
+            "url": "https://en.uncyclopedia.co/w/index.php?oldid=6647270&title=Rain"
+          },
+          {
+            "ageHours": 1020.7,
+            "domain": "en.uncyclopedia.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T13:34:53.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rain",
+            "url": "https://en.uncyclopedia.co/w/index.php?section=5&title=Rain&veaction=edit"
+          },
+          {
+            "ageHours": null,
+            "domain": "sott.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Understanding what causes rain — Earth Changes — Sott.net",
+            "url": "https://www.sott.net/article/133765-Understanding-what-causes-rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "learningenglish.voanews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "What Causes Severe Rainfall in Kenya?",
+            "url": "https://learningenglish.voanews.com/a/what-causes-severe-rainfall-in-kenya-/7593957.html"
+          },
+          {
+            "ageHours": 1088.8,
+            "domain": "lyricszoo.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-14T17:26:52.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rains Lyrics Follow",
+            "url": "https://www.lyricszoo.com/rains"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 988.6,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Open Library timed out after 12000ms",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"causes rain\" right now — Omi will not in"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.889,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12139,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 529,
+        "statesFreshness": true,
+        "text": "Silver Rate Today.Stay updated with the latest Trending, India, World and US news. [1]\n\nLatest news bulletin | September 28th, 2026 – Evening. [3]\n\nSkip to main content.USA TODAY Network via Reuters Connect. [2]\n\nSources: [1] New York and Northeast Facing Another Day of Wild Weather | Today... (livemint.com)  [2] Trans teen who gunned down mom and mom's boyfriend, 22, gets... (nypost.com)  [3] Are you in pain? In some cases, exercising may be as good... | Euronews (euronews.com)  [4] Google News - Overview (news.google.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest US news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 35.8,
+            "domain": "livemint.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T14:28:53.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "New York and Northeast Facing Another Day of Wild Weather | Today...",
+            "url": "https://www.livemint.com/news/us-news/new-york-and-northeast-facing-another-day-of-wild-weather-11790516910196.html"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:31:08.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Trans teen who gunned down mom and mom's boyfriend, 22, gets...",
+            "url": "https://nypost.com/2026/09/28/us-news/trans-teen-who-gunned-down-mom-and-moms-boyfriend-22-gets-hefty-sentence-im-sorry"
+          },
+          {
+            "ageHours": 36.6,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:38:10.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Are you in pain? In some cases, exercising may be as good... | Euronews",
+            "url": "https://www.euronews.com/2026/09/27/are-you-in-pain-in-some-cases-exercising-may-be-as-good-as-painkillers"
+          },
+          {
+            "ageHours": 12.4,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:52:20.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Google News - Overview",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pRaTctSkVoSFF2UzJWaldERzNpZ0FQAQ?hl=en-US&gl=US&ceid=US%3Aen"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 12.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.948,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2397,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1075,
+        "statesFreshness": true,
+        "text": "Entertainment News LIVE Today (Sept 28): Salman Khan Calls Out AI Misuse; The Vvaan Records Weekend Jump\n\nEntertainment News Live Updates Today (September 28, 2026): It's Monday again, and yes, the Monday blues are hitting hard! [8]\n\nMorning Update: What you need to know in Maine today\n\nA version of this story first appeared in the Morning Update newsletter. [1]\n\nSchool Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [2]\n\nKnoxville News Sentinel / USA TODAY Network via Reuters file. [5]\n\nSources: [1] Morning Update: What you need to know in Maine today (bangordailynews.com)  [2] School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News (careerindia.com)  [3] Complet"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 14.6,
+            "domain": "bangordailynews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:42:29.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Morning Update: What you need to know in Maine today",
+            "url": "https://www.bangordailynews.com/2026/09/28/morning-update/maine-news-morning-update-september-28-2026"
+          },
+          {
+            "ageHours": 21.7,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 6.2,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:05:49.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Complete Guide to Trace Minerals & Horse Nutrition – Evergreen Equine",
+            "url": "https://www.adproceed.com/ads/complete-guide-to-trace-minerals-horse-nutrition-evergreen-equine"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "the74million.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:44:15.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "SEED Act Gives Early Educators the Same Tax Break Long Available in K-12",
+            "url": "https://www.the74million.org/zero2eight/seed-act-gives-early-educators-the-same-tax-break-long-available-in-k-12"
+          },
+          {
+            "ageHours": 4.8,
+            "domain": "nbcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:30:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ahead of rare execution, lone woman on Tennessee death row says...",
+            "url": "https://www.nbcnews.com/news/us-news/ahead-rare-execution-lone-woman-tennessee-death-row-says-peace-rcna600279"
+          },
+          {
+            "ageHours": 14.1,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:09:37.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "SpaceX Starship rocket splashes down in Pacific Ocean - BBC News",
+            "url": "https://www.bbc.com/news/live/c65ymmpzev1mt"
+          },
+          {
+            "ageHours": 6.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 21.6,
+            "domain": "filmibeat.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:40:27.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Entertainment News LIVE Today (Sept 28): Salman Khan Calls Out AI Misuse; The Vvaan Records Weekend Jump",
+            "url": "https://www.filmibeat.com/bollywood/news/2026/entertainment-news-live-today-india-salman-khan-calls-out-ai-misuse-the-vvaan-weekend-box-office-532705.html"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:31:08.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Trans teen who gunned down mom and mom's boyfriend, 22, gets...",
+            "url": "https://nypost.com/2026/09/28/us-news/trans-teen-who-gunned-down-mom-and-moms-boyfriend-22-gets-hefty-sentence-im-sorry"
+          },
+          {
+            "ageHours": 10.7,
+            "domain": "mockpaperscissors.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:37:20.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Today In Conspiracy News: | Mock Paper Scissors",
+            "url": "https://mockpaperscissors.com/2026/09/28/today-in-conspiracy-news"
+          },
+          {
+            "ageHours": 5,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:17:02.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Exclusive | ABC News weighs major shakeup at 'GMA' after ratings...",
+            "url": "https://nypost.com/2026/09/28/media/abc-news-weighs-major-shakeup-at-gma-after-ratings-loss-to-today-sources"
+          },
+          {
+            "ageHours": 10.9,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:22:55.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "H1B visa, JD Vance warns recruiters of tougher scrutiny. - India Today",
+            "url": "https://www.indiatoday.in/world/us-news/story/h1b-visa-jd-vance-warns-recruiters-of-tougher-scrutiny-what-it-means-for-indian-workers-3005103-2026-09-28"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 4.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.997,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1748,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 992,
+        "statesFreshness": true,
+        "text": "Politics And The Markets 09/26/26\n\nThis is the forum for daily political discussion on Seeking Alpha. [2]\n\nWhat fires him up about politics today is One Nation’s stunning recent rise in polls. [3]\n\nKey Takeaways\n\nThe Supreme Court was designed to be a political institution: 19th-century justices rode circuit, participated in state and local politics, ran for office, and even wrote legislation and presidential addresses. [1]\n\nWe must have an independent media that sets the record straight, unearths corruption and abuses of power, and advances a politics of justice and dignity for all if we’re to win this fight.Latest from the nation. [5]\n\nSources: [1] If You Can Imagine It, The Supreme Court Used To Be Even More Political (abovethelaw.com)  [2] Politics And The Markets 09/26/26 (seekingalpha.com)  [3] The Issue: One Nation in government would be a ‘total disaster’, former... (7news.com.au"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "current US politics",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 79.4,
+            "domain": "abovethelaw.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T18:54:14.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "If You Can Imagine It, The Supreme Court Used To Be Even More Political",
+            "url": "https://abovethelaw.com/2026/09/if-you-can-imagine-it-the-supreme-court-used-to-be-even-more-political"
+          },
+          {
+            "ageHours": 70.3,
+            "domain": "seekingalpha.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T04:00:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Politics And The Markets 09/26/26",
+            "url": "https://seekingalpha.com/article/4941676-politics-and-the-markets-092626"
+          },
+          {
+            "ageHours": 65,
+            "domain": "7news.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T09:14:22.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "The Issue: One Nation in government would be a ‘total disaster’, former...",
+            "url": "https://7news.com.au/politics/the-issue-one-nation-in-government-would-be-a-total-disaster-former-deputy-pm-kim-beazley-says-c-22930314"
+          },
+          {
+            "ageHours": 94.7,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:32:32.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Dining With A.I. Moguls, Billionaires and Xi Jinping, Trump Went Off...",
+            "url": "https://www.nytimes.com/2026/09/24/us/politics/state-dinner-scene.html"
+          },
+          {
+            "ageHours": 111.6,
+            "domain": "thenation.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T10:38:05.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Transphobia Isn’t Winning Votes. But It Is Making Our... | The Nation",
+            "url": "https://www.thenation.com/article/politics/transphobia-midterms-ads"
+          },
+          {
+            "ageHours": 116.5,
+            "domain": "express.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:45:15.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Donald Trump just tore Andy Burnham a new one... | Express.co.uk",
+            "url": "https://www.express.co.uk/news/politics/2250947/esther-krakue-comment-labour-adrift-election"
+          },
+          {
+            "ageHours": 95,
+            "domain": "nbcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:14:47.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "New Jersey’s governor calls on her lieutenant governor to resign over...",
+            "url": "https://www.nbcnews.com/politics/politics-news/new-jerseys-governor-calls-lieutenant-governor-resign-ethics-report-rcna599771"
+          },
+          {
+            "ageHours": 53.2,
+            "domain": "independent.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T21:05:12.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Trump tells female reporter to be ‘quiet’ and slams... | The Independent",
+            "url": "https://www.independent.co.uk/news/world/americas/us-politics/trump-reporter-quiet-government-women-b3056960.html"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 53.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.903,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1881,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 808,
+        "statesFreshness": false,
+        "text": "This space telescope is the first in a new class of NASA astrophysics missions, called Probe Explorers, within the agency’s longstanding Explorers Program. [2]\n\n'Moonwalkers' is a 360-degree show about NASA missions from the Apollo missions to the Artemis program. [6]\n\nNASA’s Science Mission Directorate Seeks Volunteer Reviewers\n\n[NASA]. [1]\n\nNASA's Mars Pathfinder lander was a watershed mission or the space agency's effort to explore the Red Planet. [4]\n\nSources: [1] NASA’s Science Mission Directorate Seeks Volunteer Reviewers (astrobiology.com)  [2] Launching a new phase of NASA astrophysics | University of Michigan... (news.umich.edu)  [3] What You Need to Know About NASA’s SpaceX Crew-13 Mission (nasa.gov)  [4] On this day in space! Sept. 27, 1997: NASA's Mars Pathfinder... | Space (space.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest NASA mission",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 10.9,
+            "domain": "astrobiology.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:23:47.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "NASA’s Science Mission Directorate Seeks Volunteer Reviewers",
+            "url": "https://astrobiology.com/2026/09/28/nasas-science-mission-directorate-seeks-volunteer-reviewers"
+          },
+          {
+            "ageHours": 11.1,
+            "domain": "news.umich.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:08:25.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Launching a new phase of NASA astrophysics | University of Michigan...",
+            "url": "https://news.umich.edu/launching-a-new-phase-of-nasa-astrophysics"
+          },
+          {
+            "ageHours": 10.1,
+            "domain": "nasa.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:13:19.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "What You Need to Know About NASA’s SpaceX Crew-13 Mission",
+            "url": "https://www.nasa.gov/missions/station/commercial-crew/what-you-need-to-know-about-nasas-spacex-crew-13-mission"
+          },
+          {
+            "ageHours": 29.8,
+            "domain": "space.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T20:26:22.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "On this day in space! Sept. 27, 1997: NASA's Mars Pathfinder... | Space",
+            "url": "https://www.space.com/space-exploration/on-this-day-in-space-september-27-2026"
+          },
+          {
+            "ageHours": 102.2,
+            "domain": "cosmosweek.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T20:03:56.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Boom Year for Desert Blooms | Cosmos Week",
+            "url": "https://www.cosmosweek.com/en/news/boom-year-for-desert-blooms"
+          },
+          {
+            "ageHours": 106.4,
+            "domain": "palmbeachpost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:52:11.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Tom Hanks narrates new 'Moonwalkers' NASA missions exhibit in...",
+            "url": "https://www.palmbeachpost.com/story/news/local/boynton/2026/09/24/tom-hanks-narrates-new-moonwalkers-space-missions-exhibit-in-boynton-beach-space-exploration/91916750007"
+          },
+          {
+            "ageHours": 111.1,
+            "domain": "cnet.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T11:13:53.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "How NASA and Nikon Captured Those Stunning Artemis II... - CNET",
+            "url": "https://www.cnet.com/tech/computing/artemis-ii-best-moon-photos-iphone-nikon-gopro"
+          },
+          {
+            "ageHours": 10.5,
+            "domain": "ece.ncsu.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:46:27.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "The Science and Engineering of Space Travel - Electrical and...",
+            "url": "https://ece.ncsu.edu/2026/the-science-and-engineering-of-space-travel"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 10.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.889,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 4683,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1193,
+        "statesFreshness": false,
+        "text": "Polk County 2026 Election Guide\n\nCurtis Knutson and Leonard Vonasek are running for Polk County Commissioner District 2. [4]\n\nCarlton County 2026 Election Guide\n\nTony Compo and Anny Gustafson are running for Carlton County Commissioner District 2. [5]\n\nRajasthan Jaipur Mayor Election 2026 Live: Sunil Kothari vs Sunita Mawar, Voting Underway From 10 AM To 2 PM; Check Latest Updates, Result Time And Who Will Become Jaipur Mayor\n\nJaipur Mayor Election 2026: The Rajasthan Mayor Election 2026 is being held in Jaipur, Jodhpur and Kota on Friday, September 25. [9]\n\nKota Mayor Election 2026 Live: Anusuya Goswami vs Sunita Suman as BJP-Congress Face High-Stakes Battle in Rajasthan – Check Who Is Leading and Who is Trailing, Result Date and Latest Update\n\nRajasthan Mayor Election 2026: Kota Mayor Election 2026 has produced a winner with BJP’s Anusuya Goswami emerging victorious as the new mayor, d"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US election news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 53.5,
+            "domain": "hotair.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T20:45:03.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.98,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Some Good News in the Midst of All the Wave Election Talk – HotAir",
+            "url": "https://hotair.com/john-s-2/2026/09/26/some-good-news-in-the-midst-of-all-the-wave-election-talk-n3819372"
+          },
+          {
+            "ageHours": 117.3,
+            "domain": "timesdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T05:00:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.13,
+              "relevance": 0.42,
+              "sourceQuality": 0.12
+            },
+            "title": "GameDay cover for Sept. 24, 2026",
+            "url": "https://www.timesdaily.com/gameday-cover-for-sept-24-2026/article_b8894338-a9bb-4bae-904a-31a443a69d02.html"
+          },
+          {
+            "ageHours": 117.3,
+            "domain": "timesdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T05:00:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.13,
+              "relevance": 0.42,
+              "sourceQuality": 0.12
+            },
+            "title": "Sports on TV, radio: Sept. 24, 2026",
+            "url": "https://www.timesdaily.com/sports-on-tv-radio-sept-24-2026/article_4aee8eb0-fff0-4338-9f56-100acf432ed9.html"
+          },
+          {
+            "ageHours": 7.2,
+            "domain": "kaxe.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:07:50.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Polk County 2026 Election Guide",
+            "url": "https://www.kaxe.org/2026-09-28/polk-county-mn-2026-election-guide"
+          },
+          {
+            "ageHours": 7,
+            "domain": "kaxe.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:15:16.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Carlton County 2026 Election Guide",
+            "url": "https://www.kaxe.org/2026-09-28/carlton-county-mn-2026-election-guide"
+          },
+          {
+            "ageHours": 96.6,
+            "domain": "biospace.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T01:40:42.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Anavex Stockholders Elect All of the Company’s Director Nominees at 2026 Annual Meeting",
+            "url": "https://www.biospace.com/press-releases/anavex-stockholders-elect-all-of-the-companys-director-nominees-at-2026-annual-meeting"
+          },
+          {
+            "ageHours": 60.2,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:02:35.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "‘I’m not JD Vance’: the Appalachia memoir author... | The Guardian",
+            "url": "https://www.theguardian.com/us-news/2026/sep/26/beth-macy-congress-run-virginia"
+          },
+          {
+            "ageHours": 100.6,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T21:39:07.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "AOC testing the waters for possible 2028 run as she launches upstate...",
+            "url": "https://nypost.com/2026/09/24/us-news/aoc-testing-the-waters-for-possible-2028-run-as-she-launches-upstate-ny-tour-before-midterm-elections"
+          },
+          {
+            "ageHours": 90.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T08:08:29.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Rajasthan Jaipur Mayor Election 2026 Live: Sunil Kothari vs Sunita Mawar, Voting Underway From 10 AM To 2 PM; ",
+            "url": "https://sundayguardianlive.com/india/rajasthan-jaipur-mayor-election-2026-live-sunil-kothari-vs-sunita-mawar-voting-underway-from-10-am-to-2-pm-check-latest-updates-result-time-and-who-will-become-jaipur-mayor-292413"
+          },
+          {
+            "ageHours": 90.6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:41:05.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Kota Mayor Election 2026 Live: Anusuya Goswami vs Sunita Suman as BJP-Congress Face High-Stakes Battle in Raja",
+            "url": "https://sundayguardianlive.com/india/kota-mayor-election-2026-live-anusuya-goswami-vs-sunita-suman-as-bjp-congress-face-high-stakes-battle-in-rajasthan-check-who-is-leading-and-who-is-trailing-result-date-and-latest-update-292396"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.929,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1995,
+      "vertical": "election"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1286,
+        "statesFreshness": false,
+        "text": "Trump Is Right to Denounce Canada’s Flirtation with European Union\n\nA de facto E.U. [2]\n\n\"Serbia is moving towards the European Union, not Russia.\"\n\nAlexander Vucic left the post of President of Serbia, acting became non-traditional* Ana Brnabic is an opponent of rapprochement with Moscow, a supporter of the EU. [3]\n\nEPAM Successfully Delivered Cloud Infrastructure and Applications for the European Union's First Equities Consolidated Tape\n\nDrawing on decades of engineering excellence, EPAM built a robust cloud-native environment and applications to support EuroCTP on its mission to solve a complex, long-standing data fragmentation challenge. [1]\n\nPhoto: Chip Somodevilla/Getty Images\n\nThe global media is buzzing this week over interest from both Canada and the European Union in making America’s northern neighbor the first “associate member” of the E.U. [2]\n\nSources: [1] EPAM Successfully "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest European Union news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 110.3,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:02:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "EPAM Successfully Delivered Cloud Infrastructure and Applications for the European Union's First Equities Cons",
+            "url": "https://www.prnewswire.co.uk/news-releases/epam-successfully-delivered-cloud-infrastructure-and-applications-for-the-european-unions-first-equities-consolidated-tape-302888307.html"
+          },
+          {
+            "ageHours": 88,
+            "domain": "amac.us",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:17:09.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Trump Is Right to Denounce Canada’s Flirtation with European Union",
+            "url": "https://amac.us/newsline/trump-is-right-to-denounce-canada-s-flirtation-with-european-union"
+          },
+          {
+            "ageHours": 11.9,
+            "domain": "news-pravda.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:23:41.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "\"Serbia is moving towards the European Union, not Russia.\"",
+            "url": "https://news-pravda.com/world/2026/09/28/2626547.html"
+          },
+          {
+            "ageHours": 22.2,
+            "domain": "armstrongeconomics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T04:03:29.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Germany's Young People Are Saying: We Will... | Armstrong Economics",
+            "url": "https://www.armstrongeconomics.com/international-news/germany/germanys-young-people-are-saying-we-will-not-fight-your-war"
+          },
+          {
+            "ageHours": 57.2,
+            "domain": "business-standard.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T17:07:22.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "EU, UK ministers seek stronger border controls... - Business Standard",
+            "url": "https://www.business-standard.com/world-news/eu-uk-ministers-seek-stronger-border-controls-faster-migrant-returns-126092600925_1.html"
+          },
+          {
+            "ageHours": 4.3,
+            "domain": "www-themoscowtimes-com.nproxy.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:57:32.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.77,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "‘It Still Causes Severe Stress’: Fear of Expulsion Upends Life for Some...",
+            "url": "https://www-themoscowtimes-com.nproxy.org/2026/09/04/it-still-causes-severe-stress-fear-of-expulsion-upends-life-for-some-russian-asylum-seekers-in-europe-a93628"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 4.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.857,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1493,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1202,
+        "statesFreshness": true,
+        "text": "Political shifts in Europe, renewed diplomacy surrounding the Iran conflict, tensions over Taiwan, severe flooding and deadly avalanches across Asia, hurricanes threatening Hawaii and Mexico, and growing international debate over artificial intelligence are shaping the global news agenda. [1]\n\nPope Leo XIV on Monday urged religious leaders to spread messages of peace and unity as he ended a four-day visit to France, using the example of Europe’s post-World War II reconciliation to underline his appeal for dialogue. [3]\n\nBack to the situation in Europe: Poland has scrambled its military aircraft in response to Russian attacks on western Ukraine. [6]\n\nToday’s Paper.The pope’s comments represented “as much as a direct response to Trump that you can get today,” said Massimo Faggioli, a Catholic theologian at Villanova University, Pope Leo’s alma mater. [7]\n\nSources: [1] Global News Brief: Ke"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "news in Europe today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 18.4,
+            "domain": "openchronicle.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:52:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Global News Brief: Key Developments Around the World, September...",
+            "url": "https://openchronicle.org/2026/09/28/global-news-brief-key-developments-around-the-world-september-28-2026"
+          },
+          {
+            "ageHours": 2.3,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The Wax Child by Olga Ravn - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/the-wax-child-9781405976824"
+          },
+          {
+            "ageHours": 16.8,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:28:34.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Pope Leo XIV France visit: Metz peace appeal invokes... - India Today",
+            "url": "https://www.indiatoday.in/world/story/pope-leo-xiv-metz-peace-appeal-schuman-europe-france-visit-ptag-3004757-2026-09-28"
+          },
+          {
+            "ageHours": 9.3,
+            "domain": "infosites.eu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:59:20.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Rodri controlled everything – Little European News",
+            "url": "https://www.infosites.eu/2026/09/28/rodri-controlled-everything-134"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The Contessa by Benedetta Craveri | 9798896230465 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9798896230465"
+          },
+          {
+            "ageHours": 18.5,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:50:05.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Poland scrambles military aircraft in response to... | The Guardian",
+            "url": "https://www.theguardian.com/world/live/2026/sep/28/europe-ukraine-defence-ministers-pope-leo-france-visit-latest-news-updates"
+          },
+          {
+            "ageHours": 14,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:17:53.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Pope Leo Praises Europe’s Democracy, Diverging Once Again From...",
+            "url": "https://www.nytimes.com/2026/09/28/world/europe/pope-leo-trump-democracy-europe.html"
+          },
+          {
+            "ageHours": 21.7,
+            "domain": "liveuamap.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T04:34:55.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Drones have attacked oil depot in Novotitarovskaya of... - liveuamap.com",
+            "url": "https://liveuamap.com/en/2026/28-september-02-drones-have-attacked-oil-depot-in-novotitarovskaya"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "nt.am",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:49:24.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "The opening door of Europe",
+            "url": "https://nt.am/en/news/360840"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 2.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.872,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1759,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1402,
+        "statesFreshness": true,
+        "text": "Priorities during the European Presidencies.‘We must adapt cohesion policy to a changing world, addressing today’s priorities while preparing for tomorrow’s challenges. [1]\n\nIf the EU continues to drift, disintegration becomes a more plausible future\n\nGaps between the European Union’s advocacy of ambitious policy goals and its ability to implement them matter greatly in a world changed from market integration through globalisation to one dominated by power politics and growing security threats. [3]\n\nEU Agriculture and Climate Dashboard, International Association of Fire Fighters, British Library, More: Sunday Afternoon ResearchBuzz, September 27, 2026\n\nNEW RESOURCES\n\nInstitute for Agriculture & Trade Policy: Introducing: the EU Agriculture and Climate Dashboard. [4]\n\nWhat you need to knowEuropean interior ministers gather in Munich to tighten EU migration policyGermany's Olympic committe"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "current EU policy",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 114.7,
+            "domain": "eesc.europa.eu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T07:35:10.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rural Europe must count in every EU policy | EESC",
+            "url": "https://www.eesc.europa.eu/en/news-media/press-releases/rural-europe-must-count-every-eu-policy"
+          },
+          {
+            "ageHours": 41.5,
+            "domain": "voxeurop.eu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T08:45:18.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "SOTEU 2026: What is European migration policy becoming?",
+            "url": "https://voxeurop.eu/en/soteu-2026-migration-policy-europe"
+          },
+          {
+            "ageHours": 21.8,
+            "domain": "irishtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:30:00.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "If the EU continues to drift, disintegration becomes a more plausible future",
+            "url": "https://www.irishtimes.com/opinion/2026/09/26/worldview-if-the-eu-continues-to-drift-disintegration-is-seen-as-a-more-plausible-future"
+          },
+          {
+            "ageHours": 62.8,
+            "domain": "researchbuzz.me",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T11:31:07.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "EU Agriculture and Climate Dashboard, International Association of Fire Fighters, British Library, More: Sunda",
+            "url": "https://researchbuzz.me/2026/09/27/eu-agriculture-and-climate-dashboard-international-association-of-fire-fighters-british-library-more-sunday-afternoon-researchbuzz-september-27-2026"
+          },
+          {
+            "ageHours": 65.1,
+            "domain": "dw.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T09:08:42.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.69,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Germany news: EU ministers meet for migration showdown",
+            "url": "https://www.dw.com/en/germany-news-eu-ministers-meet-for-migration-showdown/live-79441034"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 21.8,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.802,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2019,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 952,
+        "statesFreshness": true,
+        "text": "Planet Today is a comprehensive news platform covering the latest developments in politics, geopolitics, medicine, science, technology, economy, and environmental issues, offering insightful analyses and timely updates to keep readers informed. [1]\n\nYet despite Germany’s far from healthy economy, there has recently been some encouraging news: the German start-up sector is gaining momentum. [7]\n\nShafaq News..Nations League: Germany held, Norway wins.Match Awards from Germany’s mediocre 1-1 draw with the Netherlands. [8]\n\nHere is a roundup of the top news stories from and about Germany on Thursday, September 24, 2026 [2]\n\nSources: [1] Germany Tests 18-Year-Old Men: Defense or Quiet War Prep? (planet-today.com)  [2] Germany news: Bundestag to discuss opt-out organ donation (dw.com)  [3] Two dead after tourist bus overturns on way to Germany’s Oktoberfest (aol.com)  [4] In a Race With China,"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest news from Germany",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 20.9,
+            "domain": "planet-today.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:20:56.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany Tests 18-Year-Old Men: Defense or Quiet War Prep?",
+            "url": "https://www.planet-today.com/2026/09/germany-tests-18-year-old-men-defense.html"
+          },
+          {
+            "ageHours": 113.7,
+            "domain": "dw.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T08:33:50.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany news: Bundestag to discuss opt-out organ donation",
+            "url": "https://www.dw.com/en/germany-news-bundestag-to-discuss-opt-out-organ-donation/live-79406294"
+          },
+          {
+            "ageHours": 32.8,
+            "domain": "aol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T17:29:42.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Two dead after tourist bus overturns on way to Germany’s Oktoberfest",
+            "url": "https://www.aol.com/articles/two-dead-tourist-bus-overturns-171151000.html"
+          },
+          {
+            "ageHours": 111.3,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T11:00:25.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "In a Race With China, German Robots Are Outnumbered 14 to 1",
+            "url": "https://www.nytimes.com/2026/09/24/business/robots-china-germany-factories.html"
+          },
+          {
+            "ageHours": 56.7,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T17:35:57.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany Russia UN meeting: Berlin urges Moscow to... - India Today",
+            "url": "https://www.indiatoday.in/world/story/germany-russia-un-meeting-ukraine-war-lavrov-wadephul-ptag-3003861-2026-09-26"
+          },
+          {
+            "ageHours": 4.3,
+            "domain": "www-themoscowtimes-com.nproxy.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:57:32.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany Says It Is Closing a Russian Cultural Center. That Might Not...",
+            "url": "https://www-themoscowtimes-com.nproxy.org/2026/09/08/germany-says-it-is-closing-berlins-russian-cultural-center-that-might-not-be-so-simple-a93651"
+          },
+          {
+            "ageHours": 86.5,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:47:46.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany's startup boom: What is working and what is... | Euronews",
+            "url": "https://www.euronews.com/2026/09/25/germanys-startup-boom-what-is-working-and-what-is-holding-them-back"
+          },
+          {
+            "ageHours": 95.9,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T02:21:56.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Netherlands draw 1-1 with Germany in UEFA Nations...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lOazhPRUVoRkZEVHJsYTdMS3VpZ0FQAQ?hl=en-NA&gl=NA&ceid=NA%3Aen"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 4.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.866,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 11221,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 894,
+        "statesFreshness": false,
+        "text": "Simply sign up to the Eurozone economy myFT Digest -- delivered directly to your inbox. [3]\n\nThe economy of the eurozone grew by 0.4% in the first three months of the year, official figures have shown, as its slow recovery continues. [4]\n\nGrowth in the 12-nation eurozone economy increased by 0.5% in the second quarter, and 2.0% on a 12-month basis, said EU statistics office Eurostat. [6]\n\nImportant Facts For Prelims\n\nContraction of Eurozone Economy\n\n- 01 Aug 2020\n\n- 2 min read\n\nWhy in News\n\nThe Gross Domestic Product (GDP) of the Eurozone reduced by 12.1% in the April-June 2020 quarter, compared to the previous quarter. [10]\n\nSources: [1] United Kingdom and the euro (en.wikipedia.org)  [2] Eurozone economy barely grows in first months of 2026 (rfi.fr)  [3] Eurozone economy suffers slowest growth in 7 years (ft.com)  [4] Eurozone economic growth picks up to 0.4% - BBC News (bbc.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "eurozone economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1225.7,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-09T00:34:13.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "United Kingdom and the euro",
+            "url": "https://en.wikipedia.org/wiki/United_Kingdom_and_the_euro"
+          },
+          {
+            "ageHours": null,
+            "domain": "rfi.fr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.91,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone economy barely grows in first months of 2026",
+            "url": "https://www.rfi.fr/en/international-news/20260430-eurozone-economy-barely-grows-in-first-months-of-2026"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone economy suffers slowest growth in 7 years",
+            "url": "https://www.ft.com/content/198f072e-4e42-11ea-95a0-43d18ec715f5?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone economic growth picks up to 0.4% - BBC News",
+            "url": "https://www.bbc.com/news/business-32717270"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Italy's economy stalls as eurozone slows down",
+            "url": "https://www.bbc.com/news/business-46028714"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.bbc.co.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "BBC NEWS | Business | Eurozone economy continues growth",
+            "url": "http://news.bbc.co.uk/2/hi/business/3561558.stm"
+          },
+          {
+            "ageHours": null,
+            "domain": "money.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone economy shrinks again",
+            "url": "http://money.cnn.com/2013/05/15/news/economy/europe-recession"
+          },
+          {
+            "ageHours": 1040.7,
+            "domain": "wallstreetmojo.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T17:37:56.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Eurozone",
+            "url": "https://www.wallstreetmojo.com/eurozone"
+          },
+          {
+            "ageHours": 16027.3,
+            "domain": "thedailybrief.zerodha.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2024-11-30T06:58:34.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Eurozone’s road to recovery remains bumpy",
+            "url": "https://thedailybrief.zerodha.com/p/eurozones-road-to-recovery-remains"
+          },
+          {
+            "ageHours": 2738.8,
+            "domain": "drishtiias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-06T23:29:15.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Contraction of Eurozone Economy",
+            "url": "https://www.drishtiias.com/daily-updates/daily-news-analysis/contraction-of-eurozone-economy"
+          },
+          {
+            "ageHours": 2807,
+            "domain": "drishtiias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-04T03:15:19.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Contraction of Eurozone Economy",
+            "url": "https://www.drishtiias.com/daily-news-analysis/contraction-of-eurozone-economy"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Eurozone economy grows 0.2% in third quarter...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pwak92eER4SHQ4WmNiNVRmYWdDZ0FQAQ?hl=en-KE&gl=KE&ceid=KE%3Aen"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1040.7,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Open Library timed out after 12000ms",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 502",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.872,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12396,
+      "vertical": "general"
+    }
+  ],
+  "total": 138
+}

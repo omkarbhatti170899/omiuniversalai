@@ -1,0 +1,1607 @@
+{
+  "answerContract": {
+    "allSourcesDated": 15,
+    "citationsResolve": 16,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 8,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 8
+  },
+  "byCategory": {
+    "finance": {
+      "fresh": 2,
+      "kept": 22,
+      "n": 4
+    },
+    "sports": {
+      "fresh": 2,
+      "kept": 20,
+      "n": 12
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 4,
+      "n": 2
+    },
+    "current": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 4
+    },
+    "latest": {
+      "fresh": 0,
+      "kept": 5,
+      "n": 4
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 6,
+      "n": 2
+    },
+    "none": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 2
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 32,
+  "ran": 16,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "live football scores",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 999,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 266,
+        "statesFreshness": false,
+        "text": "English Premier League — league standings. [1]\n\nStandings from TheSportsDB's league table. [1]\n\nFigures as reported by the feed; current season as labelled by the provider. [1]\n\nSources: [1] English Premier League — league standings (5 teams shown) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Premier League standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 112.2,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-24T10:00:07.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "English Premier League — league standings (5 teams shown)",
+            "url": "https://www.thesportsdb.com/league/4328"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 112.2,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.89,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 166,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 976,
+        "statesFreshness": true,
+        "text": "Laavanya Negi is Journalist and education news reporter. [1]\n\nThey can also reach out on the official email address at cheeapcet@gmail.com. [1]\n\nAt Jagran Josh, Laavanya covers the full spectrum of international, national, and regional education news - ranging from CBSE and State Board results to major entrance exams like CUET, JEE, and NEET, and college admissions and counselling. [1]\n\nCombining her expertise in news reporting and creative writing, she translates complex updates into timely, actionable, and engaging content for students and educators alike. [1]\n\nSources: [1] AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter - Link Here (jagranjosh.com)  [2] Karnataka NEET MDS 2026: Round 2 Provisional Seat Allotment Result Released at cetonline.karnataka.gov.in, Final Result Expected Soon (jagranjosh.com)  [3] Keep It Up चा अर्"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest IPL news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 113.6,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:34:33.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter ",
+            "url": "https://www.jagranjosh.com/news/ap-barch-admissions-2026-seat-allotment-result-release-at-cap-apcfss-in-download-allocation-letter-pdf-direct-link-here-187732"
+          },
+          {
+            "ageHours": 116.6,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T05:34:13.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Karnataka NEET MDS 2026: Round 2 Provisional Seat Allotment Result Released at cetonline.karnataka.gov.in, Fin",
+            "url": "https://www.jagranjosh.com/news/karnataka-neet-mds-2026-round-2-provisional-seat-allotment-result-released-at-cetonline-karnataka-gov-in-final-result-expected-soon-187718"
+          },
+          {
+            "ageHours": 83.2,
+            "domain": "panferov-art.ru",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:02:10.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Keep It Up चा अर्थ मराठीत ? धिक जाणून · इंग्रजी वाक्ये... | panferov-art.ru",
+            "url": "https://www.panferov-art.ru/technology/tech-news/google-founder-sergey-brin-dont-want-you-to-use-gemini-live-while-driving-heres-why/articleshow/126034176.cms"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 83.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.867,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2052,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Formula 1 2026 season results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | TheSportsDB has no current fixture for \"Formula 1 2026 "
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 488,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "NBA standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | TheSportsDB has no current league table for \"NBA\". Omi "
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 93,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest tennis tournament results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | TheSportsDB reports no live or scheduled Tennis matches"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 473,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "today's match fixtures",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "who won the most recent F1 race",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 855,
+        "statesFreshness": false,
+        "text": "How many medals did India win on Day 8 (September 27) of Asian Games 2026? [1]\n\nIndia enjoyed another medal-rich day at the Asian Games 2026 on Monday, winning eight medals across athletics, shooting and kurash while also securing more medals in boxing. [4]\n\nWhat is India’s position in the medal table after Day 8 (September 27) at the Asian Games 2026? [1]\n\nHow many medals has India won so far at Asian Games 2026? [1]\n\nSources: [1] Asian Games 2026: Updated medal tally after Day 8, September 27 (khelnow.com)  [2] Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India Rise To 10th (freepressjournal.in)  [3] India In Athletics, Asian Games 2026 Highlights: Prachi Wins Superb... (sports.ndtv.com)  [4] Asian Games 2026 Day 9: Athletics leads India’s 8-medal haul... (timesofindia.indiatimes.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 medal tally India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 32.6,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 59.7,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:31:54.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India R",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medal-tally-day-8-kabaddi-teams-bag-twin-golds-tajinderpal-toor-sawan-barwal-help-india-rise-to-10th"
+          },
+          {
+            "ageHours": 64,
+            "domain": "sports.ndtv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T10:12:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.36,
+              "sourceQuality": 0.1
+            },
+            "title": "India In Athletics, Asian Games 2026 Highlights: Prachi Wins Superb...",
+            "url": "https://sports.ndtv.com/asian-games-2026/india-in-athletics-asian-games-2026-live-updates-day-7-indian-athletes-results-tajinderpal-singh-toor-gulveer-singh-parul-chaudhary-medal-events-track-12100759"
+          },
+          {
+            "ageHours": 11.6,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:37:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.36,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 Day 9: Athletics leads India’s 8-medal haul...",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-day-9-athletics-leads-indias-8-medal-haul-boxing-assures-more-as-near-misses-hurt/articleshow/134545152.cms"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 11.6,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.015,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1936,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest Asian Games 2026 results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Olympic medal table",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8,
+          10,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1027,
+        "statesFreshness": false,
+        "text": "Spain have been crowned FIFA World Cup champions for the second time in their history after edging defending champions Argentina 1-0 in extra time in a gripping 2026 final at New York New Jersey Stadium on Sunday. [4]\n\nThe decision that Pelé claimed to be final was made after the biggest debacle in the history of the Brazilian team, the only time it was left out of a World Cup. [8]\n\nIn anticipation of the 2022 World Cup in Qatar, see all 101 of the most memorable moments in the tournament's rich history.Before the 1998 World Cup Final, this was the most memorable matchup between Brazil and France. [10]\n\nIn one of the greatest games in World Cup history, Italy beat Brazil 3-2 in Barcelona to advance to the semi-finals and knock out Tele Santana's entertaining side. [11]\n\nSources: [1] 2022 FIFA World Cup final (en.wikipedia.org)  [2] List of FIFA World Cup finals - Wikipedia (en.wikipedia."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "history of the World Cup final",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 1.09,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.09,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "2022 FIFA World Cup final",
+            "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "List of FIFA World Cup finals - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals"
+          },
+          {
+            "ageHours": null,
+            "domain": "fifa.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "FIFA World Cup 2026™ Final",
+            "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/final"
+          },
+          {
+            "ageHours": null,
+            "domain": "the-star.co.ke",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Spain beat Argentina 1-0 to win World Cup for second time",
+            "url": "https://www.the-star.co.ke/news/2026-07-20-spain-beats-argentina-1-0-to-win-the-world-cup"
+          },
+          {
+            "ageHours": null,
+            "domain": "topendsports.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "List of Soccer World Cup historical firsts",
+            "url": "https://www.topendsports.com/events/worldcupsoccer/firsts.htm"
+          },
+          {
+            "ageHours": 995.1,
+            "domain": "dailytrust.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T15:04:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "FLASHBACK: How World Cup final referee was arrested at a criminal location 6 years ago",
+            "url": "https://dailytrust.com/flashback-how-world-cup-final-referee-was-arrested-at-a-criminal-location-6-years-ago"
+          },
+          {
+            "ageHours": 1027.6,
+            "domain": "onthisday.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T06:39:23.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "FIFA World Cup History",
+            "url": "https://www.onthisday.com/sport/soccer/soccer-tournaments/football-world-cup"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.as.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "How many World Cups did Pelé play in and how many did ‘O’Rei’ win...",
+            "url": "https://en.as.com/soccer/how-many-world-cups-did-pele-play-in-and-how-many-did-orei-win-with-brazil-n"
+          },
+          {
+            "ageHours": 47795.9,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-04-16T14:18:14Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "I finally made a free app for collecting panini stickers",
+            "url": "https://news.ycombinator.com/item?id=26834185"
+          },
+          {
+            "ageHours": null,
+            "domain": "foxsports.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.95,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "World Cup: 101 most memorable tournament moments | FOX Sports",
+            "url": "https://www.foxsports.com/stories/soccer/world-cup-101-most-memorable-tournament-moments"
+          },
+          {
+            "ageHours": null,
+            "domain": "fourfourtwo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Biggest upsets in World Cup history | FourFourTwo",
+            "url": "https://www.fourfourtwo.com/features/biggest-upsets-in-world-cup-history"
+          },
+          {
+            "ageHours": null,
+            "domain": "football-balls.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "FIFA World Cup balls | Football Balls Database",
+            "url": "https://football-balls.com/balls/world-cup"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 995.1,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "arXiv: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "Mwmbl (free, open, independent index) timed out after 12000ms"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.989,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12498,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1660,
+        "statesFreshness": true,
+        "text": "Stock Markets.The broader market environment is offering little support, with the S&P 500 down 0.5%, the Dow Jones down 0.6%, and the Nasdaq down 0.7% in today’s session, reflecting a risk-off tone that tends to weigh disproportionately on higher-valuation software names. [9]\n\nThis Biotech Company Added Nearly $3B To Its Market Cap Today – Here’s Why KOD Stock Is Ripping Today\n\nKodiak Sciences shares saw their biggest ever single-day gains after the company posted positive Phase 3 data for 2 therapies targeting wet age-related macular degeneration. [12]\n\nS&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Stocks Slide Ahead Fed Rate Hike | Check What Investors Should Watch\n\nS&P 500 Today: The S&P 500 was already off to a defensive note from the start of the week’s trading as the index fell 58.88 points or 0.76%, to 7,684.53 in the la"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "stock market today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 10.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:06:39.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "S&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Sto",
+            "url": "https://sundayguardianlive.com/business/sp-500-today-live-index-slides-088-as-oil-climbs-above-106-treasury-yields-rise-nvidia-gains-tech-stocks-slide-ahead-fed-rate-hike-check-what-investors-should-watch-294673"
+          },
+          {
+            "ageHours": 6.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 22.4,
+            "domain": "cryptowisser.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T03:46:41.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Aave Lets Users Borrow USDC Against Tokenized Apple and Tesla Stock",
+            "url": "https://www.cryptowisser.com/news/aave-lets-users-borrow-usdc-against-tokenized-apple-and-tesla-stock"
+          },
+          {
+            "ageHours": 18.1,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:05:46.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Stock market today: Dow, S&P 500, Nasdaq slip as AI safety...",
+            "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-september-28-dow-sp-500-nasdaq-080420627.html"
+          },
+          {
+            "ageHours": 3.9,
+            "domain": "bloomberg.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:19:42.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Stock Market Today: Dow, S&P Live Updates for... - Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-09-28/stock-market-today-dow-s-p-live-updates"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "fool.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:56:48.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Meet the 1 Stock I'd Buy With $500 and Never Look... | The Motley Fool",
+            "url": "https://www.fool.com/investing/2026/09/28/meet-the-1-stock-id-buy-with-500-and-never-look-at"
+          },
+          {
+            "ageHours": 20.9,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:21:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Stock market crash today: BSE Sensex crashes... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/business/india-business/stock-market-crash-today-why-bse-sensex-and-nifty50-have-crashed-on-september-28-2026-us-iran-war-crude-oil-rupee-top-reasons-for-fall/articleshow/134532562.cms"
+          },
+          {
+            "ageHours": 19.4,
+            "domain": "groww.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:49:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Runwal Enterprises IPO Day 2: Subscription Status, Timeline & Key...",
+            "url": "https://groww.in/blog/runwal-enterprises-ipo-day-2-subscription-status"
+          },
+          {
+            "ageHours": 3.3,
+            "domain": "investing.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:52:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Why is ServiceNow stock sliding today? By Investing.com",
+            "url": "https://www.investing.com/news/stock-market-news/why-is-servicenow-stock-sliding-today-93CH-4920661"
+          },
+          {
+            "ageHours": 25,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:13:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334)",
+            "url": "https://www.thehindubusinessline.com/markets/sensex-nifty50-today-stock-market-live-updates-28-septmeber-2026/article71515691.ece"
+          },
+          {
+            "ageHours": 21.5,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:41:29.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions",
+            "url": "https://www.dynamitenews.com/business/sensex-crashes-over-500-points-why-stock-market-fell-today-amid-global-tensions"
+          },
+          {
+            "ageHours": 12,
+            "domain": "stocktwits.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:14:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "This Biotech Company Added Nearly $3B To Its Market Cap Today – Here’s Why KOD Stock Is Ripping Today",
+            "url": "https://stocktwits.com/news-articles/markets/equity/this-biotech-company-added-nearly-3-b-to-its-market-cap-today-here-s-why-kod-stock-is-ripping-today/cZMSD46RBQY"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 3.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.003,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 8111,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 436,
+        "statesFreshness": true,
+        "text": "Gold Rate Today Hyderabad September 27 2026 — 24K, 22K, 18K gold prices and silver rate. [2]\n\nGold and silver lost $550 billion in hours as yields and Fed hike bets rose. [1]\n\nThe bitcoin price fell 2.7% alongside them instead of acting as a haven. [1]\n\nSources: [1] Bitcoin Price Crashes to $82,780 as Gold and Silver Lose $550B in... (news.bitcoin.com)  [2] రేపు ఈ రాశులకు ముఖ్యమైన రోజు.. సెప్టెంబర్ 29 రాశిఫలాలు (telanganapatrika.in)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest gold price",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 18.1,
+            "domain": "news.bitcoin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:09:07.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Bitcoin Price Crashes to $82,780 as Gold and Silver Lose $550B in...",
+            "url": "https://news.bitcoin.com/featured/gold-silver-550-billion-wipeout-bitcoin-price"
+          },
+          {
+            "ageHours": 12.7,
+            "domain": "telanganapatrika.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:29:06.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "రేపు ఈ రాశులకు ముఖ్యమైన రోజు.. సెప్టెంబర్ 29 రాశిఫలాలు",
+            "url": "https://www.telanganapatrika.in/horoscope-tomorrow-september-29-2026"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 12.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.96,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2584,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 458,
+        "statesFreshness": false,
+        "text": "Convert 20 USD to INR using live Foreign Currency Exchange Rates. [1]\n\n1 USD = 96.0699 INR (rate updated Tue, 29 Sep 2026 00:02:31 +0000). [2]\n\nRates are reference values for information only, not a trading quote and not financial advice. [2]\n\nSource: open.er-api.com / exchangerate-api.com (keyless public exchange-rate feed). [2]\n\nSources: [1] 20 USD to INR - Convert $20 US Dollar to Indian Rupee (currencyconverterx.net)  [2] 1 USD = 96.0699 INR (xe.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "current USD to INR rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 49.2,
+            "domain": "currencyconverterx.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T00:58:56.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "20 USD to INR - Convert $20 US Dollar to Indian Rupee",
+            "url": "https://www.currencyconverterx.net/20-USD-to-INR"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "xe.com",
+            "providers": [
+              "market-rates",
+              "Open Exchange Rates (keyless)"
+            ],
+            "publishedAt": "2026-09-29T00:02:31.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "1 USD = 96.0699 INR",
+            "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 2.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1339,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1301,
+        "statesFreshness": true,
+        "text": "Sensex Live.“With rate hikes now being delivered in direct response to higher energy prices, there is no clear near-term upper bound on hikes that can be priced in by the market,” Citigroup economist Andrew Hollenhorst said in a report. [5]\n\nStock Market LIVE Updates, Sensex Today: Sensex Drops 900 Points As Oil Prices Rise Amid US-Iran Tensions. [1]\n\nUS Stock Market Today: Weekly Price Forecast\n\nMeasure Value\n\nS&P 500 latest level 7,684.53\n\nWeekly gain before Monday 1.2%\n\nMonday change -0.76%\n\nThe 1.2% weekly rise came before Monday’s decline. [4]\n\nOpening Bell: Sensex slumps over 550 pts, Nifty drops below 23,000; India VIX rises 6%.The Sensex has declined 13.6% and the Nifty 11.6% in absolute terms, while markets such as Korea and Taiwan have surged 167% and 110%, respectively. [6]\n\nSources: [1] Google News - Sensex and Nifty decline in early trade on Monday... (news.google.com)  [2] "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "live sensex level",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 19.9,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:20:29.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Sensex and Nifty decline in early trade on Monday...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2o4OV9tQUVoRmR0Uk5UenNabzl5Z0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen"
+          },
+          {
+            "ageHours": 20.1,
+            "domain": "businesstoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:05:10.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Sensex, Nifty plunge over 1%; investors lose Rs... - BusinessToday",
+            "url": "https://www.businesstoday.in/markets/stocks/story/sensex-nifty-plunge-over-1-investors-lose-rs-6-lakh-crore-as-brent-crude-crosses-107-558163-2026-09-28"
+          },
+          {
+            "ageHours": 42.5,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T07:39:55.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Crude oil, global yields, FII flows among key factors to drive stock market next week",
+            "url": "https://www.thehansindia.com/business/market-compass/crude-oil-global-yields-fii-flows-among-key-factors-to-drive-stock-market-next-week-1126143"
+          },
+          {
+            "ageHours": 10.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:06:39.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "S&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Sto",
+            "url": "https://sundayguardianlive.com/business/sp-500-today-live-index-slides-088-as-oil-climbs-above-106-treasury-yields-rise-nvidia-gains-tech-stocks-slide-ahead-fed-rate-hike-check-what-investors-should-watch-294673"
+          },
+          {
+            "ageHours": 71.5,
+            "domain": "moneycontrol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:43:42.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "US 30-year yield tops 5.5% in 'vacuum' after sentiment gauge",
+            "url": "https://www.moneycontrol.com/news/business/us-30-year-yield-tops-5-5-in-vacuum-after-sentiment-gauge-14038674.html"
+          },
+          {
+            "ageHours": 22.9,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:19:09.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Sensex Today | Nifty 50 | Stock Market Live Updates | Opening Bell...",
+            "url": "https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-adani-power-sail-share-price-28-september-2026/liveblog/134529756.cms"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 10.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.868,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1631,
+      "vertical": "markets"
+    }
+  ],
+  "total": 138
+}

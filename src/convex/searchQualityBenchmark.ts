@@ -50,7 +50,7 @@ import {
 } from "./searchEngine/freshness";
 import { classifyCurrentIntent } from "./searchEngine/intent";
 import { planRetrieval } from "./searchEngine/rewrite";
-import { isOffTopic, topicKeywords, sharesTopic, keywordSet } from "./searchEngine/quality";
+import { isOffTopic, isNonSequiturForBroadNews, topicKeywords, sharesTopic, keywordSet } from "./searchEngine/quality";
 import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
 import type { WebCitation } from "./searchProviders/types";
 
@@ -370,6 +370,12 @@ export const runSearchQualityBenchmark = internalAction({
           reason = age === null ? "undated" : "outside freshness window";
         } else if (isOffTopic(c, topic)) {
           reason = "shares no subject word";
+        } else if (
+          isNonSequiturForBroadNews(c, topic, { requiresFreshness: policy.requiresFreshness })
+        ) {
+          // Same floor the chat turn applies — a diagnostic that keeps sources
+          // production would drop overstates the product's relevance.
+          reason = "non-sequitur for a broad news question";
         } else if (yearScoped && isWrongYear(matchTemporal(c, policy.years, null))) {
           reason = "different year";
         }

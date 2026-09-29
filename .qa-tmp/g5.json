@@ -1,0 +1,3103 @@
+{
+  "answerContract": {
+    "allSourcesDated": 13,
+    "citationsResolve": 16,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 15,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 1
+  },
+  "byCategory": {
+    "science": {
+      "fresh": 7,
+      "kept": 75,
+      "n": 10
+    },
+    "technology": {
+      "fresh": 4,
+      "kept": 34,
+      "n": 4
+    },
+    "weather": {
+      "fresh": 1,
+      "kept": 1,
+      "n": 2
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 3,
+      "kept": 13,
+      "n": 3
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 19,
+      "n": 3
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 36,
+      "n": 3
+    },
+    "recent": {
+      "fresh": 0,
+      "kept": 7,
+      "n": 1
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 21,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 64,
+  "ran": 16,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1020,
+        "statesFreshness": false,
+        "text": "Just as emerging technologies, web development languages are also evolving at a good pace.Now in the next section, we will share the comparison between Rust and Go programming languages. [6]\n\nRust vs Go: Complete comparison of memory management, concurrency, performance, and development experience. [5]\n\nIn this comparison of Rust and Go, taken from a full talk by our CTO, Alexander Kirillov, we look at both languages' real-world capabilities, performance, and use cases.Rust vs. [7]\n\nGo & Rust both produce efficient codes and are compiled languages.So, this was the ultimate comparison of Go vs Rust programming languages. [1]\n\nSources: [1] Which is Better Rust vs Go in 2025? - Konstantinfo (konstantinfo.com)  [2] Rust vs Go: Which is the best programming language to use in 2022? (terasol.medium.com)  [3] Rust for Secure Backend Development: A Critical Review and Extended Vulnerability Comp"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "rust vs go comparison",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "konstantinfo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Which is Better Rust vs Go in 2025? - Konstantinfo",
+            "url": "https://www.konstantinfo.com/blog/rust-vs-go"
+          },
+          {
+            "ageHours": 38036.7,
+            "domain": "terasol.medium.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2022-05-28T05:33:44.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rust vs Go: Which is the best programming language to use in 2022?",
+            "url": "https://terasol.medium.com/rust-vs-go-which-is-the-best-programming-language-to-use-in-2022-ea1838271c32"
+          },
+          {
+            "ageHours": 868,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2026-08-23T22:15:10Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rust for Secure Backend Development: A Critical Review and Extended Vulnerability Comparison with Node.js and ",
+            "url": "http://arxiv.org/abs/2608.22624v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "inapps.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Go vs Rust - Which one is better for your software projects",
+            "url": "https://www.inapps.net/blog/go-vs-rust-which-is-more-compatible-to-use"
+          },
+          {
+            "ageHours": null,
+            "domain": "betterstack.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rust vs Go: A Comprehensive Language Comparison",
+            "url": "https://betterstack.com/community/guides/scaling-go/rust-vs-go"
+          },
+          {
+            "ageHours": null,
+            "domain": "a3logics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Go vs Rust: Comparing two powerful programming languages",
+            "url": "https://www.a3logics.com/blog/go-vs-rust-which-is-better-programming-language"
+          },
+          {
+            "ageHours": null,
+            "domain": "evrone.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go in 2025: Comparison of Performance, Complexity, and...",
+            "url": "https://evrone.com/blog/rustvsgo"
+          },
+          {
+            "ageHours": null,
+            "domain": "reintech.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go in 2026: Complete Comparison Guide for Developers",
+            "url": "https://reintech.io/blog/rust-vs-go-2026-which-language-should-you-learn"
+          },
+          {
+            "ageHours": 111698.2,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2014-01-01",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Large-scale transcriptome comparison reveals distinct gene activations in wheat responding to stripe rust and ",
+            "url": "https://doi.org/10.1186/1471-2164-15-898"
+          },
+          {
+            "ageHours": 2824.8,
+            "domain": "github.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-03T09:26:31.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rust vs. C vs. Go runtime speed comparison",
+            "url": "https://github.com/oscar6echo/rust-c-go-speed"
+          },
+          {
+            "ageHours": 1094.7,
+            "domain": "thenewstack.io",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-14T11:34:09.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rust vs. Go: Why They’re Better Together",
+            "url": "https://thenewstack.io/rust-vs-go-why-theyre-better-together"
+          },
+          {
+            "ageHours": null,
+            "domain": "imlamrin.medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go: A Deep, Practical Comparison for Engineers Who Ship",
+            "url": "https://imlamrin.medium.com/rust-vs-go-a-deep-practical-comparison-for-engineers-who-ship-f324f8753e41"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 868,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"rust go comparison\" right now — Omi will"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.887,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 8096,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1130,
+        "statesFreshness": true,
+        "text": "Today's Change.Manufacturing chips is hard and expensive, and it requires a lot of expertise. [2]\n\nSMT Today is a leading magazine providing news, events and white papers to the global electronics manufacturing industry.Electronics News. [5]\n\nEU Ministers Push New Chips Act 2.0 for Tech Sovereignty – Brussels\n\nBrussels, Belgium, 25 September, (Brussels Morning Newspaper) – European Union industry ministers have debated Chips Act 2.0, with member states broadly supporting efforts to strengthen Europe’s semiconductor industry, reduce strategic dependencies and make critical chip supply chains more resilient. [1]\n\nProcessors and Graphics Chips company Lattice Semiconductor LSCC fell 9.8%.Semiconductor Manufacturing company Teradyne TER fell 11.7%. [3]\n\nSources: [1] EU Ministers Push New Chips Act 2.0 for Tech Sovereignty – Brussels (brusselsmorning.com)  [2] Meet the Magnificent Semiconduct"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest chip manufacturing news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 90.1,
+            "domain": "brusselsmorning.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T08:06:25.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "EU Ministers Push New Chips Act 2.0 for Tech Sovereignty – Brussels",
+            "url": "https://brusselsmorning.com/chips-act-2-0-eu-ministers/103909"
+          },
+          {
+            "ageHours": 77.8,
+            "domain": "fool.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T20:27:12.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Meet the Magnificent Semiconductor Stock Crushing... | The Motley Fool",
+            "url": "https://www.fool.com/investing/2026/09/25/meet-the-magnificent-semiconductor-stock-crushing"
+          },
+          {
+            "ageHours": 62.7,
+            "domain": "tradingview.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:32:19.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Lattice Semiconductor, Amkor, Himax, Teradyne... — TradingView News",
+            "url": "https://www.tradingview.com/news/stockstory:48ace1464094b:0-lattice-semiconductor-amkor-himax-teradyne-and-entegris-stocks-trade-down-what-you-need-to-know"
+          },
+          {
+            "ageHours": 106.7,
+            "domain": "wccftech.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:29:30.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "TSMC Rumored To Have Started Pilot Production of 1.4nm Chips as it...",
+            "url": "https://wccftech.com/tsmc-rumored-to-have-started-pilot-production-of-1-4nm-chips-as-it-races-to-2028-volume-production"
+          },
+          {
+            "ageHours": 101.6,
+            "domain": "smttoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T20:40:56.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "SMT TODAY: Non Stop Electronics Manufacturing News - Page 603",
+            "url": "https://smttoday.com/page/603"
+          },
+          {
+            "ageHours": 78.3,
+            "domain": "oregonlive.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T19:58:08.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Eugene's former Hynix semiconductor factory is for... - oregonlive.com",
+            "url": "https://www.oregonlive.com/silicon-forest/2026/09/former-oregon-semiconductor-factory-is-back-on-the-market.html"
+          },
+          {
+            "ageHours": 17.3,
+            "domain": "design-reuse.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:54:05.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Vietnam is beginning to enter the \"chip manufacturing\" industry.",
+            "url": "https://www.design-reuse.com/news/202531190-vietnam-is-beginning-to-enter-the-chip-manufacturing-industry-"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 17.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.866,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2489,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1056,
+        "statesFreshness": true,
+        "text": "\"Nobody is building more compute today than the people asking to be slowed down,\" Huang told Klein.Click here for the latest technology news that will impact the stock market. [5]\n\nTechnology.The main goal of today was making the ship section of the rocket orbit Earth for the first time. [2]\n\nSchool Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [3]\n\nExplore the latest in audio technology with expert reviews, news and insights on headphones, speakers, sound systems and more. [6]\n\nSources: [1] The Trump administration weakens fuel efficiency standards for new cars (wuwm.com)  [2] SpaceX Starship rocket splashes down in Pacific Ocean - BBC News (bbc.com)  [3] School Assembly News Headlines Today – September 28, 2026 "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "technology news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 10.1,
+            "domain": "wuwm.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:07:32.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The Trump administration weakens fuel efficiency standards for new cars",
+            "url": "https://www.wuwm.com/term/health-science/2026-09-28/the-trump-administration-weakens-fuel-efficiency-standards-for-new-cars"
+          },
+          {
+            "ageHours": 14.1,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:09:37.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "SpaceX Starship rocket splashes down in Pacific Ocean - BBC News",
+            "url": "https://www.bbc.com/news/live/c65ymmpzev1mt"
+          },
+          {
+            "ageHours": 21.6,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 25.2,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:01:42.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Exploit.in Database Reveals the Roots of Today’s Ransomware Ecosystem -.",
+            "url": "https://que.com/exploit-in-database-reveals-the-roots-of-todays-ransomware-ecosystem"
+          },
+          {
+            "ageHours": 15.7,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:33:36.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Nvidia launches AI safety platform after Jensen Huang calls Anthropic...",
+            "url": "https://finance.yahoo.com/technology/article/nvidia-launches-ai-safety-platform-after-jensen-huang-calls-anthropic-openai-warnings-odd-103135599.html"
+          },
+          {
+            "ageHours": 8.9,
+            "domain": "tech.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:21:39.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Today's NYT Connections Hints (and Answer) for Monday, September...",
+            "url": "https://tech.yahoo.com/puzzles/connections/articles/todays-nyt-connections-hints-answer-010000751.html"
+          },
+          {
+            "ageHours": 20.5,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:46:25.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "WhatsApp Android update could bring an iPhone-like navigation bar...",
+            "url": "https://www.hindustantimes.com/technology/whatsapp-android-update-could-bring-an-iphone-like-navigation-bar-what-we-know-101790573964238.html"
+          },
+          {
+            "ageHours": 13.5,
+            "domain": "usatoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:41:25.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Trump to meet with Anthropic CEO Dario Amodei amid AI concerns",
+            "url": "https://www.usatoday.com/story/news/politics/2026/09/28/trump-ai-anthropic-technology-concerns/91983058007"
+          },
+          {
+            "ageHours": 12.4,
+            "domain": "phys.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:50:22.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "A tiny stellar system may be a 'satellite of a satellite'",
+            "url": "https://phys.org/news/2026-09-tiny-stellar-satellite.html"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "zawya.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:41:56.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The ENTERTAINER appoints new Chairman and Senior Leadership to drive its next phase",
+            "url": "https://www.zawya.com/en/press-release/people-in-the-news/the-entertainer-appoints-new-chairman-and-senior-leadership-to-drive-its-next-phase-1368894"
+          },
+          {
+            "ageHours": 19.2,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:04:42.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "AI can win the benchmark and still fail the customer - India Today",
+            "url": "https://www.indiatoday.in/technology/talking-points/story/ai-can-win-the-benchmark-and-still-fail-the-customer-3004624-2026-09-28"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 8.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.914,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1616,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1002,
+        "statesFreshness": true,
+        "text": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026\n\nBL Morning Report September 28, 2026: Get today’s top business news, market headlines about the Stock Market, Sensex & Nifty trends, key market insights, economic highlights, and the latest updates from India and global markets. [3]\n\n2026 Kia Sorento Vs Skoda Kodiaq: What Do You Get For Your Money? [4]\n\nThe landscape of Ransomware is undergoing a transformative shift in 2026. [1]\n\nIn this comprehensive analysis, we examine the key trends, breakthrough innovations, and strategic implications that are reshaping the Ransomware sector. [1]\n\nSources: [1] Exploit.in Database Reveals the Roots of Today’s Ransomware Ecosystem -. (que.com)  [2] 98-year-old business says we dont qualify for Nashville legacy incentive. (que.com)  [3] Top Business & Market Headlines Today — BL Morning Report, September 28, 2026 (thehindub"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "2026 technology trends",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 25.2,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:01:42.000Z",
+            "relevance": 1.11,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.11,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Exploit.in Database Reveals the Roots of Today’s Ransomware Ecosystem -.",
+            "url": "https://que.com/exploit-in-database-reveals-the-roots-of-todays-ransomware-ecosystem"
+          },
+          {
+            "ageHours": 14.2,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:03:18.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "98-year-old business says we dont qualify for Nashville legacy incentive.",
+            "url": "https://que.com/98-year-old-business-says-we-dont-qualify-for-nashville-legacy-incentive"
+          },
+          {
+            "ageHours": 24.7,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:30:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026",
+            "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+          },
+          {
+            "ageHours": 26.2,
+            "domain": "cardekho.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "2026 Kia Sorento Vs Skoda Kodiaq: What Do You Get For Your Money?",
+            "url": "https://www.cardekho.com/news/comparisons/2026-kia-sorento-vs-skoda-kodiaq-what-do-you-get-for-your-money-36722.htm"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 14.2,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.015,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1282,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1286,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [1]\n\nScience News.The researchers estimate that this field was stronger than Earth's magnetic field today and may have helped move primordial material inward as the young sun formed. [3]\n\nTheGenZ News: today's top stories in U.S., world, politics, tech, business, sports, entertainment, science and crypto, explained fast and clear for Gen Z in English, German and Spanish... [4]\n\nDiscover the latest in science, tech, and space with over 100,000 subscribers who rely on Phys.org for daily insights. [5]\n\nSources: [1] School Assembly News Headlines Today [29 September]: Top Nati"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "latest science news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 6.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 110.6,
+            "domain": "sciencedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T11:37:26.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "“We just need to go back” – Uranus’ moon Ariel may... | ScienceDaily",
+            "url": "https://www.sciencedaily.com/releases/2026/09/260923035951.htm"
+          },
+          {
+            "ageHours": 95.4,
+            "domain": "sciencedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T02:51:48.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ancient meteorites reveal a powerful force that helped... | ScienceDaily",
+            "url": "https://www.sciencedaily.com/releases/2026/09/260924020355.htm"
+          },
+          {
+            "ageHours": 113.4,
+            "domain": "thegenz.news",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T08:50:24.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "TheGenZ News",
+            "url": "https://thegenz.news"
+          },
+          {
+            "ageHours": 49.7,
+            "domain": "phys.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T00:30:17.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Why AI has trouble predicting the fury of hurricane intensity",
+            "url": "https://phys.org/news/2026-09-ai-fury-hurricane-intensity.html"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "topeliteservices.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Latest Home Services News and Contractor Announcements",
+            "url": "https://topeliteservices.com/Content/View/272"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 2.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.882,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1316,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1083,
+        "statesFreshness": true,
+        "text": "As space architecture proliferates, derelict spacecraft pose a growing operational risk to active constellations and future missions.Designing Missions Today for Future Servicing. [2]\n\nExperts from the Space Agri Technologies research group have begun conducting a comprehensive series of experiments in preparation for space missions. [3]\n\nTo date, all missions have been suborbital, meaning they have involved flights into space but without reaching the speed required to enter orbit, approximately 28,000 kilometres per hour. [5]\n\nToday the Department of Defense’s space budget is larger than NASA’s; NASA launches more rockets for outside customers — including the Defense Department — than for itself... [6]\n\nSources: [1] Millions of satellites orbiting Earth? Astronomers hope the UN... | Space (space.com)  [2] Space Domain Awareness & Satellite Servicing | Astroscale U.S. (astroscale-us.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current space missions",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 76,
+            "domain": "space.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T22:14:24.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Millions of satellites orbiting Earth? Astronomers hope the UN... | Space",
+            "url": "https://www.space.com/space-exploration/satellites/millions-of-satellites-orbiting-earth-astronomers-hope-the-un-can-slow-the-coming-data-center-doom"
+          },
+          {
+            "ageHours": 87.7,
+            "domain": "astroscale-us.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T10:32:32.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Space Domain Awareness & Satellite Servicing | Astroscale U.S.",
+            "url": "https://www.astroscale-us.com/en/news/space-domain-awareness-satellite-servicing"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "mendelu.cz",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:17:40.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "MENDELU and the Valašské Meziříčí Observatory are advancing...",
+            "url": "https://mendelu.cz/en/mendelu-and-the-valasske-mezirici-observatory-are-advancing-research-for-future-space-missions"
+          },
+          {
+            "ageHours": 63.4,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:50:51.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Cobb climate summary & weather forecast for Saturday, September 26, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-saturday-september-26-2026"
+          },
+          {
+            "ageHours": 9.1,
+            "domain": "en.protothema.gr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:06:08.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "SpaceX launches giant starship into orbit for the first time – Watch the...",
+            "url": "https://en.protothema.gr/2026/09/28/spacex-launches-giant-starship-into-orbit-for-the-first-time-watch-the-flight"
+          },
+          {
+            "ageHours": 83.2,
+            "domain": "penthouse.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:01:07.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "NASA in Outer (and Inner) Space | Penthouse Magazine",
+            "url": "https://penthouse.com/nasa"
+          },
+          {
+            "ageHours": 102.3,
+            "domain": "vzlu.cz",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T19:58:46.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Our space missions - vzlu aerospace",
+            "url": "https://www.vzlu.cz/en/space-en/our-space-missions"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 9.1,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.839,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1149,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1470,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [4]\n\nThis Biotech Company Added Nearly $3B To Its Market Cap Today – Here’s Why KOD Stock Is Ripping Today\n\nKodiak Sciences shares saw their biggest ever single-day gains after the company posted positive Phase 3 data for 2 therapies targeting wet age-related macular degeneration. [9]\n\nMore than 12,000 microscopic fossils recovered from 1.7-billion-year-old rocks in northern Australia are offering scientists a rare glimpse into the early.Science News. [10]\n\nThe Science academy’s (which was targeted today) 2024 report and the programs for 2026-29 explicitly state: the desig"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "science news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.1,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:09:37.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.03,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "SpaceX Starship rocket splashes down in Pacific Ocean - BBC News",
+            "url": "https://www.bbc.com/news/live/c65ymmpzev1mt"
+          },
+          {
+            "ageHours": 22.8,
+            "domain": "sciencedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:27:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Is the universe infinite? The answer gets weird fast | ScienceDaily",
+            "url": "https://www.sciencedaily.com/releases/2026/09/260927225041.htm"
+          },
+          {
+            "ageHours": 6.8,
+            "domain": "news-pravda.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:24:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Ursula von der Leyen stated that \"today, science has become a target...",
+            "url": "https://news-pravda.com/world/2026/09/28/2627169.html"
+          },
+          {
+            "ageHours": 6.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 13.3,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:58:26.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Starship launched on historic maiden orbital flight to... - India Today",
+            "url": "https://www.indiatoday.in/science/story/starship-super-heavy-14th-flight-orbital-mission-splashdown-elon-musk-spacex-3004967-2026-09-28"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "topeliteservices.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Latest Home Services News and Contractor Announcements",
+            "url": "https://topeliteservices.com/Content/View/272"
+          },
+          {
+            "ageHours": 15.9,
+            "domain": "edition.cnn.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:17:32.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Live updates: SpaceX Starship set for first orbital test flight | CNN",
+            "url": "https://edition.cnn.com/2026/09/28/science/live-news/spacex-starship-flight-14-launch"
+          },
+          {
+            "ageHours": 10.2,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:03:15.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Russian Drone Strikes Ukraine’s Science Academy, Causing Fire in...",
+            "url": "https://www.nytimes.com/2026/09/28/world/europe/urkaine-drone-attack-kyiv-academy-sciences.html"
+          },
+          {
+            "ageHours": 12,
+            "domain": "stocktwits.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:14:19.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "This Biotech Company Added Nearly $3B To Its Market Cap Today – Here’s Why KOD Stock Is Ripping Today",
+            "url": "https://stocktwits.com/news-articles/markets/equity/this-biotech-company-added-nearly-3-b-to-its-market-cap-today-here-s-why-kod-stock-is-ripping-today/cZMSD46RBQY"
+          },
+          {
+            "ageHours": 8.6,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:41:05.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Scientists found more than 12,000 fossils in... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/science/earth/scientists-found-more-than-12000-fossils-in-1-7-billion-year-old-australian-rocks-the-ancient-cells-were-early-eukaryotes-offering-clues-to-how-complex-life-evolved-long-before-animals-appeared/articleshow/134544105.cms"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 2.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.926,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1170,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1059,
+        "statesFreshness": false,
+        "text": "CRISPR (; acronym for clustered regularly interspaced short palindromic repeats) is a family of DNA sequences found in the genomes of prokaryotic organisms such as bacteria and archaea. [1]\n\nJennifer Anne  Doudna  (; born February 19, 1964) is an American biochemist who has pioneered work in CRISPR gene editing, and made other fundamental contributions in biochemistry and genetics. [3]\n\nCRISPR-Cas systems are an adaptive immunity that protects prokaryotes against foreign genetic elements. [7]\n\nGenetically Modified Babies and a First Application of Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR-Cas9)\n\nOn November 26, 2018, at a gene editing conference in Hong Kong, Dr. [4]\n\nSources: [1] CRISPR (en.wikipedia.org)  [2] Making sense of it all: Ethical reflections on the conditions surrounding the first genome-edited babies (ncbi.nlm.nih.gov)  [3] Jennifer Doudna (en.wikipe"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "what is CRISPR",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "CRISPR",
+            "url": "https://en.wikipedia.org/wiki/CRISPR"
+          },
+          {
+            "ageHours": 1246.2,
+            "domain": "ncbi.nlm.nih.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:17.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Making sense of it all: Ethical reflections on the conditions surrounding the first genome-edited babies",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8340653"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Jennifer Doudna",
+            "url": "https://en.wikipedia.org/wiki/Jennifer_Doudna"
+          },
+          {
+            "ageHours": 1246.2,
+            "domain": "journals.lww.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:00:48.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Genetically Modified Babies and a First Application of Clustered Regularly Interspaced Short Palindromic Repea",
+            "url": "https://journals.lww.com/greenjournal/fulltext/2019/07000/genetically_modified_babies_and_a_first.23.aspx"
+          },
+          {
+            "ageHours": 1121.8,
+            "domain": "journals.plos.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:28:36.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Gene-edited babies: What went wrong and what could go wrong",
+            "url": "https://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.3000224"
+          },
+          {
+            "ageHours": 56461.7,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2020-04-20T12:34:44Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Proofreading mechanism of Class 2 CRISPR-Cas systems",
+            "url": "http://arxiv.org/abs/2004.09237v1"
+          },
+          {
+            "ageHours": 40486.4,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2022-02-15T03:47:26Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Investigating the genomic background of CRISPR-Cas genomes for CRISPR-based antimicrobials",
+            "url": "http://arxiv.org/abs/2202.07171v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "CRISPR-Cas (2016)",
+            "url": "https://openlibrary.org/works/OL21294749W"
+          },
+          {
+            "ageHours": null,
+            "domain": "seek.rockefeller.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "All the world's genes, at our fingertips - Seek : Seek",
+            "url": "https://seek.rockefeller.edu/all-the-worlds-genes-at-our-fingertips"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.harvard.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "How CRISPR technology is advancing — Harvard Gazette",
+            "url": "https://news.harvard.edu/gazette/story/2020/02/how-crispr-technology-is-advancing"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Crispr (2022)",
+            "url": "https://openlibrary.org/works/OL25315045W"
+          },
+          {
+            "ageHours": 1022.9,
+            "domain": "pypi.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T11:22:14.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "crispr 0.2.1",
+            "url": "https://pypi.org/project/crispr"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1022.9,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.92,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 4595,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1041,
+        "statesFreshness": true,
+        "text": "If all goes well, the missions are another key for SpaceX to support NASA’s Artemis moon landing in two years. [2]\n\nThe road closures for this launch are a bit shorter than in the past.Exolaunch, Space Cargo book Starship Starfall missions. [4]\n\n28, 2026 /PRNewswire/ -- STARMUS today announces that the four members of the Artemis II crew — Commander Reid Wiseman, Pilot Victor Glover, Mission Specialist Christina Koch and Mission Specialist Jeremy Hansen — have been selected to receive the Stephen Hawking Medal for Science Communication. [1]\n\nSpaceX Starship goes into orbit for first time\n\nSpaceX has broken another barrier, blasting off and reaching Earth’s orbit for the first time. [2]\n\nSources: [1] ARTEMIS II CREW TO RECEIVE THE STEPHEN HAWKING MEDAL (prnewswire.co.uk)  [2] SpaceX Starship goes into orbit for first time (wgauradio.com)  [3] Cobb climate summary & weather forecast for Sa"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "space missions 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 7.2,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:01:35.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "ARTEMIS II CREW TO RECEIVE THE STEPHEN HAWKING MEDAL",
+            "url": "https://www.prnewswire.co.uk/news-releases/artemis-ii-crew-to-receive-the-stephen-hawking-medal-302891849.html"
+          },
+          {
+            "ageHours": 11.7,
+            "domain": "wgauradio.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:30:46.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "SpaceX Starship goes into orbit for first time",
+            "url": "https://www.wgauradio.com/news/trending/spacex-starship-goes-into-orbit-first-time/W2AZPLDV6NDIBJPXNBXN5K6ZXE"
+          },
+          {
+            "ageHours": 63.4,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:50:51.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Cobb climate summary & weather forecast for Saturday, September 26, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-saturday-september-26-2026"
+          },
+          {
+            "ageHours": 33,
+            "domain": "nasaspaceflight.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T17:12:57.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Starship Flight 14: SpaceX Attempts Orbit - NASASpaceFlight.com",
+            "url": "https://www.nasaspaceflight.com/2026/09/starship-flight-14-orbit"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 7.2,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.967,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2163,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1424,
+        "statesFreshness": true,
+        "text": "Research & Science Passionate about research?Today, kidney cancer treatment is tailored to the tumour’s size and extent, the patient’s overall health and other individual factors. [3]\n\nOklahoma doctors highlight progress in childhood cancer treatment\n\nDuring Childhood Cancer Awareness Month, experts at the Jimmy Everest Center in Oklahoma are sharing how research is improving outcomes for young cancer patients, including a near 100% cure rate for certain leukemia cases. [5]\n\nOver the past 30 years, breast cancer deaths have declined by 44 percent,[3] while treatment options have expanded from a single targeted treatment in 1993 to more than 30 today, demonstrating the extraordinary progress that sustained investment in research and precision medicine can make possible. [2]\n\nSeptember is Childhood Cancer Awareness Month, and doctors at the Jimmy Everest Center at Oklahoma Children's OU He"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "latest research on cancer treatment",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 68.3,
+            "domain": "depts.ttu.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T05:57:40.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Research Themes | Home | Texas Tech",
+            "url": "https://www.depts.ttu.edu/onehealth/research-themes.php"
+          },
+          {
+            "ageHours": 68.7,
+            "domain": "newswire.co.kr",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T05:30:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The Estée Lauder Companies and the Breast Cancer Research Foundation Launch Largest Global Research Initiative",
+            "url": "https://www.newswire.co.kr/newsRead.php?no=1043393"
+          },
+          {
+            "ageHours": 107.2,
+            "domain": "uroweb.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:00:03.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "European Association of Urology",
+            "url": "https://uroweb.org/news/kidney-cancer-a-doctors-perspective-and-a-patients-experience"
+          },
+          {
+            "ageHours": 53,
+            "domain": "scienmag.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:16:35.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "When Should Cancer Patients Switch Treatment? Researchers Build a Standard Rulebook for a Key Clinical Milesto",
+            "url": "https://scienmag.com/when-should-cancer-patients-switch-treatment-researchers-build-a-standard-rulebook-for-a-key-clinical-milestone"
+          },
+          {
+            "ageHours": 100.9,
+            "domain": "koco.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T21:22:20.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Oklahoma doctors highlight progress in childhood cancer treatment",
+            "url": "https://www.koco.com/article/oklahoma-doctors-highlight-progress-childhood-cancer-treatment/73874005"
+          },
+          {
+            "ageHours": 85.2,
+            "domain": "usatoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T13:01:09.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Cancer Treatments Have Never Been More Promising. | USA TODAY",
+            "url": "https://www.usatoday.com/story/sponsor-story/beone-fph/2026/09/25/cancer-treatments-have-never-been-more-promising-why-arent-more-people-getting-treated-with-them/91711351007"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 53,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.927,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1598,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1060,
+        "statesFreshness": true,
+        "text": "Thomas Gregor, biophysicist and elected EMBO member, set up his Physics of Biological Functions Unit at the Institut Pasteur (in Paris) and published three papers in high-impact journals in the span of twelve months (in 2018-2019). [3]\n\nMTG 25 Years (2026-2002) JEE MAIN PYQ Book | 202 Chapter-wise & Topic-wise Previous Years Solved Papers Physics For 2027 Exam by unknown from Flipkart.com. [4]\n\nOne paper has been published under the Science &Technology and five in Social Sciences section, one papers under the section of Business Studies, and the Arts & Humanities section has five papers. [1]\n\nPublished 26 Dec 2008 in hep-ph | (0812.4716v1).Sign up for free to explore the frontiers of research. [2]\n\nSources: [1] JU VC releases latest issue of University's Multidisciplinary Research Journal (dailyexcelsior.com)  [2] Neutrino magnetic moment: a window to new physics (emergentmind.com)  [3] "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "recently published physics papers",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 103.5,
+            "domain": "dailyexcelsior.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:44:06.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "JU VC releases latest issue of University's Multidisciplinary Research Journal",
+            "url": "https://www.dailyexcelsior.com/ju-vc-releases-latest-issue-of-universitys-multidisciplinary-research-journal"
+          },
+          {
+            "ageHours": 118.4,
+            "domain": "emergentmind.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T03:51:07.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Neutrino magnetic moment: a window to new physics",
+            "url": "https://www.emergentmind.com/papers/0812.4716"
+          },
+          {
+            "ageHours": 64,
+            "domain": "pasteur.fr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T10:12:58.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Thomas Gregor - Following a passion through countries... | Pasteur.fr",
+            "url": "https://www.pasteur.fr/en/whats-new/latest-news/profiles/thomas-gregor-following-passion-through-countries-and-disciplines"
+          },
+          {
+            "ageHours": 70.2,
+            "domain": "flipkart.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T03:59:28.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.76,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "MTG 25 Years (2026-2002) JEE MAIN PYQ Book | Flipkart.com",
+            "url": "https://www.flipkart.com/mtg-25-years-2026-2002-jee-main-pyq-book-202-chapter-wise-topic-wise-previous-solved-papers-physics-2027-exam/p/itm6fd537f8fe008?pid=9789375440284&lid=LSTBOK97893754402841D37ZH&marketplace=FLIPKART&store=bks&srno=b_1_25&otracker=browse&fm=organic&iid=en_Oj8LK1Ilt-udPd6xCgRXORWiq4p_UYYjdRhFxRWLrHHxbbFC16ocsLLZVb8f1OjUoNWbuNEasS8UGA_zGsadx0IXEUfAps0VaPydLOulQNQqW0YYlZoGydZ1rhpBbipn&ppt=None&ppn=None&ov_redirect=true&ov_redirect=true"
+          },
+          {
+            "ageHours": 49.5,
+            "domain": "physicsforums.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T00:43:47.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.75,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.04
+            },
+            "title": "delete • Physics Forums",
+            "url": "https://www.physicsforums.com/threads/delete.1086331"
+          },
+          {
+            "ageHours": 94.4,
+            "domain": "store.pw.live",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:51:39.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "CBSE 15 Sample Question Papers Class 10 Hindi B For... - PW Store",
+            "url": "https://store.pw.live/products/cbse-class-10-sample-papers-hindi-b-2027"
+          },
+          {
+            "ageHours": 82.6,
+            "domain": "jetpras.ru",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:39:21.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "To Authors - Journal of Experimental and Theoretical Physics",
+            "url": "https://jetpras.ru/avtoram.html?sl=en"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 49.5,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.78,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1254,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          10,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 856,
+        "statesFreshness": false,
+        "text": "Sunlight is vital for daily life as it powers photosynthesis, the process that plants use to convert carbon dioxide and water into carbohydrates and oxygen.Photosynthesis Explained. [12]\n\nPhotosynthesis — explained visually in minutes! [10]\n\nPhotosynthesis is the process by which plants produce their own food with the help of energy from sunlight and an easy-to-understand language. [3]\n\nPhotosynthesis is the process by which plants use sunlight, water, and carbon dioxide to produce their own food (sugar) and release oxygen. [5]\n\nSources: [1] Photosynthesis Explained (worldatlas.com)  [2] Can the photosynthesis first step quantum mechanism be explained? (arxiv.org)  [3] Photosynthesis Explained: Process, Equation, Diagram, and... (ziyyara.com)  [4] What Is Photosynthesis: Photosynthesis explained... - Times of India (timesofindia.indiatimes.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "photosynthesis explained",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "worldatlas.com",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis Explained",
+            "url": "https://www.worldatlas.com/feature/photosynthesis-explained.html"
+          },
+          {
+            "ageHours": 143699.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2010-05-08T15:03:14Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Can the photosynthesis first step quantum mechanism be explained?",
+            "url": "http://arxiv.org/abs/1005.1337v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "ziyyara.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis Explained: Process, Equation, Diagram, and...",
+            "url": "https://ziyyara.com/blog/photosynthesis-explained-process-equation-diagram-and-importance"
+          },
+          {
+            "ageHours": null,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What Is Photosynthesis: Photosynthesis explained... - Times of India",
+            "url": "https://timesofindia.indiatimes.com/education/learning-with-toi/photosynthesis-explained-how-plants-make-food-from-sunlight-and-air/articleshow/100096713.cms"
+          },
+          {
+            "ageHours": null,
+            "domain": "edumain.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "EduMain - School Topics Explained Simply",
+            "url": "https://edumain.net/science/photosynthesis"
+          },
+          {
+            "ageHours": null,
+            "domain": "explainity.de",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis explained: explainity® explainer video",
+            "url": "https://www.explainity.de/englisch/photosynthesis"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
+            "url": "https://openlibrary.org/works/OL39212144W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
+            "url": "https://openlibrary.org/works/OL38617647W"
+          },
+          {
+            "ageHours": null,
+            "domain": "pinterest.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.08,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Find and save ideas about photosynthesis explained on Pinterest.",
+            "url": "https://www.pinterest.com/ideas/photosynthesis-explained/944835426499"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "How does photosynthesis work step by step? | Golpo (YC S25)",
+            "url": "https://www.linkedin.com/posts/golpo-ai_how-does-photosynthesis-work-step-by-step-activity-7429231660488896512-B9KX"
+          },
+          {
+            "ageHours": null,
+            "domain": "stem.superml.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis Explained: How Plants Turn Sunlight into Food...",
+            "url": "https://stem.superml.org/articles/photosynthesis-explained"
+          },
+          {
+            "ageHours": null,
+            "domain": "brainly.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "[FREE] Explain how sunlight affects your daily life and... - brainly.com",
+            "url": "https://brainly.com/question/52044827"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 143699.2,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.872,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 9122,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1210,
+        "statesFreshness": false,
+        "text": "Valve’s popular Steam Deck handheld is being used by Airbus to control its prototype Mars rover\n\nTable of Contents\n\nValve designed the Steam Deck as a portable gaming PC, but Airbus has found a much different use for the handheld system. [4]\n\nMy description: NASA’s Mars rover Curiosity acquired the above images with its right Mast Camera on Sol 3057 to 3059.Anyone can become informed about their world. [1]\n\nWhen NASA Perseverance Rover Reached Inner Mars Edge\n\nWhen NASA’s Perseverance rover reached 'Jezero Crater' - the inner edge of Mars in September 2023, the mission scientists were surprised by what they found. [2]\n\nNASA's Perseverance rover found unexpected igneous rocks at Mars' Jezero Crater edgeScientists expected sedimentary rocks but discovered igneous rocks altered by water thrice [5]\n\nSources: [1] Mont Mercou Is A Huge Man-Made Object on Mars. | Before It's News (beforeitsnews"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current Mars rover status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 95,
+            "domain": "beforeitsnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:17:21.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Mont Mercou Is A Huge Man-Made Object on Mars. | Before It's News",
+            "url": "https://beforeitsnews.com/science-and-technology/2026/09/mont-mercou-is-a-huge-man-made-object-on-mars-2-3112116.html"
+          },
+          {
+            "ageHours": 61.7,
+            "domain": "ummid.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:30:00.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "When NASA Perseverance Rover Reached Inner Mars Edge",
+            "url": "https://ummid.com/news/2026/9/26/when-nasa-perseverance-rover-reached-inner-mars-edge.html"
+          },
+          {
+            "ageHours": 105.9,
+            "domain": "marssociety.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:20:55.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Mars Landing Pioneer Adam Steltzner Named Keynote Speaker for 2026 Int’l Mars Society Convention",
+            "url": "https://www.marssociety.org/news/2026/09/24/mars-landing-pioneer-adam-steltzner-named-keynote-speaker-for-2026-intl-mars-society-convention"
+          },
+          {
+            "ageHours": 111.7,
+            "domain": "pcguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T10:30:40.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Valve’s popular Steam Deck handheld is being used by Airbus to control its prototype Mars rover",
+            "url": "https://www.pcguide.com/news/valves-popular-steam-deck-handheld-is-being-used-by-airbus-to-control-its-prototype-mars-rover"
+          },
+          {
+            "ageHours": 71.9,
+            "domain": "ndtv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:19:07.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "NASA's Perseverance Rover Finds Igneous Rocks Showing Signs Of...",
+            "url": "https://www.ndtv.com/science/nasas-perseverance-finds-igneous-rocks-with-signs-of-water-on-early-mars-12100011"
+          },
+          {
+            "ageHours": 95.3,
+            "domain": "extremetech.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T02:54:26.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Curiosity Rover Begins Its 7th Year on Mars Still Going... | Extremetech",
+            "url": "https://www.extremetech.com/index.php/extreme/274927-curiosity-rover-begins-its-7th-year-on-mars-still-going-strong"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 61.7,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.832,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2794,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1141,
+        "statesFreshness": true,
+        "text": "UK Climate Crisis: Suppressed Report Reveals National Security Threats (2026)\n\nThe suppression of the UK's climate national security report is a concerning development that warrants closer examination. [4]\n\nThe 2026 El Niño is shaping up to be an unusually strong climate event, with the US National Oceanic and Atmospheric Administration (NOAA) giving it a greater than 90% chance of becoming a very strong event during the Northern Hemisphere autumn and winter. [3]\n\nWhat was the climate like in the latest reporting period? [1]\n\nRecap of summer 2026 climate disasters across Canada\n\nCommunities across Canada navigated a summer defined by climate extremes, ranging from prolonged heat domes and aggressive wildfire activity to historic convective downpours. [2]\n\nSources: [1] Cobb climate summary & weather forecast for Thursday, September 24, 2026 (cobbcountycourier.com)  [2] Recap of summer 202"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "climate report 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 111.6,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T10:37:45.000Z",
+            "relevance": 1.07,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.07,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Cobb climate summary & weather forecast for Thursday, September 24, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-thursday-september-24-2026"
+          },
+          {
+            "ageHours": 35.9,
+            "domain": "brockpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:21:14.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Recap of summer 2026 climate disasters across Canada",
+            "url": "https://brockpress.com/recap-of-summer-2026-climate-disasters-across-canada"
+          },
+          {
+            "ageHours": 53.2,
+            "domain": "businesstoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T21:02:10.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "El Niño's weather paradox: How one climate event... - BusinessToday",
+            "url": "https://www.businesstoday.in/world/story/el-ninos-weather-paradox-how-one-climate-event-causes-floods-and-droughts-558021-2026-09-27"
+          },
+          {
+            "ageHours": 100,
+            "domain": "hawa4arab.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T22:14:14.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "UK Climate Crisis: Suppressed Report Reveals National Security Threats (2026)",
+            "url": "https://hawa4arab.com/article/uk-climate-crisis-suppressed-report-reveals-national-security-threats"
+          },
+          {
+            "ageHours": 103.7,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T18:30:23.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Why is the UK’s suppressed climate national security report significant?",
+            "url": "https://www.theguardian.com/environment/2026/sep/24/explainer-uk-climate-crisis-national-security-report-suppressed"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 35.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.958,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 5490,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's weather",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 199,
+        "statesFreshness": false,
+        "text": "Weather in Mumbai, Maharashtra, India: 26°C, clear sky, wind 5 km/h, humidity 81%, precipitation chance 0% (next hour). [1]\n\nSources: [1] Current weather — Mumbai, Maharashtra, India (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current weather in Mumbai",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T02:14:43.706Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.24,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Mumbai, Maharashtra, India",
+            "url": "https://open-meteo.com?latitude=19.07283&longitude=72.88261"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.98,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 886,
+      "vertical": "weather"
+    }
+  ],
+  "total": 138
+}

@@ -1,0 +1,3159 @@
+{
+  "answerContract": {
+    "allSourcesDated": 14,
+    "citationsResolve": 16,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 15,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 1
+  },
+  "byCategory": {
+    "current-news": {
+      "fresh": 2,
+      "kept": 22,
+      "n": 2
+    },
+    "india": {
+      "fresh": 10,
+      "kept": 90,
+      "n": 12
+    },
+    "sports": {
+      "fresh": 1,
+      "kept": 2,
+      "n": 2
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 2,
+      "kept": 13,
+      "n": 2
+    },
+    "current": {
+      "fresh": 1,
+      "kept": 8,
+      "n": 2
+    },
+    "latest": {
+      "fresh": 1,
+      "kept": 14,
+      "n": 3
+    },
+    "live": {
+      "fresh": 2,
+      "kept": 13,
+      "n": 2
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 24,
+      "n": 2
+    },
+    "now": {
+      "fresh": 1,
+      "kept": 10,
+      "n": 1
+    },
+    "recent": {
+      "fresh": 1,
+      "kept": 6,
+      "n": 1
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 26,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 16,
+  "ran": 16,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8,
+          9,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1232,
+        "statesFreshness": true,
+        "text": "Get timely updates on major events from around the globe with CGTN Breaking News. [8]\n\nEntertainment News LIVE Today (Sept 28): Salman Khan Calls Out AI Misuse; The Vvaan Records Weekend Jump\n\nEntertainment News Live Updates Today (September 28, 2026): It's Monday again, and yes, the Monday blues are hitting hard! [2]\n\nSchool Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [9]\n\nABC News is weighing a major shakeup at “Good Morning America” after the iconic broadcast lost its No. [12]\n\nSources: [1] School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News (careerindia.com)  [2]"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "breaking news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 21.6,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 21.5,
+            "domain": "filmibeat.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:40:27.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Entertainment News LIVE Today (Sept 28): Salman Khan Calls Out AI Misuse; The Vvaan Records Weekend Jump",
+            "url": "https://www.filmibeat.com/bollywood/news/2026/entertainment-news-live-today-india-salman-khan-calls-out-ai-misuse-the-vvaan-weekend-box-office-532705.html"
+          },
+          {
+            "ageHours": 14.7,
+            "domain": "dailyadvance.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:30:00.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Perquimans sheriff to get 8 new patrol cars pending state approval",
+            "url": "https://www.dailyadvance.com/news/local/perquimans-sheriff-to-get-8-new-patrol-cars-pending-state-approval/article_ec020fcc-fcb4-4326-9c36-25cd5572f6e7.html"
+          },
+          {
+            "ageHours": 6.1,
+            "domain": "winnipegfreepress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:07:35.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Contradicting Trump, Pope Leo says artificial intelligence safety concerns not ‘fake news’",
+            "url": "https://www.winnipegfreepress.com/arts-and-life/life/faith/2026/09/28/contradicting-trump-pope-leo-says-artificial-intelligence-safety-concerns-not-fake-news"
+          },
+          {
+            "ageHours": 10,
+            "domain": "wrestlezone.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:09:46.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "AEW’s Marina Shafir Makes Heartfelt Plea to Fans After Breaking Down Over Pac’s Passing",
+            "url": "https://www.wrestlezone.com/news/1664485-marina-shafir-pac-passing-heartfelt-plea-fans"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "the74million.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:44:15.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "SEED Act Gives Early Educators the Same Tax Break Long Available in K-12",
+            "url": "https://www.the74million.org/zero2eight/seed-act-gives-early-educators-the-same-tax-break-long-available-in-k-12"
+          },
+          {
+            "ageHours": 5.7,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:27:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Pope Leo XIV AI risks: Vatican urges urgent debate... - India Today",
+            "url": "https://www.indiatoday.in/world/story/pope-leo-xiv-ai-risks-vatican-urges-urgent-debate-guardrails-regulation-ptag-3005287-2026-09-29"
+          },
+          {
+            "ageHours": 21.2,
+            "domain": "news.cgtn.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:00:37.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Saudi Foreign Minister meets today in Washington with his... - CGTN",
+            "url": "https://news.cgtn.com/news/2026-09-28/news-1QNPoRMjcHu/p.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 7,
+            "domain": "click2houston.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:12:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Heights Residents weigh in on new restaurant, Lawrence Park breaks ground and latest on Shepherd/Durham crossw",
+            "url": "https://www.click2houston.com/community-creators/the-heights/2026/09/28/heights-residents-weigh-in-on-new-restaurant-lawrence-park-breaks-ground-and-latest-on-shepherddurham-crosswalks"
+          },
+          {
+            "ageHours": 10.6,
+            "domain": "mockpaperscissors.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:37:20.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Today In Conspiracy News: | Mock Paper Scissors",
+            "url": "https://mockpaperscissors.com/2026/09/28/today-in-conspiracy-news"
+          },
+          {
+            "ageHours": 4.9,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:17:02.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Exclusive | ABC News weighs major shakeup at 'GMA' after ratings...",
+            "url": "https://nypost.com/2026/09/28/media/abc-news-weighs-major-shakeup-at-gma-after-ratings-loss-to-today-sources"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 4.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.002,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 2890,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 828,
+        "statesFreshness": true,
+        "text": "Here we are to serve you with news right now. [1]\n\nNo comments right now, check back later.Ben's reporting has appeared in Rolling Stone, The Verge, Automotive News, USA Today, AutoBody News, LGBTQ Nation, TopSpeed, and Out Magazine. [7]\n\nBe sure to catch up on everything happening in Celebrity News right now. [9]\n\n\"That is happening right now.\" We'll bring you live live updates throughout the day.Goodbye for now - here's a recap. [3]\n\nSources: [1] Donald Trump to meet Anthropic CEO as White House focuses on AI (azernews.az)  [2] Poland scrambles military aircraft in response to... | The Guardian (theguardian.com)  [3] Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News (news.sky.com)  [4] Sara Gonzales mocks media outrage over White House ban: 'You are literally covering him right now' (theblaze.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news right now",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 18.7,
+            "domain": "azernews.az",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:28:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Donald Trump to meet Anthropic CEO as White House focuses on AI",
+            "url": "https://www.azernews.az/region/264606.html"
+          },
+          {
+            "ageHours": 18.4,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:50:05.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Poland scrambles military aircraft in response to... | The Guardian",
+            "url": "https://www.theguardian.com/world/live/2026/sep/28/europe-ukraine-defence-ministers-pope-leo-france-visit-latest-news-updates"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "news.sky.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:21:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News",
+            "url": "https://news.sky.com/story/ukraine-war-latest-kyiv-putin-zelenskyy-moscow-strikes-attacks-live-12541713"
+          },
+          {
+            "ageHours": 12.2,
+            "domain": "theblaze.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sara Gonzales mocks media outrage over White House ban: 'You are literally covering him right now'",
+            "url": "https://www.theblaze.com/shows/sara-gonzales-unfiltered/sara-gonzales-mocks-media-outrage-over-white-house-ban-you-are-literally-covering-him-right-now"
+          },
+          {
+            "ageHours": 6.5,
+            "domain": "zerohedge.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:43:06.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Boeing Extends Losses After FAA Delays 737 Max 10... | ZeroHedge",
+            "url": "https://www.zerohedge.com/markets/boeing-sinks-after-wsj-report-737-max-10-software-glitch"
+          },
+          {
+            "ageHours": 14.2,
+            "domain": "aol.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:00:18.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Is Bitcoin a Good Investment Right Now After a 42% Quarter?",
+            "url": "https://www.aol.com/articles/bitcoin-good-investment-now-42-120018000.html"
+          },
+          {
+            "ageHours": 5.8,
+            "domain": "businessinsider.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:26:05.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Tesla Delays Roadster Reveal Due to Severe Weather - Business Insider",
+            "url": "https://www.businessinsider.com/tesla-roadster-reveal-weather-delay-2026-9"
+          },
+          {
+            "ageHours": 12.2,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:58:09.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Russian drones hammer apartments, offices and a cultural landmark in...",
+            "url": "https://nypost.com/2026/09/28/world-news/russian-drones-hammer-apartments-offices-and-a-cultural-landmark-in-ukraine-killing-7"
+          },
+          {
+            "ageHours": 13.2,
+            "domain": "soapspoiler.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:01:43.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Barron Trump Has Just Made This Major Change In His... - Soap Spoiler",
+            "url": "https://soapspoiler.com/2026/09/28/barron-trump-has-just-made-this-major-change-in-his-life"
+          },
+          {
+            "ageHours": 2.2,
+            "domain": "results4america.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "A new learning opportunity to explore how a right to counsel for tenants promotes housing stability and how ci",
+            "url": "https://results4america.org/solutions-accelerator-sprint"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 2.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.975,
+        "wrongYearKept": 0
+      },
+      "temporal": "now",
+      "totalMs": 1556,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1324,
+        "statesFreshness": true,
+        "text": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026\n\nBL Morning Report September 28, 2026: Get today’s top business news, market headlines about the Stock Market, Sensex & Nifty trends, key market insights, economic highlights, and the latest updates from India and global markets. [3]\n\nOrissaPOST ePaper : English Newspaper provide all latest news from India and world, current headlines, breaking news on business, sports, entertainment and world. [4]\n\nBy :India Today News Desk.\"Today, India's defence products are being exported to around 80 countries, with Uttar Pradesh also making a significant contribution,\" he said. [5]\n\nJournalism of Courage.India News Live Updates, 26 September 2026: Election Commission announces decisions on SIR, ECINET2 hours ago. [9]\n\nSources: [1] School Assembly News Headlines Today [29 September]: Top National, Business News, Sports New"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "latest India news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 3.2,
+            "domain": "tribuneindia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:59:23.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PM Modi maps out India-Japan future: Tech named \"strongest pillar...\"",
+            "url": "https://www.tribuneindia.com/news/world/pm-modi-maps-out-india-japan-future-tech-named-strongest-pillar-as-mous-spark-new-era-in-ai-defence-and-healthcare"
+          },
+          {
+            "ageHours": 24.7,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:30:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026",
+            "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+          },
+          {
+            "ageHours": 93.1,
+            "domain": "odishapostepaper.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T05:05:30.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "OrissaPOST Page: 2 - English Daily ePaper | Today Newspaper",
+            "url": "https://odishapostepaper.com/edition/5899/orissapost/page/2"
+          },
+          {
+            "ageHours": 82.4,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:47:43.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "BrahMos gives Pakistan sleepless nights: Amit Shah... - India Today",
+            "url": "https://www.indiatoday.in/india/story/brahmos-missiles-amit-shah-pakistan-sleepless-nights-up-defence-corridor-ptag-3002907-2026-09-25"
+          },
+          {
+            "ageHours": 11.7,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:28:42.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Why a BJP ally renewed demand to split Uttar Pradesh... - India Today",
+            "url": "https://www.indiatoday.in/india-today-insight/story/why-a-bjp-ally-renewed-demand-to-split-uttar-pradesh-into-four-states-3005048-2026-09-28"
+          },
+          {
+            "ageHours": 77.9,
+            "domain": "pmindia.gov.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T20:18:52.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "PM’s speech during the inauguration of SEMICON India 2026",
+            "url": "https://www.pmindia.gov.in/en/news_updates/pms-speech-during-the-inauguration-of-semicon-india-2026?tag_term=pmspeech&comment=disable"
+          },
+          {
+            "ageHours": 94.8,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T03:23:08.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 25, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-25-2026-national-international-education-spo-066103.html"
+          },
+          {
+            "ageHours": 58.8,
+            "domain": "indianexpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:21:04.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Delhi Weather: Rain, Thunderstorms Bring Temperatures Down, IMD...",
+            "url": "https://indianexpress.com/article/cities/delhi/delhi-weather-rain-thunderstorms-imd-yellow-alert-10895219?ref=cities_hp"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 3.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.956,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1142,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1547,
+        "statesFreshness": true,
+        "text": "News Education Today NewsLPU protest: How hostel rumours spiralled into violence, an 18-hour highway blockade.One girl student told India Today that complaints seemed to be brushed under the carpet in a private university where little is allowed to surface. [9]\n\nPolice said they were investigating the alleged incident, adding that the identity of the student had not been established, the news magazine India Today reported. [2]\n\nSchool Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [3]\n\nTop Business & Market Headlines Today — BL Morning Report, September 28, 2026\n\nBL Morning Report September 28, 2026: Get today’s top business news, market headlines about the Stock Market, Sensex & Nifty trends, key market insights, "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 20.8,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:21:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Stock market crash today: BSE Sensex crashes... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/business/india-business/stock-market-crash-today-why-bse-sensex-and-nifty50-have-crashed-on-september-28-2026-us-iran-war-crude-oil-rupee-top-reasons-for-fall/articleshow/134532562.cms"
+          },
+          {
+            "ageHours": 14.8,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:20:49.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Indian university suspends classes amid violent protests... | Al Jazeera",
+            "url": "https://www.aljazeera.com/news/2026/9/28/indian-university-suspends-classes-amid-violent-protests-over-alleged-rape"
+          },
+          {
+            "ageHours": 21.6,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 21.5,
+            "domain": "filmibeat.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:40:27.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Entertainment News LIVE Today (Sept 28): Salman Khan Calls Out AI Misuse; The Vvaan Records Weekend Jump",
+            "url": "https://www.filmibeat.com/bollywood/news/2026/entertainment-news-live-today-india-salman-khan-calls-out-ai-misuse-the-vvaan-weekend-box-office-532705.html"
+          },
+          {
+            "ageHours": 24.7,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:30:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026",
+            "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+          },
+          {
+            "ageHours": 3.2,
+            "domain": "tribuneindia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:59:23.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PM Modi maps out India-Japan future: Tech named \"strongest pillar...\"",
+            "url": "https://www.tribuneindia.com/news/world/pm-modi-maps-out-india-japan-future-tech-named-strongest-pillar-as-mous-spark-new-era-in-ai-defence-and-healthcare"
+          },
+          {
+            "ageHours": 11.2,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:58:12.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026, September 28: Full list of medals... - India Today",
+            "url": "https://www.indiatoday.in/sports/asian-games/story/asian-games-2026-day-10-india-wrap-medals-vithya-record-esha-silver-rain-hit-nagoya-3005085-2026-09-28"
+          },
+          {
+            "ageHours": 14.6,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:34:57.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "LPU protest: How hostel rumours spiralled into violence... - India Today",
+            "url": "https://www.indiatoday.in/education-today/news/story/lpu-protest-how-hostel-rumours-spiralled-into-violence-an-18-hour-highway-blockade-3004842-2026-09-28"
+          },
+          {
+            "ageHours": 14,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:13:51.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Google News - Lava launches Virat Curve 5G smartphone in India...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2poc3NqLUVSRk1qTmowa2FVNGNpZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen"
+          },
+          {
+            "ageHours": 19.9,
+            "domain": "businesstoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:17:09.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Samsung Galaxy S27 Ultra may ditch its familiar... - BusinessToday",
+            "url": "https://www.businesstoday.in/technology/news/story/samsung-galaxy-s27-ultras-camera-design-may-be-changing-new-case-reveals-a-curious-detail-558142-2026-09-28"
+          },
+          {
+            "ageHours": 23.3,
+            "domain": "businesstoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:55:14.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Pakistan Navy fires anti ship missile from China built... - BusinessToday",
+            "url": "https://www.businesstoday.in/india/story/pakistan-navy-fires-anti-ship-missile-from-china-built-hangor-submarine-in-arabian-sea-what-it-means-for-india-558113-2026-09-28"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 3.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.991,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1118,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1239,
+        "statesFreshness": true,
+        "text": "The India Meteorological Department (IMD) has forecast further heavy to very heavy rainfall at some places in Odisha, and authorities are closely monitoring the flood situation. [4]\n\nGo Ad Lite\n\nHome india punjab\n\nLPU protest: Traffic on NH-44 restored, situation under control, say police\n\nThe traffic movement on the NH-44 traffic restored after students block highway for 15 hours. [7]\n\nMoreover, according to the latest report from the India Meteorological Department (IMD), some northern states are free from weather warnings while harsh weather conditions still persist in other parts of India while following this situation, students are confused. [1]\n\nThe situation worsened after heavy rainfall and flooding on September 14. [2]\n\nSources: [1] School Holiday Today (September 29): Are Schools Open or Closed on Tuesday Amid Cyclone & Heavy Rain? Check Latest Official Update, IMD Alert, Traff"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "current situation in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 7,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:12:38.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Holiday Today (September 29): Are Schools Open or Closed on Tuesday Amid Cyclone & Heavy Rain? Check La",
+            "url": "https://sundayguardianlive.com/india/school-holiday-today-september-29-are-schools-open-or-closed-on-tuesday-amid-cyclone-heavy-rain-check-latest-official-update-imd-alert-traffic-advisory-state-wise-closure-status-more-294755"
+          },
+          {
+            "ageHours": 92.5,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T05:38:30.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Major landslide hits Sikkim: Science behind why the... - India Today",
+            "url": "https://www.indiatoday.in/science/story/sikkim-landslides-rainfall-himalayan-slope-instability-deaths-damage-3002489-2026-09-25"
+          },
+          {
+            "ageHours": 90.1,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T08:08:06.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Maharashtra: Officials barred from leaves amid... - India Today",
+            "url": "https://www.indiatoday.in/india/story/maharashtra-officials-face-leave-restrictions-amid-drought-like-situation-in-parts-of-state-nanded-ptag-3002481-2026-09-25"
+          },
+          {
+            "ageHours": 40,
+            "domain": "newsonair.gov.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T10:13:56.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Flood situation worsens in Odisha following continuous heavy rainfall",
+            "url": "https://newsonair.gov.in/flood-situation-worsens-in-odisha-following-continuous-heavy-rainfall"
+          },
+          {
+            "ageHours": 35.8,
+            "domain": "telanganatoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T14:25:48.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Nearly 5,000 rescued as heavy rains trigger... - Telangana Today",
+            "url": "https://telanganatoday.com/nearly-5000-rescued-as-heavy-rains-trigger-flood-like-situation-in-chhattisgarh"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 22.5,
+            "domain": "deccanherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T03:39:13.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "LPU protest: Traffic on NH-44 restored, situation under control, say police",
+            "url": "https://www.deccanherald.com/india/punjab/lpu-protest-traffic-on-nh-44-restored-situation-under-control-say-police-4162068"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.881,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1200,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1352,
+        "statesFreshness": true,
+        "text": "Newsy Today.According to Oppo, the upcoming Oppo K14 Plus 5G smartphone is scheduled for release in India on September 29, 2026, featuring a large 8,000 mAh battery, a 144 Hz AMOLED display, and the MediaTek Dimensity 7360 Max processor. [7]\n\nNewspapers in India today (September 25, 2026) are flooded with birthday celebratory advertisements for Pandit Deendayal Upadhyay issued by RSS-BJP rulers. [8]\n\nSchool Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [1]\n\nJournalism of Courage.India News Live Updates, 26 September 2026: Election Commission announces decisions on SIR, ECINET2 hours ago. [5]\n\nSources: [1] School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News ("
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 21.6,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1.16,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.16,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1.16,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.16,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 17.6,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:37:43.000Z",
+            "relevance": 1.13,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.13,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Adnan Sami reacts to Latent joke on... - India Today",
+            "url": "https://www.indiatoday.in/entertainment/ott/story/ayushmann-khurrana-indias-got-latent-kullu-adnan-sami-joke-udta-teer-samay-raina-3004644-2026-09-28"
+          },
+          {
+            "ageHours": 94.8,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T03:23:08.000Z",
+            "relevance": 1.07,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.07,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 25, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-25-2026-national-international-education-spo-066103.html"
+          },
+          {
+            "ageHours": 58.8,
+            "domain": "indianexpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:21:04.000Z",
+            "relevance": 1.05,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.05,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Delhi Weather: Rain, Thunderstorms Bring Temperatures Down, IMD...",
+            "url": "https://indianexpress.com/article/cities/delhi/delhi-weather-rain-thunderstorms-imd-yellow-alert-10895219?ref=cities_hp"
+          },
+          {
+            "ageHours": 9.9,
+            "domain": "deccanherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:16:50.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 | Indian athletes' schedule for September 29",
+            "url": "https://www.deccanherald.com/sports/other-sports/asian-games-2026-indian-athletes-schedule-for-september-29-4163061"
+          },
+          {
+            "ageHours": 117,
+            "domain": "newsy-today.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:10:47.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Oppo Confirms New Phone with 8000mAh Battery and... - Newsy Today",
+            "url": "https://www.newsy-today.com/oppo-confirms-new-phone-with-8000mah-battery-and-144hz-amoled-display"
+          },
+          {
+            "ageHours": 89.5,
+            "domain": "countercurrents.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T08:44:14.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "RSS: Celebrating Deendayal Upadhyay’s birthday is... | Countercurrents",
+            "url": "https://countercurrents.org/2026/09/rss-celebrating-deendayal-upadhyays-birthday-is-fine-but-tell-the-nation-who-murdered-him"
+          },
+          {
+            "ageHours": 105.2,
+            "domain": "indianexpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:57:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Anchor leg runner Vithya Ramaraj on how India won the...",
+            "url": "https://indianexpress.com/article/sports/vithya-ramaraj-anchor-leg-runner-india-mixed-relay-asian-games-10892766"
+          },
+          {
+            "ageHours": 69.3,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T04:54:04.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Print ads retain their appeal amid digital boom | LinkedIn",
+            "url": "https://www.linkedin.com/news/story/print-ads-retain-their-appeal-amid-digital-boom-8659009"
+          },
+          {
+            "ageHours": 110.2,
+            "domain": "trueconf.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:01:52.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "TrueConf at InfoComm India 2026",
+            "url": "https://trueconf.com/blog/events/trueconf-at-infocomm-india-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.053,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 946,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 765,
+        "statesFreshness": false,
+        "text": "Economy News The India Economy Review prepared by the Ministry of Finance said that the agricultural sector -- which is estimated to constitute 18 per ce… [12]\n\nIndia has a developing market-oriented economy with substantial state participation in strategic sectors. [1]\n\nIndus Valley Civilisation, the early civilisation of India and Pakistan, developed the economy of agriculture and craft which later spread into central India. [2]\n\nIn India, run-rates matter for the economy as much as they do in the nation’s beloved sport of cricket. [9]\n\nSources: [1] Economy of India - Wikipedia (en.wikipedia.org)  [2] Economic history of India (en.wikipedia.org)  [3] India | World Bank Group (worldbank.org)  [4] Indian economy since independence (2008) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Economy of India - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Economy_of_India"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Economic history of India",
+            "url": "https://en.wikipedia.org/wiki/Economic_history_of_India"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldbank.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India | World Bank Group",
+            "url": "https://www.worldbank.org/ext/en/country/india"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Indian economy since independence (2008)",
+            "url": "https://openlibrary.org/works/OL19746731W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India's economy (2003)",
+            "url": "https://openlibrary.org/works/OL5250162W"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Economy of India | Post-Independence Growth... | Britannica Money",
+            "url": "https://www.britannica.com/money/economy-of-India"
+          },
+          {
+            "ageHours": null,
+            "domain": "bloomberg.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Politics - Bloomberg",
+            "url": "https://www.bloomberg.com/politics"
+          },
+          {
+            "ageHours": 738.7,
+            "domain": "statista.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-29T07:28:29.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Nominal GDP growth of U.S. states 2025",
+            "url": "https://www.statista.com/statistics/248023/us-gross-domestic-product-gdp-by-state"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India needs an ambitious agenda for higher growth",
+            "url": "https://www.ft.com/content/a0fb6ad1-4e1f-4fc8-9706-f1eb408ad443?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": 1121.7,
+            "domain": "anantamias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:27:54.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Golden Revolution and Horticulture Sector in India (UPSC Economy)",
+            "url": "https://anantamias.com/golden-revolution"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "PM Modi’s 5-Country Visit: What It Means for India’s Economy and...",
+            "url": "https://www.linkedin.com/pulse/pm-modis-5-country-visit-what-means-indias-economy-fq6wc"
+          },
+          {
+            "ageHours": null,
+            "domain": "ibtimes.co.in",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India & World Economy News – IBTimes India : page 2",
+            "url": "http://www.ibtimes.co.in/economy/page/2"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 738.7,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "arXiv timed out after 12000ms",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.884,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12387,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1432,
+        "statesFreshness": true,
+        "text": "Chris Wood of Jefferies explains\n\nStock market latest news: Amid a poor show by the key benchmark indices of the Indian stock market for the last two years, Chris Wood of Jefferies has lit a ray of hope for the bulls of Dalal Street. [1]\n\nMint Exclusive | How is Indian stock market bottom linked to the US 10-year bond yield? [1]\n\nStock Market.Content Highlights: The Indian stock market witnessed a massive crash with the Sensex plunging 1124 points and Nifty dropping below 22,800 to hit a six-month low, triggered by continuous foreign fund outflows and rising crude oil concerns. [3]\n\n26 -- Sumeet Bagadia's stock recommendations for Monday: The key benchmark indices of the Indian stock market remained volatile during the week, with the Nifty 50 index extending its weekly losing streak to seven consecutive weeks, marking its longest such losing run in six years. [4]\n\nSources: [1] Mint Exclu"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "latest Indian stock market news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 21.7,
+            "domain": "livemint.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:31:23.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Mint Exclusive | How is Indian stock market bottom linked to the US 10-year bond yield? Chris Wood of Jefferie",
+            "url": "https://www.livemint.com/market/stock-market-news/mint-exclusive-how-is-indian-stock-market-bottom-linked-to-the-us-10-year-bond-yield-chris-wood-of-jefferies-explains-11790566134388.html"
+          },
+          {
+            "ageHours": 6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 6.2,
+            "domain": "mathrubhumi.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:58:58.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Indian Stock Market Crash: Sensex Plunges And Nifty... | Mathrubhumi",
+            "url": "https://www.mathrubhumi.com/money/news/stock-market-crash-sensex-nifty-slump-hxl2gudo"
+          },
+          {
+            "ageHours": 65.4,
+            "domain": "tradingview.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T08:44:42.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Sumeet Bagadia's stock picks for Monday... — TradingView News",
+            "url": "https://www.tradingview.com/news/moodys:eb303073d236a:0-sumeet-bagadia-s-stock-picks-for-monday-mahindra-and-mahindra-asian-paints-hcl-tech-target-sl-market-outlook"
+          },
+          {
+            "ageHours": 25,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:13:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334)",
+            "url": "https://www.thehindubusinessline.com/markets/sensex-nifty50-today-stock-market-live-updates-28-septmeber-2026/article71515691.ece"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.004,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2901,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1187,
+        "statesFreshness": true,
+        "text": "Latest News.NEW DELHI (Metro Rail News): The Indian Railways recently announced a fare reduction of up to 25% for AC Chair Car and Executive Classes, including Vande Bharat trains. [7]\n\nIndian Railways has announced festival special trains on major routes ahead of Diwali and Chhath Puja. [1]\n\nIndian Railways Approves New Daily Train. [2]\n\nIndian Railways approves new tri-weekly train Between Machilipatnam and Kurnool City\n\nIn a major relief to the commuters of Andhra Pradesh, the Indian Railways has approved a new tri-weekly train service between Machilipatnam and Kurnool City via Vijayawada of South Coast Railway, providing an additional rail connectivity option between coastal and central parts of Andhra Pradesh. [4]\n\nSources: [1] Not Found (businesstoday.in)  [2] Kanpur To Delhi In Just 8 Hours? Indian Railways Approves New... (ndtv.com)  [3] School Assembly News Headlines Today [29 S"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "Indian railways news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 20.4,
+            "domain": "businesstoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:46:59.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Not Found",
+            "url": "https://www.businesstoday.in/india/story/going-home-for-diwali-chhath-railways-announces-special-trains-check-full-schedule-558131-2026-09-28"
+          },
+          {
+            "ageHours": 20.3,
+            "domain": "ndtv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:52:56.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Kanpur To Delhi In Just 8 Hours? Indian Railways Approves New...",
+            "url": "https://www.ndtv.com/travel/kanpur-to-delhi-in-just-8-hours-indian-railways-approves-new-daily-train-12097589?pfrom=home-ndtv_travel"
+          },
+          {
+            "ageHours": 6.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 12.9,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:20:37.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian Railways approves new tri-weekly train Between Machilipatnam and Kurnool City",
+            "url": "https://www.thehindu.com/news/national/andhra-pradesh/indian-railways-approves-new-tri-weekly-train-between-machilipatnam-and-kurnool-city/article71519940.ece"
+          },
+          {
+            "ageHours": 11.4,
+            "domain": "thehindu.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:46:08.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Indian Railways approves tri-weekly train between... - The Hindu",
+            "url": "https://www.thehindu.com/news/national/andhra-pradesh/indian-railways-approves-tri-weekly-train-between-machilipatnam-and-kurnool-city/article71520312.ece"
+          },
+          {
+            "ageHours": 7.7,
+            "domain": "psuconnect.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:28:10.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Railways Okays ₹122 Cr Barbil–Bolanikhadan Doubling, ₹223 Cr...",
+            "url": "https://www.psuconnect.in/railway-news/railways-okays-122-cr-barbil-bolanikhadan-doubling-223-cr-kavach"
+          },
+          {
+            "ageHours": 8.1,
+            "domain": "metrorailnews.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:08:04.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "ভাৰতীয় ৰে \"লৱেই এচি চেয়াৰ কাৰ, এক্সিকিউটিভ শ্ৰেণীৰ... - Metro Rail News",
+            "url": "https://metrorailnews.in/as/indian-railways-announces-up-to-25-fare-reduction-for-ac-chair-car-executive-classes"
+          },
+          {
+            "ageHours": 6.3,
+            "domain": "metrorailnews.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:51:23.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "हमारे पास अपने देश के लिए रेल की संपूर्ण आवश्यकताओं को... - Metro Rail News",
+            "url": "https://metrorailnews.in/hi/we-have-capability-capacity-to-meet-out-entire-requirements-of-rails-for-our-country-v-r-sharma"
+          },
+          {
+            "ageHours": 12.2,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Crazywater: Native Voices on Addiction and Recovery by Brian Maracle | 9781037803390 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781037803390"
+          },
+          {
+            "ageHours": 15.2,
+            "domain": "inews.zoombangla.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:57:40.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Kavach 4.0 starts operating on 108-km Indian rail stretch",
+            "url": "https://inews.zoombangla.com/kavach-4-0-108-km-india-rail-commissioning"
+          },
+          {
+            "ageHours": 13,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:09:23.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "IRFC Signs Rs 4,200 Crore DVC Loan, Renewable Energy Push Deepens",
+            "url": "https://www.freepressjournal.in/business/irfc-signs-rs-4200-crore-dvc-loan-renewable-energy-push-deepens"
+          },
+          {
+            "ageHours": 16.9,
+            "domain": "nbmcw.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:14:51.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Indian Railways Extends Jhansi-Agra Cantt Express to Mathura",
+            "url": "https://www.nbmcw.com/news/metro-railways/indian-railways-extends-jhansi-agra-cantt-express-to-mathura.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 6.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.884,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2212,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 199,
+        "statesFreshness": true,
+        "text": "Official daily exchange rates from 1971 to today: Bank of England, ECB and interbank sources. [1]\n\nSources: [1] Euro-to-Dollar Rate to Rise 100 Points Over Coming Days says... (poundsterlinglive.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "current Indian rupee exchange rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 11
+        },
+        "finalSources": [
+          {
+            "ageHours": 66.5,
+            "domain": "poundsterlinglive.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T07:41:59.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Euro-to-Dollar Rate to Rise 100 Points Over Coming Days says...",
+            "url": "https://www.poundsterlinglive.com?view=article&amp%3Bid=9728%3Aeuro-to-dollar-rate-to-rise-100-points-over-coming-days-says-trading-educator&amp%3Bcatid=177"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 66.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1815,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 398,
+        "statesFreshness": true,
+        "text": "India Cricket vs West Indies Cricket has not been played yet — no score exists for it. [1]\n\nThis is the team's NEXT fixture, not a played match — it has no score yet. [1]\n\nOmi is showing the schedule because the feed reports no live or completed match for this team today. [1]\n\nSources: [1] India Cricket vs West Indies Cricket (One Day International Series · 2026-09-30 08:30:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "live India cricket score",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T02:11:41.592Z",
+            "relevance": 1.02,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.02,
+              "freshness": 0.24,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "India Cricket vs West Indies Cricket (One Day International Series · 2026-09-30 08:30:00)",
+            "url": "https://www.thesportsdb.com/team/137143"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 1.02,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 956,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1191,
+        "statesFreshness": true,
+        "text": "But the incident prompted the Indian government to seek an explanation from the company. [2]\n\nZelenskyy said citizens from multiple countries were being drawn into the war and called on governments to ensure that their people do not become part of the battlefield. [3]\n\nThe Indian government has earlier raised the matter with Russian authorities and worked towards the release and return of affected Indian nationals. [3]\n\nIn a bid to expedite rescue operations and identify the missing persons, the government announced a DNA profiling process under which DNA profiles of first-degree biological relatives would be shared with the governments of Nepal and China. [4]\n\nSources: [1] School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day (sundayguardianli"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "recent Indian government announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 6.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 111.1,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng",
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T11:07:51.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Meta AI boss Alexandr Wang posted edited photo of PM... - India Today",
+            "url": "https://www.indiatoday.in/technology/news/story/meta-ai-boss-alexandr-wang-posted-edited-photo-of-pm-narendra-modi-now-deleted-3001982-2026-09-24"
+          },
+          {
+            "ageHours": 119.4,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T02:47:24.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "‘Russia Is Tricking Indians Into War’: Zelenskyy’s Major Claim at UNGA Against Moscow",
+            "url": "https://www.dynamitenews.com/international/russia-is-tricking-indians-into-war-zelenskyys-major-claim-at-unga-against-moscow"
+          },
+          {
+            "ageHours": 71.7,
+            "domain": "newindianexpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:27:42.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Nepal deluge: 85 Tamil Nadu pilgrims still untraceable",
+            "url": "https://www.newindianexpress.com/states/tamil-nadu/2026/Sep/26/nepal-deluge-85-tamil-nadu-pilgrims-still-untraceable"
+          },
+          {
+            "ageHours": 61.2,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T12:58:35.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.65,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Delhi government expedites plan to set up 50 police... | India Today",
+            "url": "https://www.indiatoday.in/cities/delhi/story/delhi-police-posts-subways-flyovers-foot-overbridges-women-safety-ptag-3003568-2026-09-26"
+          },
+          {
+            "ageHours": 113.6,
+            "domain": "ndl.iitkgp.ac.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T08:35:09.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.65,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "NDLI: Those not proud of Trump calling Modi India's father...",
+            "url": "https://ndl.iitkgp.ac.in/nw_document/economictimes/economictimes/43733_192"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 6.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.757,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1373,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 949,
+        "statesFreshness": true,
+        "text": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026\n\nBL Morning Report September 28, 2026: Get today’s top business news, market headlines about the Stock Market, Sensex & Nifty trends, key market insights, economic highlights, and the latest updates from India and global markets. [2]\n\nLearn what the Yono Game App 2026 offers in one place. [1]\n\nIndia has ordered 112 captive coal-fired power plants to operate at maximum capacity from October 1 through December 31, citing an expected rise in electricity demand in the coming months. [2]\n\nNext up, Uttar Pradesh is seeking the Centre’s support for a commercial semiconductor fab in the Jewar region, dedicated rail-cargo links and funding for inter-state transmission. [2]\n\nSources: [1] Yono Game App 2026 | Discover the Latest Gaming Experience (adproceed.com)  [2] Top Business & Market Headlines Today — BL Morning Repo"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India budget 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 61.6,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:34:17.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Yono Game App 2026 | Discover the Latest Gaming Experience",
+            "url": "https://www.adproceed.com/ads/yono-game-app-2026-discover-the-latest-gaming-experience"
+          },
+          {
+            "ageHours": 24.7,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:30:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026",
+            "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 24.7,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.97,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1480,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 829,
+        "statesFreshness": true,
+        "text": "The Department of Space (DoS) is an Indian government department responsible for administration of the Indian space programme. [1]\n\nIndian Space Programme is a remarkable example of India’s progress in the field of Technology. [4]\n\nThe best examples of India's space programme's soft power dimensions are the launch of South Asia satellite (also known as the SAARC satellite) and IRNSS (Indian Regional Navigation Satellite System) (Rao 2014). [7]\n\n2014 · 18 citations\nAs stakes are very high, a space programme places one of the highest priorities on the integrity of structural materials and Indian space programme is no exception to this. [8]\n\nSources: [1] Department of Space (en.wikipedia.org)  [2] List of Indian satellites (en.wikipedia.org)  [3] Indian Space Programme (gktoday.in)  [4] Indian Space Programme (rajras.in)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "Indian space programme",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Department of Space",
+            "url": "https://en.wikipedia.org/wiki/Department_of_Space"
+          },
+          {
+            "ageHours": 1246.2,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:57:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "List of Indian satellites",
+            "url": "https://en.wikipedia.org/wiki/List_of_Indian_satellites"
+          },
+          {
+            "ageHours": 1079.4,
+            "domain": "gktoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T02:46:42.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian Space Programme",
+            "url": "https://www.gktoday.in/indian-space-programme"
+          },
+          {
+            "ageHours": 987,
+            "domain": "rajras.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T23:10:04.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian Space Programme",
+            "url": "https://rajras.in/ras/mains/paper-2/science/indian-space-programme"
+          },
+          {
+            "ageHours": null,
+            "domain": "isro.gov.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.91,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Indian Microgravity Research Portfolio in upcoming Axiom-4 Mission",
+            "url": "https://www.isro.gov.in/Indian_microgravity_research_Axiom4_mission.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "isro.gov.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Indian Space Programme Past-Present-Future (English)",
+            "url": "https://www.isro.gov.in/Indian_Space_Programme.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "academia.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "(PDF) Smart Power of India's Space Programme in Asean Region",
+            "url": "https://www.academia.edu/164648772/Smart_Power_of_Indias_Space_Programme_in_Asean_Region"
+          },
+          {
+            "ageHours": 111698.2,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2014-01-01",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Integrity of Structural and Thermo-structural Materials for Indian Space Programme",
+            "url": "https://doi.org/10.1016/j.proeng.2014.11.005"
+          },
+          {
+            "ageHours": null,
+            "domain": "wam.ae",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Indian space programme at World Government Summit",
+            "url": "https://www.wam.ae/en/article/hszr6irc-indian-space-programme-world-government-summit"
+          },
+          {
+            "ageHours": null,
+            "domain": "vayuaerospace.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "An insight into the Indian space",
+            "url": "https://www.vayuaerospace.in/Issue/202402061200174664.pdf"
+          },
+          {
+            "ageHours": null,
+            "domain": "theengineer.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "India in orbit - The Engineer",
+            "url": "https://www.theengineer.co.uk/content/in-depth/india-in-orbit"
+          },
+          {
+            "ageHours": null,
+            "domain": "theindianpanorama.news",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Global space cooperation is an integral part... — The Indian Panorama",
+            "url": "https://www.theindianpanorama.news/unitedstates/global-space-cooperation-is-an-integral-part-of-indian-space-programme-says-official"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 987,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "arXiv timed out after 12000ms",
+          "Open Library timed out after 12000ms",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"Indian space programme\" right now — Omi "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.903,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12197,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 482,
+        "statesFreshness": true,
+        "text": "Completed results from earlier today are not included. [1]\n\nGuatemala v El Salvador — in play (1H), 1 – 0. [1]\n\nNecaxa Femenil v Toluca Femenil — in play (HT), 0 – 1. [2]\n\nLive scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nSources: [1] Guatemala v El Salvador 1 – 0 (CONCACAF Nations League · 11 · 2026-09-29 02:00:00) (thesportsdb.com)  [2] Necaxa Femenil v Toluca Femenil 0 – 1 (Mexican Liga Femenil · 45+5 · 2026-09-29 01:06:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "football results today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T02:11:57.598Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Guatemala v El Salvador 1 – 0 (CONCACAF Nations League · 11 · 2026-09-29 02:00:00)",
+            "url": "https://www.thesportsdb.com/team/140260"
+          },
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T02:11:57.598Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Necaxa Femenil v Toluca Femenil 0 – 1 (Mexican Liga Femenil · 45+5 · 2026-09-29 01:06:00)",
+            "url": "https://www.thesportsdb.com/team/143080"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.84,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 740,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest cricket match result",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | TheSportsDB reports no live or scheduled Cricket matche"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 375,
+      "vertical": "sports"
+    }
+  ],
+  "total": 138
+}

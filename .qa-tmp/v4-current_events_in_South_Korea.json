@@ -1,0 +1,57 @@
+{
+  "row": {
+    "answer": "For Thai nationals, South Korea currently allows visa-free travel for tourism for up to 90 days. [2]\n\nSouth Korean archers are also considered medal threats in all individual compound and recurve events. [4]\n\nDrives golf holidays, resort stays and group golf tours.South Korean travellers also support Vietnam’s hospitality sector through: Longer resort stays. [1]\n\nDid India’s Animesh Kujur’s fall lead to South Korea’s disqualification? [3]\n\nSources: [1] South Korea Overtakes China And More... - Travel And Tour World (travelandtourworld.com)  [2] Why are fewer Thais travelling to South Korea? (khaosodenglish.com)  [3] Did India’s Animesh Kujur’s fall lead to South Korea’s disqualification? Here’s what happened (indiatimes.com)  [4] With 21 gold medals, S. Korea counting on more from archery, taekwondo in final week (koreatimes.co.kr)",
+    "detail": "8 fresh result(s) from 4 source(s) in 7518ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "Wikipedia",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 8,
+    "freshness": "Based on 8 reports published in the last 5 days (newest: 3 hours ago).",
+    "intent": "current",
+    "query": "current events in South Korea",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 7518,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-25T05:03:14.000Z",
+        "title": "South Korea Overtakes China And More... - Travel And Tour World",
+        "url": "https://www.travelandtourworld.com/news/article/a8oe33shb731"
+      },
+      {
+        "publishedAt": "2026-09-24T07:25:49.000Z",
+        "title": "Why are fewer Thais travelling to South Korea?",
+        "url": "https://www.khaosodenglish.com/tourism/2026/09/24/why-are-fewer-thais-travelling-to-south-korea"
+      },
+      {
+        "publishedAt": "2026-09-28T16:03:21.000Z",
+        "title": "Did India’s Animesh Kujur’s fall lead to South Korea’s disqualification? Here’s what happened",
+        "url": "https://www.indiatimes.com/sports/did-indias-animesh-kujurs-fall-lead-to-south-koreas-disqualification-heres-what-happened/articleshow/134546385.html"
+      },
+      {
+        "publishedAt": "2026-09-28T01:32:03.000Z",
+        "title": "With 21 gold medals, S. Korea counting on more from archery, taekwondo in final week",
+        "url": "https://www.koreatimes.co.kr/sports/20260928/with-21-gold-medals-s-korea-counting-on-more-from-archery-taekwondo-in-final-week"
+      },
+      {
+        "publishedAt": "2026-09-28T11:46:43.000Z",
+        "title": "South Korea says border blasts that injured 3 officers was likely caused by North Korean mines",
+        "url": "https://www.brandonsun.com/world/2026/09/28/south-korea-says-border-blasts-that-injured-3-officers-was-likely-caused-by-north-korean-mines"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "general"
+  }
+}

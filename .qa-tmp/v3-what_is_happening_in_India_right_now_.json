@@ -1,0 +1,57 @@
+{
+  "row": {
+    "answer": "And right now, several of those variables are moving against Indian equities. [1]\n\nThe biggest concern on Dalal Street right now is crude oil. [1]\n\nThat is the reason Odisha's 31% surplus is right beside a 25% deficit across the wider east and northeast region, while central India got away with a 1% deficit. [2]\n\nIndia’s ‘Synthetic Garden’: When Electoral Systems Begin to Decide Who Belongs\n\nBeyond the ongoing controversy over the election process lies a direct question about India’s democratic health: what happens when systems designed to recognise citizens begin determining the terms on which citizens are recognised? [5]\n\nSources: [1] Sensex tumbles 1,000 points: Why markets are falling... - India Today (indiatoday.in)  [2] Unpredictable, uneven, unorganised: How the 2026 monsoon rains kept India guessing (indiatoday.in)  [3] Khushboo Patani On Womenâ s Safety: â Whatâ s Happening In... (ndtv.com)  [4] HAL Plans to Push HTT-40 Localisation Beyond 60% - idrw.org (idrw.org)",
+    "detail": "5 fresh result(s) from 4 source(s) in 7641ms",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "Hacker News",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 5,
+    "freshness": "Based on 5 reports published today (newest: 5 hours ago).",
+    "intent": "current",
+    "query": "what is happening in India right now?",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 7641,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T07:25:59.000Z",
+        "title": "Sensex tumbles 1,000 points: Why markets are falling... - India Today",
+        "url": "https://www.indiatoday.in/business/market/story/sensex-tumbles-1000-points-why-markets-are-falling-despite-strong-growth-3004638-2026-09-28"
+      },
+      {
+        "publishedAt": "2026-09-28T03:30:00.000Z",
+        "title": "Unpredictable, uneven, unorganised: How the 2026 monsoon rains kept India guessing",
+        "url": "https://www.indiatoday.in/science/story/india-monsoon-2026-rainfall-deficit-normal-uneven-distribution-seasonal-report-3003633-2026-09-28"
+      },
+      {
+        "publishedAt": "2026-09-28T20:53:35.000Z",
+        "title": "Khushboo Patani On Womenâ s Safety: â Whatâ s Happening In...",
+        "url": "https://www.ndtv.com/shorts/khushboo-patani-on-womens-safety-whats-happening-in-india-will-never-stop-1165905"
+      },
+      {
+        "publishedAt": "2026-09-28T11:47:56.000Z",
+        "title": "HAL Plans to Push HTT-40 Localisation Beyond 60% - idrw.org",
+        "url": "https://idrw.org/hal-plans-to-push-htt-40-localisation-beyond-60"
+      },
+      {
+        "publishedAt": "2026-09-28T13:03:35.000Z",
+        "title": "India’s ‘Synthetic Garden’: When Electoral Systems Begin to Decide Who Belongs",
+        "url": "https://www.thequint.com/opinion/indias-synthetic-garden-when-democracy-becomes-a-matter-of-verification"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "news"
+  }
+}

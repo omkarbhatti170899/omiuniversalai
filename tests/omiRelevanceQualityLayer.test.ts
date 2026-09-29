@@ -30,6 +30,8 @@ import {
   usefulnessPenalty,
   sourceQualityScore,
   keywordSet,
+  isNonSequiturForBroadNews,
+  topicKeywords,
 } from "../src/convex/searchEngine/quality";
 import type { WebCitation } from "../src/convex/searchProviders/types";
 
@@ -174,6 +176,80 @@ describe("score breakdown is computed and persisted", () => {
     expect(s).toContain("if (usefulnessPenalty(item.c) >= 0.45) continue;");
     expect(s).toContain("ranked.sort((a, b) => b.score - a.score)");
     expect(s).toContain("const unique = dedupeSyndication(ranked);");
+  });
+});
+
+describe("broad-news non-sequitur floor (second pass, measured)", () => {
+  const q = "What happened in the world today?";
+  const topic = topicKeywords(q);
+
+  test("the actors-workshop promo the user reported is a non-sequitur", () => {
+    const ollie: WebCitation = {
+      url: "https://myk104.com/4620/dr-ollies-masterclass-actors-workshop",
+      title: "Dr. Ollie’s Masterclass Actors Workshop",
+      snippet:
+        "Dr. Ollie’s Masterclass Actors Workshop is bringing you an unforgettable, hands-on experience featuring acclaimed actress & producer Vivica A. Fox",
+      publishedAt: iso(2),
+    };
+    expect(isNonSequiturForBroadNews(ollie, topic, { requiresFreshness: true })).toBe(true);
+  });
+
+  test("evergreen corporate content under a regional news question is a non-sequitur", () => {
+    const corporate: WebCitation = {
+      url: "https://example.example/make-in-india",
+      title: "Make in India — official page",
+      snippet: "Make in India is an initiative. About us: our mission and careers.",
+      publishedAt: iso(3),
+    };
+    const t = topicKeywords("latest India news");
+    expect(isNonSequiturForBroadNews(corporate, t, { requiresFreshness: true })).toBe(true);
+  });
+
+  test("a real news story for the same question survives the floor", () => {
+    const story: WebCitation = {
+      url: "https://www.aljazeera.com/news/liveblog/2026/9/28/iran-war-live-tehran",
+      title: "Iran war live: Tehran responds to strikes",
+      snippet: "Live coverage of the conflict as it unfolds today.",
+      publishedAt: iso(1),
+    };
+    expect(isNonSequiturForBroadNews(story, topic, { requiresFreshness: true })).toBe(false);
+  });
+
+  test("the floor never applies to SPECIFIC questions — Asian Games is untouched", () => {
+    const medalPage: WebCitation = {
+      url: "https://khelnow.example/medal-tally",
+      title: "Asian Games 2026 medal tally workshop of records",
+      snippet: "India have 37 medals. The medal workshop continues.",
+      publishedAt: iso(5),
+    };
+    const t = topicKeywords("Indian contingent medals tally in Asian Games 2026");
+    // Even a page that literally says "workshop" must NOT be floored when the
+    // question is specific — the non-sequitur rule is broad-news-only.
+    expect(isNonSequiturForBroadNews(medalPage, t, { requiresFreshness: true })).toBe(false);
+  });
+
+  test("the floor is wired into the chat turn, the probe, the trace and the benchmark", () => {
+    expect(readFileSync("src/convex/omiChat.ts", "utf8")).toContain("isNonSequiturForBroadNews(c, topic");
+    expect(readFileSync("src/convex/omiSelfTest.ts", "utf8")).toContain("isNonSequiturForBroadNews(c, topicWords");
+    expect(readFileSync("src/convex/searchDebug.ts", "utf8")).toContain("isNonSequiturForBroadNews(c, topic");
+    expect(readFileSync("src/convex/searchQualityBenchmark.ts", "utf8")).toContain(
+      "non-sequitur for a broad news question",
+    );
+  });
+
+  test("the video-path floor catches player pages on unknown domains", () => {
+    const player: WebCitation = {
+      url: "https://old.bitchute.com/video/WJ5igZS3o24v",
+      title: "Some broadcast episode",
+      snippet: "Episode recording.",
+    };
+    const smallBroadcaster: WebCitation = {
+      url: "https://www.ukcolumn.org/video/uk-column-news-28th-september-2026",
+      title: "UK Column News 28th September 2026",
+      snippet: "News programme.",
+    };
+    expect(usefulnessPenalty(player)).toBeGreaterThanOrEqual(0.45);
+    expect(usefulnessPenalty(smallBroadcaster)).toBeGreaterThanOrEqual(0.45);
   });
 });
 

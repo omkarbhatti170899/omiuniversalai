@@ -115,7 +115,7 @@ function recordSearchDebugTrace(args: {
   console.log(summarizeTrace(trace));
 }
 import { parseKnowledgeMode, routeKnowledge, knowledgeOnlyRefusal } from "./knowledgeEngine/mode";
-import { isOffTopic, topicKeywords } from "./searchEngine/quality";
+import { isOffTopic, isNonSequiturForBroadNews, topicKeywords } from "./searchEngine/quality";
 import {
   creatorIdentityBlock,
   isCreatorQuestion,
@@ -867,6 +867,11 @@ async function runTurn(
           const usable = citations.filter(
             (c) =>
               !isOffTopic(c, topic) &&
+              // Broad-news floor: an actors-workshop promo is not "what is
+              // happening in the world today", no matter how it is dated.
+              !isNonSequiturForBroadNews(c, topic, {
+                requiresFreshness: policy.requiresFreshness,
+              }) &&
               (policy.years.length === 0 && !policy.event
                 ? true
                 : !isWrongYear(matchTemporal(c, policy.years, null))),

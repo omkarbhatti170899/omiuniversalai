@@ -38,7 +38,7 @@ import {
 import { classifyCurrentIntent } from "./searchEngine/intent";
 import { planRetrieval } from "./searchEngine/rewrite";
 import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
-import { isOffTopic, topicKeywords } from "./searchEngine/quality";
+import { isOffTopic, isNonSequiturForBroadNews, topicKeywords } from "./searchEngine/quality";
 import { crossCheckClaims, conflictNotice } from "./searchEngine/crossCheck";
 import { validateEvidence, cannotVerifyMessage } from "./searchEngine/validation";
 import { buildSearchTrace, assertTraceIsSafe, summarizeTrace } from "./searchEngine/debugTrace";
@@ -405,6 +405,9 @@ export const traceSearch = internalAction({
     const kept = freshEnough.filter(
       (c: WebCitation) =>
         !isOffTopic(c, topic) &&
+        !isNonSequiturForBroadNews(c, topic, {
+          requiresFreshness: policy.requiresFreshness,
+        }) &&
         (policy.years.length === 0 && !policy.event
           ? true
           : !isWrongYear(matchTemporal(c, policy.years, null))),

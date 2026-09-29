@@ -1,0 +1,51 @@
+{
+  "row": {
+    "answer": "Catch all the latest Sports News, scores, and highlights in one place. [3]\n\nDigital Sports Group's Writer Program can give you the edge you need to get ahead.Latest News. [4]\n\nFox News’ Latest Digital Expansion Is a Podcast for ‘The Girls’\n\nThe all-female roundtable will feature a rotating lineup of hosts, including former Andrew Cuomo aide Melissa DeRosa, who is joining Fox as a contributor. [1]\n\nABOUT THE AUTHOROjas JaiswalOjas Jaiswal is a Content Producer at Hindustan Times, currently working with the US Desk, where he covers a wide spectrum of American sports and global news developments. [2]\n\nSources: [1] Fox News’ Latest Digital Expansion Is a Podcast for ‘The Girls’ (hollywoodreporter.com)  [2] Travis Etienne Jr. injury update: What happened to Saints RB? New Orleans confirms latest status against Raiders (hindustantimes.com)  [3] What happened to Raoni Barcelos? Latest update... | Hindustan Times (hindustantimes.com)  [4] 'You can dwell on it and wonder why me... but that's not going to get.... (sport.co.uk)",
+    "detail": "4 fresh result(s) from 3 source(s) in 3163ms",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 4,
+    "freshness": "Based on 4 reports published in the last 5 days (newest: 10 hours ago).",
+    "intent": "news",
+    "query": "latest sports news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 3163,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T16:00:00.000Z",
+        "title": "Fox News’ Latest Digital Expansion Is a Podcast for ‘The Girls’",
+        "url": "https://www.hollywoodreporter.com/business/digital/fox-news-new-podcast-the-girls-1236713472"
+      },
+      {
+        "publishedAt": "2026-09-27T23:06:49.000Z",
+        "title": "Travis Etienne Jr. injury update: What happened to Saints RB? New Orleans confirms latest status against Raiders",
+        "url": "https://www.hindustantimes.com/sports/us-sports/travis-etienne-jr-injury-update-what-happened-to-saints-rb-new-orleans-confirms-latest-status-against-raiders-101790549507273.html"
+      },
+      {
+        "publishedAt": "2026-09-27T04:15:44.000Z",
+        "title": "What happened to Raoni Barcelos? Latest update... | Hindustan Times",
+        "url": "https://www.hindustantimes.com/sports/us-sports/what-happened-to-raoni-barcelos-latest-update-as-ufc-fighter-stretchered-off-after-brutal-tko-loss-to-raul-rosas-jr-101790481435226.html"
+      },
+      {
+        "publishedAt": "2026-09-27T12:13:13.000Z",
+        "title": "'You can dwell on it and wonder why me... but that's not going to get....",
+        "url": "https://www.sport.co.uk/news/you-can-dwell-on-it-and-wonder-why-me-but-thats-not-goi/1252488"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}
