@@ -50,6 +50,12 @@ export type ProviderObservation = {
   results: number;
   datedResults: number;
   duplicates: number;
+  /** Mean final score of the results this provider contributed (0 when none,
+   * or when the caller did not score them). Lets the health surface answer
+   * "which provider returns SIGNAL, not just volume" — a provider that
+   * answers fast with off-topic noise should rank below a slower one whose
+   * results survive the gates. */
+  relevanceScore?: number;
   /** When the call finished. Defaults to now if omitted. */
   at?: number;
 };
@@ -73,6 +79,9 @@ export type ProviderHealth = {
   freshnessQuality: number;
   /** 0..1 — share of results that duplicated another provider's URL */
   duplicateRate: number;
+  /** Mean final ranking score this provider's results earned (0 when the
+   * caller did not score them). "Which provider returns signal?" */
+  relevanceAvg: number;
   lastOkAt: number | null;
   lastError: string | null;
 };
@@ -133,6 +142,11 @@ export function providerHealth(providerId: string): ProviderHealth | null {
   const totalResults = obs.reduce((s, o) => s + o.results, 0);
   const totalDated = obs.reduce((s, o) => s + o.datedResults, 0);
   const totalDupes = obs.reduce((s, o) => s + o.duplicates, 0);
+  // Relevance: mean over RESULTS (not calls), so a provider contributing one
+  // high-signal result is not diluted by many empty-but-fast calls.
+  const scored = obs.filter((o) => typeof o.relevanceScore === "number" && o.results > 0);
+  const totalScored = scored.reduce((s, o) => s + o.results, 0);
+  const relevanceSum = scored.reduce((s, o) => s + (o.relevanceScore ?? 0) * o.results, 0);
   const lastOk = [...obs].reverse().find((o) => o.ok);
   const lastBad = [...obs].reverse().find((o) => !o.ok);
 
@@ -150,6 +164,7 @@ export function providerHealth(providerId: string): ProviderHealth | null {
     avgResults: Math.round((totalResults / calls) * 10) / 10,
     freshnessQuality: rate(totalDated, totalResults),
     duplicateRate: rate(totalDupes, totalResults),
+    relevanceAvg: totalScored === 0 ? 0 : Math.round((relevanceSum / totalScored) * 100) / 100,
     lastOkAt: lastOk ? (lastOk.at ?? Date.now()) : null,
     lastError: lastBad ? "recent failure observed" : null,
   };

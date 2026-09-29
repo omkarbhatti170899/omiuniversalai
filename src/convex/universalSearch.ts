@@ -479,7 +479,7 @@ export async function runUniversalSearch(
 
   // --- Domain diversity: max 2 per domain --------------------------------
   const perDomain = new Map<string, number>();
-  const diverse: Array<{ c: WebCitation; engine: string }> = [];
+  const diverse: Array<{ c: WebCitation; engine: string; score: number }> = [];
   for (const item of unique) {
     const domain = domainOf(item.c.url);
     const count = perDomain.get(domain) ?? 0;
@@ -490,6 +490,38 @@ export async function runUniversalSearch(
   }
 
   let citations = diverse.map((d) => d.c);
+
+  // RELEVANCE per provider, into the health registry: the mean final score of
+  // the citations each provider contributed to the FINAL set. This is what
+  // makes "which engine returns signal, not just volume" answerable on the
+  // status surface — a fast engine whose results are all floored should not
+  // outrank a slower one whose results survive every gate. Telemetry can
+  // never fail a search.
+  try {
+    const byProviderScores = new Map<string, { sum: number; n: number }>();
+    for (const item of diverse) {
+      for (const p of item.c.providers ?? []) {
+        const row = byProviderScores.get(p) ?? { sum: 0, n: 0 };
+        row.sum += item.score;
+        row.n += 1;
+        byProviderScores.set(p, row);
+      }
+    }
+    for (const [providerId, { sum, n }] of byProviderScores) {
+      recordProviderObservation(providerId, {
+        ok: true,
+        timedOut: false,
+        latencyMs: 0,
+        results: n,
+        datedResults: 0,
+        duplicates: 0,
+        relevanceScore: n > 0 ? sum / n : 0,
+        at: Date.now(),
+      });
+    }
+  } catch {
+    /* telemetry must never break a search */
+  }
 
   // --- Page extraction (optional): deepen thin snippets -------------------
   if (enrichPages && citations.length > 0) {

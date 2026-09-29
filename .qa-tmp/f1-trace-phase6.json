@@ -1,0 +1,446 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": "I could not verify a current, reliable answer to \"Who is leading the F1 2026 drivers championship?\". Specifically: None of the results cover the \"formula 1\" — they appear to be about a different event. No primary or reputable source was found. Only one source is available, so this is unconfirmed.\n\nI am deliberately not filling this in from my training data — my knowledge has a cutoff and is not a live feed, so a number I recalled could easily be out of date, and a plausible-looking but unverified figure is worse than no figure. Try narrowing it (name the specific event, team, pair or date), or press Retry Search.",
+  "retrievalPlan": {
+    "notes": [
+      "event \"formula 1\" already named in the query",
+      "added sports terms: result, report",
+      "added the strong recency word \"today\" to the primary query",
+      "removed filler words from the retrieval query",
+      "added official-source angle (site:formula1.com — Formula 1 / FIA official)"
+    ],
+    "primary": "leading F1 2026 drivers championship result report today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "leading F1 2026 drivers championship result report today latest",
+      "leading the F1 2026 drivers championship today",
+      "leading the F1 2026 drivers championship 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "leading F1 2026 drivers championship result report today",
+  "summary": "[search] \"Who is leading the F1 2026 drivers championship?\" intent=knowledge fresh=true vertical=sports years=2026 qType=ranking raw=10 kept=1 stale-rejected=9 domains=1 conflicts=0 verdict=refuse searchMs=21026 totalMs=21026",
+  "trace": {
+    "askedEvent": "formula 1",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 1,
+        "provider": "langsearch",
+        "retrieved": 10
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "names the current year (2026)"
+    ],
+    "independentDomains": 1,
+    "intent": "knowledge",
+    "liveData": "standing",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "Who is leading the F1 2026 drivers championship?",
+    "questionType": "ranking",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 44.00726888888889,
+        "domain": "sillyseason.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sillyseason.com/motorsports/f1-standings-177973"
+      },
+      {
+        "ageDays": 44.041227222222226,
+        "domain": "motorcyclesports.net",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://motorcyclesports.net/kimi-antonelli-extends-f1-championship-lead-to-50-points-after-hungarian-grand-prix"
+      },
+      {
+        "ageDays": 45.670173981481476,
+        "domain": "archyworldys.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.archyworldys.com/kimi-antonelli-leads-f1-championship-at-summer-pause"
+      },
+      {
+        "ageDays": 44.61850731481481,
+        "domain": "monzanet.it",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.monzanet.it/en/f1-grand-prix"
+      },
+      {
+        "ageDays": 45.58574111111111,
+        "domain": "autoweek.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.autoweek.com/racing/formula-1/a71521831/f1-monaco-notebook-big-weekend-for-mclaren"
+      },
+      {
+        "ageDays": 51.84209527777778,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions"
+      },
+      {
+        "ageDays": 31.46371564814815,
+        "domain": "mediahouse.ducati.com",
+        "reason": "dropped: about a different year than asked",
+        "url": "https://mediahouse.ducati.com/marc-marquez-and-ducati-are-the-2025-motogp-world-champions"
+      },
+      {
+        "ageDays": 0.7151855555555556,
+        "domain": "biospace.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.biospace.com/press-releases/angiodynamics-to-report-fiscal-2027-first-quarter-results-on-october-8-2026"
+      },
+      {
+        "ageDays": 1.801018888888889,
+        "domain": "thehindubusinessline.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+      }
+    ],
+    "rejectedStaleCount": 9,
+    "requiresFreshness": true,
+    "searchMs": 21026,
+    "selectedCount": 1,
+    "sources": [
+      {
+        "age": "1 months ago",
+        "domain": "sillyseason.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-16T20:33:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.86,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 0.86,
+          "freshness": 0.03,
+          "relevance": 0.36,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "F1 Standings 2026: Formula 1 Drivers and Constructors Standings 2026!",
+        "url": "https://sillyseason.com/motorsports/f1-standings-177973"
+      },
+      {
+        "age": "1 months ago",
+        "domain": "motorcyclesports.net",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-16T19:44:06.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.69,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.69,
+          "freshness": 0.03,
+          "relevance": 0.29,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Kimi Antonelli extends F1 championship lead to 50 points after Hungarian Grand Prix",
+        "url": "https://motorcyclesports.net/kimi-antonelli-extends-f1-championship-lead-to-50-points-after-hungarian-grand-prix"
+      },
+      {
+        "age": "2 months ago",
+        "domain": "archyworldys.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-15T04:38:25.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.59,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.03,
+          "final": 0.59,
+          "freshness": 0.03,
+          "relevance": 0.21,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Kimi Antonelli Leads F1 Championship at Summer Pause",
+        "url": "https://www.archyworldys.com/kimi-antonelli-leads-f1-championship-at-summer-pause"
+      },
+      {
+        "age": "1 months ago",
+        "domain": "monzanet.it",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-16T05:52:49.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.31,
+        "scoreBreakdown": {
+          "answerability": 0.8,
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.03,
+          "final": 0.31,
+          "freshness": 0,
+          "relevance": 0.07,
+          "sourceQuality": 0.04
+        },
+        "selected": false,
+        "title": "Formula 1 Gran Premio d'Italia 2026",
+        "url": "https://www.monzanet.it/en/f1-grand-prix"
+      },
+      {
+        "age": "2 months ago",
+        "domain": "autoweek.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-15T06:40:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.28,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.02,
+          "final": 0.28,
+          "freshness": 0,
+          "relevance": 0.07,
+          "sourceQuality": 0.04
+        },
+        "selected": false,
+        "title": "F1 Monaco Notebook: A Big Weekend for McLaren, an Even Bigger One for Racing Bulls",
+        "url": "https://www.autoweek.com/racing/formula-1/a71521831/f1-monaco-notebook-big-weekend-for-mclaren"
+      },
+      {
+        "age": "2 months ago",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-09T00:30:51.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.16,
+        "scoreBreakdown": {
+          "answerability": 0,
+          "authority": 0,
+          "corroboration": 0.16,
+          "directness": 0,
+          "final": 0.16,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "List of Formula One World Drivers' Champions",
+        "url": "https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions"
+      },
+      {
+        "age": "1 months ago",
+        "domain": "mediahouse.ducati.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-29T09:35:43.000Z",
+        "reason": "dropped: about a different year than asked",
+        "rejectionKind": "temporal",
+        "score": 0.05,
+        "scoreBreakdown": {
+          "answerability": 0.8,
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.05,
+          "freshness": 0.03,
+          "relevance": 0.29,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "Marc Márquez and Ducati are the 2025 MotoGP World Champions",
+        "url": "https://mediahouse.ducati.com/marc-marquez-and-ducati-are-the-2025-motogp-world-champions"
+      },
+      {
+        "age": "17 hours ago",
+        "domain": "biospace.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T03:33:36.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "answerability": 0,
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "AngioDynamics to Report Fiscal 2027 First Quarter Results on October 8, 2026",
+        "url": "https://www.biospace.com/press-releases/angiodynamics-to-report-fiscal-2027-first-quarter-results-on-october-8-2026"
+      },
+      {
+        "age": "yesterday",
+        "domain": "thehindubusinessline.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T01:30:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0,
+        "scoreBreakdown": {
+          "answerability": 0,
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": false,
+        "title": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026",
+        "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+      },
+      {
+        "age": "16 hours ago",
+        "domain": "dullmensclub.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T04:34:36.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0,
+        "scoreBreakdown": {
+          "answerability": 0,
+          "authority": 0,
+          "corroboration": 0,
+          "directness": 0,
+          "final": 0,
+          "freshness": 0,
+          "relevance": 0,
+          "sourceQuality": 0
+        },
+        "selected": true,
+        "title": "The 59th World Conker Championships 2026",
+        "url": "https://dullmensclub.com/the-59th-world-conker-championships-2026"
+      }
+    ],
+    "totalMs": 21026,
+    "verification": {
+      "failedChecks": [
+        "event",
+        "authority",
+        "corroboration"
+      ],
+      "passRate": 0.667,
+      "unverifiable": [
+        "None of the results cover the \"formula 1\" — they appear to be about a different event.",
+        "No primary or reputable source was found.",
+        "Only one source is available, so this is unconfirmed."
+      ],
+      "verdict": "refuse"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.70 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "1 source(s) explicitly cover 2026",
+        "id": "year",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "no source names the \"formula 1\" — the results are about something else",
+        "id": "event",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.7 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "only 1 domain in the result set",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "1/1 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no overlapping figures to compare",
+        "id": "consistency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "1 comparable figure(s) extracted with verbatim evidence",
+        "id": "claim-verification",
+        "passed": true
+      }
+    ],
+    "datedSources": 1,
+    "independentDomains": 1,
+    "newestSourceAgeHours": 16.1,
+    "newestSourceAt": "2026-09-29T04:34:36.000Z",
+    "passRate": 0.6666666666666666,
+    "unverifiable": [
+      "None of the results cover the \"formula 1\" — they appear to be about a different event.",
+      "No primary or reputable source was found.",
+      "Only one source is available, so this is unconfirmed."
+    ],
+    "verdict": "refuse"
+  }
+}

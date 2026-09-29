@@ -99,6 +99,8 @@ const VERTICAL_TERMS: Record<string, { add: string[]; alreadySays: RegExp }> = {
 /** Neutral authority nudge — applied to ONE variant, never to the primary. */
 const AUTHORITY_TERMS = "official";
 
+import { officialDomainsFor, officialDomainLabel } from "./authority";
+
 /** Strip a leading article without over-trimming ("Agnostic" must survive). */
 function dedupe(list: string[]): string[] {
   return [...new Set(list.map((s) => s.trim()).filter((s) => s.length > 2))];
@@ -216,6 +218,24 @@ export function planRetrieval(
   //    and buys nothing.
   const variants: string[] = [];
 
+  // AUTHORITATIVE angle FIRST (2026-09-29, measured): when the question names
+  // a subject with a known OFFICIAL source (formula1.com, fia.com,
+  // premierleague.com, rbi, who…), add an angle that hunts for it by name —
+  // and push it BEFORE the recency angles, because the variant list is capped
+  // at three and a lower-priority push is silently dropped. MEASURED on the
+  // F1 ranking query: pushed last, the site: angle never survived the cap,
+  // so the retrieval plan had no official-source probe at all. The
+  // answerability/authority gates reject weak evidence; this variant is the
+  // positive half — the engines' way to FIND the strong evidence.
+  const official = officialDomainsFor(query);
+  if (official.length > 0) {
+    const site = official[0].replace(/^www\./, "");
+    variants.push(`${base} site:${site}`);
+    notes.push(`added official-source angle (site:${site} — ${officialDomainLabel(query)})`);
+  } else {
+    variants.push(`${base} ${AUTHORITY_TERMS}`.trim());
+  }
+
   if (classified.requiresFreshness && !/\blatest\b/i.test(base)) {
     variants.push(`${primary} latest`);
   }
@@ -228,7 +248,6 @@ export function planRetrieval(
   // The bare base is a useful angle ONLY when anchoring, vertical terms or a
   // recency word changed the primary — otherwise it is just the primary again.
   if (primary !== base) variants.push(base);
-  variants.push(`${base} ${AUTHORITY_TERMS}`.trim());
 
   const finalVariants = dedupe(variants).filter((v) => v !== primary).slice(0, 3);
   if (finalVariants.length === 0) notes.push("no additional angles needed");

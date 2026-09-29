@@ -49,6 +49,10 @@ import {
 import { validateEvidence, cannotVerifyMessage, type ValidationReport } from "./searchEngine/validation";
 import { buildSearchTrace, summarizeTrace } from "./searchEngine/debugTrace";
 import { classifyCurrentIntent } from "./searchEngine/intent";
+import {
+  authoritativeFloorApplies,
+  isAuthoritativeFor,
+} from "./searchEngine/authority";
 import { planRetrieval } from "./searchEngine/rewrite";
 import { strictVerticalFallbackFor } from "./searchEngine/resilience";
 import type { WebCitation } from "./searchProviders/types";
@@ -973,17 +977,21 @@ async function runTurn(
                 (!SPORTS_ENTERTAINMENT_RE.test(domainOf(c.url)) &&
                   (!policy.event || entityInSource(c, policy.event)))),
           );
-          // TRUST GATE for standings/tally questions: at least one authoritative
-          // (news-weight ≥0.85: official competition body or major sports desk)
-          // source must survive the usable filter. If only weak sources remain,
-          // Omi says verification is unavailable instead of synthesizing from
-          // them — the realitytea-only failure mode.
+          // TRUST GATE — GENERALIZED (2026-09-29): for ANY live-fact question
+          // (score/standing/tally/price/rate/weather/election/status), at
+          // least one authoritative source must survive the usable filter.
+          // "Authoritative" is per-vertical (searchEngine/authority.ts):
+          // structured feeds and official domains pass by construction,
+          // everything else by sourceTier ≥ the vertical's floor (0.85 for
+          // sports/markets/weather/election/news). If only weak sources
+          // remain, Omi refuses honestly — the realitytea-only failure mode,
+          // now across every vertical, not just sports.
+          const liveFactQuestion =
+            policy.requiresFreshness && authoritativeFloorApplies(classifiedCurrent.liveData);
           let authoritativeUsable = usable;
-          if (isSportsFactQuestion && usable.length > 0) {
-            authoritativeUsable = usable.filter(
-              (c) =>
-                (c as WebCitation).providers?.includes("sports-scores") === true ||
-                sourceTier(c.url).weight >= 0.85,
+          if (liveFactQuestion && usable.length > 0) {
+            authoritativeUsable = usable.filter((c) =>
+              isAuthoritativeFor(c as WebCitation, policy.vertical, trimmed),
             );
           }
           await patchStreaming({
@@ -1004,15 +1012,15 @@ async function runTurn(
             searchBlock = "";
             memoryProtected = true;
             orchestratorNote = `NO_VERIFIED_RESULTS ${noVerificationMessage(trimmed, policy.vertical)}`;
-          } else if (isSportsFactQuestion && authoritativeUsable.length === 0) {
+          } else if (liveFactQuestion && authoritativeUsable.length === 0) {
             // SOURCE-QUALITY GATE FAIL: sources survived the freshness and
-            // relevance floors, but NONE is authoritative for a live sports
-            // fact (measured: realitytea.com alone for a championship-standings
+            // relevance floors, but NONE is authoritative for this live fact
+            // (measured: realitytea.com alone for a championship-standings
             // question). A weak-only set is not evidence — say verification is
             // unavailable rather than synthesize an answer from it.
             searchBlock = "";
             memoryProtected = true;
-            orchestratorNote = `NO_VERIFIED_RESULTS Only low-authority sources were found for this sports result; no official or major-outlet source could verify it. ${noVerificationMessage(trimmed, policy.vertical)}`;
+            orchestratorNote = `NO_VERIFIED_RESULTS Only low-authority sources were found for this result; no official or major-outlet source could verify it. ${noVerificationMessage(trimmed, policy.vertical)}`;
           } else if (policy.requiresFreshness) {
             // --- VALIDATION GATE -----------------------------------------
             // Seven checks before Omi is allowed to answer a current question
