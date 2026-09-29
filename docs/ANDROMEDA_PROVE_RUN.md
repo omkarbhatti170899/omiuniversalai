@@ -1,5 +1,84 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## Addendum 4 — conflict RESOLUTION + sports source-quality gate (2026-09-29)
+
+Per the live-review instruction: the two exposed failures (contradictory medal
+totals presented without resolution; F1 championship answered solely from
+realitytea.com) fixed in the PRODUCTION pipeline — not in the benchmark — and
+re-proven on the deployed runtime.
+
+### 1. Pipeline order is now RETRIEVE → FILTER → VERIFY → CROSS-CHECK → RESOLVE → SYNTHESIZE → CITE
+
+- **CROSS-CHECK** was already first-class (`crossCheckClaims`).
+- **RESOLVE is new in the answer path**: for every conflict the pipeline now
+  picks ONE figure — precedence authoritative (sourceTier ≥0.85 or the
+  structured sports feed) → newest → arithmetic tie-break (a reading whose own
+  gold+silver+bronze breakdown sums to its total beats one without; a reading
+  contradicted by its own breakdown is demoted) — each with a directly-attached
+  citation, and reports every set-aside value with its reason. Two authoritative
+  sources, same freshness, different values ⇒ `stillContested`, and the answer
+  says explicitly that sources disagree. Contradictory numbers are never
+  presented as simultaneously correct.
+- **Source-quality gate (sports standings/leader/tally)**: entertainment
+  domains rejected outright; AND (measured live this phase) a source that never
+  names the asked competition is rejected even when it is si.com — a NASCAR
+  article must not answer an F1 question. No trustworthy source survives ⇒
+  `NO_VERIFIED_RESULTS` refusal, never a weak-source answer.
+- **Separate checks, not "fresh+dated=correct"**: validation now runs NINE
+  checks — relevance, year, event, recency, authority, corroboration,
+  timestamp + NEW **consistency** (independent sources disagree ⇒ check fails,
+  verdict caveated) + NEW **claim-verification** (numeric question with zero
+  extractable verbatim figures ⇒ check fails). Not assessed (never failed)
+  when claim extraction was not run.
+
+### 2. Two measured defects fixed during this phase
+
+1. **Inconsistent comparator in `resolveConflict`** — the arithmetic branch
+   depended on sort-argument order, so V8 could silently ignore the arithmetic
+   signal depending on array position (caught by the new unit tests before
+   deploy). Fixed with an order-independent rank key
+   (confirmed < unknown < contradicted, then newest).
+2. **Wrong-sport carry-through** — after the entertainment gate, si.com NASCAR
+   coverage was the sole survivor for the F1 question (probe `pass` with a
+   wrong-sport answer). Closed with the entity requirement for non-feed sports
+   sources, mirrored in the probe. Live result: honest refusal with named drop
+   reasons.
+
+### 3. LIVE before/after (deployed runtime, 2026-09-29 ~17:20 UTC)
+
+| Check | BEFORE (aa15e55 run) | AFTER (this phase, measured) |
+|---|---|---|
+| F1 2026 leader — sources kept | realitytea.com ONLY | realitytea dropped (low-authority) + si.com NASCAR dropped (wrong competition); no trustworthy source ⇒ **explicit refusal, zero weak-source answers** |
+| F1 2026 leader — trace | kept=1 (realitytea, final 0.76) | kept=1 first-pass; probe escalates and gates; refusal branch proven |
+| Medal tally — conflict | 45/37/39 listed side by side, answer caveated, no winner | **RESOLVED: one figure — 45 cited to news.abplive.com (authoritative-newest); 37 + others set aside with reasons** (live readings 45/37/4/38/205/157 from the deployed trace) |
+| Medal tally — validation | 7 checks, conflict only an unverifiable note | **9 checks: consistency=FAIL (sources disagree), claim-verification=PASS (40 verbatim figures), verdict answer-caveated** |
+| New golden rows | — | F1 leader: bbc/guardian/independent/rtl/rnz (2026-09-25..29) · cricket standings: 7 kept · football standings: 8 kept · gold price: 4 kept (blockonomi/hansindia/HT) · inflation figure: 5 kept (livemint/indiatoday) — all with citation markers, 0 wrong-year, 0 dupes |
+| Benchmark answer contract | citations resolve 40/40, 0 dupes, 0 wrong-year | unchanged: 40/40 resolve, 0 dupes, 0 wrong-year; offTopicKept 0→3 is the harness's SUBSTRING metric flagging borderline legitimate coverage (Guardian/RFI F1, ToI cricket) — product's semantic gate accepted them, recorded as a harness note, not a pipeline change |
+| Zero-kept rows | EPL standings (first-pass-only harness limitation, user told; chat escalates and passes) | same 2 rows (EPL, ICC T20 rankings) — unchanged, still the harness first-pass limitation |
+
+### 4. Gates
+
+- 1,338 tests / 0 fail (suite grew: 15 resolveConflict/notice/consistency pins
+  + 5 benchmark-row pins + nine-check contract updated)
+- tsc 0 errors · eslint 0 errors (2 pre-existing unused imports removed)
+- Deployed 17:45 UTC · evidence pack: `.qa-tmp/f1-trace-after.json`,
+  `.qa-tmp/f1-probe-after2.json`, `.qa-tmp/medal-probe-after.json`,
+  `.qa-tmp/medal-trace-after.json`, `.qa-tmp/bench-after.json`
+
+### 5. Verdict delta
+
+- Medal-conflict behaviour: **FAIL → PASS** (resolves or says "sources
+  disagree"; never lists contradictions as truth; every figure cited).
+- F1-from-gossip behaviour: **FAIL → PASS** (gate rejects; honest refusal when
+  nothing authoritative survives; wrong-sport carry-through also closed).
+- "Fresh+dated+correct" conflation: **closed** — consistency and claim
+  verification are separate, individually falsifiable checks.
+- Remaining BLOCKED (unchanged, owner-side): human browser read of rendered
+  answers; self-hosted SearXNG host. Benchmark harness escalation mirror
+  remains optional (noted in Addendum 3).
+
+---
+
 ## RELEVANCE + SOURCE-QUALITY LAYER (2026-09-29) — freshness no longer dominates
 
 **Final measured state (138 queries, fully-hardened pipeline):** kept 121/138
