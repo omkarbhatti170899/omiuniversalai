@@ -1,0 +1,340 @@
+{
+  "conflictNotice": "Sources currently report different values for this, so Omi is not picking one:\n\nMEDALS:\n• 37 — khelnow.com (yesterday) — \"37 medals\"\n• 13 — khelnow.com (yesterday) — \"13 medals\"\n• 11 — khelnow.com (yesterday) — \"11 medals\"\n• 14 — sundayguardianlive.com (5 days ago) — \"14 medals\"\n\nTreat these as unconfirmed and check the official source before relying on a figure.",
+  "conflicts": [
+    {
+      "independentDomains": 3,
+      "metric": "medals",
+      "readings": [
+        {
+          "domain": "khelnow.com",
+          "evidence": "37 medals",
+          "publishedAt": "2026-09-28T00:09:28.000Z",
+          "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609",
+          "value": "37"
+        },
+        {
+          "domain": "khelnow.com",
+          "evidence": "13 medals",
+          "publishedAt": "2026-09-28T00:09:28.000Z",
+          "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609",
+          "value": "13"
+        },
+        {
+          "domain": "khelnow.com",
+          "evidence": "11 medals",
+          "publishedAt": "2026-09-28T00:09:28.000Z",
+          "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609",
+          "value": "11"
+        },
+        {
+          "domain": "sundayguardianlive.com",
+          "evidence": "14 medals",
+          "publishedAt": "2026-09-24T07:01:23.000Z",
+          "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-medal-count-indias-position-and-gold-silver-bronze-medals-count-291580",
+          "value": "14"
+        },
+        {
+          "domain": "freepressjournal.in",
+          "evidence": "4 Silver Medals",
+          "publishedAt": "2026-09-27T15:21:40.000Z",
+          "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37",
+          "value": "4"
+        },
+        {
+          "domain": "freepressjournal.in",
+          "evidence": "38 bronze medals",
+          "publishedAt": "2026-09-27T15:21:40.000Z",
+          "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37",
+          "value": "38"
+        },
+        {
+          "domain": "freepressjournal.in",
+          "evidence": "205 medals",
+          "publishedAt": "2026-09-27T15:21:40.000Z",
+          "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37",
+          "value": "205"
+        },
+        {
+          "domain": "freepressjournal.in",
+          "evidence": "157 medals",
+          "publishedAt": "2026-09-27T15:21:40.000Z",
+          "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37",
+          "value": "157"
+        }
+      ]
+    }
+  ],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "event \"asian games\" already named in the query",
+      "no sports terms added — the query already expresses that",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "Indian contingent medals tally in Asian Games 2026 today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "Indian contingent medals tally in Asian Games 2026 today latest",
+      "Indian contingent medals tally in Asian Games 2026 2026-09-29",
+      "Indian contingent medals tally in Asian Games 2026"
+    ]
+  },
+  "retrievalQuery": "Indian contingent medals tally in Asian Games 2026 today",
+  "summary": "[search] \"Indian contingent medals tally in Asian Games 2026\" intent=knowledge fresh=true vertical=sports years=2026 raw=9 kept=5 stale-rejected=4 domains=4 conflicts=1 verdict=answer-caveated searchMs=21141 totalMs=21141",
+  "trace": {
+    "askedEvent": "asian games",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [
+      "medals: 37 (khelnow.com) vs 13 (khelnow.com) vs 11 (khelnow.com) vs 14 (sundayguardianlive.com) vs 4 (freepressjournal.in) vs 38 (freepressjournal.in) vs 205 (freepressjournal.in) vs 157 (freepressjournal.in)"
+    ],
+    "contributionsByProvider": [
+      {
+        "kept": 5,
+        "provider": "langsearch",
+        "retrieved": 9
+      }
+    ],
+    "dedupedCount": 9,
+    "freshnessReasons": [
+      "names the current year (2026)",
+      "asks for a live value (\"tally\")"
+    ],
+    "independentDomains": 4,
+    "intent": "knowledge",
+    "liveData": "tally",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "Indian contingent medals tally in Asian Games 2026",
+    "rawCount": 9,
+    "rejectedStale": [
+      {
+        "ageDays": 9.517706585648147,
+        "domain": "jagranjosh.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.jagranjosh.com/general-knowledge/asian-games-2026-indias-complete-medal-tally-and-winners-list-1820012370-1"
+      },
+      {
+        "ageDays": 55.466329270833334,
+        "domain": "heraldgoa.in",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.heraldgoa.in/Goa/Tree-cover-in-State-reduces-by-50-sq-kms-in-2-yrs/155253"
+      },
+      {
+        "ageDays": 50.998401030092595,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://en.wikipedia.org/wiki/Badminton_Asia_Championships"
+      },
+      {
+        "ageDays": 51.85113251157407,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: about a different year than asked",
+        "url": "https://en.wikipedia.org/wiki/Vedaant_Madhavan"
+      }
+    ],
+    "rejectedStaleCount": 4,
+    "requiresFreshness": true,
+    "searchMs": 21141,
+    "selectedCount": 5,
+    "sources": [
+      {
+        "age": "yesterday",
+        "domain": "indiatoday.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-27T06:30:58.000Z",
+        "reason": "kept as current evidence",
+        "score": 1.06,
+        "selected": true,
+        "title": "Asian Games 2026: India fail to win individual badminton medal after 12 years",
+        "url": "https://www.indiatoday.in/sports/badminton/story/asian-games-2026-india-fail-to-win-individual-badminton-medal-after-12-years-3004018-2026-09-27"
+      },
+      {
+        "age": "yesterday",
+        "domain": "khelnow.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T00:09:28.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+        "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-24T07:01:23.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "Asian Games 2026 Medals Tally LIVE Update: Check Latest Aichi-Nagoya Medal Count, India’s Position and Gold, Silver, Bronze Medals",
+        "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-medal-count-indias-position-and-gold-silver-bronze-medals-count-291580"
+      },
+      {
+        "age": "10 days ago",
+        "domain": "jagranjosh.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-19T12:00:39.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.96,
+        "selected": false,
+        "title": "Asian Games 2026: India’s Complete 🥇🥈🥉 Medal Tally and Winners List",
+        "url": "https://www.jagranjosh.com/general-knowledge/asian-games-2026-indias-complete-medal-tally-and-winners-list-1820012370-1"
+      },
+      {
+        "age": "yesterday",
+        "domain": "freepressjournal.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-27T15:21:40.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.9,
+        "selected": true,
+        "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+      },
+      {
+        "age": "yesterday",
+        "domain": "khelnow.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-27T17:33:21.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.9,
+        "selected": true,
+        "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+        "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+      },
+      {
+        "age": "2 months ago",
+        "domain": "heraldgoa.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-04T13:14:38.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.56,
+        "selected": false,
+        "title": "Neeraj Chopra Settles for Silver, Arshad Nadeem Crashes Out as Rumesh Pathirage Wins CWG 2026 Gold",
+        "url": "https://www.heraldgoa.in/Goa/Tree-cover-in-State-reduces-by-50-sq-kms-in-2-yrs/155253"
+      },
+      {
+        "age": "2 months ago",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-09T00:28:27.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.32,
+        "selected": false,
+        "title": "Badminton Asia Championships",
+        "url": "https://en.wikipedia.org/wiki/Badminton_Asia_Championships"
+      },
+      {
+        "age": "2 months ago",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-08T04:00:31.000Z",
+        "reason": "dropped: about a different year than asked",
+        "score": 0.23,
+        "selected": false,
+        "title": "Vedaant Madhavan",
+        "url": "https://en.wikipedia.org/wiki/Vedaant_Madhavan"
+      }
+    ],
+    "totalMs": 21141,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.857,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Sources disagree: medals."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "5 source(s) explicitly cover 2026",
+        "id": "year",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "5 source(s) cover the \"asian games\"",
+        "id": "event",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 1.0 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "4 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "5/5 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 5,
+    "independentDomains": 4,
+    "newestSourceAgeHours": 24.3,
+    "newestSourceAt": "2026-09-28T00:09:28.000Z",
+    "passRate": 0.8571428571428571,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Sources disagree: medals."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

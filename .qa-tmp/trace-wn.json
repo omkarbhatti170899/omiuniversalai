@@ -1,0 +1,270 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "world news today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "world news today latest",
+      "world news 2026-09-29",
+      "world news"
+    ]
+  },
+  "retrievalQuery": "world news today",
+  "summary": "[search] \"latest world news\" intent=news fresh=true vertical=news years=- raw=10 kept=7 stale-rejected=3 domains=6 conflicts=0 verdict=answer-caveated searchMs=8238 totalMs=8238",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 6,
+        "provider": "searxng",
+        "retrieved": 8
+      },
+      {
+        "kept": 1,
+        "provider": "langsearch",
+        "retrieved": 2
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 6,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "latest world news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 6.946105127314815,
+        "domain": "nota-news.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://nota-news.com/news/world"
+      },
+      {
+        "ageDays": 6.3109778125,
+        "domain": "sundayguardianlive.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-23-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-290509"
+      },
+      {
+        "ageDays": 6.772088923611111,
+        "domain": "youtube.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.youtube.com/watch?v=H4mAXmiZamo"
+      }
+    ],
+    "rejectedStaleCount": 3,
+    "requiresFreshness": true,
+    "searchMs": 8238,
+    "selectedCount": 7,
+    "sources": [
+      {
+        "age": "7 days ago",
+        "domain": "nota-news.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T01:49:49.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "World news in simple English and Spanish — Nota",
+        "url": "https://nota-news.com/news/world"
+      },
+      {
+        "age": "4 hours ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T20:08:39.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "indiatoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T16:28:31.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.97,
+        "selected": true,
+        "title": "Russia hybrid attacks in Europe: NATO says plans ready... - India Today",
+        "url": "https://www.indiatoday.in/world/story/russia-hybrid-attacks-europe-nato-ready-denmark-warns-escalation-ptag-3002289-2026-09-24"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T17:04:24.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.95,
+        "selected": false,
+        "title": "School Assembly News Headlines Today [23 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-23-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-290509"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "euronews.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T07:25:22.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.94,
+        "selected": true,
+        "title": "Are you in pain? In some cases, exercising may be as good... | Euronews",
+        "url": "https://www.euronews.com/2026/09/26/are-you-in-pain-in-some-cases-exercising-may-be-as-good-as-painkillers"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "youtube.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T02:24:59.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.94,
+        "selected": true,
+        "title": "আজকের আন্তর্জাতিক সব খবর, ২৮ সেপ্টেম্বর ২০২৬ | Jamuna... - YouTube",
+        "url": "https://www.youtube.com/watch?v=-hGfpntEKQE"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "youtube.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T06:00:24.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.92,
+        "selected": false,
+        "title": "বিশ্বের আলোচিত সব খবর, ২২ সেপ্টেম্বর ২০২৬ | Jamuna... - YouTube",
+        "url": "https://www.youtube.com/watch?v=H4mAXmiZamo"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "odishapostepaper.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-25T05:05:30.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.9,
+        "selected": true,
+        "title": "OrissaPOST Page: 2 - English Daily ePaper | Today Newspaper",
+        "url": "https://odishapostepaper.com/edition/5899/orissapost/page/2"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "odishapostepaper.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-25T05:05:30.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.9,
+        "selected": true,
+        "title": "OrissaPOST Page: 8 - English Daily ePaper | Today Newspaper",
+        "url": "https://odishapostepaper.com/edition/5899/orissapost/page/8"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "tass.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T14:28:46.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.88,
+        "selected": true,
+        "title": "Russia makes revolution in jet-powered UAVs — newspaper - World",
+        "url": "https://tass.com/world/2192315"
+      }
+    ],
+    "totalMs": 8238,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.8,
+      "unverifiable": [
+        "No primary or reputable source was found."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.2 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "6 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "7/7 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 7,
+    "independentDomains": 6,
+    "newestSourceAgeHours": 4.4,
+    "newestSourceAt": "2026-09-28T20:08:39.000Z",
+    "passRate": 0.8,
+    "unverifiable": [
+      "No primary or reputable source was found."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

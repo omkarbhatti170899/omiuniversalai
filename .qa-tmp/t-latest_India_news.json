@@ -1,0 +1,270 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "India news today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "India news today latest",
+      "India news 2026-09-29",
+      "India news"
+    ]
+  },
+  "retrievalQuery": "India news today",
+  "summary": "[search] \"latest India news\" intent=news fresh=true vertical=news years=- raw=10 kept=7 stale-rejected=3 domains=6 conflicts=0 verdict=answer-caveated searchMs=16023 totalMs=16023",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 5,
+        "provider": "searxng",
+        "retrieved": 5
+      },
+      {
+        "kept": 2,
+        "provider": "langsearch",
+        "retrieved": 5
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 6,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "latest India news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 6.884838287037037,
+        "domain": "careerindia.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-22-2026-national-international-education-spo-065947.html"
+      },
+      {
+        "ageDays": 5.603981805555556,
+        "domain": "businesstoday.in",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.businesstoday.in/markets/trending-stocks/story/whirlpool-of-india-shares-jump-20-today-heres-what-analysts-say-557305-2026-09-23"
+      },
+      {
+        "ageDays": 6.01592625,
+        "domain": "edexlive.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.edexlive.com/sunshine-jottings/school-assembly-news-today-september-23-2026-top-headlines-thought-word-history"
+      }
+    ],
+    "rejectedStaleCount": 3,
+    "requiresFreshness": true,
+    "searchMs": 16023,
+    "selectedCount": 7,
+    "sources": [
+      {
+        "age": "4 hours ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T20:08:39.000Z",
+        "reason": "kept as current evidence",
+        "score": 1.04,
+        "selected": true,
+        "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "careerindia.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T03:19:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "School Assembly News Headlines Today – September 22, 2026 | National, International, Education & Sports News",
+        "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-22-2026-national-international-education-spo-065947.html"
+      },
+      {
+        "age": "about an hour ago",
+        "domain": "tribuneindia.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T22:59:23.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.99,
+        "selected": true,
+        "title": "PM Modi maps out India-Japan future: Tech named \"strongest pillar...\"",
+        "url": "https://www.tribuneindia.com/news/world/pm-modi-maps-out-india-japan-future-tech-named-strongest-pillar-as-mous-spark-new-era-in-ai-defence-and-healthcare"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "odishapostepaper.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-25T05:05:30.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.98,
+        "selected": true,
+        "title": "OrissaPOST Page: 2 - English Daily ePaper | Today Newspaper",
+        "url": "https://odishapostepaper.com/edition/5899/orissapost/page/2"
+      },
+      {
+        "age": "12 hours ago",
+        "domain": "news.google.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T12:13:51.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.96,
+        "selected": true,
+        "title": "Google News - Lava launches Virat Curve 5G smartphone in India...",
+        "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2poc3NqLUVSRk1qTmowa2FVNGNpZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "businesstoday.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-23T10:03:26.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.95,
+        "selected": false,
+        "title": "Whirlpool of India shares jump 20% today; here's what analysts say",
+        "url": "https://www.businesstoday.in/markets/trending-stocks/story/whirlpool-of-india-shares-jump-20-today-heres-what-analysts-say-557305-2026-09-23"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "careerindia.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-25T03:23:08.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.95,
+        "selected": true,
+        "title": "School Assembly News Headlines Today – September 25, 2026 | National, International, Education & Sports News",
+        "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-25-2026-national-international-education-spo-066103.html"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "edexlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-23T00:10:14.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.95,
+        "selected": false,
+        "title": "School Assembly News Today, September 23, 2026: Top Headlines, Thought, Word & History",
+        "url": "https://www.edexlive.com/sunshine-jottings/school-assembly-news-today-september-23-2026-top-headlines-thought-word-history"
+      },
+      {
+        "age": "10 hours ago",
+        "domain": "indiatoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T14:28:38.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.95,
+        "selected": true,
+        "title": "Nepal floods: Why information can’t be casualty in... - India Today",
+        "url": "https://www.indiatoday.in/india-today-insight/story/nepal-floods-why-information-cant-be-casualty-in-himalayan-calamity-3005057-2026-09-28"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "indiatoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T15:21:47.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.94,
+        "selected": true,
+        "title": "India-US ties deepen as US becomes largest LPG... - India Today",
+        "url": "https://www.indiatoday.in/world/story/india-us-ties-us-becomes-largest-lpg-exporter-to-india-ptag-3003775-2026-09-26"
+      }
+    ],
+    "totalMs": 16023,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.8,
+      "unverifiable": [
+        "No primary or reputable source was found."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.1 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "6 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "7/7 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 7,
+    "independentDomains": 6,
+    "newestSourceAgeHours": 1.6,
+    "newestSourceAt": "2026-09-28T22:59:23.000Z",
+    "passRate": 0.8,
+    "unverifiable": [
+      "No primary or reputable source was found."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

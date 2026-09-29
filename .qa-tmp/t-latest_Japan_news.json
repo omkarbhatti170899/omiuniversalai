@@ -1,0 +1,271 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "Japan news today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "Japan news today latest",
+      "Japan news 2026-09-29",
+      "Japan news"
+    ]
+  },
+  "retrievalQuery": "Japan news today",
+  "summary": "[search] \"latest Japan news\" intent=news fresh=true vertical=news years=- raw=10 kept=7 stale-rejected=3 domains=7 conflicts=0 verdict=answer-caveated searchMs=6072 totalMs=6072",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 7,
+        "provider": "searxng",
+        "retrieved": 9
+      },
+      {
+        "kept": 1,
+        "provider": "langsearch",
+        "retrieved": 2
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 7,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "latest Japan news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 5.897194606481482,
+        "domain": "soranews24.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://soranews24.com/2026/09/23/bear-found-on-japanese-fishing-boat-escapes-into-the-sea"
+      },
+      {
+        "ageDays": 6.147136736111111,
+        "domain": "japantoday.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://japantoday.com/category/features/health/noise-pollution-is-a-serious-but-often-forgotten-public-health-problem"
+      },
+      {
+        "ageDays": 6.644567291666667,
+        "domain": "jagranjosh.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.jagranjosh.com/general-knowledge/india-vs-japan-t20i-asian-games-2026-result-score-key-records-and-stats-1820012434-1"
+      }
+    ],
+    "rejectedStaleCount": 3,
+    "requiresFreshness": true,
+    "searchMs": 6072,
+    "selectedCount": 7,
+    "sources": [
+      {
+        "age": "6 days ago",
+        "domain": "soranews24.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T03:02:05.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Bear found on Japanese fishing boat... | SoraNews24 —Japan News",
+        "url": "https://soranews24.com/2026/09/23/bear-found-on-japanese-fishing-boat-escapes-into-the-sea"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "japantoday.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T21:02:10.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.96,
+        "selected": false,
+        "title": "Noise pollution is a serious but often forgotten public... - Japan Today",
+        "url": "https://japantoday.com/category/features/health/noise-pollution-is-a-serious-but-often-forgotten-public-health-problem"
+      },
+      {
+        "age": "23 hours ago",
+        "domain": "soranews24.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T02:02:08.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.95,
+        "selected": true,
+        "title": "Robot bartender bar opening in Kyoto... | SoraNews24 —Japan News",
+        "url": "https://soranews24.com/2026/09/28/robot-bartender-bar-opening-in-kyoto-and-no-theyre-not-controlled-by-ai"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "guardian.ng",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T20:28:03.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.94,
+        "selected": true,
+        "title": "Japan deepens Nigeria ties through washoku",
+        "url": "https://guardian.ng/news/japan-deepens-nigeria-ties-through-washoku"
+      },
+      {
+        "age": "yesterday",
+        "domain": "economictimes.indiatimes.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-27T06:46:58.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.94,
+        "selected": true,
+        "title": "Japanese father throws 2 young daughters from the sixth-floor balcony...",
+        "url": "https://economictimes.indiatimes.com/news/international/us/japanese-father-throws-2-young-daughters-from-the-sixth-floor-balcony-moment-caught-on-camera-heres-what-happened-next/articleshow/134515892.cms"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "asiatimes.com",
+        "providers": [
+          "searxng",
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-25T07:18:02.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.93,
+        "selected": true,
+        "title": "Japan's new ambassador will test Manila's China... - Asia Times",
+        "url": "https://asiatimes.com/2026/09/japans-new-ambassador-will-test-manilas-china-balancing-act"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "mainichi.jp",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-25T07:02:55.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.87,
+        "selected": true,
+        "title": "Easy Japanese news in translation: Biggest taro stew... - The Mainichi",
+        "url": "https://mainichi.jp/english/articles/20260925/p2a/00m/0li/017000c"
+      },
+      {
+        "age": "24 hours ago",
+        "domain": "bhaskarenglish.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T00:50:28.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.84,
+        "selected": true,
+        "title": "Rent Family Members in Japan & Unusual Global Stories | Viral List",
+        "url": "https://www.bhaskarenglish.in/national/news/japan-rent-family-members-china-large-families-delhi-resignation-party-139173886.html"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "jagranjosh.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T09:05:52.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.84,
+        "selected": false,
+        "title": "India vs Japan T20I Result: How did India Secure a Landmark 200th Win in Historic Sano Clash Today?",
+        "url": "https://www.jagranjosh.com/general-knowledge/india-vs-japan-t20i-asian-games-2026-result-score-key-records-and-stats-1820012434-1"
+      },
+      {
+        "age": "5 hours ago",
+        "domain": "abc.net.au",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T19:18:05.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.82,
+        "selected": true,
+        "title": "The surprising origin of Tasmania's cherry blossom festival - ABC News",
+        "url": "https://www.abc.net.au/news/2026-09-29/tasmanian-cherry-blossoms-link-to-japan-cultural-connection/107176340"
+      }
+    ],
+    "totalMs": 6072,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.8,
+      "unverifiable": [
+        "No primary or reputable source was found."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.82 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.2 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "7 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "7/7 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 7,
+    "independentDomains": 7,
+    "newestSourceAgeHours": 5.3,
+    "newestSourceAt": "2026-09-28T19:18:05.000Z",
+    "passRate": 0.8,
+    "unverifiable": [
+      "No primary or reputable source was found."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

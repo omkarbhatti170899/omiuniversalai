@@ -1,0 +1,285 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "market information today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "market information today latest",
+      "market information 2026-09-29",
+      "market information"
+    ]
+  },
+  "retrievalQuery": "market information today",
+  "summary": "[search] \"current market information\" intent=current fresh=true vertical=general years=- raw=10 kept=4 stale-rejected=6 domains=3 conflicts=0 verdict=answer searchMs=4121 totalMs=4121",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 2,
+        "provider": "langsearch",
+        "retrieved": 4
+      },
+      {
+        "kept": 2,
+        "provider": "searxng",
+        "retrieved": 4
+      },
+      {
+        "kept": 0,
+        "provider": "wikipedia",
+        "retrieved": 2
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"current\""
+    ],
+    "independentDomains": 3,
+    "intent": "current",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "langsearch"
+    ],
+    "query": "current market information",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 6.5948092939814815,
+        "domain": "share-talk.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.share-talk.com/sp-angel-todays-market-view-tuesday-22nd-september-2026"
+      },
+      {
+        "ageDays": 5.596996793981481,
+        "domain": "share-talk.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.share-talk.com/sp-angel-todays-market-view-wednesday-23rd-september-2026"
+      },
+      {
+        "ageDays": 5.673570868055556,
+        "domain": "dreamspersqftmagazine.in",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://dreamspersqftmagazine.in/real-estate-doesnt-move-on-strategy-alone-it-moves-on-sentiment"
+      },
+      {
+        "ageDays": 5.55719355324074,
+        "domain": "lbank.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.lbank.com/price/something-the-cat"
+      },
+      {
+        "ageDays": null,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://en.wikipedia.org/wiki/The_Market_for_Lemons"
+      },
+      {
+        "ageDays": null,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://en.wikipedia.org/wiki/Market_research"
+      }
+    ],
+    "rejectedStaleCount": 6,
+    "requiresFreshness": true,
+    "searchMs": 4121,
+    "selectedCount": 4,
+    "sources": [
+      {
+        "age": "7 days ago",
+        "domain": "share-talk.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T10:17:15.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.95,
+        "selected": false,
+        "title": "SP Angel – Today’s Market View, Tuesday 22nd September 2026",
+        "url": "https://www.share-talk.com/sp-angel-todays-market-view-tuesday-22nd-september-2026"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "share-talk.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-23T10:14:06.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.95,
+        "selected": false,
+        "title": "SP Angel – Today’s Market View, Wednesday 23rd September 2026",
+        "url": "https://www.share-talk.com/sp-angel-todays-market-view-wednesday-23rd-september-2026"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-25T10:33:11.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.93,
+        "selected": true,
+        "title": "M25 Traffic Latest Update Today: 6.74-Acre Site Near J21 Marketed for Housing in Hertfordshire – Check Affected Roads, Diversion Routes, Junctions Disruption, Reopening Time, Helpline Numbers & More",
+        "url": "https://sundayguardianlive.com/world/m25-traffic-latest-update-today-674-acre-site-near-j21-marketed-for-housing-in-hertfordshire-check-affected-roads-diversion-routes-junctions-disruption-reopening-time-helpline-numbers-more-292501"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "dreamspersqftmagazine.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T08:23:50.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.88,
+        "selected": false,
+        "title": "Real Estate Doesn’t Move On Strategy Alone It Moves On Sentiment...",
+        "url": "https://dreamspersqftmagazine.in/real-estate-doesnt-move-on-strategy-alone-it-moves-on-sentiment"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "businesstoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T04:35:04.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.88,
+        "selected": true,
+        "title": "A One Steels IPO opens today: Should you subscribe? - BusinessToday",
+        "url": "https://www.businesstoday.in/markets/ipo-corner/story/a-one-steels-ipo-opens-today-should-you-subscribe-check-price-band-reviews-fresh-gmp-and-more-557446-2026-09-24"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "lbank.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T11:11:25.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.87,
+        "selected": false,
+        "title": "SOMETHING THE CAT (SOMETHING) Today's Price | Real-Time...",
+        "url": "https://www.lbank.com/price/something-the-cat"
+      },
+      {
+        "age": "4 hours ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T20:08:39.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.86,
+        "selected": true,
+        "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "niti.gov.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-25T21:51:19.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.81,
+        "selected": true,
+        "title": "American Economic Review, Vol. 116, No. 8, August",
+        "url": "https://www.niti.gov.in/sites/default/files/2026-09/TOC-September-2026.pdf"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "wikipedia"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.79,
+        "selected": false,
+        "title": "The Market for Lemons",
+        "url": "https://en.wikipedia.org/wiki/The_Market_for_Lemons"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "wikipedia"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.78,
+        "selected": false,
+        "title": "Market research",
+        "url": "https://en.wikipedia.org/wiki/Market_research"
+      }
+    ],
+    "totalMs": 4121,
+    "verification": {
+      "failedChecks": [],
+      "passRate": 1,
+      "unverifiable": [],
+      "verdict": "answer"
+    },
+    "vertical": "general"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.2 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "best source tier weight 1.00",
+        "id": "authority",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "3 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "4/4 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 4,
+    "independentDomains": 3,
+    "newestSourceAgeHours": 4.4,
+    "newestSourceAt": "2026-09-28T20:08:39.000Z",
+    "passRate": 1,
+    "unverifiable": [],
+    "verdict": "answer"
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "science news today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "science news today latest",
+      "science news 2026-09-29",
+      "science news"
+    ]
+  },
+  "retrievalQuery": "science news today",
+  "summary": "[search] \"latest science news\" intent=news fresh=true vertical=news years=- raw=10 kept=5 stale-rejected=5 domains=5 conflicts=0 verdict=answer-caveated searchMs=3493 totalMs=3493",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 3,
+        "provider": "langsearch",
+        "retrieved": 4
+      },
+      {
+        "kept": 2,
+        "provider": "searxng",
+        "retrieved": 6
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 5,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "latest science news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 6.4863346875,
+        "domain": "sciencenewstoday.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.sciencenewstoday.org/microscopic-black-holes-at-the-lhc-remain-elusive-but-their-possible-mass-is-now-constrained-to-9-11-4-tev"
+      },
+      {
+        "ageDays": 6.947249039351852,
+        "domain": "nota-news.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://nota-news.com/news/science"
+      },
+      {
+        "ageDays": 6.312121724537037,
+        "domain": "sundayguardianlive.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-23-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-290509"
+      },
+      {
+        "ageDays": 5.9400731134259255,
+        "domain": "scitechdaily.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://scitechdaily.com/two-dead-stars-are-racing-around-each-other-every-6-2-minutes"
+      },
+      {
+        "ageDays": 6.979043020833333,
+        "domain": "ie.pinterest.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://ie.pinterest.com/tuhinstars/science"
+      }
+    ],
+    "rejectedStaleCount": 5,
+    "requiresFreshness": true,
+    "searchMs": 3493,
+    "selectedCount": 5,
+    "sources": [
+      {
+        "age": "6 days ago",
+        "domain": "sciencenewstoday.org",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T12:53:32.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Microscopic black holes at the LHC remain elusive—but their possible...",
+        "url": "https://www.sciencenewstoday.org/microscopic-black-holes-at-the-lhc-remain-elusive-but-their-possible-mass-is-now-constrained-to-9-11-4-tev"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "nota-news.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T01:49:49.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Science news in simple English and Spanish — Nota",
+        "url": "https://nota-news.com/news/science"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T17:04:24.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "School Assembly News Headlines Today [23 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-23-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-290509"
+      },
+      {
+        "age": "4 hours ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T20:08:39.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "scitechdaily.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T02:00:09.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.88,
+        "selected": false,
+        "title": "Two Dead Stars Are Racing Around Each Other Every 6.2 Minutes",
+        "url": "https://scitechdaily.com/two-dead-stars-are-racing-around-each-other-every-6-2-minutes"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "thegenz.news",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T08:50:24.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.88,
+        "selected": true,
+        "title": "TheGenZ News",
+        "url": "https://thegenz.news"
+      },
+      {
+        "age": "just now",
+        "domain": "hachette.co.nz",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.86,
+        "selected": true,
+        "title": "Racing Legends by David Clayton - Hachette Aotearoa | New Zealand",
+        "url": "https://www.hachette.co.nz/david-clayton/racing-legends"
+      },
+      {
+        "age": "just now",
+        "domain": "topeliteservices.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.86,
+        "selected": true,
+        "title": "Latest Home Services News and Contractor Announcements",
+        "url": "https://topeliteservices.com/Content/View/272"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "ie.pinterest.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T01:04:02.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.85,
+        "selected": false,
+        "title": "Discover 450 Science and science news ideas in 2026",
+        "url": "https://ie.pinterest.com/tuhinstars/science"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "phys.org",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-27T00:30:17.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.85,
+        "selected": true,
+        "title": "Why AI has trouble predicting the fury of hurricane intensity",
+        "url": "https://phys.org/news/2026-09-ai-fury-hurricane-intensity.html"
+      }
+    ],
+    "totalMs": 3493,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.8,
+      "unverifiable": [
+        "No primary or reputable source was found."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.90 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.0 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "5 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "5/5 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 5,
+    "independentDomains": 5,
+    "newestSourceAgeHours": 0.6,
+    "newestSourceAt": "2026-09-29T00:00:00.000Z",
+    "passRate": 0.8,
+    "unverifiable": [
+      "No primary or reputable source was found."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

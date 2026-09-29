@@ -1,0 +1,333 @@
+{
+  "conflictNotice": "Sources currently report different values for this, so Omi is not picking one:\n\nSCORE:\n• 20-17 — filmdaily.co (yesterday) — \"20-17\"\n• 4-0 — filmdaily.co (yesterday) — \"4-0\"\n• 1-0 — filmdaily.co (yesterday) — \"1-0\"\n• 3-1 — filmdaily.co (yesterday) — \"3-1\"\n\nTreat these as unconfirmed and check the official source before relying on a figure.",
+  "conflicts": [
+    {
+      "independentDomains": 2,
+      "metric": "score",
+      "readings": [
+        {
+          "domain": "filmdaily.co",
+          "evidence": "20-17",
+          "publishedAt": "2026-09-27T05:53:31.000Z",
+          "url": "https://filmdaily.co/news/college-football-today-big-matchups-you-cant-miss",
+          "value": "20-17"
+        },
+        {
+          "domain": "filmdaily.co",
+          "evidence": "4-0",
+          "publishedAt": "2026-09-27T05:53:31.000Z",
+          "url": "https://filmdaily.co/news/college-football-today-big-matchups-you-cant-miss",
+          "value": "4-0"
+        },
+        {
+          "domain": "filmdaily.co",
+          "evidence": "1-0",
+          "publishedAt": "2026-09-27T05:53:31.000Z",
+          "url": "https://filmdaily.co/news/college-football-today-big-matchups-you-cant-miss",
+          "value": "1-0"
+        },
+        {
+          "domain": "filmdaily.co",
+          "evidence": "3-1",
+          "publishedAt": "2026-09-27T05:53:31.000Z",
+          "url": "https://filmdaily.co/news/college-football-today-big-matchups-you-cant-miss",
+          "value": "3-1"
+        },
+        {
+          "domain": "indiatoday.in",
+          "evidence": "14-10",
+          "publishedAt": "2026-09-24T07:12:02.000Z",
+          "url": "https://www.indiatoday.in/sports/asian-games/story/asian-games-kabaddi-india-steamroll-semifinal-win-chinese-taipei-3001782-2026-09-24",
+          "value": "14-10"
+        }
+      ]
+    }
+  ],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "sports result today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "sports result today latest",
+      "sports result 2026-09-29",
+      "sports result"
+    ]
+  },
+  "retrievalQuery": "sports result today",
+  "summary": "[search] \"latest sports result\" intent=current fresh=true vertical=news years=- raw=10 kept=5 stale-rejected=5 domains=5 conflicts=1 verdict=answer-caveated searchMs=8190 totalMs=8190",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [
+      "score: 20-17 (filmdaily.co) vs 4-0 (filmdaily.co) vs 1-0 (filmdaily.co) vs 3-1 (filmdaily.co) vs 14-10 (indiatoday.in)"
+    ],
+    "contributionsByProvider": [
+      {
+        "kept": 3,
+        "provider": "langsearch",
+        "retrieved": 5
+      },
+      {
+        "kept": 2,
+        "provider": "searxng",
+        "retrieved": 4
+      },
+      {
+        "kept": 0,
+        "provider": "hackernews",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"current\""
+    ],
+    "independentDomains": 5,
+    "intent": "current",
+    "liveData": "score",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "latest sports result",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 6.8150182407407405,
+        "domain": "commercial-news.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.commercial-news.com/sports/local-sports-calendar-sept-22-2026/article_8346f6d6-f07c-40fd-b8e0-b7baffe63ce0.html"
+      },
+      {
+        "ageDays": 6.266684907407407,
+        "domain": "tmdghjs.execupawn.co.za",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://tmdghjs.execupawn.co.za"
+      },
+      {
+        "ageDays": 167.72138398148147,
+        "domain": "connections-hint.today",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://connections-hint.today"
+      },
+      {
+        "ageDays": 5.332321481481482,
+        "domain": "theguardian.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.theguardian.com/media/2026/sep/23/bbc-to-axe-sports-bulletins-on-its-news-channel"
+      },
+      {
+        "ageDays": 5.098293703703704,
+        "domain": "businesslist.my",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.businesslist.my/sportstoto/draw/power-toto-2026-09-23-15926"
+      }
+    ],
+    "rejectedStaleCount": 5,
+    "requiresFreshness": true,
+    "searchMs": 8190,
+    "selectedCount": 5,
+    "sources": [
+      {
+        "age": "7 days ago",
+        "domain": "commercial-news.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-22T05:00:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Local Sports Calendar (Sept. 22, 2026)",
+        "url": "https://www.commercial-news.com/sports/local-sports-calendar-sept-22-2026/article_8346f6d6-f07c-40fd-b8e0-b7baffe63ce0.html"
+      },
+      {
+        "age": "yesterday",
+        "domain": "filmdaily.co",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-27T05:53:31.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.98,
+        "selected": true,
+        "title": "College football today: Big matchups you can’t miss",
+        "url": "https://filmdaily.co/news/college-football-today-big-matchups-you-cant-miss"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "indiatoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T07:12:02.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.97,
+        "selected": true,
+        "title": "Asian Games: India storm into men's, women's kabaddi... - India Today",
+        "url": "https://www.indiatoday.in/sports/asian-games/story/asian-games-kabaddi-india-steamroll-semifinal-win-chinese-taipei-3001782-2026-09-24"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "tmdghjs.execupawn.co.za",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T18:09:36.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.96,
+        "selected": false,
+        "title": "A Closer Look at Tabonline Today Results And Payouts — Teams...",
+        "url": "https://tmdghjs.execupawn.co.za"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "generationiron.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T03:33:58.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.92,
+        "selected": true,
+        "title": "2026 Ms. Olympia Results and Scorecards - Generation Iron Fitness...",
+        "url": "https://generationiron.com/2026-ms-olympia-results"
+      },
+      {
+        "age": "4 hours ago",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T20:08:39.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.86,
+        "selected": true,
+        "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "mandatory.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-24T16:04:14.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.84,
+        "selected": true,
+        "title": "Chris Hemsworth’s Wild Sports Movie Takes Over Prime Video Today",
+        "url": "https://www.mandatory.com/news/1858176-chris-hemsworth-wild-state-sports-movie-prime-video"
+      },
+      {
+        "age": "6 months ago",
+        "domain": "connections-hint.today",
+        "providers": [
+          "hackernews"
+        ],
+        "publishedAt": "2026-04-14T07:14:50Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.81,
+        "selected": false,
+        "title": "Show HN: Connections Hint Today – spoiler-safe hints for NYT Connections",
+        "url": "https://connections-hint.today"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "theguardian.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-23T16:35:05.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.8,
+        "selected": false,
+        "title": "BBC to axe sports bulletins on its news channel",
+        "url": "https://www.theguardian.com/media/2026/sep/23/bbc-to-axe-sports-bulletins-on-its-news-channel"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "businesslist.my",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T22:12:05.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.8,
+        "selected": false,
+        "title": "Power Toto 6/55 Draw on Wednesday, 23 Sep 2026 - Sports Toto...",
+        "url": "https://www.businesslist.my/sportstoto/draw/power-toto-2026-09-23-15926"
+      }
+    ],
+    "totalMs": 8190,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.8,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Sources disagree: score."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.82 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.2 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "5 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "5/5 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 5,
+    "independentDomains": 5,
+    "newestSourceAgeHours": 4.4,
+    "newestSourceAt": "2026-09-28T20:08:39.000Z",
+    "passRate": 0.8,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Sources disagree: score."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

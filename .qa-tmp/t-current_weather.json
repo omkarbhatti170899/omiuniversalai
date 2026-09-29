@@ -1,0 +1,116 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": "All search engines failed for this query. Tried: openmeteo",
+  "refusal": "I could not find any live sources for \"current weather\", so I can't verify a current answer.\n\nI am deliberately not filling this in from my training data — my knowledge has a cutoff and is not a live feed, so a figure I recalled could easily be out of date, and a plausible-looking but unverified number is worse than none. Press Retry Search, or switch a search provider in Settings.",
+  "retrievalPlan": {
+    "notes": [
+      "no weather terms added — the query already expresses that"
+    ],
+    "primary": "weather",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "weather latest",
+      "weather today",
+      "weather 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "weather",
+  "summary": "[search] \"current weather\" intent=current fresh=true vertical=weather years=- raw=0 kept=0 stale-rejected=0 domains=0 conflicts=0 verdict=refuse searchMs=3 totalMs=3",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [],
+    "dedupedCount": 0,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"current\""
+    ],
+    "independentDomains": 0,
+    "intent": "current",
+    "liveData": "weather",
+    "providersFailed": [],
+    "providersSearched": [
+      "openmeteo"
+    ],
+    "query": "current weather",
+    "rawCount": 0,
+    "rejectedStale": [],
+    "rejectedStaleCount": 0,
+    "requiresFreshness": true,
+    "searchMs": 3,
+    "selectedCount": 0,
+    "sources": [],
+    "totalMs": 3,
+    "verification": {
+      "failedChecks": [
+        "relevance",
+        "recency",
+        "authority",
+        "corroboration",
+        "timestamp"
+      ],
+      "passRate": 0,
+      "unverifiable": [
+        "No source clearly answers the question as asked.",
+        "No source recent enough to speak to the current situation was found.",
+        "No primary or reputable source was found.",
+        "No sources were retrieved, so there is nothing to corroborate.",
+        "None of the sources showed a date, so their currency is unknown."
+      ],
+      "verdict": "refuse"
+    },
+    "vertical": "weather"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "no retrieved source directly addresses the question",
+        "id": "relevance",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source carries a date, so recency is unverifiable",
+        "id": "recency",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no sources were retrieved at all",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no source carries a publication date",
+        "id": "timestamp",
+        "passed": false
+      }
+    ],
+    "datedSources": 0,
+    "independentDomains": 0,
+    "passRate": 0,
+    "unverifiable": [
+      "No source clearly answers the question as asked.",
+      "No source recent enough to speak to the current situation was found.",
+      "No primary or reputable source was found.",
+      "No sources were retrieved, so there is nothing to corroborate.",
+      "None of the sources showed a date, so their currency is unknown."
+    ],
+    "verdict": "refuse"
+  }
+}

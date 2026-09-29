@@ -1,0 +1,256 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [],
+    "primary": "today's technology news",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "today's technology news latest",
+      "today's technology news today",
+      "today's technology news 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "today's technology news",
+  "summary": "[search] \"today's technology news\" intent=news fresh=true vertical=news years=- raw=10 kept=9 stale-rejected=1 domains=9 conflicts=0 verdict=answer searchMs=2892 totalMs=2892",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 8,
+        "provider": "searxng",
+        "retrieved": 9
+      },
+      {
+        "kept": 1,
+        "provider": "wikipedia-current-events",
+        "retrieved": 1
+      },
+      {
+        "kept": 1,
+        "provider": "Wikipedia Current Events",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 9,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "today's technology news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 0.7613162847222222,
+        "domain": "businesstoday.in",
+        "reason": "dropped: outside the 2-day window, undated, or past the result limit",
+        "url": "https://www.businesstoday.in/technology/news/story/samsung-galaxy-s27-ultras-camera-design-may-be-changing-new-case-reveals-a-curious-detail-558142-2026-09-28"
+      }
+    ],
+    "rejectedStaleCount": 1,
+    "requiresFreshness": true,
+    "searchMs": 2892,
+    "selectedCount": 9,
+    "sources": [
+      {
+        "age": "11 hours ago",
+        "domain": "ukcolumn.org",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T14:03:18.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "UK Column News — 28th September 2026 | UK Column",
+        "url": "https://www.ukcolumn.org/video/uk-column-news-28th-september-2026"
+      },
+      {
+        "age": "14 hours ago",
+        "domain": "news.sky.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T10:37:20.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.92,
+        "selected": true,
+        "title": "SpaceX latest: Starship makes explosive landing in Pacific... | Sky News",
+        "url": "https://news.sky.com/story/spacex-launch-latest-starship-rocket-heading-for-earths-orbit-for-first-time-13592625"
+      },
+      {
+        "age": "20 hours ago",
+        "domain": "gizmochina.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T04:52:17.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.82,
+        "selected": true,
+        "title": "Honor Magic 9 Pro Max scores 5.52 million on AnTuTu... - Gizmochina",
+        "url": "https://www.gizmochina.com/2026/09/28/honor-magic-9-pro-max-antutu-score-oneplus-16"
+      },
+      {
+        "age": "11 hours ago",
+        "domain": "notebookcheck.net",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T13:51:28.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.81,
+        "selected": true,
+        "title": "China plans mass solid-state battery... - Notebookcheck News",
+        "url": "https://www.notebookcheck.net/China-plans-mass-solid-state-battery-deployment-to-lead-future-EV-technology.1410424.0.html"
+      },
+      {
+        "age": "14 hours ago",
+        "domain": "finance.yahoo.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T10:33:36.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.79,
+        "selected": true,
+        "title": "Nvidia launches AI safety platform after Jensen Huang calls Anthropic...",
+        "url": "https://finance.yahoo.com/technology/article/nvidia-launches-ai-safety-platform-after-jensen-huang-calls-anthropic-openai-warnings-odd-103135599.html"
+      },
+      {
+        "age": "21 hours ago",
+        "domain": "feeder.co",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T03:46:26.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.78,
+        "selected": true,
+        "title": "Tech News - Latest Technology and... | Feeder – RSS Feed Reader",
+        "url": "https://feeder.co/discover/acb33857d6/news-sky-com-technology"
+      },
+      {
+        "age": "11 hours ago",
+        "domain": "phys.org",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T13:50:22.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.76,
+        "selected": true,
+        "title": "A tiny stellar system may be a 'satellite of a satellite'",
+        "url": "https://phys.org/news/2026-09-tiny-stellar-satellite.html"
+      },
+      {
+        "age": "24 hours ago",
+        "domain": "carnewschina.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T00:58:18.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.66,
+        "selected": true,
+        "title": "Geely invests in Nio to launch EVs compatible with its battery-swapping...",
+        "url": "https://carnewschina.com/2026/09/28/geely-invests-in-nio-to-launche-evs-compatible-with-its-battery-swapping-network"
+      },
+      {
+        "age": "yesterday",
+        "domain": "aljazeera.com",
+        "providers": [
+          "wikipedia-current-events",
+          "Wikipedia Current Events"
+        ],
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.62,
+        "selected": true,
+        "title": "Science and technology: SpaceX's Starship Flight 14 launches into orbit from Starbase, Texas, United States. However, it also returns early to Earth",
+        "url": "https://www.aljazeera.com/news/2026/9/28/spacexs-showpiece-starship-rocket-reaches-orbit-for-first-time"
+      },
+      {
+        "age": "18 hours ago",
+        "domain": "businesstoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T06:17:09.000Z",
+        "reason": "dropped: outside the 2-day window, undated, or past the result limit",
+        "score": 0.62,
+        "selected": false,
+        "title": "Samsung Galaxy S27 Ultra may ditch its familiar... - BusinessToday",
+        "url": "https://www.businesstoday.in/technology/news/story/samsung-galaxy-s27-ultras-camera-design-may-be-changing-new-case-reveals-a-curious-detail-558142-2026-09-28"
+      }
+    ],
+    "totalMs": 2892,
+    "verification": {
+      "failedChecks": [],
+      "passRate": 1,
+      "unverifiable": [],
+      "verdict": "answer"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.4 day(s) old, within the 2-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "best source tier weight 0.85",
+        "id": "authority",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "9 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "9/9 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 9,
+    "independentDomains": 9,
+    "newestSourceAgeHours": 10.5,
+    "newestSourceAt": "2026-09-28T14:03:18.000Z",
+    "passRate": 1,
+    "unverifiable": [],
+    "verdict": "answer"
+  }
+}

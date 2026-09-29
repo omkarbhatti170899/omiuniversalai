@@ -1,0 +1,276 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "South Korea news today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "South Korea news today latest",
+      "South Korea news 2026-09-29",
+      "South Korea news"
+    ]
+  },
+  "retrievalQuery": "South Korea news today",
+  "summary": "[search] \"latest South Korea news\" intent=news fresh=true vertical=news years=- raw=10 kept=6 stale-rejected=4 domains=5 conflicts=0 verdict=answer-caveated searchMs=3557 totalMs=3557",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 5,
+        "provider": "searxng",
+        "retrieved": 9
+      },
+      {
+        "kept": 1,
+        "provider": "langsearch",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"news\""
+    ],
+    "independentDomains": 5,
+    "intent": "news",
+    "liveData": null,
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "query": "latest South Korea news",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": 5.643256770833333,
+        "domain": "cbsnews.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.cbsnews.com/minnesota/tag/south-korea/3"
+      },
+      {
+        "ageDays": 6.6099234375,
+        "domain": "arabnews.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.arabnews.com/world/south-korea-sees-signs-north-is-dismantling-border-loudspeakers-defense-ministry-1294476"
+      },
+      {
+        "ageDays": 6.450837789351851,
+        "domain": "economictimes.indiatimes.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://economictimes.indiatimes.com/topic/indian-woman-in-south-korea"
+      },
+      {
+        "ageDays": 6.091775289351852,
+        "domain": "korean-vibe.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://korean-vibe.com/news/newsview.php?ncode=179532462323635"
+      }
+    ],
+    "rejectedStaleCount": 4,
+    "requiresFreshness": true,
+    "searchMs": 3557,
+    "selectedCount": 6,
+    "sources": [
+      {
+        "age": "3 days ago",
+        "domain": "en.yna.co.kr",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T05:05:23.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "Today in Korean history | Yonhap News Agency",
+        "url": "https://en.yna.co.kr/view/AEN20260926000700315"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "cbsnews.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T09:07:52.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "South Korea news - Today’s latest updates - Page 3 - CBS Minnesota",
+        "url": "https://www.cbsnews.com/minnesota/tag/south-korea/3"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "khelnow.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-25T19:44:53.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "South Korea vs Uruguay Preview – prediction, team news, lineups | International friendly 2026",
+        "url": "https://khelnow.com/football/south-korea-vs-uruguay-preview-international-friendly-202609"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "arabnews.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T09:55:52.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.93,
+        "selected": false,
+        "title": "Arab News | South Korea sees signs North is dismantling border...",
+        "url": "https://www.arabnews.com/world/south-korea-sees-signs-north-is-dismantling-border-loudspeakers-defense-ministry-1294476"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "en.yna.co.kr",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T05:27:27.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.89,
+        "selected": true,
+        "title": "Today in Korean history | Yonhap News Agency",
+        "url": "https://en.yna.co.kr/view/AEN20260924001800315"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "upi.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-25T11:44:22.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.89,
+        "selected": true,
+        "title": "British anti-migrant activist pleads not guilty in dinghy slashing - UPI.com",
+        "url": "https://www.upi.com/Top_News/World-News/2026/09/25/anti-migrant-activist-denies-dinghy-slashing-charges/6571790333449"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "economictimes.indiatimes.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T13:44:57.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.85,
+        "selected": false,
+        "title": "indian woman in south korea: Latest News & Videos, Photos about...",
+        "url": "https://economictimes.indiatimes.com/topic/indian-woman-in-south-korea"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "khaosodenglish.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T07:25:49.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.84,
+        "selected": true,
+        "title": "Why are fewer Thais travelling to South Korea?",
+        "url": "https://www.khaosodenglish.com/tourism/2026/09/24/why-are-fewer-thais-travelling-to-south-korea"
+      },
+      {
+        "age": "13 hours ago",
+        "domain": "en.sedaily.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T11:24:45.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.84,
+        "selected": true,
+        "title": "Record 330 mm Rain Floods Bangkok, Stranding Hundreds of Koreans",
+        "url": "https://en.sedaily.com/international/2026/09/28/record-330-mm-rain-floods-bangkok-stranding-hundreds-of"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "korean-vibe.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T22:22:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.83,
+        "selected": false,
+        "title": "Top headlines in major S. Korean newspapers | 연합뉴스",
+        "url": "https://korean-vibe.com/news/newsview.php?ncode=179532462323635"
+      }
+    ],
+    "totalMs": 3557,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.8,
+      "unverifiable": [
+        "No primary or reputable source was found."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "news"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.87 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.5 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "5 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "6/6 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 6,
+    "independentDomains": 5,
+    "newestSourceAgeHours": 13.2,
+    "newestSourceAt": "2026-09-28T11:24:45.000Z",
+    "passRate": 0.8,
+    "unverifiable": [
+      "No primary or reputable source was found."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

@@ -1,5 +1,46 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## LIVE VALIDATION (2026-09-29, deployment resumed) — real chat path
+
+Ten queries through `searchDebug:traceSearch`, which mirrors the chat turn
+exactly (decide → policy → rewrite → fan-out → freshness → year/event →
+validation):
+
+| Query | raw→kept | SearXNG kept | LangSearch kept | verdict | newest |
+|---|---|---|---|---|---|
+| Asian Games 2026 medals (India) | 9→5 | 0 (timed out) | **9/9 carried it** | answer-caveated | 24.3h |
+| latest world news | 10→7 | **6** | 1 | answer-caveated | **4.4h** |
+| latest India news | 10→7 | **5** | 2 | answer-caveated | 22:59 today |
+| today's technology news | 10→9 | **8** | 0 | **answer** | 14:03 today |
+| current market information | 10→4 | 2 | 2 | **answer** | 20:08 today |
+| latest science news | 10→5 | 2 | 3 | answer-caveated | 00:00 today |
+| latest sports result | 10→5 | 2 | 3 | answer-caveated | 20:08 today |
+| latest Japan news | 10→7 | **7** | 1 | answer-caveated | 19:18 today |
+| latest South Korea news | 10→6 | **5** | 1 | answer-caveated | 11:24 today |
+| current weather | 0→0 | — | — | **refuse (correct: no city)** | — |
+
+Key proofs:
+- **SearXNG is live in production** and carried 5–8 sources on every
+  general-news query (the user's "DO NOT replace SearXNG" is honoured).
+- **Fallback proven in BOTH directions with production data**: on the Asian
+  Games query SearXNG timed out and LangSearch carried 9/9; on tech news
+  LangSearch contributed 0 and SearXNG carried 8/9.
+- **Year/event gate fired live**: an en.wikipedia.org source was dropped with
+  reason `"about a different year than asked"` for the 2026 query; all 5
+  kept sources are 2026-dated.
+- **Dates survive normalization**: every kept source carries its publishedAt.
+- **Cache bypass proven live**: two consecutive Asian Games traces returned
+  different raw sets (9 then 10) — the second re-searched.
+- **Benchmark (22 queries, production path)**: searxng avail 1.00, p50 583ms,
+  dated 16% · langsearch avail 1.00, p50 877ms, dated 100% · mwmbl 0.91 ·
+  wikipedia-current-events 0.83, dated 100%.
+- Honest caveats: the Asian Games answer is `answer-caveated` (sources
+  disagree on medal counts across days; no official-results authority kept) —
+  the verification layer REPORTS the conflict instead of picking a winner.
+  `/selftest` and `/currentinfo` over HTTP stayed gated by the flapping
+  deployment router while CLI actions ran; they remain the outstanding live
+  gate.
+
 Scope: the 13-point "stabilize and prove" instruction. Everything below is
 **measured**, not assumed. Where a claim could not be verified live, it says so
 under **BLOCKED** — nothing is marked PASS on faith.
