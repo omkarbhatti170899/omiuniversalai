@@ -1,0 +1,1337 @@
+{
+  "answerContract": {
+    "allSourcesDated": 14,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 6,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 9
+  },
+  "byCategory": {
+    "finance": {
+      "fresh": 1,
+      "kept": 10,
+      "n": 1
+    },
+    "sports": {
+      "fresh": 3,
+      "kept": 21,
+      "n": 14
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 5,
+      "n": 2
+    },
+    "current": {
+      "fresh": 0,
+      "kept": 1,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 0,
+      "kept": 3,
+      "n": 4
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "none": {
+      "fresh": 1,
+      "kept": 10,
+      "n": 2
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 12,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 30,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 515,
+        "statesFreshness": true,
+        "text": "Completed results from earlier today are not included. [1]\n\nNecaxa Femenil v Toluca Femenil — in play (1H), 0 – 1. [1]\n\nAlianza v Independiente de La Chorrera — in play (1H), 0 – 0. [2]\n\nLive scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nSources: [1] Necaxa Femenil v Toluca Femenil 0 – 1 (Mexican Liga Femenil · 7 · 2026-09-29 01:06:00) (thesportsdb.com)  [2] Alianza v Independiente de La Chorrera 0 – 0 (Panama Liga Panamena de Futbol · 8 · 2026-09-29 01:00:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "football results today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T01:15:06.595Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Necaxa Femenil v Toluca Femenil 0 – 1 (Mexican Liga Femenil · 7 · 2026-09-29 01:06:00)",
+            "url": "https://www.thesportsdb.com/team/143080"
+          },
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T01:15:06.595Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Alianza v Independiente de La Chorrera 0 – 0 (Panama Liga Panamena de Futbol · 8 · 2026-09-29 01:00:00)",
+            "url": "https://www.thesportsdb.com/team/139733"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.84,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1392,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest cricket match result",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | TheSportsDB reports no live or scheduled Cricket matche"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 623,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "live football scores",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1554,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 266,
+        "statesFreshness": false,
+        "text": "English Premier League — league standings. [1]\n\nStandings from TheSportsDB's league table. [1]\n\nFigures as reported by the feed; current season as labelled by the provider. [1]\n\nSources: [1] English Premier League — league standings (5 teams shown) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Premier League standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 111.3,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-24T10:00:07.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "English Premier League — league standings (5 teams shown)",
+            "url": "https://www.thesportsdb.com/league/4328"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 111.3,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.89,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 424,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 939,
+        "statesFreshness": true,
+        "text": "Laavanya Negi is Journalist and education news reporter. [1]\n\nThe 32 year old Pandya is based out of Bengaluru since the end of IPL and now trains at the Centre of Excellence having relocated to the Garden City. [3]\n\nThey can also reach out on the official email address at cheeapcet@gmail.com. [1]\n\nAt Jagran Josh, Laavanya covers the full spectrum of international, national, and regional education news - ranging from CBSE and State Board results to major entrance exams like CUET, JEE, and NEET, and college admissions and counselling. [1]\n\nSources: [1] AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter - Link Here (jagranjosh.com)  [2] Karnataka NEET MDS 2026: Round 2 Provisional Seat Allotment Result Released at cetonline.karnataka.gov.in, Final Result Expected Soon (jagranjosh.com)  [3] Hardik Pandya suffers fresh shin injury, o"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest IPL news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 112.7,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:34:33.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter ",
+            "url": "https://www.jagranjosh.com/news/ap-barch-admissions-2026-seat-allotment-result-release-at-cap-apcfss-in-download-allocation-letter-pdf-direct-link-here-187732"
+          },
+          {
+            "ageHours": 115.7,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T05:34:13.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Karnataka NEET MDS 2026: Round 2 Provisional Seat Allotment Result Released at cetonline.karnataka.gov.in, Fin",
+            "url": "https://www.jagranjosh.com/news/karnataka-neet-mds-2026-round-2-provisional-seat-allotment-result-released-at-cetonline-karnataka-gov-in-final-result-expected-soon-187718"
+          },
+          {
+            "ageHours": 69.1,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T04:07:48.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.61,
+              "freshness": 0.17,
+              "relevance": 0.1,
+              "sourceQuality": 0.12
+            },
+            "title": "Hardik Pandya suffers fresh shin injury, out of New Zealand series",
+            "url": "https://www.thehindu.com/sport/cricket/hardik-pandya-suffers-fresh-shin-injury-out-of-new-zealand-series/article71511591.ece"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 69.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4939ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4918ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4916ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4901ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.823,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 20602,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Formula 1 2026 season results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | TheSportsDB has no current fixture for \"Formula 1 2026 "
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 626,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "NBA standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | TheSportsDB has no current league table for \"NBA\". Omi "
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 91,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest tennis tournament results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | TheSportsDB reports no live or scheduled Tennis matches"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 471,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "today's match fixtures",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "who won the most recent F1 race",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 799,
+        "statesFreshness": false,
+        "text": "How many medals did India win on Day 8 (September 27) of Asian Games 2026? [2]\n\nWhat is India’s position in the medal table after Day 8 (September 27) at Asian Games 2026? [2]\n\nChina continues to lead the Asian Games 2026 medal standings by a significant margin. [1]\n\nWho were India’s medal winners on Day 8 (September 27) of Asian Games 2026? [2]\n\nSources: [1] Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 (freepressjournal.in)  [2] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [3] Asian Games 2026: Updated medal tally after Day 8, September 27 (khelnow.com)  [4] Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India Rise To 10th (freepressjournal.in)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 medal tally India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 33.9,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:21:40.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+          },
+          {
+            "ageHours": 25.1,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:09:28.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+            "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+          },
+          {
+            "ageHours": 31.7,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 58.7,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:31:54.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India R",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medal-tally-day-8-kabaddi-teams-bag-twin-golds-tajinderpal-toor-sawan-barwal-help-india-rise-to-10th"
+          },
+          {
+            "ageHours": 1.3,
+            "domain": "astrologydivine.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.23,
+              "relevance": 0.14,
+              "sourceQuality": 0.12
+            },
+            "title": "Sankashti Chaturthi 2026 | Astrology Divine",
+            "url": "https://www.astrologydivine.com/festivals/sankashti-chaturthi-29-sep-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 1.3,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.96,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 3317,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest Asian Games 2026 results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Olympic medal table",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1106,
+        "statesFreshness": false,
+        "text": "The 1966 FIFA World Cup final was a football match played at Wembley Stadium in London on Saturday 30 July 1966 to determine the winner of the 1966 FIFA World Cup, the eighth FIFA World Cup. [1]\n\nWorld Cup 2022: Morocco and Portugal through to quarter-finals It was a really exciting night of football as the final two World Cup quarter-final spots … [9]\n\nControversy, Joy and Politics: 5 Takeaways From the World Cup Final Six goals, pitch invaders, controversial decisions and excitable world leaders: the f… [10]\n\nThe FIFA World Cup is an international association football competition contested by the senior men's national teams of the Fédération Internationale de Football Association (FIFA), the sport's global governing body. [2]\n\nSources: [1] 1966 FIFA World Cup final (en.wikipedia.org)  [2] List of FIFA World Cup finals (en.wikipedia.org)  [3] A Changing Dichotomy: The Conception of the "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "history of the World Cup final",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "1966 FIFA World Cup final",
+            "url": "https://en.wikipedia.org/wiki/1966_FIFA_World_Cup_final"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "List of FIFA World Cup finals",
+            "url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals"
+          },
+          {
+            "ageHours": 59816.6,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2019-12-02T16:42:08Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.64,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "A Changing Dichotomy: The Conception of the \"Macroscopic\" and \"Microscopic\" Worlds in the History of Physics",
+            "url": "http://arxiv.org/abs/1912.00914v2"
+          },
+          {
+            "ageHours": 131367.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2011-10-04T10:01:31Z",
+            "relevance": 0.52,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.52,
+              "freshness": 0,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "On the history of the isomorphism problem of dynamical systems with special regard to von Neumann's contributi",
+            "url": "http://arxiv.org/abs/1110.0625v1"
+          },
+          {
+            "ageHours": 4885,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-03-09T12:14:01Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.01,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Show HN: Kairos, real-time AI who cross-verifies (Python, 100KB)",
+            "url": "https://news.ycombinator.com/item?id=47308049"
+          },
+          {
+            "ageHours": 4888.2,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-03-09T09:03:15Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.01,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Kairos – real-time AI that cross-verifies news before answering (Python, 90KB)",
+            "url": "https://news.ycombinator.com/item?id=47306489"
+          },
+          {
+            "ageHours": null,
+            "domain": "eff.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Counter-Surveillance Success Stories | Electronic Frontier Found…",
+            "url": "http://www.eff.org/csss"
+          },
+          {
+            "ageHours": null,
+            "domain": "wbur.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "WBUR",
+            "url": "https://www.wbur.org"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "World Cup 2022: Morocco and Portugal through to quarter-finals -…",
+            "url": "https://www.bbc.com/newsround/63885518"
+          },
+          {
+            "ageHours": null,
+            "domain": "time.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "2018 FIFA World Cup Final: 5 Key Takeaways | TIME",
+            "url": "http://time.com/5339540/world-cup-final"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 4885,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.757,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1377,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1610,
+        "statesFreshness": true,
+        "text": "This Biotech Company Added Nearly $3B To Its Market Cap Today – Here’s Why KOD Stock Is Ripping Today\n\nKodiak Sciences shares saw their biggest ever single-day gains after the company posted positive Phase 3 data for 2 therapies targeting wet age-related macular degeneration. [3]\n\nSensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334)\n\nSensex, Nifty, Share Prices Live: The stock of Manappuram Finance saw a decline in price in the recent weeks. [1]\n\nSensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions\n\nSensex declined over 500 points as rising crude oil prices and global uncertainty affected investor sentiment. [2]\n\nS&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Stocks Slide Ahead Fed Rate Hike | Check What Investors Should Watch\n\nS&P 500 Today: The S&P 500 was already "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "stock market today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 24,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:13:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334)",
+            "url": "https://www.thehindubusinessline.com/markets/sensex-nifty50-today-stock-market-live-updates-28-septmeber-2026/article71515691.ece"
+          },
+          {
+            "ageHours": 20.6,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:41:29.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions",
+            "url": "https://www.dynamitenews.com/business/sensex-crashes-over-500-points-why-stock-market-fell-today-amid-global-tensions"
+          },
+          {
+            "ageHours": 11,
+            "domain": "stocktwits.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:14:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "This Biotech Company Added Nearly $3B To Its Market Cap Today – Here’s Why KOD Stock Is Ripping Today",
+            "url": "https://stocktwits.com/news-articles/markets/equity/this-biotech-company-added-nearly-3-b-to-its-market-cap-today-here-s-why-kod-stock-is-ripping-today/cZMSD46RBQY"
+          },
+          {
+            "ageHours": 9.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:06:39.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "S&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Sto",
+            "url": "https://sundayguardianlive.com/business/sp-500-today-live-index-slides-088-as-oil-climbs-above-106-treasury-yields-rise-nvidia-gains-tech-stocks-slide-ahead-fed-rate-hike-check-what-investors-should-watch-294673"
+          },
+          {
+            "ageHours": 20.7,
+            "domain": "livemint.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:31:23.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Mint Exclusive | How is Indian stock market bottom linked to the US 10-year bond yield? Chris Wood of Jefferie",
+            "url": "https://www.livemint.com/market/stock-market-news/mint-exclusive-how-is-indian-stock-market-bottom-linked-to-the-us-10-year-bond-yield-chris-wood-of-jefferies-explains-11790566134388.html"
+          },
+          {
+            "ageHours": 1.3,
+            "domain": "odljain.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "What is a Work-Integrated MBA in Marketing? Fast-Track to Top Roles",
+            "url": "https://www.odljain.com/blog/work-integrated-mba-in-marketing-fast-track-career.html"
+          },
+          {
+            "ageHours": 15.7,
+            "domain": "leo-ai.io",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T09:34:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "5 AI Video Marketing Strategies Your SaaS Brand Cant Afford to Miss in 2025 | Leo AI",
+            "url": "https://leo-ai.io/blog/5-AI-Video-Marketing-Strategies-Your-SaaS-Brand-Cant-Afford-to-Miss-in-2025"
+          },
+          {
+            "ageHours": 5.1,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 21.5,
+            "domain": "cryptowisser.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T03:46:41.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Aave Lets Users Borrow USDC Against Tokenized Apple and Tesla Stock",
+            "url": "https://www.cryptowisser.com/news/aave-lets-users-borrow-usdc-against-tokenized-apple-and-tesla-stock"
+          },
+          {
+            "ageHours": 13.1,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:10:50.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Grow Your Business with Social Media Marketing, Dallas",
+            "url": "https://www.adproceed.com/ads/grow-your-business-with-social-media-marketing-dallas"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 1.3,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.936,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1540,
+      "vertical": "markets"
+    }
+  ],
+  "total": 138
+}

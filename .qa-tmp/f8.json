@@ -1,0 +1,2949 @@
+{
+  "answerContract": {
+    "allSourcesDated": 10,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 11,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 4
+  },
+  "byCategory": {
+    "japan": {
+      "fresh": 3,
+      "kept": 26,
+      "n": 3
+    },
+    "multilingual": {
+      "fresh": 5,
+      "kept": 43,
+      "n": 9
+    },
+    "south-korea": {
+      "fresh": 3,
+      "kept": 35,
+      "n": 3
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 2,
+      "n": 1
+    },
+    "current": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 1
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 26,
+      "n": 7
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 36,
+      "n": 3
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 28,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 105,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 870,
+        "statesFreshness": true,
+        "text": "Bringing you yesterday's news from Japan and Asia, today. [1]\n\nBtc very bad news today now dwon side.Bank of Japan debated need for faster rate hikes, July minutes show. [4]\n\nFast forward to today: Policymakers in Japan and the United States are trying to thread a tiny, sharp needle. [2]\n\nIn 2006, Kouichi Kawamura and colleagues published a genetic study in the journal Molecular Ecology that found that almost all the bluegill fish swimming in Japan’s lakes and rivers today are descendants of just 15 fish. [5]\n\nSources: [1] How to get into this beautiful... | SoraNews24 —Japan News (soranews24.com)  [2] The revival of Japan’s economy isn’t all good news. (nytimes.com)  [3] Articles about politics, economy, culture, history, sports, tourism in DPRK (pyongyangtimes.com.kp)  [4] Japan's Top Currency Diplomat Mimura: Japanese... | Forex Factory (forexfactory.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japan news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "soranews24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:04:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "How to get into this beautiful... | SoraNews24 —Japan News",
+            "url": "https://soranews24.com/2026/09/29/how-to-get-into-this-beautiful-off-the-beaten-path-kyoto-temple-earlier-than-the-general-public"
+          },
+          {
+            "ageHours": 16.5,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:04:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The revival of Japan’s economy isn’t all good news.",
+            "url": "https://www.nytimes.com/2026/09/28/opinion/bond-market-japan-yen.html"
+          },
+          {
+            "ageHours": 19.5,
+            "domain": "pyongyangtimes.com.kp",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:07:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Articles about politics, economy, culture, history, sports, tourism in DPRK",
+            "url": "http://www.pyongyangtimes.com.kp/blog?page=today-news&blogid=6ab85b0d3e49c505a489f96b"
+          },
+          {
+            "ageHours": 17.6,
+            "domain": "forexfactory.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:00:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan's Top Currency Diplomat Mimura: Japanese... | Forex Factory",
+            "url": "https://www.forexfactory.com/news/1428775-japans-top-currency-diplomat-mimura-japanese-prime-minister"
+          },
+          {
+            "ageHours": 21.1,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:31:17.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "A 1960 aquarium gift left Japan's future emperor with 15 bluegill; their descendants spread across the country",
+            "url": "https://www.hindustantimes.com/world-news/a-1960-aquarium-gift-left-japans-future-emperor-with-15-bluegill-their-descendants-spread-across-the-country-101790419028451.html"
+          },
+          {
+            "ageHours": 11.6,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The Bells of Nagasaki by Takashi Nagai | 9781529952599 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781529952599"
+          },
+          {
+            "ageHours": 16.4,
+            "domain": "daikin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:12:41.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Daikin Global | Press Releases | Daikin Releases Integrated Report...",
+            "url": "https://www.daikin.com/press/2026/20260928"
+          },
+          {
+            "ageHours": 6.2,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:24:17.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Modern Pilgrimage Trails Reshape Transformative Travel in 2026",
+            "url": "https://que.com/modern-pilgrimage-trails-reshape-transformative-travel-in-2026"
+          },
+          {
+            "ageHours": 11.6,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Journey Across Japan by Chris Broad | 9780857508300 | Paperback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9780857508300"
+          },
+          {
+            "ageHours": 22.9,
+            "domain": "tass.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:40:50.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Russia does not believe in Japan’s promises to remove US... - TASS",
+            "url": "https://tass.com/politics/2193705"
+          },
+          {
+            "ageHours": 9.3,
+            "domain": "mynintendonews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:20:10.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan: Fire Emblem: Fortune’s Weave shifts... - My Nintendo News",
+            "url": "https://mynintendonews.com/2026/09/28/japan-fire-emblem-fortunes-weave-shifts-127k-physical-copies-and-switch-2-sells-34k-units"
+          },
+          {
+            "ageHours": 1.6,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Journey Across Japan by Chris Broad - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/journey-across-japan-9780857508300"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.903,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2925,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          10,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 636,
+        "statesFreshness": false,
+        "text": "Japanese economy shrank in fourth quarter Japan's economy shrank 2.3% in the fourth quarter as manufacturers were hit by the strong yen, weak export dema… [6]\n\nCan she deliver what has eluded the Japanese economy for decades: faster growth? [8]\n\nThe yen's muted response to higher Japanese interest rates may point to deeper constraints in the Japanese economy. [10]\n\n#2026 might see the Japanese economy decelerating. [11]\n\nSources: [1] Japanese asset price bubble (en.wikipedia.org)  [2] Japanese economic miracle (en.wikipedia.org)  [3] The Japanese economy (2010) (openlibrary.org)  [4] The Japanese Economy (2000) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japanese economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Japanese asset price bubble",
+            "url": "https://en.wikipedia.org/wiki/Japanese_asset_price_bubble"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Japanese economic miracle",
+            "url": "https://en.wikipedia.org/wiki/Japanese_economic_miracle"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Japanese economy (2010)",
+            "url": "https://openlibrary.org/works/OL19998796W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Japanese Economy (2000)",
+            "url": "https://openlibrary.org/works/OL8014910W"
+          },
+          {
+            "ageHours": null,
+            "domain": "money.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese economy shrinks 1.4% in fourth quarter",
+            "url": "http://money.cnn.com/2016/02/14/news/economy/japan-economy-shrinks/index.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese economy shrank in fourth quarter | Global economy | The…",
+            "url": "https://www.theguardian.com/business/2012/feb/13/japan-economy-shrank-fourth-quarter"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The yen is everything to Japan’s economy",
+            "url": "https://www.ft.com/content/07276a3f-7ba8-45b2-8017-a886faf1fb71?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan election: Can Sanae Takaichi fix the economy?",
+            "url": "https://www.bbc.com/news/articles/cddn7qed35eo"
+          },
+          {
+            "ageHours": null,
+            "domain": "dspace.mit.edu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Long-run projection of the Japanese economy",
+            "url": "http://dspace.mit.edu/handle/1721.1/83006"
+          },
+          {
+            "ageHours": 35.5,
+            "domain": "globaltimes.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T14:08:27.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.04,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese economy shrouded in greater uncertainty as... - Global Times",
+            "url": "https://www.globaltimes.cn/page/202609/1371430.shtml"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan Economic Outlook: Balancing Contraction | LinkedIn",
+            "url": "https://www.linkedin.com/posts/davidhasenbalg_japan-economic-outlook-january-2026-activity-7429528912709398528-GF8Y"
+          },
+          {
+            "ageHours": null,
+            "domain": "allwellbeing.github.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Why the Japanese economy is falling again and what will happen to it...",
+            "url": "https://allwellbeing.github.io/news/63738f8b9a7947e7e6442c83"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 35.5,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.871,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1417,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 929,
+        "statesFreshness": false,
+        "text": "Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery\n\nHome » Gallery » Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery\n\nPosted By: Social News XYZ September 26, 2026\n\n-\n\nNagoya: India’s Unnathi Aiyappa Bollanda (2nd from left) competes during the womens 200m Round 1 at the Asian Games 2026 in Nagoya, Japan, on Saturday, September 26, 2026. [1]\n\n(Photo: Xinhua via IANS)\n\n-\n\nNagoya: India’s Unnathi Aiyappa Bollanda (2nd from left) competes during the womens 200m Round 1 at the Asian Games 2026 in Nagoya, Japan, on Saturday, September 26, 2026. [1]\n\nIt covers Gossips, Politics, Movies, Technolgy, and Sports News and Photo Galleries and Live Coverage of Events via Youtube. [1]\n\n(Photo: IANS/Biplab Banerjee)\n\nAn Indo-American News website. [2]\n\nSources: [1] Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery (socialnews.xyz)  [2] Nagoya: Asian Games 2026 – Men’s High J"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japan 2026 events",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 60.5,
+            "domain": "socialnews.xyz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T13:04:11.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Nagoya: Asian Games 2026 – Women’s 200m Round 1 – #Gallery",
+            "url": "https://www.socialnews.xyz/2026/09/26/nagoya-asian-games-2026-womens-200m-round-1-gallery"
+          },
+          {
+            "ageHours": 34,
+            "domain": "socialnews.xyz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:34:13.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Nagoya: Asian Games 2026 – Men’s High Jump #Gallery",
+            "url": "https://www.socialnews.xyz/2026/09/27/nagoya-asian-games-2026-mens-high-jump-gallery"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 34,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1345,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1333,
+        "statesFreshness": true,
+        "text": "Russia Ukraine War Latest News: South Korea’s President Lee Jee Myung Accuses Ukraine of Breaching Confidentiality Agreement After Zelensky’s POW Transfer Announcement\n\nRussia Ukraine War Latest News: Lee Jae Myung, the President of South Korea has criticised Ukraine for allegedly breaking a confidentiality agreement. [11]\n\nKim Soo-yeon, 김수연.2003 -- A Russian rocket carrying a South Korean scientific research satellite is successfully launched from Russia's Plesetsk Cosmodrome base near the Arctic Ocean. [1]\n\nBetting Tips & Odds\n\nSouth Korea to win\nSon Heung-min to score\nGoals over 3.5\n\nInjury and Team News\n\nAll of the selected players are fit and ready to be in action for both South Korea and Uruguay. [2]\n\nNorth Korea warns South Korea could become target for retaliation\n\nSeoul, Sept 25:\n\nNorth Korea has warned that South Korea could become a “decisive target” for collective retaliation"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "latest South Korea news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 68.5,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T05:05:23.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Today in Korean history | Yonhap News Agency",
+            "url": "https://en.yna.co.kr/view/AEN20260926000700315"
+          },
+          {
+            "ageHours": 77.8,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:44:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "South Korea vs Uruguay Preview – prediction, team news, lineups | International friendly 2026",
+            "url": "https://khelnow.com/football/south-korea-vs-uruguay-preview-international-friendly-202609"
+          },
+          {
+            "ageHours": 85.9,
+            "domain": "upi.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:44:22.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "British anti-migrant activist pleads not guilty in dinghy slashing - UPI.com",
+            "url": "https://www.upi.com/Top_News/World-News/2026/09/25/anti-migrant-activist-denies-dinghy-slashing-charges/6571790333449"
+          },
+          {
+            "ageHours": 116.1,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:27:27.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Today in Korean history | Yonhap News Agency",
+            "url": "https://en.yna.co.kr/view/AEN20260924001800315"
+          },
+          {
+            "ageHours": 114.2,
+            "domain": "khaosodenglish.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T07:25:49.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Why are fewer Thais travelling to South Korea?",
+            "url": "https://www.khaosodenglish.com/tourism/2026/09/24/why-are-fewer-thais-travelling-to-south-korea"
+          },
+          {
+            "ageHours": 20.3,
+            "domain": "thepattayanews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:15:48.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Body Believed to be Missing South Korean Man... - The Pattaya News",
+            "url": "https://thepattayanews.com/2026/09/28/body-believed-to-be-missing-south-korean-man-recovered-from-flooded-canal-near-pattaya-golf-course"
+          },
+          {
+            "ageHours": 14.2,
+            "domain": "en.sedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:24:45.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Record 330 mm Rain Floods Bangkok, Stranding Hundreds of Koreans",
+            "url": "https://en.sedaily.com/international/2026/09/28/record-330-mm-rain-floods-bangkok-stranding-hundreds-of"
+          },
+          {
+            "ageHours": 12.7,
+            "domain": "abcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:55:04.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "S. Korea says border blasts injured 3 officers was likely... - ABC News",
+            "url": "https://abcnews.com/International/wireStory/south-korea-border-blasts-injured-3-officers-caused-136818573"
+          },
+          {
+            "ageHours": 91.3,
+            "domain": "newstodaynet.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:17:28.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "North Korea warns South Korea could become target for retaliation",
+            "url": "https://newstodaynet.com/2026/09/25/north-korea-warns-south-korea-could-become-target-for-retaliation"
+          },
+          {
+            "ageHours": 97.6,
+            "domain": "straitstimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:01:52.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "North Korea says South Korea a target if it becomes US collective defence hub",
+            "url": "https://www.straitstimes.com/asia/north-korea-says-south-korea-a-target-if-it-becomes-us-collective-defence-hub"
+          },
+          {
+            "ageHours": 87.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:14:11.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Russia Ukraine War Latest News: South Korea’s President Lee Jee Myung Accuses Ukraine of Breaching Confidentia",
+            "url": "https://sundayguardianlive.com/world/russia-ukraine-war-latest-news-south-koreas-president-lee-jee-myung-accuses-ukraine-of-breaching-confidentiality-agreement-after-zelenskys-pow-transfer-announcement-292486"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 12.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.865,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1407,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 993,
+        "statesFreshness": true,
+        "text": "SEOUL, South Korea (AP) — North Korea likely planted the land mines that injured three South Korean soldiers last week along the heavily fortified border separating the countries, South Korea's military said Monday.Today's news. [6]\n\nSeoul Full Forecast.29 (Yonhap) -- The following are the top headlines in major South Korean newspapers on Sept. [3]\n\nToday’s Paper.South Korean President Lee Jae-myung speaks at a press conference with people raising their hands in the foreground. [2]\n\nKim, a 37-year-old South Korean, told Yonhap News that they had been scheduled to fly home with eight family members on a Thai Airways flight at 11:10 p.m. [10]\n\nSources: [1] South Korea demands apology from Ukraine over North... | Daryo (daryo.uz)  [2] South Korea fumes at Ukraine after Zelensky dishes on transfer of... (nypost.com)  [3] Top headlines in major S. Korean newspapers | Yonhap News Agency (en.yn"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "South Korea news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 19.2,
+            "domain": "daryo.uz",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:25:13.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea demands apology from Ukraine over North... | Daryo",
+            "url": "https://daryo.uz/en/2026/09/28/south-korea-demands-apology-from-ukraine-over-north-korean-pow-disclosure"
+          },
+          {
+            "ageHours": 11.8,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:48:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea fumes at Ukraine after Zelensky dishes on transfer of...",
+            "url": "https://nypost.com/2026/09/28/world-news/south-korea-fumes-at-ukraine-after-zelensky-dishes-on-transfer-of-captured-north-korean-soldiers"
+          },
+          {
+            "ageHours": 3.2,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:23:45.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Top headlines in major S. Korean newspapers | Yonhap News Agency",
+            "url": "https://en.yna.co.kr/view/AEN20260929000600315"
+          },
+          {
+            "ageHours": 18.8,
+            "domain": "abcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:48:50.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Seoul demands apology after Zelenskyy reveals North... - ABC News",
+            "url": "https://abcnews.com/International/wireStory/seoul-demands-apology-after-zelenskyy-unilaterally-reveals-north-136814400"
+          },
+          {
+            "ageHours": 19,
+            "domain": "apnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:34:29.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea demands an apology over Zelenskyy's POW... | AP News",
+            "url": "https://apnews.com/article/south-korea-ukraine-prisoners-of-war-russia-17df235a34d773c7dcf20a6b73f2b997"
+          },
+          {
+            "ageHours": 9.9,
+            "domain": "uk.news.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:43:25.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea says border blasts that injured... - Yahoo News UK",
+            "url": "https://uk.news.yahoo.com/south-korea-says-border-blasts-114615434.html"
+          },
+          {
+            "ageHours": 17.7,
+            "domain": "openchronicle.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:52:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Global News Brief: Key Developments Around the World, September...",
+            "url": "https://openchronicle.org/2026/09/28/global-news-brief-key-developments-around-the-world-september-28-2026"
+          },
+          {
+            "ageHours": 13.3,
+            "domain": "vavel.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:17:04.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea vs Uruguay LIVE Score, Guillermo Varela scores the third (0-3)",
+            "url": "https://www.vavel.com/en-us/soccer/2026/09/28/1273145-south-korea-vs-uruguay-live-score-friendly.html"
+          },
+          {
+            "ageHours": 5.9,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:43:27.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "North Korea UN speech: Pyongyang backs... - India Today",
+            "url": "https://www.indiatoday.in/world/story/north-korea-un-speech-multilateralism-nuclear-deterrent-no-direct-threat-ptag-3005283-2026-09-29"
+          },
+          {
+            "ageHours": 14.2,
+            "domain": "en.sedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:24:45.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Record 330 mm Rain Floods Bangkok, Stranding Hundreds of Koreans",
+            "url": "https://en.sedaily.com/international/2026/09/28/record-330-mm-rain-floods-bangkok-stranding-hundreds-of"
+          },
+          {
+            "ageHours": 11.6,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "The Left's War on Reality by Michael Shellenberger | 9780063498112 | Paperback",
+            "url": "https://www.abbeys.com.au/book/pathocracy-9780063498112.do"
+          },
+          {
+            "ageHours": 11.6,
+            "domain": "abbeys.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:00:00.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "All I Want For Christmas: A Holiday Countdown by Phaea Crede | 9781368119177 | Hardback",
+            "url": "https://www.abbeys.com.au/api/product.do?isbn=9781368119177"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 3.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.994,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1184,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          10,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1062,
+        "statesFreshness": false,
+        "text": "According to South Korean government figures, between 2016 and 2023, Chinese entities were able to steal more technology from the country’s display sector than from any other industry apart from the chip sector. [2]\n\nThe South Korean technology firm is looking for ways to sustain earnings momentum after reviving its mobile profits by restructuring its product line-up. [10]\n\nSeoul Bets Big: What South Korea’s $518 Billion Semiconductor Gamble Means For Global Tech Companies\n\nwithin Strategy topic(s)\nwithin Strategy, Wealth Management and Law Practice Management topic(s)\n\nThe South Korean government has just placed one of the most consequential industrial bets we have seen in more than 25 years of advising technology companies. [11]\n\nMajor Players in the Korean Technology Sector. [1]\n\nSources: [1] Korea Technology Firms: Driving Global Innovation... - Voiceovers.com (voiceovers.com)  [2] S"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "South Korean technology sector",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "voiceovers.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Korea Technology Firms: Driving Global Innovation... - Voiceovers.com",
+            "url": "https://www.voiceovers.com/blog/korea-technology-firms"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Samsung and LG join forces against Chinese rivals in battle for display...",
+            "url": "https://www.ft.com/content/ac590d5c-dd22-49cd-93cf-42fe3f08b110?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/South_Korea"
+          },
+          {
+            "ageHours": 1245.6,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:59:52.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Samsung",
+            "url": "https://en.wikipedia.org/wiki/Samsung"
+          },
+          {
+            "ageHours": 995.1,
+            "domain": "researchandmarkets.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T14:31:40.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "South Korea Data Center Physical Security - Market Share Analysis, Industry Trends & Statistics, Growth Foreca",
+            "url": "https://www.researchandmarkets.com/report/south-korea-data-center-security-market"
+          },
+          {
+            "ageHours": null,
+            "domain": "disfold.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Top 6 largest South Korean Technology Companies 2026",
+            "url": "https://disfold.com/south-korea/sector/technology/companies"
+          },
+          {
+            "ageHours": null,
+            "domain": "biruksidea.medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "The Logic Of Korean Mobile And Web UI/UX | by Biruk... | Medium",
+            "url": "https://biruksidea.medium.com/the-logic-of-korean-mobile-and-web-ui-ux-71b8e58ed325?responsesOpen=true"
+          },
+          {
+            "ageHours": null,
+            "domain": "disfold.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "South Korean Technology Sector Analysis",
+            "url": "https://disfold.com/south-korea/sector/technology"
+          },
+          {
+            "ageHours": 7.4,
+            "domain": "streamforex.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:10:35.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.05,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Forex News",
+            "url": "https://www.streamforex.org/professionals/news?id=ab9c3767-0968-40ab-a8bc-6f6d4ea253b5"
+          },
+          {
+            "ageHours": null,
+            "domain": "reuters.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Samsung plans refurbished smartphone program: source | Reuters",
+            "url": "https://www.reuters.com/article/us-samsung-elec-phones-refurbishment-idUSKCN10X0FT"
+          },
+          {
+            "ageHours": 1025.7,
+            "domain": "mondaq.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T07:56:36.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.73,
+              "freshness": 0.01,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Seoul Bets Big: What South Korea’s $518 Billion Semiconductor Gamble Means For Global Tech Companies",
+            "url": "https://www.mondaq.com/technology/1823102/seoul-bets-big-what-south-koreas-%24518-billion-semiconductor-gamble-means-for-global-tech-companies"
+          },
+          {
+            "ageHours": null,
+            "domain": "tassnewsagency.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.69,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "TASS News Agency | Breaking Russian News & World Updates",
+            "url": "https://tassnewsagency.com"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 7.4,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.818,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1165,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1270,
+        "statesFreshness": false,
+        "text": "Tinubu still hiding in France doing housekeeping duties – Atiku’s camp fires Presidency\n\nThe camp of the African Democratic Congress, ADC, presidential candidate, Atiku Abubakar, has fired back at the Presidency over the prolonged absence of President Bola Tinubu from Nigeria. [1]\n\nThis is in response to the latest defence of President Tinubu’s prolonged stay in France\n\nAtiku’s camp added that the issue is not whether the President is hale and hearty, questioning why he remains abroad beyond the three-week vacation announced by the Presidency on August 30. [1]\n\nKylian Mbappe injury news: Latest update on France, Real Madrid superstar\n\nThe latest Kylian Mbappe injury news is not what fans of Real Madrid, and France, want to hear. [3]\n\nFour face-off for Milan tonight as Belgium play France in Nations League\n\nTonight, AC Milan will potentially see four of their players face off, as Belgium "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "dernières nouvelles France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.5,
+            "domain": "dailypost.ng",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:08:20.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Tinubu still hiding in France doing housekeeping duties – Atiku’s camp fires Presidency",
+            "url": "https://dailypost.ng/2026/09/28/tinubu-still-hiding-in-france-doing-housekeeping-duties-atikus-camp-fires-presidency"
+          },
+          {
+            "ageHours": 14.4,
+            "domain": "sempremilan.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:14:21.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.67,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Four face-off for Milan tonight as Belgium play France in Nations League",
+            "url": "https://sempremilan.com/four-milan-face-off-belgium-france-nations-league"
+          },
+          {
+            "ageHours": 57.6,
+            "domain": "nbcsports.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T16:00:35.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.64,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Kylian Mbappe injury news: Latest update on France, Real Madrid superstar",
+            "url": "https://www.nbcsports.com/soccer/news/kylian-mbappe-injury-news-latest-update-on-france-real-madrid-superstar"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 13.5,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.663,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1957,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "aktuelle Nachrichten Deutschland",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 10
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1146,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "日本の最新ニュース",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 10
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1294,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "últimas noticias España",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 11
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1282,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "ultime notizie Italia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 11
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1167,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1200,
+        "statesFreshness": false,
+        "text": "Travaillant tous les jours avec des écosystèmes de PME, de start-up et des entreprises innovantes en France, Huawei et EuraTechnologies ont donc souhaité lancé le plus grand concours de start-up privé en France, afin de soutenir l'émergence de projets innovants valorisant l'expertise française dans les domaines d'avenir des nouvelles technologies. [1]\n\nCinq trophées imprimés en 3D ont été remis aux lauréats de ce concours national d'entreprises innovantes dont la 1ère édition s'est tenue ce jeudi 25 septembre dans l'auditorium d'EuraTechnologies à Lille. [1]\n\nPremier cluster numérique en Europe, et exemplaire dans la dynamique French Tech, EuraTechnologies contribue au dynamise de la filière IT en France. [1]\n\nLes exigences de mise sont raisonnables pour le secteur français : 30x le montant du bonus, avec un plafond de 20 € de mise maximale par tour. [3]\n\nSources: [1] Inno'start récompen"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "nouvelles du jour en France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 34.5,
+            "domain": "lillesagency.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:06:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Inno'start récompense les entreprises innovantes",
+            "url": "https://www.lillesagency.com/blog-business/zoom-sur/innostart-recompense-les-entreprises-innovantes"
+          },
+          {
+            "ageHours": 34.5,
+            "domain": "lillesagency.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:06:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Inno'start récompense les entreprises innovantes",
+            "url": "https://lillesagency.com/blog-business/zoom-sur/innostart-recompense-les-entreprises-innovantes"
+          },
+          {
+            "ageHours": 65.9,
+            "domain": "gadgtecs.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T07:41:25.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Rabona casino en ligne en France : guide complet et pratique",
+            "url": "https://gadgtecs.com/2026/09/26/rabona-casino-en-ligne-en-france-guide-complet-et-pratique"
+          },
+          {
+            "ageHours": 63.4,
+            "domain": "skans.edu.pk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:14:15.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Joka Casino – Guide complet du casino joka en ligne pour les joueurs français",
+            "url": "https://skans.edu.pk/joka-casino-guide-complet-du-casino-joka-en-ligne-pour-les-joueurs-francais"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 34.5,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.765,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1586,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 994,
+        "statesFreshness": false,
+        "text": "Entérate de lo mas importante que sucede en México y en todo el mundo: deportes, economía, finanzas, cultura, política y noticias actuales cada día, todos los días. [6]\n\nDescarga esta app para que escuches musica actual y clasica asi como enterarte de las noticias actuales de Mexico. [7]\n\nÚltimas noticias sobre la economía de México y el mundo. [2]\n\nDiscover Pinterest’s best ideas and inspiration for Noticias de mexico. [4]\n\nSources: [1] Noticias Actuales México - Apps on Google Play (play.google.com)  [2] Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy, Covid-19. (topbinhpgzdvkr.netlify.app)  [3] A fin de dictar la Junta principal de Caridad varias providencias ... necesita reunir algunas noticias y saber con puntualidad y distincion el n©ðmero de enfermos que est©♭n curados ©đ sanos de las actuales viruelas [&c.]. (1797) (op"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "noticias actuales de México",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "play.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Noticias Actuales México - Apps on Google Play",
+            "url": "https://play.google.com/store/apps/details?id=noticias.hoy.actuales.locales.mexico.universal.deportes.politica&hl=en"
+          },
+          {
+            "ageHours": 1867.7,
+            "domain": "topbinhpgzdvkr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-13T05:55:43.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy,",
+            "url": "https://topbinhpgzdvkr.netlify.app/isadore80199goqe/cubl-es-la-mejor-fuente-de-noticias-en-lnnea-no.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A fin de dictar la Junta principal de Caridad varias providencias ... necesita reunir algunas noticias y saber",
+            "url": "https://openlibrary.org/works/OL17679852W"
+          },
+          {
+            "ageHours": null,
+            "domain": "pinterest.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.08,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Find and save ideas about noticias de mexico on Pinterest.",
+            "url": "https://www.pinterest.com/ideas/noticias-de-mexico/957131744898"
+          },
+          {
+            "ageHours": null,
+            "domain": "apkz.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Noticias Actuales México - APKZ",
+            "url": "https://www.apkz.com/app/noticias.hoy.actuales.locales.mexico.universal.deportes.politica/en.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "channels.megatga.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "MÉXICO NOTICIAS – Canales y Grupos de Telegram",
+            "url": "https://channels.megatga.com/notmex"
+          },
+          {
+            "ageHours": null,
+            "domain": "apkpure.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Radios de Mexico APK for Android Download",
+            "url": "https://apkpure.com/radios-de-mexico/com.cavecom.radiosfm.mexico"
+          },
+          {
+            "ageHours": null,
+            "domain": "publimetro.com.mx",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Nacional | Noticias actuales y de última hora en México - Publim…",
+            "url": "http://www.publimetro.com.mx/nacional"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "XHTVM-TDT",
+            "url": "https://en.wikipedia.org/wiki/XHTVM-TDT"
+          },
+          {
+            "ageHours": 1632.7,
+            "domain": "mx.online-listing.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-23T00:52:52.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.69,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Day: February 14, 2024",
+            "url": "https://www.mx.online-listing.com/Noticias/Blogger/2024/02/14"
+          },
+          {
+            "ageHours": 32809.6,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2023-01-01",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.68,
+              "freshness": 0,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Pandemia, rumores, noticias falsas. Hacia un desciframiento de la infodemia en México",
+            "url": "https://doi.org/10.18234/secuencia.v0i117.2071"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.67,
+              "freshness": 0.02,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "2025 Pacific hurricane season",
+            "url": "https://en.wikipedia.org/wiki/2025_Pacific_hurricane_season"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1632.7,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 502",
+          "TheSportsDB has no current fixture for \"noticias actuales de México\" right now —"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.784,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 9160,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 789,
+        "statesFreshness": false,
+        "text": "'Battalions Party'), officially the Kataeb Party – Lebanese Social Democratic Party (Arabic: حزب الكتائب اللبنانية – الحزب الديمقراطي الاجتماعي اللبناني Ḥizb al-Katā'ib al-Lubnānīya), historically known as the Phalangist Party, is a Lebanese nationalist political party in Lebanon. [2]\n\nBonjus (Arabic: بون جوس, from French: good juice) is a Lebanese brand of juice, ice cream and dairy products, famous for its \"Pyramid-shaped\" (الهرم) juicebox (actually tetrahedral). [3]\n\nDepartamento de Economía\n\nNovedades\n\n21/06/2022 [4]\n\nYemen's Moyyun Organization for Human Rights and Development (MHRD) has launched its first human rig. [5]\n\nSources: [1] آخر الأخبار (bahrainpost.gov.bh)  [2] Kataeb Party (en.wikipedia.org)  [3] Bonjus (en.wikipedia.org)  [4] Departamento de Economía (utdt.edu)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "آخر الأخبار",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "bahrainpost.gov.bh",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار",
+            "url": "https://bahrainpost.gov.bh/index.php?option=com_content&view=article&id=73"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Kataeb Party",
+            "url": "https://en.wikipedia.org/wiki/Kataeb_Party"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Bonjus",
+            "url": "https://en.wikipedia.org/wiki/Bonjus"
+          },
+          {
+            "ageHours": 1332.4,
+            "domain": "utdt.edu",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:46.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.62,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Departamento de Economía",
+            "url": "https://www.utdt.edu/ver_novedad.php?id_novedad=4958&id_item_menu=436"
+          },
+          {
+            "ageHours": null,
+            "domain": "mayyun.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Yemen’s Moyyun Organization releases its first report on the victims of...",
+            "url": "https://www.mayyun.org/news108.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.58,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "القضية الحسينية (2018)",
+            "url": "https://openlibrary.org/works/OL19646346W"
+          },
+          {
+            "ageHours": null,
+            "domain": "eng-cafe.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.57,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.57,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "أخر الأخبار – Eng Cafe",
+            "url": "https://eng-cafe.net/ar/%D8%A3%D8%AE%D8%B1-%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1"
+          },
+          {
+            "ageHours": null,
+            "domain": "linktr.ee",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.57,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.57,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "روابط منصة أبشر | Linktree",
+            "url": "https://linktr.ee/ABSHER"
+          },
+          {
+            "ageHours": null,
+            "domain": "arabic.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.57,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.57,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "آخر الأخبار السياسية والرياضية والفنية وأحدث تقارير الفيديو | CN…",
+            "url": "http://arabic.cnn.com"
+          },
+          {
+            "ageHours": 2660.1,
+            "domain": "bestoptionsclmbdbr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-10T05:28:10.000Z",
+            "relevance": 0.56,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.56,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "آخر الأخبار nrl egtxi",
+            "url": "https://bestoptionsclmbdbr.netlify.app/lukens35411heq/nrl-for"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.55,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "الفرق بين المعاجز الإلهية وبين السحر وتحضير الأرواح (2018)",
+            "url": "https://openlibrary.org/works/OL19367404W"
+          },
+          {
+            "ageHours": 1121.1,
+            "domain": "kashmirsearch.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:27:53.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Products",
+            "url": "http://kashmirsearch.com/Products/Schools%20and%20Colleges/TYNDALE-BISCOE-AND-MALLINSON-HIGH-SECONDARY-SCHOOL"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1121.1,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.59,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2114,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 736,
+        "statesFreshness": false,
+        "text": "Lima is the capital and largest city of Peru, as well as a primate city. [1]\n\nTrujillo (Spanish: [tɾuˈxiʝo]; Quechua: Truhillu; Mochica: Cɥimor) is a city in coastal northwestern Peru and the capital of the Department of La Libertad. [2]\n\nPERU'S CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU'S CAPITAL\n\nCrossword Puzzle Infos\n\nPeru's capital is LIMA, a four-letter word. [3]\n\nPERU CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU CAPITAL\n\nCrossword Puzzle Infos\n\nThe capital of Peru is LIMA, which is a four-letter word. [4]\n\nSources: [1] Lima (en.wikipedia.org)  [2] Trujillo, Peru (en.wikipedia.org)  [3] PERU'S CAPITAL Crossword Clue (crossword-dictionary.com)  [4] PERU CAPITAL Crossword Clue (crossword-dictionary.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "what is the capital of Peru",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Lima",
+            "url": "https://en.wikipedia.org/wiki/Lima"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Trujillo, Peru",
+            "url": "https://en.wikipedia.org/wiki/Trujillo%2C_Peru"
+          },
+          {
+            "ageHours": 1066.7,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T14:56:51.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PERU'S CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-s-capital"
+          },
+          {
+            "ageHours": 1072.8,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T08:47:22.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PERU CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-capital"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Peru | History, Culture, Geography, Economy, Politics... | Britannica",
+            "url": "https://www.britannica.com/place/Peru"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima | Peru’s Capital City & Cultural Hub | Britannica",
+            "url": "https://www.britannica.com/place/Lima"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A guide to Lima, the capital of Peru (1949)",
+            "url": "https://openlibrary.org/works/OL2002609W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Lima, or Sketches of the capital of Peru (1866)",
+            "url": "https://openlibrary.org/works/OL45640253W"
+          },
+          {
+            "ageHours": 42589.5,
+            "domain": "mapsofworld.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-11-19T12:04:39.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Peru South America Map",
+            "url": "https://www.mapsofworld.com/peru/peru-political-map.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "enchantedlearning.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Peru - EnchantedLearning.com",
+            "url": "https://www.enchantedlearning.com/southamerica/peru"
+          },
+          {
+            "ageHours": null,
+            "domain": "rest-countries-api-eight.vercel.app",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Frontend Mentor | REST Countries API with color theme switcher",
+            "url": "https://rest-countries-api-eight.vercel.app/countries/pe"
+          },
+          {
+            "ageHours": null,
+            "domain": "stock.adobe.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima Perou Images – Browse 43,139 Stock Photos... | Adobe Stock",
+            "url": "https://stock.adobe.com/si/search?k=lima+perou"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1066.7,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.89,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1131,
+      "vertical": "general"
+    }
+  ],
+  "total": 138
+}

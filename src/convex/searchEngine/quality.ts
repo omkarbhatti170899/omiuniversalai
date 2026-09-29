@@ -52,6 +52,77 @@ const LOW_RE =
   /pinterest\.[a-z.]+$|quora\.com$|answers\.com$|ehow\.com$|ask\.com$|slideshare\.net$|scribd\.com$|coursehero\.com$/;
 const OFFICIAL_HINT_RE = /^(docs?|developer|developers|api|support)\./;
 
+// --- Content usefulness (the relevance/quality layer, 2026-09-29) ----------
+
+/**
+ * MEASURED DEFECT (search-quality review, 2026-09-29): freshness was passing
+ * but the KEPT sets for broad news questions contained weak/unrelated
+ * material — a YouTube result and evergreen "Make in India" content for
+ * "latest news in India", an actors-workshop page for "what happened in the
+ * world today". None of these violate the topical floor (a broad question's
+ * topic vocabulary is deliberately tiny), and none of them is stale, so
+ * freshness cannot touch them. What they share is that they are NOT USEFUL
+ * as answers: video-platform pages, clickbait formulations, and
+ * category/tag pages that aggregate rather than report.
+ *
+ * `usefulnessPenalty` prices that in. It is a PENALTY, not a ban: a genuinely
+ * relevant YouTube primary source still survives, it just has to beat clean
+ * articles on every other component. Multiplicative, like the temporal
+ * penalty, so a strongly-relevant useful page is barely touched while pure
+ * noise falls below the keep line regardless of its timestamp.
+ */
+
+/** Platforms whose result pages are rarely citable evidence. */
+const VIDEO_SOCIAL_RE =
+  /(^|\.)youtube\.com$|(^|\.)youtu\.be$|tiktok\.com$|instagram\.com$|facebook\.com$|(^|\.)x\.com$|(^|\.)twitter\.com$|threads\.net$/;
+
+/** Title patterns that identify engagement bait rather than reporting. */
+const CLICKBAIT_RES: RegExp[] = [
+  /\byou won'?t believe\b/i,
+  /\bthis (?:one|1) (?:trick|thing)\b/i,
+  /\b(?:shocking|insane|jaw[- ]dropping|mind[- ]blowing)\b/i,
+  /\bgoes? (?:wrong|horribly wrong)\b/i,
+  /\bdoctors? (?:hate|are hiding)\b/i,
+  /\bwhat happens next\b/i,
+  /\b(?:top|best) \d+\b.*\b(?:will blow|shock)/i,
+  /!{2,}|\?{2,}/,
+];
+
+/** Tag/category/topic pages aggregate other pages; they do not answer. */
+const CATEGORY_PAGE_RE = /\/(?:tag|tags|category|categories|topic|topics|archive)\//i;
+
+export function usefulnessPenalty(c: WebCitation): number {
+  const d = domainOf(c.url);
+  const path = (() => {
+    try {
+      return new URL(c.url).pathname;
+    } catch {
+      return "";
+    }
+  })();
+  const title = c.title ?? "";
+  let penalty = 0;
+  if (VIDEO_SOCIAL_RE.test(d)) penalty += 0.45;
+  const baitHits = CLICKBAIT_RES.filter((re) => re.test(title)).length;
+  penalty += baitHits * 0.2;
+  if (CATEGORY_PAGE_RE.test(path)) penalty += 0.3;
+  // A long, substantive snippet is weak evidence AGAINST noise: scrapes and
+  // video descriptions are usually thin.
+  if ((c.snippet?.length ?? 0) < 60 && penalty > 0) penalty += 0.1;
+  return Math.min(0.8, penalty);
+}
+
+/**
+ * Source QUALITY (0..1) — the authority tier discounted by usefulness noise.
+ * Deliberately distinct from the authority tier itself, so a page can be on
+ * a reputable domain and still score as poor material (and vice versa).
+ */
+export function sourceQualityScore(c: WebCitation): number {
+  const tier = sourceTier(c.url).weight;
+  const penalty = usefulnessPenalty(c);
+  return Math.max(0, tier * (1 - penalty));
+}
+
 export function sourceTier(url: string): { tier: SourceTier; weight: number } {
   const d = domainOf(url);
   let path = "";
@@ -268,6 +339,23 @@ export function sharesTopic(c: WebCitation, keywords: string[]): boolean {
  * floor. Recency alone cannot do this: a page published last week about the
  * 2018 Games is fresh by timestamp and useless by content.
  */
+export type ScoreBreakdown = {
+  /** Weighted query relevance (topic-word coverage). */
+  relevance: number;
+  /** Weighted freshness credit (zero when the source is off-topic). */
+  freshness: number;
+  /** Weighted authority tier of the domain. */
+  authority: number;
+  /** Weighted content usefulness: completeness minus noise, floor 0. */
+  sourceQuality: number;
+  /** Directness bonus: the source ANSWERS (entity + concrete value). */
+  directness: number;
+  /** Corroboration bonus: same URL found by 2+ independent engines. */
+  corroboration: number;
+  /** The final score the ranker sorts by (after temporal × usefulness). */
+  final: number;
+};
+
 export function scoreSource(
   c: WebCitation,
   keywords: string[],
@@ -277,41 +365,93 @@ export function scoreSource(
     askedEvent?: string | null;
     /**
      * "now" | "recent" | "live-feed" | "none". How aggressively recency
-     * outranks everything else. For "now" (the user said today/now) freshness
-     * is worth 0.34 — still more than relevance — because answering with
-     * yesterday's number is wrong, not merely less good.
+     * outranks everything else.
      */
     freshnessTier?: string;
   } = {},
 ): number {
+  return scoreSourceDetailed(c, keywords, opts).final;
+}
+
+/**
+ * THE FINAL SCORE (2026-09-29 quality layer):
+ *
+ *   final = (relevance + freshness + authority + sourceQuality + directness
+ *            + corroboration-fill)
+ *           × temporalPenalty × (1 − usefulnessPenalty)
+ *
+ * What changed and why, in one line each:
+ *   • freshness NO LONGER outweighs everything. It is capped at parity with
+ *     relevance even on a `now` question, because the measured defect was a
+ *     fresh-but-unrelated page beating a 6-hour-old one that actually
+ *     answered. A 1-hour-old unrelated result is rejected by the topical
+ *     floor anyway; between two ON-topic sources, the 6-hour-old direct
+ *     answer now outranks a 1-hour-old thin mention.
+ *   • sourceQuality enters as a WEIGHTED component (completeness discounted
+ *     by the noise penalty), not merely as the raw authority tier.
+ *   • the usefulness penalty is MULTIPLICATIVE, like the temporal penalty —
+ *     additive penalties can always be bought back with freshness, which is
+ *     precisely the failure being fixed.
+ */
+export function scoreSourceDetailed(
+  c: WebCitation,
+  keywords: string[],
+  opts: {
+    freshnessMatters?: boolean;
+    askedYears?: number[];
+    askedEvent?: string | null;
+    freshnessTier?: string;
+  } = {},
+): ScoreBreakdown {
   const rel = relevanceScore(c, keywords);
   const tier = sourceTier(c.url).weight;
   const fresh = freshnessScore(c.publishedAt);
   const comp = completenessScore(c);
   const ft = opts.freshnessTier;
-  // Freshness weight by demand. Without this, a 3-day-old authoritative page
-  // and a 2-hour-old one ranked identically.
-  const freshW = !opts.freshnessMatters ? 0.06 : ft === "now" ? 0.34 : ft === "live-feed" ? 0.28 : 0.22;
-  // Relevance is de-weighted as freshness demand rises, but no longer below
-  // the authority tier's contribution.
+  // Freshness demand still raises the weight — but never above relevance,
+  // and never above 0.34 (parity with the old `now` weight, now the cap).
+  const freshW = !opts.freshnessMatters ? 0.06 : ft === "now" ? 0.32 : ft === "live-feed" ? 0.28 : 0.24;
   const relW = ft === "now" ? 0.32 : 0.5;
-  const authorityW = 0.22;
-  const rest = Math.max(0, 1 - relW - authorityW - freshW - 0.12 - 0.08);
-  const direct = 0.08 * directnessScore(c, keywords);
+  const authorityW = 0.2;
+  const qualityW = 0.12;
+  const directnessW = 0.06;
+  // Corroboration-fill: the sum of the declared weights; the bonus is paid
+  // out of the remainder so the score stays comparable across configs.
+  const declared = relW + authorityW + freshW + qualityW + directnessW;
+  const rest = Math.max(0, 1 - declared);
   // Off-topic ⇒ zero freshness credit. On-topic is judged with the same
   // vocabulary the topical floor uses, so the two can never disagree.
   const freshnessCredit = sharesTopic(c, keywords) ? fresh : 0;
-  const base =
-    relW * rel + authorityW * tier + freshW * freshnessCredit + 0.12 * comp + direct + rest;
+  const sourceQuality = Math.max(0, comp - usefulnessPenalty(c));
+  const relevance = relW * rel;
+  const freshness = freshW * freshnessCredit;
+  const authority = authorityW * tier;
+  const quality = qualityW * sourceQuality;
+  const directness = directnessW * directnessScore(c, keywords);
+  let final = relevance + freshness + authority + quality + directness + rest;
 
-  // Temporal matching is only meaningful when the question is actually scoped
-  // to a year or an event. Applying it unconditionally would penalise every
-  // source for a timeless question.
+  // Temporal matching only when the question is actually scoped.
   if ((opts.askedYears?.length ?? 0) > 0 || opts.askedEvent) {
     const match = matchTemporal(c, opts.askedYears ?? [], opts.askedEvent ?? null);
-    return base * temporalPenalty(match);
+    final *= temporalPenalty(match);
   }
-  return base;
+  // The noise penalty is multiplicative: freshness cannot buy it back.
+  const noise = usefulnessPenalty(c);
+  if (noise > 0) final *= 1 - noise;
+
+  return {
+    relevance: round2(relevance),
+    freshness: round2(freshness),
+    authority: round2(authority),
+    sourceQuality: round2(quality),
+    directness: round2(directness),
+    corroboration: 0, // filled in by the ranker when agreement is measured
+    final: round2(final),
+  };
+}
+
+function round2(n: number): number {
+  return Math.round(n * 100) / 100;
 }
 
 function titleKey(title: string): string {

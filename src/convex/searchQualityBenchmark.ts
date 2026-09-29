@@ -258,6 +258,7 @@ export type QualityRow = {
       ageHours: number | null;
       relevance: number | null;
       providers: string[];
+      scores: import("./searchEngine/quality").ScoreBreakdown | null;
     }>;
   };
   answer: {
@@ -434,6 +435,10 @@ export const runSearchQualityBenchmark = internalAction({
             })(),
             relevance: c.relevance ?? null,
             providers: c.providers ?? [],
+            // Per-component ranking breakdown (2026-09-29 quality layer),
+            // persisted by the ranker so the report can show WHY each source
+            // survived — not merely that it did.
+            scores: c.scoreBreakdown ?? null,
           })),
         },
         answer: {

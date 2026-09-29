@@ -1,0 +1,57 @@
+{
+  "row": {
+    "answer": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [2]\n\nMonday’s drop illustrates an essential challenge that investors face despite having investments in the development of technology and AI, rising inflation is difficult to overlook. [3]\n\nAs a reminder, today's call is being recorded. [4]\n\nTechnology Integration: Digital transformation initiatives are accelerating across all segments. [5]\n\nSources: [1] Science and technology: SpaceX's Starship Flight 14 launches into orbit from Starbase, Texas, United States. However, it also returns early to Earth (aljazeera.com)  [2] School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News (careerindia.com)  [3] S&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Stocks Slide Ahead Fed Rate Hike | Check What Investors Should Watch (sundayguardianlive.com)  [4] Kandi Technologies Group, Inc. (KNDI) Q2 2026 Earnings Call Prepared Remarks Transcript (seekingalpha.com)",
+    "detail": "5 fresh result(s) from 2 source(s) in 20699ms; failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded"
+    ],
+    "freshResults": 5,
+    "freshness": "Based on 5 reports published in the last 2 days (newest: 9 hours ago).",
+    "intent": "news",
+    "query": "today's technology news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 20699,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Science and technology: SpaceX's Starship Flight 14 launches into orbit from Starbase, Texas, United States. However, it also returns early to Earth",
+        "url": "https://www.aljazeera.com/news/2026/9/28/spacexs-showpiece-starship-rocket-reaches-orbit-for-first-time"
+      },
+      {
+        "publishedAt": "2026-09-28T04:36:51.000Z",
+        "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+        "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+      },
+      {
+        "publishedAt": "2026-09-28T16:06:39.000Z",
+        "title": "S&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Stocks Slide Ahead Fed Rate Hike | Check What Investors Should Watch",
+        "url": "https://sundayguardianlive.com/business/sp-500-today-live-index-slides-088-as-oil-climbs-above-106-treasury-yields-rise-nvidia-gains-tech-stocks-slide-ahead-fed-rate-hike-check-what-investors-should-watch-294673"
+      },
+      {
+        "publishedAt": "2026-09-28T14:03:24.000Z",
+        "title": "Kandi Technologies Group, Inc. (KNDI) Q2 2026 Earnings Call Prepared Remarks Transcript",
+        "url": "https://seekingalpha.com/article/4950261-kandi-technologies-group-inc-kndi-q2-2026-earnings-call-prepared-remarks-transcript"
+      },
+      {
+        "publishedAt": "2026-09-28T01:01:42.000Z",
+        "title": "Exploit.in Database Reveals the Roots of Today’s Ransomware Ecosystem -.",
+        "url": "https://que.com/exploit-in-database-reveals-the-roots-of-todays-ransomware-ecosystem"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "news"
+  }
+}

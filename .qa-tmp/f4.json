@@ -1,0 +1,2978 @@
+{
+  "answerContract": {
+    "allSourcesDated": 13,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 15,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "finance": {
+      "fresh": 6,
+      "kept": 75,
+      "n": 11
+    },
+    "technology": {
+      "fresh": 4,
+      "kept": 32,
+      "n": 4
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 2,
+      "kept": 6,
+      "n": 2
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 17,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 25,
+      "n": 4
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 5,
+      "n": 1
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 24,
+      "n": 2
+    },
+    "recent": {
+      "fresh": 1,
+      "kept": 6,
+      "n": 1
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 24,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 45,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 693,
+        "statesFreshness": true,
+        "text": "Gold and silver are getting hammered today, with both precious metals falling to their lowest levels in roughly seven weeks as investors react to another jump in oil prices... [1]\n\nThe gold price has hit its lowest since August 5. [3]\n\nGold and silver lost $550 billion in hours as yields and Fed hike bets rose. [2]\n\nThe bitcoin price fell 2.7% alongside them instead of acting as a haven. [2]\n\nSources: [1] Here's Why Silver and Gold Prices Are Getting... - CaptainAltcoin (captainaltcoin.com)  [2] Bitcoin Price Crashes to $82,780 as Gold and Silver Lose $550B in... (news.bitcoin.com)  [3] gold analysis: Why is gold price falling today? - The Economic Times (economictimes.indiatimes.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest gold price",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 15.4,
+            "domain": "captainaltcoin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:05:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Here's Why Silver and Gold Prices Are Getting... - CaptainAltcoin",
+            "url": "https://captainaltcoin.com/heres-why-silver-and-gold-prices-are-getting-wrecked-right-now"
+          },
+          {
+            "ageHours": 17.4,
+            "domain": "news.bitcoin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:09:07.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Bitcoin Price Crashes to $82,780 as Gold and Silver Lose $550B in...",
+            "url": "https://news.bitcoin.com/featured/gold-silver-550-billion-wipeout-bitcoin-price"
+          },
+          {
+            "ageHours": 12.2,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:19:37.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "gold analysis: Why is gold price falling today? - The Economic Times",
+            "url": "https://economictimes.indiatimes.com/world/money/why-is-gold-price-falling-today/articleshow/134543489.cms"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 12.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.97,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2597,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 888,
+        "statesFreshness": true,
+        "text": "Convert 20 USD to INR using live Foreign Currency Exchange Rates. [1]\n\n1 USD = 96.0699 INR (rate updated Tue, 29 Sep 2026 00:02:31 +0000). [2]\n\nKey factors include:\n\nGlobal gold prices\nUSD-INR exchange rate\nInterest rate expectations\nInflation and economic conditions\nGeopolitical developments\nJewellery and investment demand\nImport duties and taxes\n\nSilver prices are also influenced by industrial demand, particularly from sectors such as electronics, manufacturing and emerging technologies. [3]\n\nGold rates are influenced by both domestic and international market conditions. [3]\n\nSources: [1] 20 USD to INR - Convert $20 US Dollar to Indian Rupee (currencyconverterx.net)  [2] 1 USD = 96.0699 INR (xe.com)  [3] Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 Gram Prices, Plus City-Wise Gold Rates (sundayguardianlive.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "current USD to INR rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 48.6,
+            "domain": "currencyconverterx.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T00:58:56.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "20 USD to INR - Convert $20 US Dollar to Indian Rupee",
+            "url": "https://www.currencyconverterx.net/20-USD-to-INR"
+          },
+          {
+            "ageHours": 1.5,
+            "domain": "xe.com",
+            "providers": [
+              "market-rates",
+              "Open Exchange Rates (keyless)"
+            ],
+            "publishedAt": "2026-09-29T00:02:31.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "1 USD = 96.0699 INR",
+            "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
+          },
+          {
+            "ageHours": 71.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:09:47.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 G",
+            "url": "https://sundayguardianlive.com/business/gold-rate-today-in-india-september-26-2026-how-much-is-24k-gold-per-gram-check-22k-18k-10-gram-and-100-gram-prices-plus-city-wise-gold-rates-292891"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1151,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1184,
+        "statesFreshness": true,
+        "text": "Stock Market LIVE Updates, Sensex Today: Sensex Drops 900 Points As Oil Prices Rise Amid US-Iran Tensions. [1]\n\nUS Stock Market Today: Weekly Price Forecast\n\nMeasure Value\n\nS&P 500 latest level 7,684.53\n\nWeekly gain before Monday 1.2%\n\nMonday change -0.76%\n\nThe 1.2% weekly rise came before Monday’s decline. [4]\n\nOpening Bell: Sensex slumps over 550 pts, Nifty drops below 23,000; India VIX rises 6%.The Sensex has declined 13.6% and the Nifty 11.6% in absolute terms, while markets such as Korea and Taiwan have surged 167% and 110%, respectively. [5]\n\nBrent crude oil prices rose more than 3 per cent after US President Donald Trump rejected Iran's latest peace proposal. [2]\n\nSources: [1] Google News - Sensex and Nifty decline in early trade on Monday... (news.google.com)  [2] Sensex, Nifty plunge over 1%; investors lose Rs... - BusinessToday (businesstoday.in)  [3] Crude oil, global yields, "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "live sensex level",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 19.2,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:20:29.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Sensex and Nifty decline in early trade on Monday...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2o4OV9tQUVoRmR0Uk5UenNabzl5Z0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen"
+          },
+          {
+            "ageHours": 19.4,
+            "domain": "businesstoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:05:10.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Sensex, Nifty plunge over 1%; investors lose Rs... - BusinessToday",
+            "url": "https://www.businesstoday.in/markets/stocks/story/sensex-nifty-plunge-over-1-investors-lose-rs-6-lakh-crore-as-brent-crude-crosses-107-558163-2026-09-28"
+          },
+          {
+            "ageHours": 41.9,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T07:39:55.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Crude oil, global yields, FII flows among key factors to drive stock market next week",
+            "url": "https://www.thehansindia.com/business/market-compass/crude-oil-global-yields-fii-flows-among-key-factors-to-drive-stock-market-next-week-1126143"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:06:39.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "S&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Sto",
+            "url": "https://sundayguardianlive.com/business/sp-500-today-live-index-slides-088-as-oil-climbs-above-106-treasury-yields-rise-nvidia-gains-tech-stocks-slide-ahead-fed-rate-hike-check-what-investors-should-watch-294673"
+          },
+          {
+            "ageHours": 22.2,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:19:09.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Sensex Today | Nifty 50 | Stock Market Live Updates | Opening Bell...",
+            "url": "https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-adani-power-sail-share-price-28-september-2026/liveblog/134529756.cms"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 9.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.874,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 2022,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 739,
+        "statesFreshness": false,
+        "text": "At Bitcoin’s current price of about $83,393, the latest 1,666 BTC purchase is worth roughly $138.7 million. [4]\n\nDiamond prices have fallen to their lowest levels…Crypto Market Rebounds as Bitcoin Tops $85,000 and Smaller Tokens Surge. [2]\n\nVolatility and recent price action\n\nBitcoin traded above $86,000 briefly in September 2026 before settling near $84,000. [3]\n\nWhy Does the Price of Bitcoin Keep Going Up? [6]\n\nSources: [1] Should You Buy Bitcoin Now or Wait? The Case at $85,000 (247wallst.com)  [2] AI Stocks Now Represent 41% of U.S. Market, Matching... - Hokanews (hokanews.com)  [3] Can Bitcoin reach ‘$1 million’ in 2026, or not (filmdaily.co)  [4] Strategy Buys 1,666 Bitcoin, Up 75% From Last Week | CoinCodex (coincodex.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "current price of bitcoin",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 11.3,
+            "domain": "247wallst.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:14:16.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Should You Buy Bitcoin Now or Wait? The Case at $85,000",
+            "url": "https://247wallst.com/investing/cryptocurrency/2026/09/28/should-you-buy-bitcoin-now-or-wait-the-case-at-85000"
+          },
+          {
+            "ageHours": 35,
+            "domain": "hokanews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T14:30:14.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "AI Stocks Now Represent 41% of U.S. Market, Matching... - Hokanews",
+            "url": "https://www.hokanews.com/2026/09/ai-stocks-now-represent-41-of-us-market.html"
+          },
+          {
+            "ageHours": 52.1,
+            "domain": "filmdaily.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:23:27.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Can Bitcoin reach ‘$1 million’ in 2026, or not",
+            "url": "https://filmdaily.co/news/can-bitcoin-reach-1-million-in-2026-or-not"
+          },
+          {
+            "ageHours": 6.5,
+            "domain": "coincodex.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:03:12.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Strategy Buys 1,666 Bitcoin, Up 75% From Last Week | CoinCodex",
+            "url": "https://coincodex.com/article/92747/strategy-buys-1666-bitcoin-up-75-from-last-week"
+          },
+          {
+            "ageHours": 15,
+            "domain": "news.bitcoin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:34:54.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Bitcoin Price Logs Its Best Weekly Close Since January but Then...",
+            "url": "https://news.bitcoin.com/market-updates/bitcoin-price-best-weekly-close-since-january"
+          },
+          {
+            "ageHours": 6.8,
+            "domain": "fool.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:45:38.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "This Top Ethereum Rival Has More Than Doubled in... | The Motley Fool",
+            "url": "https://www.fool.com/investing/2026/09/28/this-top-ethereum-rival-doubled-in-two-weeks"
+          },
+          {
+            "ageHours": 60.8,
+            "domain": "metatrader.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T12:45:14.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Bitcoin (BTC) Price Today: BTC Holds Uptrend as... | MetaTrader",
+            "url": "https://www.metatrader.com/en/news/brave-new-coin/4219890-bitcoin-btc-price-today-btc-holds-uptrend-as-84k-fvg"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 6.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.969,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 8282,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1043,
+        "statesFreshness": true,
+        "text": "US Jobs Report and Economic Data in Focus\n\nInvestors are also looking ahead to upcoming US employment and inflation data as they assess the economy and the Federal Reserve’s next policy moves. [1]\n\nEurozone inflation data are also due Friday, while Tokyo's inflation figures will offer a closely watched gauge of Japanese price pressures. [8]\n\nWall St Week Ahead-Jobs report, inflation data to test US rate path, economic strength.Gold Rate Hyderabad. [2]\n\nInflation Data Remains Key to Policy Outlook. [3]\n\nSources: [1] Dow Jones Today: Dow Futures Rise Ahead of US Jobs Report as Nvidia, Oil Prices & Treasury Yields Drive Wall Street Outlook; Check What Investors Should Know (sundayguardianlive.com)  [2] Gold Tilts Lower as Iran Impasse Continues to Fan Rate-Hike Bets (livemint.com)  [3] Philadelphia Fed President Anna Paulson Says Further... - Hokanews (hokanews.com)  [4] UK Stock Market For"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest inflation data",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 84.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T12:35:51.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Dow Jones Today: Dow Futures Rise Ahead of US Jobs Report as Nvidia, Oil Prices & Treasury Yields Drive Wall S",
+            "url": "https://sundayguardianlive.com/business/dow-jones-today-dow-futures-rise-ahead-of-us-jobs-report-as-nvidia-oil-prices-treasury-yields-drive-wall-street-outlook-check-what-investors-should-know-292589"
+          },
+          {
+            "ageHours": 25,
+            "domain": "livemint.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:30:00.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Gold Tilts Lower as Iran Impasse Continues to Fan Rate-Hike Bets",
+            "url": "https://www.livemint.com/market/gold-tilts-lower-as-iran-impasse-continues-to-fan-rate-hike-bets-11790553903937.html"
+          },
+          {
+            "ageHours": 92.1,
+            "domain": "hokanews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T05:27:09.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Philadelphia Fed President Anna Paulson Says Further... - Hokanews",
+            "url": "https://www.hokanews.com/2026/09/philadelphia-fed-president-anna-paulson.html"
+          },
+          {
+            "ageHours": 114.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T07:08:38.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "UK Stock Market Forecast Today: Will FTSE 100 Open Higher or Lower on September 24? Oil Prices, Inflation and ",
+            "url": "https://sundayguardianlive.com/business/uk-stock-market-forecast-today-will-ftse-100-open-higher-or-lower-on-september-24-oil-prices-inflation-and-geopolitical-risks-in-focus-291585"
+          },
+          {
+            "ageHours": 88.3,
+            "domain": "investozora.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T09:11:56.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Fed’s Paulson Signals More Tightening As Inflation Stays High",
+            "url": "https://investozora.com/fed-anna-paulson-more-tightening-inflation"
+          },
+          {
+            "ageHours": 33.1,
+            "domain": "cnbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T16:25:35.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Here are the 4 big things we're watching in the stock market in the...",
+            "url": "https://www.cnbc.com/2026/09/27/here-are-the-4-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html"
+          },
+          {
+            "ageHours": 75.6,
+            "domain": "marketdaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T21:57:01.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Consumer Sentiment Falls to 48.1 in September as... - Market Daily",
+            "url": "https://marketdaily.com/consumer-sentiment-falls-to-48-1-in-september-as-year-ahead-inflation-expectations-climb-to-4-6"
+          },
+          {
+            "ageHours": 19.2,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:18:17.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "5 key market themes investors need to watch this week - What to...",
+            "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/5-key-market-themes-investors-need-to-watch-this-week/slideshow/134533697.cms"
+          },
+          {
+            "ageHours": 12.9,
+            "domain": "app-demo.lightwards.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:37:10.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Fed Rate Hikes Threaten Young Workers · Lightwards",
+            "url": "https://app-demo.lightwards.com/article/fed-rate-hikes-threaten-young-workers-who-didnt-cause-inflation"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 12.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.912,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 5919,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 824,
+        "statesFreshness": true,
+        "text": "Gold rates are influenced by both domestic and international market conditions. [3]\n\nToday's mortgage rates by loan type\n\nSource: Bankrate.com. [1]\n\nInvestors Need to Prepare for Higher Rates\n\nThe Federal Reserve's own September projections show how difficult this balancing act has become. [2]\n\nA mortgage, car loan, credit-card balance, or business loan becomes more expensive when interest rates remain elevated for longer. [2]\n\nSources: [1] Mortgage Rates Today, September 28, 2026: 30-Year Rates Climb to 7.22% (wsj.com)  [2] 6 Words From Kevin Warsh Changed the Question From “Will the Fed Hike Rates?” to “How High Can Rates Go?” (aol.com)  [3] Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 Gram Prices, Plus City-Wise Gold Rates (sundayguardianlive.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "interest rates 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 16.5,
+            "domain": "wsj.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T09:02:11.000Z",
+            "relevance": 1.16,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.16,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Mortgage Rates Today, September 28, 2026: 30-Year Rates Climb to 7.22%",
+            "url": "https://www.wsj.com/buyside/personal-finance/mortgage/mortgage-rates-today-9-28-2026"
+          },
+          {
+            "ageHours": 61,
+            "domain": "aol.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:32:54.000Z",
+            "relevance": 1.12,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.12,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "6 Words From Kevin Warsh Changed the Question From “Will the Fed Hike Rates?” to “How High Can Rates Go?”",
+            "url": "https://www.aol.com/articles/6-words-kevin-warsh-changed-123254000.html"
+          },
+          {
+            "ageHours": 71.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:09:47.000Z",
+            "relevance": 1.09,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.09,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 G",
+            "url": "https://sundayguardianlive.com/business/gold-rate-today-in-india-september-26-2026-how-much-is-24k-gold-per-gram-check-22k-18k-10-gram-and-100-gram-prices-plus-city-wise-gold-rates-292891"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 16.5,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.123,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2454,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 990,
+        "statesFreshness": false,
+        "text": "The S&P 500 (Standard and Poor's 500) is a stock market index tracking the stock performance of 500 companies listed on stock exchanges in the United States that are considered to have large market capitalizations. [5]\n\nIt is one of the most commonly followed equity indices.[5]\n\nThe S&P 500 index is a capitalization-weighted index and the 10 largest companies in the index account for 27.5% of the market capitalization of the index. [6]\n\nS&P 500 (Standard and Poor's 500)[12] is a stock market index tracking the stock performance of 500 leading companies listed on stock exchanges in the United States. [7]\n\nThe S&amp;P 500 index is considered the most popular trading instrument in financial markets. [9]\n\nSources: [1] SPX Quote - S&P 500 INDEX - Bloomberg (bloomberg.com)  [2] SPX: S&P 500 Index - Stock Price, Quote and News - CNBC (cnbc.com)  [3] Precio de cierre de s & p 500 hoy rljmm (topo"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "S&P 500 index",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "bloomberg.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "SPX Quote - S&P 500 INDEX - Bloomberg",
+            "url": "https://www.bloomberg.com/quote/SPX:IND"
+          },
+          {
+            "ageHours": null,
+            "domain": "cnbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "SPX: S&P 500 Index - Stock Price, Quote and News - CNBC",
+            "url": "https://www.cnbc.com/quotes/.SPX"
+          },
+          {
+            "ageHours": 2672.1,
+            "domain": "topoptionsbqwis.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-09T17:28:19.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.95,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Precio de cierre de s & p 500 hoy rljmm",
+            "url": "https://topoptionsbqwis.netlify.app/pinkstaff2939vy/precio-de-cierre-de-s-p-500-hoy-lypo"
+          },
+          {
+            "ageHours": null,
+            "domain": "fred.stlouisfed.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "S&P 500 (SP500) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/SP500"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "S&P 500",
+            "url": "https://en.wikipedia.org/wiki/S%26P_500"
+          },
+          {
+            "ageHours": 207692.7,
+            "domain": "web.archive.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2003-01-19T04:53:03.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "S&P 500 - Wikipedia",
+            "url": "https://web.archive.org/web/20210418225854/https:/en.wikipedia.org/wiki/S&P_500"
+          },
+          {
+            "ageHours": 207692.7,
+            "domain": "translate.google.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2003-01-19T04:53:03.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "S&P 500 - Wikipedia",
+            "url": "https://translate.google.com/website?hl=ko&sl=auto&tl=ko&u=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FS%26P_500"
+          },
+          {
+            "ageHours": null,
+            "domain": "investing.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Stock Market Index - Major World Indices Live - Investing.com",
+            "url": "https://www.investing.com/indices/major-indices"
+          },
+          {
+            "ageHours": 26188.4,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2023-10-03T21:07:54Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Bitcoin versus S&amp;P 500 Index: Return and Risk Analysis",
+            "url": "http://arxiv.org/abs/2310.02436v1"
+          },
+          {
+            "ageHours": 35232.2,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2022-09-22T01:19:59Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "A Real Data-Driven Analytical Model to Predict Information Technology Sector Index Price of S&amp;P 500",
+            "url": "http://arxiv.org/abs/2209.10720v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "List of S&P 500 companies",
+            "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+          },
+          {
+            "ageHours": null,
+            "domain": "markets.businessinsider.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.91,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "S&P 500 INDEX TODAY | INX LIVE TICKER | Markets Insider",
+            "url": "https://markets.businessinsider.com/index/s&p_500"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2672.1,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"S&P 500 index\" right now — Omi will not "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.937,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1205,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 835,
+        "statesFreshness": true,
+        "text": "Get historic exchange rates for past Indian Rupee foreign expenses. [1]\n\nCheck today's EUR to MUR exchange rates, read detailed provider reviews, and discover exclusive deals and promo codes. [2]\n\nProviding real time foreign exchange rate inquiry and currency exchange calculation services. [5]\n\nReady Transaction Rates.captures above foreign exchange rates from sources believed to be reliable. [6]\n\nSources: [1] INR Historical Exchange Rates (Indian Rupee) - X-Rates (x-rates.com)  [2] Best Way to Send Money from Reunion to Mauritius: EUR to MUR (remitfinder.com)  [3] If You'd Invested $1,000 in the Vanguard S&P 500 ETF (VOO) 10 Years Ago, Here's How Much You'd Have Today (aol.com)  [4] Century Casinos, Inc. Enters into Definitive Agreement to Sell Century Mile and Century Downs Racetracks in Alberta, Canada (prnewswire.co.uk)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "rupee exchange rate today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 20.6,
+            "domain": "x-rates.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T04:53:36.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "INR Historical Exchange Rates (Indian Rupee) - X-Rates",
+            "url": "https://www.x-rates.com/historical?from=INR&amount=1&date=2026-09-28"
+          },
+          {
+            "ageHours": 16.5,
+            "domain": "remitfinder.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:01:09.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Best Way to Send Money from Reunion to Mauritius: EUR to MUR",
+            "url": "https://www.remitfinder.com/best-exchange-rate-to-send-money-from-reunion-to-mauritius"
+          },
+          {
+            "ageHours": 13.5,
+            "domain": "aol.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:05:00.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "If You'd Invested $1,000 in the Vanguard S&P 500 ETF (VOO) 10 Years Ago, Here's How Much You'd Have Today",
+            "url": "https://www.aol.com/articles/youd-invested-1-000-vanguard-120500000.html"
+          },
+          {
+            "ageHours": 13.5,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:01:30.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Century Casinos, Inc. Enters into Definitive Agreement to Sell Century Mile and Century Downs Racetracks in Al",
+            "url": "https://www.prnewswire.co.uk/news-releases/century-casinos-inc-enters-into-definitive-agreement-to-sell-century-mile-and-century-downs-racetracks-in-alberta-canada-302890883.html"
+          },
+          {
+            "ageHours": 20.7,
+            "domain": "energiyapro.ru",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T04:52:45.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "30 Dollar In Indian Rupees This Is The Us Dollar... | energiyapro.ru",
+            "url": "https://energiyapro.ru/country/news/1138425"
+          },
+          {
+            "ageHours": 19.9,
+            "domain": "nbp.com.pk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:36:56.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Ready",
+            "url": "https://www.nbp.com.pk/RateSheetFiles/NBP-RateSheet-28-09-2026.pdf"
+          },
+          {
+            "ageHours": 19.3,
+            "domain": "profit.pakistantoday.com.pk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:16:24.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Foreign exchange rates in Pakistan for September 28, 2026 - Profit by...",
+            "url": "https://profit.pakistantoday.com.pk/2026/09/28/foreign-exchange-rates-in-pakistan-for-today-september-28-2026"
+          },
+          {
+            "ageHours": 6.2,
+            "domain": "newskarnataka.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:22:03.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Brent crude jumps 3.6% above $108 amid Iran tensions",
+            "url": "https://newskarnataka.com/business/brent-crude-jumps-3-6-above-108-amid-iran-tensions/28092026"
+          },
+          {
+            "ageHours": 7.5,
+            "domain": "currencyconvert.online",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:03:47.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "5.7 thousand Armenian drams to Nigerian nairas: Today's Live...",
+            "url": "https://currencyconvert.online/amd/ngn/5700"
+          },
+          {
+            "ageHours": 12.1,
+            "domain": "economies.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:24:20.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Forecast update for Gold -28-09-2026",
+            "url": "https://www.economies.com/commodities/gold-analysis/forecast-update-for-gold--28-09-2026-130773"
+          },
+          {
+            "ageHours": 15.9,
+            "domain": "roboforex.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:36:58.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Daily technical analysis of EURUSD, USDJPY, GBPUSD... - RoboForex",
+            "url": "https://roboforex.com/beginners/analytics/forex-forecast/forex-technical-analysis/technical-forecast-daily-2026-09-28"
+          },
+          {
+            "ageHours": 11,
+            "domain": "nakedcapitalism.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:34:44.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Michael Hudson: A Clean Slate – How the Oil War’s Aftermath Will Transform the World Economic Order",
+            "url": "https://www.nakedcapitalism.com/2026/09/michael-hudson-a-clean-slate-how-the-oil-wars-aftermath-will-transform-the-world-economic-order.html"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 6.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.898,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1466,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 918,
+        "statesFreshness": false,
+        "text": "That's certainly not how a lot of people would describe the significant job losses accompanying the Xbox reset; just this week, 268 layoffs were announced on top of the 1,600 that occurred two months ago.Subscribe to get an everyday digest of the latest technology news in your inbox. [6]\n\nThis is not the first time a tech giant has announced layoffs in multiple phases. [2]\n\nTech’s mass layoffs are hiding a much scarier problem, and AI is uncovering it. [3]\n\nTech has announced more job cuts than any other industry this year, Challenger said. [1]\n\nSources: [1] Tech Layoffs Outpace 2025 As Big Companies Shift Spending To AI (news.crunchbase.com)  [2] Oracle layoffs offer a warning: 5 money moves to make before the pink... (livemint.com)  [3] How AI is impacting the labor participation rate - Fast Company (fastcompany.com)  [4] AI Tech Layoffs in USA (July 2026), Every Company That Cut Jobs "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "recently announced layoffs in tech",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 86.2,
+            "domain": "news.crunchbase.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:22:41.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Tech Layoffs Outpace 2025 As Big Companies Shift Spending To AI",
+            "url": "https://news.crunchbase.com/layoffs/2026-layoff-numbers-rise-ai-shift-orcl-meta-amzn"
+          },
+          {
+            "ageHours": 64.7,
+            "domain": "livemint.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T08:49:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Oracle layoffs offer a warning: 5 money moves to make before the pink...",
+            "url": "https://www.livemint.com/money/oracle-layoffs-offer-a-warning-5-money-moves-to-make-before-the-pink-slip-arrives-11790327317667.html"
+          },
+          {
+            "ageHours": 106,
+            "domain": "fastcompany.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:34:49.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "How AI is impacting the labor participation rate - Fast Company",
+            "url": "https://www.fastcompany.com/91610952/techs-mass-layoffs-hiding-much-scarier-problem-ai-uncovering-it"
+          },
+          {
+            "ageHours": 78.3,
+            "domain": "finalroundai.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T19:13:45.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "AI Tech Layoffs in USA (July 2026), Every Company That Cut Jobs",
+            "url": "https://www.finalroundai.com/blog/ai-tech-layoffs-july-2026"
+          },
+          {
+            "ageHours": 116.6,
+            "domain": "wpgtalkradio.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T04:55:01.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Bristol Myers Squibb cuts 265 more NJ jobs this year",
+            "url": "https://wpgtalkradio.com/ixp/385/p/bristol-myers-squibb-layoffs-nj"
+          },
+          {
+            "ageHours": 41.5,
+            "domain": "wccftech.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T08:00:42.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Nadella Calls Xbox Layoffs \"Great to See\" as 268 New Cuts Push...",
+            "url": "https://wccftech.com/nadella-xbox-streamlining-layoffs-268-cuts"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 41.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.918,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1393,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1261,
+        "statesFreshness": false,
+        "text": "Carbon quantitative easing (CQE) is an unconventional monetary policy or monetary program that is featured in a proposed international climate policy, called a global carbon reward or simply, the carbon reward. [2]\n\nIn agreement with the recent research findings in the econophysics, we propose that the nonlinear dynamic chaos can be generated by the turbulent capital flows in both the quantitative easing transmission channels and the transaction networks channels, when there are the laminar turbulent capital flows transitions in the financial system. [3]\n\nQuantitative easing\n\nQuantitative easing (QE) is a monetary policy tool where central banks buy large amounts of financial assets, usually government bonds, to inject money into the economy and support growth. [4]\n\nBreadcrumb Explained: Quantitative easing An unconventional financial tool is getting more attention as the Fed tries to ju"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "what is quantitative easing",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Quantitative easing - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Quantitative_easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Carbon quantitative easing",
+            "url": "https://en.wikipedia.org/wiki/Carbon_quantitative_easing"
+          },
+          {
+            "ageHours": 117016.4,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2013-05-24T09:05:48Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "To the problem of turbulence in quantitative easing transmission channels and transactions network channels at",
+            "url": "http://arxiv.org/abs/1305.5656v2"
+          },
+          {
+            "ageHours": 1074.3,
+            "domain": "capital.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T07:16:55.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Quality investing",
+            "url": "https://capital.com/en-eu/learn/glossary/q"
+          },
+          {
+            "ageHours": 991.9,
+            "domain": "capital.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T17:40:50.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Quality investing",
+            "url": "https://capital.com/en-gb/learn/glossary/q"
+          },
+          {
+            "ageHours": 118449.6,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2013-03-25T15:57:19Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Quantitative easing is an incomplete strategy that must be accompanied by the nullification of debt",
+            "url": "http://arxiv.org/abs/1303.6183v3"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.mit.edu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Explained: Quantitative easing | MIT News | Massachusetts Instit…",
+            "url": "https://news.mit.edu/2010/explained-quantitative-easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "investopedia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "investopedia.com/terms/q/quantitative-easing.asp",
+            "url": "https://www.investopedia.com/terms/q/quantitative-easing.asp"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What is quantitative easing and how will it affect you? - BBC News",
+            "url": "https://www.bbc.co.uk/news/business-15198789"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "People’s quantitative easing — no magic",
+            "url": "https://www.ft.com/content/c1060fb0-41b4-11e5-b98b-87c7270955cf?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Quantitative easing is like heroin, says former Treasury official",
+            "url": "https://www.theguardian.com/business/2017/aug/21/quantitative-easing-heroin-treasury-lord-macpherson-qe-financial-crash"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Quantitative Easing (1920)",
+            "url": "https://openlibrary.org/works/OL21668065W"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 991.9,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.896,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 3627,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 749,
+        "statesFreshness": false,
+        "text": "Will the stock and crypto markets end 2026 with notable gains? [1]\n\nFor example, Wednesday’s correction elicited the observation that open interest had been flushed, removing “unhealthy” leverage without much price damage.Crypto News. [2]\n\nRetirement.The bear market is probably over, but there hasn't ever been a meme coin season that's both this quick to develop and positioned this early relative to a halving. [3]\n\nSo it's a bit premature to say that the crypto bull market is back. [3]\n\nSources: [1] Altcoin market cap adds $371B as 87% turn bullish – WordUp News (wordupnews.com)  [2] Bad News Is Good News — Week in Review – Bitcoin News (news.bitcoin.com)  [3] Meme Coins Are Heating Back Up Again. Is This an... | The Motley Fool (fool.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest crypto market news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 23.5,
+            "domain": "wordupnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:02:56.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Altcoin market cap adds $371B as 87% turn bullish – WordUp News",
+            "url": "https://wordupnews.com/cryptocurrency/altcoin-market-cap-adds-371b-as-87-turn-bullish"
+          },
+          {
+            "ageHours": 36.4,
+            "domain": "news.bitcoin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:05:38.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Bad News Is Good News — Week in Review – Bitcoin News",
+            "url": "https://news.bitcoin.com/crypto-news/bad-news-is-good-news-week-in-review"
+          },
+          {
+            "ageHours": 38.6,
+            "domain": "fool.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T10:55:39.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Meme Coins Are Heating Back Up Again. Is This an... | The Motley Fool",
+            "url": "https://www.fool.com/investing/2026/09/27/meme-coins-are-heating-back-up-again-is-this-an-ea"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 23.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.923,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2013,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 891,
+        "statesFreshness": true,
+        "text": "Science & Technology.Brian Gerrish, Mike Robinson, and Charles Malet present today's UK Column News. [1]\n\nFind out just what the different words in today's grid mean and how they fit together.Explore the latest in VPN technology with expert reviews, news and insights on VPN services, software, browser extensions and more. [2]\n\nGet the latest updates from Tech News - Latest Technology and Gadget News | Sky News directly as they happen. [11]\n\nNot sure what today's NYT Connections answers are all about? [2]\n\nSources: [1] UK Column News — 28th September 2026 | UK Column (ukcolumn.org)  [2] Today’s NYT Connections Answers Explained For Tuesday... (tech.yahoo.com)  [3] School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News (careerindia.com)  [4] SpaceX latest: Starship makes explosive landing in Pacific... | Sky News (news.sky.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "today's technology news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 11.5,
+            "domain": "ukcolumn.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:03:18.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "UK Column News — 28th September 2026 | UK Column",
+            "url": "https://www.ukcolumn.org/video/uk-column-news-28th-september-2026"
+          },
+          {
+            "ageHours": 5.5,
+            "domain": "tech.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:03:03.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Today’s NYT Connections Answers Explained For Tuesday...",
+            "url": "https://tech.yahoo.com/puzzles/connections/articles/today-nyt-connections-answers-explained-190000751.html"
+          },
+          {
+            "ageHours": 20.9,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "news.sky.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:37:20.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "SpaceX latest: Starship makes explosive landing in Pacific... | Sky News",
+            "url": "https://news.sky.com/story/spacex-launch-latest-starship-rocket-heading-for-earths-orbit-for-first-time-13592625"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "wuwm.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:07:32.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The Trump administration weakens fuel efficiency standards for new cars",
+            "url": "https://www.wuwm.com/term/health-science/2026-09-28/the-trump-administration-weakens-fuel-efficiency-standards-for-new-cars"
+          },
+          {
+            "ageHours": 13.2,
+            "domain": "thecoinrepublic.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:19:12.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Coinbase News: Seven Tokenized US Stocks Go Live on Aave V4",
+            "url": "https://www.thecoinrepublic.com/2026/09/28/coinbase-news-seven-tokenized-us-stocks-go-live-on-aave-v4"
+          },
+          {
+            "ageHours": 20.7,
+            "domain": "gizmochina.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T04:52:17.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Honor Magic 9 Pro Max scores 5.52 million on AnTuTu... - Gizmochina",
+            "url": "https://www.gizmochina.com/2026/09/28/honor-magic-9-pro-max-antutu-score-oneplus-16"
+          },
+          {
+            "ageHours": 25.5,
+            "domain": "cardekho.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "2026 Kia Sorento Vs Skoda Kodiaq: What Do You Get For Your Money?",
+            "url": "https://www.cardekho.com/news/comparisons/2026-kia-sorento-vs-skoda-kodiaq-what-do-you-get-for-your-money-36722.htm"
+          },
+          {
+            "ageHours": 18.5,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:04:42.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "AI can win the benchmark and still fail the customer - India Today",
+            "url": "https://www.indiatoday.in/technology/talking-points/story/ai-can-win-the-benchmark-and-still-fail-the-customer-3004624-2026-09-28"
+          },
+          {
+            "ageHours": 12.3,
+            "domain": "thedailystar.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:16:22.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Astronomers find radio emissions from an exoplanet | The Daily Star",
+            "url": "https://www.thedailystar.net/news/technology/news/astronomers-find-radio-emissions-exoplanet-4285226"
+          },
+          {
+            "ageHours": 21.8,
+            "domain": "feeder.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:46:26.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Tech News - Latest Technology and... | Feeder – RSS Feed Reader",
+            "url": "https://feeder.co/discover/acb33857d6/news-sky-com-technology"
+          },
+          {
+            "ageHours": 7.4,
+            "domain": "metaltechnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:09:34.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "UH to use AI to search for next-gen magnets - Metal Tech News",
+            "url": "https://www.metaltechnews.com/story/2026/09/02/tech-metals/uh-to-use-ai-to-search-for-next-gen-magnets/2938.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 5.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.841,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1734,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 829,
+        "statesFreshness": true,
+        "text": "“Here is the AI news that actually matters today, in sixty seconds.” “Three AI announcements dropped this morning. [4]\n\nWe aggregate large language models news today from TechCrunch, The Verge, VentureBeat, and official AI lab announcements. [1]\n\nTaken together, today’s stories point to something bigger than another wave of AI announcements. [3]\n\nThe Reality of AI Deployment Versus Announcements.Moreover, the rush to announce AI capabilities sometimes results in inflated claims that do not translate into real-world impact. [7]\n\nSources: [1] LLM News Today (September 2026) – AI Model Releases (llm-stats.com)  [2] Announcements | APIpie.ai (apipie.ai)  [3] Top Tech News Today, September 24, 2026: Amazon... - Tech Startups (techstartups.com)  [4] Faceless AI News Channel: Formats, Script & RPM · ShortFast (shortfast.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest AI announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 64,
+            "domain": "llm-stats.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T09:32:25.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "LLM News Today (September 2026) – AI Model Releases",
+            "url": "https://llm-stats.com/ai-news?ref=aianmelderen.dk"
+          },
+          {
+            "ageHours": 36.2,
+            "domain": "apipie.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:21:23.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Announcements | APIpie.ai",
+            "url": "https://apipie.ai/announcements"
+          },
+          {
+            "ageHours": 104.5,
+            "domain": "techstartups.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T17:04:47.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Top Tech News Today, September 24, 2026: Amazon... - Tech Startups",
+            "url": "https://techstartups.com/2026/09/24/top-tech-news-today-september-24-2026-amazon-anthropic-deepseek-google-meta-openai-oracle-more"
+          },
+          {
+            "ageHours": 105.4,
+            "domain": "shortfast.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:08:25.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Faceless AI News Channel: Formats, Script & RPM · ShortFast",
+            "url": "https://www.shortfast.com/niches/ai-news"
+          },
+          {
+            "ageHours": 4.9,
+            "domain": "auth-test.lightwards.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:40:24.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Billions Poured into AI Startups Amid Experts' Warnings · Lightwards",
+            "url": "https://auth-test.lightwards.com/article/billions-poured-into-ai-startups-amid-experts-warnings"
+          },
+          {
+            "ageHours": 104.1,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T17:29:27.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.67,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Meta Made a Number of AI Announcements Last Night. Here’s What...",
+            "url": "https://finance.yahoo.com/technology/ai/articles/meta-made-number-ai-announcements-160625157.html"
+          },
+          {
+            "ageHours": 15.6,
+            "domain": "octopusintelligence.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:53:59.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.67,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Myth Versus Reality: Separating Rivals Who Deploy AI From Rivals...",
+            "url": "https://www.octopusintelligence.com/myth-versus-reality-separating-rivals-who-deploy-ai-from-rivals-who-announce-it"
+          },
+          {
+            "ageHours": 109.1,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T12:24:15.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "AI Agents Transform Personal Life and Scientific Discovery in 2026",
+            "url": "https://que.com/ai-agents-transform-personal-life-and-scientific-discovery-in-2026"
+          },
+          {
+            "ageHours": 81.9,
+            "domain": "openvsp.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:39:07.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.64,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "OpenVSP 3.52.0 Released | Blogs",
+            "url": "https://openvsp.org/blogs/announcements/2026/09/19/openvsp-3-52-0-released"
+          },
+          {
+            "ageHours": 91.7,
+            "domain": "htxt.co.za",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T05:50:36.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Meta tries its hand at AI-powered hardware with the Muse Charm...",
+            "url": "https://htxt.co.za/2026/09/meta-tries-its-hand-at-ai-powered-hardware-with-the-muse-charm"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 4.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.771,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1831,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1082,
+        "statesFreshness": true,
+        "text": "OpenAI reportedly paused top models after a model sent a DNS query to a public chatbot\n\nA user says a monitor fired 12 minutes after the query, but the training run continued for another two hours and 32 minutes before it was stopped. [5]\n\nOpenAI pauses work on top AI models after system bypasses internet restrictions\n\nSAN FRANCISCO, Sept 27 — ChatGPT developer OpenAI has paused work involving its most capable artificial intelligence models after one of its systems bypassed internet restrictions and contacted an external chatbot during a test, German news agency dpa reported. [6]\n\nWhich AI Business Models Are Generating the Highest Revenue Today? [7]\n\nAmong all AI business models, AI-as-a-Service (AIaaS) is currently leading the revenue race. [7]\n\nSources: [1] Top Viral AI Video & AI Photo Trends in 2026 (pixazo.ai)  [2] MiniMax H3 Max AI Video Generator - Top Hailuo Tier | Fliki (fliki."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "current top AI models",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 54.2,
+            "domain": "pixazo.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T19:21:33.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Top Viral AI Video & AI Photo Trends in 2026",
+            "url": "https://www.pixazo.ai/blog/top-viral-ai-video-and-photo-trends"
+          },
+          {
+            "ageHours": 87.4,
+            "domain": "fliki.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T10:10:22.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "MiniMax H3 Max AI Video Generator - Top Hailuo Tier | Fliki",
+            "url": "https://fliki.ai/models/video/minimax-h3-max"
+          },
+          {
+            "ageHours": 74.5,
+            "domain": "floyo.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T23:04:41.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "kokekokko on Floyo. 4 ComfyUI workflows. Browse, preview, and run in...",
+            "url": "https://www.floyo.ai/creators/kokekokko"
+          },
+          {
+            "ageHours": 29.7,
+            "domain": "kenerateai.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T19:48:11.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Image to Image AI — Free AI Image Generator from Image | Kenerate AI",
+            "url": "https://kenerateai.com/image-to-image-ai"
+          },
+          {
+            "ageHours": 6.3,
+            "domain": "digg.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:14:11.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "OpenAI reportedly paused top models after a model sent a DNS query to a public chatbot",
+            "url": "https://digg.com/ai/gg5czs5v"
+          },
+          {
+            "ageHours": 44,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T05:33:30.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "OpenAI pauses work on top AI models after system bypasses internet restrictions",
+            "url": "https://www.malaymail.com/news/tech-gadgets/2026/09/27/openai-pauses-work-on-top-ai-models-after-system-bypasses-internet-restrictions/236722"
+          },
+          {
+            "ageHours": 52.3,
+            "domain": "ewebdiscussion.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:16:49.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Which AI Business Models Are Generating the Highest Revenue Today?",
+            "url": "https://www.ewebdiscussion.com/threads/which-ai-business-models-are-generating-the-highest-revenue-today.404898"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 6.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.839,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 5640,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1149,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [1]\n\nNathan Bresette et al, MeLSI: Metric Learning for Statistical Inference in microbiome community composition analysis, mSystems (2026).Master's in physics with research experience. [2]\n\nNewsy Today.Shield AI, founded in 2015, has developed Hivemind to enable autonomous operations in environments with no GPS or communication. [3]\n\nThe major updates include new railway projects in Gujarat, an AI-based railway safety initiative, developments at the United Nations General Assembly, education-related textbook corrections, and India's ongoing campaign at the Asian Games 2026. [1]\n\nSources: [1] School Assembly News Headlines Today – September 28, 2026 | National, I"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "AI news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 20.9,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1.16,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.16,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 108.2,
+            "domain": "medicalxpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T13:22:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "AI tool finds biological signals in the gut microbiome that other methods...",
+            "url": "https://medicalxpress.com/news/2026-09-ai-tool-biological-gut-microbiome.html"
+          },
+          {
+            "ageHours": 106.3,
+            "domain": "newsy-today.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:15:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "AI Innovations: Shield AI, Waabi, and GM at Disrupt... - Newsy Today",
+            "url": "https://www.newsy-today.com/ai-innovations-shield-ai-waabi-and-gm-at-disrupt-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 20.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.053,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2131,
+      "vertical": "news"
+    }
+  ],
+  "total": 138
+}

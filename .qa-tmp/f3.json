@@ -1,0 +1,1334 @@
+{
+  "answerContract": {
+    "allSourcesDated": 14,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 4,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 11
+  },
+  "byCategory": {
+    "finance": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 1
+    },
+    "sports": {
+      "fresh": 2,
+      "kept": 20,
+      "n": 14
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 5,
+      "n": 2
+    },
+    "current": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 0,
+      "kept": 3,
+      "n": 4
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "none": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 2
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 30,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "football results today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest cricket match result",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "live football scores",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Premier League standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 976,
+        "statesFreshness": true,
+        "text": "Laavanya Negi is Journalist and education news reporter. [1]\n\nThey can also reach out on the official email address at cheeapcet@gmail.com. [1]\n\nAt Jagran Josh, Laavanya covers the full spectrum of international, national, and regional education news - ranging from CBSE and State Board results to major entrance exams like CUET, JEE, and NEET, and college admissions and counselling. [1]\n\nCombining her expertise in news reporting and creative writing, she translates complex updates into timely, actionable, and engaging content for students and educators alike. [1]\n\nSources: [1] AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter - Link Here (jagranjosh.com)  [2] Karnataka NEET MDS 2026: Round 2 Provisional Seat Allotment Result Released at cetonline.karnataka.gov.in, Final Result Expected Soon (jagranjosh.com)  [3] Keep It Up चा अर्"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest IPL news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 112.9,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T08:34:33.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "AP B.Arch Admissions 2026: Seat Allotment Result Releasing Today at cap.apcfss.in, Download Allocation Letter ",
+            "url": "https://www.jagranjosh.com/news/ap-barch-admissions-2026-seat-allotment-result-release-at-cap-apcfss-in-download-allocation-letter-pdf-direct-link-here-187732"
+          },
+          {
+            "ageHours": 115.9,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T05:34:13.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Karnataka NEET MDS 2026: Round 2 Provisional Seat Allotment Result Released at cetonline.karnataka.gov.in, Fin",
+            "url": "https://www.jagranjosh.com/news/karnataka-neet-mds-2026-round-2-provisional-seat-allotment-result-released-at-cetonline-karnataka-gov-in-final-result-expected-soon-187718"
+          },
+          {
+            "ageHours": 82.5,
+            "domain": "panferov-art.ru",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:02:10.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Keep It Up चा अर्थ मराठीत ? धिक जाणून · इंग्रजी वाक्ये... | panferov-art.ru",
+            "url": "https://www.panferov-art.ru/technology/tech-news/google-founder-sergey-brin-dont-want-you-to-use-gemini-live-while-driving-heres-why/articleshow/126034176.cms"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 82.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.867,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2797,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Formula 1 2026 season results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "NBA standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest tennis tournament results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "today's match fixtures",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "who won the most recent F1 race",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 920,
+        "statesFreshness": false,
+        "text": "The Asian Games 2026 sees the Indian contingent looking to put in their best performance in hopes of adding more medals to their tally. [3]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [1]\n\nIndia enjoyed another medal-rich day at the Asian Games 2026 on Monday, winning eight medals across athletics, shooting and kurash while also securing more medals in boxing. [5]\n\nWhat is India’s position in the medal table after Day 8 (September 27) at the Asian Games 2026? [1]\n\nSources: [1] Asian Games 2026: Updated medal tally after Day 8, September 27 (khelnow.com)  [2] Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India Rise To 10th (freepressjournal.in)  [3] Asian Games 2026, Day 7 LIVE: India look to add to medal tally (indiatvnews.com)  [4] India In Athletics, Asian Games 2026 Highlights: Prachi Wins Superb."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 medal tally India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 31.9,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 59,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:31:54.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India R",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medal-tally-day-8-kabaddi-teams-bag-twin-golds-tajinderpal-toor-sawan-barwal-help-india-rise-to-10th"
+          },
+          {
+            "ageHours": 68.5,
+            "domain": "indiatvnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T05:03:01.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026, Day 7 LIVE: India look to add to medal tally",
+            "url": "https://www.indiatvnews.com/sports/other/asian-games-2026-day-7-live-india-look-to-secure-gold-in-women-s-kabaddi-1055337"
+          },
+          {
+            "ageHours": 63.3,
+            "domain": "sports.ndtv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T10:12:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.36,
+              "sourceQuality": 0.1
+            },
+            "title": "India In Athletics, Asian Games 2026 Highlights: Prachi Wins Superb...",
+            "url": "https://sports.ndtv.com/asian-games-2026/india-in-athletics-asian-games-2026-live-updates-day-7-indian-athletes-results-tajinderpal-singh-toor-gulveer-singh-parul-chaudhary-medal-events-track-12100759"
+          },
+          {
+            "ageHours": 10.9,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:37:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.36,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 Day 9: Athletics leads India’s 8-medal haul...",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-day-9-athletics-leads-indias-8-medal-haul-boxing-assures-more-as-near-misses-hurt/articleshow/134545152.cms"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 10.9,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.014,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2246,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest Asian Games 2026 results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Olympic medal table",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: sports-scores | Live sports scores (TheSportsDB): circuit open (cooling"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1079,
+        "statesFreshness": false,
+        "text": "The 1982 World Cup group stage saw one of the most cynical displays of \"match-fixing\" without technically breaking any rules.Perhaps the most infamous moment in World Cup history unfolded during the 1986 quarter-final between Argentina and England. [5]\n\nIn anticipation of the 2022 World Cup in Qatar, see all 101 of the most memorable moments in the tournament's rich history.Before the 1998 World Cup Final, this was the most memorable matchup between Brazil and France. [10]\n\nFLASHBACK: How World Cup final referee was arrested at a criminal location 6 years ago\n\nThe 2026 FIFA World Cup final is set to take place tonight at the New York/New Jersey Stadium, with Argentina looking to successfully defend their title against Spain. [6]\n\nOne of the most painful moments in football history is Ghana's defeat in the World Cup quarterfinal. [7]\n\nSources: [1] 2022 FIFA World Cup final (en.wikipedia.o"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "history of the World Cup final",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 1.09,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.09,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "2022 FIFA World Cup final",
+            "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "List of FIFA World Cup finals - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals"
+          },
+          {
+            "ageHours": null,
+            "domain": "fifa.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "FIFA World Cup 2026™ Final",
+            "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/final"
+          },
+          {
+            "ageHours": null,
+            "domain": "topendsports.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "List of Soccer World Cup historical firsts",
+            "url": "https://www.topendsports.com/events/worldcupsoccer/firsts.htm"
+          },
+          {
+            "ageHours": null,
+            "domain": "aol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "11 infamous World Cup moments we still think about - AOL",
+            "url": "https://www.aol.com/articles/11-infamous-world-cup-moments-185643791.html"
+          },
+          {
+            "ageHours": 994.4,
+            "domain": "dailytrust.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T15:04:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "FLASHBACK: How World Cup final referee was arrested at a criminal location 6 years ago",
+            "url": "https://dailytrust.com/flashback-how-world-cup-final-referee-was-arrested-at-a-criminal-location-6-years-ago"
+          },
+          {
+            "ageHours": null,
+            "domain": "sportco.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Top 7 Most Emotional Moments in World Cup History",
+            "url": "https://www.sportco.io/article/top-7-most-emotional-moments-in-world-cup-history-218542"
+          },
+          {
+            "ageHours": 1026.8,
+            "domain": "onthisday.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T06:39:23.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "FIFA World Cup History",
+            "url": "https://www.onthisday.com/sport/soccer/soccer-tournaments/football-world-cup"
+          },
+          {
+            "ageHours": 47795.2,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-04-16T14:18:14Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "I finally made a free app for collecting panini stickers",
+            "url": "https://news.ycombinator.com/item?id=26834185"
+          },
+          {
+            "ageHours": null,
+            "domain": "foxsports.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.95,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "World Cup: 101 most memorable tournament moments | FOX Sports",
+            "url": "https://www.foxsports.com/stories/soccer/world-cup-101-most-memorable-tournament-moments"
+          },
+          {
+            "ageHours": null,
+            "domain": "football-balls.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "FIFA World Cup balls | Football Balls Database",
+            "url": "https://football-balls.com/balls/world-cup"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Thirty bullies (2007)",
+            "url": "https://openlibrary.org/works/OL24855426W"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 994.4,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.983,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1538,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1602,
+        "statesFreshness": true,
+        "text": "Stock Markets.The broader market environment is offering little support, with the S&P 500 down 0.5%, the Dow Jones down 0.6%, and the Nasdaq down 0.7% in today’s session, reflecting a risk-off tone that tends to weigh disproportionately on higher-valuation software names. [10]\n\nS&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Stocks Slide Ahead Fed Rate Hike | Check What Investors Should Watch\n\nS&P 500 Today: The S&P 500 was already off to a defensive note from the start of the week’s trading as the index fell 58.88 points or 0.76%, to 7,684.53 in the latest market update. [2]\n\nStock market today: Dow rises, S&P 500, Nasdaq fall as tech rotation trade resumes, US-Iran tensions flare. [4]\n\nLive news updates from stock market.Runwal Enterprises's ₹499.83 crore initial public offering (IPO) entered its second day of public subscripti"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "stock market today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 5.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:06:39.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "S&P 500 Today LIVE: Index Slides 0.88% as Oil Climbs Above $106, Treasury Yields Rise, Nvidia Gains & Tech Sto",
+            "url": "https://sundayguardianlive.com/business/sp-500-today-live-index-slides-088-as-oil-climbs-above-106-treasury-yields-rise-nvidia-gains-tech-stocks-slide-ahead-fed-rate-hike-check-what-investors-should-watch-294673"
+          },
+          {
+            "ageHours": 21.7,
+            "domain": "cryptowisser.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T03:46:41.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Aave Lets Users Borrow USDC Against Tokenized Apple and Tesla Stock",
+            "url": "https://www.cryptowisser.com/news/aave-lets-users-borrow-usdc-against-tokenized-apple-and-tesla-stock"
+          },
+          {
+            "ageHours": 17.4,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:05:46.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Stock market today: Dow, S&P 500, Nasdaq slip as AI safety...",
+            "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-september-28-dow-sp-500-nasdaq-080420627.html"
+          },
+          {
+            "ageHours": 3.2,
+            "domain": "bloomberg.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:19:42.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Stock Market Today: Dow, S&P Live Updates for... - Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-09-28/stock-market-today-dow-s-p-live-updates"
+          },
+          {
+            "ageHours": 20.1,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:21:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Stock market crash today: BSE Sensex crashes... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/business/india-business/stock-market-crash-today-why-bse-sensex-and-nifty50-have-crashed-on-september-28-2026-us-iran-war-crude-oil-rupee-top-reasons-for-fall/articleshow/134532562.cms"
+          },
+          {
+            "ageHours": 11.6,
+            "domain": "fool.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:56:48.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Meet the 1 Stock I'd Buy With $500 and Never Look... | The Motley Fool",
+            "url": "https://www.fool.com/investing/2026/09/28/meet-the-1-stock-id-buy-with-500-and-never-look-at"
+          },
+          {
+            "ageHours": 11,
+            "domain": "fool.ca",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:30:13.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "I’m Still Buying These Stocks Despite the... | The Motley Fool Canada",
+            "url": "https://www.fool.ca/2026/09/28/im-still-buying-these-stocks-despite-the-economic-slowdown"
+          },
+          {
+            "ageHours": 18.7,
+            "domain": "groww.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:49:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Runwal Enterprises IPO Day 2: Subscription Status, Timeline & Key...",
+            "url": "https://groww.in/blog/runwal-enterprises-ipo-day-2-subscription-status"
+          },
+          {
+            "ageHours": 2.6,
+            "domain": "investing.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:52:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Why is ServiceNow stock sliding today? By Investing.com",
+            "url": "https://www.investing.com/news/stock-market-news/why-is-servicenow-stock-sliding-today-93CH-4920661"
+          },
+          {
+            "ageHours": 24.3,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:13:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334)",
+            "url": "https://www.thehindubusinessline.com/markets/sensex-nifty50-today-stock-market-live-updates-28-septmeber-2026/article71515691.ece"
+          },
+          {
+            "ageHours": 20.8,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:41:29.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions",
+            "url": "https://www.dynamitenews.com/business/sensex-crashes-over-500-points-why-stock-market-fell-today-amid-global-tensions"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.004,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2011,
+      "vertical": "markets"
+    }
+  ],
+  "total": 138
+}

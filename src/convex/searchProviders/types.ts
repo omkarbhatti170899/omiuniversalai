@@ -18,6 +18,13 @@ export type WebCitation = {
   providers?: string[];
   /** Andromeda relevance score (0..1), assigned during merge/ranking. */
   relevance?: number;
+  /**
+   * Per-component ranking breakdown (2026-09-29 quality layer): relevance,
+   * freshness, authority, sourceQuality, directness, corroboration, final.
+   * Persisted so the benchmark and UI can show WHY a source ranked where it
+   * did without recomputing it.
+   */
+  scoreBreakdown?: import("../searchEngine/quality").ScoreBreakdown;
   /** Author when the source provides one (papers, books, HN). */
   author?: string;
 };

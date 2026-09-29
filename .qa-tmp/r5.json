@@ -1,0 +1,3038 @@
+{
+  "answerContract": {
+    "allSourcesDated": 12,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 14,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 1
+  },
+  "byCategory": {
+    "science": {
+      "fresh": 4,
+      "kept": 51,
+      "n": 7
+    },
+    "technology": {
+      "fresh": 6,
+      "kept": 58,
+      "n": 8
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 0,
+      "kept": 1,
+      "n": 2
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 17,
+      "n": 2
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 31,
+      "n": 4
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 36,
+      "n": 3
+    },
+    "recent": {
+      "fresh": 1,
+      "kept": 10,
+      "n": 2
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 60,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 656,
+        "statesFreshness": false,
+        "text": "Kubernetes is a container orchestration platform. [1]\n\nKubernetes monitoring is essential for maintaining the health, performance, and reliability of applications running within a Kubernetes cluster. [6]\n\nI think THE best is standing up your own Kubernetes cluster “the hard way” inside your lab. [8]\n\nKubernetes is an open source orchestration system for Docker containers. [10]\n\nSources: [1] Containerization and Kubernetes: Building the Foundation for Modern... (linkedin.com)  [2] Medium (medium.com)  [3] Kubernetes - Containers SME Cookbook (containers.codeguides.io)  [4] hackernoon.com/kubernetes-vs-docker-swarm-a-comprehensive... (hackernoon.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "what is kubernetes",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Containerization and Kubernetes: Building the Foundation for Modern...",
+            "url": "https://www.linkedin.com/pulse/containerization-kubernetes-building-foundation-modern-sampath-hewage-8zw4c"
+          },
+          {
+            "ageHours": null,
+            "domain": "medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Medium",
+            "url": "https://medium.com/@ramnalla.aws/understanding-kubernetes-through-a-simple-analogy-734c2716ecf6"
+          },
+          {
+            "ageHours": null,
+            "domain": "containers.codeguides.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Kubernetes - Containers SME Cookbook",
+            "url": "https://containers.codeguides.io/pt/kubernetes-fundamentals"
+          },
+          {
+            "ageHours": null,
+            "domain": "hackernoon.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "hackernoon.com/kubernetes-vs-docker-swarm-a-comprehensive...",
+            "url": "https://hackernoon.com/kubernetes-vs-docker-swarm-a-comprehensive-comparison-73058543771e"
+          },
+          {
+            "ageHours": null,
+            "domain": "oreilly.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Live Events",
+            "url": "https://www.oreilly.com/live-events/introduction-to-kubernetes/0636920068884"
+          },
+          {
+            "ageHours": null,
+            "domain": "tiktok.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.43,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.43,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "1.4M postingan. Temukan video terkait Dbgate Kubernetes di TikTok.",
+            "url": "https://www.tiktok.com/discover/dbgate-kubernetes"
+          },
+          {
+            "ageHours": null,
+            "domain": "blog.servermania.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Kubernetes Adoption vs. Single-Node Docker | ServerMania",
+            "url": "https://blog.servermania.com/kubernetes-adoption-vs-single-node-docker"
+          },
+          {
+            "ageHours": null,
+            "domain": "virtualizationhowto.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "This Home Lab Learning Tool Made Kubernetes... - Virtualization Howto",
+            "url": "https://www.virtualizationhowto.com/2026/06/this-home-lab-learning-tool-made-kubernetes-finally-click-for-me"
+          },
+          {
+            "ageHours": null,
+            "domain": "getnora.dev",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Kubernetes Deployment Examples | NORA",
+            "url": "https://getnora.dev/examples/kubernetes"
+          },
+          {
+            "ageHours": null,
+            "domain": "meetup.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Melbourne Kubernetes User Group | Meetup",
+            "url": "https://www.meetup.com/melbourne-kubernetes-meetup"
+          },
+          {
+            "ageHours": null,
+            "domain": "headlamp.dev",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Headlamp is a user-friendly Kubernetes UI focused on extensibility",
+            "url": "https://headlamp.dev"
+          },
+          {
+            "ageHours": null,
+            "domain": "gitlab.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.79,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Tags · kubernetes / kubernetes · GitLab",
+            "url": "https://gitlab.com/kubernetes/kubernetes/-/tags"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"kubernetes\" right now — Omi will not inv"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.778,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 4199,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 891,
+        "statesFreshness": true,
+        "text": "Why Apple anchors the smartphone release cycle, how Samsung, Google and Huawei time their launches, and when last year's flagship becomes the smart buy. [9]\n\nIn today’s video we are taking a look at all the upcoming smartphones that are launching in September 2026. [3]\n\nMicromax today launched another smartphone in the Unite 4 series; this one is called the Micromax Canvas Unite 4 Plus.… [5]\n\nAccording to Oppo, the upcoming Oppo K14 Plus 5G smartphone is scheduled for release in India on September 29, 2026, featuring a large 8,000 mAh battery, a. [8]\n\nSources: [1] Honor Magic9 Pro Max Smartphone Is Inspired By... | PetaPixel (petapixel.com)  [2] Google News - News about phone • Motorola - Overview (news.google.com)  [3] Top 15+ Best Upcoming Phone Launches October 2026 - YouTube (youtube.com)  [4] AndroidPure – Android News, Reviews & Leaks – Phones, Updates... (androidpure.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest smartphone launches",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 10.6,
+            "domain": "petapixel.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:39:58.000Z",
+            "relevance": 0.59,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.59,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Honor Magic9 Pro Max Smartphone Is Inspired By... | PetaPixel",
+            "url": "https://petapixel.com/2026/09/28/honor-magic9-pro-max-smartphone-is-inspired-by-legendary-arriflex-cameras"
+          },
+          {
+            "ageHours": 94.1,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:13:08.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - News about phone • Motorola - Overview",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lwbVlLQ0VoSDlWdUIwU0doTmxpZ0FQAQ?hl=en-US&gl=US&ceid=US%3Aen"
+          },
+          {
+            "ageHours": 61.5,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:48:11.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 0.64,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Top 15+ Best Upcoming Phone Launches October 2026 - YouTube",
+            "url": "https://www.youtube.com/watch?v=nnNmknhClms"
+          },
+          {
+            "ageHours": 70.8,
+            "domain": "androidpure.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:27:23.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "AndroidPure – Android News, Reviews & Leaks – Phones, Updates...",
+            "url": "https://www.androidpure.com?query-2-page=723"
+          },
+          {
+            "ageHours": 115.7,
+            "domain": "gogi.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:36:08.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Gogi Tech - Reviews, News, Comparisons - Page 413 of 413",
+            "url": "https://www.gogi.in/page/413"
+          },
+          {
+            "ageHours": 91.9,
+            "domain": "aninews.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T05:24:08.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Mivi Enters India&#8217;s Smartphone Market with Mivi One...",
+            "url": "https://aninews.in/news/business/mivi-enters-india8217s-smartphone-market-with-mivi-one-5g-starting-at-a-special-bbd-price-of-rs11999-on-flipkart20260925103937"
+          },
+          {
+            "ageHours": 89.2,
+            "domain": "notebookcheck.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T08:07:51.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Vivo launches new budget phone with... - Notebookcheck News",
+            "url": "https://www.notebookcheck.net/Vivo-launches-new-budget-phone-with-8-000mAh-battery-IP69-rating-and-120Hz-display.1408191.0.html"
+          },
+          {
+            "ageHours": 116.1,
+            "domain": "newsy-today.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:10:47.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Oppo Confirms New Phone with 8000mAh Battery and... - Newsy Today",
+            "url": "https://www.newsy-today.com/oppo-confirms-new-phone-with-8000mah-battery-and-144hz-amoled-display"
+          },
+          {
+            "ageHours": 82.9,
+            "domain": "refurbed.ie",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T14:26:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Smartphone Release Cycles Explained - refurbed",
+            "url": "https://www.refurbed.ie/c/smartphones/smartphone-release-cycle-explained-139.html"
+          },
+          {
+            "ageHours": 73.5,
+            "domain": "t3.com",
+            "providers": [
+              "searxng",
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T23:49:56.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Behemoth batteries and ultra cameras – smartphones are taking... | T3",
+            "url": "https://www.t3.com/tech/phones/behemoth-batteries-and-ultra-cameras-smartphones-are-taking-an-interesting-new-direction"
+          },
+          {
+            "ageHours": 112.9,
+            "domain": "gizbot.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T08:25:32.000Z",
+            "relevance": 0.59,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.59,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Mivi One 5G Budget Smartphone Launched in India... - Gizbot News",
+            "url": "https://www.gizbot.com/mobile/news/mivi-one-5g-budget-smartphone-launched-india-snapdragon-4-gen-2-6000mah-battery-90hz-display-128745.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 10.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.741,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 5412,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 924,
+        "statesFreshness": true,
+        "text": "Linkup research team releases SPARSEUP, an open-source learned sparse embedding model. [5]\n\nThe open-source tool is now at version 3.03 (build 3.03.100), released today by developer Belim. [1]\n\nGitHub SponsorsFund open source developers.@mrexodia's goal is to earn $5,000 per month. [2]\n\n(0:00) Bestie Intros: Favorite All-In Summit moments (3:54) Reacting to AI chaos: Liability, competition, and rebranding frontier \"labs\" (20:03) Non-frontier performance and cost: What this means for frontier companies (29:22) Anthropic and OpenAI postpone IPOs: liquidity risk and open source... [4]\n\nSources: [1] Flyoobe 3.03 Release: Open-Source Windows 11 Setup Tool Gets... (ntcompatible.com)  [2] Sponsor @mrexodia on GitHub Sponsors · GitHub (github.com)  [3] Google Is Delaying Android Updates & Locking APIs to Pixel... | Stork.AI (stork.ai)  [4] Anthropic IPO at Risk, Meta’s Muse Pop, Token Prices Fal"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "recent open source releases",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 12.7,
+            "domain": "ntcompatible.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:35:28.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Flyoobe 3.03 Release: Open-Source Windows 11 Setup Tool Gets...",
+            "url": "https://www.ntcompatible.com/story/flyoobe-303-release-opensource-windows-11-setup-tool-gets-retro-score-bar"
+          },
+          {
+            "ageHours": 93.4,
+            "domain": "github.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:54:49.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Sponsor @mrexodia on GitHub Sponsors · GitHub",
+            "url": "https://github.com/sponsors/mrexodia?metadata_source=releases"
+          },
+          {
+            "ageHours": 80.5,
+            "domain": "stork.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T16:45:43.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Google Is Delaying Android Updates & Locking APIs to Pixel... | Stork.AI",
+            "url": "https://www.stork.ai/blog/androids-open-source-betrayal"
+          },
+          {
+            "ageHours": 70.7,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:35:25.000Z",
+            "relevance": 0.34,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.34,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Anthropic IPO at Risk, Meta’s Muse Pop, Token Prices Fall, Open...",
+            "url": "https://www.youtube.com/watch?v=cvP_1jmnkmM"
+          },
+          {
+            "ageHours": 3.3,
+            "domain": "kimlud.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:00:49.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Linkup Research Releases SPARSEUP... - Kimlud.co",
+            "url": "https://kimlud.co/tech/linkup-research-releases-sparseup-a-149m-parameter-open-source-sparse-embedding-model"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 3.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.728,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 13390,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 799,
+        "statesFreshness": false,
+        "text": "\"Upgrade TypeScript to version 7.\" Review the detected current and target compiler versions. [2]\n\nThis mock interview requires skills of TypeScript and Version Control. [4]\n\nLearn TypeScript TypeScript playground TypeScript Cheat Sheet.The TypeScript version states the shape once, and the typo is reported before the code runs: interface User { firstName: string; lastName: string [1]\n\nTypeScript is a language for application scale JavaScript development (with updated dependencies). [3]\n\nSources: [1] Runnable TypeScript Docs: TypeScript vs JavaScript | Coddy (coddy.tech)  [2] Upgrade the TypeScript compiler - .NET Core | Microsoft Learn (learn.microsoft.com)  [3] depup/typescript__typescript6 - npm (npmjs.com)  [4] TypeScript + Version Control Mock Interview Preparation Online (intervue.io)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "current version of TypeScript",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 77.6,
+            "domain": "coddy.tech",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T19:44:39.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Runnable TypeScript Docs: TypeScript vs JavaScript | Coddy",
+            "url": "https://coddy.tech/docs/typescript/typescript-vs-javascript"
+          },
+          {
+            "ageHours": 80.8,
+            "domain": "learn.microsoft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T16:30:25.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Upgrade the TypeScript compiler - .NET Core | Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-upgrade/javascript-typescript-upgrade-typescript"
+          },
+          {
+            "ageHours": 48.3,
+            "domain": "npmjs.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T01:01:05.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "depup/typescript__typescript6 - npm",
+            "url": "https://www.npmjs.com/package/@depup/typescript__typescript6"
+          },
+          {
+            "ageHours": 46.6,
+            "domain": "intervue.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T02:41:07.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "TypeScript + Version Control Mock Interview Preparation Online",
+            "url": "https://www.intervue.io/frontend-mock-interviews-for-typescript-skill-typescript-plus-version-control-mid-senior"
+          },
+          {
+            "ageHours": 79.4,
+            "domain": "github.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T17:54:08.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.61,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "GitHub - sachinshetty22k/Ts-Node-Starter · GitHub",
+            "url": "https://github.com/sachinshetty22k/ts-node-starter"
+          },
+          {
+            "ageHours": 91.3,
+            "domain": "storage.googleapis.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:02:26.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Enable TypeScript and JavaScript in VSCode: complete guide",
+            "url": "https://storage.googleapis.com/ehgwcvoryujeejzrevbsqgziigb/how-to-enable-typescript-and-javascript-language-features-in-vscode.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 46.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.803,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 3524,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 776,
+        "statesFreshness": false,
+        "text": "Quick Recommendations (TL;DR)Go vs Rust: Comparison TableIn-Depth: Go Pros & Cons [6]\n\n#1 Rust vs Go: Brief Comparison and Key Differences. [8]\n\nRust vs Go: Complete comparison of memory management, concurrency, performance, and development experience. [9]\n\nIn this comparison of Rust and Go, taken from a full talk by our CTO, Alexander Kirillov, we look at both languages' real-world capabilities, performance, and use cases.Rust vs. [10]\n\nSources: [1] Rust vs Go: A Deep, Practical Comparison for Engineers Who Ship (imlamrin.medium.com)  [2] Go vs. Rust: When to use Rust and when to use Go - LogRocket Blog (blog.logrocket.com)  [3] Rust vs. Go: A Comparison of Two Modern Programming Languages (linkedin.com)  [4] Rust vs Go : Hands On Comparison - YouTube (youtube.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "rust vs go comparison",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "imlamrin.medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go: A Deep, Practical Comparison for Engineers Who Ship",
+            "url": "https://imlamrin.medium.com/rust-vs-go-a-deep-practical-comparison-for-engineers-who-ship-f324f8753e41"
+          },
+          {
+            "ageHours": null,
+            "domain": "blog.logrocket.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Go vs. Rust: When to use Rust and when to use Go - LogRocket Blog",
+            "url": "https://blog.logrocket.com/go-vs-rust-when-use-rust-when-use-go"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs. Go: A Comparison of Two Modern Programming Languages",
+            "url": "https://www.linkedin.com/pulse/rust-vs-go-comparison-two-modern-programming-languages-umur-ozkul"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.52,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.52,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Rust vs Go : Hands On Comparison - YouTube",
+            "url": "https://www.youtube.com/watch?v=dSoP7EF2YJ4"
+          },
+          {
+            "ageHours": null,
+            "domain": "shuttle.dev",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rust Vs Go: A Hands-On Comparison | Shuttle",
+            "url": "https://www.shuttle.dev/blog/2023/09/27/rust-vs-go-comparison"
+          },
+          {
+            "ageHours": null,
+            "domain": "roadmap.sh",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Go vs. Rust Compared: Which is right for you?",
+            "url": "https://roadmap.sh/golang/vs-rust"
+          },
+          {
+            "ageHours": null,
+            "domain": "konstantinfo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Which is Better Rust vs Go in 2025? - Konstantinfo",
+            "url": "https://www.konstantinfo.com/blog/rust-vs-go"
+          },
+          {
+            "ageHours": null,
+            "domain": "atatus.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rust Vs Golang - When to use them?",
+            "url": "https://www.atatus.com/blog/rust-vs-golang"
+          },
+          {
+            "ageHours": null,
+            "domain": "betterstack.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rust vs Go: A Comprehensive Language Comparison",
+            "url": "https://betterstack.com/community/guides/scaling-go/rust-vs-go"
+          },
+          {
+            "ageHours": null,
+            "domain": "evrone.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go in 2025: Comparison of Performance, Complexity, and...",
+            "url": "https://evrone.com/blog/rustvsgo"
+          },
+          {
+            "ageHours": null,
+            "domain": "yalantis.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go: Performance, Use Cases & How to Choose",
+            "url": "https://yalantis.com/blog/rust-vs-go-comparison"
+          },
+          {
+            "ageHours": null,
+            "domain": "appinventiv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Go vs Rust: Which Language Wins in Speed and Safety",
+            "url": "https://appinventiv.com/blog/go-vs-rust-choice-for-app-development"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.802,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2218,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1021,
+        "statesFreshness": true,
+        "text": "Today's Change.Manufacturing chips is hard and expensive, and it requires a lot of expertise. [1]\n\nSMT Today is a leading magazine providing news, events and white papers to the global electronics manufacturing industry.Electronics News. [4]\n\nThe central bank forecasts Taiwan’s overall trade surplus to hit US$205.4 billion this year as it emerges as a global artificial intelligence (AI) hardware manufacturing hub.The nation’s projected trade surplus this year is 4.2 times the US$49.2 billion surplus in 2018, when the US-China spat over t. [3]\n\nMemory chips are again in great demand, though, driven by the artificial intelligence boom.Today's Top News. [6]\n\nSources: [1] Meet the Magnificent Semiconductor Stock Crushing... | The Motley Fool (fool.com)  [2] Why Is Taiwan Semiconductor Manufacturing (TSM) Raising Wafer... (finance.yahoo.com)  [3] Taiwan trade surplus to hit US$205.4bn on back"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest chip manufacturing news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 76.8,
+            "domain": "fool.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T20:27:12.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Meet the Magnificent Semiconductor Stock Crushing... | The Motley Fool",
+            "url": "https://www.fool.com/investing/2026/09/25/meet-the-magnificent-semiconductor-stock-crushing"
+          },
+          {
+            "ageHours": 96.7,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T00:35:46.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Why Is Taiwan Semiconductor Manufacturing (TSM) Raising Wafer...",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/why-taiwan-semiconductor-manufacturing-tsm-001759290.html"
+          },
+          {
+            "ageHours": 81.4,
+            "domain": "taipeitimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:53:20.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.58,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Taiwan trade surplus to hit US$205.4bn on back of AI - Taipei Times",
+            "url": "https://www.taipeitimes.com/News/front/archives/2026/09/26/2003864914"
+          },
+          {
+            "ageHours": 100.6,
+            "domain": "smttoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T20:40:56.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "SMT TODAY: Non Stop Electronics Manufacturing News - Page 603",
+            "url": "https://smttoday.com/page/603"
+          },
+          {
+            "ageHours": 102.8,
+            "domain": "analyticsinsight.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T18:28:41.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Semiconductor Companies by Market Cap: How AI Is Reshaping the...",
+            "url": "https://www.analyticsinsight.net/photo/semiconductor-companies-by-market-cap-how-ai-is-reshaping-the-chip-industry-pradnya"
+          },
+          {
+            "ageHours": 77.3,
+            "domain": "oregonlive.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T19:58:08.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Eugene's former Hynix semiconductor factory is for... - oregonlive.com",
+            "url": "https://www.oregonlive.com/silicon-forest/2026/09/former-oregon-semiconductor-factory-is-back-on-the-market.html"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 76.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.777,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2249,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 984,
+        "statesFreshness": true,
+        "text": "\"Nobody is building more compute today than the people asking to be slowed down,\" Huang told Klein.Click here for the latest technology news that will impact the stock market. [4]\n\nStay updated with the latest Technology News, gadget launches, app updates, artificial intelligence and digital trends. [5]\n\nSky News - back to home sky news logo.America's bid to return to the moon is riding on SpaceX - but it could turn to a rival. [3]\n\nThe companies have committed to: Joint development: Collaborating on battery-swapping technology and standards tailored for individual consumer vehicles. [1]\n\nSources: [1] Geely invests in Nio to launch EVs compatible with its battery-swapping... (carnewschina.com)  [2] SpaceX Starship Launch LIVE: Historic First Orbital Flight... - YouTube (youtube.com)  [3] SpaceX latest: Starship makes explosive landing in Pacific... | Sky News (news.sky.com)  [4] Nvidia l"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "technology news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 24.3,
+            "domain": "carnewschina.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:58:18.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.54,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Geely invests in Nio to launch EVs compatible with its battery-swapping...",
+            "url": "https://carnewschina.com/2026/09/28/geely-invests-in-nio-to-launche-evs-compatible-with-its-battery-swapping-network"
+          },
+          {
+            "ageHours": 13.5,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:46:57.000Z",
+            "relevance": 0.45,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.45,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.01
+            },
+            "title": "SpaceX Starship Launch LIVE: Historic First Orbital Flight... - YouTube",
+            "url": "https://www.youtube.com/watch?v=8IjRoh3TpO0"
+          },
+          {
+            "ageHours": 14.7,
+            "domain": "news.sky.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:37:20.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "SpaceX latest: Starship makes explosive landing in Pacific... | Sky News",
+            "url": "https://news.sky.com/story/spacex-launch-latest-starship-rocket-heading-for-earths-orbit-for-first-time-13592625"
+          },
+          {
+            "ageHours": 14.7,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:33:36.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Nvidia launches AI safety platform after Jensen Huang calls Anthropic...",
+            "url": "https://finance.yahoo.com/technology/article/nvidia-launches-ai-safety-platform-after-jensen-huang-calls-anthropic-openai-warnings-odd-103135599.html"
+          },
+          {
+            "ageHours": 19.5,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:46:25.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "WhatsApp Android update could bring an iPhone-like navigation bar...",
+            "url": "https://www.hindustantimes.com/technology/whatsapp-android-update-could-bring-an-iphone-like-navigation-bar-what-we-know-101790573964238.html"
+          },
+          {
+            "ageHours": 10.9,
+            "domain": "thedefensenews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:21:01.000Z",
+            "relevance": 0.59,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.59,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "French Firm Harmattan AI Demonstrates High-Speed Gobi Drone...",
+            "url": "https://www.thedefensenews.com/French-Firm-Harmattan-AI-Demonstrates-High-Speed-Gobi-Drone-Interceptor-at-US-Counter-UAS-Exercise"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 10.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.7,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1281,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "2026 technology trends",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1570,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 918,
+        "statesFreshness": false,
+        "text": "from research organizations.View all the latest top news in the physical sciences & technology, or browse the topics below [7]\n\nThe TOI Science Desk stands as an inquisitive team of journalists, ceaselessly delving into the realms of discovery to curate a captivating collection of news, features... [2]\n\nScience News.Scientists who study the atmosphere have long known that compounds released by plants can react with ozone. [3]\n\nDiscover the latest in science, tech, and space with over 100,000 subscribers who rely on Phys.org for daily insights. [6]\n\nSources: [1] Magnetism may have helped kick-start our solar system (sciencenews.org)  [2] Scientists found a new amoeba in... - The Times of India (timesofindia.indiatimes.com)  [3] That fresh cleaning smell could be filling your home with... | ScienceDaily (sciencedaily.com)  [4] Scientists Discovered a New Species in a 309-Million-Year-Old.."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "latest science news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 10.3,
+            "domain": "sciencenews.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:00:06.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Magnetism may have helped kick-start our solar system",
+            "url": "https://www.sciencenews.org/article/magnetism-kick-start-our-solar-system"
+          },
+          {
+            "ageHours": 110.7,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T10:33:48.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Scientists found a new amoeba in... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/science/discovery/scientists-found-a-new-amoeba-in-californias-lassen-volcanic-national-park-that-can-reproduce-at-145f-stay-active-at-147f-and-recover-after-five-minutes-at-158f-setting-a-new-heat-record-for-complex-life/articleshow/134457302.cms"
+          },
+          {
+            "ageHours": 58.4,
+            "domain": "sciencedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:54:07.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.72,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "That fresh cleaning smell could be filling your home with... | ScienceDaily",
+            "url": "https://www.sciencedaily.com/releases/2026/09/260925093152.htm"
+          },
+          {
+            "ageHours": 79.3,
+            "domain": "zmescience.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T18:00:20.000Z",
+            "relevance": 0.52,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.52,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Scientists Discovered a New Species in a 309-Million-Year-Old...",
+            "url": "https://www.zmescience.com/science/news-science/old-species-named-after-mom"
+          },
+          {
+            "ageHours": 103.1,
+            "domain": "scienceandculture.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T18:10:32.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Scientific American Starts Sober but... | Science and Culture Today",
+            "url": "https://scienceandculture.com/2026/09/on-origin-of-life-scientific-american-starts-sober-quickly-relapses-into-speculation"
+          },
+          {
+            "ageHours": 48.8,
+            "domain": "phys.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T00:30:17.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Why AI has trouble predicting the fury of hurricane intensity",
+            "url": "https://phys.org/news/2026-09-ai-fury-hurricane-intensity.html"
+          },
+          {
+            "ageHours": 59.5,
+            "domain": "sciencedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T13:47:21.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.72,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Two astronauts who flew farther than anyone before are... | ScienceDaily",
+            "url": "https://www.sciencedaily.com/releases/2026/09/260925005423.htm"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 10.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.724,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2268,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 944,
+        "statesFreshness": true,
+        "text": "To date, all missions have been suborbital, meaning they have involved flights into space but without reaching the speed required to enter orbit, approximately 28,000 kilometres per hour. [1]\n\nAs space architecture proliferates, derelict spacecraft pose a growing operational risk to active constellations and future missions.Designing Missions Today for Future Servicing. [7]\n\nExperts from the Space Agri Technologies research group have begun conducting a comprehensive series of experiments in preparation for space missions. [8]\n\nSpaceX is preparing to launch USSF-385, a classified U.S. [2]\n\nSources: [1] SpaceX launches giant starship into orbit for the first time – Watch the... (en.protothema.gr)  [2] SpaceX USSF-385 Launch Today: What’s Confirmed About... | TECHi (techi.com)  [3] Florida Tech students get inside a simulated Mars mission (floridatoday.com)  [4] Advanced Health Tech Resear"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current space missions",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 8.2,
+            "domain": "en.protothema.gr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:06:08.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "SpaceX launches giant starship into orbit for the first time – Watch the...",
+            "url": "https://en.protothema.gr/2026/09/28/spacex-launches-giant-starship-into-orbit-for-the-first-time-watch-the-flight"
+          },
+          {
+            "ageHours": 62.1,
+            "domain": "techi.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:11:37.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.74,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "SpaceX USSF-385 Launch Today: What’s Confirmed About... | TECHi",
+            "url": "https://www.techi.com/spacex-ussf-385-launch-today-classified-mission"
+          },
+          {
+            "ageHours": 40.2,
+            "domain": "floridatoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T09:05:19.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.72,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Florida Tech students get inside a simulated Mars mission",
+            "url": "https://www.floridatoday.com/story/tech/science/space/2026/09/27/florida-tech-students-get-inside-a-simulated-mars-mission-mdrs-utah-space/91870001007"
+          },
+          {
+            "ageHours": 103.7,
+            "domain": "nasa.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T17:36:08.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.74,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Advanced Health Tech Research Continues to Protect... - NASA",
+            "url": "https://www.nasa.gov/blogs/spacestation/2026/09/24/advanced-health-tech-research-continues-to-protect-astronaut-health"
+          },
+          {
+            "ageHours": 55.3,
+            "domain": "phys.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T18:00:17.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.55,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Engineers teach spacecraft to 'dream' their way to the space station",
+            "url": "https://phys.org/news/2026-09-spacecraft-space-station.html"
+          },
+          {
+            "ageHours": 75.1,
+            "domain": "space.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T22:14:24.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Millions of satellites orbiting Earth? Astronomers hope the UN... | Space",
+            "url": "https://www.space.com/space-exploration/satellites/millions-of-satellites-orbiting-earth-astronomers-hope-the-un-can-slow-the-coming-data-center-doom"
+          },
+          {
+            "ageHours": 86.8,
+            "domain": "astroscale-us.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T10:32:32.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Space Domain Awareness & Satellite Servicing | Astroscale U.S.",
+            "url": "https://www.astroscale-us.com/en/news/space-domain-awareness-satellite-servicing"
+          },
+          {
+            "ageHours": 14,
+            "domain": "mendelu.cz",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:17:40.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "MENDELU and the Valašské Meziříčí Observatory are advancing...",
+            "url": "https://mendelu.cz/en/mendelu-and-the-valasske-mezirici-observatory-are-advancing-research-for-future-space-missions"
+          },
+          {
+            "ageHours": 82.3,
+            "domain": "penthouse.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:01:07.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "NASA in Outer (and Inner) Space | Penthouse Magazine",
+            "url": "https://penthouse.com/nasa"
+          },
+          {
+            "ageHours": 97.9,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T23:24:34.000Z",
+            "relevance": 0.27,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.27,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.04
+            },
+            "title": "ISRO का खौफनाक MISSION, फ्रांस में भारत के यूरोप ने टेके घुटने... - YouTube",
+            "url": "https://www.youtube.com/watch?v=fmpcswjbr08"
+          },
+          {
+            "ageHours": 106.7,
+            "domain": "europeanspaceflight.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T14:38:45.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.54,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "European Lunar Rover Secures Spot Aboard Blue Origin Blue Moon...",
+            "url": "https://europeanspaceflight.com/european-lunar-rover-secures-spot-aboard-blue-origin-blue-moon-mission"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 8.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.708,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 8778,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 926,
+        "statesFreshness": true,
+        "text": "More than 12,000 microscopic fossils recovered from 1.7-billion-year-old rocks in northern Australia are offering scientists a rare glimpse into the early.Science News. [6]\n\nThe Science academy’s (which was targeted today) 2024 report and the programs for 2026-29 explicitly state: the design of autonomous navigation systems for drones without GPS... [5]\n\nIs the universe infinite?Materials provided by Universe Today. [3]\n\nLife.But during today’s test flight, SpaceX is not expected to attempt to recover any piece of the Starship launch system back on dry land. [4]\n\nSources: [1] Russian Drone Strikes Ukraine’s Science Academy, Causing Fire in... (nytimes.com)  [2] Magnetism may have helped kick-start our solar system (sciencenews.org)  [3] Is the universe infinite? The answer gets weird fast | ScienceDaily (sciencedaily.com)  [4] Live updates: SpaceX Starship set for first orbital test flig"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "science news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.2,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:03:15.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Russian Drone Strikes Ukraine’s Science Academy, Causing Fire in...",
+            "url": "https://www.nytimes.com/2026/09/28/world/europe/urkaine-drone-attack-kyiv-academy-sciences.html"
+          },
+          {
+            "ageHours": 10.3,
+            "domain": "sciencenews.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:00:06.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Magnetism may have helped kick-start our solar system",
+            "url": "https://www.sciencenews.org/article/magnetism-kick-start-our-solar-system"
+          },
+          {
+            "ageHours": 21.9,
+            "domain": "sciencedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:27:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Is the universe infinite? The answer gets weird fast | ScienceDaily",
+            "url": "https://www.sciencedaily.com/releases/2026/09/260927225041.htm"
+          },
+          {
+            "ageHours": 15,
+            "domain": "edition.cnn.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:17:32.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Live updates: SpaceX Starship set for first orbital test flight | CNN",
+            "url": "https://edition.cnn.com/2026/09/28/science/live-news/spacex-starship-flight-14-launch"
+          },
+          {
+            "ageHours": 5.9,
+            "domain": "news-pravda.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:24:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Ursula von der Leyen stated that \"today, science has become a target...",
+            "url": "https://news-pravda.com/world/2026/09/28/2627169.html"
+          },
+          {
+            "ageHours": 7.6,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:41:05.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Scientists found more than 12,000 fossils in... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/science/earth/scientists-found-more-than-12000-fossils-in-1-7-billion-year-old-australian-rocks-the-ancient-cells-were-early-eukaryotes-offering-clues-to-how-complex-life-evolved-long-before-animals-appeared/articleshow/134544105.cms"
+          },
+          {
+            "ageHours": 6.1,
+            "domain": "monash.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:10:06.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.65,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Hotter temperatures cause hidden cellular ageing in wild birds - Science",
+            "url": "https://www.monash.edu/science/news-events/news/2026/hotter-temperatures-cause-hidden-cellular-ageing-in-wild-birds"
+          },
+          {
+            "ageHours": 16.3,
+            "domain": "interestingengineering.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:01:45.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.61,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Hyperbolic wave attractors could power next-generation optical chips",
+            "url": "https://interestingengineering.com/science/hyperbolic-material-discovery-highly-sensitive-biosensors"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 5.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.819,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 3303,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 838,
+        "statesFreshness": false,
+        "text": "CRISPR is a gene-editing tool discovered in bacteria. [1]\n\nThe First CRISPR Gene Therapy Is Here.Meet the biohacker using CRISPR to teach everyone gene editing. [2]\n\nCRISPR-Cas14 is now part of the artillery for gene editing and molecular diagnostic.CRISPR-Cas12a target binding unleashes indiscriminate single-stranded DNase activity. [7]\n\nCRISPR, which stands for Clustered Regularly Interspaced Short Palindromic Repeats, is a concept that originated from the study of the immune system in bacteria. [8]\n\nSources: [1] #crispr #microbiology #genetics #biotech #scienceexplained... (linkedin.com)  [2] Teen is one of the first ever to get his genes edited. - YouTube (youtube.com)  [3] The Invisibly Visible Passion for CRISPR | by ScienceStyled | Medium (medium.com)  [4] Microsoft Word - Molly DellaValla.docx (static1.squarespace.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "what is CRISPR",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "#crispr #microbiology #genetics #biotech #scienceexplained...",
+            "url": "https://www.linkedin.com/posts/avinash-kr-rai-9a6138304_crispr-microbiology-genetics-activity-7442402562722656256-ZmLC"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.42,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.42,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Teen is one of the first ever to get his genes edited. - YouTube",
+            "url": "https://www.youtube.com/watch?v=0xv0CBujwZU"
+          },
+          {
+            "ageHours": null,
+            "domain": "medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Invisibly Visible Passion for CRISPR | by ScienceStyled | Medium",
+            "url": "https://medium.com/@sciencestyled/the-invisibly-visible-passion-for-crispr-272afe6fb937?responsesOpen=true&sortBy=REVERSE_CHRON"
+          },
+          {
+            "ageHours": null,
+            "domain": "static1.squarespace.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Microsoft Word - Molly DellaValla.docx",
+            "url": "https://static1.squarespace.com/static/580d5051cd0f68322963dc55/t/5ee4e2f9d0f44c604e17c37d/1592058625278/Molly+DellaValla.pdf"
+          },
+          {
+            "ageHours": null,
+            "domain": "voanews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Doctors Try 1st CRISPR Editing in the Body for Blindness",
+            "url": "https://www.voanews.com/a/science-health_doctors-try-1st-crispr-editing-body-blindness/6185239.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "seek.rockefeller.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "All the world's genes, at our fingertips - Seek : Seek",
+            "url": "https://seek.rockefeller.edu/all-the-worlds-genes-at-our-fingertips"
+          },
+          {
+            "ageHours": null,
+            "domain": "jzus.zju.edu.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "JZUS - Journal of Zhejiang University SCIENCE",
+            "url": "https://jzus.zju.edu.cn/article.php?doi=10.1631%2Fjzus.B2200068"
+          },
+          {
+            "ageHours": null,
+            "domain": "heuristi.ca",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "CRISPR Concept Map | Heuristica",
+            "url": "https://www.heuristi.ca/embed/7b603d8d-da6f-4216-9074-1db7ae5fa01a/crispr"
+          },
+          {
+            "ageHours": null,
+            "domain": "rna.uzh.ch",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "PowerPoint-Präsentation",
+            "url": "https://www.rna.uzh.ch/dam/jcr:c2b888d9-50e7-4d9f-ad69-01022e471cb8/BREMJ_04172018JC.pdf"
+          },
+          {
+            "ageHours": null,
+            "domain": "phys.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "New gene activation tool may do what CRISPR cannot: Work inside the...",
+            "url": "https://phys.org/news/2026-08-gene-tool-crispr-body.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.harvard.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "How CRISPR technology is advancing — Harvard Gazette",
+            "url": "https://news.harvard.edu/gazette/story/2020/02/how-crispr-technology-is-advancing"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.42,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.42,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Hands-On Demo For CRISPR Tool - CHOPCHOP - YouTube",
+            "url": "https://www.youtube.com/watch?v=2eqCWJtZE3E"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.758,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1153,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 341,
+        "statesFreshness": false,
+        "text": "SpaceX launches 2nd classified mission for US Space Force in less than a week (video, photos).26, 2026. [1]\n\nThe first stage of a SpaceX Falcon 9 rocket rests on the deck of a drone ship shortly after launching the USSF-385 mission for the U.S. [1]\n\nSources: [1] SpaceX launches classified mystery mission for US Space... | Space (space.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "space missions 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 11
+        },
+        "finalSources": [
+          {
+            "ageHours": 58,
+            "domain": "space.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:16:21.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "SpaceX launches classified mystery mission for US Space... | Space",
+            "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-launches-classified-mystery-mission-for-us-space-force-from-california"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 58,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.85,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1717,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 769,
+        "statesFreshness": true,
+        "text": "Research & Science Passionate about research?Today, kidney cancer treatment is tailored to the tumour’s size and extent, the patient’s overall health and other individual factors. [5]\n\nThe studies below showcase the latest advances in cancer care, research and prevention. [6]\n\nTranslational Cancer Research for Basic Scientists. [3]\n\ndiscerning differences in cancer cells at the molecular level to identify cancer pathways and the mechanisms of effective treatment. [4]\n\nSources: [1] Cancer Treatments Have Never Been More Promising. | USA TODAY (usatoday.com)  [2] Scientists Uncover an Achilles’ Heel in Cancer’s ‘Rogue DNA (mskcc.org)  [3] New Treatment for Basal Cell Carcinoma | Research | AACR (aacr.org)  [4] Research Themes | Home | Texas Tech (depts.ttu.edu)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "latest research on cancer treatment",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 84.3,
+            "domain": "usatoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T13:01:09.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Cancer Treatments Have Never Been More Promising. | USA TODAY",
+            "url": "https://www.usatoday.com/story/sponsor-story/beone-fph/2026/09/25/cancer-treatments-have-never-been-more-promising-why-arent-more-people-getting-treated-with-them/91711351007"
+          },
+          {
+            "ageHours": 77.7,
+            "domain": "mskcc.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T19:33:54.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Scientists Uncover an Achilles’ Heel in Cancer’s ‘Rogue DNA",
+            "url": "https://www.mskcc.org/news/scientists-uncover-achilles-heel-in-cancers-rogue-dna"
+          },
+          {
+            "ageHours": 97.5,
+            "domain": "aacr.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T23:49:27.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "New Treatment for Basal Cell Carcinoma | Research | AACR",
+            "url": "https://www.aacr.org/patients-caregivers/progress-against-cancer/new-treatment-for-basal-cell-carcinoma"
+          },
+          {
+            "ageHours": 67.3,
+            "domain": "depts.ttu.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T05:57:40.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Research Themes | Home | Texas Tech",
+            "url": "https://www.depts.ttu.edu/onehealth/research-themes.php"
+          },
+          {
+            "ageHours": 106.3,
+            "domain": "uroweb.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:00:03.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "European Association of Urology",
+            "url": "https://uroweb.org/news/kidney-cancer-a-doctors-perspective-and-a-patients-experience"
+          },
+          {
+            "ageHours": 78.6,
+            "domain": "brightsurf.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T18:42:08.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "UT MD Anderson shares latest research breakthroughs",
+            "url": "https://www.brightsurf.com/news/1GRY3N58/ut-md-anderson-shares-latest-research-breakthroughs.html"
+          },
+          {
+            "ageHours": 98.7,
+            "domain": "curechildhoodcancer.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T22:37:07.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "2026 Research Awards - CURE Childhood Cancer",
+            "url": "https://curechildhoodcancer.org/blog/2026-research-awards"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 67.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.841,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2512,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 908,
+        "statesFreshness": true,
+        "text": "Some questions about published or unpublished papers can be on-topic when they are specific, clear, and substantially self-contained.I'm looking for a dummy's explanation of where this paper went wrong so I can explain it to someone else. [5]\n\nIn Nature Physics, a single superconducting qubit reaches any of seven memory modes in one cavity, with average error under 1.5% per mode. [1]\n\nSubscribe to this fee journal for more curated articles on this topic.PAPERS. [2]\n\nThe paper contains original results that have not been published anywhere before. [3]\n\nSources: [1] A Quantum Memory That One Qubit Can Address... | ALLATRA Media (allatra.media)  [2] Beyond the Ideal Argon Bubble: Trapped Water Vapor and the... :: SSRN (papers.ssrn.com)  [3] To Authors - Journal of Experimental and Theoretical Physics (jetpras.ru)  [4] CBSE 15 Sample Question Papers Class 10 Hindi B For... - PW Store (store."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "recently published physics papers",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 51.9,
+            "domain": "allatra.media",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T21:22:19.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.67,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "A Quantum Memory That One Qubit Can Address... | ALLATRA Media",
+            "url": "https://allatra.media/ai-tech/ai-tech-cascaded-random-access-quantum-memory"
+          },
+          {
+            "ageHours": 84,
+            "domain": "papers.ssrn.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T13:20:12.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Beyond the Ideal Argon Bubble: Trapped Water Vapor and the... :: SSRN",
+            "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7519553"
+          },
+          {
+            "ageHours": 81.6,
+            "domain": "jetpras.ru",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:39:21.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "To Authors - Journal of Experimental and Theoretical Physics",
+            "url": "https://jetpras.ru/avtoram.html?sl=en"
+          },
+          {
+            "ageHours": 93.4,
+            "domain": "store.pw.live",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:51:39.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "CBSE 15 Sample Question Papers Class 10 Hindi B For... - PW Store",
+            "url": "https://store.pw.live/products/cbse-class-10-sample-papers-hindi-b-2027"
+          },
+          {
+            "ageHours": 115.1,
+            "domain": "physics.stackexchange.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T06:12:46.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "quantum entanglement - Looking for a Debunk on this Preprint on...",
+            "url": "https://physics.stackexchange.com/questions/876312/looking-for-a-debunk-on-this-preprint-on-wormholes"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 51.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.662,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 2298,
+      "vertical": "general"
+    }
+  ],
+  "total": 138
+}

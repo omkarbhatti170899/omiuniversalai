@@ -1,0 +1,2285 @@
+{
+  "answerContract": {
+    "allSourcesDated": 13,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 13,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 2
+  },
+  "byCategory": {
+    "science": {
+      "fresh": 2,
+      "kept": 19,
+      "n": 3
+    },
+    "usa": {
+      "fresh": 4,
+      "kept": 39,
+      "n": 4
+    },
+    "weather": {
+      "fresh": 6,
+      "kept": 17,
+      "n": 8
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 0,
+      "kept": 2,
+      "n": 1
+    },
+    "current": {
+      "fresh": 4,
+      "kept": 14,
+      "n": 4
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 21,
+      "n": 2
+    },
+    "live": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 24,
+      "n": 3
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 14,
+      "n": 4
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 75,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 779,
+        "statesFreshness": false,
+        "text": "Sunlight is vital for daily life as it powers photosynthesis, the process that plants use to convert carbon dioxide and water into carbohydrates and oxygen.Photosynthesis Explained. [8]\n\nphotosynthesis explained, light reactions process, chemistry of life, biology and chemistry concepts, science education for students... [4]\n\nPhotosynthesis — explained visually in minutes! [6]\n\nPhotosynthesis is the process by which plants produce their own food with the help of energy from sunlight and an easy-to-understand language. [5]\n\nSources: [1] Photosynthesis explained - YouTube (youtube.com)  [2] Photosynthesis Explained (worldatlas.com)  [3] Find and save ideas about photosynthesis explained on Pinterest. (pinterest.com)  [4] Understanding Photosynthesis | TikTok (tiktok.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "photosynthesis explained",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.5,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.5,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Photosynthesis explained - YouTube",
+            "url": "https://www.youtube.com/watch?v=smGnrnqhCyQ"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldatlas.com",
+            "providers": [
+              "searxng",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis Explained",
+            "url": "https://www.worldatlas.com/feature/photosynthesis-explained.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "pinterest.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.08,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Find and save ideas about photosynthesis explained on Pinterest.",
+            "url": "https://www.pinterest.com/ideas/photosynthesis-explained/944835426499"
+          },
+          {
+            "ageHours": null,
+            "domain": "tiktok.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.42,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.42,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Understanding Photosynthesis | TikTok",
+            "url": "https://www.tiktok.com/discover/understanding-photosynthesis"
+          },
+          {
+            "ageHours": null,
+            "domain": "ziyyara.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis Explained: Process, Equation, Diagram, and...",
+            "url": "https://ziyyara.com/blog/photosynthesis-explained-process-equation-diagram-and-importance"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "How does photosynthesis work step by step? | Golpo (YC S25)",
+            "url": "https://www.linkedin.com/posts/golpo-ai_how-does-photosynthesis-work-step-by-step-activity-7429231660488896512-B9KX"
+          },
+          {
+            "ageHours": null,
+            "domain": "stem.superml.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis Explained: How Plants Turn Sunlight into Food...",
+            "url": "https://stem.superml.org/articles/photosynthesis-explained"
+          },
+          {
+            "ageHours": null,
+            "domain": "brainly.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "[FREE] Explain how sunlight affects your daily life and... - brainly.com",
+            "url": "https://brainly.com/question/52044827"
+          },
+          {
+            "ageHours": null,
+            "domain": "imagineexplainers.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Photosynthesis Explained: How Plants Turn... | Imagine Explainers",
+            "url": "https://imagineexplainers.com/videos/6835b1155aa25c4cccf29461"
+          },
+          {
+            "ageHours": null,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What Is Photosynthesis: Photosynthesis explained... - Times of India",
+            "url": "https://timesofindia.indiatimes.com/education/learning-with-toi/photosynthesis-explained-how-plants-make-food-from-sunlight-and-air/articleshow/100096713.cms"
+          },
+          {
+            "ageHours": null,
+            "domain": "getscansolve.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis Explained Step by Step: How Plants Make Food",
+            "url": "https://www.getscansolve.com/blog/photosynthesis-explained-step-by-step"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"photosynthesis explained\" right now — Om"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.777,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 3670,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1003,
+        "statesFreshness": true,
+        "text": "Universe Today is 100% AD-FREE thanks to our patrons.If there is one thing I have learned after 10 years working with Mars rovers, it is that Mars constantly throws surprises at you. [5]\n\nMars Exploration Rover Curiosity It's pretty hard to completely sterilize something like this... [1]\n\nMy description: NASA’s Mars rover Curiosity acquired the above images with its right Mast Camera on Sol 3057 to 3059.Anyone can become informed about their world. [2]\n\nNASA's Perseverance rover found unexpected igneous rocks at Mars' Jezero Crater edgeScientists expected sedimentary rocks but discovered igneous rocks altered by water thrice [3]\n\nSources: [1] Water still flows on Mars, potentially harboring life - and... | Extremetech (extremetech.com)  [2] Mont Mercou Is A Huge Man-Made Object on Mars. | Before It's News (beforeitsnews.com)  [3] NASA's Perseverance Rover Finds Igneous Rocks Showing Sign"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current Mars rover status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 4.8,
+            "domain": "extremetech.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:28:33.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.72,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Water still flows on Mars, potentially harboring life - and... | Extremetech",
+            "url": "https://www.extremetech.com/index.php/extreme/172937-water-still-flows-on-mars-potentially-harboring-life-and-we-need-to-be-careful-not-to-contaminate-it"
+          },
+          {
+            "ageHours": 94,
+            "domain": "beforeitsnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:17:21.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Mont Mercou Is A Huge Man-Made Object on Mars. | Before It's News",
+            "url": "https://beforeitsnews.com/science-and-technology/2026/09/mont-mercou-is-a-huge-man-made-object-on-mars-2-3112116.html"
+          },
+          {
+            "ageHours": 71,
+            "domain": "ndtv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:19:07.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "NASA's Perseverance Rover Finds Igneous Rocks Showing Signs Of...",
+            "url": "https://www.ndtv.com/science/nasas-perseverance-finds-igneous-rocks-with-signs-of-water-on-early-mars-12100011"
+          },
+          {
+            "ageHours": 104.7,
+            "domain": "pcgamer.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:39:37.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.64,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Oh, the places you'll game: Aerospace engineers use... | PC Gamer",
+            "url": "https://www.pcgamer.com/hardware/handheld-gaming-pcs/oh-the-places-youll-game-aerospace-engineers-use-steam-deck-to-steer-mars-rover-prototype"
+          },
+          {
+            "ageHours": 99.2,
+            "domain": "universetoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T22:06:49.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Perseverance Reveals How Complex Water Systems... - Universe Today",
+            "url": "https://www.universetoday.com/articles/perseverance-reveals-how-complex-water-systems-shaped-the-jezero-crater-on-early-mars"
+          },
+          {
+            "ageHours": 83.8,
+            "domain": "universemagazine.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T13:31:21.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Perseverance's new discovery changes our understanding of Mars",
+            "url": "https://universemagazine.com/en/perseverance-rover-detected-traces-of-hot-underground-water-on-mars"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 4.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.762,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2643,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 753,
+        "statesFreshness": false,
+        "text": "The report said those temperature increases may mirror conditions that climate change could make common some 20 years from now. [1]\n\nBut climate change, Mamdani continued, drives up the “price of life” for us all, with Black, Latino and working-class people disproportionately expected to bear those costs. [2]\n\nThat's why this El Nino could offer a preview of what's ahead as the planet continues to warm, the report said. [1]\n\nMeanwhile, the mayor added, corporations that are responsible for the most pollution face little to no real accountability. [2]\n\nSources: [1] Climate warning: El Niño offers a glimpse of a deadlier... | Africanews (africanews.com)  [2] To fight the climate crisis, NYC’s mayor says to take on corporations. (motherjones.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "climate report 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 104.9,
+            "domain": "africanews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:23:30.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Climate warning: El Niño offers a glimpse of a deadlier... | Africanews",
+            "url": "https://www.africanews.com/2026/09/24/climate-warning-el-nino-offers-a-glimpse-of-a-deadlier-hotter-future"
+          },
+          {
+            "ageHours": 106.6,
+            "domain": "motherjones.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T14:43:54.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "To fight the climate crisis, NYC’s mayor says to take on corporations.",
+            "url": "https://www.motherjones.com/politics/2026/09/mamdani-climate-crisis-donald-trump"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 104.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.845,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1700,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's weather",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 3,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 199,
+        "statesFreshness": false,
+        "text": "Weather in Mumbai, Maharashtra, India: 26°C, clear sky, wind 5 km/h, humidity 85%, precipitation chance 0% (next hour). [1]\n\nSources: [1] Current weather — Mumbai, Maharashtra, India (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current weather in Mumbai",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T01:18:51.332Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.24,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Mumbai, Maharashtra, India",
+            "url": "https://open-meteo.com?latitude=19.07283&longitude=72.88261"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.98,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1142,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "live weather radar in London",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: openmeteo"
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 113,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 245,
+        "statesFreshness": false,
+        "text": "Weather in Delhi, National Capital Territory of Delhi, India: 22°C, clear sky, wind 6 km/h, humidity 94%, precipitation chance 0% (next hour). [1]\n\nSources: [1] Current weather — Delhi, National Capital Territory of Delhi, India (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "weather in Delhi today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T01:18:51.933Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Delhi, National Capital Territory of Delhi, India",
+            "url": "https://open-meteo.com?latitude=28.65195&longitude=77.23149"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 293,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 188,
+        "statesFreshness": false,
+        "text": "Weather in Tokyo, Tokyo, Japan: 21°C, light rain, wind 1 km/h, humidity 90%, precipitation chance 100% (next hour). [1]\n\nSources: [1] Current weather — Tokyo, Tokyo, Japan (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "will it rain in Tokyo tomorrow",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T01:18:52.226Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Tokyo, Tokyo, Japan",
+            "url": "https://open-meteo.com?latitude=35.6895&longitude=139.69171"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 327,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 217,
+        "statesFreshness": false,
+        "text": "Weather in New York, New York, United States: 15°C, partly cloudy, wind 7 km/h, humidity 92%, precipitation chance 1% (next hour). [1]\n\nSources: [1] Current weather — New York, New York, United States (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current temperature in New York",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T01:18:52.555Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — New York, New York, United States",
+            "url": "https://open-meteo.com?latitude=40.71427&longitude=-74.00597"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 285,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 220,
+        "statesFreshness": false,
+        "text": "Weather in Sydney, New South Wales, Australia: 19°C, partly cloudy, wind 12 km/h, humidity 48%, precipitation chance 2% (next hour). [1]\n\nSources: [1] Current weather — Sydney, New South Wales, Australia (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's forecast for Sydney",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-29T01:18:52.838Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.24,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Sydney, New South Wales, Australia",
+            "url": "https://open-meteo.com?latitude=-33.86785&longitude=151.20732"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.62,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 915,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 708,
+        "statesFreshness": false,
+        "text": "What Causes Rainfall?What are the Effects of Rain? [6]\n\nRain is caused by water vapor condensing into droplets when the air cools. [2]\n\nWhen clouds develop or rain occurs, something is making the air rise. [7]\n\nFactory emitting smoke Sources of Acid Rain Acid rain is caused by a chemical reaction that begins when compounds like sulfur dioxide and nitrogen oxides are released into the air. [9]\n\nSources: [1] Water Cycle for Kids - What Causes Rain? - YouTube (youtube.com)  [2] [FREE] What causes rain? A. Air becomes filled with... - brainly.com (brainly.com)  [3] What Are Clouds? (Grades 5-8) - NASA (nasa.gov)  [4] Rain: A Blessing of Nature. Rain plays a vital role in sustaining | Medium (medium.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "what causes rain",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.5,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.5,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Water Cycle for Kids - What Causes Rain? - YouTube",
+            "url": "https://www.youtube.com/watch?v=jAxR0EUFvxw"
+          },
+          {
+            "ageHours": null,
+            "domain": "brainly.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "[FREE] What causes rain? A. Air becomes filled with... - brainly.com",
+            "url": "https://brainly.com/question/19206427"
+          },
+          {
+            "ageHours": null,
+            "domain": "nasa.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What Are Clouds? (Grades 5-8) - NASA",
+            "url": "https://www.nasa.gov/learning-resources/for-kids-and-students/what-are-clouds-grades-5-8"
+          },
+          {
+            "ageHours": null,
+            "domain": "medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rain: A Blessing of Nature. Rain plays a vital role in sustaining | Medium",
+            "url": "https://medium.com/@zargull/rain-a-blessing-of-nature-d14d49268e03"
+          },
+          {
+            "ageHours": null,
+            "domain": "edinformatics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What causes it to rain or snow?",
+            "url": "https://www.edinformatics.com/math_science/what_causes_rain.htm"
+          },
+          {
+            "ageHours": null,
+            "domain": "vedantu.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "How Rain Is Formed: Step-by-Step Process for Kids",
+            "url": "https://www.vedantu.com/evs/how-rain-is-formed"
+          },
+          {
+            "ageHours": null,
+            "domain": "weatherwizkids.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Weather Wiz Kids weather information for kids",
+            "url": "https://www.weatherwizkids.com/weather-rain.htm"
+          },
+          {
+            "ageHours": null,
+            "domain": "testbook.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What Causes Rain? - Exploring the Hydrologic Cycle | Testbook.com",
+            "url": "https://testbook.com/articles/what-causes-rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "www3.epa.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Acid Rain Students Site: What causes acid rain?",
+            "url": "https://www3.epa.gov/acidrain/education/site_students/whatcauses.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "collegedunia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "How Are Clouds Formed? - An Overview, Cloud Formation Experiment",
+            "url": "https://collegedunia.com/exams/how-are-clouds-formed-an-overview-cloud-formation-experiment-science-articleid-1111"
+          },
+          {
+            "ageHours": null,
+            "domain": "epa.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Introduction to acid rain including its causes and the different types of...",
+            "url": "https://www.epa.gov/acidrain/what-acid-rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "sott.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Understanding what causes rain — Earth Changes — Sott.net",
+            "url": "https://www.sott.net/article/133765-Understanding-what-causes-rain"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.838,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1550,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 821,
+        "statesFreshness": true,
+        "text": "Silver Rate Today.Stay updated with the latest Trending, India, World and US news. [3]\n\nLatest news bulletin | September 28th, 2026 – Evening. [10]\n\nUS news.China and the United States are different in national conditions, but through candid, in-depth and continued dialogue, our two countries can understand each other better, seek... [5]\n\n#deadlinewhitehouse#msnbcbreakingnews#whitehousetoday Watch Deadline: White House full episode – September 28, 2026 on MSNOW Breaking News Today. [1]\n\nSources: [1] Deadline: White House 9/28/26 | Breaking News... (youtube.com)  [2] Trans teen who gunned down mom and mom's boyfriend, 22, gets... (nypost.com)  [3] New York and Northeast Facing Another Day of Wild Weather | Today... (livemint.com)  [4] Woman Told Stranger She Was from ‘Inferior Race,’ Then Bit Her... (yahoo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest US news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.8,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:30:10.000Z",
+            "relevance": 0.51,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.51,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Deadline: White House 9/28/26 | Breaking News...",
+            "url": "https://www.youtube.com/watch?v=QovNhdyq63g"
+          },
+          {
+            "ageHours": 11.8,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:31:08.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Trans teen who gunned down mom and mom's boyfriend, 22, gets...",
+            "url": "https://nypost.com/2026/09/28/us-news/trans-teen-who-gunned-down-mom-and-moms-boyfriend-22-gets-hefty-sentence-im-sorry"
+          },
+          {
+            "ageHours": 34.8,
+            "domain": "livemint.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T14:28:53.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "New York and Northeast Facing Another Day of Wild Weather | Today...",
+            "url": "https://www.livemint.com/news/us-news/new-york-and-northeast-facing-another-day-of-wild-weather-11790516910196.html"
+          },
+          {
+            "ageHours": 75.3,
+            "domain": "yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T22:01:11.000Z",
+            "relevance": 0.59,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.59,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Woman Told Stranger She Was from ‘Inferior Race,’ Then Bit Her...",
+            "url": "https://www.yahoo.com/news/us/articles/woman-told-stranger-she-inferior-215458216.html"
+          },
+          {
+            "ageHours": 105.4,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:56:32.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "At Trump meeting, Xi Jinping lays out terms to avoid US-China military...",
+            "url": "https://www.theguardian.com/us-news/2026/sep/24/xi-jinping-trump-china-cooperation-thucydides-trap"
+          },
+          {
+            "ageHours": 61.1,
+            "domain": "timesrepublican.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T12:11:43.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Oktemberfest is underway - Times Republican",
+            "url": "https://www.timesrepublican.com/news/todays-news/2026/09/oktemberfest-is-underway"
+          },
+          {
+            "ageHours": 110.4,
+            "domain": "highlandradio.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T10:52:42.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.61,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "The Greg Hughes Show |Thursday| 24/09/2026 - Highland Radio...",
+            "url": "https://highlandradio.com/2026/09/24/the-greg-hughes-show-thursday-24-09-2026"
+          },
+          {
+            "ageHours": 68.2,
+            "domain": "newsy-today.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T05:05:34.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "US News Outlets Return to White House After Judge... - Newsy Today",
+            "url": "https://www.newsy-today.com/us-news-outlets-return-to-white-house-after-judge-lifts-trump-ban"
+          },
+          {
+            "ageHours": 26.6,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T22:43:48.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.49,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "PoliticsNation With Al Sharpton 9/27/26 |... - YouTube",
+            "url": "https://www.youtube.com/watch?v=aWORNKTtgwg"
+          },
+          {
+            "ageHours": 35.7,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:38:10.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Are you in pain? In some cases, exercising may be as good... | Euronews",
+            "url": "https://www.euronews.com/2026/09/27/are-you-in-pain-in-some-cases-exercising-may-be-as-good-as-painkillers"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 3.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.76,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2586,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 850,
+        "statesFreshness": true,
+        "text": "#morningjoe#uspolitics#whitehousetoday Watch Morning Joe full episode – September 28, 2026 on MSNOW Breaking News Today. [1]\n\nKnoxville News Sentinel / USA TODAY Network via Reuters file. [8]\n\nThe US president has rejected a news story reporting that he offered Iran sanctions relief and access to frozen funds. [2]\n\nCatch up with the most important stories from around Europe and beyond this September 28th, 2026 - latest news, breaking news, World, Business, Entertainment, Politics, Culture, Travel. [11]\n\nSources: [1] Morning Joe 9/28/26 | Breaking News Today... (youtube.com)  [2] Iran war live: Trump says US officials met Iran war mediators | Al Jazeera (aljazeera.com)  [3] SpaceX Starship splashes down in spectacular fireball after cutting... (nypost.com)  [4] US fuel economy standards eased by Trump, 2031... - India Today (indiatoday.in)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 13.1,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:15:52.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Morning Joe 9/28/26 | Breaking News Today...",
+            "url": "https://www.youtube.com/watch?v=BmodLjjzAMM"
+          },
+          {
+            "ageHours": 25.2,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:05:43.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Iran war live: Trump says US officials met Iran war mediators | Al Jazeera",
+            "url": "https://www.aljazeera.com/news/liveblog/2026/9/28/iran-war-live-tehran-warns-its-fully-prepared-for-war-amid-hormuz-tensions"
+          },
+          {
+            "ageHours": 8.5,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:50:05.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.67,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "SpaceX Starship splashes down in spectacular fireball after cutting...",
+            "url": "https://nypost.com/2026/09/28/us-news/spacex-starship-splashes-down-in-spectacular-fireball-after-cutting-short-orbital-flight-around-earth"
+          },
+          {
+            "ageHours": 10.5,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:47:14.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "US fuel economy standards eased by Trump, 2031... - India Today",
+            "url": "https://www.indiatoday.in/world/story/trump-eases-us-fuel-economy-standards-cuts-2031-mileage-target-to-349-mpg-ptag-3005092-2026-09-28"
+          },
+          {
+            "ageHours": 2.3,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:58:22.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.54,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Tennessee to execute a woman for first time in 200... | The Guardian",
+            "url": "https://www.theguardian.com/us-news/2026/sep/28/tennessee-woman-execution-christa-pike"
+          },
+          {
+            "ageHours": 7.6,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:42:07.000Z",
+            "relevance": 0.56,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.56,
+              "freshness": 0.21,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Whose Hormuz? Mojtaba says ‘painful blows’ forced ‘enemies’ out of...",
+            "url": "https://www.hindustantimes.com/world-news/whose-hormuz-mojtaba-says-painful-blows-forced-enemies-out-of-west-asia-us-replies-with-no-iran-navy-101790616048215.html"
+          },
+          {
+            "ageHours": 18.6,
+            "domain": "needtoknow.news",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:44:10.000Z",
+            "relevance": 0.48,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.48,
+              "freshness": 0.21,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Tucker Carlson Says Trump's View on the War in Iran Is that 'In the...",
+            "url": "https://needtoknow.news/2026/09/tucker-carlson-says-trumps-view-on-the-war-in-iran-is-that-in-the-end-we-all-die-anyway-so-it-doesnt-matter"
+          },
+          {
+            "ageHours": 3.8,
+            "domain": "nbcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:30:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ahead of rare execution, lone woman on Tennessee death row says...",
+            "url": "https://www.nbcnews.com/news/us-news/ahead-rare-execution-lone-woman-tennessee-death-row-says-peace-rcna600279"
+          },
+          {
+            "ageHours": 21.6,
+            "domain": "independent.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:45:15.000Z",
+            "relevance": 0.48,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.48,
+              "freshness": 0.21,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Iran-US war latest: Tehran warns it is ready for... | The Independent",
+            "url": "https://www.independent.co.uk/news/world/middle-east/iran-us-war-live-trump-strikes-hormuz-oil-peace-talks-b3057304.html"
+          },
+          {
+            "ageHours": 25.1,
+            "domain": "asiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:15:40.000Z",
+            "relevance": 0.36,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.36,
+              "freshness": 0.17,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Struggle over Hormuz and Bab el‑Mandeb straits is... - Asia Times",
+            "url": "https://asiatimes.com/2026/09/struggle-over-hormuz-and-bab-el-mandeb-straits-is-centuries-old"
+          },
+          {
+            "ageHours": 9,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:19:12.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.69,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Video. Latest news bulletin | September 28th, 2026... | Euronews",
+            "url": "https://www.euronews.com/video/2026/09/28/latest-news-bulletin-september-28th-2026-evening"
+          },
+          {
+            "ageHours": 14.8,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:29:59.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.75,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Iran says it ‘has no plans to negotiate with US’ despite... | The Guardian",
+            "url": "https://www.theguardian.com/us-news/live/2026/sep/28/donald-trump-iran-negotiations-fuel-deportations-media-china-latest-news-updates"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.677,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2164,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 964,
+        "statesFreshness": true,
+        "text": "#morningjoe #uspolitics #whitehousetoday Watch Morning Joe full episode – September 28, 2026 on MSNOW Breaking News Today.Hosts Joe Scarborough, Mika Brze... [1]\n\nUS politics.Trump tells reporters 'we appreciate the fair coverage' after banned news outlets return to White House. [3]\n\nStay updated with US News covering politics, crime, weather, local events, and sports highlights. [4]\n\nWe must have an independent media that sets the record straight, unearths corruption and abuses of power, and advances a politics of justice and dignity for all if we’re to win this fight.Latest from the nation. [6]\n\nSources: [1] Morning Joe 9/28/26 | Breaking News Today... (youtube.com)  [2] Dining With A.I. Moguls, Billionaires and Xi Jinping, Trump Went Off... (nytimes.com)  [3] Trump tells female reporter to be ‘quiet’ and slams... | The Independent (independent.co.uk)  [4] ‘Did Natalie Harp edit out Me"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "current US politics",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.1,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:15:52.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.58,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Morning Joe 9/28/26 | Breaking News Today...",
+            "url": "https://www.youtube.com/watch?v=BmodLjjzAMM"
+          },
+          {
+            "ageHours": 93.8,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:32:32.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Dining With A.I. Moguls, Billionaires and Xi Jinping, Trump Went Off...",
+            "url": "https://www.nytimes.com/2026/09/24/us/politics/state-dinner-scene.html"
+          },
+          {
+            "ageHours": 52.2,
+            "domain": "independent.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T21:05:12.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Trump tells female reporter to be ‘quiet’ and slams... | The Independent",
+            "url": "https://www.independent.co.uk/news/world/americas/us-politics/trump-reporter-quiet-government-women-b3056960.html"
+          },
+          {
+            "ageHours": 104.5,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:46:24.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "‘Did Natalie Harp edit out Melania?’: Trump's Truth... | Hindustan Times",
+            "url": "https://www.hindustantimes.com/world-news/us-news/did-natalie-harp-edit-out-melania-trumps-truth-social-photo-of-xi-jinping-arrival-sparks-row-101790266172281.html"
+          },
+          {
+            "ageHours": 75.2,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T22:06:26.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Latest Midterm Polls Reveal Bright Spots for Republicans",
+            "url": "https://www.nytimes.com/2026/09/25/us/politics/republicans-midterms-senate-polls.html"
+          },
+          {
+            "ageHours": 110.7,
+            "domain": "thenation.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T10:38:05.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Transphobia Isn’t Winning Votes. But It Is Making Our... | The Nation",
+            "url": "https://www.thenation.com/article/politics/transphobia-midterms-ads"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 13.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.743,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 8163,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 930,
+        "statesFreshness": true,
+        "text": "That is where NASA's SpaceX Crew-13 mission stands today.Today, Starship reached orbit for the first time. [2]\n\nThis space telescope is the first in a new class of NASA astrophysics missions, called Probe Explorers, within the agency’s longstanding Explorers Program. [3]\n\nscience.nasa.gov/mission/voyager/voyager-1/where-are-the-voyagers-now/ Parker Solar Probe speed (fastest human-made spacecraft): https... [5]\n\nNASA says this was done in preparation for the arrival of Crew-13 mission which is scheduled to launch from the Kennedy Space Center, Florida, on October 1. [6]\n\nSources: [1] Advanced Health Research Begins Week as Station Awaits... - NASA (nasa.gov)  [2] Eight Days to Crew-13: Inside the Final Stretch Before Launch (linkedin.com)  [3] Launching a new phase of NASA astrophysics | University of Michigan... (news.umich.edu)  [4] On this day in space! Sept. 27, 1997: NASA's Mars Pat"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest NASA mission",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 7.4,
+            "domain": "nasa.gov",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:55:50.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Advanced Health Research Begins Week as Station Awaits... - NASA",
+            "url": "https://www.nasa.gov/blogs/spacestation/2026/09/28/advanced-health-research-begins-week-as-station-awaits-crew-13-mission"
+          },
+          {
+            "ageHours": 75.1,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T22:14:36.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eight Days to Crew-13: Inside the Final Stretch Before Launch",
+            "url": "https://www.linkedin.com/pulse/eight-days-crew-13-inside-final-stretch-before-launch-osadugba-fdxje"
+          },
+          {
+            "ageHours": 10.2,
+            "domain": "news.umich.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:08:25.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Launching a new phase of NASA astrophysics | University of Michigan...",
+            "url": "https://news.umich.edu/launching-a-new-phase-of-nasa-astrophysics"
+          },
+          {
+            "ageHours": 28.9,
+            "domain": "space.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T20:26:22.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "On this day in space! Sept. 27, 1997: NASA's Mars Pathfinder... | Space",
+            "url": "https://www.space.com/space-exploration/on-this-day-in-space-september-27-2026"
+          },
+          {
+            "ageHours": 106.5,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T14:49:34.000Z",
+            "relevance": 0.43,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.43,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.01
+            },
+            "title": "YouTube",
+            "url": "https://www.youtube.com/show/VLPLpwTPMETlWLOWkW2AIxFBUG0UBh_ESL0K?sbp=Kgt5ZzdPVXJfdDZrNEAB"
+          },
+          {
+            "ageHours": 42.5,
+            "domain": "starlust.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T06:46:30.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.73,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "NASA astronaut shares thrilling video of ISS getting flipped... - Starlust",
+            "url": "https://starlust.org/nasa-astronaut-shares-thrilling-video-of-iss-getting-flipped-during-orbital-reboost-ahead-of-crew-13-s-launch-watch"
+          },
+          {
+            "ageHours": 105.4,
+            "domain": "palmbeachpost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T15:52:11.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Tom Hanks narrates new 'Moonwalkers' NASA missions exhibit in...",
+            "url": "https://www.palmbeachpost.com/story/news/local/boynton/2026/09/24/tom-hanks-narrates-new-moonwalkers-space-missions-exhibit-in-boynton-beach-space-exploration/91916750007"
+          },
+          {
+            "ageHours": 110.1,
+            "domain": "cnet.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T11:13:53.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "How NASA and Nikon Captured Those Stunning Artemis II... - CNET",
+            "url": "https://www.cnet.com/tech/computing/artemis-ii-best-moon-photos-iphone-nikon-gopro"
+          },
+          {
+            "ageHours": 112.1,
+            "domain": "ndl.iitkgp.ac.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T09:14:30.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "NDLI: NASA's next Mars mission to probe red planet's deep interior",
+            "url": "https://ndl.iitkgp.ac.in/nw_document/economictimes/economictimes/42976_198"
+          },
+          {
+            "ageHours": 88.1,
+            "domain": "pinterest.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T09:12:31.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.08,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.65,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Find and save ideas about lunar surface nasa on Pinterest.",
+            "url": "https://www.pinterest.com/ideas/lunar-surface-nasa/958420280231"
+          },
+          {
+            "ageHours": 69.7,
+            "domain": "factually.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T03:38:37.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Mms",
+            "url": "https://factually.co/fact-checks/technology/mms-messaging-meaning-and-uses-d57e3f"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 7.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.765,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2620,
+      "vertical": "news"
+    }
+  ],
+  "total": 138
+}

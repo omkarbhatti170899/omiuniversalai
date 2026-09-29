@@ -1,0 +1,57 @@
+{
+  "row": {
+    "answer": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [5]\n\nSchool Assembly News Headlines Today, 29 September 2026\n\nThe following are the National, Business, Sports, and World News. [5]\n\nAt least 23 people are killed and others are injured as heavy clashes breaks out across the South West State of Somalia, as forces loyal to former president Abdiaziz Laftagareen launch a major armed assault on troops of Aden Madobe and Hassan Sheikh Mohamud. [2]\n\nAt least 24 people, including the former secretary of the National Security and Defence Council, Volodymyr Horbulin, are injured and three are killed by Russian drone strikes on the National Academy of Sciences of Ukraine building, a health clinic, and a residential building in Kyiv, Ukraine [3]\n\nSources: [1] Armed conflicts and attacks: Constitutional crisis in Somalia, Controversies of Hassan Sheikh Mohamud (en.wikipedia.org)  [2] Armed conflicts and attacks: At least 23 people are killed and others are injured as heavy clashes breaks out across the South West State of Somalia, as forces loyal to former president Abdiaziz Laftagareen… (garoweonline.com)  [3] Armed conflicts and attacks: At least 24 people, including the former secretary of the National Security and Defence Council, Volodymyr Horbulin, are injured and three are killed by Russian drone strikes on… (theguardian.com)  [4] Armed conflicts and attacks: Polish military jets are scrambled in response to Russian airstrikes on Ukraine. Individuals in Lublin Voivodeship are briefly urged to seek shelter before an alert is lifted (reuters.com)",
+    "detail": "5 fresh result(s) from 2 source(s) in 21039ms; failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4989ms exceeded",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4989ms exceeded"
+    ],
+    "freshResults": 5,
+    "freshness": "Based on 5 reports published in the last 2 days (newest: 5 hours ago).",
+    "intent": "news",
+    "query": "What happened in the world today?",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 21039,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Armed conflicts and attacks: Constitutional crisis in Somalia, Controversies of Hassan Sheikh Mohamud",
+        "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+      },
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Armed conflicts and attacks: At least 23 people are killed and others are injured as heavy clashes breaks out across the South West State of Somalia, as forces loyal to former president Abdiaziz Laftagareen…",
+        "url": "https://www.garoweonline.com/en/news/somalia/heavy-fighting-erupts-in-somalia-s-baidoa-as-rival-south-west-forces-clash"
+      },
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Armed conflicts and attacks: At least 24 people, including the former secretary of the National Security and Defence Council, Volodymyr Horbulin, are injured and three are killed by Russian drone strikes on…",
+        "url": "https://www.theguardian.com/world/2026/sep/28/russia-strike-on-kyiv-science-academy-drone-ukraine"
+      },
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Armed conflicts and attacks: Polish military jets are scrambled in response to Russian airstrikes on Ukraine. Individuals in Lublin Voivodeship are briefly urged to seek shelter before an alert is lifted",
+        "url": "https://www.reuters.com/world/poland-tells-people-east-take-shelter-russia-strikes-ukraine-2026-09-28"
+      },
+      {
+        "publishedAt": "2026-09-28T20:08:39.000Z",
+        "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
+        "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "news"
+  }
+}

@@ -1,0 +1,3203 @@
+{
+  "answerContract": {
+    "allSourcesDated": 13,
+    "citationsResolve": 18,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 14,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 4
+  },
+  "byCategory": {
+    "current-events": {
+      "fresh": 2,
+      "kept": 11,
+      "n": 6
+    },
+    "historical": {
+      "fresh": 5,
+      "kept": 50,
+      "n": 6
+    },
+    "obscure": {
+      "fresh": 6,
+      "kept": 48,
+      "n": 6
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 0,
+      "kept": 2,
+      "n": 4
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 19,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 21,
+      "n": 3
+    },
+    "none": {
+      "fresh": 6,
+      "kept": 62,
+      "n": 7
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 5,
+      "n": 1
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 120,
+  "ran": 18,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 791,
+        "statesFreshness": false,
+        "text": "We are the world’s leading, independent, non-profit organization dedicated to ocean research, exploration, and education.Black-browed albatrosses nesting at the Kerguelen Islands. [7]\n\nResearchers discovered a new gentoo penguin species, Pygoscelis kerguelensis, living on the Kerguelen Islands in the Indian Ocean. [4]\n\nIts name derives from the Kerguelen Islands. [3]\n\n1 Black-browed albatrosses nesting at the Kerguelen Islands. [8]\n\nSources: [1] New penguin species identified after long isolation on remote island (ecoportal.net)  [2] Search results for \"DIFFERENT \". Welcome to the great awakening! (qalerts.app)  [3] First New Penguin Species in a Century Found on Kerguelen (intelligentliving.co)  [4] Scientists Identify New Penguin Species for the First Time in More... (yahoo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Kerguelen Islands current research station status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.4,
+            "domain": "ecoportal.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:58:53.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.66,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "New penguin species identified after long isolation on remote island",
+            "url": "https://www.ecoportal.net/en/new-gentoo-penguin-species-earth/39771"
+          },
+          {
+            "ageHours": 82.2,
+            "domain": "qalerts.app",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:10:48.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Search results for \"DIFFERENT \". Welcome to the great awakening!",
+            "url": "https://qalerts.app?q=Different+"
+          },
+          {
+            "ageHours": 46.2,
+            "domain": "intelligentliving.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T03:13:18.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "First New Penguin Species in a Century Found on Kerguelen",
+            "url": "https://www.intelligentliving.co/new-penguin-species-kerguelen-islands"
+          },
+          {
+            "ageHours": 11.4,
+            "domain": "yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:56:59.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Scientists Identify New Penguin Species for the First Time in More...",
+            "url": "https://www.yahoo.com/news/science/articles/scientists-identify-penguin-species-first-134649945.html"
+          },
+          {
+            "ageHours": 110.4,
+            "domain": "aisfriends.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T11:00:29.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.58,
+              "freshness": 0.13,
+              "relevance": 0.08,
+              "sourceQuality": 0.07
+            },
+            "title": "OH7HAP - AIS Station (Finland)",
+            "url": "https://www.aisfriends.com/stations/1275"
+          },
+          {
+            "ageHours": 73.7,
+            "domain": "hrdlog.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T23:38:10.000Z",
+            "relevance": 0.53,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.53,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Amateur Radio Web Based Logbook",
+            "url": "https://www.hrdlog.net/UserStats.aspx?user=JF1XDA"
+          },
+          {
+            "ageHours": 100.5,
+            "domain": "whoi.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T20:53:01.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Can a species evolve fast enough to avoid extinction under a changing...",
+            "url": "https://www.whoi.edu/press-room/news-release/blackbrowedalbatross"
+          },
+          {
+            "ageHours": 58.6,
+            "domain": "sciencesprings.wordpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:49:03.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "From The Woods Hole Oceanographic Institution: [Climate change/Sea...",
+            "url": "https://sciencesprings.wordpress.com/2026/09/26/from-the-woods-hole-oceanographic-institution-climate-change-sea-birds-can-a-species-evolve-fast-enough-to-avoid-extinction-under-a-changing-climate"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 9.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.685,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 4133,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 663,
+        "statesFreshness": false,
+        "text": "Faroe Islands host Kazakhstan in League C Group 3 of the UEFA Nations League. [1]\n\nIn a related context, The match brings Moldova and Faroe Islands together, with its details guided by the information currently available. [2]\n\nIn another turn of the confrontation, The focus is on the meeting of Moldova and Faroe Islands, without assuming details beyond the information provided. [2]\n\nSources: [1] Faroe Islands vs Kazakhstan Prediction: 26.09.2026 UEFA... | Tips.GG (tips.gg)  [2] Moldova vs Faroe Islands: match preview and live coverage (liveskynews.com)  [3] Faroe Islands - Kazakhstan (uefa.tv)  [4] Faroe Islands 4 [online jigsaw puzzle] (jigsawplanet.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest news about the Faroe Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 109,
+            "domain": "tips.gg",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T12:21:13.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Faroe Islands vs Kazakhstan Prediction: 26.09.2026 UEFA... | Tips.GG",
+            "url": "https://tips.gg/article/faroe-islands-vs-kazakhstan-26-09-2026"
+          },
+          {
+            "ageHours": 4.3,
+            "domain": "liveskynews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:05:30.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.66,
+              "freshness": 0.23,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Moldova vs Faroe Islands: match preview and live coverage",
+            "url": "https://liveskynews.com/matches/moldova-vs-faroe-islands-liveskynews-com"
+          },
+          {
+            "ageHours": 57.9,
+            "domain": "uefa.tv",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:27:28.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.63,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.04
+            },
+            "title": "Faroe Islands - Kazakhstan",
+            "url": "https://www.uefa.tv/live/314697"
+          },
+          {
+            "ageHours": 82.5,
+            "domain": "jigsawplanet.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T14:55:41.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.61,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.04
+            },
+            "title": "Faroe Islands 4 [online jigsaw puzzle]",
+            "url": "https://www.jigsawplanet.com?rc=play&pid=268188d51509"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 4.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.655,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 5068,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 963,
+        "statesFreshness": false,
+        "text": "Opened in 2008, the Svalbard Global Seed Vault is the world's backup reserve of seeds from plants both common and rare.Each envelope can hold 500 seeds, and the entire vault has the “capacity to store 4.5 million varieties of crops,” according to Crop Trust. [5]\n\nThe Svalbard Global Seed Vault is located 400 feet inside a mountain near Longyearbyen and is home to over 1.4 million seed samples. [8]\n\nSvalbard Global Seed Vault, which is essentially a giant refrigerator for seed samples in the Arctic Circle. [10]\n\nThe Svalbard Global Seed Vault safeguards duplicates of over 1.4 million seed samples from almost every country around the world, with space for millions more. [1]\n\nSources: [1] Svalbard Global Seed Vault - Crop Trust (croptrust.org)  [2] Svalbard Global Seed Vault - Wikipedia (en.wikipedia.org)  [3] It's A Limited Place To Travel In The World. But Why? | Medium (medium.com)  [4] "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Svalbard Global Seed Vault capacity",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "croptrust.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Svalbard Global Seed Vault - Crop Trust",
+            "url": "https://www.croptrust.org/what-we-do/programs/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Svalbard Global Seed Vault - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Svalbard_Global_Seed_Vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "It's A Limited Place To Travel In The World. But Why? | Medium",
+            "url": "https://medium.com/@jcrenolds/article-travel-destinations-c6fc766570f7"
+          },
+          {
+            "ageHours": null,
+            "domain": "regjeringen.no",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.06
+            },
+            "title": "More about the physical plant - regjeringen.no",
+            "url": "https://www.regjeringen.no/en/topics/food-fisheries-and-agriculture/svalbard-global-seed-vault/mer-om-det-fysiske-anlegget/id2365142"
+          },
+          {
+            "ageHours": null,
+            "domain": "mymodernmet.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Explore “Doomsday” Svalbard Global Seed Vault With Virtual Tour",
+            "url": "https://mymodernmet.com/svalbard-global-seed-vault-tour"
+          },
+          {
+            "ageHours": 44.9,
+            "domain": "english.elpais.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T04:28:10.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.04,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Fuad Gaši, coordinator of the Svalbard Global Seed Vault: ‘We have...",
+            "url": "https://english.elpais.com/climate/2026-09-27/fuad-gasi-coordinator-of-the-svalbard-global-seed-vault-we-have-more-than-14-million-samples-and-the-door-is-only-opened-three-times-a-year.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "boundlessroads.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Svalbard Seed Vault: All You Need to Know + How to visit",
+            "url": "https://www.boundlessroads.com/svalbard-seed-vault-2"
+          },
+          {
+            "ageHours": null,
+            "domain": "businessinsider.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.72,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Photos Show What Life Is Like in the... - Business Insider",
+            "url": "https://www.businessinsider.com/longyearbyen-svalbard-worlds-northernmost-town-photos"
+          },
+          {
+            "ageHours": null,
+            "domain": "seedvault.no",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Svalbard Global Seed Vault",
+            "url": "https://www.seedvault.no"
+          },
+          {
+            "ageHours": null,
+            "domain": "reviewed.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "This? Oh, This is Just a Mountain-Fitted Refrigerator Built... - Reviewed",
+            "url": "https://www.reviewed.com/refrigerators/features/this-oh-this-is-just-a-mountain-fitted-refrigerator-built-for-the-end-times"
+          },
+          {
+            "ageHours": null,
+            "domain": "independent.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "The 'Doomsday' seed vault protecting the... | The Independent",
+            "url": "https://www.independent.co.uk/climate-change/news/doomsday-seed-vault-coronavirus-svalbard-norway-food-supplies-a9431031.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "portwave.gr.jp",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Proposal by Sculptor Mitsuaki Tanabe",
+            "url": "http://portwave.gr.jp/tanabe/english/fujishima/200806.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 44.9,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.818,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1620,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1140,
+        "statesFreshness": true,
+        "text": "What happened on September 28: 6 historical events, from 551 BC onwards. [1]\n\nI had a dedi with until up until last month with quite critical stuff on it luckily i migrated because i feared something like this would happen.Mine returned today files 100% as they were when it went down! [2]\n\n...Togo Tokelau Tonga Trinidad and Tobago Tunisia Turkey Turkmenistan Turks and Caicos Islands Tuvalu Uganda Ukraine United Arab Emirates United Kingdom United States United States Minor Outlying Islands Uruguay Uzbekistan Vanuatu Venezuela Viet Nam Virgin Islands, British. [3]\n\nBut something happened in the days after Thompson's death that should have terrified the health-insurance industry, and should certainly have been understood by anyone claiming to lead a populist health-reform movement. [5]\n\nSources: [1] On This Day: September 28 in History | HistoryGuesser (historyguesser.app)  [2] VSYS Host: "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "what happened in Tuvalu today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 8.3,
+            "domain": "historyguesser.app",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:06:58.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "On This Day: September 28 in History | HistoryGuesser",
+            "url": "https://historyguesser.app/on-this-day/september-28"
+          },
+          {
+            "ageHours": 8.8,
+            "domain": "lowendtalk.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:37:22.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "VSYS Host: UA data centers. What happened and... — LowEndTalk",
+            "url": "https://lowendtalk.com/discussion/221478/vsys-host-ua-data-centers-what-happened-and-where-recovery-stands/p2"
+          },
+          {
+            "ageHours": 17,
+            "domain": "crewonboard.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:22:01.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.61,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Master for General Cargo Vessel | CrewOnBoard - sea jobs, seafarer...",
+            "url": "https://crewonboard.net/vacancy/detail/23126"
+          },
+          {
+            "ageHours": 22.1,
+            "domain": "sarah247.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:19:08.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "AI Receptionist Sarah 24/7 — Virtual Phone Answering Service",
+            "url": "https://sarah247.ai"
+          },
+          {
+            "ageHours": 10,
+            "domain": "malone.news",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:21:58.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "The Capture of MAHA - by Dr. Robert W. Malone - Malone News",
+            "url": "https://www.malone.news/p/the-capture-of-maha"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 8.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.718,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2532,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 948,
+        "statesFreshness": false,
+        "text": "In 2004, nearly one-third of the adult male population of the Pitcairn islands was convicted of child sex assault, even the mayor. [4]\n\nPitcairn honey has even developed a small international following. [2]\n\nTotal population relative to 2026 (= 100), showing how much each population grows or shrinks. [3]\n\nMH: Marshall Islands MK: Macedonia [FYROM] ML: Mali MM: Myanmar [Burma] MN: Mongolia MO: Macau MP: Northern Mariana Islands MR: Mauritania MS: Montserrat MT: Malta MU: Mauritius MV: Maldives MW: Malawi MX: Mexico MY: Malaysia MZ: Mozambique NA: Namibia NC: New... [5]\n\nSources: [1] Living in Pitcairn | How People Live in the World's Least Populated... (youtube.com)  [2] 13 Towns Built in Some of the Most Remote Corners of the Planet (unearththevoyage.com)  [3] Djibouti vs Malawi: Population Pyramid... - Population Pyramids (population-pyramid.net)  [4] 50 Random Facts List #188 - Page 15"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "current population of Pitcairn Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 118.2,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T03:07:55.000Z",
+            "relevance": 0.48,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.48,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.04
+            },
+            "title": "Living in Pitcairn | How People Live in the World's Least Populated...",
+            "url": "https://www.youtube.com/watch?v=rJAz7TeEDk8"
+          },
+          {
+            "ageHours": 7.5,
+            "domain": "unearththevoyage.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:51:16.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.21,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "13 Towns Built in Some of the Most Remote Corners of the Planet",
+            "url": "https://unearththevoyage.com/13-towns-built-in-some-of-the-most-remote-corners-of-the-planet-f7627aec"
+          },
+          {
+            "ageHours": 103.2,
+            "domain": "population-pyramid.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T18:11:58.000Z",
+            "relevance": 0.47,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.47,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Djibouti vs Malawi: Population Pyramid... - Population Pyramids",
+            "url": "https://population-pyramid.net/en/compare/djibouti/malawi"
+          },
+          {
+            "ageHours": 6.7,
+            "domain": "factrepublic.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:41:31.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "50 Random Facts List #188 - Page 1590488604 of 2 - Fact Republic",
+            "url": "https://factrepublic.com/50-random-facts-list-188/1590488604"
+          },
+          {
+            "ageHours": 68.9,
+            "domain": "forecastvibes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T04:29:15.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.68,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Regardless of the weather, it's always chill here.",
+            "url": "https://www.forecastvibes.com"
+          },
+          {
+            "ageHours": 66.8,
+            "domain": "blanbunnytea.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T06:34:11.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.76,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "BlanBunny - The Radiant Children Behind a Healing Brand",
+            "url": "https://blanbunnytea.com/blogs/news/blanbunny-the-radiant-children-behind-a-healing-brand"
+          },
+          {
+            "ageHours": 81.6,
+            "domain": "fijovirtual.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:46:10.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Virtual number Pitcairn Islands",
+            "url": "https://fijovirtual.com/en/pitcairn-islands-virtual-phone-number"
+          },
+          {
+            "ageHours": 40.1,
+            "domain": "vibemathed.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T09:15:20.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.62,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.04
+            },
+            "title": "Exact Thue–Morse matching heights in an avoiding population...",
+            "url": "https://vibemathed.com/problem/exact-thue-morse-matching-heights-in-an-avoiding-population"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 6.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.666,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2949,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 880,
+        "statesFreshness": false,
+        "text": "Are tardigrades endangered?By the Global Animal Guide editorial team • Last reviewed July 16, 2026 • Cite this page • How we research & review. [7]\n\nThe researchers in this study were trying to find out how tardigrades survive extreme doses of ionizing radiation that can shred DNA. [5]\n\nResearchers have discovered a new species of tardigrade with sand dunes adaptations and provide new evidence that some tardigrades select places to colonise by riding inside snails in two investigations. [9]\n\nSvalbard is particularly well studied for tardigrades. [1]\n\nSources: [1] New Animal Species Reported in Svalbard | Polar Journal (polarjournal.net)  [2] Brasil - Antarctic nematodes survival in Martian and Lunar regolith... (scielo.br)  [3] Tardigrades: The Tiny Animals That Survived Space (recordstrivia.com)  [4] 5 Creatures That Break the Rules of Biology - YouTube (youtube.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest research on tardigrades",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 98.2,
+            "domain": "polarjournal.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T23:08:09.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "New Animal Species Reported in Svalbard | Polar Journal",
+            "url": "https://polarjournal.net/new-animal-species-reported-in-svalbard"
+          },
+          {
+            "ageHours": 81.4,
+            "domain": "scielo.br",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T16:01:04.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Brasil - Antarctic nematodes survival in Martian and Lunar regolith...",
+            "url": "https://www.scielo.br/j/aabc/a/wX7pXnXP9YnkggqgJnr4QVD?lang=en&ilang=pt_BR"
+          },
+          {
+            "ageHours": 97.8,
+            "domain": "recordstrivia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T23:37:51.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.01,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Tardigrades: The Tiny Animals That Survived Space",
+            "url": "https://www.recordstrivia.com/nature/the-tiny-animal-that-survived-outer-space-how-tardigrades-became-natures-ultimate-survivors"
+          },
+          {
+            "ageHours": 77.2,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T20:13:51.000Z",
+            "relevance": 0.52,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.52,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.01
+            },
+            "title": "5 Creatures That Break the Rules of Biology - YouTube",
+            "url": "https://www.youtube.com/watch?v=d3OOwZo616U"
+          },
+          {
+            "ageHours": 37.4,
+            "domain": "youthstemjournal.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T12:01:45.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Biology — Journal Vol. 2 — Youth STEM Journal Club",
+            "url": "https://www.youthstemjournal.org/journal/v2/biology"
+          },
+          {
+            "ageHours": 84.8,
+            "domain": "highschool.latimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T12:32:09.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Opinion: open letter to the American Society of Transplantation...",
+            "url": "https://highschool.latimes.com/opinion/opinion-open-letter-to-the-american-society-of-transplantation-trehalose-a-tardigrade-sugar-could-save-lives"
+          },
+          {
+            "ageHours": 19.4,
+            "domain": "globalanimalguide.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:59:11.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Water Bear: Facts, Diet, Habitat & FAQs | Global Animal Guide",
+            "url": "https://globalanimalguide.org/animals/water-bear"
+          },
+          {
+            "ageHours": 74.4,
+            "domain": "97zokonline.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T22:57:29.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.61,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "When To Watch For Deer On Illinois Roads This Fall",
+            "url": "https://97zokonline.com/ixp/671/p/deer-mating-season-northern-illinois"
+          },
+          {
+            "ageHours": 107.6,
+            "domain": "thehansindia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T13:45:12.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Researchers Discovered A Brand-New Species Of Tardigrade",
+            "url": "https://www.thehansindia.com/offbeat/researchers-discovered-a-brand-new-species-of-tardigrade-769967"
+          },
+          {
+            "ageHours": 107.4,
+            "domain": "ucdavis.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T13:58:28.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Alaska’s Orange Rivers More Metallic Than Acid Mine... | UC Davis",
+            "url": "https://www.ucdavis.edu/climate/news/alaskas-orange-rivers-more-metallic-acid-mine-drainage"
+          },
+          {
+            "ageHours": 81.8,
+            "domain": "astrobiology.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:32:31.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.54,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Dispersal Pathways And Infection Strategies Within The... - Astrobiology",
+            "url": "https://astrobiology.com/2026/09/25/dispersal-pathways-and-infection-strategies-within-the-global-halophilic-virome"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 19.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.755,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2119,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1011,
+        "statesFreshness": false,
+        "text": "While the focus of the finish of the men’s 4x100m final at the 2016 Rio Olympics was on Jamaica’s Usain Bolt, who had just run his final Olympic race and added yet another gold medal to his resume, a runner was down on the ground behind the celebration. [3]\n\nThe last two men to win Olympic gold are Rafael Nadal and Andy Murray — Murray won it in both 2012 and 2016. [5]\n\nPreviously, only Carl Lewis had won two gold medals in the 100m, a feat which Bolt had matched at the London 2012 Summer Olympics. [1]\n\nBolt won his first 100m Olympic gold by a wide margin in 2008, only to come back four years later and post an even better time of 9.63\\. [2]\n\nSources: [1] Athletics at the 2016 Summer Olympics – Men's 100 metres - Wikipedia (en.wikipedia.org)  [2] sportingnews.com/ca/olympics/news/usain-bolt-worlds-fastest-man... (sportingnews.com)  [3] Inside 100m Sprinter Trayvon Bromell's Way Back to t"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Who won the 2016 Olympics men's 100m?",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 4,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Athletics at the 2016 Summer Olympics – Men's 100 metres - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Athletics_at_the_2016_Summer_Olympics_%E2%80%93_Men%27s_100_metres"
+          },
+          {
+            "ageHours": null,
+            "domain": "sportingnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "sportingnews.com/ca/olympics/news/usain-bolt-worlds-fastest-man...",
+            "url": "https://www.sportingnews.com/ca/olympics/news/usain-bolt-worlds-fastest-man-100-meter-dash-world-record-retired/aa09e2c39af1092f64f6a91b"
+          },
+          {
+            "ageHours": null,
+            "domain": "nbcdfw.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Inside 100m Sprinter Trayvon Bromell's Way Back to the Olympics",
+            "url": "https://www.nbcdfw.com/news/sports/tokyo-summer-olympics/inside-100m-sprinter-trayvon-bromells-way-back-to-the-olympics/2700124"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.37,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.37,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.04
+            },
+            "title": "How Pan Zhanle Swam the Fastest 100m Freestyle in History - YouTube",
+            "url": "https://www.youtube.com/watch?v=SzoRRDvCNms"
+          },
+          {
+            "ageHours": null,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.76,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Tokyo Day 9 Highlights: Dressel Wins Gold in Swimming, Italians Stun...",
+            "url": "https://www.nytimes.com/live/2021/07/31/sports/olympics"
+          },
+          {
+            "ageHours": null,
+            "domain": "bentley.umich.edu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Michigan in the Olympics -- 2016 Rio De Janeiro",
+            "url": "https://bentley.umich.edu/athdept/olymp2/ol2016.htm"
+          },
+          {
+            "ageHours": null,
+            "domain": "sports.ndtv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Rio Olympics: Penny Oleksiak, Simone Manuel Share 100m Freestyle...",
+            "url": "https://sports.ndtv.com/olympics-2016/rio-olympics-penny-oleksiak-simone-manuel-share-100m-freestyle-gold-1480810"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.794,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1774,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 838,
+        "statesFreshness": false,
+        "text": "Another way to put it is that the government should regard artificial intelligence the same way it regarded the banks in the 2008 financial crisis: too big to fail. [1]\n\nIs the US heading for another 2008-style financial crisis? [2]\n\nIndeed, the volume of the alarm is in marked contrast to events leading to the great financial crisis of 2008. [5]\n\nCNN notes that sentiment is now below the levels recorded during the 2008 financial crisis, the 2001 recession and the COVID recession. [6]\n\nSources: [1] What Happens if the A.I. Bubble Bursts - Revista de Prensa (almendron.com)  [2] Melody Wright on America's Foreclosure Crisis: Is Another 2008... (triangle-investor.com)  [3] The Next RECESSION Could Trigger a HOUSING... - YouTube (youtube.com)  [4] Video Summary - This is MUCH Worse Than 2008… what is coming... (youtubesummary.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "what happened in the 2008 financial crisis",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 44.8,
+            "domain": "almendron.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T04:34:16.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "What Happens if the A.I. Bubble Bursts - Revista de Prensa",
+            "url": "https://www.almendron.com/tribuna/what-happens-if-the-a-i-bubble-bursts"
+          },
+          {
+            "ageHours": 10.2,
+            "domain": "triangle-investor.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:09:47.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Melody Wright on America's Foreclosure Crisis: Is Another 2008...",
+            "url": "https://triangle-investor.com/interviews/americas-foreclosure-crisis-another-2008-housing-crash-melody-wright"
+          },
+          {
+            "ageHours": 117.8,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T03:36:40.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.62,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.01
+            },
+            "title": "The Next RECESSION Could Trigger a HOUSING... - YouTube",
+            "url": "https://www.youtube.com/watch?v=MGBUBPBUXOA"
+          },
+          {
+            "ageHours": 63.6,
+            "domain": "youtubesummary.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T09:49:41.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Video Summary - This is MUCH Worse Than 2008… what is coming...",
+            "url": "https://youtubesummary.com/summary/TKGehlIYKQM"
+          },
+          {
+            "ageHours": 100.1,
+            "domain": "thisismoney.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T21:19:07.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "The bond market and stock market are both sounding... | This is Money",
+            "url": "https://www.thisismoney.co.uk/money/markets/article-16158257/The-bond-market-stock-market-sounding-alarm-crash-coming-ALEX-BRUMMER.html"
+          },
+          {
+            "ageHours": 51.6,
+            "domain": "investmentwatchblog.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T21:48:35.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Americans are more miserable about the... - Investment Watch Blog",
+            "url": "https://www.investmentwatchblog.com/americans-are-more-miserable-about-the-economy-than-they-were-during-the-2008-financial-crisis"
+          },
+          {
+            "ageHours": 94.1,
+            "domain": "sentimentrader.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T03:17:37.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.67,
+              "freshness": 0.13,
+              "relevance": 0.1,
+              "sourceQuality": 0.07
+            },
+            "title": "Panic triggers another large opening gap | SentimenTrader",
+            "url": "https://sentimentrader.com/blog/panic-triggers-another-large-opening-gap"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 10.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.863,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1723,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 897,
+        "statesFreshness": false,
+        "text": "The Battle of Waterloo reenactment is an annual modern recreation of the 19th century Battle of Waterloo on the original battlefield in Waterloo, Belgium.Official Battle of Waterloo site. [11]\n\nThe Battle of Waterloo was fought on 18 June 1815 between Napoleon’s French Army and a coalition led by the Duke of Wellington and Marshal Blücher. [1]\n\nThe Battle of Waterloo, fought on a rainy Sunday — June 18, 1815 — was a 19th-century pay-per-view, where three of Europe’s most ambitious generals — Napoleon... [2]\n\nFollowing secondary battles, the Battle of Waterloo began on June 18, 1815. [4]\n\nSources: [1] Battle of Waterloo | National Army Museum (nam.ac.uk)  [2] Battle of Waterloo (1815) by Twenty Tales | Twenty Tales (medium.com)  [3] Battle of Waterloo: Napoleon & Duke of Wellington | HISTORY (history.com)  [4] Battle of Waterloo | Combatants, Maps, & Facts | Britannica (britannica.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "when was the Battle of Waterloo",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "nam.ac.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo | National Army Museum",
+            "url": "https://www.nam.ac.uk/explore/battle-waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo (1815) by Twenty Tales | Twenty Tales",
+            "url": "https://medium.com/twenty-tales/battle-of-waterloo-1815-1d6d0ed0cb39"
+          },
+          {
+            "ageHours": null,
+            "domain": "history.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo: Napoleon & Duke of Wellington | HISTORY",
+            "url": "https://www.history.com/articles/battle-of-waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo | Combatants, Maps, & Facts | Britannica",
+            "url": "https://www.britannica.com/event/Battle-of-Waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldhistory.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo - World History Encyclopedia",
+            "url": "https://www.worldhistory.org/article/2303/battle-of-waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "history-maps.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo | Map and Timeline",
+            "url": "https://history-maps.com/story/Battle-of-Waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "tr.pinterest.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.08,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Pinterest'te waterloo belgium pictures ile ilgili fikirler bulun ve kaydedi...",
+            "url": "https://tr.pinterest.com/ideas/waterloo-belgium-pictures/915407062085"
+          },
+          {
+            "ageHours": null,
+            "domain": "alamy.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Waterloo battle hi-res stock photography and images - Alamy",
+            "url": "https://www.alamy.com/stock-photo/waterloo-battle.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.43,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.43,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "The Battle of Waterloo Part 2 | The Hundred Days - YouTube",
+            "url": "https://www.youtube.com/watch?v=VAZRoTc7pZA"
+          },
+          {
+            "ageHours": null,
+            "domain": "scenic-tours.be",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Dinant (Belgium - Europe) - Tourism - The Route Napoleon and Battle...",
+            "url": "https://scenic-tours.be/scenictours_en2/articles.php?lng=en&pg=1175"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Battle of Waterloo reenactment - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Waterloo_reenactment"
+          },
+          {
+            "ageHours": null,
+            "domain": "payhip.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Napoleonic - Waterloo and Wellington - Payhip",
+            "url": "https://payhip.com/b/EDIy"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"Battle Waterloo\" right now — Omi will no"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.841,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1150,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 918,
+        "statesFreshness": false,
+        "text": "Roman Empire historical impact, legacy of the Roman Empire, history of Rome and Europe, civilization influences on modern society, greatest civilizations in history, Roman history lessons, understanding Roman culture, learning from ancient civilizations... [4]\n\nRoman Empire: One of the largest and most influential empires in history, lasting from 27 BC to AD 476. [7]\n\nThis article on Southern Italy briefly traces the history of the Holy Roman Empire up to Italian unification, and Italy becoming a republic in 1946. [8]\n\nThe Roman Empire was a state that dominated the Mediterranean and much of Europe, Western Asia, and North Africa during the classical period. [1]\n\nSources: [1] Roman Empire - Wikipedia (en.wikipedia.org)  [2] Roman Empire - World History Encyclopedia (worldhistory.org)  [3] Ancient Rome: Facts, Location, Timeline & Fall | HISTORY (history.com)  [4] History Roman Empire | T"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "history of the Roman Empire",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Roman Empire - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldhistory.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Roman Empire - World History Encyclopedia",
+            "url": "https://www.worldhistory.org/Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "history.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Ancient Rome: Facts, Location, Timeline & Fall | HISTORY",
+            "url": "https://www.history.com/articles/ancient-rome"
+          },
+          {
+            "ageHours": null,
+            "domain": "tiktok.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.43,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.43,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "History Roman Empire | TikTok",
+            "url": "https://www.tiktok.com/discover/history-roman-empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Roman Empire | Definition, History, Time Period, Map... | Britannica",
+            "url": "https://www.britannica.com/place/Roman-Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.32,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.32,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.01
+            },
+            "title": "The Rise and Fall of the Roman Empire | Complete... - YouTube",
+            "url": "https://www.youtube.com/watch?v=5LMyz1wm9SI"
+          },
+          {
+            "ageHours": null,
+            "domain": "teachy.com.br",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Summary of Ancient Rome: Exploring Greatness and Learning from...",
+            "url": "https://www.teachy.com.br/en/resumos/high-school/10th-grade/history-en/ancient-rome-exploring-greatness-and-learning-from-emotions-e8f09"
+          },
+          {
+            "ageHours": null,
+            "domain": "odysseytraveller.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Roman Empire | Educational Article - Odyssey Traveller",
+            "url": "https://www.odysseytraveller.com/articles/the-roman-empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "vox.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.68,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "The Roman Empire, explained in 40 maps | Vox",
+            "url": "https://www.vox.com/world/2018/6/19/17469176/roman-empire-maps-history-explained"
+          },
+          {
+            "ageHours": null,
+            "domain": "historynet.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Empire Vs. Tribe: The Roman Empire and the Celts",
+            "url": "https://historynet.com/empire-vs-tribe-the-roman-empire-and-the-celts"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.44,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.44,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A History of Philosophy 15.1 Roman Empire | Official HD - YouTube",
+            "url": "https://www.youtube.com/watch?v=aSsEbWxFYyE"
+          },
+          {
+            "ageHours": null,
+            "domain": "tiktok.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.44,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.44,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "What Is The Meaning of The Roman Empire | TikTok",
+            "url": "https://www.tiktok.com/discover/what-is-the-meaning-of-the-roman-empire"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"history Roman Empire\" right now — Omi wi"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.675,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1147,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Asian Games 2018 medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "undated": 11
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2642,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          10,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 914,
+        "statesFreshness": false,
+        "text": "The Origin of the Olympic The Olympic Games, a symbol of global unity and athletic excellence, trace their origins to ancient Greece. [5]\n\nThe Olympic Games, which originated in ancient Greece nearly 3,000 years ago, were revived in the late 19th century and have become the world’s preeminent sporting competition. [10]\n\nHistory and origin of the Games.Sports contests organised at Olympia took place every four years and acquired the name Olympic Games. [11]\n\nThe ancient Olympic Games included several sports that are now part of the Summer Games program, which includes events in as many as 32 different sports. [7]\n\nSources: [1] Olympic Games - Wikipedia (en.wikipedia.org)  [2] The ancient origins of the Olympics - Armand D'Angour - YouTube (youtube.com)  [3] Olympic Games, Medals, Results & Latest News | Olympics.com (olympics.com)  [4] THE HISTORY OF THE OLYMPIC GAMES | Ashmolean Museum ("
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "origin of the Olympic Games",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic Games - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Olympic_Games"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.45,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.45,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.04
+            },
+            "title": "The ancient origins of the Olympics - Armand D'Angour - YouTube",
+            "url": "https://www.youtube.com/watch?v=VdHHus8IgYA"
+          },
+          {
+            "ageHours": null,
+            "domain": "olympics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic Games, Medals, Results & Latest News | Olympics.com",
+            "url": "https://www.olympics.com/en"
+          },
+          {
+            "ageHours": null,
+            "domain": "ashmolean.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "THE HISTORY OF THE OLYMPIC GAMES | Ashmolean Museum",
+            "url": "https://www.ashmolean.org/article/history-of-the-olympic-games-ancient-greece"
+          },
+          {
+            "ageHours": null,
+            "domain": "tiktok.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.51,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.51,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.01
+            },
+            "title": "Olympics Origin | TikTok",
+            "url": "https://www.tiktok.com/discover/olympics-origin"
+          },
+          {
+            "ageHours": null,
+            "domain": "kaggle.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.55,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.55,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.04
+            },
+            "title": "120 years of Olympic history: athletes and results | Kaggle",
+            "url": "https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results"
+          },
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic Games | 2026, Milano Cortina, History, Sports... | Britannica",
+            "url": "https://www.britannica.com/sports/Olympic-Games"
+          },
+          {
+            "ageHours": null,
+            "domain": "parade.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic History: Where and When Did the Olympics Start? - Parade",
+            "url": "https://parade.com/1225636/rose-maura-lorre/olympics-history"
+          },
+          {
+            "ageHours": null,
+            "domain": "results.isu.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Event results for Olympic Winter Games 2026",
+            "url": "https://results.isu.org/results/season2526/owg2026"
+          },
+          {
+            "ageHours": null,
+            "domain": "history.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "The Olympic Games: Facts, Ancient & Modern | HISTORY",
+            "url": "https://www.history.com/articles/olympic-games"
+          },
+          {
+            "ageHours": null,
+            "domain": "olympics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "What is the origin of the Olympic Games?",
+            "url": "https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/what-is-the-origin-of-the-olympic-games"
+          },
+          {
+            "ageHours": null,
+            "domain": "brainly.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "[FREE] Select the correct answer. In which country did the Olympics...",
+            "url": "https://brainly.com/question/56701558"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"origin Olympic report\" right now — Omi w"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.727,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2676,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 658,
+        "statesFreshness": false,
+        "text": "With Choudhary's bronze, the Indian contingent now has a total of four gold, 12 silver, and 14 bronze medals at the Asian Games 2026, as per IANS. [2]\n\nThe Indian contingent is set for a packed Day 8 at the Asian Games 2026 on Sunday, September 27, with medal events, finals and crucial qualification contests scheduled across multiple sports. [1]\n\nHello and welcome to the Live coverage of Asian Games 2026. [1]\n\nIndian contingent adds to its medal tally. [2]\n\nSources: [1] Asian Games 2026 Day 8 Live Updates: Abhay... - The Times of India (timesofindia.indiatimes.com)  [2] Asian Games 2026: India's Prachi Choudhary wins bronze in 400m (newsbytesapp.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "Indian contingent medals tally in Asian Games 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 51.6,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T21:46:37.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 Day 8 Live Updates: Abhay... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-live-updates-india-schedule-medal-tally-results-scores-latest-news/liveblog/134507649.cms"
+          },
+          {
+            "ageHours": 58,
+            "domain": "newsbytesapp.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:22:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.44,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026: India's Prachi Choudhary wins bronze in 400m",
+            "url": "https://www.newsbytesapp.com/news/sports/prachi-choudhary-adds-to-india-s-medals-tally-at-asian-games/story"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 51.6,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.97,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2106,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "2026 Winter Olympics results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2052,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "COP31 2026 outcome",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 4957,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 904,
+        "statesFreshness": false,
+        "text": "Australia has hung on for an extraordinary 42-38 upset win over rugby World Cup champion South Africa despite being reduced to 11 men against 15 for much of the last 10 minutes. [1]\n\nI break down what worked for the Wallabies, why 13 changes hurt the Springboks’ cohesion, and what this result means with a home Rugby World Cup approaching. [2]\n\nThe focus is still on building towards the next World Cup, but you also need the confidence from wins like these to confirm you are on the right track.” Solontsi said they left nothing on the field. [3]\n\nTheir scrum stood up, their kicking created chaos, and their attack repeatedly stretched South Africa. [2]\n\nSources: [1] 11-man Australia hangs on to upset South Africa 42-38 in... - AOL (aol.com)  [2] 11 Wallabies Survived the Springboks — But That’s NOT... - YouTube (youtube.com)  [3] 'We were not going to be beaten' - italy | Rugby365 (rugby365."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "current status of the Rugby World Cup",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 35.6,
+            "domain": "aol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:44:20.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.21,
+              "sourceQuality": 0.07
+            },
+            "title": "11-man Australia hangs on to upset South Africa 42-38 in... - AOL",
+            "url": "https://www.aol.com/articles/australia-upsets-south-africa-42-120545000.html"
+          },
+          {
+            "ageHours": 29.4,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T20:02:12.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.58,
+              "freshness": 0.17,
+              "relevance": 0.29,
+              "sourceQuality": 0.04
+            },
+            "title": "11 Wallabies Survived the Springboks — But That’s NOT... - YouTube",
+            "url": "https://www.youtube.com/watch?v=mysMxkK5PPM"
+          },
+          {
+            "ageHours": 42.4,
+            "domain": "rugby365.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T07:01:56.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.21,
+              "sourceQuality": 0.1
+            },
+            "title": "'We were not going to be beaten' - italy | Rugby365",
+            "url": "https://rugby365.com/countries/italy/we-were-not-going-to-be-beaten"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 29.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.717,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1906,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 997,
+        "statesFreshness": true,
+        "text": "PARIS: Iranian Nobel peace prize winner Narges Mohammadi has said her biggest fear is dying without seeing her two children again after being separated from the twins for over a decade, in her memoir published on Thursday. [1]\n\nIranian Nobel peace prize winner Narges Mohammadi has said her biggest fear is dying without seeing her two children again after being separated from the twins for over a decade, in her memoir published on Thursday. [3]\n\nAbout the Igs.Get books about improbable research and the Ig Nobel Prize. [2]\n\nNobel Prize Experts on the Future of AI & SciencePerfology Clips239K • 5d agoLivePlaylist ()Mix (50+). [5]\n\nSources: [1] 'I was drowning': Iran Nobel winner Narges Mohammadi exposes pain... (newindianexpress.com)  [2] Improbable Research – Page 2763 – Research that makes people... (improbable.com)  [3] I was drowning: Iran Nobel winner exposes pain of separation from..."
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "latest on the Nobel Prize 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 109.7,
+            "domain": "newindianexpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T11:39:23.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "'I was drowning': Iran Nobel winner Narges Mohammadi exposes pain...",
+            "url": "https://www.newindianexpress.com/world/2026/Sep/24/i-was-drowning-iran-nobel-winner-narges-mohammadi-exposes-pain-of-separation-from-children"
+          },
+          {
+            "ageHours": 58,
+            "domain": "improbable.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:20:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Improbable Research – Page 2763 – Research that makes people...",
+            "url": "https://improbable.com/page/2763"
+          },
+          {
+            "ageHours": 109,
+            "domain": "anews.com.tr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T12:20:47.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "I was drowning: Iran Nobel winner exposes pain of separation from...",
+            "url": "https://www.anews.com.tr/world/2026/09/24/i-was-drowning-iran-nobel-winner-exposes-pain-of-separation-from-children"
+          },
+          {
+            "ageHours": 115.8,
+            "domain": "clipzag.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T05:34:21.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Nobel Economist Warns: AI WILL DESTROY Democracy - Clipzag.com",
+            "url": "https://clipzag.com/watch?v=aNYDMfdD6pg"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:01:35.000Z",
+            "relevance": 0.35,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.35,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.01
+            },
+            "title": "LIVE: Netanyahu Secretly Visits UAE Amid Oct. 7 Warning... - YouTube",
+            "url": "https://www.youtube.com/watch?v=dd-MOykYPSU"
+          },
+          {
+            "ageHours": 92.7,
+            "domain": "the-star.co.ke",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T04:38:35.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.97,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "The woman behind the Nobel",
+            "url": "https://www.the-star.co.ke/sasa/entertainment/2026-09-25-wangari-maathai"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 9.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.802,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1955,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "upcoming general elections",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2357,
+      "vertical": "election"
+    }
+  ],
+  "total": 138
+}

@@ -1,5 +1,46 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## RELEVANCE + SOURCE-QUALITY LAYER (2026-09-29) — freshness no longer dominates
+
+Trigger: freshness was passing, but broad-news kept sets contained weak or
+unrelated material — a YouTube result and evergreen "Make in India" content
+for "latest news in India", an unrelated actors-workshop page for "what
+happened in the world today".
+
+The layer (`searchEngine/quality.ts`):
+
+- **`usefulnessPenalty`** — video/social platforms, clickbait titles, and
+  tag/category pages are noise. Bounded, and applied **multiplicatively**, so
+  freshness cannot buy it back.
+- **`sourceQualityScore`** — the authority tier discounted by that noise.
+- **`scoreSourceDetailed`** — the published final score: relevance +
+  freshness + authority + sourceQuality + directness (+ corroboration), ×
+  temporalPenalty × (1 − usefulnessPenalty). Freshness weight is **capped at
+  parity with relevance (0.32)** even for `now`-tier questions; the old
+  fresh-beats-relevant inversion is gone by construction.
+- **Noise floor** in the ranker: a source with usefulness penalty ≥ 0.45
+  never enters the final set regardless of timestamp.
+- **Breakdown persisted** on every kept citation (`scoreBreakdown`) and
+  recorded by the quality benchmark (`scores` per final source), so PASS can
+  be audited per component.
+
+Measured on the full 138-query benchmark (production path, post-layer):
+
+| Metric | Before layer | After layer |
+|---|---|---|
+| kept>0 | 119/138 (83–86%) | 118/138 (86%) |
+| freshnessMet | 92/138 (64%) | **104/138 (75%)** |
+| kept sources | 822 | 949 |
+| kept sources with dates | 578 (70%) | **740 (78%)** |
+| noise in kept sets (YouTube/tag/…) | 71 | **3** (all finance/science topic-relevant, scored ≥0.81) |
+
+Contract untouched: cache bypass, enforced memory protection, future-date
+protection, year/event gating, strict-vertical fallback, SearXNG + optional
+LangSearch — all pinned by their suites and re-pinned by
+`tests/omiRelevanceQualityLayer.test.ts` (13 tests, mutation-checked: the
+noise-floor removal is caught; the additive-penalty mutation preserved all
+pinned orderings and correctly passed).
+
 ## CURRENT-INFO SUITE THROUGH THE REAL PIPELINE (2026-09-29, 10/10 PASS)
 
 `currentInfoProbe:runSuite` (the /currentinfo suite, executed via internal

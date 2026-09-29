@@ -1,0 +1,48 @@
+{
+  "row": {
+    "answer": "India’s ‘Synthetic Garden’: When Electoral Systems Begin to Decide Who Belongs\n\nBeyond the ongoing controversy over the election process lies a direct question about India’s democratic health: what happens when systems designed to recognise citizens begin determining the terms on which citizens are recognised? [2]\n\nAn avalanche kills at least two climbers and leaves 14 others missing at the base camp of the Himalayan mountain Nemjung in Manang District, Nepal, as heavy snowfall hampers rescue operations [1]\n\nDid India’s Animesh Kujur’s fall lead to South Korea’s disqualification? [3]\n\nThe citizens retain the right to scrutinise, challenge and remove rulers without needing their permission. [2]\n\nSources: [1] Disasters and accidents: An avalanche kills at least two climbers and leaves 14 others missing at the base camp of the Himalayan mountain Nemjung in Manang District, Nepal, as heavy snowfall hampers… (gulfnews.com)  [2] India’s ‘Synthetic Garden’: When Electoral Systems Begin to Decide Who Belongs (thequint.com)  [3] Did India’s Animesh Kujur’s fall lead to South Korea’s disqualification? Here’s what happened (indiatimes.com)",
+    "detail": "3 fresh result(s) from 3 source(s) in 20936ms; failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia Current Events (today's news, dated)",
+      "Hacker News",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded"
+    ],
+    "freshResults": 3,
+    "freshness": "Based on 3 reports published in the last 2 days (newest: 9 hours ago).",
+    "intent": "current",
+    "query": "what is happening in India right now?",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 20936,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Disasters and accidents: An avalanche kills at least two climbers and leaves 14 others missing at the base camp of the Himalayan mountain Nemjung in Manang District, Nepal, as heavy snowfall hampers…",
+        "url": "https://gulfnews.com/world/asia/two-dead-14-missing-after-avalanche-on-nepals-himlung-peak-1.500690178"
+      },
+      {
+        "publishedAt": "2026-09-28T13:03:35.000Z",
+        "title": "India’s ‘Synthetic Garden’: When Electoral Systems Begin to Decide Who Belongs",
+        "url": "https://www.thequint.com/opinion/indias-synthetic-garden-when-democracy-becomes-a-matter-of-verification"
+      },
+      {
+        "publishedAt": "2026-09-28T16:03:21.000Z",
+        "title": "Did India’s Animesh Kujur’s fall lead to South Korea’s disqualification? Here’s what happened",
+        "url": "https://www.indiatimes.com/sports/did-indias-animesh-kujurs-fall-lead-to-south-koreas-disqualification-heres-what-happened/articleshow/134546385.html"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "news"
+  }
+}

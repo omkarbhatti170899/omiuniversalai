@@ -1,0 +1,3221 @@
+{
+  "answerContract": {
+    "allSourcesDated": 13,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 15,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "asia": {
+      "fresh": 4,
+      "kept": 30,
+      "n": 4
+    },
+    "australia": {
+      "fresh": 4,
+      "kept": 37,
+      "n": 4
+    },
+    "europe": {
+      "fresh": 5,
+      "kept": 37,
+      "n": 5
+    },
+    "japan": {
+      "fresh": 1,
+      "kept": 8,
+      "n": 1
+    },
+    "usa": {
+      "fresh": 0,
+      "kept": 6,
+      "n": 1
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 0,
+      "kept": 6,
+      "n": 1
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 19,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 6,
+      "kept": 42,
+      "n": 6
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 22,
+      "n": 2
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 29,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 90,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 849,
+        "statesFreshness": false,
+        "text": "US News.Buffalo and Syracuse both voted to elect DSA members to local and state Assembly seats in June elections. [3]\n\nUS midterm elections 2026.Macy has challenged Republican congressman Ben Cline, who was elected by nearly 30 points in 2024, to three debates ahead of November’s vote. [5]\n\nAs election enters its final stretch, some Republicans are distancing from Trump. [2]\n\n‘The commercial debuted this week on right-wing news outlets, according to the media tracking service AdImpact. [6]\n\nSources: [1] Some Good News in the Midst of All the Wave Election Talk – HotAir (hotair.com)  [2] Some in GOP distance from Trump as midterms inch closer : NPR (npr.org)  [3] AOC testing the waters for possible 2028 run as she launches upstate... (nypost.com)  [4] Poll: Los Angeles mayor behind general election opponent - The Daily... (thedailybs.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US election news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 52.6,
+            "domain": "hotair.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T20:45:03.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.98,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Some Good News in the Midst of All the Wave Election Talk – HotAir",
+            "url": "https://hotair.com/john-s-2/2026/09/26/some-good-news-in-the-midst-of-all-the-wave-election-talk-n3819372"
+          },
+          {
+            "ageHours": 88,
+            "domain": "npr.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T09:21:50.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Some in GOP distance from Trump as midterms inch closer : NPR",
+            "url": "https://www.npr.org/2026/09/25/nx-s1-5978096/republicans-trump-midterm-elections"
+          },
+          {
+            "ageHours": 99.7,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T21:39:07.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "AOC testing the waters for possible 2028 run as she launches upstate...",
+            "url": "https://nypost.com/2026/09/24/us-news/aoc-testing-the-waters-for-possible-2028-run-as-she-launches-upstate-ny-tour-before-midterm-elections"
+          },
+          {
+            "ageHours": 108,
+            "domain": "thedailybs.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T13:16:56.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.64,
+              "freshness": 0.13,
+              "relevance": 0.08,
+              "sourceQuality": 0.07
+            },
+            "title": "Poll: Los Angeles mayor behind general election opponent - The Daily...",
+            "url": "https://thedailybs.com/2026/09/23/poll-los-angeles-mayor-behind-general-election-opponent"
+          },
+          {
+            "ageHours": 59.3,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:02:35.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "‘I’m not JD Vance’: the Appalachia memoir author... | The Guardian",
+            "url": "https://www.theguardian.com/us-news/2026/sep/26/beth-macy-congress-run-virginia"
+          },
+          {
+            "ageHours": 81.7,
+            "domain": "electionlawblog.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:38:36.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.69,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "'‘Love Me’ Ad Promotes Trump With Public Money... - Election Law Blog",
+            "url": "https://electionlawblog.org/2026/love-me-ad-promotes-trump-with-public-money-ahead-of-the-midterms"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 52.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.822,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2461,
+      "vertical": "election"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1017,
+        "statesFreshness": true,
+        "text": "OTTAWA — Canadians overwhelmingly support Canada becoming an associate member of the European Union, a new poll suggests — even though the details of that arrangement haven’t been finalized. [4]\n\nEuropean Council President Antonio Costa told the 81st UN General Assembly that multilateralism is not an ideal of the past. [1]\n\nOn Thursday, his policy institute published a paper calling for Britain to set a course for re-entry into a “reformed European Union” over the next decade. [3]\n\nEU Migration Commissioner Magnus Brunner said protecting the bloc's borders was a central part of the reforms and that progress was being made. [2]\n\nSources: [1] Costa Tells UN Russia Threatened EU Member States as... - YouTube (youtube.com)  [2] EU, UK ministers seek stronger border controls... - Business Standard (business-standard.com)  [3] Tony Blair would like Andy Burnham to take his advice... | The Guar"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest European Union news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 103.1,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T18:16:34.000Z",
+            "relevance": 0.32,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.32,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.04
+            },
+            "title": "Costa Tells UN Russia Threatened EU Member States as... - YouTube",
+            "url": "https://www.youtube.com/watch?v=8v4t09BwNqM"
+          },
+          {
+            "ageHours": 56.2,
+            "domain": "business-standard.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T17:07:22.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "EU, UK ministers seek stronger border controls... - Business Standard",
+            "url": "https://www.business-standard.com/world-news/eu-uk-ministers-seek-stronger-border-controls-faster-migrant-returns-126092600925_1.html"
+          },
+          {
+            "ageHours": 38.2,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T11:07:45.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Tony Blair would like Andy Burnham to take his advice... | The Guardian",
+            "url": "https://www.theguardian.com/commentisfree/2026/sep/27/tony-blair-andy-burnham-advice-rejoining-eu-labour"
+          },
+          {
+            "ageHours": 111.6,
+            "domain": "toronto.citynews.ca",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T09:46:03.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "More than two in three Canadians back EU associate membership: poll",
+            "url": "https://toronto.citynews.ca/2026/09/24/more-than-two-in-three-canadians-back-eu-associate-membership-poll"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 38.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.685,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1226,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1033,
+        "statesFreshness": false,
+        "text": "Political shifts in Europe, renewed diplomacy surrounding the Iran conflict, tensions over Taiwan, severe flooding and deadly avalanches across Asia, hurricanes threatening Hawaii and Mexico, and growing international debate over artificial intelligence are shaping the global news agenda. [3]\n\nCatch up with the most important stories from around Europe and beyond this September 28th, 2026 - latest news, breaking news, World, Business, Entertainment, Politics, Culture, Travel. [1]\n\nEurope's Far Right is no longer a shock and that may be the bigger story. [7]\n\nAT World News 1 view 1 hour ago.Alexander Mercouris: Kiev Air Defenses TOTAL COLLAPSE In Daylight Blitz! [2]\n\nSources: [1] Video. Latest news bulletin | September 28th, 2026... | Euronews (euronews.com)  [2] Denmark Warns Europe: Is Russia’s Military Buildup... - YouTube (youtube.com)  [3] Global News Brief: Key Developments Around t"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "news in Europe today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 9,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:19:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Video. Latest news bulletin | September 28th, 2026... | Euronews",
+            "url": "https://www.euronews.com/video/2026/09/28/latest-news-bulletin-september-28th-2026-evening"
+          },
+          {
+            "ageHours": 4.5,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:47:39.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.58,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Denmark Warns Europe: Is Russia’s Military Buildup... - YouTube",
+            "url": "https://www.youtube.com/watch?v=7Slp52Hbyqk"
+          },
+          {
+            "ageHours": 17.5,
+            "domain": "openchronicle.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:52:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Global News Brief: Key Developments Around the World, September...",
+            "url": "https://openchronicle.org/2026/09/28/global-news-brief-key-developments-around-the-world-september-28-2026"
+          },
+          {
+            "ageHours": 17.5,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:50:05.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Poland scrambles military aircraft in response to... | The Guardian",
+            "url": "https://www.theguardian.com/world/live/2026/sep/28/europe-ukraine-defence-ministers-pope-leo-france-visit-latest-news-updates"
+          },
+          {
+            "ageHours": 8.3,
+            "domain": "infosites.eu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:59:20.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Rodri controlled everything – Little European News",
+            "url": "https://www.infosites.eu/2026/09/28/rodri-controlled-everything-134"
+          },
+          {
+            "ageHours": 15.9,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:28:34.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Pope Leo XIV France visit: Metz peace appeal invokes... - India Today",
+            "url": "https://www.indiatoday.in/world/story/pope-leo-xiv-metz-peace-appeal-schuman-europe-france-visit-ptag-3004757-2026-09-28"
+          },
+          {
+            "ageHours": 10.3,
+            "domain": "anewz.tv",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:02:00.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.67,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Far Right AfD Germany and Europe | AnewZ",
+            "url": "https://anewz.tv/world/world-news/24856/far-right-afd-germany-and-europe/news"
+          },
+          {
+            "ageHours": 13.7,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:37:07.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.57,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Europe Today: EU ministers meet on Ukraine aid as Trump... - YouTube",
+            "url": "https://www.youtube.com/watch?v=Qc8x0cxYz1o"
+          },
+          {
+            "ageHours": 16.3,
+            "domain": "oilprice.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:00:09.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany's Gas Storage Sits at 57%, but VNG Says... | OilPrice.com",
+            "url": "https://oilprice.com/Latest-Energy-News/World-News/Germanys-Gas-Storage-Sits-at-57-but-VNG-Says-Winter-Supply-Is-Covered.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 4.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.786,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 14113,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 768,
+        "statesFreshness": true,
+        "text": "Priorities during the European Presidencies.‘We must adapt cohesion policy to a changing world, addressing today’s priorities while preparing for tomorrow’s challenges. [1]\n\n...EU policy updates 2026, Brussels news today, European Union industry talks, Katherina Reiche, Germany economy minister, Germany energy policy, European competitiveness... [3]\n\nIn her State of the European Union (SOTEU) address, Commission President Ursula von der Leyen announced new measures on migration, including falling arrival numbers, a strengthened... [2]\n\nSources: [1] Rural Europe must count in every EU policy | EESC (eesc.europa.eu)  [2] SOTEU 2026: What is European migration policy becoming? (voxeurop.eu)  [3] FULL REMARKS: Katherina Reiche Outlines... - YouTube (youtube.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "current EU policy",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 113.7,
+            "domain": "eesc.europa.eu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T07:35:10.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rural Europe must count in every EU policy | EESC",
+            "url": "https://www.eesc.europa.eu/en/news-media/press-releases/rural-europe-must-count-every-eu-policy"
+          },
+          {
+            "ageHours": 40.6,
+            "domain": "voxeurop.eu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T08:45:18.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.73,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "SOTEU 2026: What is European migration policy becoming?",
+            "url": "https://voxeurop.eu/en/soteu-2026-migration-policy-europe"
+          },
+          {
+            "ageHours": 108.8,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T12:30:39.000Z",
+            "relevance": 0.45,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.45,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "FULL REMARKS: Katherina Reiche Outlines... - YouTube",
+            "url": "https://www.youtube.com/watch?v=weIL8-XfFU4"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 40.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.727,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2952,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 883,
+        "statesFreshness": true,
+        "text": "Yet despite Germany’s far from healthy economy, there has recently been some encouraging news: the German start-up sector is gaining momentum. [2]\n\nNews today.Wild boars have damaged a football club in Germany. [3]\n\nHere is a roundup of the top news stories from and about Germany on Thursday, September 24, 2026 [1]\n\nGermany and Russia held a rare ministerial meeting on the sidelines of the UN General Assembly on Saturday, in what is believed to be the first such face-to-face since Russia launched its full-scale invasion of Ukraine in 2022. [4]\n\nSources: [1] Germany news: Bundestag to discuss opt-out organ donation (dw.com)  [2] Germany's startup boom: What is working and what is... | Euronews (euronews.com)  [3] Urgent News from Germany! State of Emergency. - Clipzag.com (clipzag.com)  [4] Germany Russia UN meeting: Berlin urges Moscow to... - India Today (indiatoday.in)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest news from Germany",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 112.8,
+            "domain": "dw.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T08:33:50.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany news: Bundestag to discuss opt-out organ donation",
+            "url": "https://www.dw.com/en/germany-news-bundestag-to-discuss-opt-out-organ-donation/live-79406294"
+          },
+          {
+            "ageHours": 85.5,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:47:46.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany's startup boom: What is working and what is... | Euronews",
+            "url": "https://www.euronews.com/2026/09/25/germanys-startup-boom-what-is-working-and-what-is-holding-them-back"
+          },
+          {
+            "ageHours": 31.8,
+            "domain": "clipzag.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T17:29:32.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Urgent News from Germany! State of Emergency. - Clipzag.com",
+            "url": "https://clipzag.com/watch?v=S32rS62c8hE"
+          },
+          {
+            "ageHours": 55.7,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T17:35:57.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany Russia UN meeting: Berlin urges Moscow to... - India Today",
+            "url": "https://www.indiatoday.in/world/story/germany-russia-un-meeting-ukraine-war-lavrov-wadephul-ptag-3003861-2026-09-26"
+          },
+          {
+            "ageHours": 74.2,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T23:08:14.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "As Merz scrambles for support, Germany's identity crisis is laid bare",
+            "url": "https://www.bbc.com/news/articles/cmx2zlqeje9zo"
+          },
+          {
+            "ageHours": 56.7,
+            "domain": "rfi.fr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T16:37:47.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Germany ready to 'walk through fire' for Klopp, says Tah",
+            "url": "https://www.rfi.fr/en/sports/20260926-germany-ready-to-walk-through-fire-for-klopp-says-tah"
+          },
+          {
+            "ageHours": 110.3,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T11:00:25.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "In a Race With China, German Robots Are Outnumbered 14 to 1",
+            "url": "https://www.nytimes.com/2026/09/24/business/robots-china-germany-factories.html"
+          },
+          {
+            "ageHours": 54.7,
+            "domain": "newsukraine.rbc.ua",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T18:37:35.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.62,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Germany's Wadephul meets Russia's Lavrov in New York, calls to end...",
+            "url": "https://newsukraine.rbc.ua/news/germany-warns-russia-against-hybrid-attacks-1790446973.html"
+          },
+          {
+            "ageHours": 82.9,
+            "domain": "fmprc.gov.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T14:25:57.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Wang Yi Has a Phone Call with German Foreign Minister Johann...",
+            "url": "https://www.fmprc.gov.cn/eng/wjb/wjbz/hd/202609/t20260923_12029204.html"
+          },
+          {
+            "ageHours": 31.8,
+            "domain": "aol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T17:29:42.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Two dead after tourist bus overturns on way to Germany’s Oktoberfest",
+            "url": "https://www.aol.com/articles/two-dead-tourist-bus-overturns-171151000.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 31.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.832,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1461,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 806,
+        "statesFreshness": false,
+        "text": "Euro zone economy ekes out 0.2% growth after a helping hand from France.Eurozone economy grows 0.2% in 3rd quarter, beating expectations. [1]\n\nThe ECB itself has acknowledged the downside risks facing the eurozone economy but has reaffirmed its commitment to tightening as necessary to tame inflation. [5]\n\n‘Too good to be true’: Eurozone economy defies Iran war shock. [6]\n\nSimply sign up to the Eurozone economy myFT Digest -- delivered directly to your inbox. [7]\n\nSources: [1] Google News - Eurozone economy grows 0.2% in third quarter... (news.google.com)  [2] Eurozone economy barely grows in first months of 2026 (rfi.fr)  [3] Europe’s fastest-growing economies in Q2 2026: Who led... | Euronews (euronews.com)  [4] Eurozone Economy Outlook 2026 | Christophe Aebi posted... | LinkedIn (linkedin.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "eurozone economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Eurozone economy grows 0.2% in third quarter...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pwak92eER4SHQ4WmNiNVRmYWdDZ0FQAQ?hl=en-KE&gl=KE&ceid=KE%3Aen"
+          },
+          {
+            "ageHours": null,
+            "domain": "rfi.fr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.91,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone economy barely grows in first months of 2026",
+            "url": "https://www.rfi.fr/en/international-news/20260430-eurozone-economy-barely-grows-in-first-months-of-2026"
+          },
+          {
+            "ageHours": null,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.56,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.56,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Europe’s fastest-growing economies in Q2 2026: Who led... | Euronews",
+            "url": "https://www.euronews.com/business/2026/07/30/europes-fastest-growing-economies-in-q2-2026-who-led-and-who-lagged"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone Economy Outlook 2026 | Christophe Aebi posted... | LinkedIn",
+            "url": "https://www.linkedin.com/posts/christophe-aebi-534ba27_eurozone-economic-outlook-april-2026-activity-7457885464184844288-NQQ8"
+          },
+          {
+            "ageHours": null,
+            "domain": "tickmill.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "EUR Lower As Growth Fears Weigh on Sentiment | Tickmill",
+            "url": "https://www.tickmill.com/blog/eur-lower-as-growth-fears-weigh-on-sentiment"
+          },
+          {
+            "ageHours": null,
+            "domain": "euractiv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Home | Euractiv",
+            "url": "https://www.euractiv.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone economy suffers slowest growth in 7 years",
+            "url": "https://www.ft.com/content/198f072e-4e42-11ea-95a0-43d18ec715f5?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "perplexity.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone barely avoids contraction as trade fears mount",
+            "url": "https://www.perplexity.ai/page/eurozone-barely-avoids-contrac-8VQi1vcsQ7ukPQjFsKon2Q"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Italy's economy stalls as eurozone slows down",
+            "url": "https://www.bbc.com/news/business-46028714"
+          },
+          {
+            "ageHours": null,
+            "domain": "tradingeconomics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone Economy Posts Strongest Growth in Over a Year",
+            "url": "https://tradingeconomics.com/euro-area/gdp-growth/news/571163"
+          },
+          {
+            "ageHours": null,
+            "domain": "euractiv.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Eurozone economic growth slows in first months of 2026 | Euractiv",
+            "url": "https://www.euractiv.com/news/eurozone-economic-growth-slows-in-first-months-of-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"eurozone economy\" right now — Omi will n"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.816,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 4310,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 811,
+        "statesFreshness": true,
+        "text": "Asia One News is an international English-language network delivering world news, live updates, politics, business, economy, technology, health, climate, sports, entertainment, and exclusive reports from across the globe. [4]\n\nBringing you yesterday's news from Japan and Asia, today. [7]\n\nToday's news: Xi and Trump: US-China dialogue channel on AI risks and benefits. [2]\n\nPakistan thwarts an Afghan Taliban attack in Gulistan.AsiaNews Weekly News from Asia that matters. [2]\n\nSources: [1] Top Asian News 5:38 a.m. GMT - Yahoo News UK (uk.news.yahoo.com)  [2] Schools in Riyadh still closed a week after Houthi attacks | AsiaNews (asianews.it)  [3] Google News - News about stocks • oil prices - Overview (news.google.com)  [4] Tia on Travel, Northern Pakistan & Responsible Tourism... - YouTube (youtube.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "latest news from Asia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 89.3,
+            "domain": "uk.news.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T07:59:18.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Top Asian News 5:38 a.m. GMT - Yahoo News UK",
+            "url": "https://uk.news.yahoo.com/top-asian-news-4-19-040000790.html"
+          },
+          {
+            "ageHours": 16,
+            "domain": "asianews.it",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:21:43.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Schools in Riyadh still closed a week after Houthi attacks | AsiaNews",
+            "url": "https://www.asianews.it/en/news/press-review/schools-in-riyadh-still-closed-a-week-after-houthi-attacks"
+          },
+          {
+            "ageHours": 15,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:18:43.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - News about stocks • oil prices - Overview",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2pjbnJhSEVoR1FpLW43STZzbDhDZ0FQAQ?hl=en-US&gl=US&ceid=US%3Aen"
+          },
+          {
+            "ageHours": 112.2,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T09:10:55.000Z",
+            "relevance": 0.36,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.36,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Tia on Travel, Northern Pakistan & Responsible Tourism... - YouTube",
+            "url": "https://www.youtube.com/watch?v=GN0FlLSihKE"
+          },
+          {
+            "ageHours": 86.4,
+            "domain": "247wallst.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T10:54:23.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Hang Seng Closes Down 1.2% While Shanghai Barely... | 24/7 Wall St.",
+            "url": "https://247wallst.com/cards/hong-kong-took-the-entire-hit-in-asia-today-shedding-1-17-hsi-market-bell-01m3bsenevqn9h82y3tqe2m67h"
+          },
+          {
+            "ageHours": 90.8,
+            "domain": "mothership.sg",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:29:40.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "S'pore must help local workers & firms benefit from global opportunitie...",
+            "url": "https://mothership.sg/2026/09/local-workers-firms-benefit-global-opportunities-gan-kim-yong"
+          },
+          {
+            "ageHours": 11.3,
+            "domain": "soranews24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:03:58.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Tons of used books in Japan being... | SoraNews24 —Japan News",
+            "url": "https://soranews24.com/2026/09/28/tons-of-used-books-in-japan-being-bought-up-by-someone-or-something"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 11.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.829,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 3441,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 845,
+        "statesFreshness": true,
+        "text": "Asia.Get bite-sized news via a new cards interface. [2]\n\nSearch quotes, news & videos.Oil prices climbed more than 1% Monday in early Asia trading after U.S. [3]\n\nPolitical shifts in Europe, renewed diplomacy surrounding the Iran conflict, tensions over Taiwan, severe flooding and deadly avalanches across Asia... [1]\n\nWilliam Yang, a senior analyst on North East Asia at Crisis Group, agreed that Trump views Beijing through a transactional lens – and that his offer held no realistic, strategic thinking. [5]\n\nSources: [1] Global News Brief: Key Developments Around the World, September... (openchronicle.org)  [2] Air quality in all Singapore regions in unhealthy range - CNA (channelnewsasia.com)  [3] Oil price today: WTI, Brent, Trump, Iran (cnbc.com)  [4] Struggle over Hormuz and Bab el‑Mandeb straits is... - Asia Times (asiatimes.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "Asia news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 17.5,
+            "domain": "openchronicle.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:52:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Global News Brief: Key Developments Around the World, September...",
+            "url": "https://openchronicle.org/2026/09/28/global-news-brief-key-developments-around-the-world-september-28-2026"
+          },
+          {
+            "ageHours": 2.5,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:48:19.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Air quality in all Singapore regions in unhealthy range - CNA",
+            "url": "https://www.channelnewsasia.com/singapore/air-quality-haze-unhealthy-regions-sep-29-6413481"
+          },
+          {
+            "ageHours": 25.3,
+            "domain": "cnbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:03:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Oil price today: WTI, Brent, Trump, Iran",
+            "url": "https://www.cnbc.com/2026/09/28/oil-price-today-wti-brent-trump-iran.html"
+          },
+          {
+            "ageHours": 25.1,
+            "domain": "asiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:15:40.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Struggle over Hormuz and Bab el‑Mandeb straits is... - Asia Times",
+            "url": "https://asiatimes.com/2026/09/struggle-over-hormuz-and-bab-el-mandeb-straits-is-centuries-old"
+          },
+          {
+            "ageHours": 8.3,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:00:35.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.71,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Arming an adversary: Why Trump’s offer to sell China... | Al Jazeera",
+            "url": "https://www.aljazeera.com/news-analysis/2026/9/28/arming-an-adversary-why-trump-offer-to-sell-china-weapons-belies-us-policy"
+          },
+          {
+            "ageHours": 5.2,
+            "domain": "presstv.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:08:23.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Media reports of Iran showing nuclear flexibility false; US trapped in...",
+            "url": "https://www.presstv.co.uk/Detail/2026/09/28/777222/Source--Media-reports-of-Iran-showing-nuclear-flexibility-are-false--US-trapped-in-Hormuz-Strait"
+          },
+          {
+            "ageHours": 3.6,
+            "domain": "news.un.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:45:20.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "DPR Korea tells UN its nuclear status is ‘irreversible... | UN News",
+            "url": "https://news.un.org/en/story/2026/09/1168476"
+          },
+          {
+            "ageHours": 15.1,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:14:24.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "IT team lead attached to State Courts installed remote desktop app...",
+            "url": "https://www.channelnewsasia.com/singapore/it-team-lead-remote-desktop-state-court-risk-files-jail-6415386"
+          },
+          {
+            "ageHours": 19.7,
+            "domain": "oilprice.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T05:40:09.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.67,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Oil Moves Higher on Rekindled War Fears | OilPrice.com",
+            "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Moves-Higher-on-Rekindled-War-Fears.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 2.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.87,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 7070,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 881,
+        "statesFreshness": true,
+        "text": "Across China, consumers are increasingly seeking cultural experiences, leisure activities and services alongside goods, creating new opportunities for businesses to meet more diverse demand. [2]\n\nInside the Guardian.“Taiwan faces a severe situation in the Taiwan strait. [3]\n\nChina today has about 1.4 billion people, about 17 per cent of the world's population with Beijing alone having more than 20 million people. [4]\n\nToday, China-US relations once again stand at a new historical starting point. [5]\n\nSources: [1] TheoryChina - Headlines - Full text: Xi's remarks at state dinner held by..... (en.theorychina.org.cn)  [2] From barbecue to immersive theater, diverse... - China.org.cn (china.org.cn)  [3] Trump asked Xi Jinping if China would like to buy US... | The Guardian (theguardian.com)  [4] The ‘resting cars’ of Beijing: How China keeps traffic moving (the-star.co.ke)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "current situation in China",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 85.2,
+            "domain": "en.theorychina.org.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T12:10:25.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.54,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "TheoryChina - Headlines - Full text: Xi's remarks at state dinner held by.....",
+            "url": "https://en.theorychina.org.cn/c/2026-09-25/1553266.shtml"
+          },
+          {
+            "ageHours": 89,
+            "domain": "china.org.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T08:22:46.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.54,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "From barbecue to immersive theater, diverse... - China.org.cn",
+            "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml"
+          },
+          {
+            "ageHours": 24.4,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:57:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Trump asked Xi Jinping if China would like to buy US... | The Guardian",
+            "url": "https://www.theguardian.com/world/2026/sep/28/trump-xi-jinping-china-buy-weapons"
+          },
+          {
+            "ageHours": 81.5,
+            "domain": "the-star.co.ke",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T15:48:46.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "The ‘resting cars’ of Beijing: How China keeps traffic moving",
+            "url": "https://www.the-star.co.ke/news/2026-09-25-why-some-beijing-cars-are-left-to-rest-at-home"
+          },
+          {
+            "ageHours": 78.9,
+            "domain": "macaupostdaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T18:27:40.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Turning vision into action for China-US constructive strategic stability",
+            "url": "https://www.macaupostdaily.com/news/29500"
+          },
+          {
+            "ageHours": 94.6,
+            "domain": "yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T02:41:58.000Z",
+            "relevance": 0.51,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.51,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "China state dinner with Xi: Elon Musk, a bald eagle and Trump 'off script&a...",
+            "url": "https://www.yahoo.com/news/politics/articles/china-state-dinner-xi-elon-023105426.html"
+          },
+          {
+            "ageHours": 78.9,
+            "domain": "en.chinadiplomacy.org.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T18:23:41.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Xi attends state dinner held by Trump_China's Diplomacy in the New Era",
+            "url": "https://en.chinadiplomacy.org.cn/2026-09/25/content_118712871.shtml"
+          },
+          {
+            "ageHours": 65.3,
+            "domain": "zamin.uz",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T08:01:07.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Sharp TVs start failing en masse in China – Zamin.uz, 26.09.2026",
+            "url": "https://zamin.uz/en/technology/222595-sharp-tvs-start-failing-en-masse-in-china.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 24.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.697,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2832,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1047,
+        "statesFreshness": true,
+        "text": "Southeast Asia cannot prevent El Niño from forming, but it can determine how much damage follows.Seasia.co is your independent and trusted premier source of all kinds of Good News from Southeast Asia. [1]\n\nSoutheast Asia is well-positioned to capture this shift, with destinations close together and well-connected for more frequent, seamless travel.\" Travelers looking to explore Southeast Asia can browse the full range of options on the Agoda travel platform, where flights... [6]\n\nSoutheast Asia still has over 100 GW of gas power and 70 mtpa of LNG import capacity in development despite the war-driven LNG price spike. [2]\n\nGan observed that Southeast Asia today faces a harder path to industrial upgrading. [5]\n\nSources: [1] Southeast Asia Enters the Super El Niño Test - Seasia.co (seasia.co)  [2] Southeast Asia Keeps Building Gas Plants Despite... | OilPrice.com (oilprice.com)  [3] Hanoi r"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "asia",
+      "query": "latest news from Southeast Asia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 4.1,
+            "domain": "seasia.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:16:03.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.93,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Southeast Asia Enters the Super El Niño Test - Seasia.co",
+            "url": "https://seasia.co/2026/09/28/southeast-asia-enters-the-super-el-nino-test"
+          },
+          {
+            "ageHours": 114.3,
+            "domain": "oilprice.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T07:00:10.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Southeast Asia Keeps Building Gas Plants Despite... | OilPrice.com",
+            "url": "https://oilprice.com/Latest-Energy-News/World-News/Southeast-Asia-Keeps-Building-Gas-Plants-Despite-Hormuz-LNG-Shock.html"
+          },
+          {
+            "ageHours": 98.9,
+            "domain": "asianews.it",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T22:28:56.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Hanoi residents protest against Red River mega-project | AsiaNews",
+            "url": "https://www.asianews.it/en/south-east-asia/vietnam/hanoi-residents-protest-against-red-river-mega-project"
+          },
+          {
+            "ageHours": 113.7,
+            "domain": "who.int",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T07:38:43.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.74,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "WHO South-East Asia immunization experts meet focuses on...",
+            "url": "https://www.who.int/southeastasia/news/detail/24-09-2026-who-south-east-asia-immunization-experts-meet-focuses-on-measles-outbreaks-and-closing-immunity-gaps"
+          },
+          {
+            "ageHours": 90.8,
+            "domain": "mothership.sg",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:29:40.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "S'pore must help local workers & firms benefit from global opportunitie...",
+            "url": "https://mothership.sg/2026/09/local-workers-firms-benefit-global-opportunities-gan-kim-yong"
+          },
+          {
+            "ageHours": 41.2,
+            "domain": "en.fuyongyulonghotel.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T08:09:00.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Agoda Reveals Sustained Intra-Regional Travel Interest Across...",
+            "url": "https://en.fuyongyulonghotel.cn/newsdetail-831106.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 4.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.817,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1964,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 788,
+        "statesFreshness": true,
+        "text": "Australian Rural & Regional News Independent news from across rural and regional Australia. [6]\n\nAustralian dairy producers are focusing on mating management and heat detection to improve herd reproductive results. [4]\n\nThe Australian share market has dropped sharply, falling back into the red once again for 2026 as bond yields spiked to their highest levels in decades. [1]\n\nABC News & Headlines – Australian Broadcasting Corporation. [2]\n\nSources: [1] Aussie shares back in red for 2026 as bond yields spike (dailyadvertiser.com.au)  [2] Google News - Anthony Albanese reveals OpenAI breach of Medicare... (news.google.com)  [3] Attention is nothing without trust | The West Australian (thewest.com.au)  [4] Australian Dairy Herds Face a Reproductive Performance Gap (dairynews.today)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "latest Australian news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 113.5,
+            "domain": "dailyadvertiser.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T07:53:14.000Z",
+            "relevance": 0.52,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.52,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Aussie shares back in red for 2026 as bond yields spike",
+            "url": "https://www.dailyadvertiser.com.au/story/9356779/aussie-shares-back-in-red-for-2026-as-bond-yields-spike"
+          },
+          {
+            "ageHours": 116.6,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T04:44:32.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Anthony Albanese reveals OpenAI breach of Medicare...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2lNX3VLR0VoR3VQRGlydzlNSWJDZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen"
+          },
+          {
+            "ageHours": 69.5,
+            "domain": "thewest.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T03:52:32.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Attention is nothing without trust | The West Australian",
+            "url": "https://thewest.com.au/business/the-debrief/attention-is-nothing-without-trust--c-22891690"
+          },
+          {
+            "ageHours": 33,
+            "domain": "dairynews.today",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T16:20:39.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.54,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Australian Dairy Herds Face a Reproductive Performance Gap",
+            "url": "https://dairynews.today/news/australian_dairy_herds_face_a_reproductive_performance_gap_6823827.html"
+          },
+          {
+            "ageHours": 90.3,
+            "domain": "au.news.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:59:24.000Z",
+            "relevance": 0.5,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.5,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Bizarre sight at Aussie car wash after fishermen land 40kg catch...",
+            "url": "https://au.news.yahoo.com/bizarre-sight-at-aussie-car-wash-after-fishermen-land-40kg-catch-beautiful-trophy-065813952.html"
+          },
+          {
+            "ageHours": 72.3,
+            "domain": "arr.news",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T01:05:11.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Essence of place I Australian Rural & Regional News",
+            "url": "https://arr.news/2026/09/25/essence-of-place"
+          },
+          {
+            "ageHours": 16.5,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:52:38.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Prime Minister Narendra Modi achieved what no one in... - India Today",
+            "url": "https://www.indiatoday.in/world/story/australia-anthony-albanese-praise-pm-modi-middle-east-war-unga-new-york-itspc-3004592-2026-09-28"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 16.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.694,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1750,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 845,
+        "statesFreshness": true,
+        "text": "India Today Fact Check found that the video is actually from Brisbane, Australia. [8]\n\n1,89 млн подписчиков.But the Premier believes his opponents have gone the early crow, declaring 'Wharfie Time' while addressing media today. [1]\n\nHello and welcome to our live coverage of national news this Tuesday, September 29. [2]\n\nThe Greens will choose a new leader next week after Larissa Waters shocked Australian politics last night by announcing she was standing down due to ill health. [3]\n\nSources: [1] 9News Melbourne | Monday 28 September | Full Bulletin - YouTube (youtube.com)  [2] Australia news LIVE: RBA expected to announce fourth rate rise this... (smh.com.au)  [3] Morning Mail: Larissa Waters quits as Greens leader... | The Guardian (theguardian.com)  [4] Mike Baird quits as Cricket Australia chair as fallout from BBL... (abc.net.au)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "Australia news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.3,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:02:55.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "9News Melbourne | Monday 28 September | Full Bulletin - YouTube",
+            "url": "https://www.youtube.com/watch?v=rZJCkLnLDP0"
+          },
+          {
+            "ageHours": 4.4,
+            "domain": "smh.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T20:58:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Australia news LIVE: RBA expected to announce fourth rate rise this...",
+            "url": "https://www.smh.com.au/national/australia-news-live-rba-expected-to-announce-fourth-rate-rise-this-year-greens-leader-larissa-waters-steps-down-due-to-illness-trump-denies-asking-xi-about-potential-us-arms-sales-20260929-p6118p.html"
+          },
+          {
+            "ageHours": 4.1,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:15:50.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.88,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Morning Mail: Larissa Waters quits as Greens leader... | The Guardian",
+            "url": "https://www.theguardian.com/australia-news/2026/sep/29/morning-mail-tuesday-ntwnfb"
+          },
+          {
+            "ageHours": 25,
+            "domain": "abc.net.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:23:00.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.62,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Mike Baird quits as Cricket Australia chair as fallout from BBL...",
+            "url": "https://www.abc.net.au/news/2026-09-28/mike-baird-quits-as-cricket-australia-chair/107202874"
+          },
+          {
+            "ageHours": 23.9,
+            "domain": "cnbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T01:24:53.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Northern Star shares pop as it rejects $27 billion takeover proposal",
+            "url": "https://www.cnbc.com/2026/09/28/northern-star-shares-gold-fields-takeover-bid.html"
+          },
+          {
+            "ageHours": 5.7,
+            "domain": "nine.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:35:49.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "RBA interest rates decision: $2.5 trillion noose tightening... | Nine.com.au",
+            "url": "https://www.nine.com.au/australia-news/rba-interest-rates-decision-2-5-trillion-noose-tightening-around-australia-and-it-s-about-to-get-worse-20260929-p6118a.html"
+          },
+          {
+            "ageHours": 22,
+            "domain": "thetimes.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T03:22:11.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.58,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Australia’s fuel threat spreads beyond Hormuz as Saudi oil route...",
+            "url": "https://thetimes.com.au/world/52617-australias-fuel-threat-spreads-beyond-hormuz-as-saudi-oil-route-comes-under-attack"
+          },
+          {
+            "ageHours": 13.4,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:55:16.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Fact Check: Traditional welcome of Brazil team in... - India Today",
+            "url": "https://www.indiatoday.in/fact-check/story/fact-check-brazil-team-brisbane-aboriginal-welcome-video-falsely-shared-as-indian-3004883-2026-09-28"
+          },
+          {
+            "ageHours": 5.5,
+            "domain": "yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:48:45.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.67,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "After AI Agent Hacked Its Government, Australia Calls Altman and...",
+            "url": "https://www.yahoo.com/news/world/articles/ai-agent-hacked-government-australia-193621249.html"
+          },
+          {
+            "ageHours": 9.4,
+            "domain": "en.as.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:57:50.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.61,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Australia’s latest wildlife surprise: Enormous insect swarms gather on...",
+            "url": "https://en.as.com/latest_news/australias-latest-wildlife-surprise-enormous-insect-swarms-gather-on-sydney-homes-f202609-n"
+          },
+          {
+            "ageHours": 12,
+            "domain": "phys.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:21:09.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "84 cents for every $1: Why indigenous workers earn less in...",
+            "url": "https://phys.org/news/2026-09-cents-indigenous-workers-australia.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 4.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.759,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1478,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 780,
+        "statesFreshness": false,
+        "text": "We’re often told the Australian bushfire season is starting earlier. [7]\n\n1982–1983 Australian bushfire season: The Ash Wednesday fires of 16 February 1983 caused severe damage in Victoria and South Australia. [1]\n\nFrom 2019-2020 was the Australian bushfire season or called the “black summer”. [2]\n\nUntil the 2019–2020 Australian bushfire season , the forests in Australia were thought to reabsorb all the carbon released in bushfires across the country. [3]\n\nSources: [1] List of Australian bushfire seasons - Wikipedia (en.wikipedia.org)  [2] 11.8M posts. Discover videos related to Bush Fire Season on TikTok. (tiktok.com)  [3] Ten impacts of the Australian bushfires (unep.org)  [4] Australian Bushfire Season Survival Plan for PWD - Blue Badge... (bluebadgeinsurance.com.au)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "Australian bushfire season",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "List of Australian bushfire seasons - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/List_of_Australian_bushfire_seasons"
+          },
+          {
+            "ageHours": null,
+            "domain": "tiktok.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.43,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.43,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "11.8M posts. Discover videos related to Bush Fire Season on TikTok.",
+            "url": "https://www.tiktok.com/discover/bush-fire-season"
+          },
+          {
+            "ageHours": null,
+            "domain": "unep.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Ten impacts of the Australian bushfires",
+            "url": "https://www.unep.org/news-and-stories/story/ten-impacts-australian-bushfires"
+          },
+          {
+            "ageHours": null,
+            "domain": "bluebadgeinsurance.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Australian Bushfire Season Survival Plan for PWD - Blue Badge...",
+            "url": "https://www.bluebadgeinsurance.com.au/blog/australian-bushfire-season-survival-plan-pwd"
+          },
+          {
+            "ageHours": null,
+            "domain": "firerescue.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.91,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Challenges Of The 2019-20 Black Summer Bushfires",
+            "url": "https://www.firerescue.com.au/bushfire"
+          },
+          {
+            "ageHours": null,
+            "domain": "youi.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Australian Bushfire Season: What Can We Expect in 2024-25?",
+            "url": "https://www.youi.com.au/home-insurance/articles/what-do-we-know-about-the-coming-australian-bushfire-season"
+          },
+          {
+            "ageHours": null,
+            "domain": "theconversation.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "It’s only October, so what’s with all these bushfires? New research...",
+            "url": "https://theconversation.com/its-only-october-so-whats-with-all-these-bushfires-new-research-explains-it-124091"
+          },
+          {
+            "ageHours": null,
+            "domain": "commons.wikimedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Category:2019–20 Australian bushfire season - Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/Category:2019%E2%80%9320_Australian_bushfire_season"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.43,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.43,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "2019–20 Australian bushfire season - Quick overview... - YouTube",
+            "url": "https://www.youtube.com/watch?v=u6lJ2uYL_iw"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Bushfires in Australia - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Bushfires_in_Australia"
+          },
+          {
+            "ageHours": null,
+            "domain": "ultralightgear.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Hiking Safe in Bushfire Season: What You Need to... — Ultralight Gear",
+            "url": "https://ultralightgear.com.au/blogs/all/hiking-safe-in-bushfire-season-what-you-need-to-know"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.763,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1303,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1002,
+        "statesFreshness": false,
+        "text": "Interest rates.The Reserve Bank’s fourth cash rate hike of the year is all but locked in, and it would push interest rates to a level Australians have not seen since 2011 and make them the second highest among advanced economies. [2]\n\nNearly 30,000 Australian households are effectively barred from home ownership every time interest rates rise, new research has revealed. [7]\n\nNAB says Australian interest rates have moved from near the bottom of the G10 range to near the top. [3]\n\nThe main reason interest rates will go up on Tuesday is that Australia is exceeding its GDP \"speed limit\" — what the RBA calls potential output. [4]\n\nSources: [1] No wonder Aussie mortgage holders are hurting - MacroBusiness (macrobusiness.com.au)  [2] RBA interest rates decision: $2.5 trillion noose... | Nine.com.au (nine.com.au)  [3] NAB sees RBA hike supporting AUD near term, but the medium-term... (investingl"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "australia",
+      "query": "current Australian interest rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 6.1,
+            "domain": "macrobusiness.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:11:51.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "No wonder Aussie mortgage holders are hurting - MacroBusiness",
+            "url": "https://www.macrobusiness.com.au/2026/09/no-wonder-aussie-mortgage-holders-are-hurting"
+          },
+          {
+            "ageHours": 5.7,
+            "domain": "nine.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:35:49.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "RBA interest rates decision: $2.5 trillion noose... | Nine.com.au",
+            "url": "https://www.nine.com.au/australia-news/rba-interest-rates-decision-2-5-trillion-noose-tightening-around-australia-and-it-s-about-to-get-worse-20260929-p6118a.html"
+          },
+          {
+            "ageHours": 2.1,
+            "domain": "investinglive.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:16:24.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.93,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "NAB sees RBA hike supporting AUD near term, but the medium-term...",
+            "url": "https://investinglive.com/central-banks/nab-sees-rba-hike-supporting-aud-near-term-but-the-medium-term-risk-points-the-other-way"
+          },
+          {
+            "ageHours": 30.1,
+            "domain": "abc.net.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T19:11:38.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Trump's war, migration cuts and AI pull interest rates in all directions...",
+            "url": "https://www.abc.net.au/news/2026-09-28/interest-rate-hike-could-be-short-lived/107200848"
+          },
+          {
+            "ageHours": 26.9,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T22:24:44.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "The RBNZ’s “own goal” with NZ dollar depreciation - Roger's Weekly...",
+            "url": "https://www.linkedin.com/pulse/rbnzs-own-goal-nz-dollar-depreciation-rogers-weekly-roger-kerr-srbne"
+          },
+          {
+            "ageHours": 45.4,
+            "domain": "businesstimes.com.sg",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T03:56:07.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Australia housing runs out of rescuers as RBA is set to hike rates",
+            "url": "https://www.businesstimes.com.sg/property/australia-housing-runs-out-rescuers-rba-set-hike-rates?ref=article-see-also"
+          },
+          {
+            "ageHours": 95.9,
+            "domain": "domain.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T01:27:09.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "In one move, another 30,000 are locked out of the great Australian...",
+            "url": "https://www.domain.com.au/news/in-one-move-another-30000-are-locked-out-of-the-great-australian-dream-1561064"
+          },
+          {
+            "ageHours": 89.9,
+            "domain": "gbeprime.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T07:25:41.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.64,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Key Economic Events (28 Sep - 2 Oct 2026) | GBE Prime - GBE Prime",
+            "url": "https://gbeprime.com/key-economic-events-28-sep-2-oct-2026-gbe-prime"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 2.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.844,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 8929,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 843,
+        "statesFreshness": true,
+        "text": "Follow Bhaskar English for latest global viral news, Japan family rental and Delhi trends. [6]\n\n...a 4-year-old and 1-year-old, were conscious when they were rushed to hospital, and their injuries are not believed to be life-threatening, as reported by Japan Today and Nagoya TV News. [2]\n\nBringing you yesterday's news from Japan and Asia, today. [1]\n\nJapan Breaking News.Four Japanese among 14 busted in Bangkok over AI-driven, fake police video scams. [3]\n\nSources: [1] Robot bartender bar opening in Kyoto... | SoraNews24 —Japan News (soranews24.com)  [2] Japanese father throws 2 young daughters from the sixth-floor balcony... (economictimes.indiatimes.com)  [3] Top Roppongi hostess busted for cocaine after... - TokyoReporter (tokyoreporter.com)  [4] Easy Japanese news in translation: Biggest taro stew... - The Mainichi (mainichi.jp)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "latest Japan news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 23.3,
+            "domain": "soranews24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:02:08.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Robot bartender bar opening in Kyoto... | SoraNews24 —Japan News",
+            "url": "https://soranews24.com/2026/09/28/robot-bartender-bar-opening-in-kyoto-and-no-theyre-not-controlled-by-ai"
+          },
+          {
+            "ageHours": 42.6,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T06:46:58.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese father throws 2 young daughters from the sixth-floor balcony...",
+            "url": "https://economictimes.indiatimes.com/news/international/us/japanese-father-throws-2-young-daughters-from-the-sixth-floor-balcony-moment-caught-on-camera-heres-what-happened-next/articleshow/134515892.cms"
+          },
+          {
+            "ageHours": 70.5,
+            "domain": "tokyoreporter.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:50:42.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Top Roppongi hostess busted for cocaine after... - TokyoReporter",
+            "url": "https://www.tokyoreporter.com/japan-news/top-roppongi-hostess-busted-for-cocaine-after-6-month-secret-police-probe"
+          },
+          {
+            "ageHours": 90.3,
+            "domain": "mainichi.jp",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T07:02:55.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Easy Japanese news in translation: Biggest taro stew... - The Mainichi",
+            "url": "https://mainichi.jp/english/articles/20260925/p2a/00m/0li/017000c"
+          },
+          {
+            "ageHours": 88.6,
+            "domain": "aa.com.tr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T08:45:19.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.69,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Anadolu Ajansı: Typhoon leaves thousands without power in Japan",
+            "url": "https://www.aa.com.tr/en/asia-pacific/typhoon-leaves-thousands-without-power-in-japan/4068945"
+          },
+          {
+            "ageHours": 24.5,
+            "domain": "bhaskarenglish.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T00:50:28.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Rent Family Members in Japan & Unusual Global Stories | Viral List",
+            "url": "https://www.bhaskarenglish.in/national/news/japan-rent-family-members-china-large-families-delhi-resignation-party-139173886.html"
+          },
+          {
+            "ageHours": 70.4,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:59:04.000Z",
+            "relevance": 0.56,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.56,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Highlights Japan vs Nepal T20 Match 5 Sep 26, 2026 Result Scorecard",
+            "url": "https://www.hindustantimes.com/cricket/match-result-jpn-vs-nep-asian-games-men%E2%80%99s-t20i-2026-match-5-japan-vs-nepal-t20-jpnp09262026274300"
+          },
+          {
+            "ageHours": 90,
+            "domain": "asiatimes.com",
+            "providers": [
+              "searxng",
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:18:02.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan's new ambassador will test Manila's China... - Asia Times",
+            "url": "https://asiatimes.com/2026/09/japans-new-ambassador-will-test-manilas-china-balancing-act"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 23.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.811,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 4957,
+      "vertical": "news"
+    }
+  ],
+  "total": 138
+}

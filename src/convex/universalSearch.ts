@@ -27,6 +27,11 @@ import {
 } from "./searchEngine/quality";
 import { internal } from "./_generated/api";
 import { guardedCall, strictVerticalFallbackFor } from "./searchEngine/resilience";
+import { scoreSourceDetailed, usefulnessPenalty, type ScoreBreakdown } from "./searchEngine/quality";
+
+function round2(n: number): number {
+  return Math.round(n * 100) / 100;
+}
 import { recordProviderObservation } from "./searchEngine/providerHealth";
 import { providerTimeoutMs } from "./searchEngine/providerTimeouts";
 // §45 — single source of truth for product identity, shared by every surface.
@@ -378,12 +383,15 @@ export async function runUniversalSearch(
     );
   }
 
+  const ranked: Array<{ c: WebCitation; engine: string; score: number }> = [];
   // --- Tiered ranking + cross-source agreement ---------------------------
-  // scoreSource: relevance (0.5) + authority tier + freshness (weighted up
-  // when freshness matters) + completeness. Same URL found by 2+ independent
-  // engines earns a confidence bump (spec: cross-source priority).
+  // scoreSourceDetailed: relevance + freshness + authority + sourceQuality +
+  // directness, then temporal × usefulness multiplicative penalties. Same URL
+  // found by 2+ independent engines earns a corroboration bump (spec:
+  // cross-source priority). The full BREAKDOWN is persisted onto the citation
+  // so the benchmark/UI can show WHY a source ranked where it did.
   for (const item of merged) {
-    let score = scoreSource(item.c, keywords, {
+    const bd = scoreSourceDetailed(item.c, keywords, {
       freshnessMatters,
       askedYears: opts?.askedYears,
       askedEvent: opts?.askedEvent,
@@ -391,17 +399,28 @@ export async function runUniversalSearch(
     });
     const agreement = seenUrls.get(normalizeUrl(item.c.url)) ?? 1;
     if (agreement > 1) {
-      score = Math.min(1, score + 0.08 * (agreement - 1));
+      bd.corroboration = round2(Math.min(0.08 * (agreement - 1), 0.24));
+      bd.final = round2(Math.min(1, bd.final + bd.corroboration));
     }
-    item.score = score;
+    item.score = bd.final;
     // Persist the score into the citation so downstream UIs and evidence
     // packs can show relevance/provenance without recomputing it.
-    item.c.relevance = Math.round(score * 100) / 100;
+    item.c.relevance = bd.final;
+    item.c.scoreBreakdown = bd;
+    // The NOISE FLOOR: an obviously non-answering page (video-platform
+    // result, clickbait, tag/category page) never enters the final set, no
+    // matter how fresh. This is the measured "YouTube + actors workshop" fix:
+    // for broad questions the topical floor cannot catch them, but a
+    // usefulness penalty ≥0.45 means the page is noise by construction.
+    if (usefulnessPenalty(item.c) >= 0.45) continue;
+    ranked.push(item);
   }
-  merged.sort((a, b) => b.score - a.score);
+  ranked.sort((a, b) => b.score - a.score);
 
   // --- Syndication dedupe: same story across sites → best copy only ------
-  const unique = dedupeSyndication(merged);
+  // Consumes `ranked` (score-sorted, noise-floored), not the raw merge —
+  // dedupeSyndication requires best-first input to keep the best copy.
+  const unique = dedupeSyndication(ranked);
 
   // --- Domain diversity: max 2 per domain --------------------------------
   const perDomain = new Map<string, number>();

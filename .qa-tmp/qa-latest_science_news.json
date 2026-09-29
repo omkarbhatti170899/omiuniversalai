@@ -1,0 +1,52 @@
+{
+  "row": {
+    "answer": "At least 24 people, including the former secretary of the National Security and Defence Council, Volodymyr Horbulin, are injured and three are killed by Russian drone strikes on the National Academy of Sciences of Ukraine building, a health clinic, and a residential building in Kyiv, Ukraine [1]\n\nPerformance supplements: what’s science and what’s snake oil? [4]\n\nWhether it’s the latest super-food concentrate, the greatest powdered potion or maybe even a new topical gel, the market for performance supplementation is crowded, with each new product promising some combination of performance buzzwords like optimal recovery, reduced blood lactate, greater muscular endurance or delayed-onset fatigue. [4]\n\nSpaceX's Starship Flight 14 launches into orbit from Starbase, Texas, United States. [2]\n\nSources: [1] Armed conflicts and attacks: At least 24 people, including the former secretary of the National Security and Defence Council, Volodymyr Horbulin, are injured and three are killed by Russian drone strikes on… (theguardian.com)  [2] Science and technology: SpaceX's Starship Flight 14 launches into orbit from Starbase, Texas, United States. However, it also returns early to Earth (aljazeera.com)  [3] Light Science Technologies’ (LST) “House Stock” Rating Reiterated at Shore Capital Group (watchlistnews.com)  [4] Performance supplements: what’s science and what’s snake oil? (runningmagazine.ca)",
+    "detail": "4 fresh result(s) from 2 source(s) in 20841ms; failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded"
+    ],
+    "freshResults": 4,
+    "freshness": "Based on 4 reports published in the last 5 days (newest: yesterday).",
+    "intent": "news",
+    "query": "latest science news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 20841,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Armed conflicts and attacks: At least 24 people, including the former secretary of the National Security and Defence Council, Volodymyr Horbulin, are injured and three are killed by Russian drone strikes on…",
+        "url": "https://www.theguardian.com/world/2026/sep/28/russia-strike-on-kyiv-science-academy-drone-ukraine"
+      },
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Science and technology: SpaceX's Starship Flight 14 launches into orbit from Starbase, Texas, United States. However, it also returns early to Earth",
+        "url": "https://www.aljazeera.com/news/2026/9/28/spacexs-showpiece-starship-rocket-reaches-orbit-for-first-time"
+      },
+      {
+        "publishedAt": "2026-09-25T05:13:10.000Z",
+        "title": "Light Science Technologies’ (LST) “House Stock” Rating Reiterated at Shore Capital Group",
+        "url": "https://www.watchlistnews.com/light-science-technologies-lst-house-stock-rating-reiterated-at-shore-capital-group/11236245.html"
+      },
+      {
+        "publishedAt": "2026-09-24T13:41:10.000Z",
+        "title": "Performance supplements: what’s science and what’s snake oil?",
+        "url": "https://runningmagazine.ca/shakeout-podcast/performance-supplements-whats-science-and-whats-snake-oil"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

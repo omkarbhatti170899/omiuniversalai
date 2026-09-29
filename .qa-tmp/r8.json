@@ -1,0 +1,2551 @@
+{
+  "answerContract": {
+    "allSourcesDated": 10,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 8,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 7
+  },
+  "byCategory": {
+    "japan": {
+      "fresh": 2,
+      "kept": 21,
+      "n": 3
+    },
+    "multilingual": {
+      "fresh": 3,
+      "kept": 32,
+      "n": 9
+    },
+    "south-korea": {
+      "fresh": 3,
+      "kept": 32,
+      "n": 3
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "current": {
+      "fresh": 1,
+      "kept": 9,
+      "n": 1
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 20,
+      "n": 7
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 33,
+      "n": 3
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 23,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 105,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 696,
+        "statesFreshness": true,
+        "text": "Bringing you yesterday's news from Japan and Asia, today. [1]\n\nBtc very bad news today now dwon side.Bank of Japan debated need for faster rate hikes, July minutes show. [6]\n\nFast forward to today: Policymakers in Japan and the United States are trying to thread a tiny, sharp needle. [4]\n\nUse your Facebook account to login or register with JapanToday. [2]\n\nSources: [1] How to get into this beautiful... | SoraNews24 —Japan News (soranews24.com)  [2] Osaka man arrested for keeping saltwater crocodile... - Japan Today (japantoday.com)  [3] Daikin Global | Press Releases | Daikin Releases Integrated Report... (daikin.com)  [4] The revival of Japan’s economy isn’t all good news. (nytimes.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japan news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.3,
+            "domain": "soranews24.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:04:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "How to get into this beautiful... | SoraNews24 —Japan News",
+            "url": "https://soranews24.com/2026/09/29/how-to-get-into-this-beautiful-off-the-beaten-path-kyoto-temple-earlier-than-the-general-public"
+          },
+          {
+            "ageHours": 3.2,
+            "domain": "japantoday.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:06:31.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.03
+            },
+            "title": "Osaka man arrested for keeping saltwater crocodile... - Japan Today",
+            "url": "https://japantoday.com/category/crime/osaka-man-held-for-keeping-saltwater-crocodile-without-permission"
+          },
+          {
+            "ageHours": 16.1,
+            "domain": "daikin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:12:41.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Daikin Global | Press Releases | Daikin Releases Integrated Report...",
+            "url": "https://www.daikin.com/press/2026/20260928"
+          },
+          {
+            "ageHours": 16.3,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:04:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The revival of Japan’s economy isn’t all good news.",
+            "url": "https://www.nytimes.com/2026/09/28/opinion/bond-market-japan-yen.html"
+          },
+          {
+            "ageHours": 19.2,
+            "domain": "pyongyangtimes.com.kp",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:07:19.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Articles about politics, economy, culture, history, sports, tourism in DPRK",
+            "url": "http://www.pyongyangtimes.com.kp/blog?page=today-news&blogid=6ab85b0d3e49c505a489f96b"
+          },
+          {
+            "ageHours": 17.3,
+            "domain": "forexfactory.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:00:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan's Top Currency Diplomat Mimura: Japanese... | Forex Factory",
+            "url": "https://www.forexfactory.com/news/1428775-japans-top-currency-diplomat-mimura-japanese-prime-minister"
+          },
+          {
+            "ageHours": 23.8,
+            "domain": "english.kyodonews.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T01:33:40.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "100,000 carp swept away by flooding in Chiba after typhoon",
+            "url": "https://english.kyodonews.net/articles/-/86466"
+          },
+          {
+            "ageHours": 20.9,
+            "domain": "foreignaffairs.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T04:26:59.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.66,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan Is Giving the United States a Chance in Asia | Foreign Affairs",
+            "url": "https://www.foreignaffairs.com/japan/japan-giving-united-states-chance-asia"
+          },
+          {
+            "ageHours": 1.5,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T23:52:19.000Z",
+            "relevance": 0.41,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.41,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.01
+            },
+            "title": "LIVE: MeidasTouch RESPONDS to MAJOR BREAKING NEWS - 9/28/26",
+            "url": "https://www.youtube.com/watch?v=zX6i8YxrfAE"
+          },
+          {
+            "ageHours": 9,
+            "domain": "mynintendonews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:20:10.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan: Fire Emblem: Fortune’s Weave shifts... - My Nintendo News",
+            "url": "https://mynintendonews.com/2026/09/28/japan-fire-emblem-fortunes-weave-shifts-127k-physical-copies-and-switch-2-sells-34k-units"
+          },
+          {
+            "ageHours": 23.4,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T01:54:44.000Z",
+            "relevance": 0.51,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.51,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "UK arrests 5 near base used by US; Trump Briefs Japan... - YouTube",
+            "url": "https://www.youtube.com/watch?v=fb99Uxs_wqA"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 1.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.795,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 5465,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 775,
+        "statesFreshness": false,
+        "text": "Economists Fumio Hayashi and Edward Prescott argue that the anemic performance of the Japanese economy since the early 1990s is mainly due to the low growth rate of aggregate... [4]\n\nWhile the immediate data pertains to the domestic Japanese economy, the ripple effects are felt thousands of kilometers away, including in East Africa. [6]\n\nFacts and figures about the Japanese economy, including balance of payments and international trade. [1]\n\n#2026 might see the Japanese economy decelerating. [2]\n\nSources: [1] Japanese Trade and Investment Statistics | Reports and... - JETRO (jetro.go.jp)  [2] Japan Economic Outlook: Balancing Contraction | LinkedIn (linkedin.com)  [3] The yen is everything to Japan’s economy (ft.com)  [4] Lost Decades - Wikipedia (en.wikipedia.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japanese economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "jetro.go.jp",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese Trade and Investment Statistics | Reports and... - JETRO",
+            "url": "https://www.jetro.go.jp/en/reports/statistics.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan Economic Outlook: Balancing Contraction | LinkedIn",
+            "url": "https://www.linkedin.com/posts/davidhasenbalg_japan-economic-outlook-january-2026-activity-7429528912709398528-GF8Y"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The yen is everything to Japan’s economy",
+            "url": "https://www.ft.com/content/07276a3f-7ba8-45b2-8017-a886faf1fb71?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lost Decades - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Lost_Decade_(Japan)"
+          },
+          {
+            "ageHours": 35.2,
+            "domain": "globaltimes.cn",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T14:08:27.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.04,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japanese economy shrouded in greater uncertainty as... - Global Times",
+            "url": "https://www.globaltimes.cn/page/202609/1371430.shtml"
+          },
+          {
+            "ageHours": null,
+            "domain": "streamlinefeed.co.ke",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Japan’s Cooling Inflation Tests Central Bank Resolve | Streamline",
+            "url": "https://streamlinefeed.co.ke/news/japans-cooling-inflation-tests-central-bank-resolve"
+          },
+          {
+            "ageHours": null,
+            "domain": "allwellbeing.github.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Why the Japanese economy is falling again and what will happen to it...",
+            "url": "https://allwellbeing.github.io/news/63738f8b9a7947e7e6442c83"
+          },
+          {
+            "ageHours": null,
+            "domain": "john-muresianu.medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Thinking Citizen Blog — The Japanese Economy (Part One)... | Medium",
+            "url": "https://john-muresianu.medium.com/thinking-citizen-blog-the-japanese-economy-part-one-what-should-every-thinking-citizen-know-99a515fd5aa6"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.43,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.43,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "The Japanese Economy in 2026 - YouTube",
+            "url": "https://www.youtube.com/watch?v=SbKN3xvDgAw"
+          },
+          {
+            "ageHours": null,
+            "domain": "meti.go.jp",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.54,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "METI Ministry of Economy, Trade and Industry",
+            "url": "https://www.meti.go.jp/english"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 35.2,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "TheSportsDB has no current fixture for \"Japanese economy\" right now — Omi will n"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.76,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 17137,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "japan",
+      "query": "Japan 2026 events",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1,
+          "undated": 11
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 3701,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 946,
+        "statesFreshness": true,
+        "text": "Kim Soo-yeon, 김수연.2003 -- A Russian rocket carrying a South Korean scientific research satellite is successfully launched from Russia's Plesetsk Cosmodrome base near the Arctic Ocean. [1]\n\nSouth Korea has become one of the most influential markets supporting Vietnam’s golf tourism rise. [3]\n\nBnomics said South Korea has retained its appeal through Korean food, culture and K-pop, but problems surrounding illegal employment by some Thai nationals have led to stricter immigration screening. [4]\n\nSouth Korea’s An Se-young reacts as she defeats China’s Chen Yu Fei during the women’s singles badminton semifinals on Day 9 of the Aichi-Nagoya As... [5]\n\nSources: [1] Today in Korean history | Yonhap News Agency (en.yna.co.kr)  [2] Asia Buzz | South China Morning Post (scmp.com)  [3] South Korea Overtakes China And More... - Travel And Tour World (travelandtourworld.com)  [4] Why are fewer Thais t"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "latest South Korea news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 68.3,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T05:05:23.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Today in Korean history | Yonhap News Agency",
+            "url": "https://en.yna.co.kr/view/AEN20260926000700315"
+          },
+          {
+            "ageHours": 90.1,
+            "domain": "scmp.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T07:13:35.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Asia Buzz | South China Morning Post",
+            "url": "https://www.scmp.com/week-asia/asia-buzz?module=masthead&pgtype=article"
+          },
+          {
+            "ageHours": 92.3,
+            "domain": "travelandtourworld.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T05:03:14.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "South Korea Overtakes China And More... - Travel And Tour World",
+            "url": "https://www.travelandtourworld.com/news/article/a8oe33shb731"
+          },
+          {
+            "ageHours": 113.9,
+            "domain": "khaosodenglish.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T07:25:49.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Why are fewer Thais travelling to South Korea?",
+            "url": "https://www.khaosodenglish.com/tourism/2026/09/24/why-are-fewer-thais-travelling-to-south-korea"
+          },
+          {
+            "ageHours": 19.1,
+            "domain": "koreatimes.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:17:09.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "[PHOTOS] Final bound: An Se-young, doubles duo... - The Korea Times",
+            "url": "https://www.koreatimes.co.kr/photos/photonews/20260928/photos-final-bound-an-se-young-doubles-duo-sweep-badminton-semis"
+          },
+          {
+            "ageHours": 80.9,
+            "domain": "chosun.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T16:24:37.000Z",
+            "relevance": 0.59,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.59,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "South Korea Men's Volleyball Edges Australia, Secures Third",
+            "url": "https://www.chosun.com/english/sports-en/2026/09/14/JK2M3UEAI5C4VPNEI53T72J4IY"
+          },
+          {
+            "ageHours": 58.9,
+            "domain": "today.rtl.lu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:29:25.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Relentless hosts: South Korea hold nerve to win Asian... - RTL Today",
+            "url": "https://today.rtl.lu/sport/international/south-korea-hold-nerve-to-win-asian-games-basketball-gold-1950604363"
+          },
+          {
+            "ageHours": 85.6,
+            "domain": "upi.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:44:22.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "British anti-migrant activist pleads not guilty in dinghy slashing - UPI.com",
+            "url": "https://www.upi.com/Top_News/World-News/2026/09/25/anti-migrant-activist-denies-dinghy-slashing-charges/6571790333449"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 19.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.776,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 5852,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 979,
+        "statesFreshness": true,
+        "text": "Seoul Full Forecast.29 (Yonhap) -- The following are the top headlines in major South Korean newspapers on Sept. [5]\n\nToday’s Paper.South Korean President Lee Jae-myung speaks at a press conference with people raising their hands in the foreground. [1]\n\nKim, a 37-year-old South Korean, told Yonhap News that they had been scheduled to fly home with eight family members on a Thai Airways flight at 11:10 p.m. [8]\n\nToday's date.28 (Yonhap) -- The foreign ministry on Monday called in Andrii Vieshkin, acting ambassador of Ukraine to South Korea, following Kyiv's revelation of the transfer of two North Korean prisoners of war (POWs) to Seoul. [11]\n\nSources: [1] South Korea fumes at Ukraine after Zelensky dishes on transfer of... (nypost.com)  [2] South Korea demands apology from Ukraine over North... | Daryo (daryo.uz)  [3] North Korean mines likely cause of border blast: South Korea (ctvnews.c"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "South Korea news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 11.6,
+            "domain": "nypost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:48:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea fumes at Ukraine after Zelensky dishes on transfer of...",
+            "url": "https://nypost.com/2026/09/28/world-news/south-korea-fumes-at-ukraine-after-zelensky-dishes-on-transfer-of-captured-north-korean-soldiers"
+          },
+          {
+            "ageHours": 18.9,
+            "domain": "daryo.uz",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:25:13.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea demands apology from Ukraine over North... | Daryo",
+            "url": "https://daryo.uz/en/2026/09/28/south-korea-demands-apology-from-ukraine-over-north-korean-pow-disclosure"
+          },
+          {
+            "ageHours": 10,
+            "domain": "ctvnews.ca",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:24:15.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "North Korean mines likely cause of border blast: South Korea",
+            "url": "https://www.ctvnews.ca/world/article/south-korea-says-border-blasts-that-injured-3-officers-were-likely-caused-by-north-korean-mines"
+          },
+          {
+            "ageHours": 9.1,
+            "domain": "meduza.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:13:37.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.94,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea demands an apology from Ukraine for... — Meduza",
+            "url": "https://meduza.io/en/news/2026/09/28/south-korea-demands-an-apology-from-ukraine-for-disclosing-the-secret-transfer-of-two-north-korean-prisoners"
+          },
+          {
+            "ageHours": 3,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:23:45.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Top headlines in major S. Korean newspapers | Yonhap News Agency",
+            "url": "https://en.yna.co.kr/view/AEN20260929000600315"
+          },
+          {
+            "ageHours": 13,
+            "domain": "aljazeera.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:20:37.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Why South Korea is demanding an apology from Ukraine... | Al Jazeera",
+            "url": "https://www.aljazeera.com/news/2026/9/28/why-south-korea-is-demanding-an-apology-from-ukraine-over-north-korean-pows"
+          },
+          {
+            "ageHours": 24.2,
+            "domain": "bloomberg.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T01:10:19.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "South Korea Seeks Apology From Ukraine Over North... - Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-09-28/seoul-demands-ukraine-apology-over-north-korea-pow-disclosure"
+          },
+          {
+            "ageHours": 13.9,
+            "domain": "en.sedaily.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:24:45.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Record 330 mm Rain Floods Bangkok, Stranding Hundreds of Koreans",
+            "url": "https://en.sedaily.com/international/2026/09/28/record-330-mm-rain-floods-bangkok-stranding-hundreds-of"
+          },
+          {
+            "ageHours": 18.5,
+            "domain": "abcnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:48:50.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Seoul demands apology after Zelenskyy reveals North... - ABC News",
+            "url": "https://abcnews.com/International/wireStory/seoul-demands-apology-after-zelenskyy-unilaterally-reveals-north-136814400"
+          },
+          {
+            "ageHours": 18.8,
+            "domain": "apnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:34:29.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea demands an apology over Zelenskyy's POW... | AP News",
+            "url": "https://apnews.com/article/south-korea-ukraine-prisoners-of-war-russia-17df235a34d773c7dcf20a6b73f2b997"
+          },
+          {
+            "ageHours": 15,
+            "domain": "en.yna.co.kr",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T10:23:28.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Foreign ministry calls in Ukrainian envoy as Kyiv reveals transfer of...",
+            "url": "https://en.yna.co.kr/view/AEN20260928011100315"
+          },
+          {
+            "ageHours": 3.3,
+            "domain": "straitstimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:02:53.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.77,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "North Korea says US approval for South... | The Straits Times",
+            "url": "https://www.straitstimes.com/asia/east-asia/north-korea-says-us-approval-for-south-koreas-nuclear-submarine-increases-regional-instability"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.925,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 14918,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 889,
+        "statesFreshness": false,
+        "text": "According to South Korean government figures, between 2016 and 2023, Chinese entities were able to steal more technology from the country’s display sector than from any other industry apart from the chip sector. [6]\n\nThis study explores the transition from vertical to hybrid communication practices in the South Korean technology sector between 2015 and 2025. [10]\n\nSouth Korea public listed companies in the Technology sector: 6. [1]\n\nSouth Korea Technology total companies market cap (USD): $2.293 Trillion.Top 6 South Korean Technology Sector Companies. [1]\n\nSources: [1] South Korean Technology Sector Analysis (disfold.com)  [2] South Korea's Technological Prowess: A Global Leader in Innovation... (linkedin.com)  [3] Korea Technology Firms: Driving Global Innovation... - Voiceovers.com (voiceovers.com)  [4] South Korea Technological Advancement Under Geopolitical... (sparkco.ai)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "south-korea",
+      "query": "South Korean technology sector",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "disfold.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "South Korean Technology Sector Analysis",
+            "url": "https://disfold.com/south-korea/sector/technology"
+          },
+          {
+            "ageHours": null,
+            "domain": "linkedin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea's Technological Prowess: A Global Leader in Innovation...",
+            "url": "https://www.linkedin.com/pulse/south-koreas-technological-prowess-global-leader-innovation"
+          },
+          {
+            "ageHours": null,
+            "domain": "voiceovers.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Korea Technology Firms: Driving Global Innovation... - Voiceovers.com",
+            "url": "https://www.voiceovers.com/blog/korea-technology-firms"
+          },
+          {
+            "ageHours": null,
+            "domain": "sparkco.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.53,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.53,
+              "freshness": 0.02,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "South Korea Technological Advancement Under Geopolitical...",
+            "url": "https://sparkco.ai/blog/south-korea-technological-advancement-geopolitical-pressure"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Science and technology in South Korea - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Science_and_technology_in_South_Korea"
+          },
+          {
+            "ageHours": null,
+            "domain": "ft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Samsung and LG join forces against Chinese rivals in battle for display...",
+            "url": "https://www.ft.com/content/ac590d5c-dd22-49cd-93cf-42fe3f08b110?syn-25a6b1a6=1"
+          },
+          {
+            "ageHours": null,
+            "domain": "vision2030.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.58,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Saudi Arabia vs South Korea — Economy, Tech, Energy & Invest",
+            "url": "https://vision2030.ai/encyclopedia/saudi-arabia-vs-south-korea"
+          },
+          {
+            "ageHours": null,
+            "domain": "biruksidea.medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "The Logic Of Korean Mobile And Web UI/UX | by Biruk... | Medium",
+            "url": "https://biruksidea.medium.com/the-logic-of-korean-mobile-and-web-ui-ux-71b8e58ed325?responsesOpen=true"
+          },
+          {
+            "ageHours": null,
+            "domain": "monitor-industrial-ecosystems.ec.europa.eu",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.57,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.57,
+              "freshness": 0.02,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Advanced Technologies",
+            "url": "https://monitor-industrial-ecosystems.ec.europa.eu/sites/default/files/2020-07/ATI_international%20report_South_Korea.pdf"
+          },
+          {
+            "ageHours": null,
+            "domain": "hse.ru",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Shift from Vertical to Hybrid Workplace Communications in South...",
+            "url": "https://www.hse.ru/en/edu/vkr/1158003810"
+          },
+          {
+            "ageHours": null,
+            "domain": "disfold.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Top 6 largest South Korean Technology Companies 2026",
+            "url": "https://disfold.com/south-korea/sector/technology/companies"
+          },
+          {
+            "ageHours": 7.2,
+            "domain": "streamforex.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:10:35.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.05,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Forex News",
+            "url": "https://www.streamforex.org/professionals/news?id=ab9c3767-0968-40ab-a8bc-6f6d4ea253b5"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 7.2,
+        "normalizedCount": 12,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.755,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2905,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "dernières nouvelles France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2191,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "aktuelle Nachrichten Deutschland",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1425,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "日本の最新ニュース",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2112,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "últimas noticias España",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2947,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "ultime notizie Italia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1445,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "nouvelles du jour en France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 12
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1751,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 784,
+        "statesFreshness": false,
+        "text": "Descubre cómo la Generación Z se conecta con las noticias actuales en México a través de la perspectiva de Carlos Manzo. [1]\n\nEntérate de lo mas importante que sucede en México y en todo el mundo: deportes, economía, finanzas, cultura, política y noticias actuales cada día, todos los días. [6]\n\nDiscover Pinterest’s best ideas and inspiration for Noticias de mexico. [4]\n\nNoticias de mexico and more.Noticias actuales | Noticia periodistica, Imagenes de noticias de periodico, Portadas. [4]\n\nSources: [1] Generacion Z y las Noticias Actuales en México | TikTok (tiktok.com)  [2] Noticias Actuales México - Apps on Google Play (play.google.com)  [3] Problemas Actuales de México 2 - YouTube (youtube.com)  [4] Find and save ideas about noticias de mexico on Pinterest. (pinterest.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "noticias actuales de México",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "tiktok.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.42,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.42,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.01
+            },
+            "title": "Generacion Z y las Noticias Actuales en México | TikTok",
+            "url": "https://www.tiktok.com/@noticiasrapidas8/video/7572986108124908814"
+          },
+          {
+            "ageHours": null,
+            "domain": "play.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Noticias Actuales México - Apps on Google Play",
+            "url": "https://play.google.com/store/apps/details?id=noticias.hoy.actuales.locales.mexico.universal.deportes.politica&hl=en"
+          },
+          {
+            "ageHours": null,
+            "domain": "youtube.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.33,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.33,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.01
+            },
+            "title": "Problemas Actuales de México 2 - YouTube",
+            "url": "https://www.youtube.com/watch?v=BQFW4nzsSxQ"
+          },
+          {
+            "ageHours": null,
+            "domain": "pinterest.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.08,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Find and save ideas about noticias de mexico on Pinterest.",
+            "url": "https://www.pinterest.com/ideas/noticias-de-mexico/957131744898"
+          },
+          {
+            "ageHours": null,
+            "domain": "apkz.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Noticias Actuales México - APKZ",
+            "url": "https://www.apkz.com/app/noticias.hoy.actuales.locales.mexico.universal.deportes.politica/en.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "channels.megatga.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "MÉXICO NOTICIAS – Canales y Grupos de Telegram",
+            "url": "https://channels.megatga.com/notmex"
+          },
+          {
+            "ageHours": null,
+            "domain": "twitter.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.41,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.41,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0
+            },
+            "title": "Pregoneros (@PregonerosYT) / Twitter",
+            "url": "https://twitter.com/PregonerosYT"
+          },
+          {
+            "ageHours": null,
+            "domain": "statshow.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "solactual.com.mx - Worth and traffic estimation | Últimas Noticias...",
+            "url": "https://www.statshow.com/www/solactual.com.mx"
+          },
+          {
+            "ageHours": null,
+            "domain": "latimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.42,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.42,
+              "freshness": 0.02,
+              "relevance": 0.17,
+              "sourceQuality": 0.04
+            },
+            "title": "latimes.com/projects/la-fg-immigration-trek-america-tijuana",
+            "url": "https://www.latimes.com/projects/la-fg-immigration-trek-america-tijuana"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.614,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1690,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 691,
+        "statesFreshness": false,
+        "text": "The site owner hides the web page description. [1]\n\nYemen's Moyyun Organization for Human Rights and Development (MHRD) has launched its first human rig. [4]\n\nView the daily YouTube analytics of آخر الأخبار and track progress charts, view future predictions, related channels, and track realtime live sub counts. [5]\n\n1009 j'aime,38 commentaires.Vidéo TikTok de Ennahar TV (@ennahar.tv) : « تابع آخر الأخبار في 60 ثانية من قناة النهار. [6]\n\nSources: [1] #اخر_الاخبار on Instagram | Link to instagram.com (instagram.com)  [2] آخر الأخبار (bahrainpost.gov.bh)  [3] Link to facebook.com (facebook.com)  [4] Yemen’s Moyyun Organization releases its first report on the victims of... (mayyun.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "آخر الأخبار",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "instagram.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.17,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.17,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0
+            },
+            "title": "#اخر_الاخبار on Instagram | Link to instagram.com",
+            "url": "https://www.instagram.com/explore/tags/%D8%A7%D8%AE%D8%B1_%D8%A7%D9%84%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1?ref=CLIBFB-CLIBFB-CLIBFB-CLIBFB-cpgbanner1-SB_15032021-SB_15032021-SB_15032021-cpgbanner1"
+          },
+          {
+            "ageHours": null,
+            "domain": "bahrainpost.gov.bh",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار",
+            "url": "https://bahrainpost.gov.bh/index.php?option=com_content&view=article&id=73"
+          },
+          {
+            "ageHours": null,
+            "domain": "facebook.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.2,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.2,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0
+            },
+            "title": "Link to facebook.com",
+            "url": "https://www.facebook.com/%D8%A2%D8%AE%D8%B1-%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-2424-468531479893200"
+          },
+          {
+            "ageHours": null,
+            "domain": "mayyun.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Yemen’s Moyyun Organization releases its first report on the victims of...",
+            "url": "https://www.mayyun.org/news108.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "socialblade.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.52,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.52,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "آخر الأخبار's YouTube Statistics - Social Blade",
+            "url": "https://socialblade.com/youtube/channel/UC6-4G4zADp7OijRQLzGxkug"
+          },
+          {
+            "ageHours": null,
+            "domain": "tiktok.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.34,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.34,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.01
+            },
+            "title": "آخر الأخبار في 60 ثانية على قناة النهار | TikTok",
+            "url": "https://www.tiktok.com/@ennahar.tv/video/7456502636011851030"
+          },
+          {
+            "ageHours": null,
+            "domain": "eng-cafe.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.57,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.57,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "أخر الأخبار – Eng Cafe",
+            "url": "https://eng-cafe.net/ar/%D8%A3%D8%AE%D8%B1-%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1"
+          },
+          {
+            "ageHours": null,
+            "domain": "linktr.ee",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.57,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.57,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "روابط منصة أبشر | Linktree",
+            "url": "https://linktr.ee/ABSHER"
+          },
+          {
+            "ageHours": null,
+            "domain": "sotwe.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.52,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.52,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "آخر الأخبار @nouh2026 - Twitter Profile | Sotwe",
+            "url": "https://www.sotwe.com/nouh2026"
+          },
+          {
+            "ageHours": null,
+            "domain": "ma.cgiwebhost.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.49,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "CGI WebHost",
+            "url": "https://ma.cgiwebhost.com/news.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "facebook.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.2,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.2,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0
+            },
+            "title": "Link to facebook.com",
+            "url": "https://www.facebook.com/%D8%A2%D8%AE%D8%B1-%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-113168776754843"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.52,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.52,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Comprehensive up-to-date news coverage, aggregated from sources...",
+            "url": "https://news.google.com"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.446,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1507,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 699,
+        "statesFreshness": false,
+        "text": "Lima is the capital of Peru and the country's commercial and industrial center. [1]\n\nPeru is without a doubt one of the most captivating countries in South America.Cuzco or Cusco, in the Southern Sierras, is a fascinating city that was the capital of the Inca Empire. [2]\n\nLima is the huge and fascinating capital city of Peru. [5]\n\nLima, the capital of Peru, sits on the country's arid Pacific coast. [3]\n\nSources: [1] Lima | Peru’s Capital City & Cultural Hub | Britannica (britannica.com)  [2] Peru Map - South America (mapcarta.com)  [3] Lima, Peru | Mazani Travel | Experience Everything South America (justvcreative.github.io)  [4] Peru | National Geographic Kids (kids.nationalgeographic.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "what is the capital of Peru",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "britannica.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima | Peru’s Capital City & Cultural Hub | Britannica",
+            "url": "https://www.britannica.com/place/Lima"
+          },
+          {
+            "ageHours": null,
+            "domain": "mapcarta.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Peru Map - South America",
+            "url": "https://mapcarta.com/Peru"
+          },
+          {
+            "ageHours": null,
+            "domain": "justvcreative.github.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima, Peru | Mazani Travel | Experience Everything South America",
+            "url": "https://justvcreative.github.io/mazanitravel/peru.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "kids.nationalgeographic.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Peru | National Geographic Kids",
+            "url": "https://kids.nationalgeographic.com/geography/countries/article/peru"
+          },
+          {
+            "ageHours": null,
+            "domain": "valenciatravelcusco.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Half-Day Lima City & Larco Museum Tour | Valencia Travel",
+            "url": "https://www.valenciatravelcusco.com/lima-city-tour-and-larco-museum"
+          },
+          {
+            "ageHours": null,
+            "domain": "commons.wikimedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Atlas of Peru - Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/Atlas_of_Peru"
+          },
+          {
+            "ageHours": null,
+            "domain": "pinterest.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.08,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Find and save ideas about lima capital of peru on Pinterest.",
+            "url": "https://www.pinterest.com/ideas/lima-capital-of-peru/896697955577"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldatlas.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.54,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Peru Maps & Facts - World Atlas",
+            "url": "https://www.worldatlas.com/maps/peru"
+          },
+          {
+            "ageHours": null,
+            "domain": "stock.adobe.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Lima Perou Images – Browse 43,139 Stock Photos... | Adobe Stock",
+            "url": "https://stock.adobe.com/si/search?k=lima+perou"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.61,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Portal:Peru - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Portal:Peru"
+          },
+          {
+            "ageHours": null,
+            "domain": "kids.kiddle.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.54,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.54,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Peru Facts for Kids",
+            "url": "https://kids.kiddle.co/Peru"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.732,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2441,
+      "vertical": "general"
+    }
+  ],
+  "total": 138
+}
