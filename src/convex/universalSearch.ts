@@ -38,6 +38,7 @@ function round2(n: number): number {
 }
 import { recordProviderObservation } from "./searchEngine/providerHealth";
 import { providerTimeoutMs } from "./searchEngine/providerTimeouts";
+import { drainSearxEngineDeltas } from "./searchProviders/searxngEngineHealth";
 // §45 — single source of truth for product identity, shared by every surface.
 import { creatorIdentityBlock } from "./omiIdentity";
 import type { ActionCtx } from "./_generated/server";
@@ -93,6 +94,14 @@ export async function runUniversalSearch(
     maxCitations?: number;
     enrichPages?: boolean;
     skipCache?: boolean;
+    /**
+     * Absolute wall-clock deadline (Date.now() ms) for the WHOLE search — the
+     * global budget every provider timeout is capped against. Set by callers
+     * that run a second (escalation) pass so pass 2 cannot double the worst
+     * case: pass 2 inherits the SAME deadline, so its providers get whatever
+     * slice remains instead of a fresh full budget.
+     */
+    deadlineAt?: number;
     /** Freshness-sensitive queries rank recency higher and skip cache. */
     freshnessMatters?: boolean;
     /**
@@ -256,6 +265,13 @@ export async function runUniversalSearch(
   const defaultProviderTimeoutMs = Number(
     process.env.SEARCH_PROVIDER_TIMEOUT_MS ?? 12_000,
   );
+  // GLOBAL SEARCH DEADLINE (round 8): a caller-imposed wall-clock budget for
+  // the WHOLE search. Every provider's timeout is capped at what remains of
+  // the deadline, so a slow provider cannot outlive the budget — its Promise
+  // is cut off by guardedCall's timer even if its own socket would keep the
+  // request alive. `Promise.allSettled` already means one slow engine cannot
+  // break others; the deadline means it cannot even make them WAIT for it.
+  const globalDeadlineAt = opts?.deadlineAt; // absolute wall-clock ms
   const settled = await Promise.allSettled(
     providers.flatMap((p) => {
       // General-web providers additionally see each rewritten angle; a
@@ -265,6 +281,13 @@ export async function runUniversalSearch(
           ? opts.retrievalVariants
           : [];
       const perProviderTimeoutMs = providerTimeoutMs(p.id, defaultProviderTimeoutMs);
+      // Cap by the global deadline's remaining slice (min 1.5 s so a provider
+      // called at the edge of the deadline still gets a real chance).
+      const remainingBudget =
+        globalDeadlineAt !== undefined
+          ? Math.max(1_500, globalDeadlineAt - Date.now())
+          : perProviderTimeoutMs;
+      const effectiveTimeout = Math.min(perProviderTimeoutMs, remainingBudget);
       const calls = [query, ...variants].map((q) => {
         // Health is measured around the REAL call, so the numbers reflect what
         // the provider actually did rather than what its status page claims.
@@ -275,7 +298,7 @@ export async function runUniversalSearch(
           p.id,
           p.label,
           () => p.search(q, perEngine, engineOpts),
-          perProviderTimeoutMs,
+          effectiveTimeout,
         )
           .then((result) => {
             try {
@@ -553,6 +576,23 @@ export async function runUniversalSearch(
       ? enginesUsed.slice(0, 4).join(" + ") +
         (enginesUsed.length > 4 ? ` +${enginesUsed.length - 4} more` : "")
       : "Omi keyless engine";
+
+  // --- SearXNG engine-health flush (fire-and-forget; never blocks) -------
+  // MEASURED (round 8): draining deltas only inside the snapshot action never
+  // sees data — the snapshot runs in a different isolate than the searches.
+  // Flush from HERE, where the responses were just recorded, so the persisted
+  // per-engine health survives isolate restarts. Deltas are drained ONCE
+  // here; the snapshot's own drain sees only isolate-local leftovers.
+  try {
+    const deltas = drainSearxEngineDeltas();
+    if (deltas.size > 0) {
+      await ctx.runMutation(internal.searchEnginePersistence.upsertFromDeltas, {
+        deltas: [...deltas.entries()].map(([e, d]) => ({ engine: e, ...d })),
+      });
+    }
+  } catch {
+    /* observability is best-effort */
+  }
 
   // --- Cache write (fire-and-forget; never blocks the answer) ------------
   try {

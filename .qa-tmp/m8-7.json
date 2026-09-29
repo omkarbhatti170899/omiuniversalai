@@ -1,0 +1,53 @@
+{
+  "row": {
+    "answer": "Check Credit Score.Stay updated with News18 for the latest India and world news, in-depth explainers, entertainment, sports, and cricket news. [1]\n\nAlso get top headlines and latest news from India and around the world at News9. [2]\n\nRiders searching for the latest bobber bike price in India are advised to confirm final figures with their nearest authorised dealer. [3]\n\n[City], India, September 29, 2026: Jawa Yezdi Motorcycles has released a buyer's overview of the Jawa 42 Bobber for riders looking for a bobber bike in India. [3]\n\nSources: [1] 'Yellow Alert' In Delhi As Light Rains Bring Subtle Hint Of... - News1... (news18.com)  [2] Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live (news9live.com)  [3] Jawa Yezdi Motorcycles Shares Latest Bobber Bike Price in India (news.prfree.org)",
+    "conflictResolution": null,
+    "detail": "3 fresh result(s) from 3 source(s) in 2051ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 3,
+    "freshSplitCounts": {
+      "fresh": 3,
+      "stale": 2,
+      "undated": 0
+    },
+    "freshness": "Based on 3 reports published in the last 5 days (newest: 14 hours ago).",
+    "intent": "news",
+    "query": "Latest India news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2051,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-27T03:42:51.000Z",
+        "title": "'Yellow Alert' In Delhi As Light Rains Bring Subtle Hint Of... - News1...",
+        "url": "https://www.news18.com/india/yellow-alert-in-delhi-as-light-rains-bring-subtle-hint-of-winter-red-alert-for-uttarakhand-himachal-ws-l-10355118.html"
+      },
+      {
+        "publishedAt": "2026-09-25T14:50:13.000Z",
+        "title": "Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live",
+        "url": "https://www.news9live.com/india/biker-thrown-30-feet-into-air-as-speeding-tiago-ev-hits-6-vehicles-in-ludhiana-5-injured-3010709"
+      },
+      {
+        "publishedAt": "2026-09-29T08:38:19.000Z",
+        "title": "Jawa Yezdi Motorcycles Shares Latest Bobber Bike Price in India",
+        "url": "https://news.prfree.org/@gajodharrizzu/jawa-yezdi-motorcycles-shares-latest-bobber-bike-price-in-india-svt3dkurfz6j"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

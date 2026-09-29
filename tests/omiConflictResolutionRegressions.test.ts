@@ -245,10 +245,12 @@ describe("SearXNG fallback — no single instance or provider may block Andromed
   test("a dead configured base is skipped via health memory, with one recovery attempt kept open", () => {
     const s = searxngSrc();
     expect(s).toContain("const dialable = bases.filter((b) => !isKnownDead(b))");
-    // Fail-open: recovery is never locked out longer than the probe TTL.
-    // (Round 7 adds slow-base demotion before this line; the fail-open
-    // contract is unchanged, only the variable is now the ordered list.)
-    expect(s).toContain("ordered.length > 0 ? ordered : [bases[0]]");
+    // Fail-open, round-8 form: when every base is known-dead, the FIRST base
+    // still gets a recovery dial — but RATE-LIMITED (30 s), so the escalation
+    // pass cannot re-pay the same timeout seconds after pass 1 recorded the
+    // failure. Cross-call recovery remains possible via the probe TTL.
+    expect(s).toContain("RECOVERY_DIAL_MIN_MS");
+    expect(s).toContain("recoveryDialAt.set(first, Date.now())");
   });
 
   test("the fan-out continues when SearXNG fails entirely (allSettled isolation)", () => {

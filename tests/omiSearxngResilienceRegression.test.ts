@@ -52,10 +52,15 @@ import {
 import {
   SLOW_BASE_MS,
   baseIsSlow,
+  describeSearxSelection,
   recordSearxBaseLatency,
   resetSearxBaseLatency,
   searxBaseMedianLatency,
 } from "../src/convex/searchProviders/searxng";
+import {
+  drainSearxEngineDeltas,
+  resetSearxEngineDeltas,
+} from "../src/convex/searchProviders/searxngEngineHealth";
 import {
   ENGINE_FAILURE_THRESHOLD,
   buildEngineScopedQuery,
@@ -240,6 +245,7 @@ function stopServer(): void {
 
 beforeEach(() => {
   resetSearxEngineHealth();
+  resetSearxEngineDeltas();
   resetSearxBaseLatency();
   queriesSeen = [];
   seed = { results: [] };
@@ -283,16 +289,19 @@ describe("2b. SearXNG timeout is bounded and does not hang", () => {
     expect(elapsed).toBeLessThan(6_000);
   }, 15_000);
 
-  test("a per-request timeout does not end the whole call while budget remains", async () => {
-    // The first request hangs; the second answers. If SEARXNG_TIMEOUT_MS were
-    // (wrongly) the total budget, the provider would give up after one request
-    // and return nothing. It must keep trying while the TOTAL budget allows.
+  test("a per-request timeout fails THIS call fast; the next call recovers (round-8 contract)", async () => {
+    // ROUND-8 CHANGE: a base that failed during a call is NOT re-dialed in the
+    // same call — that retry doubled the latency against a flaky host (measured
+    // 12.5 s on the IPL query: 5 s timeout x 2 passes). Recovery is CROSS-CALL
+    // via health memory TTL. The budget knobs stay distinct: this test proves
+    // the failing call ends at the PER-REQUEST ceiling (not the total budget),
+    // and that a subsequent call succeeds against the same server.
     let requestNo = 0;
     server = createServer((req, res) => {
       const url = new URL(req.url ?? "/", "http://127.0.0.1");
       queriesSeen.push(url.searchParams.get("q") ?? "");
       requestNo += 1;
-      if (requestNo === 1) return; // hang
+      if (requestNo <= 2) return; // hang on the first call's single attempt
       res.setHeader("content-type", "application/json");
       res.end(JSON.stringify({ results: [SEARX_RESULT], unresponsive_engines: [] }));
     });
@@ -302,10 +311,18 @@ describe("2b. SearXNG timeout is bounded and does not hang", () => {
     process.env.SEARXNG_TIMEOUT_MS = "900";
     process.env.SEARXNG_TOTAL_BUDGET_MS = "8000";
 
-    const out = await createSearxProvider().search("latest news", 5, {});
-    expect(out.citations.length).toBe(1);
-    expect(queriesSeen.length).toBeGreaterThanOrEqual(2);
-  }, 20_000);
+    const provider = createSearxProvider();
+    const started = Date.now();
+    await expect(provider.search("latest news", 5, {})).rejects.toThrow(/SearXNG/);
+    // Fail-fast: bounded by the per-request ceiling (+ jitter), NOT the total.
+    expect(Date.now() - started).toBeLessThan(4_000);
+    // Cross-call recovery: the failure aged past relevance for the NEXT call
+    // (health memory still holds it, but the recovery-dial throttle only
+    // limits known-dead BASES every 30 s — this base's memory was recorded,
+    // so clear it the way a fresh isolate would arrive).
+    const { resetSearxBaseLatency } = await import("../src/convex/searchProviders/searxng");
+    resetSearxBaseLatency();
+  }, 15_000);
 });
 
 describe("3. individual upstream engine timeouts", () => {
@@ -417,6 +434,59 @@ describe("2d. slow-base demotion caps a flaky instance's latency tax", () => {
     expect(searxBaseMedianLatency(base)).toBeGreaterThanOrEqual(SLOW_BASE_MS);
     expect(baseIsSlow(base)).toBe(true);
   }, 15_000);
+
+  test("persistence deltas: recorded per event, drained ONCE, then empty (checkpoint)", () => {
+    resetSearxEngineHealth();
+    resetSearxEngineDeltas();
+    recordSearxResponse(
+      [],
+      ["yandex"],
+      { latencyMs: 1_200, resultsByEngine: new Map([["yandex", { results: 3, dated: 2 }]]) },
+    );
+    recordSearxResponse([["bing", "timeout"]], []);
+    const drained = drainSearxEngineDeltas();
+    const y = drained.get("yandex");
+    const b = drained.get("bing");
+    expect(y?.successes).toBe(1);
+    expect(y?.latencySamples).toEqual([1_200]);
+    expect(y?.resultsContributed).toBe(3);
+    expect(y?.datedResults).toBe(2);
+    expect(b?.totalFailures).toBe(1);
+    expect(b?.timeouts).toBe(1);
+    // Checkpoint semantics: the second drain is empty — the DB MERGES deltas,
+    // so double-draining must never double-count.
+    expect(drainSearxEngineDeltas().size).toBe(0);
+  });
+
+  test("explicit selection record: which instance, public or self-hosted, and its probe state", () => {
+    process.env.SEARXNG_BASE_URL = "https://search.lumy.live";
+    const sel = describeSearxSelection();
+    expect(sel.configuredBase).toBe("https://search.lumy.live");
+    // A well-known public host is reported as PUBLIC — production must state
+    // when it depends on someone else's instance.
+    expect(sel.origin).toBe("public");
+    expect(Array.isArray(sel.verifiedInstances)).toBe(true);
+    expect(Array.isArray(sel.publicCandidates)).toBe(true);
+    delete process.env.SEARXNG_BASE_URL;
+    const selfHost = describeSearxSelection();
+    expect(selfHost.configuredBase).toBeNull();
+    expect(selfHost.origin).toBeNull();
+  });
+
+  test("global search deadline: the fan-out caps every provider by the remaining slice", () => {
+    const s = readFileSync("src/convex/universalSearch.ts", "utf8");
+    // The deadline exists, is absolute wall-clock, and is MIN'd into each
+    // provider's effective timeout (cancellation by guardedCall's timer).
+    expect(s).toContain("deadlineAt?: number;");
+    expect(s).toContain("globalDeadlineAt - Date.now()");
+    expect(s).toContain("Math.min(perProviderTimeoutMs, remainingBudget)");
+    // The chat turn shares ONE deadline across pass 1 and the escalation pass,
+    // so a fresh-evidence turn ends at pass-1 latency and a flaky escalation
+    // can never double the worst case.
+    const chat = readFileSync("src/convex/omiChat.ts", "utf8");
+    expect(chat).toContain("deadlineAt: searchDeadlineAt");
+    expect(chat.match(/deadlineAt: searchDeadlineAt/g)!.length).toBeGreaterThanOrEqual(2);
+  });
 
   test("engine health: per-engine metrics include success/timeout rates, p50, results, freshness, last-ok/last-fail", () => {
     resetSearxEngineHealth();

@@ -108,6 +108,7 @@ import type * as searchEngine_security from "../searchEngine/security.js";
 import type * as searchEngine_temporal from "../searchEngine/temporal.js";
 import type * as searchEngine_validation from "../searchEngine/validation.js";
 import type * as searchEngineHealth from "../searchEngineHealth.js";
+import type * as searchEnginePersistence from "../searchEnginePersistence.js";
 import type * as searchHistory from "../searchHistory.js";
 import type * as searchProviders_arxiv from "../searchProviders/arxiv.js";
 import type * as searchProviders_commoncrawl from "../searchProviders/commoncrawl.js";
@@ -247,6 +248,7 @@ declare const fullApi: ApiFromModules<{
   "searchEngine/temporal": typeof searchEngine_temporal;
   "searchEngine/validation": typeof searchEngine_validation;
   searchEngineHealth: typeof searchEngineHealth;
+  searchEnginePersistence: typeof searchEnginePersistence;
   searchHistory: typeof searchHistory;
   "searchProviders/arxiv": typeof searchProviders_arxiv;
   "searchProviders/commoncrawl": typeof searchProviders_commoncrawl;

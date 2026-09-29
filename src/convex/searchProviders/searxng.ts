@@ -126,6 +126,52 @@ export function healthyObservedEngines(): string[] {
  * floor and must treat "reachable but not JSON" as a hard failure, not as
  * "no results". See `probeInstance` below and `SEARXNG_FLOOR_HEALTHY`.
  */
+/**
+ * EXPLICIT SELECTION RECORD — answers "which SearXNG is being used, and why"
+ * without asking a human to remember env vars. The configured base is chosen
+ * FIRST (origin: self-hosted when it is not a known public host),
+ * measured-healthy fallbacks follow, and the probe verdict is attached. The
+ * operator surface persists this so production configuration is explicit,
+ * auditable, and survives restarts.
+ */
+// Hosts KNOWN to be run by someone else (community/public instances). The
+// configured base is compared against this set: a base on it is reported as
+// `public` — production must SAY when it depends on someone else's machine.
+// Anything else is presumed self-hosted (the deployment goal).
+const KNOWN_PUBLIC_HOSTS = new Set<string>([
+  ...[
+    "https://searx.be",
+    "https://search.inetol.net",
+    "https://baresearch.org",
+    "https://search.hbubli.cc",
+  ],
+  "https://search.lumy.live", // measured flapping community instance
+  "https://searxng.site",
+  "https://search.rhscz.eu",
+]);
+
+export function describeSearxSelection(): {
+  configuredBase: string | null;
+  origin: "self-hosted" | "public" | null;
+  publicCandidates: string[];
+  verifiedInstances: string[];
+  lastProbe: { healthy: boolean; checkedAt: number; detail: string } | null;
+} {
+  const configuredBase = process.env.SEARXNG_BASE_URL?.replace(/\/+$/, "") ?? null;
+  const origin = configuredBase
+    ? KNOWN_PUBLIC_HOSTS.has(configuredBase)
+      ? ("public" as const)
+      : ("self-hosted" as const)
+    : null;
+  return {
+    configuredBase,
+    origin,
+    publicCandidates: [...KNOWN_PUBLIC_HOSTS],
+    verifiedInstances: [...verifiedInstances],
+    lastProbe: lastProbe ? { ...lastProbe } : null,
+  };
+}
+
 const PUBLIC_INSTANCES = [
   "https://searx.be",
   "https://search.inetol.net",
@@ -303,9 +349,13 @@ export function baseIsSlow(base: string): boolean {
   return m !== null && m >= SLOW_BASE_MS;
 }
 
-/** Test/reset hook — latency memory must not leak between tests or turns. */
+/** Last time a known-dead base was given its recovery dial, per base. */
+const recoveryDialAt = new Map<string, number>();
+
+/** Test/reset hook — latency + recovery memory must not leak between tests. */
 export function resetSearxBaseLatency(): void {
   latencyByBase.clear();
+  recoveryDialAt.clear();
 }
 
 /**
@@ -738,7 +788,30 @@ export function createSearxProvider(): SearchProvider {
       const fast = dialable.filter((b) => !baseIsSlow(b));
       const slow = dialable.filter((b) => baseIsSlow(b));
       const ordered = [...fast, ...slow];
-      const attemptBases = ordered.length > 0 ? ordered : [bases[0]];
+      // RECOVERY DIAL RATE LIMIT (round 8): when EVERY base is known-dead, one
+      // base is still attempted so recovery stays possible — but at most once
+      // per RECOVERY_DIAL_MIN_MS. Measured cost of skipping this: pass 1 marks
+      // the flaky base dead (5 s), the escalation's recovery dial pays the
+      // SAME timeout again seconds later (~10 s total for the turn). With the
+      // throttle, the second pass fails through immediately; the probe TTL
+      // (5 min) still allows a real recovery attempt afterwards.
+      const RECOVERY_DIAL_MIN_MS = 30_000;
+      let attemptBases: string[];
+      if (ordered.length > 0) {
+        attemptBases = ordered;
+      } else if (bases.length > 0) {
+        const first = bases[0];
+        const lastRecovery = recoveryDialAt.get(first) ?? 0;
+        if (Date.now() - lastRecovery < RECOVERY_DIAL_MIN_MS) {
+          throw new Error(
+            `SearXNG (${first}) skipped: every base is known-dead and the recovery dial was already attempted within ${RECOVERY_DIAL_MIN_MS / 1000}s — run diagnosticsSearxngDeep:probeSearxngCandidates to re-verify instances`,
+          );
+        }
+        recoveryDialAt.set(first, Date.now());
+        attemptBases = [first];
+      } else {
+        attemptBases = [];
+      }
       // MEASURED 2026-09-27 against search.lumy.live: DNS 1 ms, TCP 95 ms,
       // but /search?format=json took 14.7 s (day), 7.5 s (month), 13.1 s
       // (year) and 46.6 s for a plain probe. The real fix is self-hosting
@@ -796,11 +869,19 @@ export function createSearxProvider(): SearchProvider {
       let attempts = 0;
       let lastError: unknown = null;
       let stop = false;
+      // IN-CALL FAILURE MEMORY (round 8): a base that just failed DURING THIS
+      // CALL is not re-dialed by the second pass. The old loop re-asked the
+      // same timing-out host on pass 2, paying its timeout TWICE within one
+      // provider call (~10 s against a flaky base) before the fallbacks were
+      // reached. Cross-call recovery stays with the health memory + probe TTL;
+      // within one call, one failure is final.
+      const failedThisCall = new Set<string>();
 
       for (let pass = 0; pass < maxPasses && !stop; pass++) {
         for (const q of variants) {
           for (let b = 0; b < attemptBases.length && !stop; b++) {
             const base = attemptBases[b];
+            if (failedThisCall.has(base)) continue;
             // EVERY BASE GETS ITS OWN SLICE OF THE BUDGET.
             //
             // Without this, a dead preferred instance would consume the whole
@@ -885,7 +966,9 @@ export function createSearxProvider(): SearchProvider {
                 lastError = err;
                 // Remember the failure so the NEXT search skips this base
                 // without paying the timeout again (until the TTL expires and
-                // one probe attempt is allowed through).
+                // one probe attempt is allowed through) — and so THIS call's
+                // second pass does not re-ask the same timing-out host.
+                failedThisCall.add(base);
                 noteSearxngBaseResult(
                   base,
                   false,

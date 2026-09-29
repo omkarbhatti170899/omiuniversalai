@@ -1,0 +1,201 @@
+{
+  "providers": [],
+  "searxEngines": [],
+  "searxEnginesPersisted": [],
+  "searxInstanceConfig": [
+    {
+      "_creationTime": 1790721328510.5051,
+      "_id": "q57ca4c7k1v3xktnkg8htj0me98fbcc6",
+      "base": "https://search.lumy.live",
+      "configured": true,
+      "lastProbeDetail": "no probe recorded in this isolate",
+      "lastProbeHealthy": false,
+      "lastProbedAt": 0,
+      "origin": "public",
+      "updatedAt": 1790722077320
+    }
+  ],
+  "searxSelection": {
+    "configuredBase": "https://search.lumy.live",
+    "lastProbe": null,
+    "origin": "public",
+    "publicCandidates": [
+      "https://searx.be",
+      "https://search.inetol.net",
+      "https://baresearch.org",
+      "https://search.hbubli.cc",
+      "https://search.lumy.live",
+      "https://searxng.site",
+      "https://search.rhscz.eu"
+    ],
+    "verifiedInstances": []
+  },
+  "searxVerifiedInstances": [],
+  "telemetryHealth": [
+    {
+      "avgResults": 2,
+      "calls": 1,
+      "engine": "SearXNG + SearXNG + SearXNG + SearXNG +1 more",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790645709923,
+      "lastSeenAt": 1790645709923,
+      "latencyAvgMs": 3706
+    },
+    {
+      "avgResults": 0,
+      "calls": 11,
+      "engine": "(fan-out)",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790645706177,
+      "lastSeenAt": 1790645706177,
+      "latencyAvgMs": 0
+    },
+    {
+      "avgResults": 4.7,
+      "calls": 3,
+      "engine": "SearXNG + Wikipedia Current Events (today's news, dated)",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790493083119,
+      "lastSeenAt": 1790493083119,
+      "latencyAvgMs": 13448
+    },
+    {
+      "avgResults": 4,
+      "calls": 1,
+      "engine": "Wikipedia + arXiv + Hacker News + GitHub (public repositories) +1 more",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790487266913,
+      "lastSeenAt": 1790487266913,
+      "latencyAvgMs": 13756
+    },
+    {
+      "avgResults": 5,
+      "calls": 1,
+      "engine": "SearXNG + Wikipedia",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790482463273,
+      "lastSeenAt": 1790482463273,
+      "latencyAvgMs": 12675
+    },
+    {
+      "avgResults": 2,
+      "calls": 1,
+      "engine": "Live sports scores (TheSportsDB)",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790482308436,
+      "lastSeenAt": 1790482308436,
+      "latencyAvgMs": 1101
+    },
+    {
+      "avgResults": 4,
+      "calls": 3,
+      "engine": "Wikipedia + Open Library + Live sports scores (TheSportsDB) (cached)",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790481021110,
+      "lastSeenAt": 1790481021110,
+      "latencyAvgMs": 87
+    },
+    {
+      "avgResults": 4,
+      "calls": 1,
+      "engine": "Wikipedia + Open Library + Live sports scores (TheSportsDB)",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790480889716,
+      "lastSeenAt": 1790480889716,
+      "latencyAvgMs": 12955
+    },
+    {
+      "avgResults": 6.8,
+      "calls": 10,
+      "engine": "Wikipedia",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790400948126,
+      "lastSeenAt": 1790400948126,
+      "latencyAvgMs": 9314
+    },
+    {
+      "avgResults": 6.8,
+      "calls": 10,
+      "engine": "arXiv",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790390520455,
+      "lastSeenAt": 1790390520455,
+      "latencyAvgMs": 7606
+    },
+    {
+      "avgResults": 7.1,
+      "calls": 9,
+      "engine": "OpenAlex",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790390520455,
+      "lastSeenAt": 1790390520455,
+      "latencyAvgMs": 8850
+    },
+    {
+      "avgResults": 7.3,
+      "calls": 3,
+      "engine": "Open Library",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790134991474,
+      "lastSeenAt": 1790134991474,
+      "latencyAvgMs": 8604
+    },
+    {
+      "avgResults": 8,
+      "calls": 1,
+      "engine": "Wikidata (CC0 knowledge graph)",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790038296204,
+      "lastSeenAt": 1790038296204,
+      "latencyAvgMs": 6140
+    },
+    {
+      "avgResults": 8,
+      "calls": 1,
+      "engine": "Open Library +1 more",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1790038296204,
+      "lastSeenAt": 1790038296204,
+      "latencyAvgMs": 6140
+    },
+    {
+      "avgResults": 8,
+      "calls": 2,
+      "engine": "Hacker News",
+      "errorRate": 0,
+      "failures": 0,
+      "lastError": null,
+      "lastOkAt": 1789923734255,
+      "lastSeenAt": 1789923734255,
+      "latencyAvgMs": 13614
+    }
+  ]
+}

@@ -1,0 +1,514 @@
+[
+  {
+    "_creationTime": 1790645709923.4878,
+    "_id": "mn7ds4ff0j99zkae1srvdhe1sh8fattv",
+    "cacheHit": false,
+    "createdAt": 1790645709923,
+    "engines": [
+      "SearXNG + SearXNG + SearXNG + SearXNG +1 more"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[sports/done]",
+    "resultCount": 2,
+    "searchMs": 3706,
+    "userId": "jx74y1bnqe8mgj2559533ks5v18fb1a5"
+  },
+  {
+    "_creationTime": 1790645706177.2048,
+    "_id": "mn76ss541v3w166emhp4nzzet58fafyz",
+    "cacheHit": false,
+    "createdAt": 1790645706177,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=knowledge freshness=on timeRange=-",
+    "query": "[sports/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx74y1bnqe8mgj2559533ks5v18fb1a5"
+  },
+  {
+    "_creationTime": 1790493083119.862,
+    "_id": "mn77hedj9q23d0g2f3tcrp36ss8f7a7d",
+    "cacheHit": false,
+    "createdAt": 1790493083119,
+    "engines": [
+      "SearXNG + Wikipedia Current Events (today's news, dated)"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[sports/done]",
+    "resultCount": 4,
+    "searchMs": 13019,
+    "userId": "jx72j7x963960ahy3p030ec0018f6tex"
+  },
+  {
+    "_creationTime": 1790493070062.0828,
+    "_id": "mn78kg2d8ktw9h3z0s8vtm52th8f7sj5",
+    "cacheHit": false,
+    "createdAt": 1790493070062,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=current freshness=on timeRange=month",
+    "query": "[sports/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx72j7x963960ahy3p030ec0018f6tex"
+  },
+  {
+    "_creationTime": 1790487266913.0479,
+    "_id": "mn7ankfmnqsznakj00axbw9vq58f69j4",
+    "cacheHit": false,
+    "createdAt": 1790487266913,
+    "engines": [
+      "Wikipedia + arXiv + Hacker News + GitHub (public repositories) +1 more"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[general/done]",
+    "resultCount": 4,
+    "searchMs": 13756,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790487253061.6643,
+    "_id": "mn7bjwv0h1gde96nv731b4kwfn8f7eb3",
+    "cacheHit": false,
+    "createdAt": 1790487253061,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=knowledge freshness=off timeRange=-",
+    "query": "[general/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790482463273.0637,
+    "_id": "mn723ygh6w29ncn1mm56mm7sx98f7njh",
+    "cacheHit": false,
+    "createdAt": 1790482463273,
+    "engines": [
+      "SearXNG + Wikipedia"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[general/done]",
+    "resultCount": 5,
+    "searchMs": 12675,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790482450592.1084,
+    "_id": "mn72j2d6b8mk3sewdym9zqkd1d8f73y2",
+    "cacheHit": false,
+    "createdAt": 1790482450592,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=current freshness=on timeRange=month",
+    "query": "[general/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790482424487.111,
+    "_id": "mn7cd1268zh97tyzed9wt0w78x8f7c3z",
+    "cacheHit": false,
+    "createdAt": 1790482424487,
+    "engines": [
+      "SearXNG + Wikipedia Current Events (today's news, dated)"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[news/done]",
+    "resultCount": 5,
+    "searchMs": 15240,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790482409224.6855,
+    "_id": "mn7ds02vxdndy8zrgsmsjfgxbh8f6ywa",
+    "cacheHit": false,
+    "createdAt": 1790482409224,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=news freshness=on timeRange=week",
+    "query": "[news/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790482365373.1929,
+    "_id": "mn7bfsdvb5jrsd65yd12vazc3n8f6skw",
+    "cacheHit": false,
+    "createdAt": 1790482365373,
+    "engines": [
+      "SearXNG + Wikipedia Current Events (today's news, dated)"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[news/done]",
+    "resultCount": 5,
+    "searchMs": 12084,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790482353247.8962,
+    "_id": "mn7ckq1rwa41zm6ywghvd4563x8f6q0t",
+    "cacheHit": false,
+    "createdAt": 1790482353247,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=news freshness=on timeRange=week",
+    "query": "[news/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790482308436.6965,
+    "_id": "mn72snp0c2q7xqfj76bpa086458f7c42",
+    "cacheHit": false,
+    "createdAt": 1790482308436,
+    "engines": [
+      "Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[sports/done]",
+    "resultCount": 2,
+    "searchMs": 1101,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790482307326.614,
+    "_id": "mn7a4skkpp6235zgj6kkkh9tbh8f6sm5",
+    "cacheHit": false,
+    "createdAt": 1790482307326,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=current freshness=on timeRange=month",
+    "query": "[sports/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790481021110.5356,
+    "_id": "mn77gsscdb7cwb3sgpked7ms0d8f6dy2",
+    "cacheHit": true,
+    "createdAt": 1790481021110,
+    "engines": [
+      "Wikipedia + Open Library + Live sports scores (TheSportsDB) (cached)"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[general/done]",
+    "resultCount": 4,
+    "searchMs": 67,
+    "userId": "jx74dmt504skr7wtkjxfqt3y8n8f7axe"
+  },
+  {
+    "_creationTime": 1790481021045.5977,
+    "_id": "mn71d3kaj3p5r6zvmg00n63kmh8f73rt",
+    "cacheHit": false,
+    "createdAt": 1790481021045,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=knowledge freshness=off timeRange=-",
+    "query": "[general/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx74dmt504skr7wtkjxfqt3y8n8f7axe"
+  },
+  {
+    "_creationTime": 1790481018589.8728,
+    "_id": "mn72xrgrmqgp6yac0yba8e21cs8f6b6n",
+    "cacheHit": true,
+    "createdAt": 1790481018589,
+    "engines": [
+      "Wikipedia + Open Library + Live sports scores (TheSportsDB) (cached)"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[general/done]",
+    "resultCount": 4,
+    "searchMs": 123,
+    "userId": "jx74dmt504skr7wtkjxfqt3y8n8f7axe"
+  },
+  {
+    "_creationTime": 1790481018487.755,
+    "_id": "mn73abepz209gd8mfg11wn0npn8f70d1",
+    "cacheHit": false,
+    "createdAt": 1790481018487,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=knowledge freshness=off timeRange=-",
+    "query": "[general/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx74dmt504skr7wtkjxfqt3y8n8f7axe"
+  },
+  {
+    "_creationTime": 1790480893993.0674,
+    "_id": "mn781a15kd2394fa0kvmgx0pg18f6qgn",
+    "cacheHit": true,
+    "createdAt": 1790480893993,
+    "engines": [
+      "Wikipedia + Open Library + Live sports scores (TheSportsDB) (cached)"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[general/done]",
+    "resultCount": 4,
+    "searchMs": 72,
+    "userId": "jx71c3gj2s6qznhb4jy99ygrdx8f6dq6"
+  },
+  {
+    "_creationTime": 1790480893927.0164,
+    "_id": "mn7frgcaawtrw6wh71t8gx67kx8f7mfq",
+    "cacheHit": false,
+    "createdAt": 1790480893927,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=knowledge freshness=off timeRange=-",
+    "query": "[general/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx71c3gj2s6qznhb4jy99ygrdx8f6dq6"
+  },
+  {
+    "_creationTime": 1790480889716.2283,
+    "_id": "mn70jqk3m5zvsgm72zfrnecymd8f77va",
+    "cacheHit": false,
+    "createdAt": 1790480889716,
+    "engines": [
+      "Wikipedia + Open Library + Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "mode": "intent=- freshness=off timeRange=-",
+    "query": "[general/done]",
+    "resultCount": 4,
+    "searchMs": 12955,
+    "userId": "jx71c3gj2s6qznhb4jy99ygrdx8f6dq6"
+  },
+  {
+    "_creationTime": 1790480876711.2292,
+    "_id": "mn72n67drcwzzsr9631tyexve98f7pgg",
+    "cacheHit": false,
+    "createdAt": 1790480876711,
+    "engines": [],
+    "failedEngines": [],
+    "mode": "intent=knowledge freshness=off timeRange=-",
+    "query": "[general/start]",
+    "resultCount": 0,
+    "searchMs": 0,
+    "userId": "jx71c3gj2s6qznhb4jy99ygrdx8f6dq6"
+  },
+  {
+    "_creationTime": 1790400948126.0322,
+    "_id": "mn7ckasngjky90agr9hznz2zps8f5vhe",
+    "cacheHit": false,
+    "createdAt": 1790400948126,
+    "engines": [
+      "Wikipedia"
+    ],
+    "failedEngines": [],
+    "mode": "news",
+    "query": "Live asian games news now foe india",
+    "resultCount": 2,
+    "searchMs": 12421,
+    "userId": "jx7fdz02k4mnxm7vb7hs6kamcs8f5q5y"
+  },
+  {
+    "_creationTime": 1790390520455.9443,
+    "_id": "mn7d91vz2cz9vgek37cd08wg698f4drx",
+    "cacheHit": false,
+    "createdAt": 1790390520455,
+    "engines": [
+      "Wikipedia",
+      "arXiv",
+      "OpenAlex"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "Tell me about right answer portal of total loss vehicle",
+    "resultCount": 6,
+    "searchMs": 3761,
+    "userId": "jx7848qdg5d3m36tjfxns6wcbh8ey7dw"
+  },
+  {
+    "_creationTime": 1790134991474.6135,
+    "_id": "mn7fkg3gkepg0f2tw35x54npv58eznvt",
+    "cacheHit": false,
+    "createdAt": 1790134991474,
+    "engines": [
+      "Wikipedia",
+      "OpenAlex",
+      "Open Library"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "Do you run on Andromeda search engine",
+    "resultCount": 6,
+    "searchMs": 13702,
+    "userId": "jx7e2gxcqzw24m53tww3cgw9998ew6hr"
+  },
+  {
+    "_creationTime": 1790038296204.081,
+    "_id": "mn74ynye8619134js9w4q4drdx8ewpse",
+    "cacheHit": false,
+    "createdAt": 1790038296204,
+    "engines": [
+      "Wikipedia",
+      "Wikidata (CC0 knowledge graph)",
+      "arXiv",
+      "Open Library +1 more"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "Andromeda",
+    "resultCount": 8,
+    "searchMs": 6140,
+    "userId": "jx7amadypf6441t97k4525xwsh8eve0x"
+  },
+  {
+    "_creationTime": 1789941045706.2847,
+    "_id": "mn722jpqsehhp20apj721555wh8es2x8",
+    "cacheHit": false,
+    "createdAt": 1789941045706,
+    "engines": [
+      "arXiv",
+      "OpenAlex"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "Tell me your reasearch on greek mythology",
+    "resultCount": 6,
+    "searchMs": 5067,
+    "userId": "jx77e5e46mybtrydh80yd5g4mx8es08w"
+  },
+  {
+    "_creationTime": 1789939735756.485,
+    "_id": "mn74wja7yqpejf5jmam63j7c6d8ernwt",
+    "cacheHit": false,
+    "createdAt": 1789939735756,
+    "engines": [
+      "Wikipedia",
+      "arXiv",
+      "OpenAlex",
+      "Open Library"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "What is Andromeda search engine",
+    "resultCount": 8,
+    "searchMs": 6971,
+    "userId": "jx75sm1nnerm5c5srfaxjh5xmx8es8my"
+  },
+  {
+    "_creationTime": 1789931672191.506,
+    "_id": "mn70jw2d90x76se76h30edz9ts8es3es",
+    "cacheHit": false,
+    "createdAt": 1789931672191,
+    "engines": [
+      "Wikipedia",
+      "arXiv",
+      "OpenAlex",
+      "Open Library"
+    ],
+    "failedEngines": [],
+    "mode": "research",
+    "query": "Best practices for de-escalating angry customers",
+    "resultCount": 8,
+    "searchMs": 5138,
+    "userId": "jx71nv7h163c1nwj8hymgemf2h8esdjm"
+  },
+  {
+    "_creationTime": 1789924938138.0686,
+    "_id": "mn7dh351q4kss6rvkde7f338ds8erdmg",
+    "cacheHit": false,
+    "createdAt": 1789924938138,
+    "engines": [
+      "arXiv"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "I'm talking about you Andromeda how are you related to Omi Universal AI",
+    "resultCount": 2,
+    "searchMs": 3974,
+    "userId": "jx75sm1nnerm5c5srfaxjh5xmx8es8my"
+  },
+  {
+    "_creationTime": 1789924639887.0403,
+    "_id": "mn76w5yw9mghcdrpm0225y9fxh8eresd",
+    "cacheHit": false,
+    "createdAt": 1789924639887,
+    "engines": [
+      "Wikipedia",
+      "arXiv",
+      "OpenAlex"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "What are you and how you related to Omi Universal AI",
+    "resultCount": 7,
+    "searchMs": 4637,
+    "userId": "jx79fdgey8p5n1ehf00zej9kq18esvqb"
+  },
+  {
+    "_creationTime": 1789924052110.9905,
+    "_id": "mn7agffbjx40gpjghbxd0f3x318esdb6",
+    "cacheHit": false,
+    "createdAt": 1789924052110,
+    "engines": [
+      "Wikipedia",
+      "arXiv",
+      "OpenAlex"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "How are you related to Omi Universal AI",
+    "resultCount": 7,
+    "searchMs": 13142,
+    "userId": "jx75sm1nnerm5c5srfaxjh5xmx8es8my"
+  },
+  {
+    "_creationTime": 1789923734255.9211,
+    "_id": "mn7ekv9gnq9dhshsdfz0nte1xx8esdsh",
+    "cacheHit": false,
+    "createdAt": 1789923734255,
+    "engines": [
+      "Wikipedia",
+      "arXiv",
+      "OpenAlex",
+      "Hacker News"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "Who invented you and what is your search engine",
+    "resultCount": 8,
+    "searchMs": 13262,
+    "userId": "jx7apcdwz63cxx3x2wn4k92mzh8esxff"
+  },
+  {
+    "_creationTime": 1789923688276.5698,
+    "_id": "mn7cdyt4182bgw2n9dgbsw76w98esqk6",
+    "cacheHit": false,
+    "createdAt": 1789923688276,
+    "engines": [
+      "Wikipedia",
+      "arXiv",
+      "OpenAlex",
+      "Hacker News"
+    ],
+    "failedEngines": [],
+    "mode": "knowledge",
+    "query": "Andromeda",
+    "resultCount": 8,
+    "searchMs": 13966,
+    "userId": "jx7apcdwz63cxx3x2wn4k92mzh8esxff"
+  }
+]

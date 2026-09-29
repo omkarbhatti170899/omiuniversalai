@@ -111,6 +111,10 @@ export function recordSearxEngineUnresponsive(
   s.lastError = String(reason ?? "unresponsive").slice(0, 120);
   s.lastFailAt = now;
   if (s.failures >= ENGINE_FAILURE_THRESHOLD) s.suspendedUntil = now + ENGINE_COOLDOWN_MS;
+  trackDelta(id, (d) => {
+    d.totalFailures += 1;
+    if (/timeout/i.test(String(reason ?? ""))) d.timeouts += 1;
+  });
 }
 
 /**
@@ -143,6 +147,16 @@ export function recordSearxEngineResponsive(
     s.resultsContributed += stats.results;
     s.datedResults += Math.max(0, Math.min(stats.dated ?? 0, stats.results));
   }
+  trackDelta(id, (d) => {
+    d.successes += 1;
+    if (typeof stats.latencyMs === "number" && Number.isFinite(stats.latencyMs) && stats.latencyMs >= 0) {
+      d.latencySamples.push(Math.round(stats.latencyMs));
+    }
+    if (typeof stats.results === "number" && Number.isFinite(stats.results) && stats.results >= 0) {
+      d.resultsContributed += stats.results;
+      d.datedResults += Math.max(0, Math.min(stats.dated ?? 0, stats.results));
+    }
+  });
 }
 
 /**
@@ -206,6 +220,94 @@ export function suspendedSearxEngines(now = Date.now()): string[] {
     if (s.suspendedUntil !== null && now < s.suspendedUntil) out.push(id);
   }
   return out.sort();
+}
+
+/**
+ * PERSISTED DELTAS — what changed since the last flush checkpoint.
+ *
+ * WHY: the registry lives per server isolate, so a diagnostic snapshot from a
+ * fresh isolate reads EMPTY while production searches succeed through SearXNG
+ * (measured round 8: `searxEngines: []` in the same round the F1 trace passed
+ * through SearXNG in 2.3 s). The action surface (`searchEngineHealth:snapshot`)
+ * drains these deltas into the `searxEngineStats` table, where health survives
+ * restarts. Keys are per engine; counters are DELTAS since the checkpoint, so
+ * the DB side MERGES rather than overwrites.
+ */
+export type EngineDelta = {
+  successes: number;
+  totalFailures: number;
+  timeouts: number;
+  latencySamples: number[];
+  resultsContributed: number;
+  datedResults: number;
+  lastError: string | null;
+  lastOkAt: number | null;
+  lastFailAt: number | null;
+  suspendedUntil: number | null;
+};
+
+const flushCheckpoint = new Map<string, EngineDelta>();
+
+function emptyDelta(): EngineDelta {
+  return {
+    successes: 0,
+    totalFailures: 0,
+    timeouts: 0,
+    latencySamples: [],
+    resultsContributed: 0,
+    datedResults: 0,
+    lastError: null,
+    lastOkAt: null,
+    lastFailAt: null,
+    suspendedUntil: null,
+  };
+}
+
+function deltaFor(id: string): EngineDelta {
+  let d = flushCheckpoint.get(id);
+  if (!d) {
+    d = emptyDelta();
+    flushCheckpoint.set(id, d);
+  }
+  return d;
+}
+
+function trackDelta(id: string, mutate: (d: EngineDelta) => void): void {
+  const s = engines.get(id);
+  const d = deltaFor(id);
+  mutate(d);
+  if (s) {
+    d.lastError = s.lastError;
+    d.lastOkAt = s.lastOkAt;
+    d.lastFailAt = s.lastFailAt;
+    d.suspendedUntil = s.suspendedUntil;
+  }
+}
+
+/**
+ * Drain the deltas recorded since the previous call — the persistence
+ * checkpoint. Empty map means nothing new; callers simply skip the write.
+ * Counters are DELTAS since the checkpoint (the DB side MERGES); latency
+ * samples are the bounded recent window, mirroring the in-memory registry.
+ */
+export function drainSearxEngineDeltas(): Map<string, EngineDelta> {
+  const out = new Map<string, EngineDelta>();
+  for (const [id, d] of flushCheckpoint) {
+    if (
+      d.successes === 0 &&
+      d.totalFailures === 0 &&
+      d.latencySamples.length === 0
+    )
+      continue;
+    out.set(id, { ...d, latencySamples: [...d.latencySamples] });
+    flushCheckpoint.set(id, emptyDelta());
+  }
+  return out;
+}
+
+/** Test hook: clear delta bookkeeping (does not touch the live registry). */
+export function resetSearxEngineDeltas(): void {
+  flushCheckpoint.clear();
 }
 
 /**

@@ -35,9 +35,10 @@ describe("dead-instance skip (per-base health memory)", () => {
     // SLOW-BASE DEMOTION: measured-latency memory re-orders the dial list so a
     // chronically slow base is tried after fast ones (never excluded).
     expect(s).toContain("const fast = dialable.filter((b) => !baseIsSlow(b))");
-    expect(s).toContain("const attemptBases = ordered.length > 0 ? ordered : [bases[0]]");
-    // Fail-open: if nothing is dialable, one base is still attempted.
-    expect(s).toContain("ordered.length > 0 ? ordered : [bases[0]]");
+    // ROUND-8: the recovery dial (every base known-dead) is RATE-LIMITED — the
+    // escalation pass must not re-pay a full timeout seconds after pass 1 just
+    // recorded the same failure.
+    expect(s).toContain("RECOVERY_DIAL_MIN_MS");
     // The attempt loop must use the filtered list, not the raw list.
     expect(s).toContain("for (let b = 0; b < attemptBases.length && !stop; b++)");
   });
@@ -62,9 +63,11 @@ describe("dead-instance skip (per-base health memory)", () => {
     expect(s).toContain('noteSearxngBaseResult(base, true, "answered JSON")');
     // On an authoritative empty answer from the configured base:
     expect(s).toContain('noteSearxngBaseResult(base, true, "answered JSON (empty result set)")');
-    // On a failed attempt (inside the attempt loop's catch):
+    // On a failed attempt (inside the attempt loop's catch — round 8 added
+    // the in-call failure memory ahead of the health note, so widen the view):
     const loopCatch = s.slice(s.indexOf("lastError = err;"));
-    expect(loopCatch.slice(0, 400)).toContain("noteSearxngBaseResult(");
+    expect(loopCatch.slice(0, 700)).toContain("noteSearxngBaseResult(");
+    expect(loopCatch.slice(0, 700)).toContain("failedThisCall.add(base);");
   });
 
   test("the health probe feeds the SAME memory, so verdicts cannot disagree", () => {

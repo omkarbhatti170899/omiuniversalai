@@ -1,0 +1,61 @@
+{
+  "row": {
+    "answer": "NBA Standings: Conference & Division Rankings (2026-27)What is the date of NBA Standings Update for NBA Season 2026-27?How Are NBA Standings Determined? [1]\n\nNBA Standings.Chet Holmgren is one of those people. [4]\n\nLeBron, who is about to begin his NBA record 24th season, wasn't even in the league. [3]\n\nIn the apron-conscious NBA world of 2026, the implications of handing out any max player contract, especially designated rookie extensions (aka rookie max contracts), are worth factoring into any hypothetical projections about future team success for an NBA franchise. [6]\n\nSources: [1] NBA Standings: Conference & Division Rankings (2026-27) (sports.okbet.com)  [2] 5 takeaways: Knicks begin NBA title defense at Media Day | NBA.com (nba.com)  [3] LeBron James begins his 76ers era by making the stakes... - CBS Sports (cbssports.com)  [4] Don't worry Thunder fans, Chet Holmgren bulked up this offseason (fansided.com)",
+    "conflictResolution": null,
+    "detail": "8 fresh result(s) from 2 source(s) in 3668ms (after a freshness escalation pass)",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 8,
+    "freshSplitCounts": {
+      "fresh": 8,
+      "stale": 0,
+      "undated": 5
+    },
+    "freshness": "Based on 8 reports published in the last 5 days (newest: 9 hours ago).",
+    "intent": "knowledge",
+    "query": "NBA standings",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 3668,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T08:50:51.000Z",
+        "title": "NBA Standings: Conference & Division Rankings (2026-27)",
+        "url": "https://sports.okbet.com/nba-standings-2026-27"
+      },
+      {
+        "publishedAt": "2026-09-28T22:05:23.000Z",
+        "title": "5 takeaways: Knicks begin NBA title defense at Media Day | NBA.com",
+        "url": "https://www.nba.com/news/5-takeaways-new-york-knicks-media-day-2026"
+      },
+      {
+        "publishedAt": "2026-09-28T20:43:32.000Z",
+        "title": "LeBron James begins his 76ers era by making the stakes... - CBS Sports",
+        "url": "https://www.cbssports.com/nba/news/lebron-james-begins-76ers-era"
+      },
+      {
+        "publishedAt": "2026-09-29T13:16:57.000Z",
+        "title": "Don't worry Thunder fans, Chet Holmgren bulked up this offseason",
+        "url": "https://fansided.com/nba/dont-worry-thunder-fans-chet-holmgren-bulked-up-this-offseason"
+      },
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Josh Giddey’s NBA development should heed Chris Finch’s offensive wisdom",
+        "url": "https://pippenainteasy.com/josh-giddey-nba-development-chris-finch-wisdom"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

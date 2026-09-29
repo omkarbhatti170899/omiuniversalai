@@ -1,0 +1,47 @@
+{
+  "row": {
+    "answer": "However, it is understood that Hardik has continued to experience pain while bowling, with the latest injury now delaying his comeback further. [2]\n\nThe player's participation, along with those of other global cricket stars, was announced through a list of players published ahead of the Player Auction, which will take place at the ICC Academy Indoors, Dubai on Thursday, October 1. [1]\n\nHardik Pandya ruled out of Australia A series with fresh injury: report\n\nBy Web Desk -\nSep 26, 2026\n\nIndia all-rounder Hardik Pandya’s return to competitive cricket has suffered another setback after he was ruled out of the upcoming 50-over matches against Australia A due to a fresh shin injury, according to a report by ESPNcricinfo. [2]\n\nHardik initially suffered back spasms during the IPL before sustaining a leg strain at the CoE ahead of India’s ODI series against Afghanistan in June. [2]\n\nSources: [1] Babar Azam to play in UAE's IPL style T20 league in November 2026 (khaleejtimes.com)  [2] Hardik Pandya ruled out of Australia A series with fresh injury: report (arynews.tv)",
+    "conflictResolution": null,
+    "detail": "2 fresh result(s) from 3 source(s) in 2997ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshSplitCounts": {
+      "fresh": 2,
+      "stale": 2,
+      "undated": 1
+    },
+    "freshness": "Based on 2 reports published in the last 5 days (newest: 13 hours ago).",
+    "intent": "news",
+    "query": "Latest IPL news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2997,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T10:12:08.000Z",
+        "title": "Babar Azam to play in UAE's IPL style T20 league in November 2026",
+        "url": "https://www.khaleejtimes.com/sports/cricket/ilt20-cricket-league-uae-player-auction-babar-azam"
+      },
+      {
+        "publishedAt": "2026-09-26T10:02:49.000Z",
+        "title": "Hardik Pandya ruled out of Australia A series with fresh injury: report",
+        "url": "https://arynews.tv/hardik-pandya-ruled-out-of-australia-a-series-with-fresh-injury-report"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

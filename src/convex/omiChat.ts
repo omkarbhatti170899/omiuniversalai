@@ -759,6 +759,11 @@ async function runTurn(
       }
 
       const searchStarted = Date.now();
+      // GLOBAL SEARCH DEADLINE for the whole turn's retrieval (pass 1 + any
+      // escalation). 16 s: generous against the measured p50 (~2–4 s), but a
+      // hard ceiling so three flaky-engine rounds can never stack into a
+      // 20–30 s answer. Env-overridable for edge deployments.
+      const SEARCH_DEADLINE_MS = Number(process.env.OMI_SEARCH_DEADLINE_MS ?? 16_000);
       recordSearchTelemetry(ctx, {
         phase: "start",
         vertical: policy.vertical,
@@ -779,7 +784,14 @@ async function runTurn(
         // a bare "medal tally" query returning a previous Games.
         const retrievalPlan = planRetrieval(trimmed, classifyCurrentIntent(trimmed, decision.intent));
         const retrieval = retrievalPlan.primary;
+        // GLOBAL SEARCH DEADLINE: one wall-clock budget shared by the first
+        // pass AND its escalation pass, so the escalation can at most consume
+        // what remains — it can never double the worst case. FAST-RETURN is
+        // the common path: when pass 1 already satisfies the freshness tier,
+        // no escalation runs at all and the turn ends at pass-1 latency.
+        const searchDeadlineAt = searchStarted + SEARCH_DEADLINE_MS;
         const universal = await runUniversalSearch(ctx, retrieval, {
+          deadlineAt: searchDeadlineAt,
           retrievalVariants: retrievalPlan.variants,
           variantTargets: retrievalPlan.variantTargets,
           freshnessTier: policy.freshnessTier,
@@ -850,6 +862,9 @@ async function runTurn(
                   : `escalating: newest source is ${Math.round(newestHours!)}h old (tier "${policy.freshnessTier}" wants <=${policy.preferFreshHours}h) — re-searching with a tighter window`,
               });
               const second = await runUniversalSearch(ctx, retrieval, {
+                // SAME deadline as pass 1: the escalation gets the remaining
+                // slice, not a fresh budget (round-8 latency contract).
+                deadlineAt: searchDeadlineAt,
                 perEngineLimit: 6,
                 maxCitations: 8,
                 userQuestion: trimmed,

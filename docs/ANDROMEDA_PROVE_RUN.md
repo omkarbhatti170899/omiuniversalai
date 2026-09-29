@@ -1,5 +1,109 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## Addendum 8 — GLOBAL DEADLINE + FAST-FAIL + EXPLICIT CONFIG + PERSISTED ENGINE HEALTH (a1a7da8 review, 2026-09-29)
+
+Owner status: SearXNG returning production results (F1 2.3 s, 7 fresh, no failed
+engines) — but NOT production-ready. Five issues. All addressed this round.
+
+### Issue 1 — latency: root-caused, then fixed at three levels
+
+**Investigation first:** every 12–15 s telemetry row was 63–66 h OLD — they
+predate round 7's tightening; the cited 9/12/13 s rows were the OLD pipeline.
+Post-round-7 rows: F1 2.3 s, worst 10.8 s. But the round-8 matrix still caught
+ONE 12.5 s path (IPL), which decoded to: lumy times out at 5 s → the adapter's
+second pass RE-DIALS the same host (+5 s) → the freshness escalation's recovery
+dial pays the SAME timeout a third time (+2.5 s of budget). Three stacked
+attempts against one flaky host.
+
+Fixes (no timeout increased anywhere):
+1. **Global search deadline** (`omiChat.ts` → `runUniversalSearch`):
+   `OMI_SEARCH_DEADLINE_MS` (16 s) shared by pass 1 AND the escalation pass —
+   escalation inherits the remaining slice, never a fresh budget. Every
+   provider timeout is capped by `min(perProvider, remaining)` inside the
+   fan-out, so `guardedCall`'s timer CUTS OFF a slow engine at the wall clock
+   (real cancellation, not politeness).
+2. **In-call fast-fail** (`searxng.ts`): a base that failed during THIS call is
+   never re-dialed by pass 2 (`failedThisCall`); cross-call recovery stays with
+   health memory + probe TTL.
+3. **Recovery-dial rate limit**: when every base is known-dead, the one
+   recovery attempt fires at most once per 30 s — the escalation fails through
+   immediately instead of re-paying the timeout.
+
+Measured: **IPL 12.5 s → 3.0 s**. Matrix mean ~2.9 s. Even in a mid-flap window
+the F1 worst case was **6.3 s with an honest refusal** (was 12.5 s+), passing at
+2.75 s one minute later. A slow engine can no longer hold the answer hostage:
+parallel fan-out (allSettled) + per-provider timeouts + global deadline +
+cancellation + health-based ordering + fast-return were all already present or
+are now added — and are regression-pinned.
+
+### Issue 2 — configuration inconsistency: root cause + fix
+
+`searxEngines: []` / `searxVerifiedInstances: []` was REAL, not a display bug:
+both are ISOLATE-LOCAL memory, and the diagnostic action runs in a different
+isolate than the searches. Meanwhile production config was never hidden:
+`SEARXNG_BASE_URL=https://search.lumy.live` (confirmed via env list).
+
+Fixes:
+- **`describeSearxSelection()`** — explicit answer to all six questions: which
+  instance (configuredBase), public vs self-hosted (`KNOWN_PUBLIC_HOSTS` →
+  lumy = public), how selected (configured first, measured fallbacks after),
+  health-check state (lastProbe), verified set, and what happens if it
+  disappears (fallback chain + honest refusal — unchanged).
+- **`searxInstanceConfig` table** — the selection is PERSISTED on every
+  snapshot, so the audit survives restarts: currently `base=search.lumy.live,
+  origin=public, configured=true`.
+- **`searxEnginesPersisted`** — see Issue 4.
+
+### Issue 3 — self-hosting: unchanged status (owner-side)
+Package complete and pinned; no Docker daemon in the sandbox; no VPS provider
+provisionable from here. The switch is one env var:
+`bunx convex env set SEARXNG_BASE_URL https://<your-host>` + shared secret.
+Full steps: `deploy/searxng/README.md`.
+
+### Issue 4 — engine health: now PERSISTED
+
+New `searxEngineStats` table + delta pipeline: the engine registry records
+DELTAS per event → `runUniversalSearch` flushes them fire-and-forget after each
+search (in the isolate that actually saw the traffic) → the snapshot MERGES and
+reads. Live-verified this round from one real F1 search through SearXNG:
+
+```
+yandex      ok 1.00 | timeouts 0.00 | p50 765ms | avgResults 15 | dated 0.50 | lastOk ✓
+duckduckgo  ok 0.00 | timeouts 1.00 (1 strike, suspended at 2)
+mwmbl       ok 0.00 | timeouts 1.00
+seznam      unresponsive ×1
+```
+
+All eight contract metrics (latency, success rate, timeout rate, result count,
+freshness share, last success, last failure, + suspended action) now survive
+isolate restarts; suspension/auto-reduction unchanged (2 strikes → 10-min
+cooldown → first success clears).
+
+### Issue 5 — the 8-query matrix (round 8, live)
+
+| # | Query | Status | Latency | Found/Fresh | Failed | Notes |
+|---|---|---|---|---|---|---|
+| 1 | F1 leader | pass | 2.1–2.5 s (×3 runs) | 5/7–8 | 0 | formula1.com kept; authority gate live |
+| 2 | F1 standings | pass | 2.9 s | 5/9 | 0 | wrong-competition rejected |
+| 3 | Latest IPL news | pass | 12.5 s → **3.0 s after fix** | 5/2 | 0→0 | the fast-fail proof |
+| 4 | Live football scores | pass | 1.6 s | 2/2 | 0 | structured feed |
+| 5 | EPL standings | pass | 1.6 s | 1/7 | 0 | |
+| 6 | NBA standings | pass | 3.7 s | 5/8 | 0 | |
+| 7 | Latest India news | pass | 2.1 s | 5/3 | 0 | |
+| 8 | Latest world news | pass | 1.7–6.6 s | 5/2 | 0–1 | 6.6 s = flap window, still passed |
+
+Plus the flap-window control: F1 refused honestly at 6.3 s, passed at 2.75 s on
+retry. Rejections, freshness, relevance, authority and answerability verified
+per row (same gates as rounds 6–7). Evidence: `.qa-tmp/m8-*.json`.
+
+### Gates
+
+1,412 tests / 0 fail (+4 round-8: deadline wiring, selection record, delta
+drain checkpoint, fail-fast contract) · tsc 0 errors · eslint 0 errors ·
+deployed 22:47 UTC.
+
+---
+
 ## Addendum 7 — LATENCY DISCIPLINE + PER-ENGINE HEALTH METRICS + 8-QUERY ACCEPTANCE MATRIX (round 7, 2026-09-29)
 
 Owner verdict on round 6: the reliability layer behaves (sports/entity/year/ranking
@@ -916,3 +1020,57 @@ deployed 20:55 UTC · evidence in `.qa-tmp/*phase6*`.
 **1,409 tests / 0 fail** (72 files) · **tsc 0 errors** · **eslint 0 errors** ·
 deployed 21:51 UTC · evidence `.qa-tmp/matrix-*.json`, `engine-health-snapshot3.json`,
 `telemetry-recent.json`.
+
+---
+
+## FINAL VERDICT — round 8 (latency, config visibility, persisted engine health), 2026-09-29
+
+### PASS
+
+1. **Latency (Issue 1)** — global deadline (16 s, shared across escalation),
+   per-provider caps, real cancellation via guardedCall timers, in-call
+   fast-fail, recovery-dial rate limit. Measured: the one remaining 12.5 s
+   path → 3.0 s; flap-window worst case 6.3 s with honest refusal; matrix mean
+   ~2.9 s. NO timeout was increased; ceilings are unchanged from round 7.
+   **Repro:** `.qa-tmp/m8-*.json` + `bun test tests/omiSearxngResilienceRegression.test.ts`
+   ("global search deadline", "fail-fast" pins).
+2. **Config visibility (Issue 2)** — `describeSearxSelection()` +
+   persisted `searxInstanceConfig` answer exactly: which instance
+   (search.lumy.live), public (not self-hosted), selected how (configured
+   first, measured fallbacks after), health-checked (probe + per-base memory),
+   verified (probeSearxngCandidates), and what happens when it disappears
+   (fallback chain → honest refusal, pinned).
+   **Repro:** `bunx convex run searchEngineHealth:snapshot '{}'` →
+   `searxSelection` + `searxInstanceConfig`.
+3. **Engine health (Issue 4)** — all 8 metrics per underlying engine, now
+   PERSISTED across isolates/restarts and live-populated from real traffic
+   (yandex ok 1.0 / p50 765 ms / dated 0.5; ddg+mwmbl timeout strikes).
+   Suspension + auto-reduction unchanged.
+   **Repro:** `searchEngineHealth:snapshot` → `searxEnginesPersisted`.
+4. **Regression matrix (Issue 5)** — 8/8 pass with per-query
+   provider/latency/results/rejected/kept/freshness/relevance/authority/
+   answerability recorded (Addendum 8 §Issue-5 table + `.qa-tmp/m8-*.json`).
+
+### BLOCKED (owner-side, unchanged)
+
+1. **Self-hosted instance (Issue 3)** — package + wiring complete and pinned;
+   needs a VPS + DNS outside this sandbox. `deploy/searxng/README.md` →
+   `docker compose up -d` → prove JSON → `bunx convex env set SEARXNG_BASE_URL
+   https://<host>` + `SEARXNG_SHARED_SECRET` → re-run the 8-query matrix.
+   Until then production REMAINS explicitly flagged as dependent on a PUBLIC
+   instance by the new config surface — the dependency is now visible, which
+   is the honest interim state.
+2. **Human QA** — checklist `docs/HUMAN_QA_CHECKLIST.md`.
+
+### Known, measured, accepted
+
+- **lumy.live flaps** (2.3 s passes interleaved with 5 s timeouts). Pipeline
+  behavior in both windows is verified: pass with fresh results, or honest
+  refusal ≤ 6.3 s. Permanent fix = BLOCKED item 1.
+- **searchTelemetry logs 12–15 s rows from 63–66 h ago** — old pipeline, kept
+  for audit; post-round-7 rows are all ≤ 10.8 s and post-round-8 ≤ 6.6 s.
+
+### Gates at verdict time
+
+**1,412 tests / 0 fail** (72 files) · **tsc 0 errors** · **eslint 0 errors** ·
+deployed 22:47 UTC · evidence `.qa-tmp/m8-*.json`, `engine-health-r8*.json`.

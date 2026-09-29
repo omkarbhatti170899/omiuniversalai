@@ -117,6 +117,43 @@ const schema = defineSchema(
       createdAt: v.number(),
     }).index("by_created", ["createdAt"]),
 
+    // SEARXNG ENGINE STATS — one row per upstream engine (yandex, duckduckgo,
+    // …), MERGED (never reset) on every observed response so the health
+    // surface survives isolate restarts. Counts and timings only — no queries,
+    // no user data. Measured gap (round 8): the in-memory registry is per
+    // isolate, so the snapshot read empty while production searches were
+    // succeeding through SearXNG.
+    searxEngineStats: defineTable({
+      engine: v.string(),
+      successes: v.number(),
+      totalFailures: v.number(),
+      timeouts: v.number(),
+      latencySumMs: v.number(),
+      latencySamples: v.array(v.number()),
+      resultsContributed: v.number(),
+      datedResults: v.number(),
+      suspendedUntil: v.optional(v.number()),
+      lastError: v.optional(v.string()),
+      lastOkAt: v.optional(v.number()),
+      lastFailAt: v.optional(v.number()),
+      updatedAt: v.number(),
+    }).index("by_engine", ["engine"]),
+
+    // SEARXNG INSTANCE CONFIG AUDIT — one row per configured base, rewritten
+    // on every health probe so the operator surface states EXPLICITLY which
+    // instance serves production, whether it is ours or public, and when it
+    // was last verified. Answers "which SearXNG is being used" without reading
+    // env vars by hand.
+    searxInstanceConfig: defineTable({
+      base: v.string(),
+      origin: v.union(v.literal("self-hosted"), v.literal("public")),
+      configured: v.boolean(),
+      lastProbeHealthy: v.boolean(),
+      lastProbeDetail: v.string(),
+      lastProbedAt: v.number(),
+      updatedAt: v.number(),
+    }).index("by_base", ["base"]),
+
     // Omi Deep Research — one run, live progress for the UI
     researchRuns: defineTable({
       userId: v.id("users"),

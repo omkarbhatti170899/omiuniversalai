@@ -1,0 +1,49 @@
+{
+  "row": {
+    "answer": "Stay Warm This Fall With the Latest Walt Disney World Hoodies\n\nIf you are a frequent reader here at MickeyBlog, you know we are always on the lookout for the latest Disney apparel. [1]\n\nWhether we are browsing the Disney Store, shopping at Disneyland Resort, or searching high and low throughout Walt Disney World, we are dedicated to bringing you the latest Disney clothing as it is released. [1]\n\nEarlier today, we brought you an update on the new Walt Disney World fall spirit jersey and the new Daisy Duck denim jacket that arrived at the Disney Store. [1]\n\nChip n’ Dale Hoodie\n\nWhen we visited World of Disney this morning, we were thrilled to see a new Chip ‘n’ Dale sweatshirt had arrived. [1]\n\nSources: [1] Stay Warm This Fall With the Latest Walt Disney World Hoodies (mickeyblog.com)  [2] Armed conflicts and attacks: Piracy off the coast of Somalia, Anti-piracy measures, Controversies of Hassan Sheikh Mohamud (en.wikipedia.org)",
+    "conflictResolution": null,
+    "detail": "2 fresh result(s) from 2 source(s) in 6630ms; failed engines: SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded"
+    ],
+    "freshResults": 2,
+    "freshSplitCounts": {
+      "fresh": 2,
+      "stale": 3,
+      "undated": 0
+    },
+    "freshness": "Based on 2 reports published in the last 5 days (newest: 23 hours ago).",
+    "intent": "news",
+    "query": "Latest world news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 6630,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T20:13:27.000Z",
+        "title": "Stay Warm This Fall With the Latest Walt Disney World Hoodies",
+        "url": "https://mickeyblog.com/2026/09/28/stay-warm-this-fall-with-the-latest-walt-disney-world-hoodies"
+      },
+      {
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "title": "Armed conflicts and attacks: Piracy off the coast of Somalia, Anti-piracy measures, Controversies of Hassan Sheikh Mohamud",
+        "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}
