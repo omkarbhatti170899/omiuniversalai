@@ -65,6 +65,50 @@ import type { WebCitation } from "./searchProviders/types";
  */
 const RAW: Array<[string, string, string]> = [
   // --- CURRENT NEWS -------------------------------------------------------
+  // --- GOVERNMENT ANNOUNCEMENTS ------------------------------------------
+  // Official .gov sources; tests the authority tier and that corporate/aggregator
+  // pages do not outrank primary government communication.
+  ["government", "latest", "latest RBI announcement"],
+  ["government", "current", "current SEBI regulations for retail investors"],
+  ["government", "latest", "new government scheme announcement today"],
+  ["government", "recent", "recent income tax rule change"],
+  ["government", "2026", "government of India budget 2026 announcement"],
+
+  // --- CHANGING STATISTICS -------------------------------------------------
+  // Numbers that move daily/hourly; tests claim extraction + corroboration on
+  // a VALUE, not just topic relevance. A stale population figure is fine; a
+  // stale forex rate presented as current is not.
+  ["statistics", "current", "current USD to INR exchange rate"],
+  ["statistics", "today", "today's gold price in India"],
+  ["statistics", "current", "current bitcoin price"],
+  ["statistics", "latest", "latest petrol price in Delhi"],
+  ["statistics", "current", "current Indian population estimate"],
+
+  // --- PRODUCT / TECHNOLOGY UPDATES ---------------------------------------
+  // Version-sensitive facts: stale docs are the classic failure. Tests
+  // year/version gating on the SOURCE side.
+  ["tech", "latest", "latest iOS version"],
+  ["tech", "current", "current Node.js LTS version"],
+  ["tech", "latest", "latest Chrome version number"],
+  ["tech", "2026", "iPhone 2026 model announcements"],
+
+  // --- CONFLICTING-SOURCE QUESTIONS ---------------------------------------
+ // Questions where sources genuinely disagree; tests the cross-check +
+  // answer-caveated verdict instead of confident single-source claims.
+  ["conflict", "current", "India's current total medals at Asian Games 2026"],
+  ["conflict", "current", "who is leading the F1 2026 drivers championship"],
+  ["conflict", "current", "current inflation rate India"],
+
+  // --- STALE-PRONE QUESTIONS ----------------------------------------------
+ // Likely to surface old pages that still rank well; tests that the freshness
+  // gate refuses to present them as current.
+  ["stale-prone", "current", "current ICC T20 rankings"],
+  ["stale-prone", "latest", "latest vaccinations schedule India"],
+  ["stale-prone", "current", "current COVID variant in India"],
+
+  // --- CURRENT SPORTS RESULTS ---------------------------------------------
+  ["sports", "current", "Asian Games 2026 India medal tally"],
+
   ["current-news", "today", "what is happening in the world today"],
   ["current-news", "today", "today's top stories"],
   ["current-news", "latest", "latest news"],

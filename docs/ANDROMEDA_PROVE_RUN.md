@@ -262,6 +262,61 @@ remains in the suite.
 
 ---
 
+## Addendum 3 — GOLDEN SUITE + CRITICAL QUERY (2026-09-29)
+
+Scope per the live-validation instruction: no rebuild, no new search layer — the
+deployed path was exercised and recorded. Suite extended with the missing
+categories (government, statistics, tech-updates, conflict, stale-prone); 34
+queries run through `searchQualityBenchmark:runSearchQualityBenchmark` against
+the deployed runtime, plus the critical query through the chat turn.
+
+### CRITICAL TEST — "What is India's Asian Games 2026 medal tally right now?"
+
+NOT answered from memory — retrieval-first proven:
+- **Fresh sources first**: 10 raw → 10 kept, 10/10 dated, 10 independent
+  domains, newest 0.0 days; vertical=sports, askedEvent="asian games",
+  askedYears=[2026]; searchMs 5,110.
+- **Claims extracted + cross-checked**: metric "medals", readings from 3
+  independent domains — 45 (rediff.com, 21h) / 37 (khelnow.com, yesterday) /
+  39 (edayfm.com, ~1h).
+- **Disagreement exposed, not hidden**: conflictNotice emitted verbatim ("Sources
+currently report different values… Omi is not picking one") and verdict
+= **answer-caveated** — the honest behaviour under a live changing tally.
+- Answer cites [1]–[4] incl. Day-8 tally and 12th place; sources: rediff,
+  khelnow, ndtv, timesofindia, jagranjosh, freepressjournal, india.com, edayfm.
+
+### Golden suite — per-category results (all garbage-free)
+
+| Category | Queries | Kept/fresh | Notable measured behaviour |
+|---|---|---|---|
+| Government | 5 | 35 kept, 5/5 fresh-query sets | RBI/SEBI/budget: all dated, drops explained (window×4–9) |
+| Statistics | 5 | 33 kept | USD/INR routed to **market-rates provider**; gold/petrol/btc dated |
+| Tech updates | 4 | 23 kept | iOS/Node/Chrome: stale-doc pages dropped by window; kept sets dated |
+| Conflict | 3 | 13 kept, 3/3 fresh | medals + inflation + F1 championship: caveated, multi-domain |
+| Stale-prone | 3 | 16 kept, 3/3 fresh | T20 rankings / vax schedule / COVID variant: stale sets dropped (×5–9) |
+| Sports results | 15 | 77 kept | live football via feed; Asian Games ×3 variants dated; "history of the World Cup" correctly NOT freshness-gated (12 kept) |
+
+Per-test records include: sources + domains + publishedAt + finalScores,
+latency (totalMs), dropReasons with counts, provider contributions, citation
+markers, refusal flag. Answer correctness is honestly marked
+`NOT-MACHINE-VERIFIABLE` by the harness for prose answers.
+
+One known limitation recorded: `current Premier League standings` returned 0
+kept in this benchmark slice (single stale feed row, before escalation — the
+chat turn escalates and passes; the benchmark records the first-pass view).
+
+**Pinned by `tests/omiGoldenSearchSuite.test.ts` (14 tests):** categories exist;
+critical query routes freshness-required + event/year-scoped + sports (the
+anti-memory precondition); cross-check separates readings by INDEPENDENT
+domain (3×same value = corroboration, 3 different = conflict with evidence,
+same-domain repeat = noise); drop-reason vocabulary complete.
+
+**Gates:** 1,320 tests / 0 fail · tsc 0 errors · eslint 0 errors · deployed
+14:21. Evidence pack: `.qa-tmp/bench-*.json`, `.qa-tmp/critical-*.json`,
+`.qa-tmp/golden-summary.txt`.
+
+---
+
 ## Addendum 2 — relevance-engine PROOF (2026-09-29, post-7511c3e)
 
 Per the "prove it, don't add features" instruction: 7 queries run through the

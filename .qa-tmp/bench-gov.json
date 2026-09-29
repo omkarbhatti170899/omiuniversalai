@@ -1,0 +1,994 @@
+{
+  "answerContract": {
+    "allSourcesDated": 5,
+    "citationsResolve": 5,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 5,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "government": {
+      "fresh": 5,
+      "kept": 35,
+      "n": 5
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 8,
+      "n": 1
+    },
+    "current": {
+      "fresh": 1,
+      "kept": 8,
+      "n": 1
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 16,
+      "n": 2
+    },
+    "recent": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 1
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 5,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1474,
+        "statesFreshness": true,
+        "text": "Capital Small Finance Bank Names Ex-RBI CGM Rachna Dikshit Chair & HDFC Veteran Joseph D’souza Director\n\nMumbai, September 28, 2026: In a major leadership update, Capital Small Finance Bank Limited has announced the appointment of former Reserve Bank of India (RBI) veteran Mrs. [1]\n\nIn areas experiencing dangerous weather or transport disruption, the latest local administration order should take precedence over older holiday announcements. [3]\n\nIt should not be described as an RBI announcement or a new lending rule. [4]\n\nAndhra Pradesh School Holiday Today: Final Update\n\nThe most recent September 29 situation is very clear – there has been no confirmed school holiday throughout the state of Andhra Pradesh from any report received so far and however, weather warnings continue, with the IMD issuing warnings for thunderstorms, lightning and strong winds both in Coastal Andhra Pradesh and Ra"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "latest RBI announcement",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 25.3,
+            "domain": "psuconnect.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:05:00.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Capital Small Finance Bank Names Ex-RBI CGM Rachna Dikshit Chair & HDFC Veteran Joseph D’souza Director",
+            "url": "https://www.psuconnect.in/bank-news/capital-small-finance-bank-appoints-ex-rbi-cgm-rachna-dikshit-as-chair-hdfc-veteran-joseph-d-souza-as-director"
+          },
+          {
+            "ageHours": 105.4,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T05:00:23.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Bank Strike September 2026: Will You Get Your Salary On September 25? Check Who Will Get Paid Today",
+            "url": "https://www.jagranjosh.com/general-knowledge/bank-strike-september-2026-will-you-get-your-salary-on-september-25-check-who-will-get-paid-today-salary-pension-wages-1820012502-1"
+          },
+          {
+            "ageHours": 18.2,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:10:05.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Andhra Pradesh School Holiday Today: Are Schools Open or Closed on September 29 Amid Cyclone? Check Latest Upd",
+            "url": "https://sundayguardianlive.com/india/andhra-pradesh-school-holiday-today-are-schools-open-or-closed-on-september-29-amid-cyclone-check-latest-update-imd-heavy-rain-alert-thunderstorms-forecast-district-wise-closure-status-294784"
+          },
+          {
+            "ageHours": 21,
+            "domain": "pocketly.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:21:20.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.78,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Personal Loans in India: NBFC Growth Hits 30%, Says UBS",
+            "url": "https://pocketly.in/news/personal-loans-in-india-nbfc-growth"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 18.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.827,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 14154,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1200,
+        "statesFreshness": false,
+        "text": "Trusted bullion trading, financial products, and investment solutions for retail investors across India.Fully compliant with SEBI regulations, ensuring your investments are protected by India's highest financial standards. [2]\n\nMarket regulator Sebi's plan to introduce a regulated pre-IPO trading platform could reshape how investors buy and sell unlisted shares, bringing transparency to a space long dominated by the opaque grey market and reducing risks for retail investors, market experts said. [7]\n\nAt the centre of the reforms is a complete rewrite of the portfolio management framework through the new SEBI (Portfolio Managers) Regulations, 2026, which replace the 2020 regulations. [6]\n\nA QIB is an institutional investor that meets the eligibility requirements specified under SEBI regulations. [8]\n\nSources: [1] SEBI eases settlement norms, overhauls PMS regulations to improve market eff"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "current SEBI regulations for retail investors",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 117.8,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:32:15.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "SEBI eases settlement norms, overhauls PMS regulations to improve market efficiency",
+            "url": "https://www.thehindu.com/business/sebi-eases-settlement-norms-overhauls-pms-regulations-to-improve-market-efficiency/article71505314.ece"
+          },
+          {
+            "ageHours": 10.8,
+            "domain": "suchisamuh.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T03:31:43.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Suchi Group — Bullion, Financial & Investment Products",
+            "url": "https://suchisamuh.com"
+          },
+          {
+            "ageHours": 117.8,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:33:21.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "SEBI board clears comprehensive overhaul of PMS, settlement rules",
+            "url": "https://www.thehindubusinessline.com/markets/sebi-board-clears-comprehensive-overhaul-of-pms-settlement-rules/article71505260.ece"
+          },
+          {
+            "ageHours": 117.5,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:51:10.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Sebi revamps accredited investors framework; approves common ad...",
+            "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-revamps-accredited-investors-framework-approves-common-ad-code-for-mkt-intermediaries/articleshow/134466743.cms"
+          },
+          {
+            "ageHours": 109.9,
+            "domain": "differenttruths.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T00:30:03.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Focus: Avoid Unregistered Operators and Social... - Different Truths",
+            "url": "https://www.differenttruths.com/focus-avoid-unregistered-operators-and-social-media-scams-for-bonds"
+          },
+          {
+            "ageHours": 118.7,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T15:40:02.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "SEBI broadens PMS investment universe, introduces MF-only route",
+            "url": "https://www.thehindubusinessline.com/markets/sebi-broadens-pms-investment-universe-introduces-mf-only-route/article71504932.ece"
+          },
+          {
+            "ageHours": 116.7,
+            "domain": "thehansindia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T17:42:27.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Regulated pre-IPO trading platform to bring transparency, liquidity for...",
+            "url": "https://www.thehansindia.com/business/regulated-pre-ipo-trading-platform-to-bring-transparency-liquidity-for-investors-experts-999974"
+          },
+          {
+            "ageHours": 56.8,
+            "domain": "choiceindia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T05:32:49.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "What is QIB in IPO - Meaning, Quota & Bidding Process | Choice",
+            "url": "https://choiceindia.com/blog/what-is-qib-in-ipo"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 10.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.806,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 4030,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1257,
+        "statesFreshness": true,
+        "text": "The News of Today is the History of Tomorrow.9) A CEO has been arrested in connection with a Russkie scheme to infiltrate the Secret Service with foreign nationals. [6]\n\nNEW DELHI: Tamil Nadu chief minister C Joseph Vijay on Monday rolled out the state government’s one-gram gold ring scheme for newborns in Madurai. [5]\n\nGovt likely to reduce petrol price today\n\nBy Aleem Malik -\nSep 29, 2026\n\nISLAMABAD: The government will likely reduce petroleum prices for a second consecutive day today, as oil prices have declined in the international market, ARY News reported. [10]\n\nLog in here »\n\nVANCOUVER – Prime Minister Mark Carney is in Vancouver today, where he’s set to make a major announcement related to the energy industry. [1]\n\nSources: [1] Carney in Vancouver for announcements on energy, ocean protection (brandonsun.com)  [2] In the news today: Trade war escalates, Carney talks energy, AI ch"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "new government scheme announcement today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 7.9,
+            "domain": "brandonsun.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T06:30:08.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Carney in Vancouver for announcements on energy, ocean protection",
+            "url": "https://www.brandonsun.com/lifestyles/2026/09/29/carney-in-vancouver-for-announcements-on-energy-ocean-protection"
+          },
+          {
+            "ageHours": 5.8,
+            "domain": "brandonsun.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:31:47.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "In the news today: Trade war escalates, Carney talks energy, AI chatbot for health",
+            "url": "https://www.brandonsun.com/national/2026/09/29/in-the-news-today-trade-war-escalates-carney-talks-energy-ai-chatbot-for-health"
+          },
+          {
+            "ageHours": 23.4,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:58:24.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "What you need to know about ‘Your First Home’ scheme for first-time...",
+            "url": "https://www.theguardian.com/money/2026/sep/28/first-home-scheme-first-time-buyers-what-you-need-to-know"
+          },
+          {
+            "ageHours": 18.2,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 5,
+            "domain": "heisiwu.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T09:24:24.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.93,
+              "freshness": 0.23,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Vijay: Watch: Tamil Nadu CM Vijay launches one-gram gold ring...",
+            "url": "https://heisiwu.net/india/tamil-nadu-cm-vijay-to-launch-one-gram-gold-ring-scheme-for-newborns-today/articleshow/134532390.cms"
+          },
+          {
+            "ageHours": 20.8,
+            "domain": "wildworldofpolitics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:31:56.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "TODAY'S NEWS, September 26-28, 2026",
+            "url": "https://www.wildworldofpolitics.com/post/today-s-news-september-26-28-2026"
+          },
+          {
+            "ageHours": 23.6,
+            "domain": "theweek.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:47:40.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "A ring, a promise and Joseph Vijay’s welfare politics in... - The Week",
+            "url": "https://www.theweek.in/news/india/2026/09/28/tamil-nadu-gold-ring-scheme-newborns.html"
+          },
+          {
+            "ageHours": 7.3,
+            "domain": "realitytea.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:04:36.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "White House Defends Nearly $1.5M in Taxpayer-Funded Donald Trump Ads",
+            "url": "https://www.realitytea.com/2026/09/29/donald-trump-taxpayer-ad-white-house-defense"
+          },
+          {
+            "ageHours": 23.1,
+            "domain": "moneyweek.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:16:41.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "UK housebuilder stocks surge: should you buy?",
+            "url": "https://moneyweek.com/investments/uk-stock-markets/uk-housebuilder-stocks-surge-should-you-buy"
+          },
+          {
+            "ageHours": 0.6,
+            "domain": "arynews.tv",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:44:26.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.24,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Govt likely to reduce petrol price today",
+            "url": "https://arynews.tv/govt-likely-to-reduce-petrol-price-today"
+          },
+          {
+            "ageHours": 27,
+            "domain": "uk.news.yahoo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T11:23:30.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Housebuilder shares jump following first-time buyer... - Yahoo News UK",
+            "url": "https://uk.news.yahoo.com/housebuilder-shares-jump-following-first-111330133.html"
+          },
+          {
+            "ageHours": 31.6,
+            "domain": "english.mathrubhumi.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T06:44:32.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Born in a government hospital? Tamil Nadu newborns to get a gold...",
+            "url": "https://english.mathrubhumi.com/news/india/tamil-nadu-cm-vijay-thaaimaman-thanga-mothiram-gold-ring-scheme-mk6s04pw"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 0.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.933,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 6245,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 839,
+        "statesFreshness": true,
+        "text": "To deduct a loss, she must sell the shares or they must become worthless under tax rules.That extra income changes how Social Security is taxed. [2]\n\n196: Newspaper \"Income Tax Service\" ads omitting attorney status.What do the rules say today, for your facts? [1]\n\nYour Tax Rate Could Change the Answer\n\nTwo Canadians can invest the exact same amount, buy the exact same stock, earn the exact same return, and still end up with very different retirement outcomes. [3]\n\nContributions can reduce taxable income, investments grow tax-deferred, and withdrawals are generally taxable income later. [3]\n\nSources: [1] Okla. Bar Ethics Op. 205: Income-Tax Classified Ad - Ezel (ezel.ai)  [2] She Will Sell a Stock at a $40,000 Loss. That Won’t Cancel the Income... (247wallst.com)  [3] TFSA or RRSP? Your Tax Rate Could Change the Answer (fool.ca)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "recent income tax rule change",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 26.3,
+            "domain": "ezel.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:02:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Okla. Bar Ethics Op. 205: Income-Tax Classified Ad - Ezel",
+            "url": "https://ezel.ai/ethics-opinions/okbar/205-classified-ad-for-income-tax-and-refund-claim-purchases"
+          },
+          {
+            "ageHours": 44.3,
+            "domain": "247wallst.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T18:02:45.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "She Will Sell a Stock at a $40,000 Loss. That Won’t Cancel the Income...",
+            "url": "https://247wallst.com/personal-finance/social-security/2026/09/27/she-will-sell-a-stock-at-a-40000-loss-that-wont-cancel-the-income-from-her-40000-ira-withdrawal"
+          },
+          {
+            "ageHours": 94.6,
+            "domain": "fool.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T15:45:07.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "TFSA or RRSP? Your Tax Rate Could Change the Answer",
+            "url": "https://www.fool.ca/2026/09/25/tfsa-or-rrsp-your-tax-rate-could-change-the-answer"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 26.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.887,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 8414,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1428,
+        "statesFreshness": false,
+        "text": "It follows a May 2026 announcement from the Ministry of Transport that the 2026/27 transport budget would fund the start of exactly this kind of feasibility study, meaning TRC’s September meeting confirms a process the government had already committed to funding months earlier. [3]\n\nUnlike many such claims, this one carries a paper trail: a 30 per cent horizontal reservation for women in state recruitment, a Rs 1.11 lakh crore budget naming women one of four pillars of its GYAN model, and a steady run of scheme announcements through 2026. [1]\n\nIndian Union Budget.Interested candidates may send their application along with bio profile by E-mail [email protected] /Post to Director, 8, South Audley Street the Nehru Centre, High Commission of India, London, W1K 1HF not later 06th October 2026 at 05:00 pm. [2]\n\nNIF India Recruitment 2026: Apply for Administrative & Finance Officer, Assistant "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "government of India budget 2026 announcement",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 17.2,
+            "domain": "garhwalpost.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:11:45.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "The Hills Run on Women | Garhwal Post",
+            "url": "https://garhwalpost.in/the-hills-run-on-women"
+          },
+          {
+            "ageHours": 56.8,
+            "domain": "hcilondon.gov.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T05:36:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.2,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "High Commission of India, London, United Kingdom : Public Notices",
+            "url": "https://www.hcilondon.gov.in/news_detail?newsid=982"
+          },
+          {
+            "ageHours": 115.1,
+            "domain": "tanzaniatimes.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T19:17:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Can Tanzania build Monorails in Dar-es-Salaam and Dodoma?",
+            "url": "https://tanzaniatimes.net/can-tanzania-build-monorails-in-dar-es-salaam-and-dodoma"
+          },
+          {
+            "ageHours": 57.3,
+            "domain": "marugujarat.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T05:04:57.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "NIF India Recruitment 2026: Apply for Administrative & Finance Officer, Assistant Posts",
+            "url": "https://www.marugujarat.in/2026/09/nif-india-recruitment-2026"
+          },
+          {
+            "ageHours": 74.9,
+            "domain": "theindianjournal.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:27:24.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.94,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "The Indian Journal – Page 2466",
+            "url": "https://theindianjournal.in/page/2466"
+          },
+          {
+            "ageHours": 57.2,
+            "domain": "indiastrategic.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T05:11:27.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Rajnath Singh warns against ‘perimeter fallacy’, calls... - India Strategic",
+            "url": "https://www.indiastrategic.in/rajnath-singh-warns-against-perimeter-fallacy-calls-for-holistic-approach-to-national-security"
+          },
+          {
+            "ageHours": 104.3,
+            "domain": "psuconnect.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:06:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "RITES Vacancy 2026: Manager Railway Design & Operation on Immediate Absorption",
+            "url": "https://www.psuconnect.in/jobs/rites-vacancy-2026-manager-railway-design-operation-on-immediate-absorption"
+          },
+          {
+            "ageHours": 70.9,
+            "domain": "thanjavur.nic.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:30:54.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Announcement regarding the Makkal Nerkanal mugam(08.10.2026)",
+            "url": "https://thanjavur.nic.in/announcement-regarding-the-makkal-nerkanal-mugam08-10-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 17.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.955,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2387,
+      "vertical": "news"
+    }
+  ],
+  "total": 5
+}

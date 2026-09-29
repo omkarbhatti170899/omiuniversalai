@@ -1,0 +1,699 @@
+{
+  "answerContract": {
+    "allSourcesDated": 4,
+    "citationsResolve": 4,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 4,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "tech": {
+      "fresh": 3,
+      "kept": 23,
+      "n": 4
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 1
+    },
+    "current": {
+      "fresh": 1,
+      "kept": 8,
+      "n": 1
+    },
+    "latest": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 4,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 758,
+        "statesFreshness": false,
+        "text": "Whats NewUpdated to version 2.0.4 with latest engine stabilityFull compatibility with iOS 16, 17, and iOS 18 (iPhone & iPad) [4]\n\nMitamaton is iPhone only and needs iOS 18 or later. [1]\n\nThe app is available for iPad and iPhone, requiring only a one-time purchase of around $12.99 for the iPad version or just $5.99 for the iPhone version. [3]\n\nVersion 2.0 is now available as a free update, and there’s also an iOS version. [6]\n\nSources: [1] Mitamaton · A chief of staff for your day (mitamaton.com)  [2] GSB Aviator Zambia - How to Play & Maximize Your Rewards (aviatorbetgame.co.zm)  [3] 9 excellent iOS apps I wish would come to Android (but probably never... (androidauthority.com)  [4] Underneath IPA v2.0.4 (Subscription Unlocked) for iOS (kurd4u.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "latest iOS version",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 15.7,
+            "domain": "mitamaton.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:41:13.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Mitamaton · A chief of staff for your day",
+            "url": "https://mitamaton.com"
+          },
+          {
+            "ageHours": 86.4,
+            "domain": "aviatorbetgame.co.zm",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:00:00.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "GSB Aviator Zambia - How to Play & Maximize Your Rewards",
+            "url": "https://aviatorbetgame.co.zm/gsb"
+          },
+          {
+            "ageHours": 75.2,
+            "domain": "androidauthority.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:09:15.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "9 excellent iOS apps I wish would come to Android (but probably never...",
+            "url": "https://www.androidauthority.com/ios-apps-i-want-on-android-2026-3713705"
+          },
+          {
+            "ageHours": 38.8,
+            "domain": "kurd4u.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T23:34:16.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Underneath IPA v2.0.4 (Subscription Unlocked) for iOS",
+            "url": "https://kurd4u.com/underneath-ipa"
+          },
+          {
+            "ageHours": 19.4,
+            "domain": "theblaze.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:00:00.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Siri has always been lame — until now. Here's how to make the latest version pay off.",
+            "url": "https://www.theblaze.com/tech/ios27-new-siri"
+          },
+          {
+            "ageHours": 24.8,
+            "domain": "synthanatomy.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T13:33:02.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "AudioThing The Orb: morphing vowel filter plugin... - SYNTH ANATOMY",
+            "url": "https://synthanatomy.com/2026/09/audiothing-the-orb-morphing-vowel-filter-plugin.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 15.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.858,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 4958,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 994,
+        "statesFreshness": false,
+        "text": "And it seems that the not-LTS version of nodejs is installed on my system, hence the conflict there.AND as soon as I remove the AUR expresslrs-configurator those deps went away. [4]\n\nLTS (Long Term Support).Which Node.js version should a beginner install? [1]\n\nDownload and install the LTS version from nodejs.org.node --version # Should output v22.x or later npm --version # Should output 10.x or later. [2]\n\nOur VPS with Node.js comes with a fully configured stack for production deployment: the latest LTS version of Node.js via NVM, npm package manager, PM2 process manager for zero-downtime deployment, and Nginx as a reverse proxy with SSL support. [3]\n\nSources: [1] How to Install Node.js on Windows, macOS and Linux (with nvm) (enterno.io)  [2] Detailed installation instructions for all platforms and configurations. (docs.gauzy.co)  [3] Node.js VPS — Pre-installed & Ready | VDS.GURU (vds.g"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "current Node.js LTS version",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 56.2,
+            "domain": "enterno.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T06:10:08.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "How to Install Node.js on Windows, macOS and Linux (with nvm)",
+            "url": "https://enterno.io/en/articles/node-js-install-guide"
+          },
+          {
+            "ageHours": 21.2,
+            "domain": "docs.gauzy.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:08:37.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Detailed installation instructions for all platforms and configurations.",
+            "url": "https://docs.gauzy.co/getting-started/installation"
+          },
+          {
+            "ageHours": 119.8,
+            "domain": "vds.guru",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T14:35:41.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.99,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Node.js VPS — Pre-installed & Ready | VDS.GURU",
+            "url": "https://vds.guru/marketplace/nodejs"
+          },
+          {
+            "ageHours": 72.3,
+            "domain": "discuss.cachyos.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:02:31.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.99,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "How to remove removed packages from paru sync? - CachyOS Forum",
+            "url": "https://discuss.cachyos.org/t/how-to-remove-removed-packages-from-paru-sync/36303"
+          },
+          {
+            "ageHours": 38.8,
+            "domain": "yusmpgroup.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T23:33:21.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "JavaScript Software Development Services: 2026 Guide | YuSMP",
+            "url": "https://yusmpgroup.com/blog/javascript-software-development-services"
+          },
+          {
+            "ageHours": 53.1,
+            "domain": "x386.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T09:15:11.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.91,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Node.js | Debian & Ubuntu Tutorials",
+            "url": "https://x386.org/guides/nodejs"
+          },
+          {
+            "ageHours": 70.8,
+            "domain": "pkgdex.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:34:48.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "nodejs-lts-jod Download for Linux (RPM) - pkgdex.org",
+            "url": "https://pkgdex.org/download/nodejs-lts-jod"
+          },
+          {
+            "ageHours": 86.2,
+            "domain": "tech-tips-now.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T00:10:41.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Install Node.js & npm on Windows Using CMD",
+            "url": "https://tech-tips-now.com/how-to-install-node-js-npm-on-windows-using-cmd"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 21.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.954,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2237,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 707,
+        "statesFreshness": true,
+        "text": "Google Chrome Update to Latest Version with Relaunch button on computer It will complete the Chrome browser update process. [6]\n\nThe newly released version 4.6.3 of Permanent Clipboard for Chrome offers an efficient solution for saving and organizing clipboard snippets. [1]\n\nChrome releasesWhat each Chrome version changed, with a live check. [2]\n\nGematrix Chrome App.lotto winning number today. [3]\n\nSources: [1] Permanent Clipboard for Chrome 4.6.3 released (warp2search.net)  [2] window.chrome.* helpers are native (not JS stubs) — browser... (clearcotelabs.com)  [3] im rerouting with you value in Gematria is 2277 (gematrix.org)  [4] Chrome Fixes How You Send Tabs to Your Phone (androidheadlines.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "latest Chrome version number",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 60.4,
+            "domain": "warp2search.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:00:07.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Permanent Clipboard for Chrome 4.6.3 released",
+            "url": "https://www.warp2search.net/story/permanent-clipboard-for-chrome-463-released"
+          },
+          {
+            "ageHours": 67.5,
+            "domain": "clearcotelabs.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T18:55:28.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.74,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "window.chrome.* helpers are native (not JS stubs) — browser...",
+            "url": "https://www.clearcotelabs.com/audit/checks/chrome-native-stubs"
+          },
+          {
+            "ageHours": 89.9,
+            "domain": "gematrix.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T20:26:22.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.04
+            },
+            "title": "im rerouting with you value in Gematria is 2277",
+            "url": "https://www.gematrix.org?word=im+rerouting+with+you"
+          },
+          {
+            "ageHours": 93.6,
+            "domain": "androidheadlines.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T16:45:58.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Chrome Fixes How You Send Tabs to Your Phone",
+            "url": "https://www.androidheadlines.com/2026/09/chrome-send-tab-to-phone-feature-fix.html"
+          },
+          {
+            "ageHours": 117.4,
+            "domain": "9to5google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T17:00:54.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Chrome saves scroll position when sending tabs between devices",
+            "url": "https://9to5google.com/2026/09/24/chrome-send-scroll-position-more"
+          },
+          {
+            "ageHours": 71.2,
+            "domain": "browserhow.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:13:16.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.66,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "How to Fix Instagram Not Working in Chrome on Computer",
+            "url": "https://browserhow.com/how-to-fix-instagram-not-working-in-chrome-browser"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 60.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.753,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 12577,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 935,
+        "statesFreshness": false,
+        "text": "The promo runs until September 30, 2026, and covers iPhone 12 up to iPhone 16 models. [3]\n\nThe iOS 27.0.1 update is anticipated to be released explicitly for users of the iPhone 18 Pro and iPhone 18 Pro Max, with a possible launch date of Monday, September 28, or Tuesday, September 29, 2026. [2]\n\nNotably, users of other iPhone models that were updated to iOS 27 are exempt from this particular Face ID inconvenience. [2]\n\nBeyond the Box offers iPhone battery replacement discount for a limited time\n\nBeyond the Box is giving iPhone users a chance to save with a 20% discount on iPhone battery replacement. [3]\n\nSources: [1] MobiKin Updates iOS Assistant for Faster Data Migration to iPhone 18 (send2press.com)  [2] iOS 27.0.1 Launch Date: Apple Update Addressing Face ID Freezing and Restart Problems on iPhone 18 Pro (rswebsols.com)  [3] Beyond the Box offers iPhone battery replacement discount f"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "iPhone 2026 model announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 3,
+            "domain": "send2press.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:25:09.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.23,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "MobiKin Updates iOS Assistant for Faster Data Migration to iPhone 18",
+            "url": "https://www.send2press.com/wire/mobikin-updates-ios-assistant-for-faster-data-migration-to-iphone-18"
+          },
+          {
+            "ageHours": 18.4,
+            "domain": "rswebsols.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:00:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "iOS 27.0.1 Launch Date: Apple Update Addressing Face ID Freezing and Restart Problems on iPhone 18 Pro",
+            "url": "https://www.rswebsols.com/news/ios-27-0-1-launch-date-apple-update-addressing-face-id-freezing-and-restart-problems-on-iphone-18-pro"
+          },
+          {
+            "ageHours": 12.5,
+            "domain": "technobaboy.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:54:14.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Beyond the Box offers iPhone battery replacement discount for a limited time",
+            "url": "https://www.technobaboy.com/2026/09/29/beyond-the-box-offers-iphone-battery-replacement-discount-for-a-limited-time"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 3,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.923,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 4539,
+      "vertical": "news"
+    }
+  ],
+  "total": 4
+}

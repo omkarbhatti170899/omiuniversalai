@@ -1,0 +1,48 @@
+=== .qa-tmp/bench-conflict.json (6)
+  conflict         n=3 kept=13 fresh=3
+  stale-prone      n=3 kept=16 fresh=3
+  India's current total medals at Asian Games 20 | kept=6  dated=6  | drops: outside freshness window×6 | providers=searxng,langsearch | cites=[1, 2, 3, 4] refuse=False
+  who is leading the F1 2026 drivers championshi | kept=1  dated=1  | drops: outside freshness window×2, undated×9 | providers=langsearch | cites=[1] refuse=False
+  current inflation rate India                   | kept=6  dated=6  | drops: outside freshness window×6 | providers=searxng,langsearch | cites=[1, 2, 3, 4, 5] refuse=False
+  current ICC T20 rankings                       | kept=3  dated=3  | drops: outside freshness window×9 | providers=searxng | cites=[1, 2, 3] refuse=False
+  latest vaccinations schedule India             | kept=7  dated=7  | drops: outside freshness window×5 | providers=langsearch,searxng | cites=[1, 2, 3, 4, 7] refuse=False
+  current COVID variant in India                 | kept=6  dated=6  | drops: outside freshness window×5, undated×1 | providers=searxng,langsearch | cites=[1, 2, 3, 4, 5] refuse=False
+=== .qa-tmp/bench-gov.json (5)
+  government       n=5 kept=35 fresh=5
+  latest RBI announcement                        | kept=4  dated=4  | drops: outside freshness window×8 | providers=langsearch,searxng | cites=[1, 2, 3, 4] refuse=False
+  current SEBI regulations for retail investors  | kept=8  dated=8  | drops: outside freshness window×4 | providers=langsearch,searxng | cites=[1, 2, 3, 4, 6, 7, 8] refuse=False
+  new government scheme announcement today       | kept=12 dated=12 | drops: none | providers=langsearch,searxng | cites=[1, 2, 3, 4, 5, 6, 10] refuse=False
+  recent income tax rule change                  | kept=3  dated=3  | drops: outside freshness window×9 | providers=searxng,langsearch | cites=[1, 2, 3] refuse=False
+  government of India budget 2026 announcement   | kept=8  dated=8  | drops: outside freshness window×4 | providers=searxng,langsearch | cites=[1, 2, 3, 4] refuse=False
+=== .qa-tmp/bench-sports.json (15)
+  sports           n=15 kept=77 fresh=12
+  Asian Games 2026 India medal tally             | kept=5  dated=5  | drops: undated×7 | providers=searxng,langsearch | cites=[1, 2, 3, 4, 5] refuse=False
+  football results today                         | kept=2  dated=2  | drops: none | providers=sports-scores | cites=[1, 2] refuse=False
+  latest cricket match result                    | kept=7  dated=7  | drops: outside freshness window×5 | providers=searxng,langsearch | cites=[1, 2, 3, 4] refuse=False
+  live football scores                           | kept=2  dated=2  | drops: none | providers=sports-scores | cites=[1, 2] refuse=False
+  current Premier League standings               | kept=0  dated=0  | drops: outside freshness window×1 | providers= | cites=[] refuse=False
+  latest IPL news                                | kept=2  dated=2  | drops: non-sequitur for a broad news question×1, outside freshness window×7, shares no subject word×2 | providers=langsearch,searxng | cites=[1, 2] refuse=False
+  Formula 1 2026 season results                  | kept=1  dated=1  | drops: outside freshness window×1, undated×10 | providers=searxng | cites=[1] refuse=False
+  NBA standings                                  | kept=1  dated=1  | drops: outside freshness window×1, undated×10 | providers=langsearch | cites=[1] refuse=False
+  latest tennis tournament results               | kept=7  dated=7  | drops: outside freshness window×5 | providers=searxng,langsearch | cites=[1, 2, 3, 4, 7] refuse=False
+  today's match fixtures                         | kept=12 dated=12 | drops: none | providers=langsearch,searxng | cites=[1, 2, 3, 4, 5, 12] refuse=False
+  who won the most recent F1 race                | kept=10 dated=10 | drops: outside freshness window×2 | providers=langsearch,searxng | cites=[1, 2, 3, 4, 10] refuse=False
+  Asian Games 2026 medal tally India             | kept=7  dated=7  | drops: undated×5 | providers=searxng,langsearch | cites=[1, 2, 3, 4, 5] refuse=False
+  latest Asian Games 2026 results                | kept=3  dated=3  | drops: outside freshness window×9 | providers=langsearch,searxng | cites=[1, 2, 3] refuse=False
+  current Olympic medal table                    | kept=6  dated=6  | drops: outside freshness window×2 | providers=langsearch,wikipedia-current-events,Wikipedia Current Events | cites=[1, 2, 3, 4] refuse=False
+  history of the World Cup final                 | kept=12 dated=6  | drops: none | providers=wikipedia,langsearch,hackernews,openlibrary | cites=[1, 2, 3, 4, 6, 7] refuse=False
+=== .qa-tmp/bench-stat.json (5)
+  statistics       n=5 kept=33 fresh=4
+  current USD to INR exchange rate               | kept=2  dated=2  | drops: outside freshness window×10 | providers=market-rates,Open Exchange Rates (keyless),searxng | cites=[1, 2] refuse=False
+  today's gold price in India                    | kept=12 dated=12 | drops: none | providers=langsearch,searxng | cites=[1, 2, 3, 4, 9, 10] refuse=False
+  current bitcoin price                          | kept=7  dated=7  | drops: outside freshness window×5 | providers=langsearch,searxng | cites=[1, 2, 3, 4, 5] refuse=False
+  latest petrol price in Delhi                   | kept=7  dated=7  | drops: outside freshness window×5 | providers=searxng,langsearch | cites=[1, 2, 3, 4, 5] refuse=False
+  current Indian population estimate             | kept=5  dated=5  | drops: outside freshness window×5, undated×2 | providers=langsearch,searxng | cites=[1, 2, 3, 4, 5] refuse=False
+=== .qa-tmp/bench-tech.json (4)
+  tech             n=4 kept=23 fresh=3
+  latest iOS version                             | kept=6  dated=6  | drops: outside freshness window×6 | providers=searxng,langsearch | cites=[1, 2, 3, 4, 6] refuse=False
+  current Node.js LTS version                    | kept=8  dated=8  | drops: outside freshness window×4 | providers=searxng | cites=[1, 2, 3, 4] refuse=False
+  latest Chrome version number                   | kept=6  dated=6  | drops: outside freshness window×6 | providers=langsearch,searxng | cites=[1, 2, 3, 4, 6] refuse=False
+  iPhone 2026 model announcements                | kept=3  dated=3  | drops: outside freshness window×2, undated×7 | providers=langsearch | cites=[1, 2, 3] refuse=False
+
+GARBAGE-FREE

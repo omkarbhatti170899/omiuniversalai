@@ -1,0 +1,947 @@
+{
+  "answerContract": {
+    "allSourcesDated": 5,
+    "citationsResolve": 5,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 5,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "statistics": {
+      "fresh": 4,
+      "kept": 33,
+      "n": 5
+    }
+  },
+  "byTemporal": {
+    "current": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 1,
+      "kept": 7,
+      "n": 1
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 12,
+      "n": 1
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 5,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 475,
+        "statesFreshness": false,
+        "text": "Exchange rates.Intraday chart for Indian Rupee / US Dollar (INR/USD). [2]\n\n1 USD = 96.0699 INR (rate updated Tue, 29 Sep 2026 00:02:31 +0000). [1]\n\nSource: open.er-api.com / exchangerate-api.com (keyless public exchange-rate feed). [1]\n\nRates are reference values for information only, not a trading quote and not financial advice. [1]\n\nSources: [1] 1 USD = 96.0699 INR (xe.com)  [2] India's Adani Airport Holdings raises $120 million... | MarketScreener (marketscreener.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "current USD to INR exchange rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.3,
+            "domain": "xe.com",
+            "providers": [
+              "market-rates",
+              "Open Exchange Rates (keyless)"
+            ],
+            "publishedAt": "2026-09-29T00:02:31.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "1 USD = 96.0699 INR",
+            "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
+          },
+          {
+            "ageHours": 8.3,
+            "domain": "marketscreener.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T06:04:03.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "India's Adani Airport Holdings raises $120 million... | MarketScreener",
+            "url": "https://www.marketscreener.com/news/india-s-adani-airport-holdings-raises-120-million-through-local-bond-issue-ce785addd880fe2d"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 8.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.96,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 8215,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1571,
+        "statesFreshness": true,
+        "text": "Gold Rates Today Live September 29: 24K, 22K & 18K Gold Prices in Delhi, Mumbai, Chennai, Kolkata & More Cities; Check City-Wise Rates & Why Prices Are Falling\n\nGold Rates Today Live: Gold prices in India remained under pressure on September 29, with retail rates showing a decline from the previous session. [1]\n\nGold Price Today.iPhone 18 Pro price in India drops to Rs 1,07,900 with cashback, exchange bonus and more: All the details. [9]\n\n(Kitco News) – China’s 2026 gold imports could be double those of last year, and will set the high-water mark for the 2020 to date, while silver prices are approaching a key test that could determine the gray metal’s near-term direction, according to precious metals analysts at Heraeus. [10]\n\nDRI Busts Pan-India Gold Smuggling Network, Seizes ₹10.36 Crore Gold & Arrests 11\n\nThe Directorate of Revenue Intelligence busted a pan-India gold smuggling syndic"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "today's gold price in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 5.7,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:41:26.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Gold Rates Today Live September 29: 24K, 22K & 18K Gold Prices in Delhi, Mumbai, Chennai, Kolkata & More Citie",
+            "url": "https://sundayguardianlive.com/business/gold-rates-today-live-september-29-24k-22k-18k-gold-prices-in-delhi-mumbai-chennai-kolkata-more-cities-check-city-wise-rates-why-prices-are-falling-295110"
+          },
+          {
+            "ageHours": 23.8,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:33:47.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "DRI Busts Pan-India Gold Smuggling Network, Seizes ₹10.36 Crore Gold & Arrests 11",
+            "url": "https://www.freepressjournal.in/india/dri-busts-pan-india-gold-smuggling-network-seizes-1036-crore-gold-arrests-11"
+          },
+          {
+            "ageHours": 7.8,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T06:35:17.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "FPJ Quick Take At 12 PM: 'Neeru Dhanda Clinches GOLD At Asian Games, India Joins Islamabad SCO Meet'; Your Dai",
+            "url": "https://www.freepressjournal.in/india/fpj-quick-take-at-12-pm-neeru-dhanda-clinches-gold-at-asian-games-india-joins-islamabad-sco-meet-your-daily-noon-guide-to-top-news-headlines"
+          },
+          {
+            "ageHours": 9.6,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:45:21.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Petrol and diesel prices today in Hyderabad, Delhi, Chennai and Mumbai on 29 September 2026",
+            "url": "https://www.thehansindia.com/business/market-compass/petrol-and-diesel-prices-today-in-hyderabad-delhi-chennai-and-mumbai-on-29-september-2026-1126840"
+          },
+          {
+            "ageHours": 34.3,
+            "domain": "livemint.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T04:06:44.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "IND vs AFG Highlights, Asian Games 2026 quarterfinal: Shreyas...",
+            "url": "https://www.livemint.com/sports/cricket-news/india-vs-afghanistan-live-score-asian-games-2026-mens-cricket-quarterfinal-ind-vs-afg-match-28-sept-samson-bumrah-11790565772943.html"
+          },
+          {
+            "ageHours": 18.4,
+            "domain": "brecorder.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T19:55:47.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "News Archives for Markets - 2026-09-25 - Business Recorder",
+            "url": "https://www.brecorder.com/markets/grains/2026-09-25"
+          },
+          {
+            "ageHours": 28.9,
+            "domain": "investing.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:30:48.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "investing.com/analysis/the-gold-update-still-lower-ahead-200688479",
+            "url": "https://www.investing.com/analysis/the-gold-update-still-lower-ahead-200688479"
+          },
+          {
+            "ageHours": 30.8,
+            "domain": "dailyforex.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:35:55.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "GBP/USD Signal 28/09: Sterling Pressured Ahead of Key",
+            "url": "https://www.dailyforex.com/forex-technical-analysis/2026/09/gbpusd-signal-28-september-2026/250093"
+          },
+          {
+            "ageHours": 4.9,
+            "domain": "moneycontrol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T09:28:10.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Delhi’s AQI more than doubles in October; but Delhi is not city that...",
+            "url": "https://www.moneycontrol.com/city/delhi-s-aqi-more-than-doubles-in-october-but-delhi-is-not-city-that-faces-higher-pollution-article-14041013.html"
+          },
+          {
+            "ageHours": 23.2,
+            "domain": "kitco.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:08:32.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "China on pace to import 1,700 tonnes of gold in 2026... | Kitco News",
+            "url": "https://www.kitco.com/news/article/2026-09-28/china-pace-import-1700-tonnes-gold-2026-silver-price-faces-key-test-near"
+          },
+          {
+            "ageHours": 9.7,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:38:32.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Gold rates today in Delhi, Mumbai, and Kolkata slashes, check the prices on 29 September 2026",
+            "url": "https://www.thehansindia.com/business/market-compass/gold-rates-today-in-delhi-mumbai-and-kolkata-slashes-check-the-prices-on-29-september-2026-1126834"
+          },
+          {
+            "ageHours": 37,
+            "domain": "cnbc.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T01:24:53.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Northern Star shares pop as it rejects $27 billion takeover proposal",
+            "url": "https://www.cnbc.com/2026/09/28/northern-star-shares-gold-fields-takeover-bid.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 4.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.929,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2694,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1087,
+        "statesFreshness": false,
+        "text": "Bitcoin’s 42% Quarter Brought It Back Near Its Year Open, Not Its Record\n\nBitcoin finished June at $58,524, which is about 31% lower than its current price. [5]\n\nEven with the recent gains, Bitcoin is still down 3.7% for the year, while its year-opening price of $87,498 sits about 3% above the current level. [5]\n\nBy this measure, Bitcoin is currently priced higher than it was at the end of June but significantly lower than its record price of $126,198 set in October 2025, which is about 49% above the current price. [5]\n\nRoughly $500 million in leveraged crypto bets were liquidated in a single day as the bitcoin price slipped under $83,000, and the push came from outside crypto, namely oil, bonds and a rare gold rout. [1]\n\nSources: [1] Bitcoin Price Dips Below $83K as 129,197 Traders Get Wiped out (news.bitcoin.com)  [2] Bitcoin Held Around $83,000 Amid Oil Price | TheUnum (theunum.io)  ["
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "current bitcoin price",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 6.9,
+            "domain": "news.bitcoin.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:30:35.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Bitcoin Price Dips Below $83K as 129,197 Traders Get Wiped out",
+            "url": "https://news.bitcoin.com/market-updates/bitcoin-price-83k-500m-liquidations-129197-traders"
+          },
+          {
+            "ageHours": 5.3,
+            "domain": "theunum.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T09:06:17.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Bitcoin Held Around $83,000 Amid Oil Price | TheUnum",
+            "url": "https://theunum.io/en/news/read/bitcoin-held-around-83-000-amid-oil-price-increase"
+          },
+          {
+            "ageHours": 35.8,
+            "domain": "thecurrencyanalytics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:35:17.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Bitcoin Hits $86,000 and Bitget Loses $351... | The Currency analytics",
+            "url": "https://thecurrencyanalytics.com/bitcoin/bitcoin-hits-86000-and-bitget-loses-351-million-in-the-same-week-297950"
+          },
+          {
+            "ageHours": 36.2,
+            "domain": "news.bitcoin.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T02:07:48.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Waiting for a 30% Bitcoin Dip Backfired in 61% of Tested Cases",
+            "url": "https://news.bitcoin.com/market-updates/waiting-for-a-30-bitcoin-dip-backfired-in-61-of-tested-cases"
+          },
+          {
+            "ageHours": 26.1,
+            "domain": "247wallst.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:14:15.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Is Bitcoin a Good Investment Right Now After a 42% Quarter?",
+            "url": "https://247wallst.com/investing/cryptocurrency/2026/09/28/is-bitcoin-a-good-investment-right-now-after-a-42-quarter"
+          },
+          {
+            "ageHours": 24.1,
+            "domain": "247wallst.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:14:16.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Should You Buy Bitcoin Now or Wait? The Case at $85,000",
+            "url": "https://247wallst.com/investing/cryptocurrency/2026/09/28/should-you-buy-bitcoin-now-or-wait-the-case-at-85000"
+          },
+          {
+            "ageHours": 65,
+            "domain": "filmdaily.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:23:27.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Can Bitcoin reach ‘$1 million’ in 2026, or not",
+            "url": "https://filmdaily.co/news/can-bitcoin-reach-1-million-in-2026-or-not"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 5.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.989,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1481,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 882,
+        "statesFreshness": true,
+        "text": "Petrol and Diesel Prices in Delhi on September 29. [2]\n\nCheck latest petrol, diesel prices in Delhi, Mumbai, Bengaluru and other cities. [3]\n\nGold, Silver prices today, September 25, 2026: Check city-wise rates in Delhi, Mumbai, Chennai, Kolkata and more.On PM Modi's advise to reduce fuel dependency, DK Shivakumar questions high petrol, diesel prices (Image source: ANI). [4]\n\nPetrol and Diesel Prices Today — Aug 28: Fuel prices in Delhi, Mumbai and Bengaluru, crude heading for weekly losses | Today’s news. [5]\n\nSources: [1] Petrol, diesel prices today, September 29: Check fuel cost in Delhi... (livemint.com)  [2] Petrol Diesel Price Today: Check September 29 Rates in Delhi... (newscrab.com)  [3] Delhi Traffic Alert: Avoid these 3 key stretches today as Barapullah... (news24online.com)  [4] PM Modi’s gold, fuel remark sparks political row; DK Shivakumar... (dnaindia.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "latest petrol price in Delhi",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 12.8,
+            "domain": "livemint.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T01:32:57.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Petrol, diesel prices today, September 29: Check fuel cost in Delhi...",
+            "url": "https://www.livemint.com/news/india/petrol-diesel-prices-today-september-29-check-fuel-cost-in-delhi-mumbai-bengaluru-11790643268549.html"
+          },
+          {
+            "ageHours": 7.2,
+            "domain": "newscrab.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T07:08:48.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Petrol Diesel Price Today: Check September 29 Rates in Delhi...",
+            "url": "https://www.newscrab.com/news/petrol-diesel-price-today-check-september-29-rates-in-delhi-mumbai-and-other-major-cities"
+          },
+          {
+            "ageHours": 8.7,
+            "domain": "news24online.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T05:37:41.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Delhi Traffic Alert: Avoid these 3 key stretches today as Barapullah...",
+            "url": "https://news24online.com/cities/delhi-ncr/delhi-traffic-alert-avoid-these-3-key-stretches-today-as-barapullah-phase-iii-opens-check-advisory/935766"
+          },
+          {
+            "ageHours": 64.5,
+            "domain": "dnaindia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T21:51:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PM Modi’s gold, fuel remark sparks political row; DK Shivakumar...",
+            "url": "https://www.dnaindia.com/india/report-pm-modi-s-gold-fuel-remark-sparks-political-row-dk-shivakumar-questions-high-petrol-diesel-prices-3209924"
+          },
+          {
+            "ageHours": 108.2,
+            "domain": "techwordnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T02:10:29.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Petrol & Diesel Prices Today, September 25: How... - Tech Word News",
+            "url": "https://techwordnews.com/petrol-diesel-prices-today-september-25-how-much-does-fuel-cost-in-delhi-mumbai-bengaluru-check-here-todays-news"
+          },
+          {
+            "ageHours": 2.3,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T12:02:28.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Mysuru man pours petrol on himself after rejection, tries... - India Today",
+            "url": "https://www.indiatoday.in/cities/other-cities/story/mysuru-college-incident-man-pours-petrol-on-himself-after-woman-rejects-him-3005776-2026-09-29"
+          },
+          {
+            "ageHours": 9.6,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:45:21.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Petrol and diesel prices today in Hyderabad, Delhi, Chennai and Mumbai on 29 September 2026",
+            "url": "https://www.thehansindia.com/business/market-compass/petrol-and-diesel-prices-today-in-hyderabad-delhi-chennai-and-mumbai-on-29-september-2026-1126840"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 2.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2895,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 936,
+        "statesFreshness": true,
+        "text": "India Today.India is the second most populous country in the world but its population is estimated to shrink by 41 crore in the next 78 years. [3]\n\nIndia population right now, a live estimate from UN figures: births and deaths today, growth this year, median age and world rank. [2]\n\nBeing 14-29 years old, as Indian’s Gen Z is, in 2026, just not the same thing it used to be in India. [4]\n\nToday in History, September 29: Indian Historical Events, Births, Deaths & Global Observances\n\nSeptember 29 is an important date in Indian history, particularly for the freedom movement, sports, cinema, literature and public life. [5]\n\nSources: [1] Indian Oil plans to launch packaged drinking water under own brand across 43,000 fuel outlets (thehindu.com)  [2] India Population Live Counter (2026) (livecounts.nl)  [3] Telegram: View @communia (t.me)  [4] Gen Z: In India, being young is no longer the all-p"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "current Indian population estimate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.2,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:10:23.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian Oil plans to launch packaged drinking water under own brand across 43,000 fuel outlets",
+            "url": "https://www.thehindu.com/news/cities/Hyderabad/indian-oil-plans-to-launch-packaged-drinking-water-under-own-brand-across-43000-fuel-outlets/article71523220.ece"
+          },
+          {
+            "ageHours": 25.8,
+            "domain": "livecounts.nl",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T12:35:11.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "India Population Live Counter (2026)",
+            "url": "https://livecounts.nl/world-population/india"
+          },
+          {
+            "ageHours": 117.2,
+            "domain": "t.me",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T17:11:55.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Telegram: View @communia",
+            "url": "https://t.me/communia/31138"
+          },
+          {
+            "ageHours": 107.5,
+            "domain": "scroll.in",
+            "providers": [
+              "searxng",
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T02:51:27.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Gen Z: In India, being young is no longer the all-powerful force it once...",
+            "url": "https://scroll.in/article/1095496/for-indias-gen-z-being-young-is-no-longer-the-all-powerful-force-it-once-was"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:35:22.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Today in History, September 29: Indian Historical Events, Births, Deaths & Global Observances",
+            "url": "https://www.careerindia.com/features/today-in-history-september-29-indian-historical-events-births-deaths-global-observances-066287.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 3.2,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.904,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 12915,
+      "vertical": "general"
+    }
+  ],
+  "total": 5
+}

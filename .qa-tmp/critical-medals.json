@@ -1,0 +1,61 @@
+{
+  "row": {
+    "answer": "India's overall medal tally at the Asian Games has now reached 45, placing the country 12th in the standings. [1]\n\nAsian Games 2026 Medal Tally: Where does India rank after athletics, skeet and Wushu medals? [4]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [2]\n\nWho leads the Asian Games 2026 medal tally after Day 8 (September 27)? [2]\n\nSources: [1] Asian Games: After double bronze haul, Parul now... - Rediff Sports (rediff.com)  [2] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [3] India Secures Multiple Medals at Asian Games 2026; Cricket Team Reaches Semifinals (digg.com)  [4] India vs India at Asian Games: Anahat Singh to face Tanvi Khanna in... (tbc.cgw26.com)",
+    "detail": "5 fresh result(s) from 3 source(s) in 9712ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 5,
+    "freshSplitCounts": {
+      "fresh": 5,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": "Based on 5 reports published in the last 2 days (newest: 3 hours ago).",
+    "intent": "current",
+    "query": "What is India's Asian Games 2026 medal tally right now?",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 9712,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T17:43:33.000Z",
+        "title": "Asian Games: After double bronze haul, Parul now... - Rediff Sports",
+        "url": "https://www.rediff.com/sports/report/asian-games-after-double-bronze-haul-parul-now-craves-family-time/20260928.htm"
+      },
+      {
+        "publishedAt": "2026-09-28T00:09:28.000Z",
+        "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+        "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+      },
+      {
+        "publishedAt": "2026-09-29T07:45:19.000Z",
+        "title": "India Secures Multiple Medals at Asian Games 2026; Cricket Team Reaches Semifinals",
+        "url": "https://digg.com/sports/ugcxph7j"
+      },
+      {
+        "publishedAt": "2026-09-29T11:10:49.000Z",
+        "title": "India vs India at Asian Games: Anahat Singh to face Tanvi Khanna in...",
+        "url": "https://tbc.cgw26.com/sports/asian-games-2026/india-vs-india-at-asian-games-anahat-singh-to-face-tanvi-khanna-in-squash-quarterfinals/articleshow/134458606.cms"
+      },
+      {
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the…",
+        "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "sports"
+  }
+}

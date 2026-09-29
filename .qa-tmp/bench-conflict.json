@@ -1,0 +1,914 @@
+{
+  "answerContract": {
+    "allSourcesDated": 6,
+    "citationsResolve": 6,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 6,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "conflict": {
+      "fresh": 3,
+      "kept": 13,
+      "n": 3
+    },
+    "stale-prone": {
+      "fresh": 3,
+      "kept": 16,
+      "n": 3
+    }
+  },
+  "byTemporal": {
+    "current": {
+      "fresh": 5,
+      "kept": 22,
+      "n": 5
+    },
+    "latest": {
+      "fresh": 1,
+      "kept": 7,
+      "n": 1
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 6,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 902,
+        "statesFreshness": false,
+        "text": "Follow TimesofIndia.com for the Asian Games 2026 medal tally, including India’s gold, silver and bronze medals, total medal count, country-wise standings, latest results and updates as the competition unfolds in Japan. [1]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [3]\n\nIndia has clinched a total of 37 medals so far at the 2026 Asian Games—4 Gold, 16 Silver, 17 Bronze. [3]\n\nThe women's trap team silver took India's overall medal tally at the 2026 Asian Games to 46. [4]\n\nSources: [1] Asian Games 2026 Medal Tally | India Asian Games Medals Tally... (tbc.cgw26.com)  [2] Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 (freepressjournal.in)  [3] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [4] Asian Games 2026: India women's trap shooting team clinches silver... (livemint.co"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "India's current total medals at Asian Games 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 4.4,
+            "domain": "tbc.cgw26.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T10:00:09.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 Medal Tally | India Asian Games Medals Tally...",
+            "url": "https://tbc.cgw26.com/sports/asian-games/medal-tally"
+          },
+          {
+            "ageHours": 47,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:21:40.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+          },
+          {
+            "ageHours": 38.2,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:09:28.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+            "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+          },
+          {
+            "ageHours": 10.3,
+            "domain": "livemint.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T04:03:56.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026: India women's trap shooting team clinches silver...",
+            "url": "https://www.livemint.com/sports/news/asian-games-2026-india-womens-trap-shooting-team-clinches-silver-as-countrys-total-medal-tally-rises-to-46-11790653690711.html"
+          },
+          {
+            "ageHours": 23.1,
+            "domain": "news.abplive.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T15:19:30.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games Medal Tally On Day 10: Check Nation-Wise List",
+            "url": "https://news.abplive.com/sports/asian-games-2026-medal-tally-day-10-india-45-medals-check-nation-wise-list-1868776"
+          },
+          {
+            "ageHours": 12.4,
+            "domain": "mykhel.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T01:58:56.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.31,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 India Medal Tally: Silver in Shooting... - myKhel",
+            "url": "https://www.mykhel.com/more-sports/asian-games-2026-india-medal-tally-full-list-of-medals-won-by-indians-till-september-29-454819.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 4.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.957,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 14972,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 615,
+        "statesFreshness": false,
+        "text": "Kim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source\n\nKim Kardashian has another business idea up her sleeve, and her boyfriend, Lewis Hamilton, is here for it. [1]\n\nCadillac debuted on the grid in the 2026 season. [1]\n\nAs reported by InTouch Weekly, she is cooking up plans for them to own their own F1 team. [1]\n\n“Lewis is under contract with Ferrari until the end of 2027, but after that he’s free to do what he wants and Kim would like them to start their own team,” a source explained to InTouch. [1]\n\nSources: [1] Kim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source (realitytea.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "who is leading the F1 2026 drivers championship",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 24.3,
+            "domain": "realitytea.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:07:44.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.17,
+              "relevance": 0.21,
+              "sourceQuality": 0.12
+            },
+            "title": "Kim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source",
+            "url": "https://www.realitytea.com/2026/09/28/kim-kardashian-lewis-hamilton-f1-dream-team-rumors"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 24.3,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.76,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 3114,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 931,
+        "statesFreshness": true,
+        "text": "DHL Express Shipments Set To Cost More In India, 8.9% Rate Hike To Take Effect From January\n\nDHL Express will raise shipment charges in India by 8.9% from January 1, 2027, citing inflation, currency shifts and rising costs across its global network. [3]\n\nOil prices remained around $106 a barrel, raising concerns over India’s import bill and inflation outlook. [4]\n\nA vegetable price shock and rise of other key food items has sent India’s benchmark inflation rate to a 15-month high of 7.4% in July. [5]\n\nIndia imports around 85% of its crude oil requirements. [1]\n\nSources: [1] Sensex tumbles 1,000 points: Why markets are falling... - India Today (indiatoday.in)  [2] NDLI: Retail food prices rise 40% in 4 metros; Delhi worst hit (ndl.iitkgp.ac.in)  [3] DHL Express Shipments Set To Cost More In India, 8.9% Rate Hike To Take Effect From January (freepressjournal.in)  [4] Sensex Opens Marginall"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current inflation rate India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 31,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:25:59.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Sensex tumbles 1,000 points: Why markets are falling... - India Today",
+            "url": "https://www.indiatoday.in/business/market/story/sensex-tumbles-1000-points-why-markets-are-falling-despite-strong-growth-3004638-2026-09-28"
+          },
+          {
+            "ageHours": 119.4,
+            "domain": "ndl.iitkgp.ac.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T14:58:43.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "NDLI: Retail food prices rise 40% in 4 metros; Delhi worst hit",
+            "url": "https://ndl.iitkgp.ac.in/nw_document/economictimes/economictimes/39544_64"
+          },
+          {
+            "ageHours": 78.6,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T07:47:22.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "DHL Express Shipments Set To Cost More In India, 8.9% Rate Hike To Take Effect From January",
+            "url": "https://www.freepressjournal.in/business/dhl-express-shipments-set-to-cost-more-in-india-89-rate-hike-to-take-effect-from-january"
+          },
+          {
+            "ageHours": 104.3,
+            "domain": "tradingeconomics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:02:48.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Sensex Opens Marginally Higher",
+            "url": "https://tradingeconomics.com/india/stock-market/news/586774"
+          },
+          {
+            "ageHours": 4.5,
+            "domain": "thehansindia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T09:54:40.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "MyVoice: Views of our readers 30th August 2023",
+            "url": "https://www.thehansindia.com/my-voice/myvoice-views-of-our-readers-30th-august-2023-819133"
+          },
+          {
+            "ageHours": 0,
+            "domain": "luxtripper.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T23:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.24,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Overview",
+            "url": "https://www.luxtripper.co.uk/indias-golden-triangle-tour-with-goa-beach-stay"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.888,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2270,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 672,
+        "statesFreshness": false,
+        "text": "That is, the teams ranked higher in the ICC T20 rankings will automatically qualify for the final. [3]\n\nWomen's cricket will debut at next year's Commonwealth Games with a re-match of the 2020 T20 World Cup final.The other six teams were chosen based on their place in the ICC T20 rankings as of April 1 last year. [1]\n\nThe Indian team celebrate after beating Pakistan in the inaugural ICC T20 World Cup edition in 2007. [2]\n\nSources: [1] Australia vs India to kick off Commonwealth Games Women's T20 (cricinfo.com)  [2] Star player from MS Dhoni’s T20 World Cup winning team applies for... (india.com)  [3] प्रकृतिको मार- खेल्दै नखेली ‘हार’ – Nepal Press (nepalpress.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "current ICC T20 rankings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.1,
+            "domain": "cricinfo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T01:18:14.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "Australia vs India to kick off Commonwealth Games Women's T20",
+            "url": "https://www.cricinfo.com/print/story/1289027"
+          },
+          {
+            "ageHours": 20.3,
+            "domain": "india.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T18:07:40.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Star player from MS Dhoni’s T20 World Cup winning team applies for...",
+            "url": "https://www.india.com/sports/cricket/star-player-from-ms-dhonis-t20-world-cup-winning-team-applies-for-selectors-job-praveen-kumar-8531056"
+          },
+          {
+            "ageHours": 2.5,
+            "domain": "nepalpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T11:51:55.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.23,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "प्रकृतिको मार- खेल्दै नखेली ‘हार’ – Nepal Press",
+            "url": "https://www.nepalpress.com/2026/09/29/768628/natures-attack-defeat-without-playing"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 2.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.917,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2550,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1151,
+        "statesFreshness": true,
+        "text": "However, in India, the two-dose schedule is still recommended for individuals from 9 to 14 years of age. [7]\n\nAsian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Channel\n\nAsian Games 2026 India Schedule September 29 LIVE: India will look to add to its medal tally with a packed programme featuring several finals and crucial knockout contests. [1]\n\npediatrician/consultations and vaccinations schedule: ~₹3,500/month. [3]\n\nIndia ended September 24 with five medals, taking its overall tally to 17 medals, one gold, seven silver and nine bronze. [2]\n\nSources: [1] Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Channel (sundayguardianlive.com)  [2] Asian Games 2026 India Schedule Today, September 25: Gulveer Singh, Anahat Singh, Aishwary Pratap In Action Across Athletics, Squash, S"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "latest vaccinations schedule India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 12.8,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:33:25.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Ch",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-29-live-streaming-check-todays-events-timings-fixtures-and-tv-channel-294887"
+          },
+          {
+            "ageHours": 110.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:03:13.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule Today, September 25: Gulveer Singh, Anahat Singh, Aishwary Pratap In Action Ac",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-today-september-25-gulveer-singh-anahat-singh-aishwary-pratap-in-action-across-athletics-squash-shooting-check-full-events-time-in-ist-292115"
+          },
+          {
+            "ageHours": 75.4,
+            "domain": "youtubesummary.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:00:07.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Video Summary - Can Indian Parents afford to raise a kid in India?",
+            "url": "https://youtubesummary.com/summary/EUhOrRbQcJY"
+          },
+          {
+            "ageHours": 98.7,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:43:45.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "CDC vaccine guidance stalled after mFlusiva approval... - India Today",
+            "url": "https://www.indiatoday.in/world/story/cdc-vaccine-guidance-stalled-after-mflusiva-approval-rfk-jr-acip-overhaul-ptag-3002892-2026-09-25"
+          },
+          {
+            "ageHours": 73,
+            "domain": "washingtontimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T13:26:03.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "One shot or two? What to know about HPV vaccination...",
+            "url": "https://www.washingtontimes.com/news/2026/sep/26/know-hpv-vaccination-recommendations"
+          },
+          {
+            "ageHours": 43.2,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T19:09:57.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "NMC to educate citizens on rabies treatment - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/city/nagpur/nmc-to-educate-citizens-on-rabies-treatment/articleshow/134525437.cms"
+          },
+          {
+            "ageHours": 69.2,
+            "domain": "manipalhospitals.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T17:12:38.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Protecting Women’s Health: How the HPV Vaccine Reduces Cervical...",
+            "url": "https://www.manipalhospitals.com/clinics-indiranagar/blog/protecting-womens-health-how-the-hpv-vaccine-reduces-cervical-cancer-cases-worldwide"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 12.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.826,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 10063,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1010,
+        "statesFreshness": false,
+        "text": "India on Saturday reported 11,499 fresh Covid-19 cases, and 255 deaths, according to health ministry's updated data at 9 am. [1]\n\nThe researchers also identified differences in response to Covid-19 variants. [2]\n\nCovid variant molecular mechanisms refer to the genetic and biochemical processes by which SARS-CoV-2, the virus that causes COVID-19, accumulates mutations and gives rise to new variants with altered properties. [5]\n\nFauci’s failed approach to combatting COVID-19 back in 2020 and 2021, all but guaranteed that we would be dealing with mutated COVID strands for the foreseeable future – and this year is no different. [4]\n\nSources: [1] Coronavirus Omicron variant India live updates: Kerala eases Covid... (timesofindia.indiatimes.com)  [2] Oral antibodies could help clear Covid-19 faster | King's College London (kcl.ac.uk)  [3] OPPO Launches K14 Plus in India: Price, Features and Sp"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "current COVID variant in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 30.4,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T08:00:21.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Coronavirus Omicron variant India live updates: Kerala eases Covid...",
+            "url": "https://timesofindia.indiatimes.com/india/coronavirus-omicron-variant-india-february-25/liveblog/89813233.cms?curpg=5"
+          },
+          {
+            "ageHours": 37.3,
+            "domain": "kcl.ac.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T01:05:38.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 0.99,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Oral antibodies could help clear Covid-19 faster | King's College London",
+            "url": "https://www.kcl.ac.uk/news/oral-antibodies-may-help-clear-covid-19-faster"
+          },
+          {
+            "ageHours": 4.3,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:05:24.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "OPPO Launches K14 Plus in India: Price, Features and Specifications",
+            "url": "https://www.thehansindia.com/tech/oppo-launches-k14-plus-in-india-price-features-and-specifications-1126947"
+          },
+          {
+            "ageHours": 117.6,
+            "domain": "theburningplatform.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T16:48:01.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Covid numbers rise dramatically thanks to new...",
+            "url": "https://www.theburningplatform.com/2026/09/24/covid-numbers-rise-dramatically-thanks-to-new-variants"
+          },
+          {
+            "ageHours": 57.9,
+            "domain": "oap-lifescience.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T04:28:35.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.19,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Covid Variant Molecular Mechanisms: Research & Overview",
+            "url": "https://oap-lifescience.org/international-journal-of-coronaviruses/covid-variant-molecular-mechanisms"
+          },
+          {
+            "ageHours": 74.3,
+            "domain": "wordhint.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T12:03:54.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Re: COVID variant - start social distancing? - Minute Cryptic Answer",
+            "url": "https://www.wordhint.net/minute-cryptic-answer/2026-09-27-re-covid-variant-start-social-distancing"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 4.3,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.908,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2576,
+      "vertical": "general"
+    }
+  ],
+  "total": 6
+}

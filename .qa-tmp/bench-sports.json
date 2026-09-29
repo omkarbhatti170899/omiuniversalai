@@ -1,0 +1,2323 @@
+{
+  "answerContract": {
+    "allSourcesDated": 14,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 2,
+    "withCitations": 14,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 1
+  },
+  "byCategory": {
+    "sports": {
+      "fresh": 12,
+      "kept": 77,
+      "n": 15
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 8,
+      "n": 2
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 21,
+      "n": 4
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 19,
+      "n": 4
+    },
+    "live": {
+      "fresh": 1,
+      "kept": 2,
+      "n": 1
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 13,
+      "n": 2
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 923,
+        "statesFreshness": true,
+        "text": "India’s medal tally at the 2026 Asian Games climbed to 48 medals on Tuesday, with the country adding a gold and a silver in shooting on Day 11. [1]\n\nIndia’s medal tally at the 2026 Asian Games in Aichi-Nagoya climbed to 39 medals on Monday, with the country adding a silver and a bronze to its haul on Day 10. [2]\n\nAsian Games 2026 Medal Tally Live, Day 11: Check out India’s gold, silver, bronze winners list. [5]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [3]\n\nSources: [1] Asian Games 2026 Medal Tally Today... - The Times of India (timesofindia.indiatimes.com)  [2] Asian Games 2026 medal tally today... - The Times of India (timesofindia.indiatimes.com)  [3] Asian Games 2026: Updated medal tally after Day 8, September 27 (khelnow.com)  [4] Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India Rise To 10t"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 India medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 7.5,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T06:54:18.000Z",
+            "relevance": 1.1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 Medal Tally Today... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-medal-tally-today-29/09/2026-india-rank-and-full-medals-table/articleshow/134558496.cms"
+          },
+          {
+            "ageHours": 31.2,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T07:14:20.000Z",
+            "relevance": 1.06,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.06,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 medal tally today... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-medal-tally-today-28/09/2026-india-rank-and-full-medals-table/articleshow/134534404.cms"
+          },
+          {
+            "ageHours": 44.8,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 71.9,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:31:54.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India R",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medal-tally-day-8-kabaddi-teams-bag-twin-golds-tajinderpal-toor-sawan-barwal-help-india-rise-to-10th"
+          },
+          {
+            "ageHours": 11.8,
+            "domain": "indianexpress.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T02:37:42.000Z",
+            "relevance": 1.02,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.02,
+              "freshness": 0.21,
+              "relevance": 0.43,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games Medal Tally 2026 Live, Day 11: Update India Asian...",
+            "url": "https://indianexpress.com/article/sports/asian-games-2026-medal-tally-day-11-india-gold-silver-bronze-list-10898380"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 7.5,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.048,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2914,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 489,
+        "statesFreshness": true,
+        "text": "Completed results from earlier today are not included. [1]\n\nSlovenia U21 v Israel U21 — in play (1H), 1 – 0. [1]\n\nMadagascar v Tanzania — in play (1H), 0 – 0. [2]\n\nLive scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nSources: [1] Slovenia U21 v Israel U21 1 – 0 (UEFA European Under-21 Championship · 21 · 2026-09-29 14:00:00) (thesportsdb.com)  [2] Madagascar v Tanzania 0 – 0 (African Cup of Nations Qualifying · 21 · 2026-09-29 14:00:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "football results today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T14:23:59.833Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.24,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Slovenia U21 v Israel U21 1 – 0 (UEFA European Under-21 Championship · 21 · 2026-09-29 14:00:00)",
+            "url": "https://www.thesportsdb.com/team/140201"
+          },
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T14:23:59.833Z",
+            "relevance": 0.51,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.51,
+              "freshness": 0.24,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Madagascar v Tanzania 0 – 0 (African Cup of Nations Qualifying · 21 · 2026-09-29 14:00:00)",
+            "url": "https://www.thesportsdb.com/team/136509"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.69,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 596,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1013,
+        "statesFreshness": true,
+        "text": "Upcoming Matches Cricketers' Birthday Cricket Results Cricket Team Cricket Records Authors.No stories available right now. [1]\n\nNews.That result came despite a heavy workload and a seven-wicket match haul from Australian off-spinner Todd Murphy. [2]\n\nMatch Reports.Your No.1 destination for live cricket scores, match coverage, breaking news, video highlights and in‑depth feature stories. [3]\n\nIndia vs Afghanistan in Asian Games Cricket Quarterfinal on September 28 After Group A Results\n\nIND vs AFG, Asian Games 2026 Update: Nepal has secured a place in the quarterfinals of the Asian Games Men's Cricket Tournament. [4]\n\nSources: [1] ICC Cricket West Indies tour of India, 2026, IND vs WI Cricket News... (cricketnmore.com)  [2] India A Beat Australia A by 162 Runs | Read Cricket (readcricket.com)  [3] Murphy's four keeps Australia A's hopes hanging by... | cricket.com.au (cricket.com.au)  [4]"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest cricket match result",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 105.8,
+            "domain": "cricketnmore.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T04:36:01.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "ICC Cricket West Indies tour of India, 2026, IND vs WI Cricket News...",
+            "url": "https://www.cricketnmore.com/cricket-series/west-indies-tour-of-india-2026"
+          },
+          {
+            "ageHours": 76.8,
+            "domain": "readcricket.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T09:35:57.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "India A Beat Australia A by 162 Runs | Read Cricket",
+            "url": "https://readcricket.com/2026/09/26/india-a-beat-australia-a-puducherry-todd-murphy"
+          },
+          {
+            "ageHours": 114.7,
+            "domain": "cricket.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-24T19:41:11.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "Murphy's four keeps Australia A's hopes hanging by... | cricket.com.au",
+            "url": "https://www.cricket.com.au/news/4581058/india-a-v-australia-a-first-four-day-match-day-three-report-scores-sangha-murphy-konstas-mcsweeney"
+          },
+          {
+            "ageHours": 75.2,
+            "domain": "sangritoday.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T11:10:33.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "India vs Afghanistan in Asian Games Cricket Quarterfinal on September 28 After Group A Results",
+            "url": "https://www.sangritoday.com/sports/india-vs-afghanistan-in-asian-games-cricket-quarterfinal-on-september-28-after-group-a-results"
+          },
+          {
+            "ageHours": 67,
+            "domain": "femalecricket.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T19:23:21.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "India A Women Pull Off Stunning 363-Run Chase as... - Female Cricket",
+            "url": "https://femalecricket.com/australia-a-women-tour-of-india-2026/97635-india-a-women-pull-off-stunning-363-run-chase-as-minnu-mani-finishes-unbeaten-on-88.html"
+          },
+          {
+            "ageHours": 99,
+            "domain": "cricxtra.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:22:49.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "India A Women vs Australia A Women 3rd Unofficial ODI... - CricXtra",
+            "url": "https://www.cricxtra.com/india-a-women-vs-australia-a-women-3rd-unofficial-odi-prediction-series-decider-in-mohali"
+          },
+          {
+            "ageHours": 44.7,
+            "domain": "cricinfo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T17:44:22.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.07
+            },
+            "title": "Cricket Photos - ZIM-W vs WI-W, 2nd ODI Pictures",
+            "url": "https://www.cricinfo.com/series/west-indies-women-in-zimbabwe-2026-1554972/zimbabwe-women-vs-west-indies-women-2nd-odi-1554976/match-photo"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 44.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.891,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 7767,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 370,
+        "statesFreshness": true,
+        "text": "Competition: UEFA European Under-21 Championship. [1]\n\nFree-tier feed: this is a small selection of today's fixtures, not the full schedule. [1]\n\nSources: [1] Belgium U21 vs Wales U21 (UEFA European Under-21 Championship · 2026-09-29 18:00:00) (thesportsdb.com)  [2] Estonia U21 vs France U21 (UEFA European Under-21 Championship · 2026-09-29 15:00:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "live football scores",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T14:24:08.195Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.24,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Belgium U21 vs Wales U21 (UEFA European Under-21 Championship · 2026-09-29 18:00:00)",
+            "url": "https://www.thesportsdb.com/team/136848"
+          },
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-29T14:24:08.195Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.24,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Estonia U21 vs France U21 (UEFA European Under-21 Championship · 2026-09-29 15:00:00)",
+            "url": "https://www.thesportsdb.com/team/140205"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 2,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.86,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 507,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Premier League standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 176,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 713,
+        "statesFreshness": true,
+        "text": "Next: IPL 2025: An Amazing Experience, Everybody’s Been Really Welcoming, Says Southgate.Most Read News. [2]\n\nThe player's participation, along with those of other global cricket stars, was announced through a list of players published ahead of the Player Auction, which will take place at the ICC Academy Indoors, Dubai on Thursday, October 1. [1]\n\nOther globally recognised T20 superstars on the list are Phil Salt, Tom Banton, Rahmanullah Gurbaz, Wanindu Hasaranga, Alzarri Joseph, Faf du Plessis and Liam Livingstoner. [1]\n\nSources: [1] Babar Azam to play in UAE's IPL style T20 league in November 2026 (khaleejtimes.com)  [2] Winning Premier League In Front Of Fans At Anfield... - Sports GR8 (sportsgr8.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest IPL news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 7,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 4.2,
+            "domain": "khaleejtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:12:08.000Z",
+            "relevance": 1.08,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 1.08,
+              "freshness": 0.23,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Babar Azam to play in UAE's IPL style T20 league in November 2026",
+            "url": "https://www.khaleejtimes.com/sports/cricket/ilt20-cricket-league-uae-player-auction-babar-azam"
+          },
+          {
+            "ageHours": 102.9,
+            "domain": "sportsgr8.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T07:31:11.000Z",
+            "relevance": 0.15,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.15,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Winning Premier League In Front Of Fans At Anfield... - Sports GR8",
+            "url": "https://www.sportsgr8.com/winning-premier-league-in-front-of-fans-at-anfield-was-a-feeling-ill-never-forget-alexander-arnold"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 4.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.615,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 4090,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 377,
+        "statesFreshness": false,
+        "text": "Latest Formula 1 Stories.It speaks volumes for Antonelli's outstanding season that Baku featured his first genuinely consequential mistake since his round one practice crash. [1]\n\nAfter looking absurdly composed and fast, and though it was all coming so easily in 2026, this new and... [1]\n\nSources: [1] Everything we learned from F1's 2026 Azerbaijan Grand Prix (the-race.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Formula 1 2026 season results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 55.8,
+            "domain": "the-race.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T06:38:14.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "Everything we learned from F1's 2026 Azerbaijan Grand Prix",
+            "url": "https://www.the-race.com/formula-1/everything-we-learned-from-f1s-2026-azerbaijan-grand-prix"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 55.8,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.99,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 3614,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 480,
+        "statesFreshness": false,
+        "text": "Bryson Graham sees something in his NBA past worth placing in the Bulls’ future\n\nReboots are a coin flip. [1]\n\nSince the NBA is well known to be a league of relationships, it’s worth pointing out the common denominator within a few of Graham’s latest staff hirings. [1]\n\nJustin Irwin is due to serve as the franchise’s assistant strength and conditioning coach. [1]\n\nSources: [1] Bryson Graham sees something in his NBA past worth placing in the Bulls’ future (pippenainteasy.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "NBA standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 25.4,
+            "domain": "pippenainteasy.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:00:03.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Bryson Graham sees something in his NBA past worth placing in the Bulls’ future",
+            "url": "https://pippenainteasy.com/bryson-graham-nba-past-bulls-future"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 25.4,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.88,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 10017,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1257,
+        "statesFreshness": false,
+        "text": "Kou Lei – Chop Serve and Chop Loop Combo\n\n(by: Bowmar Sports)\n\nIn this Butterfly Training Tips, Kou Lei is working with a student chopper on a combo of chopping the serve, followed by chopping a loop\n\nStay “In The Loop” with Butterfly professional table tennis equipment, table tennis news, table tennis technology, tournament results, and We Are Butterfly players, coaches, clubs and more [7]\n\nTOURNAMENT RESULTS.The Official App Of Tennis | Download ATP WTA Live App. [3]\n\nItaly's Jasmine Paolini (right) and Sara Errani react after winning against China's Guo Hanyu and Jiang Xinyu during their women's doubles quarterfinal match at the Billie Jean King Cup tennis tournament in Shenzhen, southern China's Guangdong province on September 25, 2026. [2]\n\nTennis — Madrid Open — Park Manzanares, Madrid, Spain — May 1, 2025 Coco Gauff of the US celebrates after winning her semi final match against P"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest tennis tournament results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 75.3,
+            "domain": "omanobserver.om",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:08:35.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.95,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "tennis - Oman Observer",
+            "url": "https://www.omanobserver.om/morearticles/sports/tennis?pgno=22"
+          },
+          {
+            "ageHours": 104.3,
+            "domain": "philstar.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:04:48.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Paolini steers Italy past China in Billie Jean King Cup tennis tourney",
+            "url": "https://www.philstar.com/sports/2026/09/25/2558836/paolini-steers-italy-past-china-billie-jean-king-cup-tennis-tourney"
+          },
+          {
+            "ageHours": 5.1,
+            "domain": "atptour.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T09:19:11.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.91,
+              "freshness": 0.23,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "Nuno Borges on Novak Djokovic’s perfect... | ATP Tour | Tennis",
+            "url": "https://www.atptour.com/en/news/borges-feature-beijing-2026"
+          },
+          {
+            "ageHours": 93,
+            "domain": "ironmountaindailynews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T17:25:25.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Knights third, IM fourth at MPC tennis tourney - The Daily News",
+            "url": "https://www.ironmountaindailynews.com/sports/local-sports/2026/09/knights-third-im-fourth-at-mpc-tennis-tourney"
+          },
+          {
+            "ageHours": 49.7,
+            "domain": "mgoblue.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T12:43:10.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Doubles Game Highlights Michigan's Season Opener in South Bend...",
+            "url": "https://mgoblue.com/news/2026/9/24/mens-tennis-michigan-at-fighting-irish-mini-duals"
+          },
+          {
+            "ageHours": 102.3,
+            "domain": "atptour.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T08:07:38.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.43,
+              "sourceQuality": 0.07
+            },
+            "title": "Fabian Marozsan vs. Taro Daniel Hangzhou 2026... | ATP Tour | Tennis",
+            "url": "https://www.atptour.com/en/scores/stats-centre/live/2026/4713/MS012"
+          },
+          {
+            "ageHours": 26.2,
+            "domain": "butterflyonline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:15:20.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Kou Lei – Chop Serve and Chop Loop Combo",
+            "url": "https://butterflyonline.com/kou-lei-chop-serve-and-chop-loop-combo"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 5.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.857,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 13423,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1137,
+        "statesFreshness": true,
+        "text": "On the match page, our football scorecards are allowing you to view past game results for all previously played fixtures for every football competitions. [12]\n\nEngland, Spain headline today’s fixtures\n\nAttention now turns to today’s 10 fixtures as Matchday 2 reaches its conclusion, with Czechia hosting England and Spain welcoming Croatia in the two headline League A encounters. [1]\n\nSoccer Match Fixtures, International soccer games today, Times, Venues and Matches.Today’s Soccer Match Fixtures | Global Football Schedule on September 30, 2026. [4]\n\nCricket schedule for CSA Pro T20 Cup, 2026 season with full match reports, anlysis and stats.Today's Top Cricket Tips and Predictions. [5]\n\nSources: [1] Nations League: Italy thrash Türkiye, France edge Belgium *Full results, Tuesday fixtures (blueprint.ng)  [2] Botafogo SP vs Ponte Preta: Head-to-Head Analysis, Form Guide & Match Prediction - "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "today's match fixtures",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 6.7,
+            "domain": "blueprint.ng",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:45:33.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Nations League: Italy thrash Türkiye, France edge Belgium *Full results, Tuesday fixtures",
+            "url": "https://blueprint.ng/nations-league-italy-thrash-turkiye-france-edge-belgium-full-results-tuesday-fixtures"
+          },
+          {
+            "ageHours": 22.2,
+            "domain": "soccerpunter.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:11:12.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Botafogo SP vs Ponte Preta: Head-to-Head Analysis, Form Guide & Match Prediction - SoccerPunter.com",
+            "url": "https://www.soccerpunter.com/news/botafogo-sp-vs-ponte-preta-head-to-head-analysis-form-guide-match-prediction"
+          },
+          {
+            "ageHours": 23.2,
+            "domain": "soccerpunter.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:12:14.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Belgium U21 vs Wales U21: Young Lions Ready to Roar Against the Red Flames - SoccerPunter.com",
+            "url": "https://www.soccerpunter.com/news/belgium-u21-vs-wales-u21-young-lions-ready-to-roar-against-the-red-flames"
+          },
+          {
+            "ageHours": 2.9,
+            "domain": "fifaworldcupnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T11:31:55.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Soccer Match Fixtures September 30, 2026: Full Schedule",
+            "url": "https://www.fifaworldcupnews.com/soccer-match-fixtures-30-september-2026"
+          },
+          {
+            "ageHours": 23.9,
+            "domain": "cricketworld.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:28:29.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "CSA Pro T20 Cup 2026 Fixtures & Match Reports",
+            "url": "https://www.cricketworld.com/cricket/series/csa-pro-t20-cup-2026/fixtures/130198"
+          },
+          {
+            "ageHours": 26.7,
+            "domain": "digitalspy.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:42:00.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Strictly responds as ratings drop compared to 2026's new-look launch episode",
+            "url": "https://www.digitalspy.com/tv/reality-tv/a73921798/strictly-2026-ratings-drop"
+          },
+          {
+            "ageHours": 20.6,
+            "domain": "ihf.info",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:48:33.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "IHF | Competition Schedule",
+            "url": "https://www.ihf.info/competitions/u16-women/10175/-1st-ihf-womens-u16-world-championship-2026-morocco/285849/matches/2026-10-16"
+          },
+          {
+            "ageHours": 22.4,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T16:00:03.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Israel captain stokes feud by saying ‘our country is 10... | The Guardian",
+            "url": "https://www.theguardian.com/football/2026/sep/28/israel-captain-manor-solomon-feud-republic-ireland-gaza-nations-league"
+          },
+          {
+            "ageHours": 12.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:33:25.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Ch",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-29-live-streaming-check-todays-events-timings-fixtures-and-tv-channel-294887"
+          },
+          {
+            "ageHours": 5.6,
+            "domain": "cricxtra.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T08:51:15.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "World Championship of Legends 2026 Schedule, Fixtures & Match...",
+            "url": "https://www.cricxtra.com/world-championship-of-legends-2026-schedule-fixtures-match-dates"
+          },
+          {
+            "ageHours": 16,
+            "domain": "aiscore.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:24:22.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Penarol Uruguay vs Flamengo live score, prediction... - AiScore",
+            "url": "https://www.aiscore.com/basketball/match-penarol-uruguay-flamengo/oj7x6sz5e3wh47g"
+          },
+          {
+            "ageHours": 15.8,
+            "domain": "aiscore.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:34:17.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "2026/09/29 Parana FC San Pedro vs Atletico Baradero... - AiScore",
+            "url": "https://www.aiscore.com/match-parana-fc-san-pedro-atletico-baradero/vmqy9iyenzdcgk9/h2h"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.932,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 5704,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 732,
+        "statesFreshness": true,
+        "text": "The race was won by George Russell, who closed the gap to standings leader and Mercedes teammate Kimi Antonelli in thrilling fashion. [10]\n\nWe do remember some races here; they have very heavy rain. [2]\n\nFormula One last raced at Sepang in 2017, when Max Verstappen won the Malaysian Grand Prix. [2]\n\nIn today’s race I just tried to… today was about damage limitation. [3]\n\nSources: [1] Michael Schumacher's wife reveals mother disapproved of their relationship (hellomagazine.com)  [2] Sepang roars back to life as F1 returns after nine-year wait (malaymail.com)  [3] Antonelli vows to learn from ‘worst weekend of the season’ (formula1.com)  [4] Kimi Antonelli: I was \"driving like my grandmother\" in Baku F1 race (motorsport.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "who won the most recent F1 race",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 118.4,
+            "domain": "hellomagazine.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T16:01:42.000Z",
+            "relevance": 1.06,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.06,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Michael Schumacher's wife reveals mother disapproved of their relationship",
+            "url": "https://www.hellomagazine.com/celebrities/925276/michael-schumacher-corinna-cry-to-myself-new-documentary"
+          },
+          {
+            "ageHours": 5.6,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:49:11.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Sepang roars back to life as F1 returns after nine-year wait",
+            "url": "https://www.malaymail.com/news/sports/2026/09/29/sepang-roars-back-to-life-as-f1-returns-after-nine-year-wait/237011"
+          },
+          {
+            "ageHours": 71.6,
+            "domain": "formula1.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:51:09.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.02,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Antonelli vows to learn from ‘worst weekend of the season’",
+            "url": "https://www.formula1.com/en/latest/article/antonelli-vows-to-take-lessons-from-worst-weekend-of-the-season-in-azerbaijan.2gFddBKt9w2Zp3y6deTe5r"
+          },
+          {
+            "ageHours": 71.3,
+            "domain": "motorsport.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:09:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Kimi Antonelli: I was \"driving like my grandmother\" in Baku F1 race",
+            "url": "https://www.motorsport.com/f1/news/kimi-antonelli-driving-like-my-grandmother-in-baku-f1-race/10859321"
+          },
+          {
+            "ageHours": 79.2,
+            "domain": "gpblog.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T07:15:22.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Antonelli Baku race plan: why Monza can't repeat from P16",
+            "url": "https://www.gpblog.com/en/news/antonelli-warns-fans-not-to-expect-another-monza-miracle-in-baku-its-harder-to-overtake-here"
+          },
+          {
+            "ageHours": 14.4,
+            "domain": "hachette.co.nz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Racing Legends by David Clayton - Hachette Aotearoa | New Zealand",
+            "url": "https://www.hachette.co.nz/david-clayton/racing-legends"
+          },
+          {
+            "ageHours": 116.2,
+            "domain": "speedwaydigest.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-24T18:13:14.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Four Races Where Luck Played a Huge Part in Kimi Antonelli’s Title Charge",
+            "url": "https://speedwaydigest.com/index.php/news/racing-news/893217-four-races-where-luck-played-a-huge-part-in-kimi-antonellis-title-charge"
+          },
+          {
+            "ageHours": 96.1,
+            "domain": "indiatimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T14:17:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Will Max Verstappen join McLaren? CEO Zak Brown’s 'wide open' remark sparks backlash as F1 fans accuse him of ",
+            "url": "https://www.indiatimes.com/trending/will-max-verstappen-join-mclaren-ceo-zak-browns-wide-open-remark-sparks-backlash-as-f1-fans-accuse-him-of-throwing-oscar-piastri-under-the-bus/articleshow/134487061.html"
+          },
+          {
+            "ageHours": 69.9,
+            "domain": "speedcafe.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T16:32:50.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "F1 news: ‘Shouldn’t be in Formula 1’: Furious Lando... - Speedcafe.com",
+            "url": "https://speedcafe.com/f1-news-2026-azerbaijan-grand-prix-baku-lando-norris-franco-colapinto-pierre-gasly-collision-race-comments-update-latest"
+          },
+          {
+            "ageHours": 70.9,
+            "domain": "foxsports.com.au",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:28:25.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "F1 2026: Oscar Piastri reacts to horror moment at Azerbaijan Grand...",
+            "url": "https://www.foxsports.com.au/motorsport/formula-one/f1-2026-oscar-piastri-reacts-to-horror-moment-at-azerbaijan-grand-prix-bracks-locked-on-turn-1-to-drop-from-third-to-15th-scored-no-points-to-continue-horror-season-video-highlights/news-story/f10339a1d654b1abac988b65d530d0b6"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 5.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.89,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 8348,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1156,
+        "statesFreshness": false,
+        "text": "NEW DELHI: India added seven more medals to its Asian Games 2026 tally on Sunday, but the haul was not enough to keep the country inside the top 10 of the medal standings.India ended Day 8 with 37 medals — four gold, 16 silver and 17 bronze — but slipped from 10th to 12th position. [1]\n\nIndia produced another strong medal haul at the Asian Games 2026 on Monday, winning eight medals across athletics, shooting and kurash. [2]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [3]\n\nAsian Games 2026: India’s medal count reaches 37 after seven-medal day 9.The seven-medal haul, however, did not include a gold, and India slipped from 10th to 12th in the standings as countries above it added gold medals. [5]\n\nSources: [1] Asian Games Medal Tally: Why India dropped out of top 10 despite... (sportzdaily.in)  [2] Asian Games Medal Tally: India win 8 medals but remain outsid"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 medal tally India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.5,
+            "domain": "sportzdaily.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T04:56:22.000Z",
+            "relevance": 1.05,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.05,
+              "freshness": 0.21,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games Medal Tally: Why India dropped out of top 10 despite...",
+            "url": "https://sportzdaily.in/asian-games-medal-tally-why-india-dropped-out-of-top-10-despite-winning-seven-more-medals-asian-games-2026-news-2"
+          },
+          {
+            "ageHours": 4.4,
+            "domain": "tbc.cgw26.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T10:03:33.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.23,
+              "relevance": 0.43,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games Medal Tally: India win 8 medals but remain outside top...",
+            "url": "https://tbc.cgw26.com/sports/asian-games-2026/asian-games-medal-tally-india-win-8-medals-but-remain-outside-top-10-as-gold-continues-to-elude/articleshow/134544631.cms"
+          },
+          {
+            "ageHours": 44.9,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 71.9,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T14:31:54.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medal Tally, Day 8: Kabaddi Teams Bag Twin Golds, Tajinderpal Toor, Sawan Barwal Help India R",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medal-tally-day-8-kabaddi-teams-bag-twin-golds-tajinderpal-toor-sawan-barwal-help-india-rise-to-10th"
+          },
+          {
+            "ageHours": 45.2,
+            "domain": "english.mathrubhumi.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T17:12:10.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 medal tally: India reaches 37 after day...",
+            "url": "https://english.mathrubhumi.com/sports/news/asian-games-2026-medal-tally-india-day-9-l0dfxpwb"
+          },
+          {
+            "ageHours": 49,
+            "domain": "news18.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:26:54.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026, Day 9: Athletics Fires 5 Medals As India's Tally...",
+            "url": "https://www.news18.com/sports/other-sports/asian-games-2026-day-9-athletics-fires-5-medals-as-indias-tally-touches-37-ws-l-10355831.html"
+          },
+          {
+            "ageHours": 23.8,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T14:37:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.36,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 Day 9: Athletics leads India’s 8-medal haul...",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-day-9-athletics-leads-indias-8-medal-haul-boxing-assures-more-as-near-misses-hurt/articleshow/134545152.cms"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 4.4,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.021,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 5815,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1256,
+        "statesFreshness": true,
+        "text": "Asian Games 2026 day 7 LIVE updates: Shooters aim to add to India's medal tally; kabaddi, women's hockey teams in action\n\nAsian Games 2026 day 7 LIVE updates: India are all set to begin their campaign at the Asian Games 2026 on September 25, having already added 18 medals to their tally. [3]\n\nGanesh Visarjan 2026.Ancy Sojan Edappilly won the Silver medal in the women’s Long Jump at the 2026 Asian Games on Sunday (September 27). [2]\n\nAsian Games Day 7 LIVE updates: India are set to begin their campaign on September 25 (Friday) at the Asian Games 2026, after already winning 17 medals, five of which came on Day 6. [3]\n\n...Read MoreHello and welcome\n\nHello and welcome to Aichi-Nagoya in Japan as we bring you live coverage of India's campaign on Day 7 of the Asian Games 2026 on September 25 (Friday). [3]\n\nSources: [1] Asian Games 2026 India Schedule Today, September 25: Gulveer Singh, Anahat "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest Asian Games 2026 results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 110.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:03:13.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule Today, September 25: Gulveer Singh, Anahat Singh, Aishwary Pratap In Action Ac",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-today-september-25-gulveer-singh-anahat-singh-aishwary-pratap-in-action-across-athletics-squash-shooting-check-full-events-time-in-ist-292115"
+          },
+          {
+            "ageHours": 50.6,
+            "domain": "news18.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T11:48:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026: India's Ancy Sojan Wins SILVER In... - News18",
+            "url": "https://www.news18.com/sports/other-sports/indias-ancy-sojan-wins-asian-games-silver-in-womens-long-jump-ws-l-10355647.html"
+          },
+          {
+            "ageHours": 110.4,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T00:00:18.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.13,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 day 7 LIVE updates: Shooters aim to add to India's medal tally; kabaddi, women's hockey teams",
+            "url": "https://www.hindustantimes.com/sports/others/asian-games-2026-live-updates-day-7-schedule-results-medal-tally-today-25-september-latest-updates-101790292504979.html"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 50.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.973,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 3844,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1153,
+        "statesFreshness": false,
+        "text": "Asian Games 2026: India Clinch Table Tennis Bronze As Chitale-Shah Fall To China Titans\n\nIndia added another milestone to its Asian Games 2026 campaign as Diya Chitale and Manush Shah secured a historic bronze medal in mixed doubles table tennis. [2]\n\nThe Indian duo’s impressive run ended in the semifinals against reigning Olympic champions Wang Chuqin and Sun Yingsha, but their podium finish marked India’s fourth-ever table tennis medal at the Asian Games. [2]\n\nAsian Games 2026 Medal Tally LIVE: Latest Country-wise Standings\n\nThe medal standings at Aichi-Nagoya continue to change as more finals are completed. [3]\n\nOn the other hand, the country struggled in swimming and table tennis. [1]\n\nSources: [1] With 21 gold medals, S. Korea counting on more from archery, taekwondo in final week (koreaherald.com)  [2] Asian Games 2026: India Clinch Table Tennis Bronze As Chitale-Shah Fall To China"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Olympic medal table",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 36.7,
+            "domain": "koreaherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:44:08.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "With 21 gold medals, S. Korea counting on more from archery, taekwondo in final week",
+            "url": "https://www.koreaherald.com/article/10885876"
+          },
+          {
+            "ageHours": 98.6,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T11:47:50.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: India Clinch Table Tennis Bronze As Chitale-Shah Fall To China Titans",
+            "url": "https://www.dynamitenews.com/sports/asian-games-2026-india-clinch-table-tennis-bronze-as-chitale-shah-fall-to-china-titans"
+          },
+          {
+            "ageHours": 103.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:04:54.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medals Tally LIVE Update: India Wins 2nd Gold, Shooting Silver | Latest Aichi-Nagoya Medal Co",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-india-wins-2nd-gold-shooting-silver-latest-aichi-nagoya-medal-count-292356"
+          },
+          {
+            "ageHours": 44.9,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 7.2,
+            "domain": "newstodaynet.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:11:08.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.61,
+              "freshness": 0.21,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games: India add eight medals on rain-hit Day 10, Spieited show by Indian athletes",
+            "url": "https://newstodaynet.com/2026/09/29/asian-games-india-add-eight-medals-on-rain-hit-day-10-spieited-show-by-indian-athletes"
+          },
+          {
+            "ageHours": 14.4,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.58,
+              "freshness": 0.21,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, b",
+            "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 7.2,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 4990ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4977ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4958ms exceeded",
+          "SearXNG (https://search.lumy.live) failed: timeout of 4955ms exceeded"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.735,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 20393,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1117,
+        "statesFreshness": false,
+        "text": "FLASHBACK: How World Cup final referee was arrested at a criminal location 6 years ago\n\nThe 2026 FIFA World Cup final is set to take place tonight at the New York/New Jersey Stadium, with Argentina looking to successfully defend their title against Spain. [3]\n\nThe final match of the 2022 FIFA World Cup, the 22nd edition of FIFA's competition for men's national football teams, was played at Lusail Stadium in Lusail, Qatar, on 18 December 2022 (Qatari National Day), and was contested by Argentina and defending champions France. [1]\n\nAlison Kervin · 2007 — History, Rugby football players, World Cup (Rugby football), World Cup (Rugby football) fast (OCoLC)fst01409526, Rugby football [6]\n\nWorld Cup 2022: Morocco and Portugal through to quarter-finals It was a really exciting night of football as the final two World Cup quarter-final spots … [7]\n\nSources: [1] 2022 FIFA World Cup final (en.wiki"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "history of the World Cup final",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 1.09,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.09,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "2022 FIFA World Cup final",
+            "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "List of FIFA World Cup finals",
+            "url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals"
+          },
+          {
+            "ageHours": 1007.4,
+            "domain": "dailytrust.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T15:04:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "FLASHBACK: How World Cup final referee was arrested at a criminal location 6 years ago",
+            "url": "https://dailytrust.com/flashback-how-world-cup-final-referee-was-arrested-at-a-criminal-location-6-years-ago"
+          },
+          {
+            "ageHours": 1039.8,
+            "domain": "onthisday.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T06:39:23.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "FIFA World Cup History",
+            "url": "https://www.onthisday.com/sport/soccer/soccer-tournaments/football-world-cup"
+          },
+          {
+            "ageHours": 47808.1,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-04-16T14:18:14Z",
+            "relevance": 0.96,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "I finally made a free app for collecting panini stickers",
+            "url": "https://news.ycombinator.com/item?id=26834185"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Thirty bullies (2007)",
+            "url": "https://openlibrary.org/works/OL24855426W"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "World Cup 2022: Morocco and Portugal through to quarter-finals -…",
+            "url": "https://www.bbc.com/newsround/63885518"
+          },
+          {
+            "ageHours": 111710.4,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2014-01-01",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Soft power and soft disempowerment: Qatar, global sport and football’s 2022 World Cup finals",
+            "url": "https://doi.org/10.1080/02614367.2014.964291"
+          },
+          {
+            "ageHours": 173078.4,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2007-01-01",
+            "relevance": 0.84,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Sport and National Identity: A Comparison of the 2006 and 2010 FIFA World Cups™",
+            "url": "https://doi.org/10.1080/02589340801962551"
+          },
+          {
+            "ageHours": null,
+            "domain": "time.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "2018 FIFA World Cup Final: 5 Key Takeaways | TIME",
+            "url": "http://time.com/5339540/world-cup-final"
+          },
+          {
+            "ageHours": 4898.2,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-03-09T12:14:01Z",
+            "relevance": 0.79,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.79,
+              "freshness": 0.01,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Show HN: Kairos, real-time AI who cross-verifies (Python, 100KB)",
+            "url": "https://news.ycombinator.com/item?id=47308049"
+          },
+          {
+            "ageHours": null,
+            "domain": "eff.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Counter-Surveillance Success Stories | Electronic Frontier Found…",
+            "url": "http://www.eff.org/csss"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1007.4,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv timed out after 12000ms",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "commoncrawl: upstream unavailable — Request failed with status code 404",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.888,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 12425,
+      "vertical": "sports"
+    }
+  ],
+  "total": 15
+}

@@ -1,0 +1,399 @@
+{
+  "conflictNotice": "Sources currently report different values for this, so Omi is not picking one:\n\nMEDALS:\n• 45 — rediff.com (21 hours ago) — \"45 medals\"\n• 37 — khelnow.com (yesterday) — \"37 medals\"\n• 39 — edayfm.com (18 hours ago) — \"39 Medals\"\n\nTreat these as unconfirmed and check the official source before relying on a figure.",
+  "conflicts": [
+    {
+      "independentDomains": 3,
+      "metric": "medals",
+      "readings": [
+        {
+          "domain": "rediff.com",
+          "evidence": "45 medals",
+          "publishedAt": "2026-09-28T17:43:33.000Z",
+          "url": "https://www.rediff.com/sports/report/asian-games-after-double-bronze-haul-parul-now-craves-family-time/20260928.htm",
+          "value": "45"
+        },
+        {
+          "domain": "khelnow.com",
+          "evidence": "37 medals",
+          "publishedAt": "2026-09-28T00:09:28.000Z",
+          "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609",
+          "value": "37"
+        },
+        {
+          "domain": "edayfm.com",
+          "evidence": "39 Medals",
+          "publishedAt": "2026-09-28T20:19:32.000Z",
+          "url": "https://edayfm.com/post/yfnvFHw6RDF0",
+          "value": "39"
+        }
+      ]
+    }
+  ],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "event \"asian games\" already named in the query",
+      "no sports terms added — the query already expresses that"
+    ],
+    "primary": "India's Asian Games 2026 medal tally right now",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "India's Asian Games 2026 medal tally right now latest",
+      "India's Asian Games 2026 medal tally right now today",
+      "India's Asian Games 2026 medal tally right now 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "India's Asian Games 2026 medal tally right now",
+  "summary": "[search] \"What is India's Asian Games 2026 medal tally right now?\" intent=current fresh=true vertical=sports years=2026 raw=10 kept=10 stale-rejected=0 domains=10 conflicts=1 verdict=answer-caveated searchMs=5110 totalMs=5110",
+  "trace": {
+    "askedEvent": "asian games",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [
+      "medals: 45 (rediff.com) vs 37 (khelnow.com) vs 39 (edayfm.com)"
+    ],
+    "contributionsByProvider": [
+      {
+        "kept": 8,
+        "provider": "searxng",
+        "retrieved": 8
+      },
+      {
+        "kept": 2,
+        "provider": "langsearch",
+        "retrieved": 2
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"current\"",
+      "names the current year (2026)",
+      "asks for a live value (\"tally\")"
+    ],
+    "independentDomains": 10,
+    "intent": "current",
+    "liveData": "tally",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "What is India's Asian Games 2026 medal tally right now?",
+    "rawCount": 10,
+    "rejectedStale": [],
+    "rejectedStaleCount": 0,
+    "requiresFreshness": true,
+    "searchMs": 5110,
+    "selectedCount": 10,
+    "sources": [
+      {
+        "age": "24 hours ago",
+        "domain": "jagranjosh.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T14:26:37.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 1,
+          "freshness": 0.21,
+          "relevance": 0.25,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Asian Games India Schedule September 29: Matches, Timings and...",
+        "url": "https://www.jagranjosh.com/general-knowledge/asian-games-2026-india-schedule-september-29-matches-medal-events-1820012605-1"
+      },
+      {
+        "age": "24 hours ago",
+        "domain": "timesofindia.indiatimes.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T14:37:53.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 1,
+          "freshness": 0.21,
+          "relevance": 0.25,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Asian Games 2026 Day 9: Athletics leads India’s 8-medal haul...",
+        "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-day-9-athletics-leads-indias-8-medal-haul-boxing-assures-more-as-near-misses-hurt/articleshow/134545152.cms"
+      },
+      {
+        "age": "11 hours ago",
+        "domain": "sports.ndtv.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-29T03:32:39.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 1,
+          "freshness": 0.21,
+          "relevance": 0.38,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Another Medal For India As Women's Trap Shooting Team Bags Silver...",
+        "url": "https://sports.ndtv.com/asian-games-2026/another-medal-for-india-as-womens-trap-shooting-team-bags-silver-at-asian-games-12112260"
+      },
+      {
+        "age": "21 hours ago",
+        "domain": "rediff.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T17:43:33.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 1,
+          "freshness": 0.21,
+          "relevance": 0.38,
+          "sourceQuality": 0.07
+        },
+        "selected": true,
+        "title": "Asian Games: After double bronze haul, Parul now... - Rediff Sports",
+        "url": "https://www.rediff.com/sports/report/asian-games-after-double-bronze-haul-parul-now-craves-family-time/20260928.htm"
+      },
+      {
+        "age": "yesterday",
+        "domain": "india.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T09:18:47.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.03,
+          "final": 1,
+          "freshness": 0.17,
+          "relevance": 0.25,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Smell from gutter to hectic travel schedule: Manu Bhaker's father...",
+        "url": "https://www.india.com/sports/others/smell-from-gutter-to-hectic-travel-schedule-manu-bhaker-father-reveals-reasons-for-shooter-returning-empty-handed-from-asian-games-2026-8530890"
+      },
+      {
+        "age": "yesterday",
+        "domain": "khelnow.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T00:09:28.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 1,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.06,
+          "final": 1,
+          "freshness": 0.17,
+          "relevance": 0.44,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+        "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+      },
+      {
+        "age": "18 hours ago",
+        "domain": "edayfm.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T20:19:32.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.98,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.98,
+          "freshness": 0.21,
+          "relevance": 0.38,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "INDIA LIVE 🇮🇳 | Asian Games 2026 Day 10 | IND vs... - eDayFm",
+        "url": "https://edayfm.com/post/yfnvFHw6RDF0"
+      },
+      {
+        "age": "just now",
+        "domain": "freepressjournal.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-29T13:37:46.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.97,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.97,
+          "freshness": 0.24,
+          "relevance": 0.31,
+          "sourceQuality": 0.12
+        },
+        "selected": true,
+        "title": "Asian Games 2026: Pooja Clinches High Jump Bronze, Sarvesh Kushare Wins Silver For India",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-pooja-clinches-high-jump-bronze-sarvesh-kushare-wins-silver-for-india"
+      },
+      {
+        "age": "yesterday",
+        "domain": "livemint.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T04:06:44.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.95,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 0.95,
+          "freshness": 0.17,
+          "relevance": 0.19,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "IND vs AFG Highlights, Asian Games 2026 quarterfinal: Shreyas...",
+        "url": "https://www.livemint.com/sports/cricket-news/india-vs-afghanistan-live-score-asian-games-2026-mens-cricket-quarterfinal-ind-vs-afg-match-28-sept-samson-bumrah-11790565772943.html"
+      },
+      {
+        "age": "yesterday",
+        "domain": "aichi-nagoya2026.org",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T11:31:09.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.94,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.04,
+          "final": 0.94,
+          "freshness": 0.17,
+          "relevance": 0.25,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Take a look inside the Athletes’ Plaza Dininghall – Asian Games 2026",
+        "url": "https://www.aichi-nagoya2026.org/news-2089"
+      }
+    ],
+    "totalMs": 5110,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.857,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Sources disagree: medals."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 0.96 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "9 source(s) explicitly cover 2026",
+        "id": "year",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "10 source(s) cover the \"asian games\"",
+        "id": "event",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.0 day(s) old, within the 2-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "10 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "10/10 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 10,
+    "independentDomains": 10,
+    "newestSourceAgeHours": 0.8,
+    "newestSourceAt": "2026-09-29T13:37:46.000Z",
+    "passRate": 0.8571428571428571,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Sources disagree: medals."
+    ],
+    "verdict": "answer-caveated"
+  }
+}
