@@ -1,5 +1,83 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## Addendum 5 — ANSWERABILITY FLOOR + question-type engine (a504ac2 review, 2026-09-29)
+
+**Measured failure:** "Who is leading the F1 2026 drivers championship?" still
+selected "Kim Kardashian's F1 Dream Gets Lewis Hamilton's Approval"
+(realitytea.com) at the SELECTION layer — fresh (yesterday), dated,
+entity-matching (F1 + Hamilton in snippet), and utterly incapable of answering
+a standings question. Root cause: no dimension of the 8-dimension score asked
+"can this page actually support the answer?" — only "is it about the topic?"
+
+### The engine change (production pipeline, not benchmark)
+
+1. **Question-type extraction** (`questionTypeFor`): ranking / result /
+   live-score / value / schedule / explanation / procedure / news / general,
+   read from the USER's interrogative frame (not the rewritten retrieval
+   string, which strips it).
+2. **Per-type evidence vocabulary** (`ANSWERABILITY_RE`): a page must carry
+   the KIND of content that can answer the question — leader/standings/points
+   evidence for a ranking question, result vocabulary for a "who won" question,
+   price/rate tokens for a value question. Measured subtlety: bare "ahead"
+   matched "ahead of the 2026 season" — the ranking rule now requires
+   STRUCTURAL standings evidence.
+3. **Domain-tier floor per type**: live-fact types (ranking/result/live-score/
+   value) require tier ≥0.6. **Entertainment/gossip domains are floored
+   REGARDLESS of text** — a gossip page can never be the trustworthy carrier of
+   a current leader/score/price, even when its snippet repeats a standings
+   word (measured second rerun).
+4. **Hard floor in the ranking loop** (`runUniversalSearch`): answerability
+   penalty ≥0.45 ⇒ rejected at selection, same mechanical shape as the noise
+   floor, feed citations exempt. Freshness participates multiplicatively —
+   **it can never buy answerability back**.
+5. **Trace**: `questionType` published on every trace; `answerability` in every
+   scoreBreakdown; `answerability` rejectionKind bucket.
+6. **Wiring**: `userQuestion` plumbed to ALL production call sites — chat first
+   pass + escalation, probe first pass + escalation, chat search surface, and
+   BOTH traceSearch call sites (the diagnostic now exercises the real path —
+   the first rerun "still kept realitytea" precisely because traceSearch was
+   not wired; that gap is itself fixed).
+
+### LIVE before/after — same query, deployed runtime (2026-09-29 ~18:30 UTC)
+
+| Run | Selected evidence for the F1 standings query | Verdict |
+|---|---|---|
+| a504ac2 (before) | realitytea.com ONLY (Kim K), final 0.76 | answer-caveated over gossip |
+| rerun #1 (floor live, trace unwired) | realitytea still kept (diagnostic gap) | — (wiring fixed immediately) |
+| **rerun #2 (final, trace wired)** | **realitytea REJECTED at selection; 0 kept from a garbage-free candidate set of 10 F1 standings sources (motorsport.com, formula1.com, bbc.com, sillyseason…); validation verdict = refuse** | **honest refusal — no weak-source answer** |
+| **probe (full chat turn + escalation)** | destinationformula1.com / formula1.com / tsn.ca / thespread.com — championship-leader coverage, all dated 09-28/29; zero entertainment/motoGP/Asian-Games sources | **pass — leader (Antonelli, 302 pts, +66 over Russell) with citations [1][2][4]** |
+
+The trace vs probe difference is expected and honest: the trace records the
+first pass (its best sources are undated standings pages the freshness window
+drops ⇒ refuse), the probe runs the full turn including the escalation pass,
+which finds dated leader coverage from reputable outlets.
+
+### SearXNG (search.lumy.live) — re-measured from the runtime, not ignored
+
+`diagnosticsSearxngDeep:probeSearxngCandidates` (12 candidates):
+- `search.lumy.live` (configured): **timeout at 8 s** — instance-side outage,
+  consistent with the 2026-09-27/28 measurements (DNS+TCP fine, HTTP never
+  answers). Its per-base health memory keeps skipping it until TTL, so no
+  other provider pays its latency; it is preferred, never required.
+- 4 instances answer 200 + HTML (JSON format disabled by their operators),
+  4 answer 429 (rate-limited), 1 bad certificate, **0 of 12 serve JSON**.
+- Consequence: general-web breadth currently rides on LangSearch + the
+  structured feeds + Wikipedia-current-events; no single-provider dependence
+  exists (fan-out + per-base skip + vertical backstops + noise/answerability
+  floors). Self-hosting remains the real fix (`deploy/searxng/`), owner-side.
+
+### Gates
+
+1,387 tests / 0 fail (49 new: question-type extraction, freshness-never-
+overrides, 7 golden queries × poison articles, wiring pins) · tsc 0 ·
+eslint 0 errors · deployed 18:38 UTC · evidence:
+`.qa-tmp/f1-trace-final2.json`, `.qa-tmp/f1-probe-final.json`,
+`.qa-tmp/searxng-probe.json`, `.qa-tmp/medal-probe-final.json`.
+
+Remaining BLOCKED (owner-side, unchanged): human browser read; SearXNG host.
+
+---
+
 ## Addendum 4 — conflict RESOLUTION + sports source-quality gate (2026-09-29)
 
 Per the live-review instruction: the two exposed failures (contradictory medal

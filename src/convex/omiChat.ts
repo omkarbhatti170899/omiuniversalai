@@ -779,6 +779,10 @@ async function runTurn(
           retrievalVariants: retrievalPlan.variants,
           variantTargets: retrievalPlan.variantTargets,
           freshnessTier: policy.freshnessTier,
+          // The USER's words, not the rewritten query: question-type
+          // answerability is judged against the interrogative frame the
+          // rewriter strips.
+          userQuestion: trimmed,
           perEngineLimit: policy.requiresFreshness ? 4 : 3,
           maxCitations: policy.requiresFreshness ? 5 : 4,
           // The three parameters the search layer was never given before.
@@ -844,6 +848,7 @@ async function runTurn(
               const second = await runUniversalSearch(ctx, retrieval, {
                 perEngineLimit: 6,
                 maxCitations: 8,
+                userQuestion: trimmed,
                 category: "news",
                 // ALWAYS a hard day filter on escalation. The first pass
                 // already used the tier's window; re-running with the same

@@ -1,0 +1,66 @@
+{
+  "row": {
+    "answer": "Sep 28, 2026.This is MiniDrivers & MiniBikers, the motorsport series. [5]\n\nWith this victory, Antonelli becomes the youngest multiple race winner in Formula 1 history and moves into the lead of the drivers’ championship ahead of Russell. [1]\n\nThe Mercedes driver leads the 2026 drivers’ championship with 302 points and has won eight of the 15 races run this season. [2]\n\nGeorge Russell closed the gap in the drivers’ championship to 66 points from his Mercedes teammate Kimi Antonelli after taking his third win of the season at the Azerbaijan Grand Prix. [4]\n\nSources: [1] Kimi Antonelli wins F1 Japanese Grand Prix to take championship lead (destinationformula1.com)  [2] 2026 F1 Bahrain Grand Prix Odds - Antonelli Favored at Sepang (thespread.com)  [3] 'There’s much less pressure on me than there is him' – George Russell.... (formula1.com)  [4] George Russell continues chase of Kimi Antonelli at Bahrain Grand... (tsn.ca)",
+    "conflictResolution": null,
+    "detail": "7 fresh result(s) from 2 source(s) in 12729ms (after a freshness escalation pass)",
+    "droppedFresh": [
+      {
+        "reason": "off-topic",
+        "title": "Race Report: Azerbaijan Grand Prix 2026"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 7,
+    "freshSplitCounts": {
+      "fresh": 8,
+      "stale": 0,
+      "undated": 5
+    },
+    "freshness": "Based on 7 reports published in the last 5 days (newest: 5 hours ago).",
+    "intent": "knowledge",
+    "query": "who is leading the F1 2026 drivers championship",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 12729,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T12:54:30.000Z",
+        "title": "Kimi Antonelli wins F1 Japanese Grand Prix to take championship lead",
+        "url": "https://destinationformula1.com/kimi-antonelli-wins-f1-japanese-grand-prix-to-take-championship-lead"
+      },
+      {
+        "publishedAt": "2026-09-29T13:10:31.000Z",
+        "title": "2026 F1 Bahrain Grand Prix Odds - Antonelli Favored at Sepang",
+        "url": "https://www.thespread.com/auto-racing/2026-f1-bahrain-grand-prix-odds"
+      },
+      {
+        "publishedAt": "2026-09-28T12:57:50.000Z",
+        "title": "'There’s much less pressure on me than there is him' – George Russell....",
+        "url": "https://www.formula1.com/en/latest/article/theres-much-less-pressure-on-me-than-there-is-him-russell-on-title-fight.6GVALSvKMH4XSTz3wndlLm"
+      },
+      {
+        "publishedAt": "2026-09-29T13:04:00.000Z",
+        "title": "George Russell continues chase of Kimi Antonelli at Bahrain Grand...",
+        "url": "https://www.tsn.ca/motorsports/formula-1/article/russell-continues-chase-of-antonelli-at-bahrain-grand-prix-from-malaysia-on-tsn-n1-49971200"
+      },
+      {
+        "publishedAt": "2026-09-28T11:47:17.000Z",
+        "title": "MiniDrivers – 2026 Azerbaijan – Video – MiniDrivers & MiniBikers...",
+        "url": "https://losminidrivers.com/2026/09/28/minidrivers-2026-azerbaijan-video"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

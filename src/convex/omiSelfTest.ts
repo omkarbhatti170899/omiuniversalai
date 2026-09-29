@@ -305,6 +305,7 @@ export async function probeCurrentInfo(
       {
         perEngineLimit: 4,
         maxCitations: 5,
+        userQuestion: query,
         category: decision.category,
         timeRange: policy.timeRange ?? decision.timeRange,
         skipCache: true,
@@ -337,6 +338,7 @@ export async function probeCurrentInfo(
         const second = await runUniversalSearch(ctx as never, query, {
           perEngineLimit: 6,
           maxCitations: 8,
+          userQuestion: query,
           category: decision.category,
           timeRange: "day",
           skipCache: true,

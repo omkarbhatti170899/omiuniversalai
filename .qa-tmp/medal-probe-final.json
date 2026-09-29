@@ -1,0 +1,62 @@
+{
+  "row": {
+    "answer": "India's overall medal tally at the Asian Games has now reached 45, placing the country 12th in the standings. [2]\n\nAsian Games 2026: India won gold in the women’s 4x400m relay at Asian Games 2026, taking its gold medal tally to six and overall medal count to 51. [4]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [1]\n\nWho leads the Asian Games 2026 medal tally after Day 8 (September 27)? [1]\n\nSources: [1] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [2] Asian Games: After double bronze haul, Parul now... - Rediff Sports (rediff.com)  [3] Asian Games 2026 Day 10: Neeru Dhanda... - The Times of India (timesofindia.indiatimes.com)  [4] Rain No Barrier! India Win Women’s 4x400m Relay Gold At Asian... (news.abplive.com)",
+    "conflictResolution": null,
+    "detail": "5 fresh result(s) from 3 source(s) in 7085ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 5,
+    "freshSplitCounts": {
+      "fresh": 5,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": "Based on 5 reports published in the last 2 days (newest: 5 hours ago).",
+    "intent": "current",
+    "query": "What is India's Asian Games 2026 medal tally right now?",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 7085,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:09:28.000Z",
+        "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+        "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+      },
+      {
+        "publishedAt": "2026-09-28T17:43:33.000Z",
+        "title": "Asian Games: After double bronze haul, Parul now... - Rediff Sports",
+        "url": "https://www.rediff.com/sports/report/asian-games-after-double-bronze-haul-parul-now-craves-family-time/20260928.htm"
+      },
+      {
+        "publishedAt": "2026-09-29T13:57:52.000Z",
+        "title": "Asian Games 2026 Day 10: Neeru Dhanda... - The Times of India",
+        "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-day-10-two-golds-from-neeru-dhanda-womens-4x400m-relay-take-india-past-50-medals/articleshow/134568551.cms"
+      },
+      {
+        "publishedAt": "2026-09-29T13:04:10.000Z",
+        "title": "Rain No Barrier! India Win Women’s 4x400m Relay Gold At Asian...",
+        "url": "https://news.abplive.com/sports/asian-games-2026-india-womens-4x400m-relay-wins-gold-live-updates-1868932"
+      },
+      {
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "title": "Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games",
+        "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "day",
+    "vertical": "sports"
+  }
+}

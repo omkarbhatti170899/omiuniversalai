@@ -1,0 +1,460 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": "I could not find any live sources for \"who is leading the F1 2026 drivers championship\", so I can't verify a current answer.\n\nI am deliberately not filling this in from my training data — my knowledge has a cutoff and is not a live feed, so a figure I recalled could easily be out of date, and a plausible-looking but unverified number is worse than none. Press Retry Search, or switch a search provider in Settings.",
+  "retrievalPlan": {
+    "notes": [
+      "event \"formula 1\" already named in the query",
+      "added sports terms: result, report",
+      "added the strong recency word \"today\" to the primary query",
+      "removed filler words from the retrieval query"
+    ],
+    "primary": "leading F1 2026 drivers championship result report today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "leading F1 2026 drivers championship result report today latest",
+      "leading the F1 2026 drivers championship today",
+      "leading the F1 2026 drivers championship 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "leading F1 2026 drivers championship result report today",
+  "summary": "[search] \"who is leading the F1 2026 drivers championship\" intent=knowledge fresh=true vertical=sports years=2026 qType=ranking raw=10 kept=0 stale-rejected=10 domains=0 conflicts=0 verdict=refuse searchMs=15306 totalMs=15306",
+  "trace": {
+    "askedEvent": "formula 1",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 0,
+        "provider": "searxng",
+        "retrieved": 9
+      },
+      {
+        "kept": 0,
+        "provider": "langsearch",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "names the current year (2026)"
+    ],
+    "independentDomains": 0,
+    "intent": "knowledge",
+    "liveData": "standing",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "who is leading the F1 2026 drivers championship",
+    "questionType": "ranking",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": null,
+        "domain": "motorsport.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.motorsport.com/f1/standings/2026"
+      },
+      {
+        "ageDays": 43.92069412037037,
+        "domain": "sillyseason.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sillyseason.com/motorsports/f1-standings-177973"
+      },
+      {
+        "ageDays": null,
+        "domain": "f1-fansite.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.f1-fansite.com/f1-news/f1-2026-half-season-report-every-formula-team-rated"
+      },
+      {
+        "ageDays": null,
+        "domain": "bbc.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.bbc.com/sport/formula1/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "bbc.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.bbc.com/sport/formula1/live/c98klj2wn46t"
+      },
+      {
+        "ageDays": null,
+        "domain": "racingnews365.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://racingnews365.com/drivers/2026"
+      },
+      {
+        "ageDays": null,
+        "domain": "bbc.co.uk",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.bbc.co.uk/sport/formula1/standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "pitdebrief.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.pitdebrief.com/post/we-didnt-deserve-to-win-antonelli-reflects-on-2026-f1-spanish-gp-victory"
+      },
+      {
+        "ageDays": null,
+        "domain": "app.formula1dashboard.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://app.formula1dashboard.com/driver-standings"
+      },
+      {
+        "ageDays": null,
+        "domain": "iheart.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.iheart.com/podcast/53-kimi-antonelli-biography-fl-320279430"
+      }
+    ],
+    "rejectedStaleCount": 10,
+    "requiresFreshness": true,
+    "searchMs": 15306,
+    "selectedCount": 0,
+    "sources": [
+      {
+        "age": "date not shown by the source",
+        "domain": "motorsport.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.91,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.17,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 0.91,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Formula 1 2026 results and standings for top drivers and teams",
+        "url": "https://www.motorsport.com/f1/standings/2026"
+      },
+      {
+        "age": "1 months ago",
+        "domain": "sillyseason.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-08-16T20:33:00.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.86,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.05,
+          "final": 0.86,
+          "freshness": 0.03,
+          "relevance": 0.36,
+          "sourceQuality": 0.12
+        },
+        "selected": false,
+        "title": "F1 Standings 2026: Formula 1 Drivers and Constructors Standings 2026!",
+        "url": "https://sillyseason.com/motorsports/f1-standings-177973"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "f1-fansite.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.83,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.83,
+          "freshness": 0.1,
+          "relevance": 0.36,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "F1 2026 Half-Season Report: Every Formula Team Rated",
+        "url": "https://www.f1-fansite.com/f1-news/f1-2026-half-season-report-every-formula-team-rated"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "bbc.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.82,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.17,
+          "corroboration": 0.16,
+          "directness": 0.03,
+          "final": 0.82,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "F1 Standings - Drivers' & Constructors' World Championships",
+        "url": "https://www.bbc.com/sport/formula1/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "bbc.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.8,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.17,
+          "corroboration": 0,
+          "directness": 0.05,
+          "final": 0.8,
+          "freshness": 0.1,
+          "relevance": 0.29,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "F1 LIVE: Azerbaijan Grand Prix 2026 reaction & result as... - BBC Sport",
+        "url": "https://www.bbc.com/sport/formula1/live/c98klj2wn46t"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "racingnews365.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.76,
+        "scoreBreakdown": {
+          "answerability": 0.8,
+          "authority": 0.12,
+          "corroboration": 0.24,
+          "directness": 0.04,
+          "final": 0.76,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "All F1 drivers in 2026. Results, teams, statistics and the latest...",
+        "url": "https://racingnews365.com/drivers/2026"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "bbc.co.uk",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.74,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.17,
+          "corroboration": 0.08,
+          "directness": 0.03,
+          "final": 0.74,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "F1 Standings - Drivers' & Constructors' World Championships - BBC....",
+        "url": "https://www.bbc.co.uk/sport/formula1/standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "pitdebrief.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.73,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.04,
+          "final": 0.73,
+          "freshness": 0.1,
+          "relevance": 0.21,
+          "sourceQuality": 0.1
+        },
+        "selected": false,
+        "title": "“We didn’t deserve to win”: Antonelli reflects on 2026... - Pit Debrief",
+        "url": "https://www.pitdebrief.com/post/we-didnt-deserve-to-win-antonelli-reflects-on-2026-f1-spanish-gp-victory"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "app.formula1dashboard.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.69,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0.16,
+          "directness": 0.03,
+          "final": 0.69,
+          "freshness": 0.1,
+          "relevance": 0.14,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "2026 F1 Driver Standings & Points Evolution | Formula 1 Dashboard",
+        "url": "https://app.formula1dashboard.com/driver-standings"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "iheart.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.69,
+        "scoreBreakdown": {
+          "answerability": 1,
+          "authority": 0.12,
+          "corroboration": 0,
+          "directness": 0.04,
+          "final": 0.69,
+          "freshness": 0.1,
+          "relevance": 0.29,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "Kimi Antonelli - Biography Flash | iHeart",
+        "url": "https://www.iheart.com/podcast/53-kimi-antonelli-biography-fl-320279430"
+      }
+    ],
+    "totalMs": 15306,
+    "verification": {
+      "failedChecks": [
+        "relevance",
+        "year",
+        "event",
+        "recency",
+        "authority",
+        "corroboration",
+        "timestamp",
+        "claim-verification"
+      ],
+      "passRate": 0.111,
+      "unverifiable": [
+        "No source clearly answers the question as asked.",
+        "No source confirms coverage of 2026; anything available may describe a different year.",
+        "None of the results cover the \"formula 1\" — they appear to be about a different event.",
+        "No source recent enough to speak to the current situation was found.",
+        "No primary or reputable source was found.",
+        "No sources were retrieved, so there is nothing to corroborate.",
+        "None of the sources showed a date, so their currency is unknown.",
+        "No figure could be extracted from the sources' own text, so any number in an answer would be unverified."
+      ],
+      "verdict": "refuse"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "no retrieved source directly addresses the question",
+        "id": "relevance",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source states which year it covers",
+        "id": "year",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source names the \"formula 1\" — the results are about something else",
+        "id": "event",
+        "passed": false
+      },
+      {
+        "critical": true,
+        "detail": "no source carries a date, so recency is unverifiable",
+        "id": "recency",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no sources were retrieved at all",
+        "id": "corroboration",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no source carries a publication date",
+        "id": "timestamp",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "no overlapping figures to compare",
+        "id": "consistency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "numeric question but NO comparable figure could be extracted from 0 source(s)",
+        "id": "claim-verification",
+        "passed": false
+      }
+    ],
+    "datedSources": 0,
+    "independentDomains": 0,
+    "passRate": 0.1111111111111111,
+    "unverifiable": [
+      "No source clearly answers the question as asked.",
+      "No source confirms coverage of 2026; anything available may describe a different year.",
+      "None of the results cover the \"formula 1\" — they appear to be about a different event.",
+      "No source recent enough to speak to the current situation was found.",
+      "No primary or reputable source was found.",
+      "No sources were retrieved, so there is nothing to corroborate.",
+      "None of the sources showed a date, so their currency is unknown.",
+      "No figure could be extracted from the sources' own text, so any number in an answer would be unverified."
+    ],
+    "verdict": "refuse"
+  }
+}

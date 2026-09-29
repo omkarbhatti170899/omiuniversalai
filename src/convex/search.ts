@@ -188,6 +188,7 @@ export const searchWeb = action({
       category,
       language,
       timeRange,
+      userQuestion: decision.cleanedQuery,
       safeSearch: args.safeSearch,
       page: args.page ?? 1,
       enrichPages: args.deepRead === true,

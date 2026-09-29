@@ -20,7 +20,7 @@
  */
 
 import type { WebCitation } from "../searchProviders/types";
-import { domainOf } from "./quality";
+import { domainOf, questionTypeFor, type QuestionType } from "./quality";
 import { ageInDays, relativeAge } from "./freshness";
 import type { CurrentIntent } from "./intent";
 import type { ValidationReport } from "./validation";
@@ -42,14 +42,17 @@ export type SourceDecision = {
    * relevance/freshness/authority/quality/directness per source, so a trace
    * can show WHY a page ranked where it did without recomputation. */
   scoreBreakdown?: ScoreBreakdown;
-  /** The rejection bucket: temporal, quality, relevance, or none (kept). */
-  rejectionKind?: "kept" | "temporal" | "quality" | "relevance";
+  /** The rejection bucket: temporal, quality, relevance, answerability, or none (kept). */
+  rejectionKind?: "kept" | "temporal" | "quality" | "relevance" | "answerability";
   providers?: string[];
 };
 
 export type SearchDebugTrace = {
   query: string;
   intent: string | undefined;
+  /** The question TYPE derived from the user's interrogative frame
+   * (ranking/result/value/…). The answerability floor is judged against it. */
+  questionType: QuestionType;
   requiresFreshness: boolean;
   /** Why freshness was or was not required — the part that was previously invisible. */
   freshnessReasons: string[];
@@ -154,9 +157,11 @@ export function buildSearchTrace(input: TraceInput): SearchDebugTrace {
         ? "temporal"
         : /off-topic|non-sequitur|entity|noise|relevance|freshness promise|not current/i.test(reason)
           ? "relevance"
-          : /quality|noise floor/i.test(reason)
-            ? "quality"
-            : "temporal",
+          : /answerability|question type|cannot (?:support|answer|evidence)/i.test(reason)
+            ? "answerability"
+            : /quality|noise floor/i.test(reason)
+              ? "quality"
+              : "temporal",
     providers: citation.providers,
   }));
 
@@ -174,6 +179,7 @@ export function buildSearchTrace(input: TraceInput): SearchDebugTrace {
   return {
     query: input.query,
     intent: input.intent,
+    questionType: questionTypeFor(input.query),
     requiresFreshness: input.classified.requiresFreshness,
     freshnessReasons: input.classified.reasons,
     vertical: input.classified.vertical,
@@ -245,6 +251,7 @@ export function summarizeTrace(trace: SearchDebugTrace): string {
   return (
     `[search] "${trace.query}" intent=${trace.intent ?? "-"} fresh=${trace.requiresFreshness} ` +
     `vertical=${trace.vertical} years=${trace.askedYears.join("/") || "-"} ` +
+    `qType=${trace.questionType} ` +
     `raw=${trace.rawCount} kept=${trace.selectedCount} stale-rejected=${trace.rejectedStaleCount} ` +
     `domains=${trace.independentDomains} conflicts=${trace.conflicts.length} ` +
     `verdict=${trace.verification.verdict} searchMs=${trace.searchMs} totalMs=${trace.totalMs}`

@@ -646,7 +646,135 @@ export function sharesTopic(c: WebCitation, keywords: string[]): boolean {
  * `temporalPenalty`, which drives a confidently-wrong-year source to the
  * floor. Recency alone cannot do this: a page published last week about the
  * 2018 Games is fresh by timestamp and useless by content.
+ *
+ * MEASURED 2026-09-29 (a504ac2 review): freshness STILL overrode answerability
+ * at the selection layer. "Who is leading the F1 2026 drivers championship?"
+ * selected "Kim Kardashian's F1 Dream Gets Lewis Hamilton's Approval" —
+ * recent, dated, entity-matching (F1 + Hamilton in the snippet), and utterly
+ * INCAPABLE of answering a standings question. The 8-dimension score gave it
+ * 0.76 because no dimension asked THE question: can this page actually
+ * support the answer? The question-type engine below adds that dimension,
+ * and the ranker enforces it as a HARD floor.
  */
+
+// --- QUESTION TYPE + ANSWERABILITY (measured: Kim K for F1 standings) ------
+
+/** What KIND of answer does the question need? */
+export type QuestionType =
+  | "ranking" // who is leading / standings / points table
+  | "result" // who won / final score of a completed event
+  | "live-score" // live scores / current matches
+  | "value" // how much / price / rate / figure
+  | "schedule" // when is / where is the next
+  | "explanation" // why / how does X work
+  | "procedure" // how to do X
+  | "news" // latest news / what happened
+  | "general"; // everything else
+
+/**
+ * Extract the question type from the USER's words — the raw question, not the
+ * keyword-rewritten retrieval string (the rewriter strips the interrogative
+ * frame, and the frame is exactly where the question type lives).
+ */
+export function questionTypeFor(query: string): QuestionType {
+  const q = (query ?? "").toLowerCase();
+  if (/\b(who is leading|who leads|leader|standings?|points? table|table|ranking|rankings?|top of the|ahead in)\b/.test(q))
+    return "ranking";
+  if (/\b(who won|winner|result of|race result|match result|final score|who beat)\b/.test(q))
+    return "result";
+  // "live football scores" / "live cricket score": `live` ADJACENT to a sport
+  // noun phrase ending in score(s) is a live-score question even without
+  // "today"/"right now".
+  if (/\b(live|in[- ]play)\b[^.?!]*\bscores?\b|\bscores?\b[^.?!]*\b(?:today|right now|now|live)\b/.test(q))
+    return "live-score";
+  if (/\b(when is|when does|where is|schedule|next (?:race|match|game|event)|dates?)\b/.test(q))
+    return "schedule";
+  if (/\b(how much|price|rate of|worth|cost)\b/.test(q)) return "value";
+  if (/^\s*why\b/.test(q) || /\b(why (?:is|do|does|did)|what causes)\b/.test(q)) return "explanation";
+  if (/^\s*how (?:to|do i|can i)\b/.test(q)) return "procedure";
+  if (/\b(news|latest|happened|announcement)\b/.test(q)) return "news";
+  return "general";
+}
+
+/**
+ * Per-type vocabulary: what a page must CONTAIN to be able to answer this
+ * question type. Answerability is a property of the PAGE'S TEXT, not of the
+ * topic: the Kim Kardashian piece mentions F1 and Hamilton (topic ✓) but
+ * carries no leader/points/standings information (ranking ✗).
+ */
+const ANSWERABILITY_RE: Record<QuestionType, RegExp> = {
+  // MEASURED: bare "ahead"/"top" are temporal/topical words, not standings
+  // evidence — "ahead of the 2026 season" (Kim K piece) matched the old rule.
+  // Ranking evidence must be structural: leader/standings/points figures.
+  ranking:
+    /\b(leader|leaders|lead(?:s|ing)\b[^.]*(?:championship|standings|table|points|gap|by \d)|standings?|points? (?:table|standings)|league table|championship table|rank(?:ed|ings?)?|top of the|first place|\d{1,4}\s*(?:pts|points)\b|\b(?:pts|points)\b[^.]*(?:clear|ahead|lead|gap)|wins? the championship|championship lead)\b/i,
+  result:
+    /\b(won|wins?|victor(?:y|ious)?|beat|beaten|finished|result|final|podium|score(?:d)?|defeated)\b/i,
+  "live-score":
+    /\b(live|in[- ]play|scores?|fixture|kick[- ]?off|underway|halftime|half[- ]time|full[- ]time|current score)\b/i,
+  value:
+    /\b(price|cost|rate|rs\.?|inr|usd|\$|₹|worth|priced|per (?:gram|10g|ounce|troy)|quoted at)\b/i,
+  schedule:
+    /\b(schedule|fixture|dates?|kick[- ]?off|start(?:ing)? time|takes? place|venue|when|calendar)\b/i,
+  explanation:
+    /\b(because|due to|caused?|explains?|reason|how (?:it|this) works|mechanism|results? in|leads? to)\b/i,
+  procedure:
+    /\b(steps?|guide|tutorial|instructions?|how to|install|setup|set up|configure)\b/i,
+  news: /.*/, // news questions are answered by topical coverage itself
+  general: /.*/,
+};
+
+/**
+ * Domain-reputation floors per question type. For a RANKING question the
+ * answer must come from a trustworthy source — a celebrity blog cannot be
+ * verified for a championship leader even if its text once said so.
+ */
+const ANSWERABILITY_MIN_TIER: Partial<Record<QuestionType, number>> = {
+  ranking: 0.6, // rejects low-tier gossip (weight 0.4); allows general web
+  result: 0.6,
+  "live-score": 0.6,
+  value: 0.6,
+};
+
+/**
+ * The ANSWERABILITY PENALTY for one citation against one question type.
+ *
+ * Returns 0 (clean) when the page's own text carries the question-type's
+ * evidence vocabulary AND the domain tier clears the type's floor; a graded
+ * penalty otherwise:
+ *   0.2  — text lacks the evidence vocabulary (cannot support the answer)
+ *   0.3  — domain tier below the type's floor (unverifiable for this claim)
+ *   0.45 — BOTH (noise floor: hard-rejected by the ranker)
+ *
+ * MEASURED (a504ac2 rerun): a vocabulary match alone let a celebrity-gossip
+ * domain escape the floor — the live snippet happened to contain "standings".
+ * For the LIVE-FACT question types (ranking/result/live-score/value) an
+ * entertainment/gossip domain is therefore floored REGARDLESS of its text:
+ * a celebrity article can never be the trustworthy carrier of a current
+ * championship leader, score, or price, no matter which words it repeats.
+ */
+export function answerabilityPenalty(
+  c: WebCitation,
+  questionType: QuestionType,
+): number {
+  const re = ANSWERABILITY_RE[questionType];
+  if (!re || re.source === ".*") return 0; // news/general: no vocabulary floor
+  const hay = `${c.title ?? ""} ${c.snippet ?? ""}`.toLowerCase();
+  const hasEvidence = re.test(hay);
+  const tier = sourceTier(c.url).weight;
+  const minTier = ANSWERABILITY_MIN_TIER[questionType] ?? 0;
+  const tierOk = tier >= minTier;
+  // Celebrity/entertainment domains: a gossip page is never a trustworthy
+  // carrier of a live fact, even when its text happens to name a number or a
+  // standings word. (URL signals like "-rumors" ride along with the domain.)
+  const entertainment = SPORTS_ENTERTAINMENT_RE.test(domainOf(c.url));
+  if (entertainment && minTier > 0) return 0.55; // live-fact type: hard floor
+  if (!hasEvidence && !tierOk) return 0.45;
+  if (!hasEvidence) return 0.2;
+  if (!tierOk) return 0.3;
+  return 0;
+}
+
 export type ScoreBreakdown = {
   /** Weighted query relevance (topic-word coverage). */
   relevance: number;
@@ -660,6 +788,9 @@ export type ScoreBreakdown = {
   directness: number;
   /** Corroboration bonus: same URL found by 2+ independent engines. */
   corroboration: number;
+  /** Question-type answerability 0..1: can this page's text support the
+   * KIND of answer asked for (leader evidence for a ranking question, etc.)? */
+  answerability?: number;
   /** The final score the ranker sorts by (after temporal × usefulness). */
   final: number;
 };
@@ -709,6 +840,10 @@ export function scoreSourceDetailed(
     askedYears?: number[];
     askedEvent?: string | null;
     freshnessTier?: string;
+    /** The USER's original question — the question TYPE (ranking/result/…)
+     * is read from its interrogative frame, which the retrieval rewriter
+     * strips. Answerability is judged against it. */
+    userQuestion?: string;
   } = {},
 ): ScoreBreakdown {
   // ENTITY ANCHOR: when the question names a competition, a source that never
@@ -723,6 +858,7 @@ export function scoreSourceDetailed(
       sourceQuality: 0,
       directness: 0,
       corroboration: 0,
+      answerability: 0,
       final: 0,
     };
     return empty;
@@ -792,6 +928,15 @@ export function scoreSourceDetailed(
   const noise = usefulnessPenalty(c);
   if (noise > 0) final *= 1 - noise;
 
+  // ANSWERABILITY (question-type awareness, measured a504ac2): a page whose
+  // text cannot evidence the KIND of answer asked for is penalised
+  // multiplicatively too — a fresh gossip page naming a driver must not
+  // outscore an actual standings report. The penalty participates in the
+  // same "freshness cannot buy it back" rule as noise.
+  const qType = opts.userQuestion ? questionTypeFor(opts.userQuestion) : null;
+  const ansPenalty = qType ? answerabilityPenalty(c, qType) : 0;
+  if (ansPenalty > 0) final *= 1 - ansPenalty;
+
   return {
     relevance: round2(relevance),
     freshness: round2(freshness),
@@ -799,6 +944,7 @@ export function scoreSourceDetailed(
     sourceQuality: round2(quality),
     directness: round2(directness),
     corroboration: 0, // filled in by the ranker when agreement is measured
+    answerability: round2(1 - ansPenalty),
     final: round2(final),
   };
 }

@@ -26,7 +26,12 @@ import {
 } from "./searchEngine/quality";
 import { internal } from "./_generated/api";
 import { guardedCall, strictVerticalFallbackFor } from "./searchEngine/resilience";
-import { scoreSourceDetailed, usefulnessPenalty } from "./searchEngine/quality";
+import {
+  scoreSourceDetailed,
+  usefulnessPenalty,
+  answerabilityPenalty,
+  questionTypeFor,
+} from "./searchEngine/quality";
 
 function round2(n: number): number {
   return Math.round(n * 100) / 100;
@@ -128,6 +133,17 @@ export async function runUniversalSearch(
      */
     askedYears?: number[];
     askedEvent?: string | null;
+    /**
+     * The USER's original question (not the rewritten retrieval string). The
+     * ranker derives the QUESTION TYPE (ranking/result/value/…) from its
+     * interrogative frame and enforces a HARD ANSWERABILITY FLOOR against it:
+     * a page whose text cannot evidence the kind of answer asked for is
+     * rejected no matter how fresh or on-topic. Measured (a504ac2): a Kim
+     * Kardashian F1 article was selected as the sole evidence for "who is
+     * leading the F1 2026 drivers championship" — fresh, dated, on-entity,
+     * and incapable of answering a standings question.
+     */
+    userQuestion?: string;
     /**
      * Rewritten variants, fanned out to GENERAL-WEB providers only.
      *
@@ -420,6 +436,7 @@ export async function runUniversalSearch(
       askedYears: opts?.askedYears,
       askedEvent: opts?.askedEvent,
       freshnessTier: opts?.freshnessTier,
+      userQuestion: opts?.userQuestion,
     });
     const agreement = seenUrls.get(normalizeUrl(item.c.url)) ?? 1;
     if (agreement > 1) {
@@ -437,6 +454,20 @@ export async function runUniversalSearch(
     // for broad questions the topical floor cannot catch them, but a
     // usefulness penalty ≥0.45 means the page is noise by construction.
     if (usefulnessPenalty(item.c) >= 0.45) continue;
+    // The ANSWERABILITY FLOOR (hard, measured a504ac2): freshness must NEVER
+    // compensate for extremely poor answerability. A page penalised ≥0.45 by
+    // the question-type check (no evidence vocabulary AND/OR untrustworthy
+    // domain for the answer's kind) is rejected at selection, not merely
+    // down-ranked — the same mechanical shape as the noise floor. Structured
+    // feed rows (live scores, official standings) carry their answer by
+    // construction and are exempt.
+    if (
+      opts?.userQuestion &&
+      item.c.providers?.includes("sports-scores") !== true &&
+      answerabilityPenalty(item.c, questionTypeFor(opts.userQuestion)) >= 0.45
+    ) {
+      continue;
+    }
     ranked.push(item);
   }
   ranked.sort((a, b) => b.score - a.score);
