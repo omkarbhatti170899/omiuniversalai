@@ -1,7 +1,7 @@
 {
   "row": {
     "answer": "Latest world news September 25th: Two debris in the hold reveal the mystery of the last moment of MH370; World gold prices are on the path to recovery [1]\n\nAlso get top headlines and latest news from India and around the world at News9. [2]\n\nSources: [1] World 24h: Two strong storms operating together, threatening to cause... (news.laodong.vn)  [2] Bangkok floods: Thousands evacuated as heavy rain... - News9live (news9live.com)",
-    "detail": "2 fresh result(s) from 3 source(s) in 5948ms",
+    "detail": "2 fresh result(s) from 3 source(s) in 14027ms",
     "droppedFresh": [],
     "enginesTried": [
       "searxng",
@@ -26,7 +26,7 @@
     "query": "latest world news",
     "requiresFreshness": true,
     "resultsFound": 5,
-    "searchMs": 5948,
+    "searchMs": 14027,
     "searchTriggered": true,
     "sources": [
       {

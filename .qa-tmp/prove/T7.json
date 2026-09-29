@@ -21,21 +21,21 @@
     ]
   },
   "retrievalQuery": "world news today",
-  "summary": "[search] \"latest world news\" intent=news fresh=true vertical=news years=- raw=10 kept=7 stale-rejected=3 domains=7 conflicts=0 verdict=answer searchMs=4023 totalMs=4023",
+  "summary": "[search] \"latest world news\" intent=news fresh=true vertical=news years=- raw=10 kept=7 stale-rejected=3 domains=7 conflicts=0 verdict=answer searchMs=15707 totalMs=15707",
   "trace": {
     "askedEvent": null,
     "askedYears": [],
     "conflicts": [],
     "contributionsByProvider": [
       {
-        "kept": 4,
+        "kept": 5,
         "provider": "searxng",
-        "retrieved": 6
+        "retrieved": 7
       },
       {
-        "kept": 3,
+        "kept": 2,
         "provider": "langsearch",
-        "retrieved": 4
+        "retrieved": 3
       }
     ],
     "dedupedCount": 10,
@@ -57,16 +57,16 @@
     "rawCount": 10,
     "rejectedStale": [
       {
-        "ageDays": 7.505181145833333,
-        "domain": "nota-news.com",
-        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
-        "url": "https://nota-news.com/news/world"
-      },
-      {
-        "ageDays": 6.870053831018519,
+        "ageDays": 6.875878252314815,
         "domain": "sundayguardianlive.com",
         "reason": "dropped: outside the 5-day window, undated, or past the result limit",
         "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-23-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-290509"
+      },
+      {
+        "ageDays": 7.511005567129629,
+        "domain": "nota-news.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://nota-news.com/news/world"
       },
       {
         "ageDays": null,
@@ -77,7 +77,7 @@
     ],
     "rejectedStaleCount": 3,
     "requiresFreshness": true,
-    "searchMs": 4023,
+    "searchMs": 15707,
     "selectedCount": 7,
     "sources": [
       {
@@ -102,29 +102,6 @@
         "selected": true,
         "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
         "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
-      },
-      {
-        "age": "8 days ago",
-        "domain": "nota-news.com",
-        "providers": [
-          "searxng"
-        ],
-        "publishedAt": "2026-09-22T01:49:49.000Z",
-        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
-        "rejectionKind": "temporal",
-        "score": 0.96,
-        "scoreBreakdown": {
-          "authority": 0.12,
-          "corroboration": 0.16,
-          "directness": 0.04,
-          "final": 0.96,
-          "freshness": 0.07,
-          "relevance": 0.5,
-          "sourceQuality": 0.07
-        },
-        "selected": false,
-        "title": "World news in simple English and Spanish — Nota",
-        "url": "https://nota-news.com/news/world"
       },
       {
         "age": "2 days ago",
@@ -171,6 +148,29 @@
         "selected": false,
         "title": "School Assembly News Headlines Today [23 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day",
         "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-23-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-290509"
+      },
+      {
+        "age": "8 days ago",
+        "domain": "nota-news.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T01:49:49.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "rejectionKind": "temporal",
+        "score": 0.88,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.04,
+          "final": 0.88,
+          "freshness": 0.07,
+          "relevance": 0.5,
+          "sourceQuality": 0.07
+        },
+        "selected": false,
+        "title": "World news in simple English and Spanish — Nota",
+        "url": "https://nota-news.com/news/world"
       },
       {
         "age": "5 days ago",
@@ -264,6 +264,29 @@
         "url": "https://www.washingtonpost.com/press-freedom-desk/2026/09/28/world-news-day-2026"
       },
       {
+        "age": "yesterday",
+        "domain": "clickondetroit.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-28T13:57:13.000Z",
+        "reason": "kept as current evidence",
+        "rejectionKind": "kept",
+        "score": 0.83,
+        "scoreBreakdown": {
+          "authority": 0.12,
+          "corroboration": 0.08,
+          "directness": 0.03,
+          "final": 0.83,
+          "freshness": 0.17,
+          "relevance": 0.33,
+          "sourceQuality": 0.1
+        },
+        "selected": true,
+        "title": "Hurricane Polo could cause life-threatening flooding in Mexico’s Baja...",
+        "url": "https://www.clickondetroit.com/news/world/2026/09/28/hurricane-polo-could-produce-life-threatening-flooding-in-mexicos-baja-california"
+      },
+      {
         "age": "2 days ago",
         "domain": "nytimes.com",
         "providers": [
@@ -285,32 +308,9 @@
         "selected": true,
         "title": "Today’s Wordle Hints for September 28, 2026 - The New York Times",
         "url": "https://www.nytimes.com/2026/09/27/crosswords/wordle-review-1927.html"
-      },
-      {
-        "age": "19 hours ago",
-        "domain": "timeslive.co.za",
-        "providers": [
-          "langsearch"
-        ],
-        "publishedAt": "2026-09-28T19:00:22.000Z",
-        "reason": "kept as current evidence",
-        "rejectionKind": "kept",
-        "score": 0.82,
-        "scoreBreakdown": {
-          "authority": 0.12,
-          "corroboration": 0,
-          "directness": 0.04,
-          "final": 0.82,
-          "freshness": 0.21,
-          "relevance": 0.33,
-          "sourceQuality": 0.12
-        },
-        "selected": true,
-        "title": "World News Day urges trust in ethical journalism",
-        "url": "https://www.timeslive.co.za/news/south-africa/2026-09-28-world-news-day-urges-trust-in-ethical-journalism"
       }
     ],
-    "totalMs": 4023,
+    "totalMs": 15707,
     "verification": {
       "failedChecks": [],
       "passRate": 1,
@@ -354,7 +354,7 @@
     ],
     "datedSources": 7,
     "independentDomains": 7,
-    "newestSourceAgeHours": 17.8,
+    "newestSourceAgeHours": 18,
     "newestSourceAt": "2026-09-28T20:08:39.000Z",
     "passRate": 1,
     "unverifiable": [],

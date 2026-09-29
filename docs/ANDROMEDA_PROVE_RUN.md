@@ -262,6 +262,64 @@ remains in the suite.
 
 ---
 
+## Addendum 2 — relevance-engine PROOF (2026-09-29, post-7511c3e)
+
+Per the "prove it, don't add features" instruction: 7 queries run through the
+REAL production path — `searchDebug:traceSearch` (per-source decisions, full
+score breakdowns, rejection reasons) × `currentInfoProbe:runOne` (the chat
+turn). Full evidence pack: `.qa-tmp/prove/REPORT.txt`.
+
+**All 7 PASS with zero garbage citations.** Repro: `bunx convex run
+searchDebug:traceSearch '{"query":"<q>","limit":10}'` and
+`bunx convex run currentInfoProbe:runOne '{"query":"<q>"}'`.
+
+| Query | Chat | Trace kept | Notes (measured) |
+|---|---|---|---|
+| latest IPL news | pass | cricket/ILT20 sources only | B.Arch/NEET/gaming-hub rejected — entity anchor holds live |
+| live football scores | pass | 2 live feed rows, in-play | AFCON/U21 rows survive WITHOUT literal "football" — semantic override + feed provenance |
+| current Premier League standings | pass | EPL coverage, 09-28/29 | stale feed table rejected (temporal); escalation widened to general web |
+| Formula 1 2026 season results | pass | GP coverage only | merch, esports, ticket-upsell pages all floored live |
+| NBA standings | pass | NBA.com + NBA coverage | full fan-out fallback after dataless structured feed |
+| latest India news | pass | 5 dated, 5 domains | searxng 4/5 + langsearch 2/5 contributions |
+| latest world news | pass | 2 dated | mixed-provider; stale 7.4d items rejected |
+
+**Additional defects found and fixed DURING the proof (each now pinned):**
+1. `keywordSet` drops bare digits ⇒ `detectSportDomain("formula 2026 season…")`
+   returned null — the semantic layer was silently OFF for F1. Motorsport query
+   rule now accepts bare "formula"/"f1".
+2. Roundup/listings titles ("Things To Do This Week…") — snippet entity mention
+   ≠ subject. NEW `ROUNDUP_TITLE_RE` (+0.45).
+3. Cross-sport title mismatch (MLB World Series for an F1 question) — demoted
+   ×0.2 when the title belongs to another sport.
+4. Title-entity mismatch (esports page for F1 via snippet) — demoted ×0.2.
+5. Structured-feed provenance: live AFCON row has zero football vocabulary;
+   `isOffTopic` now accepts `sports-scores` citations by construction (and ONLY
+   those — the same text from a web engine is still content-judged).
+6. Escalation merge recombination bypassed the noise floor (merch page cited
+   after the fact) — both merge sites now re-apply `usefulnessPenalty ≥ 0.45`.
+7. ePaper index pages, product/merch titles, commerce/ticketing upsell titles —
+   floored (0.3–0.45).
+8. Trace honesty: rejection reasons now distinguish wrong-year / off-topic /
+   non-sequitur / freshness-promise; per-source `scoreBreakdown` +
+   `rejectionKind` published on every decision; probe row carries
+   `freshSplitCounts` + `droppedFresh` (proves WHICH gate refused).
+
+**Edge-case matrix (unit-pinned, `tests/omiSportRelevanceRegressions.test.ts`):**
+provider timeout & unavailability (fan-out + backstop, live-proven), stale-only
+(refusal contract, live-proven), irrelevant-fresh (FINAL 0 anchor), conflicting
+sources (answer-caveated verdicts live), duplicate/syndication
+(`dedupeSyndication`), missing date (freshness-promise drop), malformed URL &
+shorteners & spam TLDs (floored 0.55).
+
+**Thresholds were NOT relaxed** — every fix is a new decision rule or a widened
+escalation; the floors/anchors from the prior phase are untouched and
+re-verified. Two additional mutation checks: semantic override disabled → tests
+fail; F1-detection fix disabled → tests fail.
+
+**Gates:** 1,306 tests / 0 fail · tsc 0 errors · eslint 0 errors · deployed 14:01.
+
+---
+
 ## Addendum — the five f190e36 failures: root-caused, fixed, live-verified
 ### (2026-09-29, `tests/omiSportRelevanceRegressions.test.ts`)
 

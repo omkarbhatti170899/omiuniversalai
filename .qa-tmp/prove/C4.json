@@ -1,7 +1,7 @@
 {
   "row": {
-    "answer": "The Formula 1 CEO also discussed the remarkable season Andrea Kimi Antonelli is currently enjoying, focusing particularly on the young driver’s ability to deal with pressure while leading the championship.Buy official Ferrari 2026 F1 products. [6]\n\nSpeaking after the race, Kimi Antonelli described his Baku weekend as the worst by far of his 2026 Formula 1 season after finishing fifth, scoring 10 points and leaving Azerbaijan 66 points ahead of George Russell . [2]\n\nFernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026\n\nFernando Alonso and Lance Stroll will remain with Aston Martin beyond the 2026 Formula 1 season after both drivers agreed long-term contract extensions, the team said on Tuesday. [5]\n\nVerstappen opposes Hamilton on ending the 2026 F1 season in Qatar and Abu Dhabi. [3]\n\nSources: [1] POWER RANKINGS: Who impressed our judges at the Azerbaijan... (formula1.com)  [2] Antonelli's worst weekend of 2026 was still an... - Motor Sport Magazine (motorsportmagazine.com)  [3] Hamilton frustrated with Ferrari, tension rises with Vasseur over Leclerc... (f1ingenerale.com)  [4] Ferrari SF-26 | Car Mod | Assetto World (assettoworld.com)",
-    "detail": "8 fresh result(s) from 1 source(s) in 21150ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded",
+    "answer": "The Formula 1 CEO also discussed the remarkable season Andrea Kimi Antonelli is currently enjoying, focusing particularly on the young driver’s ability to deal with pressure while leading the championship.Buy official Ferrari 2026 F1 products. [5]\n\nSpeaking after the race, Kimi Antonelli described his Baku weekend as the worst by far of his 2026 Formula 1 season after finishing fifth, scoring 10 points and leaving Azerbaijan 66 points ahead of George Russell . [2]\n\nFernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026\n\nFernando Alonso and Lance Stroll will remain with Aston Martin beyond the 2026 Formula 1 season after both drivers agreed long-term contract extensions, the team said on Tuesday. [4]\n\nVerstappen opposes Hamilton on ending the 2026 F1 season in Qatar and Abu Dhabi. [3]\n\nSources: [1] POWER RANKINGS: Who impressed our judges at the Azerbaijan... (formula1.com)  [2] Antonelli's worst weekend of 2026 was still an... - Motor Sport Magazine (motorsportmagazine.com)  [3] Hamilton frustrated with Ferrari, tension rises with Vasseur over Leclerc... (f1ingenerale.com)  [4] Fernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026 (grandprix247.com)",
+    "detail": "8 fresh result(s) from 2 source(s) in 6547ms (after a freshness escalation pass)",
     "droppedFresh": [],
     "enginesTried": [
       "searxng",
@@ -9,23 +9,22 @@
       "langsearch"
     ],
     "enginesWithResults": [
+      "SearXNG",
       "LangSearch (temporary, feature-gated)"
     ],
-    "failedEngines": [
-      "SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded"
-    ],
+    "failedEngines": [],
     "freshResults": 8,
     "freshSplitCounts": {
       "fresh": 8,
-      "stale": 4,
-      "undated": 0
+      "stale": 1,
+      "undated": 4
     },
     "freshness": "Based on 8 reports published in the last 5 days (newest: about an hour ago).",
     "intent": "knowledge",
     "query": "Formula 1 2026 season results",
     "requiresFreshness": true,
-    "resultsFound": 4,
-    "searchMs": 21150,
+    "resultsFound": 5,
+    "searchMs": 6547,
     "searchTriggered": true,
     "sources": [
       {
@@ -44,14 +43,14 @@
         "url": "https://f1ingenerale.com/en/f1/hamilton-frustrated-with-ferrari-tension-rises-with-vasseur-over-leclerc-favoritism"
       },
       {
-        "publishedAt": "2026-09-28T10:42:44.000Z",
-        "title": "Ferrari SF-26 | Car Mod | Assetto World",
-        "url": "https://www.assettoworld.com/car/f1-2026-ferrari-sf-26"
-      },
-      {
         "publishedAt": "2026-09-29T11:21:00.000Z",
         "title": "Fernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026",
         "url": "https://www.grandprix247.com/formula-1-news/fernando-alonso-and-lance-stroll-extend-aston-martin-contracts-beyond-2026"
+      },
+      {
+        "publishedAt": "2026-09-29T09:18:46.000Z",
+        "title": "Stefano Domenicali warns Ferrari against ‘fanciful solutions’ amid...",
+        "url": "https://scuderiafans.com/stefano-domenicali-warns-ferrari-against-fanciful-solutions-amid-christian-horner-rumours"
       }
     ],
     "status": "pass",

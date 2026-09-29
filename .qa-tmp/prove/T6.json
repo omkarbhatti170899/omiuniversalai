@@ -21,7 +21,7 @@
     ]
   },
   "retrievalQuery": "India news today",
-  "summary": "[search] \"latest India news\" intent=news fresh=true vertical=news years=- raw=10 kept=6 stale-rejected=4 domains=5 conflicts=0 verdict=answer-caveated searchMs=2742 totalMs=2742",
+  "summary": "[search] \"latest India news\" intent=news fresh=true vertical=news years=- raw=10 kept=6 stale-rejected=4 domains=5 conflicts=0 verdict=answer-caveated searchMs=7215 totalMs=7215",
   "trace": {
     "askedEvent": null,
     "askedYears": [],
@@ -57,25 +57,25 @@
     "rawCount": 10,
     "rejectedStale": [
       {
-        "ageDays": 7.443062430555556,
+        "ageDays": 7.448672870370371,
         "domain": "careerindia.com",
         "reason": "dropped: outside the 5-day window, undated, or past the result limit",
         "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-22-2026-national-international-education-spo-065947.html"
       },
       {
-        "ageDays": 6.162205949074075,
+        "ageDays": 6.167816388888888,
         "domain": "businesstoday.in",
         "reason": "dropped: outside the 5-day window, undated, or past the result limit",
         "url": "https://www.businesstoday.in/markets/trending-stocks/story/whirlpool-of-india-shares-jump-20-today-heres-what-analysts-say-557305-2026-09-23"
       },
       {
-        "ageDays": 6.574150393518519,
+        "ageDays": 6.579760833333334,
         "domain": "edexlive.com",
         "reason": "dropped: outside the 5-day window, undated, or past the result limit",
         "url": "https://www.edexlive.com/sunshine-jottings/school-assembly-news-today-september-23-2026-top-headlines-thought-word-history"
       },
       {
-        "ageDays": 7.307229097222223,
+        "ageDays": 7.3128395370370365,
         "domain": "cricbuzz.com",
         "reason": "dropped: outside the 5-day window, undated, or past the result limit",
         "url": "https://www.cricbuzz.com/live-cricket-scores/171477/ind-vs-jpn-one-off-t20i-india-tour-of-japan-2026"
@@ -83,7 +83,7 @@
     ],
     "rejectedStaleCount": 4,
     "requiresFreshness": true,
-    "searchMs": 2742,
+    "searchMs": 7215,
     "selectedCount": 6,
     "sources": [
       {
@@ -133,7 +133,7 @@
         "url": "https://www.ndtv.com/india-news/temperature-drops-as-rain-hits-delhi-weather-office-issues-yellow-alert-12103095"
       },
       {
-        "age": "4 hours ago",
+        "age": "5 hours ago",
         "domain": "indiatoday.in",
         "providers": [
           "searxng"
@@ -317,7 +317,7 @@
         "url": "https://countercurrents.org/2026/09/rss-celebrating-deendayal-upadhyays-birthday-is-fine-but-tell-the-nation-who-murdered-him"
       }
     ],
-    "totalMs": 2742,
+    "totalMs": 7215,
     "verification": {
       "failedChecks": [
         "authority"
@@ -365,7 +365,7 @@
     ],
     "datedSources": 6,
     "independentDomains": 5,
-    "newestSourceAgeHours": 4.5,
+    "newestSourceAgeHours": 4.6,
     "newestSourceAt": "2026-09-29T09:28:54.000Z",
     "passRate": 0.8,
     "unverifiable": [

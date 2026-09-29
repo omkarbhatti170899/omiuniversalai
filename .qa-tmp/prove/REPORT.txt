@@ -3,19 +3,17 @@ QUERY: latest IPL news
  intent=news fresh=True vertical=sports askedEvent=ipl
  providers contacted: searxng,wikipedia-current-events,langsearch
  providers failed: none
- raw=10 deduped=10 kept=1 domains=1 searchMs=11298
- contributions: [('langsearch', '1/1'), ('searxng', '0/9')]
- KEPT + SCORES:
+ raw=10 deduped=10 kept=1 domains=1 searchMs=21897
+ contributions (kept/retrieved): [('langsearch', '1/9'), ('wikipedia-current-events', '0/1'), ('Wikipedia Current Events', '0/1')]
+ KEPT + SCORES (rel/fresh/qual are the published components):
    * Babar Azam to play in UAE's IPL style T20 league in November 2026
      khaleejtimes.com | 2026-09-29 | rel=0.43 fresh=0.23 auth=0.12 qual=0.12 final=1.08
- REJECTED:
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | gamingfocusdailyhub.co.uk
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | iplt20.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | samaa.tv
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | ndtv.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | sportingnews.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | dnaindia.com
-   buckets: {'temporal': 9} (9 total)
+ REJECTED: 9 buckets={'temporal': 9}
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | thehindu.com
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | france24.com
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | jagranjosh.com
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | jagranjosh.com
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | nypost.com
  VALIDATION: answer-caveated
    PASS relevance | best source scores 1.00 on directness
    PASS event | 1 source(s) cover the "ipl"
@@ -23,45 +21,43 @@ QUERY: latest IPL news
    FAIL authority | no primary or reputable source among the results
    FAIL corroboration | only 1 domain in the result set
    PASS timestamp | 1/1 source(s) carry a date
- CHAT TURN: pass | 3 fresh result(s) from 2 source(s) in 21715ms; failed engines: SearXNG (http
+ CHAT TURN: pass | 2 fresh result(s) from 3 source(s) in 15875ms
  ANSWER: However, it is understood that Hardik has continued to experience pain while bowling, with the latest injury now delaying his comeback further. [2]  The player's participation, along with th
    citation: Babar Azam to play in UAE's IPL style T20 league in November 2 | 2026-09-29
    citation: Hardik Pandya ruled out of Australia A series with fresh injur | 2026-09-26
-   citation: Disasters and accidents: A military Tupolev Tu-154 crashed nea | 2026-09-29
 ==========================================================================================
 QUERY: live football scores
  intent=current fresh=True vertical=sports askedEvent=None
  providers contacted: sports-scores
  providers failed: none
- raw=2 deduped=2 kept=2 domains=1 searchMs=916
- contributions: [('sports-scores', '2/2')]
- KEPT + SCORES:
+ raw=2 deduped=2 kept=2 domains=1 searchMs=2391
+ contributions (kept/retrieved): [('sports-scores', '2/2')]
+ KEPT + SCORES (rel/fresh/qual are the published components):
    * Belgium U21 vs Wales U21 (UEFA European Under-21 Championship · 20
      thesportsdb.com | 2026-09-29 | rel=0.37 fresh=0.24 auth=0.12 qual=0.1 final=0.86
    * Estonia U21 vs France U21 (UEFA European Under-21 Championship · 2
      thesportsdb.com | 2026-09-29 | rel=0.37 fresh=0.24 auth=0.12 qual=0.1 final=0.86
- REJECTED:
+ REJECTED: 0 
  VALIDATION: answer-caveated
    PASS relevance | best source scores 0.58 on directness
    PASS recency | newest source is 0.0 day(s) old, within the 5-day window
    FAIL authority | no primary or reputable source among the results
    FAIL corroboration | only 1 domain in the result set
    PASS timestamp | 2/2 source(s) carry a date
- CHAT TURN: pass | 2 fresh result(s) from 1 source(s) in 1013ms
+ CHAT TURN: pass | 2 fresh result(s) from 1 source(s) in 1976ms
  ANSWER: Live scoreboard: these matches are in play right now, as reported by the feed. [1]  Mes Rafsanjan v Be'sat Kermanshah — in play (1H), 0 – 0. [1]  Competition: African Cup of Nations Qualifyi
    citation: Mes Rafsanjan v Be'sat Kermanshah 0 – 0 (Iranian Azadegan Leag | 2026-09-29
-   citation: Comoros v Namibia 1 – 0 (African Cup of Nations Qualifying · 9 | 2026-09-29
+   citation: Burundi v Algeria 2 – 1 (African Cup of Nations Qualifying · 4 | 2026-09-29
 ==========================================================================================
 QUERY: current Premier League standings
  intent=current fresh=True vertical=sports askedEvent=premier league
  providers contacted: sports-scores
  providers failed: none
- raw=1 deduped=1 kept=0 domains=0 searchMs=1411
- contributions: [('sports-scores', '0/1')]
- KEPT + SCORES:
- REJECTED:
+ raw=1 deduped=1 kept=0 domains=0 searchMs=1806
+ contributions (kept/retrieved): [('sports-scores', '0/1')]
+ KEPT + SCORES (rel/fresh/qual are the published components):
+ REJECTED: 1 buckets={'temporal': 1}
    x [temporal] dropped: outside the 5-day window, undated, or past the result limit | thesportsdb.com
-   buckets: {'temporal': 1} (1 total)
  VALIDATION: refuse
    FAIL relevance | no retrieved source directly addresses the question
    FAIL event | no source names the "premier league" — the results are about something e
@@ -69,7 +65,7 @@ QUERY: current Premier League standings
    FAIL authority | no primary or reputable source among the results
    FAIL corroboration | no sources were retrieved at all
    FAIL timestamp | no source carries a publication date
- CHAT TURN: pass | 7 fresh result(s) from 1 source(s) in 1911ms (after a freshness escalation p
+ CHAT TURN: pass | 7 fresh result(s) from 1 source(s) in 1341ms (after a freshness escalation pas
  ANSWER: Across this season's opening 50 Premier League matches, teams recording at least 60% possession have won only 36.4% of those games, while in 2023-24, the figure was 53.5%. [1]  2026/27 Premi
    citation: Premier League: Is top-flight possession football on way out? | 2026-09-28
    citation: 2026/27 Premier League Power Rankings: How Tottenham stack up  | 2026-09-29
@@ -80,17 +76,15 @@ QUERY: Formula 1 2026 season results
  intent=knowledge fresh=True vertical=sports askedEvent=formula 1
  providers contacted: searxng,wikipedia-current-events,wikipedia,wikidata,arxiv,openalex,openlibrary,hackernews,openverse,commoncrawl,github,openmeteo,market-rates,sports-scores,mwmbl,duckduckgo-instant,langsearch
  providers failed: none
- raw=10 deduped=10 kept=0 domains=0 searchMs=16532
- contributions: [('searxng', '0/10'), ('mwmbl', '0/1')]
- KEPT + SCORES:
- REJECTED:
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | formula-timer.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | racingnews365.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | ea.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | f1cosmos.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | formula-1.website.yandexcloud.net
+ raw=10 deduped=10 kept=0 domains=0 searchMs=21755
+ contributions (kept/retrieved): [('searxng', '0/7'), ('langsearch', '0/2'), ('mwmbl', '0/2'), ('wikipedia', '0/1')]
+ KEPT + SCORES (rel/fresh/qual are the published components):
+ REJECTED: 10 buckets={'temporal': 10}
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | sportingnews.com
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | en.wikipedia.org
    x [temporal] dropped: outside the 5-day window, undated, or past the result limit | motorsport.com
-   buckets: {'temporal': 10} (10 total)
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | en.wikipedia.org
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | racingnews365.com
  VALIDATION: refuse
    FAIL relevance | no retrieved source directly addresses the question
    FAIL year | no source states which year it covers
@@ -99,36 +93,40 @@ QUERY: Formula 1 2026 season results
    FAIL authority | no primary or reputable source among the results
    FAIL corroboration | no sources were retrieved at all
    FAIL timestamp | no source carries a publication date
- CHAT TURN: pass | 8 fresh result(s) from 2 source(s) in 4807ms (after a freshness escalation p
+ CHAT TURN: pass | 8 fresh result(s) from 2 source(s) in 6547ms (after a freshness escalation pas
  ANSWER: The Formula 1 CEO also discussed the remarkable season Andrea Kimi Antonelli is currently enjoying, focusing particularly on the young driver’s ability to deal with pressure while leading th
    citation: POWER RANKINGS: Who impressed our judges at the Azerbaijan... | 2026-09-28
    citation: Antonelli's worst weekend of 2026 was still an... - Motor Spor | 2026-09-28
    citation: Hamilton frustrated with Ferrari, tension rises with Vasseur o | 2026-09-28
-   citation: Roaming Access and Platinum Platform Upgrade | Abu Dhabi GP | 2026-09-28
+   citation: Fernando Alonso and Lance Stroll extend Aston Martin contracts | 2026-09-29
 ==========================================================================================
 QUERY: NBA standings
  intent=knowledge fresh=True vertical=sports askedEvent=nba
  providers contacted: searxng,wikipedia-current-events,wikipedia,wikidata,arxiv,openalex,openlibrary,hackernews,openverse,commoncrawl,github,openmeteo,market-rates,sports-scores,mwmbl,duckduckgo-instant,langsearch
  providers failed: none
- raw=10 deduped=10 kept=0 domains=0 searchMs=11464
- contributions: [('searxng', '0/10'), ('mwmbl', '0/1')]
- KEPT + SCORES:
- REJECTED:
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | usatoday.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | cbssports.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | fansided.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | nytimes.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | oregonlive.com
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | sportsbook.fanduel.com
-   buckets: {'temporal': 10} (10 total)
+ raw=10 deduped=10 kept=3 domains=2 searchMs=21252
+ contributions (kept/retrieved): [('langsearch', '3/5'), ('wikipedia', '0/2'), ('arxiv', '0/2'), ('mwmbl', '0/1')]
+ KEPT + SCORES (rel/fresh/qual are the published components):
+   * Chris Mannix’s NBA Notes: The Latest on Jalen Duren and the Piston
+     si.com | 2026-09-29 | rel=0.37 fresh=0.23 auth=0.12 qual=0.1 final=0.82
+   * Bryson Graham sees something in his NBA past worth placing in the 
+     pippenainteasy.com | 2026-09-28 | rel=0.37 fresh=0.17 auth=0.12 qual=0.12 final=0.8
+   * Rockets Star Amen Thompson Sets Clear Goal for NBA Future
+     si.com | 2026-09-27 | rel=0.37 fresh=0.17 auth=0.12 qual=0.12 final=0.8
+ REJECTED: 7 buckets={'temporal': 7}
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | espn.com
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | en.wikipedia.org
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | en.wikipedia.org
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | spokesman.com
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | arxiv.org
  VALIDATION: refuse
-   FAIL relevance | no retrieved source directly addresses the question
+   PASS relevance | best source scores 0.55 on directness
    FAIL event | no source names the "nba" — the results are about something else
-   FAIL recency | no source carries a date, so recency is unverifiable
+   PASS recency | newest source is 0.1 day(s) old, within the 5-day window
    FAIL authority | no primary or reputable source among the results
-   FAIL corroboration | no sources were retrieved at all
-   FAIL timestamp | no source carries a publication date
- CHAT TURN: pass | 8 fresh result(s) from 2 source(s) in 12545ms (after a freshness escalation 
+   PASS corroboration | 2 independent domains
+   PASS timestamp | 3/3 source(s) carry a date
+ CHAT TURN: pass | 8 fresh result(s) from 2 source(s) in 10077ms (after a freshness escalation pa
  ANSWER: NBA Standings: Conference & Division Rankings (2026-27)What is the date of NBA Standings Update for NBA Season 2026-27?How Are NBA Standings Determined? [4]  In the apron-conscious NBA world
    citation: Josh Giddey’s NBA development should heed Chris Finch’s offens | 2026-09-28
    citation: Caleb Wilson’s Chicago Bulls roadmap to NBA max money has a fe | 2026-09-28
@@ -139,9 +137,9 @@ QUERY: latest India news
  intent=news fresh=True vertical=news askedEvent=None
  providers contacted: searxng,wikipedia-current-events,hackernews,langsearch
  providers failed: none
- raw=10 deduped=10 kept=6 domains=5 searchMs=2742
- contributions: [('searxng', '4/5'), ('langsearch', '2/5')]
- KEPT + SCORES:
+ raw=10 deduped=10 kept=6 domains=5 searchMs=7215
+ contributions (kept/retrieved): [('searxng', '4/5'), ('langsearch', '2/5')]
+ KEPT + SCORES (rel/fresh/qual are the published components):
    * School Assembly News Headlines Today [29 September]: Top National,
      sundayguardianlive.com | 2026-09-28 | rel=0.5 fresh=0.21 auth=0.12 qual=0.12 final=1.01
    * Temperature Drops As Rain Hits Delhi, Weather Office Issues Yellow
@@ -154,19 +152,18 @@ QUERY: latest India news
      careerindia.com | 2026-09-25 | rel=0.5 fresh=0.13 auth=0.12 qual=0.12 final=0.93
    * RSS: Celebrating Deendayal Upadhyay’s birthday is... | Countercurr
      countercurrents.org | 2026-09-25 | rel=0.5 fresh=0.13 auth=0.12 qual=0.07 final=0.87
- REJECTED:
+ REJECTED: 4 buckets={'temporal': 4}
    x [temporal] dropped: outside the 5-day window, undated, or past the result limit | careerindia.com
    x [temporal] dropped: outside the 5-day window, undated, or past the result limit | businesstoday.in
    x [temporal] dropped: outside the 5-day window, undated, or past the result limit | edexlive.com
    x [temporal] dropped: outside the 5-day window, undated, or past the result limit | cricbuzz.com
-   buckets: {'temporal': 4} (4 total)
  VALIDATION: answer-caveated
    PASS relevance | best source scores 0.82 on directness
    PASS recency | newest source is 0.2 day(s) old, within the 5-day window
    FAIL authority | no primary or reputable source among the results
    PASS corroboration | 5 independent domains
    PASS timestamp | 6/6 source(s) carry a date
- CHAT TURN: pass | 11 fresh result(s) from 3 source(s) in 8353ms (after a freshness escalation 
+ CHAT TURN: pass | 11 fresh result(s) from 3 source(s) in 9779ms (after a freshness escalation pa
  ANSWER: Check Credit Score.Stay updated with News18 for the latest India and world news, in-depth explainers, entertainment, sports, and cricket news. [1]  Also get top headlines and latest news fro
    citation: 'Yellow Alert' In Delhi As Light Rains Bring Subtle Hint Of... | 2026-09-27
    citation: Biker thrown 30 feet into air as speeding Tiago EV hits... - N | 2026-09-25
@@ -177,9 +174,9 @@ QUERY: latest world news
  intent=news fresh=True vertical=news askedEvent=None
  providers contacted: searxng,wikipedia-current-events,hackernews,langsearch
  providers failed: none
- raw=10 deduped=10 kept=7 domains=7 searchMs=4023
- contributions: [('searxng', '4/6'), ('langsearch', '3/4')]
- KEPT + SCORES:
+ raw=10 deduped=10 kept=7 domains=7 searchMs=15707
+ contributions (kept/retrieved): [('searxng', '5/7'), ('langsearch', '2/3')]
+ KEPT + SCORES (rel/fresh/qual are the published components):
    * School Assembly News Headlines Today [29 September]: Top National,
      sundayguardianlive.com | 2026-09-28 | rel=0.5 fresh=0.21 auth=0.12 qual=0.12 final=1
    * Are you in pain? In some cases, exercising may be as good... | Eur
@@ -190,22 +187,21 @@ QUERY: latest world news
      newsy-today.com | 2026-09-26 | rel=0.5 fresh=0.13 auth=0.12 qual=0.07 final=0.87
    * Italy's women senators pose in short skirts amid row over deputy..
      hindustantimes.com | 2026-09-25 | rel=0.33 fresh=0.13 auth=0.12 qual=0.07 final=0.84
+   * Hurricane Polo could cause life-threatening flooding in Mexico’s B
+     clickondetroit.com | 2026-09-28 | rel=0.33 fresh=0.17 auth=0.12 qual=0.1 final=0.83
    * Today’s Wordle Hints for September 28, 2026 - The New York Times
      nytimes.com | 2026-09-27 | rel=0.33 fresh=0.17 auth=0.17 qual=0.1 final=0.82
-   * World News Day urges trust in ethical journalism
-     timeslive.co.za | 2026-09-28 | rel=0.33 fresh=0.21 auth=0.12 qual=0.12 final=0.82
- REJECTED:
-   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | nota-news.com
+ REJECTED: 3 buckets={'temporal': 3}
    x [temporal] dropped: outside the 5-day window, undated, or past the result limit | sundayguardianlive.com
+   x [temporal] dropped: outside the 5-day window, undated, or past the result limit | nota-news.com
    x [temporal] dropped: outside the 5-day window, undated, or past the result limit | washingtonpost.com
-   buckets: {'temporal': 3} (3 total)
  VALIDATION: answer
    PASS relevance | best source scores 0.90 on directness
    PASS recency | newest source is 0.7 day(s) old, within the 5-day window
    PASS authority | best source tier weight 0.85
    PASS corroboration | 7 independent domains
    PASS timestamp | 7/7 source(s) carry a date
- CHAT TURN: pass | 2 fresh result(s) from 3 source(s) in 5948ms
+ CHAT TURN: pass | 2 fresh result(s) from 3 source(s) in 14027ms
  ANSWER: Latest world news September 25th: Two debris in the hold reveal the mystery of the last moment of MH370; World gold prices are on the path to recovery [1]  Also get top headlines and latest 
    citation: World 24h: Two strong storms operating together, threatening t | 2026-09-28
    citation: Bangkok floods: Thousands evacuated as heavy rain... - News9li | 2026-09-28

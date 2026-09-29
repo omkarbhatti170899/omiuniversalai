@@ -1,7 +1,7 @@
 {
   "row": {
     "answer": "Check Credit Score.Stay updated with News18 for the latest India and world news, in-depth explainers, entertainment, sports, and cricket news. [1]\n\nAlso get top headlines and latest news from India and around the world at News9. [2]\n\nGet the latest India News, breaking headlines and real-time updates from across the country. [3]\n\nGet the latest India News, breaking headlines, and real-time updates from across the nation. [7]\n\nSources: [1] 'Yellow Alert' In Delhi As Light Rains Bring Subtle Hint Of... - News1... (news18.com)  [2] Biker thrown 30 feet into air as speeding Tiago EV hits... - News9live (news9live.com)  [3] ‘Spoke to him at 10pm’: Greater Noida bus fire victims’ son searches... (hindustantimes.com)  [4] Eggs, Stones Hurled At Mamata Banerjee's MLA Kunal Ghosh's Car In... (ndtv.com)",
-    "detail": "11 fresh result(s) from 3 source(s) in 8353ms (after a freshness escalation pass)",
+    "detail": "11 fresh result(s) from 3 source(s) in 9779ms (after a freshness escalation pass)",
     "droppedFresh": [
       {
         "reason": "non-sequitur",
@@ -26,12 +26,12 @@
       "stale": 1,
       "undated": 0
     },
-    "freshness": "Based on 11 reports published in the last 5 days (newest: 3 hours ago).",
+    "freshness": "Based on 11 reports published in the last 5 days (newest: 4 hours ago).",
     "intent": "news",
     "query": "latest India news",
     "requiresFreshness": true,
     "resultsFound": 5,
-    "searchMs": 8353,
+    "searchMs": 9779,
     "searchTriggered": true,
     "sources": [
       {

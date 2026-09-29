@@ -1,7 +1,7 @@
 {
   "row": {
     "answer": "Across this season's opening 50 Premier League matches, teams recording at least 60% possession have won only 36.4% of those games, while in 2023-24, the figure was 53.5%. [1]\n\n2026/27 Premier League Power Rankings: How Tottenham stack up after the September break\n\nMany predicted Spurs to finish in Champions League qualification. [2]\n\nManchester City remains defiant amid ongoing 115 Premier League FFP charges\n\nManchester City CEO and club statements continue defending against the Premier League's 115-rule breach investigation. [4]\n\nWhat Aston Villa’s Summer Reveals About a Potential Premier League ‘Big Short’ Moment\n\nManchester City’s Guilty Verdict and Consequences\n\nManchester City have been found guilty of 114 charges, but can there be meaningful punishment when doing so risks undermining and tarnishing the Premier League’s own product? [5]\n\nSources: [1] Premier League: Is top-flight possession football on way out? (bbc.co.uk)  [2] 2026/27 Premier League Power Rankings: How Tottenham stack up after the September break (hotspurhq.com)  [3] Man City CEO’s Defiant Vow Sets Up Next Chapter of Premier League Saga (si.com)  [4] Manchester City remains defiant amid ongoing 115 Premier League FFP charges (digg.com)",
-    "detail": "7 fresh result(s) from 1 source(s) in 1413ms (after a freshness escalation pass)",
+    "detail": "7 fresh result(s) from 1 source(s) in 1341ms (after a freshness escalation pass)",
     "droppedFresh": [],
     "enginesTried": [
       "sports-scores"
@@ -21,7 +21,7 @@
     "query": "current Premier League standings",
     "requiresFreshness": true,
     "resultsFound": 1,
-    "searchMs": 1413,
+    "searchMs": 1341,
     "searchTriggered": true,
     "sources": [
       {
