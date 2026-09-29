@@ -1,5 +1,21 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## CURRENT-INFO SUITE THROUGH THE REAL PIPELINE (2026-09-29, 10/10 PASS)
+
+`currentInfoProbe:runSuite` (the /currentinfo suite, executed via internal
+action while the HTTP router flapped): **10/10 PASS**, including the Asian
+Games query run through `probeCurrentInfo` — status pass, 5 raw / 4 fresh,
+SearXNG **and** LangSearch both contributing, and a real cited answer:
+"India now have 37 medals – 4 gold, 16 silver and 17 bronze … [1]" with
+4 sources dated 2026-09-24 … 2026-09-28. Three consecutive traces of the
+Asian Games query showed the fallback matrix live:
+
+| Run | SearXNG | LangSearch | newest |
+|---|---|---|---|
+| 1 | timed out (0/9) | **9/9 carried it** | 24.3h |
+| 2 | 9 retrieved, 2 kept | 1 kept | ~2 days |
+| probe (suite) | contributed | contributed | yesterday |
+
 ## LIVE VALIDATION (2026-09-29, deployment resumed) — real chat path
 
 Ten queries through `searchDebug:traceSearch`, which mirrors the chat turn

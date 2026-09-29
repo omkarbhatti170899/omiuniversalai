@@ -1,0 +1,460 @@
+{
+  "cached": false,
+  "failed": 0,
+  "passed": 10,
+  "rows": [
+    {
+      "answer": "Get the latest India News, breaking headlines and real-time updates from across the country. [3]\n\nLatest News.That captures the broader challenge for Make in India after 12 years. [4]\n\nWhether you are looking for the latest political developments, social issues, economic updates, or cultural happenings, Voice of Nation is here to provide you with accurate and unbiased news coverage. [2]\n\nAccording to Reuters, cited by Report, 15 people have died and five others have been injured in India's Uttar Pradesh state over the past 48 hours. [1]\n\nSources: [1] Weather-related disasters in India and Nepal claim 19 lives | Report.az (report.az)  [2] India in Trouble? Saudi Arabia Delivers a Major Economic... - YouTube (youtube.com)  [3] BJP faces heat from Murli Manohar Joshi; he slams cultural fest at... (hindustantimes.com)  [4] 12 years of Make in India: What worked... - CNBC TV18 (cnbctv18.com)",
+      "detail": "4 fresh result(s) from 3 source(s) in 6664ms",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 4,
+      "freshness": "Based on 4 reports published in the last 5 days (newest: 3 hours ago).",
+      "intent": "news",
+      "query": "What is the latest news in India?",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 6664,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-27T08:38:09.000Z",
+          "title": "Weather-related disasters in India and Nepal claim 19 lives | Report.az",
+          "url": "https://report.az/en/other-countries/weather-related-disasters-in-india-and-nepal-claim-19-lives"
+        },
+        {
+          "publishedAt": "2026-09-28T22:01:37.000Z",
+          "title": "India in Trouble? Saudi Arabia Delivers a Major Economic... - YouTube",
+          "url": "https://www.youtube.com/watch?v=TkgkKlR3vqg"
+        },
+        {
+          "publishedAt": "2026-09-28T04:04:16.000Z",
+          "title": "BJP faces heat from Murli Manohar Joshi; he slams cultural fest at...",
+          "url": "https://www.hindustantimes.com/india-news/bjp-faces-heat-from-murli-manohar-joshi-he-slams-cultural-fest-at-badrinath-101790567703825.html"
+        },
+        {
+          "publishedAt": "2026-09-25T13:45:01.000Z",
+          "title": "12 years of Make in India: What worked... - CNBC TV18",
+          "url": "https://www.cnbctv18.com/business/12-years-make-in-india-what-worked-whats-unfinished-next-19998827.htm"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "news"
+    },
+    {
+      "answer": "Look at what happened at Green Hill in Italy. [2]\n\nToday we look at how Russian strikes turn something as simple and routine as buying bread and eggs into a life-threatening experience.Goodbye for now - here's a recap. [3]\n\nHere's a recap of all that's happened today. [3]\n\nRelated: Here’s what happened in crypto today. [4]\n\nSources: [1] Dr. Ollie’s Masterclass Actors Workshop (myk104.com)  [2] Newsletter: Emergency Freedom Alerts: 9-29-26 – Contending for Truth (contendingfortruth.com)  [3] Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News (news.sky.com)  [4] Bitcoin Order-Book Liquidity Games Return as Price Dips Under $83,000 (cointelegraph.com)",
+      "detail": "4 fresh result(s) from 3 source(s) in 2298ms",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 4,
+      "freshness": "Based on 4 reports published today (newest: 4 hours ago).",
+      "intent": "news",
+      "query": "What happened in the world today?",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 2298,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-28T20:20:02.000Z",
+          "title": "Dr. Ollie’s Masterclass Actors Workshop",
+          "url": "https://myk104.com/4620/dr-ollies-masterclass-actors-workshop"
+        },
+        {
+          "publishedAt": "2026-09-28T07:10:40.000Z",
+          "title": "Newsletter: Emergency Freedom Alerts: 9-29-26 – Contending for Truth",
+          "url": "https://www.contendingfortruth.com/newsletter-emergency-freedom-alerts-9-29-26"
+        },
+        {
+          "publishedAt": "2026-09-28T13:21:38.000Z",
+          "title": "Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News",
+          "url": "https://news.sky.com/story/ukraine-war-latest-kyiv-putin-zelenskyy-moscow-strikes-attacks-live-12541713"
+        },
+        {
+          "publishedAt": "2026-09-28T09:12:08.000Z",
+          "title": "Bitcoin Order-Book Liquidity Games Return as Price Dips Under $83,000",
+          "url": "https://cointelegraph.com/markets/bitcoin-drops-under-83k-as-liquidity-hunting-keeps-bulls-from-targeting-yearly-open"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "day",
+      "vertical": "news"
+    },
+    {
+      "answer": "That's where the real work is happening right now and it's what the industry spent September 9th 2026 talking about at the Supply Chain Conference.TeslaSemi.com is an independent news publication and is not affiliated with, endorsed by, or sponsored by Tesla, Inc. [2]\n\n\"That is happening right now.\" We'll bring you live live updates throughout the day.\"Unfortunately in Ukraine now such a normal and regular thing as going to a shopping centre is very dangerous and challenging,\" Viktoriia tells Sky News. [4]\n\nKyiv, Ukraine — Russia's round-the-clock bombardment of targets in Ukraine killed at least seven people and wounded more than 50 others, officials said Monday.\"That is happening right now.\" [5]\n\nOMG — Madonna Is Opening the 2026 VMAs and Sabrina Carpenter Is Right in the Middle of the Biggest Night\n\nOkay, the 2026 MTV VMAs already had my attention, but this just pushed it into full you absolutely have to watch the opening territory. [3]\n\nSources: [1] Russian strike on Kyiv’s science academy kills at least... | The Guardian (theguardian.com)  [2] When the Forecast Breaks, Electric Semi Truck... — TeslaSemi.com (teslasemi.com)  [3] OMG — Madonna Is Opening the 2026 VMAs and Sabrina Carpenter Is Right in the Middle of the Biggest Night (totallythebomb.com)  [4] Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News (news.sky.com)",
+      "detail": "5 fresh result(s) from 4 source(s) in 1555ms",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "Hacker News",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 5,
+      "freshness": "Based on 5 reports published in the last 2 days (newest: 9 hours ago).",
+      "intent": "current",
+      "query": "What is happening right now?",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 1555,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-28T15:23:37.000Z",
+          "title": "Russian strike on Kyiv’s science academy kills at least... | The Guardian",
+          "url": "https://www.theguardian.com/world/2026/sep/28/russia-strike-on-kyiv-science-academy-drone-ukraine"
+        },
+        {
+          "publishedAt": "2026-09-28T01:02:04.000Z",
+          "title": "When the Forecast Breaks, Electric Semi Truck... — TeslaSemi.com",
+          "url": "https://www.teslasemi.com/article/electric-semi-truck-logistics-iaa-hannover-sparks-factory-2026"
+        },
+        {
+          "publishedAt": "2026-09-28T00:23:04.000Z",
+          "title": "OMG — Madonna Is Opening the 2026 VMAs and Sabrina Carpenter Is Right in the Middle of the Biggest Night",
+          "url": "https://totallythebomb.com/madonna-opens-2026-vmas-sabrina-carpenter"
+        },
+        {
+          "publishedAt": "2026-09-28T13:21:38.000Z",
+          "title": "Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News",
+          "url": "https://news.sky.com/story/ukraine-war-latest-kyiv-putin-zelenskyy-moscow-strikes-attacks-live-12541713"
+        },
+        {
+          "publishedAt": "2026-09-28T13:28:32.000Z",
+          "title": "Russian strikes on Ukraine kill at least 7, including woman... - CBS News",
+          "url": "https://www.cbsnews.com/news/russia-ukraine-war-kyiv-strikes-national-academy-sciences"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "day",
+      "vertical": "news"
+    },
+    {
+      "answer": "Technology News.Stay updated with the latest Technology News, gadget launches, app updates, artificial intelligence and digital trends. [1]\n\nExplore the latest in audio technology with expert reviews, news and insights on headphones, speakers, sound systems and more. [3]\n\nReceive News & Ratings for Micron Technology Daily - Enter your email address below to receive a concise daily summary of the latest news and analysts' ratings for Micron Technology and related companies with MarketBeat.com's FREE daily email newsletter. [2]\n\nis a premier technology solution provider across the semiconductor value chain. [2]\n\nSources: [1] WhatsApp Android update could bring an iPhone-like navigation bar... (hindustantimes.com)  [2] Contrasting Qnity Electronics (NYSE:Q) and Micron Technology (NASDAQ:MU) (themarketsdaily.com)  [3] Delivery drones could be waiting before you even order (tech.yahoo.com)",
+      "detail": "3 fresh result(s) from 3 source(s) in 1612ms",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 3,
+      "freshness": "Based on 3 reports published in the last 5 days (newest: 19 hours ago).",
+      "intent": "news",
+      "query": "Latest technology news",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 1612,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-28T05:46:25.000Z",
+          "title": "WhatsApp Android update could bring an iPhone-like navigation bar...",
+          "url": "https://www.hindustantimes.com/technology/whatsapp-android-update-could-bring-an-iphone-like-navigation-bar-what-we-know-101790573964238.html"
+        },
+        {
+          "publishedAt": "2026-09-28T00:14:49.000Z",
+          "title": "Contrasting Qnity Electronics (NYSE:Q) and Micron Technology (NASDAQ:MU)",
+          "url": "https://www.themarketsdaily.com/2026/09/28/contrasting-qnity-electronics-nyseq-and-micron-technology-nasdaqmu.html"
+        },
+        {
+          "publishedAt": "2026-09-26T13:23:42.000Z",
+          "title": "Delivery drones could be waiting before you even order",
+          "url": "https://tech.yahoo.com/ai/deals/articles/delivery-drones-could-waiting-even-110023733.html"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "news"
+    },
+    {
+      "answer": "Latest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [1]\n\nWelcome to “AI News Today,” your go-to source for the latest updates in the AI industry. [1]\n\nAt BleepingComputer, he covers technology news with a strong focus on Microsoft and Windows-related stories. [3]\n\nHe is always poking under the hood of Windows, looking for the latest secrets to reveal. [3]\n\nSources: [1] Today’s AI News – July 15, 2024 (bn.edu.pl)  [2] Bill Gates Warns AI Could Cause ‘A Billion Deaths’ Without Government Control (breitbart.com)  [3] OpenAI's AI agents accidentally uploaded user-provided images to... (bleepingcomputer.com)",
+      "detail": "3 fresh result(s) from 3 source(s) in 1857ms",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 3,
+      "freshness": "Based on 3 reports published in the last 5 days (newest: yesterday).",
+      "intent": "news",
+      "query": "Latest AI news",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 1857,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-27T02:04:08.000Z",
+          "title": "Today’s AI News – July 15, 2024",
+          "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+        },
+        {
+          "publishedAt": "2026-09-25T11:34:07.000Z",
+          "title": "Bill Gates Warns AI Could Cause ‘A Billion Deaths’ Without Government Control",
+          "url": "https://www.breitbart.com/tech/2026/09/25/bill-gates-warns-ai-could-cause-a-billion-deaths-without-government-control"
+        },
+        {
+          "publishedAt": "2026-09-26T12:31:23.000Z",
+          "title": "OpenAI's AI agents accidentally uploaded user-provided images to...",
+          "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-ai-agents-accidentally-uploaded-user-provided-images-to-third-party-sites"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "news"
+    },
+    {
+      "answer": "Which location do you mean? I can pull live conditions for any city — try \"what's the weather in Mumbai\". I won't guess a location and give you the wrong forecast.",
+      "detail": "Omi correctly asks for the missing input instead of guessing or failing: \"Which location do you mean? I can pull live conditions for any city — try \"what's the weat\"",
+      "enginesTried": [],
+      "enginesWithResults": [],
+      "failedEngines": [],
+      "freshResults": 0,
+      "freshness": null,
+      "intent": "current",
+      "query": "Today's weather",
+      "requiresFreshness": true,
+      "resultsFound": 0,
+      "searchMs": 1,
+      "searchTriggered": false,
+      "sources": [],
+      "status": "pass",
+      "timeRange": "day",
+      "vertical": "weather"
+    },
+    {
+      "answer": "1 USD = 96.0699 INR (rate updated Tue, 29 Sep 2026 00:02:31 +0000). [1]\n\nUnlock 360° insights for strategic decision making and investment planning: https://www.factmr.com/report/additive-free-dairy-powders-market\n\nWith demand forecast to rise from USD 1.5 billion in 2026 to USD 3.6 billion by 2036, the additive-free dairy powders market is positioned around a growing requirement for clearly specified, application-ready dairy ingredients. [5]\n\nGBP/USD exchange rate remains under pressure as tensions between the US and Iran escalated during the weekend and as traders waited for important macro data. [6]\n\nFKA AutoWah is available in a free version with limited features, while the Pro version priced at on sale for the launch price of $17.40 USD until October 16th, 2026 (regular $29 USD / ₹2,799 INR). [3]\n\nSources: [1] 1 USD = 96.0699 INR (xe.com)  [2] EURUSD forecast and analysis for today, 28 September... - RoboForex (roboforex.com)  [3] FunkyKatAudio updates FKA AutoWah to v2.5.4 with MainStage compatibility (rekkerd.org)  [4] Mint Exclusive | How is Indian stock market bottom linked to the US 10-year bond yield? Chris Wood of Jefferies explains (livemint.com)",
+      "detail": "8 fresh result(s) from 3 source(s) in 1543ms (after a freshness escalation pass)",
+      "enginesTried": [
+        "searxng",
+        "market-rates",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Live exchange rates (keyless)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 8,
+      "freshness": "Based on 8 reports published today (newest: just now).",
+      "intent": "current",
+      "query": "Current USD/INR rate",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 1543,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-29T00:02:31.000Z",
+          "title": "1 USD = 96.0699 INR",
+          "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
+        },
+        {
+          "publishedAt": "2026-09-28T08:23:38.000Z",
+          "title": "EURUSD forecast and analysis for today, 28 September... - RoboForex",
+          "url": "https://roboforex.com/beginners/analytics/forex-forecast/currencies/eur-usd-forecast-2026-09-28"
+        },
+        {
+          "publishedAt": "2026-09-28T19:05:58.000Z",
+          "title": "FunkyKatAudio updates FKA AutoWah to v2.5.4 with MainStage compatibility",
+          "url": "https://rekkerd.org/funkykataudio-updates-fka-autowah-to-v2-5-4-with-mainstage-compatibility"
+        },
+        {
+          "publishedAt": "2026-09-28T04:31:23.000Z",
+          "title": "Mint Exclusive | How is Indian stock market bottom linked to the US 10-year bond yield? Chris Wood of Jefferies explains",
+          "url": "https://www.livemint.com/market/stock-market-news/mint-exclusive-how-is-indian-stock-market-bottom-linked-to-the-us-10-year-bond-yield-chris-wood-of-jefferies-explains-11790566134388.html"
+        },
+        {
+          "publishedAt": "2026-09-28T13:23:33.000Z",
+          "title": "Additive-Free Dairy Powders Market Set to Hit USD 3.6 Billion by 2036, Japan - CAGR 9.8%",
+          "url": "https://news.prfree.org/@mrfresearchworld/additive-free-dairy-powders-market-set-to-hit-usd-36-billion-by-2036-japan-cagr-98-cuifui3ds7f3"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "markets"
+    },
+    {
+      "answer": "Live scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nBC Lietkabelis v AS Monaco Basket — in play (CANC), 0 – 0. [1]\n\nSt Kitts and Nevis v Grenada — in play (1H), 2 – 0. [2]\n\nCompleted results from earlier today are not included. [1]\n\nSources: [1] BC Lietkabelis v AS Monaco Basket 0 – 0 (EuroCup Basketball · 2026-09-29 15:00:00) (thesportsdb.com)  [2] St Kitts and Nevis v Grenada 2 – 0 (CONCACAF Nations League · 44 · 2026-09-29 00:00:00) (thesportsdb.com)",
+      "detail": "2 fresh result(s) from 1 source(s) in 943ms",
+      "enginesTried": [
+        "sports-scores"
+      ],
+      "enginesWithResults": [
+        "Live sports scores (TheSportsDB)"
+      ],
+      "failedEngines": [],
+      "freshResults": 2,
+      "freshness": "Based on 2 reports published today (newest: just now).",
+      "intent": "current",
+      "query": "Live sports score",
+      "requiresFreshness": true,
+      "resultsFound": 2,
+      "searchMs": 943,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-29T00:45:03.373Z",
+          "title": "BC Lietkabelis v AS Monaco Basket 0 – 0 (EuroCup Basketball · 2026-09-29 15:00:00)",
+          "url": "https://www.thesportsdb.com/team/136106"
+        },
+        {
+          "publishedAt": "2026-09-29T00:45:03.373Z",
+          "title": "St Kitts and Nevis v Grenada 2 – 0 (CONCACAF Nations League · 44 · 2026-09-29 00:00:00)",
+          "url": "https://www.thesportsdb.com/team/140281"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "sports"
+    },
+    {
+      "answer": "Show more articles.Subscriptions Newsletters Reader Rewards Death Notices Announcements Public Notices. [3]\n\nYen Press Announces Nineteen Acquisitions\n\nYen Press has announced nineteen acquisitions on social media, adding new titles and series to a prolific catalog of manga, novels, and audiobooks. [1]\n\nStarting off this slate of announcements were a couple of new additions to Yen Audio (Mirai and Valkyrie Bullet), giving the imprint another great work from esteemed storyteller Mamoru Hosoda and an adaptation of one of the most highly anticipated releases from Yen On. [1]\n\nMirai\n\nBy Mamoru Hosoda\n\nLittle Kun isn’t too happy about the latest addition to his family. [1]\n\nSources: [1] Yen Press Announces Nineteen Acquisitions (graphicpolicy.com)  [2] Binance Shares Latest Announcements in Weekly Update (coinfomania.com)  [3] Lytham St Annes Angels Private Home Care announces latest... (theboltonnews.co.uk)  [4] Alliant takes aim at the homeownership journey. - Tyfone (tyfone.com)",
+      "detail": "4 fresh result(s) from 4 source(s) in 12010ms",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "Hacker News",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 4,
+      "freshness": "Based on 4 reports published in the last 5 days (newest: yesterday).",
+      "intent": "current",
+      "query": "Latest announcements",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 12010,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-27T23:08:38.000Z",
+          "title": "Yen Press Announces Nineteen Acquisitions",
+          "url": "https://graphicpolicy.com/2026/09/27/yen-press-announces-nineteen-acquisitions"
+        },
+        {
+          "publishedAt": "2026-09-27T18:19:38.000Z",
+          "title": "Binance Shares Latest Announcements in Weekly Update",
+          "url": "https://coinfomania.com/binance-shares-latest-announcements-in-weekly-update"
+        },
+        {
+          "publishedAt": "2026-09-25T12:11:33.000Z",
+          "title": "Lytham St Annes Angels Private Home Care announces latest...",
+          "url": "https://www.theboltonnews.co.uk/news/26575935.lytham-st-annes-angels-private-home-care-announces-latest-vacancies"
+        },
+        {
+          "publishedAt": "2026-09-24T05:46:59.000Z",
+          "title": "Alliant takes aim at the homeownership journey. - Tyfone",
+          "url": "https://tyfone.com/news/breaking-news/alliant-takes-aim-at-the-homeownership-journey"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "news"
+    },
+    {
+      "answer": "Sep 28, 2026 News\n\n(AL-JAZEERA) Hours after U.S. [3]\n\n\"And it can last five minutes, half an hour, or maybe two hours, three, or maybe five. [5]\n\nFarm visa approvals flowing again in 24-hour turnaround ahead of harvest\n\nWorking holiday-maker visa approvals are flowing again, with some applications being processed within 24 hours following a new deal between the federal government and the country's peak agricultural body. [1]\n\nSubscribe now for unlimited access to all our agricultural news across the nation or signup to continue reading\n\nThe government agreed to speed up the process last week following pressure from the National Farmers Federation (NFF) and member organisations including the Victorian Farmers Federation (VFF) to reverse the decision to \"go slow\" on applications to reduce migration numbers. [1]\n\nSources: [1] Farm visa approvals flowing again in 24-hour turnaround ahead of harvest (stockandland.com.au)  [2] SpaceX Starship rocket splashes down in Pacific Ocean - BBC News (bbc.com)  [3] Strait of Hormuz tensions linger as Iran and U.S. move further from a deal - Kaieteur News (kaieteurnewsonline.com)  [4] We like minding other people’s business - Kaieteur News (kaieteurnewsonline.com)",
+      "detail": "5 fresh result(s) from 3 source(s) in 2967ms",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 5,
+      "freshness": "Based on 5 reports published in the last 24 hours (newest: 5 hours ago).",
+      "intent": "news",
+      "query": "News from the last hour",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 2967,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-28T20:00:00.000Z",
+          "title": "Farm visa approvals flowing again in 24-hour turnaround ahead of harvest",
+          "url": "https://www.stockandland.com.au/story/9358555/farm-visa-approvals-flowing-again-in-24-hour-turnaround"
+        },
+        {
+          "publishedAt": "2026-09-28T12:09:37.000Z",
+          "title": "SpaceX Starship rocket splashes down in Pacific Ocean - BBC News",
+          "url": "https://www.bbc.com/news/live/c65ymmpzev1mt"
+        },
+        {
+          "publishedAt": "2026-09-28T14:30:18.000Z",
+          "title": "Strait of Hormuz tensions linger as Iran and U.S. move further from a deal - Kaieteur News",
+          "url": "https://kaieteurnewsonline.com/2026/09/28/strait-of-hormuz-tensions-linger-as-iran-and-u-s-move-further-from-a-deal"
+        },
+        {
+          "publishedAt": "2026-09-28T14:30:17.000Z",
+          "title": "We like minding other people’s business - Kaieteur News",
+          "url": "https://kaieteurnewsonline.com/2026/09/28/we-like-minding-other-peoples-business"
+        },
+        {
+          "publishedAt": "2026-09-28T13:21:38.000Z",
+          "title": "Ukraine war latest: Kyiv landmark ablaze after deadly... | Sky News",
+          "url": "https://news.sky.com/story/ukraine-war-latest-kyiv-putin-zelenskyy-moscow-strikes-attacks-live-12541713"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "hour",
+      "vertical": "news"
+    }
+  ],
+  "scenarios": 10,
+  "total": 10
+}

@@ -1,0 +1,327 @@
+{
+  "conflictNotice": "Sources currently report different values for this, so Omi is not picking one:\n\nMEDALS:\n• 26 — indiatvnews.com (3 days ago) — \"26 medals\"\n• 14 — newsbytesapp.com (2 days ago) — \"14 bronze medals\"\n\nTreat these as unconfirmed and check the official source before relying on a figure.",
+  "conflicts": [
+    {
+      "independentDomains": 2,
+      "metric": "medals",
+      "readings": [
+        {
+          "domain": "indiatvnews.com",
+          "evidence": "26 medals",
+          "publishedAt": "2026-09-26T05:03:01.000Z",
+          "url": "https://www.indiatvnews.com/sports/other/asian-games-2026-day-7-live-india-look-to-secure-gold-in-women-s-kabaddi-1055337",
+          "value": "26"
+        },
+        {
+          "domain": "newsbytesapp.com",
+          "evidence": "14 bronze medals",
+          "publishedAt": "2026-09-26T15:22:22.000Z",
+          "url": "https://www.newsbytesapp.com/news/sports/prachi-choudhary-adds-to-india-s-medals-tally-at-asian-games/story",
+          "value": "14"
+        }
+      ]
+    }
+  ],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "event \"asian games\" already named in the query",
+      "no sports terms added — the query already expresses that",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "Indian contingent medals tally in Asian Games 2026 today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "Indian contingent medals tally in Asian Games 2026 today latest",
+      "Indian contingent medals tally in Asian Games 2026 2026-09-29",
+      "Indian contingent medals tally in Asian Games 2026"
+    ]
+  },
+  "retrievalQuery": "Indian contingent medals tally in Asian Games 2026 today",
+  "summary": "[search] \"Indian contingent medals tally in Asian Games 2026\" intent=knowledge fresh=true vertical=sports years=2026 raw=10 kept=3 stale-rejected=7 domains=3 conflicts=1 verdict=answer-caveated searchMs=7419 totalMs=7419",
+  "trace": {
+    "askedEvent": "asian games",
+    "askedYears": [
+      2026
+    ],
+    "conflicts": [
+      "medals: 26 (indiatvnews.com) vs 14 (newsbytesapp.com)"
+    ],
+    "contributionsByProvider": [
+      {
+        "kept": 2,
+        "provider": "searxng",
+        "retrieved": 9
+      },
+      {
+        "kept": 1,
+        "provider": "langsearch",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 10,
+    "freshnessReasons": [
+      "names the current year (2026)",
+      "asks for a live value (\"tally\")"
+    ],
+    "independentDomains": 3,
+    "intent": "knowledge",
+    "liveData": "tally",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "query": "Indian contingent medals tally in Asian Games 2026",
+    "rawCount": 10,
+    "rejectedStale": [
+      {
+        "ageDays": null,
+        "domain": "news18.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.news18.com/sports/asian-games/india-medals-tally"
+      },
+      {
+        "ageDays": null,
+        "domain": "indiatoday.in",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.indiatoday.in/sports/asian-games"
+      },
+      {
+        "ageDays": null,
+        "domain": "vajiramandravi.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://vajiramandravi.com/current-affairs/asian-games-2026-day-7"
+      },
+      {
+        "ageDays": null,
+        "domain": "olympics.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.olympics.com/en/news/commonwealth-games-2026-india-medals-tally-winners-table-cwg"
+      },
+      {
+        "ageDays": null,
+        "domain": "bhaskarenglish.in",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.bhaskarenglish.in/sports/news/asian-games-2026-nagoya-japan-india-contingent-schedule-list-all-you-need-to-know-139072717.html"
+      },
+      {
+        "ageDays": null,
+        "domain": "business-standard.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.business-standard.com/sports/asian-games/asian-games-2026-india-full-schedule-contingent-medal-prospects-and-more-126091600792_1.html"
+      },
+      {
+        "ageDays": null,
+        "domain": "sundayguardianlive.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-2026-medal-count-indias-position-and-gold-silver-bronze-medals-288717"
+      }
+    ],
+    "rejectedStaleCount": 7,
+    "requiresFreshness": true,
+    "searchMs": 7419,
+    "selectedCount": 3,
+    "sources": [
+      {
+        "age": "yesterday",
+        "domain": "indiatoday.in",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-27T06:30:58.000Z",
+        "reason": "kept as current evidence",
+        "score": 1.06,
+        "selected": true,
+        "title": "Asian Games 2026: India fail to win individual badminton medal after 12 years",
+        "url": "https://www.indiatoday.in/sports/badminton/story/asian-games-2026-india-fail-to-win-individual-badminton-medal-after-12-years-3004018-2026-09-27"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "news18.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Asian Games 2026 India Medals Tally, India Medal Count, Gold...",
+        "url": "https://www.news18.com/sports/asian-games/india-medals-tally"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "indiatoday.in",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Asian Games 2026: Schedule, Results, Medal Tally & News | India …",
+        "url": "https://www.indiatoday.in/sports/asian-games"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "vajiramandravi.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Asian Games 2026 Day 7, India Medal Tally, Results & Highlights",
+        "url": "https://vajiramandravi.com/current-affairs/asian-games-2026-day-7"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "olympics.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Commonwealth Games 2026: India medals tally and winners list…",
+        "url": "https://www.olympics.com/en/news/commonwealth-games-2026-india-medals-tally-winners-table-cwg"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "bhaskarenglish.in",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Asian Games 2026 Nagoya | India Contingent Schedule & Medal...",
+        "url": "https://www.bhaskarenglish.in/sports/news/asian-games-2026-nagoya-japan-india-contingent-schedule-list-all-you-need-to-know-139072717.html"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "business-standard.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Asian Games 2026: India full schedule, contingent, medal prospects...",
+        "url": "https://www.business-standard.com/sports/asian-games/asian-games-2026-india-full-schedule-contingent-medal-prospects-and-more-126091600792_1.html"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "indiatvnews.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T05:03:01.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "Asian Games 2026, Day 7 LIVE: India look to add to medal tally",
+        "url": "https://www.indiatvnews.com/sports/other/asian-games-2026-day-7-live-india-look-to-secure-gold-in-women-s-kabaddi-1055337"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "sundayguardianlive.com",
+        "providers": [
+          "searxng"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 1,
+        "selected": false,
+        "title": "Asian Games 2026 Medals Tally LIVE Update: Check Latest...",
+        "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-check-latest-aichi-nagoya-2026-medal-count-indias-position-and-gold-silver-bronze-medals-288717"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "newsbytesapp.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T15:22:22.000Z",
+        "reason": "kept as current evidence",
+        "score": 1,
+        "selected": true,
+        "title": "Asian Games 2026: India's Prachi Choudhary wins bronze in 400m",
+        "url": "https://www.newsbytesapp.com/news/sports/prachi-choudhary-adds-to-india-s-medals-tally-at-asian-games/story"
+      }
+    ],
+    "totalMs": 7419,
+    "verification": {
+      "failedChecks": [
+        "authority"
+      ],
+      "passRate": 0.857,
+      "unverifiable": [
+        "No primary or reputable source was found.",
+        "Sources disagree: medals."
+      ],
+      "verdict": "answer-caveated"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "3 source(s) explicitly cover 2026",
+        "id": "year",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "3 source(s) cover the \"asian games\"",
+        "id": "event",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 1.8 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "no primary or reputable source among the results",
+        "id": "authority",
+        "passed": false
+      },
+      {
+        "critical": false,
+        "detail": "3 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "3/3 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 3,
+    "independentDomains": 3,
+    "newestSourceAgeHours": 42.3,
+    "newestSourceAt": "2026-09-27T06:30:58.000Z",
+    "passRate": 0.8571428571428571,
+    "unverifiable": [
+      "No primary or reputable source was found.",
+      "Sources disagree: medals."
+    ],
+    "verdict": "answer-caveated"
+  }
+}

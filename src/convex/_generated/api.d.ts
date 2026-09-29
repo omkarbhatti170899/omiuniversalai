@@ -34,6 +34,7 @@ import type * as auth from "../auth.js";
 import type * as auth_emailOtp from "../auth/emailOtp.js";
 import type * as benchmarkProviders from "../benchmarkProviders.js";
 import type * as crons from "../crons.js";
+import type * as currentInfoProbe from "../currentInfoProbe.js";
 import type * as deepResearch from "../deepResearch.js";
 import type * as deepResearchRuns from "../deepResearchRuns.js";
 import type * as diagnostics from "../diagnostics.js";
@@ -170,6 +171,7 @@ declare const fullApi: ApiFromModules<{
   "auth/emailOtp": typeof auth_emailOtp;
   benchmarkProviders: typeof benchmarkProviders;
   crons: typeof crons;
+  currentInfoProbe: typeof currentInfoProbe;
   deepResearch: typeof deepResearch;
   deepResearchRuns: typeof deepResearchRuns;
   diagnostics: typeof diagnostics;
