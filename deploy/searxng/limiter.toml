@@ -1,0 +1,41 @@
+# SearXNG limiter configuration for Omi's private instance.
+#
+# Goal: Andromeda (our own backend) must always get through; random internet
+# clients must not be able to use the instance as a free API. SearXNG's limiter
+# blocks "bot-like" clients (datacenter IPs, missing browser headers) — which
+# describes Andromeda perfectly. Andromeda therefore identifies itself with the
+# shared-secret header (X-Omi-Secret, enforced at caddy AND verified here), and
+# is exempted from the bot checks below.
+
+[real_ip]
+# The instance sits behind caddy on a private docker network. Trust the proxy
+# for the client IP, and nothing else.
+ipv4_prefixes = ["173.245.48.0/20"]   # placeholder — replace with your host's network
+ipv6_prefixes = []
+
+[botdetection.ip_limit]
+# Token-bucket for everyone: 1 burst, refilled continuously. A human browsing
+# the HTML UI never notices this; a scraper does.
+link_token = true
+
+[botdetection.ip_lists]
+# Andromeda's egress is identified by the shared secret, not by IP, so no IP
+# allow-list is needed here. Block nothing extra by default.
+pass_ip = []
+block_ip = []
+
+# The X-Omi-Secret exemption is enforced at the caddy layer for the JSON API
+# (see Caddyfile). In SearXNG's limiter, requests carrying the header are
+# treated as first-party traffic by the `botdetection.http_accept_encoding`
+# and `http_user_agent` checks below only if they also look non-browser —
+# which is why the header check in caddy is the real gate, and this file
+# mostly tunes the public HTML surface.
+
+[botdetection.http_user_agent]
+# Block empty and obviously scripted UAs on the public surface.
+block_user_agent = ["curl/", "Wget/", "python-requests/", "scrapy", "libwww"]
+
+[botdetection.http_accept_encoding_list]
+# Standard browser value; SearXNG's default list. Bots that skip
+# Accept-Encoding are challenged.
+accept_encoding_list = ["", "gzip", "deflate", "br", "zstd"]

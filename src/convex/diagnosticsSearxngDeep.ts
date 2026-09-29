@@ -1,5 +1,7 @@
 "use node";
 
+import axios from "axios";
+
 /**
  * DEEP SearXNG DIAGNOSTIC — internal, never exposed over HTTP.
  * =========================================================================
@@ -630,6 +632,137 @@ async function connectTls(host: string, port: number, timeoutMs: number) {
  * the body was JSON WITH a results array (the only definition of "works" that
  * matters here).
  */
+/**
+ * ENDPOINT PROOF — the gate before any instance is trusted with production
+ * traffic (operator requirement, 2026-09-28).
+ *
+ * Proves `/search?q=test&format=json` on N consecutive attempts (an instance
+ * that answers once but not thrice is NOT proven), then runs the real Asian
+ * Games query with dated-result accounting and per-engine attribution. Runs
+ * against the configured base by default, or an explicit base for pre-switch
+ * verification of a self-hosted instance.
+ *
+ * Only after this reports `proofOk: true` should SEARXNG_BASE_URL be pointed
+ * at the instance (deploy/searxng/README.md §4–5).
+ */
+export const verifySearxngJson = internalAction({
+  args: {
+    base: v.optional(v.string()),
+    query: v.optional(v.string()),
+    attempts: v.optional(v.number()),
+    timeoutMs: v.optional(v.number()),
+  },
+  handler: async (_ctx, args) => {
+    const base = (args.base ?? process.env.SEARXNG_BASE_URL ?? "https://search.lumy.live").replace(
+      /\/+$/,
+      "",
+    );
+    const query = args.query ?? "Indian contingent medals tally Asian Games 2026";
+    const attempts = Math.min(Math.max(args.attempts ?? 3, 1), 5);
+    const timeoutMs = args.timeoutMs ?? 15_000;
+    const headers: Record<string, string> = {
+      Accept: "application/json",
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 OmiSearch/1.0",
+    };
+    if (process.env.SEARXNG_SHARED_SECRET) headers["X-Omi-Secret"] = process.env.SEARXNG_SHARED_SECRET;
+
+    const proof: Array<{ attempt: number; ok: boolean; status: number | null; ms: number; results: number; detail: string }> = [];
+    for (let i = 1; i <= attempts; i++) {
+      const t0 = Date.now();
+      try {
+        const res = await axios.get(`${base}/search`, {
+          params: { q: "test", format: "json" },
+          timeout: timeoutMs,
+          headers,
+          validateStatus: () => true,
+        });
+        const ms = Date.now() - t0;
+        const body = res.data as { results?: unknown[] } | string | undefined;
+        const ok =
+          res.status === 200 &&
+          typeof body === "object" &&
+          body !== null &&
+          Array.isArray((body as { results?: unknown[] }).results);
+        proof.push({
+          attempt: i,
+          ok,
+          status: res.status,
+          ms,
+          results: ok ? (body as { results: unknown[] }).results.length : 0,
+          detail: ok
+            ? "200 application/json with results"
+            : `status ${res.status}, content-type ${String(res.headers?.["content-type"] ?? "?")}`,
+        });
+      } catch (e) {
+        proof.push({
+          attempt: i,
+          ok: false,
+          status: null,
+          ms: Date.now() - t0,
+          results: 0,
+          detail: e instanceof Error ? e.message : "unknown error",
+        });
+      }
+    }
+    const proofOk = proof.every((p) => p.ok);
+
+    let realQuery: Record<string, unknown> | null = null;
+    if (proofOk) {
+      const t0 = Date.now();
+      try {
+        const res = await axios.get(`${base}/search`, {
+          params: { q: query, format: "json" },
+          timeout: timeoutMs,
+          headers,
+          validateStatus: () => true,
+        });
+        const body = (typeof res.data === "object" && res.data !== null ? res.data : {}) as {
+          results?: Array<{ engine?: string; engines?: string[]; publishedDate?: string | null; url?: string }>;
+          unresponsive_engines?: unknown;
+        };
+        const rows = body.results ?? [];
+        realQuery = {
+          ok: res.status === 200,
+          ms: Date.now() - t0,
+          results: rows.length,
+          dated: rows.filter((r) => Boolean(r.publishedDate)).length,
+          engines: [...new Set(rows.flatMap((r) => r.engines ?? (r.engine ? [r.engine] : [])))],
+          unresponsive: body.unresponsive_engines ?? null,
+          topResults: rows.slice(0, 5).map((r) => ({
+            engine: (r.engines ?? [r.engine ?? "?"]).join(","),
+            publishedDate: r.publishedDate ?? null,
+            url: (r.url ?? "").slice(0, 100),
+          })),
+        };
+      } catch (e) {
+        realQuery = {
+          ok: false,
+          ms: Date.now() - t0,
+          results: 0,
+          dated: 0,
+          engines: [],
+          unresponsive: e instanceof Error ? e.message : "unknown error",
+          topResults: [],
+        };
+      }
+    }
+
+    return {
+      base,
+      jsonAuth: process.env.SEARXNG_SHARED_SECRET
+        ? "X-Omi-Secret sent"
+        : "no secret configured (community mode)",
+      proof,
+      proofOk,
+      realQuery,
+      verdict: proofOk
+        ? "PROVEN — /search?format=json answered on every attempt; safe to set SEARXNG_BASE_URL"
+        : "NOT PROVEN — do not point SEARXNG_BASE_URL at this instance",
+    };
+  },
+});
+
 export const probeSearxngCandidates = internalAction({
   args: { timeoutMs: v.optional(v.number()) },
   handler: async (_ctx, args) => {

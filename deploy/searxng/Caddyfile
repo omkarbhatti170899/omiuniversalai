@@ -1,0 +1,48 @@
+# Caddy front door for Omi's SearXNG.
+#
+# TLS is automatic (Let's Encrypt). The shared-secret header is the access
+# control: Andromeda sends it on every request; everyone else is limited to
+# the HTML UI rate-limited by SearXNG's limiter, and the JSON API stays
+# effectively closed to strangers.
+#
+# Set the secret the same way it is stored server-side for the pipeline:
+#   SEARXNG_SHARED_SECRET in the compose environment of the proxy host.
+
+{$SEARXNG_DOMAIN:searxng.example.com} {
+	encode zstd gzip
+
+	# Health endpoint for uptime monitors — no auth, no body, cheap.
+	handle /healthz {
+		reverse_proxy searxng:8080
+	}
+
+	# The JSON API is the product surface: require the shared secret.
+	@jsonapi {
+		path /search
+		query format=json
+	}
+	handle @jsonapi {
+		@unauthorized not header X-Omi-Secret "{$SEARXNG_SHARED_SECRET:unset}"
+		respond @unauthorized 403
+		reverse_proxy searxng:8080
+	}
+
+	# Everything else (HTML UI) — let SearXNG's limiter do the work.
+	handle {
+		reverse_proxy searxng:8080
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "no-referrer"
+		-Server
+	}
+
+	log {
+		output file /data/access.log {
+			roll_size 10MiB
+			roll_keep 5
+		}
+	}
+}

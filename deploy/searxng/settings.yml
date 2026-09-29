@@ -1,0 +1,108 @@
+# Omi's own SearXNG — single source of truth for the self-hosted instance.
+#
+# Deployment: `cd deploy/searxng && docker compose up -d`
+# The instance is PRIVATE: JSON is enabled (Omi requires it) and access is
+# restricted by the built-in limiter + shared-secret header (see limiter.toml),
+# because a public JSON instance gets abused within hours and then blocked.
+#
+#   Omi (Convex) → Andromeda → OUR SearXNG → curated legitimate engines
+#
+# Every decision below is measured, not taste:
+#   • formats: json — THE critical setting. 70 public instances were probed and
+#     only one served JSON, because it is off by default.
+#   • Curated engines — enabling an engine means accepting its ToS on Omi's
+#     behalf. Google/Bing/DuckDuckGo/Startpage block automated clients and
+#     several serve bot challenges; Qwant's shipped engine works by storing a
+#     DataDome anti-bot cookie, which this project forbids. They stay off.
+#     (Mojeek is listed for reference — it is enabled only if a paid API key
+#     is provided; the keyless HTML mode is NOT used.)
+#   • Per-engine timeouts — one slow engine must never hold up the search.
+#     SearXNG suspends engines that exceed their timeout, reports them in
+#     `unresponsive_engines`, and answers with the rest. That is exactly the
+#     per-engine failure isolation the Andromeda contract requires.
+#   • Rate limiting + bot detection — on, with Andromeda flagged as a known
+#     bot so it is exempt while random scrapers are not.
+
+use_default_settings: true
+
+server:
+  # Generate with: openssl rand -hex 32   (CHANGE BEFORE FIRST START)
+  secret_key: "CHANGE-ME-openssl-rand-hex-32"
+  # The limiter blocks abusive clients. Andromeda is allow-listed below via
+  # BOT_DETECTION / real_ip so it can use the JSON API from a datacenter IP.
+  limiter: true
+  image_proxy: false
+  # base_url must match the public URL Omi will use.
+  base_url: "https://searxng.example.com/"
+
+search:
+  safe_search: 0
+  autocomplete: "false"
+  default_lang: "auto"
+  formats:
+    - html
+    - json          # ← the reason this file exists
+
+outgoing:
+  # Per-ENGINE request ceilings: a hung upstream engine is cut loose and the
+  # remaining engines answer. max_request_timeout is SearXNG's own hard cap.
+  request_timeout: 3.0
+  max_request_timeout: 6.0
+  enable_http2: true
+  # Small pool: this instance serves ONE consumer (Andromeda), not the world.
+  pool_connections: 20
+  pool_maxsize: 10
+
+# --- Limiter: JSON for Andromeda, walls for everyone else -----------------
+# SearXNG's limiter is configured via the limiter.toml shipped next to this
+# file (deploy/searxng/limiter.toml). It requires bot detection and real IP
+# configuration, both set there. The header bot exemption means Andromeda can
+# always use its own instance, while the instance is not a free public API.
+
+# --- Curated engines ------------------------------------------------------
+engines:
+  # --- Enabled: official APIs / open crawlers / permissive -----------------
+  - name: wikipedia
+    disabled: false
+    timeout: 2.0
+  - name: wikidata
+    disabled: false
+    timeout: 2.5
+  - name: mwmbl
+    disabled: false        # independent open index, permissive
+    timeout: 2.0
+  - name: openverse
+    disabled: false
+    timeout: 3.0
+  - name: arxiv
+    disabled: false
+    timeout: 3.0
+  - name: pubmed
+    disabled: false
+    timeout: 3.0
+  - name: crossref
+    disabled: false
+    timeout: 3.0
+  - name: openalex
+    disabled: false
+    timeout: 3.0
+  - name: hackernews
+    disabled: false
+    timeout: 2.0
+  - name: gitlab
+    disabled: false
+    timeout: 3.0
+  - name: docker hub
+    disabled: false
+    timeout: 3.0
+
+  # --- Keyed: enable ONLY after adding the API key below -------------------
+  - name: mojeek
+    disabled: true         # paid API — enable with api_key, never keyless
+    api_key: "unset"       # ← fill via env/secret manager, not committed
+
+  # --- Explicitly NOT enabled (licence / ToS / measured useless) -----------
+  # google, bing, duckduckgo, startpage, qwant, yandex:
+  #   blocked or rate-limited for automated clients; qwant additionally
+  #   requires DataDome cookie bypass (forbidden). See
+  #   docs/ANDROMEDA_PROVIDER_CAPABILITY_MATRIX.md for the measured matrix.

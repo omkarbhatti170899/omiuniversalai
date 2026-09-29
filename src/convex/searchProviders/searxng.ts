@@ -206,10 +206,55 @@ export function resetVerifiedSearxngInstances(): void {
   verifiedInstances = [];
 }
 
+/**
+ * Shared-secret auth for OUR instance.
+ *
+ * The self-hosted instance (deploy/searxng) gates its JSON API behind an
+ * `X-Omi-Secret` header at the reverse proxy, so a private JSON instance is
+ * not a free public API. When `SEARXNG_SHARED_SECRET` is set server-side,
+ * every request — probe and search — presents it. Absent (community hosts),
+ * nothing is sent and behaviour is unchanged.
+ */
+function searxngAuthHeaders(): Record<string, string> {
+  const secret = process.env.SEARXNG_SHARED_SECRET;
+  return secret ? { "X-Omi-Secret": secret } : {};
+}
+
 /** Cached reachability verdict, so the status page never probes on a render. */
 type ProbeResult = { healthy: boolean; checkedAt: number; detail: string };
 let lastProbe: ProbeResult | null = null;
 const PROBE_TTL_MS = 5 * 60_000;
+
+/**
+ * Per-base health memory — the "stop retrying a dead instance" mechanism.
+ *
+ * MEASURED: with `SEARXNG_BASE_URL` set, every search paid one full timeout
+ * against a host that never answered, because the health verdict existed only
+ * for the status surface. `search()` now consults this map BEFORE dialing: a
+ * base with a fresh unhealthy probe is skipped outright, a successful search
+ * clears its own bad verdict (self-healing — a recovered instance returns to
+ * service on its first success, not on the next cron), and an unknown base is
+ * always allowed so a cold isolate can still search.
+ */
+const probeByBase = new Map<string, ProbeResult>();
+
+export function searxngBaseHealthCached(base: string): ProbeResult | null {
+  return probeByBase.get(base) ?? null;
+}
+
+export function noteSearxngBaseResult(base: string, healthy: boolean, detail: string): void {
+  if (!healthy) {
+    probeByBase.set(base, { healthy: false, checkedAt: Date.now(), detail });
+    return;
+  }
+  probeByBase.delete(base);
+}
+
+/** A fresh unhealthy verdict means "known dead, do not dial". */
+function isKnownDead(base: string): boolean {
+  const r = probeByBase.get(base);
+  return r !== undefined && !r.healthy && Date.now() - r.checkedAt < PROBE_TTL_MS;
+}
 
 /**
  * One SearXNG attempt, fully parameterized.
@@ -367,6 +412,7 @@ export async function probeInstance(
         Accept: "application/json",
         "User-Agent":
           "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 OmiSearch/1.0",
+        ...searxngAuthHeaders(),
       },
       // 200 is not success: a JSON-disabled instance answers 200 + HTML.
       validateStatus: () => true,
@@ -413,6 +459,9 @@ export async function searxngHealth(): Promise<ProbeResult> {
     // short probe. The public floor keeps the shorter budget; a configured
     // instance gets the same 15s the search path already allows it.
     const r = await probeInstance(base, base === configuredBase ? 15000 : 8000);
+    // Feed the same memory the search path consults, so a probe verdict and a
+    // search verdict can never disagree about whether a base is worth dialing.
+    noteSearxngBaseResult(base, r.healthy, r.detail);
     findings.push(`${base}: ${r.healthy ? "OK" : r.detail}`);
     if (r.healthy) {
       healthy = true;
@@ -462,6 +511,7 @@ async function fetchInstance(
       // chance the JSON API answers instead of a bot challenge.
       "User-Agent":
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 OmiSearch/1.0",
+      ...searxngAuthHeaders(),
     },
     // Community front-ends sometimes serve self-signed certs; never fail
     // the whole search over TLS validation we cannot act on.
@@ -606,6 +656,12 @@ export function createSearxProvider(): SearchProvider {
         : verifiedInstances.length > 0
           ? verifiedInstances
           : PUBLIC_INSTANCES;
+      // STOP RETRYING A DEAD INSTANCE: a base with a fresh unhealthy probe is
+      // skipped before any request is made. If EVERY base is known-dead, one
+      // base is still attempted (the first) so a recovered instance is never
+      // locked out longer than the probe TTL.
+      const dialable = bases.filter((b) => !isKnownDead(b));
+      const attemptBases = dialable.length > 0 ? dialable : [bases[0]];
       // MEASURED 2026-09-27 against search.lumy.live: DNS 1 ms, TCP 95 ms,
       // but /search?format=json took 14.7 s (day), 7.5 s (month), 13.1 s
       // (year) and 46.6 s for a plain probe. The real fix is self-hosting
@@ -666,8 +722,8 @@ export function createSearxProvider(): SearchProvider {
 
       for (let pass = 0; pass < maxPasses && !stop; pass++) {
         for (const q of variants) {
-          for (let b = 0; b < bases.length && !stop; b++) {
-            const base = bases[b];
+          for (let b = 0; b < attemptBases.length && !stop; b++) {
+            const base = attemptBases[b];
             // EVERY BASE GETS ITS OWN SLICE OF THE BUDGET.
             //
             // Without this, a dead preferred instance would consume the whole
@@ -675,7 +731,7 @@ export function createSearxProvider(): SearchProvider {
             // exactly how one hung community host removed general-web breadth
             // from the product. The first base (the configured one) may use the
             // full per-request ceiling; later bases divide whatever remains.
-            const basesLeft = bases.length - b;
+            const basesLeft = attemptBases.length - b;
             const baseDeadline = Math.min(
               deadline,
               Date.now() +
@@ -715,6 +771,9 @@ export function createSearxProvider(): SearchProvider {
                 recordSearxResponse(outcome.unresponsive, outcome.engines);
                 rememberEngines(outcome.engines);
                 if (outcome.citations.length > 0) {
+                  // Self-healing: a success clears any stale bad verdict, so a
+                  // recovered instance returns to service immediately.
+                  noteSearxngBaseResult(base, true, "answered JSON");
                   return { citations: outcome.citations };
                 }
                 // Empty result set is a valid answer — but only from a
@@ -723,6 +782,7 @@ export function createSearxProvider(): SearchProvider {
                 // fail-open case that must fall through; and a gated public
                 // instance may be serving a challenge.
                 if (base === configuredBase && range === undefined && q === query) {
+                  noteSearxngBaseResult(base, true, "answered JSON (empty result set)");
                   return { citations: [] };
                 }
                 lastError = new Error(
@@ -732,6 +792,14 @@ export function createSearxProvider(): SearchProvider {
                 );
               } catch (err) {
                 lastError = err;
+                // Remember the failure so the NEXT search skips this base
+                // without paying the timeout again (until the TTL expires and
+                // one probe attempt is allowed through).
+                noteSearxngBaseResult(
+                  base,
+                  false,
+                  err instanceof Error ? err.message.slice(0, 160) : "unknown error",
+                );
                 // A TIMEOUT OR CONNECTION FAILURE IS NOT A NARROW FILTER.
                 // Widening `time_range` only helps when the instance ANSWERED
                 // with JSON and simply had nothing inside the window. A host

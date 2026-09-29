@@ -1,0 +1,67 @@
+# Docker Compose for Omi's self-hosted SearXNG (Andromeda breadth layer).
+#
+#   cd deploy/searxng && docker compose up -d
+#
+# Design decisions (measured, not taste):
+#   • NO new host ports: SearXNG is reachable only through the caddy reverse
+#     proxy, which terminates TLS and enforces the shared-secret header. The
+#     container itself is never exposed.
+#   • read_only + tmpfs + no-new-privileges: a metasearch instance proxies
+#     arbitrary upstream content; harden it like a browser, not like a DB.
+#   • The limiter is ON in settings.yml; the shared-secret header exempts
+#     Andromeda only (see limiter.toml) — random scrapers get 429s, which is
+#     exactly the fate they deserve.
+
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: omi-searxng
+    restart: unless-stopped
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:size=64M,noexec,nosuid
+      - /etc/searxng/uwsgi:size=1M,noexec,nosuid
+    volumes:
+      - ./settings.yml:/etc/searxng/settings.yml:ro
+      - ./limiter.toml:/etc/searxng/limiter.toml:ro
+    environment:
+      - SEARXNG_BASE_URL=${SEARXNG_BASE_URL:-https://searxng.example.com/}
+      - SEARXNG_SECRET=${SEARXNG_SECRET:-CHANGE-ME-openssl-rand-hex-32}
+    # Health check = the actual product contract: the JSON API answers.
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "-O", "/dev/null", "http://localhost:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    networks:
+      - internal
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: omi-searxng-caddy
+    restart: unless-stopped
+    depends_on:
+      searxng:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - internal
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  internal:
+    internal: false

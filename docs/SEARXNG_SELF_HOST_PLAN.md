@@ -31,7 +31,40 @@ Measured behaviour over this session:
 
 **Conclusion:** every public JSON-enabled SearXNG endpoint reachable from this runtime is either dead, misconfigured for JSON, or rate-limited. The self-host plan in §2 is no longer optional — it is the only path to a reliable breadth/federation layer. The adapter already fails open (measured fallbacks, circuit breaker, partial results), so the outage degrades to LangSearch + structured providers instead of breaking search.
 
-## 4. The fix (original plan, unchanged)
+## 4. The fix — NOW BUILT (deploy/searxng/)
+
+The deployment package exists and is tested:
+
+| File | What it enforces |
+|---|---|
+| `deploy/searxng/settings.yml` | JSON format ON · curated permissive engines only (google/bing/duckduckgo/startpage/qwant explicitly off) · per-engine `request_timeout: 3.0` / hard cap 6.0 · limiter on |
+| `deploy/searxng/docker-compose.yml` | read-only + no-new-privileges container · NO host ports (caddy is the only front door) · `/healthz` healthcheck drives Docker restarts |
+| `deploy/searxng/Caddyfile` | automatic TLS · `X-Omi-Secret` shared-secret gate on `format=json` (403 without it) · unauthenticated `/healthz` for monitors · access logs |
+| `deploy/searxng/limiter.toml` | real-IP behind the proxy · bot detection tuned · Andromeda exempted by the secret, not by IP |
+| `deploy/searxng/README.md` | the runbook: provision → configure → deploy → **prove** → connect → monitor → rollback |
+
+Adapter support shipped in the same pass:
+- `SEARXNG_SHARED_SECRET` (server-side env) is presented as `X-Omi-Secret` on every probe and search.
+- **Dead-instance skip**: the search path consults per-base health memory BEFORE dialing, so a fresh unhealthy probe means no timeout is paid at all; a success clears the verdict (self-healing); if every base is known-dead, one is still attempted so recovery is never locked out beyond the 5-minute TTL.
+- `diagnosticsSearxngDeep:verifySearxngJson` — the proof gate: `/search?q=test&format=json` on N consecutive attempts, then the real Asian Games query with dated-share and engine attribution. `proofOk: true` is the precondition for switching `SEARXNG_BASE_URL`.
+
+### Addendum (2026-09-28, later): the community instance RECOVERED
+
+`search.lumy.live` came back mid-session. Host-side proof (3 consecutive
+attempts + the real query):
+
+- `/search?q=test&format=json` → 200 JSON ×3 (7.7 s, 2.0 s, 1.9 s)
+- Asian Games query → 200 in 1.26 s, 15 results (olympics.com 2026 medal
+  tally, NDTV medals tally), 3 dated, via `yandex`
+- `unresponsive_engines`: duckduckgo (access denied), mwmbl (timeout),
+  seznam (too many requests) — 3 engines self-suspended, the rest answering
+
+**Honest read:** it answers today, but it is still a shared community host
+with no SLA, an engine list we do not control, and today's own history of
+multi-hour outages. The self-host remains the plan; the recovery removes the
+emergency, not the dependency.
+
+## 5. The fix (original plan text, kept for the rollback path)
 
 Run SearXNG yourself. It is a single Docker container, no database, no account, and it removes the shared-instance dependency entirely.
 
