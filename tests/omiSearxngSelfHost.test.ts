@@ -32,10 +32,28 @@ describe("dead-instance skip (per-base health memory)", () => {
   test("search() consults health memory before dialing", () => {
     const s = searxngSrc();
     expect(s).toContain("const dialable = bases.filter((b) => !isKnownDead(b))");
+    // SLOW-BASE DEMOTION: measured-latency memory re-orders the dial list so a
+    // chronically slow base is tried after fast ones (never excluded).
+    expect(s).toContain("const fast = dialable.filter((b) => !baseIsSlow(b))");
+    expect(s).toContain("const attemptBases = ordered.length > 0 ? ordered : [bases[0]]");
     // Fail-open: if nothing is dialable, one base is still attempted.
-    expect(s).toContain("dialable.length > 0 ? dialable : [bases[0]]");
+    expect(s).toContain("ordered.length > 0 ? ordered : [bases[0]]");
     // The attempt loop must use the filtered list, not the raw list.
     expect(s).toContain("for (let b = 0; b < attemptBases.length && !stop; b++)");
+  });
+
+  test("latency discipline: budgets are tight and slow bases are demoted by order", () => {
+    const s = searxngSrc();
+    // MEASURED 2026-09-29: 12–15 s searches were three ~5 s rungs against a
+    // flaky instance. The ceiling is TIGHTENED, never raised, per owner
+    // direction that 20–30 s searches are unacceptable.
+    expect(s).toContain("export const SEARXNG_TOTAL_BUDGET_MS = 10_000;");
+    expect(s).toContain("export const SEARXNG_PER_TRY_TIMEOUT_MS = 5_000;");
+    // Demotion lever is ORDER: slow bases dial after fast ones, never starved.
+    expect(s).toContain("const ordered = [...fast, ...slow]");
+    // The fan-out slot matches: searxng 12 s, not the old 30 s.
+    const t = readFileSync("src/convex/searchEngine/providerTimeouts.ts", "utf8");
+    expect(t).toMatch(/searxng: 12_000/);
   });
 
   test("success clears the bad verdict; failure records it (self-healing)", () => {

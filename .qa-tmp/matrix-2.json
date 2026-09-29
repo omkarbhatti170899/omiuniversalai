@@ -1,0 +1,70 @@
+{
+  "row": {
+    "answer": "Fernando Alonso will stick around as an Aston Martin F1 driver next year - but is it the right call?The two-time world champion has endured a difficult year with the Silverstone-based outfit, sitting 19th in the drivers' standings with just three points after 15 rounds. [5]\n\nF1 Drivers' Championship Standings After the 2026 Azerbaijan Grand Prix\n\nPosition Driver / Team Points\n\n1. [1]\n\nFormula 1 Driver Standings.Christian Horner could face a Ferrari control problem. [3]\n\nIn the latest episode of Aramco's F1 Car vs Road Car, Sam Collins takes a closer look at how F1 teams keep their drivers performing behind-the-wheel in the most challenging conditions, and how...Drivers standings. [4]\n\nSources: [1] F1 Standings and Results After the 2026 Azerbaijan Grand Prix (si.com)  [2] Lando Norris: ‘I have to go for it or die trying’ to win 2026 F1 title (au.motorsport.com)  [3] Christian Horner’s Ferrari route faces major obstacle over control at... (scuderiafans.com)  [4] F1 Reader - Video: How Do F1 Drivers Keep Comfortable In Brutal... (f1reader.com)",
+    "conflictResolution": null,
+    "detail": "10 fresh result(s) from 2 source(s) in 2667ms (after a freshness escalation pass)",
+    "droppedFresh": [
+      {
+        "reason": "wrong competition (question asked \"formula 1\")",
+        "title": "George Russell reveals Kimi Antonelli expectation... | RacingNews365"
+      },
+      {
+        "reason": "wrong competition (question asked \"formula 1\")",
+        "title": "Hamilton, Leclerc set to crash again: Villeneuve, Montoya"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 10,
+    "freshSplitCounts": {
+      "fresh": 12,
+      "stale": 1,
+      "undated": 0
+    },
+    "freshness": "Based on 10 reports published in the last 5 days (newest: about an hour ago).",
+    "intent": "current",
+    "query": "Current F1 driver standings",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2667,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-26T13:06:06.000Z",
+        "title": "F1 Standings and Results After the 2026 Azerbaijan Grand Prix",
+        "url": "https://www.si.com/onsi/f1/news/f1-standings-and-results-after-the-2026-azerbaijan-grand-prix"
+      },
+      {
+        "publishedAt": "2026-09-26T07:45:55.000Z",
+        "title": "Lando Norris: ‘I have to go for it or die trying’ to win 2026 F1 title",
+        "url": "https://au.motorsport.com/f1/news/lando-norris-i-have-to-go-for-it-or-die-trying-to-win-2026-f1-title/10859121"
+      },
+      {
+        "publishedAt": "2026-09-29T20:24:20.000Z",
+        "title": "Christian Horner’s Ferrari route faces major obstacle over control at...",
+        "url": "https://scuderiafans.com/christian-horners-ferrari-route-faces-major-obstacle-over-control-at-maranello"
+      },
+      {
+        "publishedAt": "2026-09-29T18:24:06.000Z",
+        "title": "F1 Reader - Video: How Do F1 Drivers Keep Comfortable In Brutal...",
+        "url": "http://www.f1reader.com/news/video-how-do-f1-drivers-keep-comfortable-in-brutal-conditions-598318"
+      },
+      {
+        "publishedAt": "2026-09-29T10:54:55.000Z",
+        "title": "Has Fernando Alonso made the right decision to... | RacingNews365",
+        "url": "https://racingnews365.com/has-fernando-alonso-made-the-right-decision-to-remain-with-aston-martin"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

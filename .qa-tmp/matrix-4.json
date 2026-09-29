@@ -1,0 +1,43 @@
+{
+  "row": {
+    "answer": "Live scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nAtlético Balboa v Cacahuatique — in play (1H), 0 – 1. [1]\n\nFrench Guiana v St Maarten — in play (HT), 0 – 0. [2]\n\nCompleted results from earlier today are not included. [1]\n\nSources: [1] Atlético Balboa v Cacahuatique 0 – 1 (El Salvador Primera Division · 45+4 · 2026-09-29 21:00:00) (thesportsdb.com)  [2] French Guiana v St Maarten 0 – 0 (CONCACAF Nations League · 45 · 2026-09-29 21:00:00) (thesportsdb.com)",
+    "conflictResolution": null,
+    "detail": "2 fresh result(s) from 1 source(s) in 602ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "sports-scores"
+    ],
+    "enginesWithResults": [
+      "Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshSplitCounts": {
+      "fresh": 2,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": "Based on 2 reports published today (newest: just now).",
+    "intent": "current",
+    "query": "Live football scores",
+    "requiresFreshness": true,
+    "resultsFound": 2,
+    "searchMs": 602,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T21:53:23.559Z",
+        "title": "Atlético Balboa v Cacahuatique 0 – 1 (El Salvador Primera Division · 45+4 · 2026-09-29 21:00:00)",
+        "url": "https://www.thesportsdb.com/team/156303"
+      },
+      {
+        "publishedAt": "2026-09-29T21:53:23.559Z",
+        "title": "French Guiana v St Maarten 0 – 0 (CONCACAF Nations League · 45 · 2026-09-29 21:00:00)",
+        "url": "https://www.thesportsdb.com/team/140274"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

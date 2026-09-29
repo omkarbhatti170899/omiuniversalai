@@ -8,6 +8,7 @@ import {
 } from "./types";
 import {
   buildEngineScopedQuery,
+  normalizeEngineName,
   recordSearxResponse,
   searxEngineSuspended,
   suspendedSearxEngines,
@@ -51,14 +52,18 @@ const SEARX_ENDPOINT = "/search";
  * will not reply for a wider window either. A slow engine can no longer hold up
  * the whole search because it cannot extend the budget.
  *
- * The default is deliberately modest: a metasearch host that needs more than
- * ~20 s is not a usable source, and spending longer only delays every other
- * provider in the (parallel) fan-out. Deployments can raise it with
- * `SEARXNG_TOTAL_BUDGET_MS`.
+ * MEASURED 2026-09-29 (round 7): the flaky public instance answers JSON in
+ * ~4.4–5.0 s per request, so 12–15 s telemetry rows were "three slow rungs", not
+ * a hung call — and a 30 s fan-out slot let it hold a pipeline slot while faster
+ * providers finished. Owner direction: 20–30 s searches are not acceptable and
+ * the ceiling must NOT be raised to chase them. The defaults are now 10 s total
+ * (covers two rungs at the measured latency, or a hung host plus one fallback
+ * attempt) and 5 s per rung. A self-hosted instance answers in well under 1 s,
+ * where these budgets are ample; env overrides exist for edge deployments.
  */
-export const SEARXNG_TOTAL_BUDGET_MS = 20_000;
+export const SEARXNG_TOTAL_BUDGET_MS = 10_000;
 /** A single rung's ceiling. Bounded further by whatever budget remains. */
-export const SEARXNG_PER_TRY_TIMEOUT_MS = 15_000;
+export const SEARXNG_PER_TRY_TIMEOUT_MS = 5_000;
 
 /**
  * TWO DIFFERENT KNOBS, DELIBERATELY SEPARATE.
@@ -254,6 +259,53 @@ export function noteSearxngBaseResult(base: string, healthy: boolean, detail: st
 function isKnownDead(base: string): boolean {
   const r = probeByBase.get(base);
   return r !== undefined && !r.healthy && Date.now() - r.checkedAt < PROBE_TTL_MS;
+}
+
+/**
+ * Per-base SLOW memory — "stop paying the slow tax on every call".
+ *
+ * MEASURED 2026-09-29: the configured public instance answers JSON in
+ * ~4.4–5.0 s per request. That is not a failure — health memory correctly kept
+ * dialing it — but a three-rung ladder walk at that latency produced the
+ * 12–15 s telemetry rows the owner rejected, and a 30 s fan-out slot let it
+ * hold a pipeline slot while faster providers had finished. A base whose
+ * median ANSWERED latency is at or above SLOW_BASE_MS is DEMOTED: it is tried
+ * after non-slow bases, and its first-rung budget slice is capped so it
+ * cannot consume more than one measured round-trip before the fallbacks get
+ * their share. Unlike the dead-skip memory this never excludes the base — a
+ * slow-but-real source still answers; it just stops costing four seconds per
+ * rung.
+ */
+export const SLOW_BASE_MS = 4_000;
+const LATENCY_WINDOW_PER_BASE = 6;
+const latencyByBase = new Map<string, number[]>();
+
+/** Record one ANSWERED round-trip (failures carry no latency signal). */
+export function recordSearxBaseLatency(base: string, ms: number): void {
+  if (!Number.isFinite(ms) || ms < 0) return;
+  const arr = latencyByBase.get(base) ?? [];
+  arr.push(Math.round(ms));
+  if (arr.length > LATENCY_WINDOW_PER_BASE) arr.splice(0, arr.length - LATENCY_WINDOW_PER_BASE);
+  latencyByBase.set(base, arr);
+}
+
+/** Median answered latency for a base, or null with too few samples. */
+export function searxBaseMedianLatency(base: string): number | null {
+  const arr = latencyByBase.get(base);
+  if (!arr || arr.length === 0) return null;
+  const sorted = [...arr].sort((a, b) => a - b);
+  return sorted[Math.floor(sorted.length / 2)];
+}
+
+/** True when the base's median answered latency has crossed the slow line. */
+export function baseIsSlow(base: string): boolean {
+  const m = searxBaseMedianLatency(base);
+  return m !== null && m >= SLOW_BASE_MS;
+}
+
+/** Test/reset hook — latency memory must not leak between tests or turns. */
+export function resetSearxBaseLatency(): void {
+  latencyByBase.clear();
 }
 
 /**
@@ -483,6 +535,8 @@ export function searxngHealthCached(): ProbeResult | null {
 
 type FetchOutcome = {
   citations: WebCitation[];
+  /** Per-engine contribution of this payload: results and dated results. */
+  resultsByEngine: Map<string, { results: number; dated: number }>;
   /** Raw `unresponsive_engines` from the payload, fed to the engine registry. */
   unresponsive: unknown;
   /** Engines observed on the returned results. */
@@ -555,6 +609,20 @@ async function fetchInstance(
       ? json.unresponsive_engines
       : [],
     engines: [...new Set(usable.flatMap(enginesOfResult))],
+    // Per-engine contribution: results produced and how many carried a date —
+    // the raw material for the per-engine result-count and freshness metrics.
+    resultsByEngine: (() => {
+      const m = new Map<string, { results: number; dated: number }>();
+      for (const r of usable) {
+        for (const e of enginesOfResult(r)) {
+          const cur = m.get(normalizeEngineName(e)) ?? { results: 0, dated: 0 };
+          cur.results += 1;
+          if (extractSearxDate(r)) cur.dated += 1;
+          m.set(normalizeEngineName(e), cur);
+        }
+      }
+      return m;
+    })(),
   };
 }
 
@@ -661,7 +729,16 @@ export function createSearxProvider(): SearchProvider {
       // base is still attempted (the first) so a recovered instance is never
       // locked out longer than the probe TTL.
       const dialable = bases.filter((b) => !isKnownDead(b));
-      const attemptBases = dialable.length > 0 ? dialable : [bases[0]];
+      // SLOW-BASE DEMOTION (measured 2026-09-29): a base whose median answered
+      // latency has crossed the slow line is tried AFTER the others, so a
+      // flaky-but-alive configured instance stops costing every search its
+      // ~5 s round-trip while fallbacks answer in under a second. Fail-open
+      // in the same way as the dead-skip: if EVERY base is slow, order is
+      // unchanged (one slow source still beats no source).
+      const fast = dialable.filter((b) => !baseIsSlow(b));
+      const slow = dialable.filter((b) => baseIsSlow(b));
+      const ordered = [...fast, ...slow];
+      const attemptBases = ordered.length > 0 ? ordered : [bases[0]];
       // MEASURED 2026-09-27 against search.lumy.live: DNS 1 ms, TCP 95 ms,
       // but /search?format=json took 14.7 s (day), 7.5 s (month), 13.1 s
       // (year) and 46.6 s for a plain probe. The real fix is self-hosting
@@ -732,12 +809,17 @@ export function createSearxProvider(): SearchProvider {
             // from the product. The first base (the configured one) may use the
             // full per-request ceiling; later bases divide whatever remains.
             const basesLeft = attemptBases.length - b;
+            // First-rung slice: the per-try ceiling for every base — the
+            // demotion lever is ORDER (slow bases dial last), never starving
+            // a slow-but-real source of the one round-trip it needs to
+            // answer. Later bases still divide the REMAINING budget as before.
+            const slice = perTryTimeout;
             const baseDeadline = Math.min(
               deadline,
               Date.now() +
                 (b === 0
-                  ? perTryTimeout
-                  : Math.max(BASE_FLOOR_MS, Math.floor((deadline - Date.now()) / basesLeft))),
+                  ? slice
+                  : Math.max(BASE_FLOOR_MS, Math.min(slice, Math.floor((deadline - Date.now()) / basesLeft)))),
             );
             // `break` inside this loop moves to the NEXT BASE, which is the
             // desired behaviour for every failure below: running out of one
@@ -760,6 +842,7 @@ export function createSearxProvider(): SearchProvider {
               if (remaining <= 0) break;
               attempts += 1;
               try {
+                const attemptStarted = Date.now();
                 const outcome = await fetchInstance(
                   base,
                   buildParams({ query: q, numResults, opts, timeRangeOverride: range }),
@@ -767,8 +850,16 @@ export function createSearxProvider(): SearchProvider {
                 );
                 // Record what the INSTANCE said about its own engines, before
                 // any decision about the result — that report is the only
-                // honest evidence of which engines are down.
-                recordSearxResponse(outcome.unresponsive, outcome.engines);
+                // honest evidence of which engines are down. The call's
+                // wall-clock and each engine's per-result contribution feed
+                // the per-engine metrics (latency p50, avg results, dated
+                // share) that the operator surface reports.
+                recordSearxResponse(outcome.unresponsive, outcome.engines, {
+                  latencyMs: Date.now() - attemptStarted,
+                  resultsByEngine: outcome.resultsByEngine,
+                });
+                // Feed the per-base slow memory with the ANSWERED round-trip.
+                recordSearxBaseLatency(base, Date.now() - attemptStarted);
                 rememberEngines(outcome.engines);
                 if (outcome.citations.length > 0) {
                   // Self-healing: a success clears any stale bad verdict, so a

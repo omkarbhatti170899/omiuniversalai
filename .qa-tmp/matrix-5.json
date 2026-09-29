@@ -1,0 +1,58 @@
+{
+  "row": {
+    "answer": "MORE FALLOUT ON MAN CITY CHARGES VERDICT\n\nMan City Charges: The Premier League’s Multi-Year Investigation Explained\nThe Potential Punishments Facing Man City for 115 Premier League Charges\nEvery Premier League Points Deduction in History—and the Clubs Hit by Them\nThe Premier League Champions If Man City Are Stripped of Titles [4]\n\nThe 10 Best Premier League Right Wingers of All Time—Ranked\n\nThe Premier League’s housed some of the greatest forwards to ever play the game. [1]\n\n2026/27 Premier League Power Rankings: How Tottenham stack up after the September break\n\nMany predicted Spurs to finish in Champions League qualification. [2]\n\nAcross this season's opening 50 Premier League matches, teams recording at least 60% possession have won only 36.4% of those games, while in 2023-24, the figure was 53.5%. [5]\n\nSources: [1] The 10 Best Premier League Right Wingers of All Time—Ranked (si.com)  [2] 2026/27 Premier League Power Rankings: How Tottenham stack up after the September break (hotspurhq.com)  [3] Luxembourg vs Iceland Predictions, Fixtures, Livescores & Results (soccervist.com)  [4] ‘Sham’—Premier League Stun Man City With Scathing Official Guilty Verdict (si.com)\n\nSources currently report different values for this, so Omi is not picking one. CONFLICT RESOLUTION — one figure per conflicting metric, each with its source. Set-aside values are NOT answers; do not list them as alternatives.\n\nPERCENTAGE: sources disagree — Omi is NOT picking one. 36.4 (bbc.com, yesterday) — older than the selected authoritative reading; 53.5 (bbc.com, yesterday) — older than the selected authoritative reading. Treat as unconfirmed and check the official source.",
+    "conflictResolution": "Sources currently report different values for this, so Omi is not picking one. CONFLICT RESOLUTION — one figure per conflicting metric, each with its source. Set-aside values are NOT answers; do not list them as alternatives.\n\nPERCENTAGE: sources disagree — Omi is NOT picking one. 36.4 (bbc.com, yesterday) — older than the selected authoritative reading; 53.5 (bbc.com, yesterday) — older than the selected authoritative reading. Treat as unconfirmed and check the official source.",
+    "detail": "7 fresh result(s) from 1 source(s) in 586ms (after a freshness escalation pass)",
+    "droppedFresh": [],
+    "enginesTried": [
+      "sports-scores"
+    ],
+    "enginesWithResults": [
+      "Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "freshResults": 7,
+    "freshSplitCounts": {
+      "fresh": 7,
+      "stale": 1,
+      "undated": 0
+    },
+    "freshness": "Based on 7 reports published in the last 5 days (newest: 4 hours ago).",
+    "intent": "current",
+    "query": "Current Premier League standings",
+    "requiresFreshness": true,
+    "resultsFound": 1,
+    "searchMs": 586,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T17:00:01.000Z",
+        "title": "The 10 Best Premier League Right Wingers of All Time—Ranked",
+        "url": "https://www.si.com/soccer/best-premier-league-right-wingers-all-time-ranked"
+      },
+      {
+        "publishedAt": "2026-09-29T10:00:02.000Z",
+        "title": "2026/27 Premier League Power Rankings: How Tottenham stack up after the September break",
+        "url": "https://hotspurhq.com/2026-27-premier-league-power-rankings-how-tottenham-stack-up-after-the-september-break-01m3m3p6xs35"
+      },
+      {
+        "publishedAt": "2026-09-29T00:21:02.000Z",
+        "title": "Luxembourg vs Iceland Predictions, Fixtures, Livescores & Results",
+        "url": "https://soccervist.com/view/Uxt2mPAUcx9EIgp7/luxembourg-vs-iceland"
+      },
+      {
+        "publishedAt": "2026-09-29T16:35:58.000Z",
+        "title": "‘Sham’—Premier League Stun Man City With Scathing Official Guilty Verdict",
+        "url": "https://www.si.com/soccer/premier-league-stun-man-city-scathing-official-guilty-verdict"
+      },
+      {
+        "publishedAt": "2026-09-28T06:11:28.000Z",
+        "title": "Premier League: Is top-flight possession football on way... - BBC Sport",
+        "url": "https://www.bbc.com/sport/football/articles/cmn45n5d8wq7o"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

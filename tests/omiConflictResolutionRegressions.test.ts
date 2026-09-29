@@ -246,7 +246,9 @@ describe("SearXNG fallback — no single instance or provider may block Andromed
     const s = searxngSrc();
     expect(s).toContain("const dialable = bases.filter((b) => !isKnownDead(b))");
     // Fail-open: recovery is never locked out longer than the probe TTL.
-    expect(s).toContain("dialable.length > 0 ? dialable : [bases[0]]");
+    // (Round 7 adds slow-base demotion before this line; the fail-open
+    // contract is unchanged, only the variable is now the ordered list.)
+    expect(s).toContain("ordered.length > 0 ? ordered : [bases[0]]");
   });
 
   test("the fan-out continues when SearXNG fails entirely (allSettled isolation)", () => {

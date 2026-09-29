@@ -1,5 +1,120 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## Addendum 7 — LATENCY DISCIPLINE + PER-ENGINE HEALTH METRICS + 8-QUERY ACCEPTANCE MATRIX (round 7, 2026-09-29)
+
+Owner verdict on round 6: the reliability layer behaves (sports/entity/year/ranking
+detection, stale rejection, off-topic rejection, refusal all confirmed). The
+remaining blocker is SearXNG itself: search.lumy.live times out at ~5 s and
+searches were taking 12–13 s. Direction: SELF-HOST, do not raise timeouts, do
+not make the public instance the production foundation.
+
+### 1. The 12–15 s rows, decoded from telemetry
+
+`searchTelemetry:recent` (34 rows): p50 **3.97 s**, **11 rows > 12 s**, max
+**15.24 s** — all successful. Root cause is NOT a hung call: lumy.live answers
+JSON in **~4.4–5.0 s per request** (measured repeatedly this round), and the
+date-filter ladder walks 2–3 rungs per call, so a normal successful search paid
+three slow round-trips. Meanwhile the fan-out gave SearXNG a **30 s slot**, so
+it held a pipeline slot long after faster providers finished.
+
+### 2. Latency discipline (tightened, never raised)
+
+| Knob | Before | After | Why |
+|---|---|---|---|
+| `SEARXNG_PER_TRY_TIMEOUT_MS` | 15 s | **5 s** | one measured round-trip at the flaky host's latency |
+| `SEARXNG_TOTAL_BUDGET_MS` | 20 s | **10 s** | two rungs, or a hung host plus one fallback attempt |
+| fan-out slot (`PROVIDER_TIMEOUT_MS.searxng`) | 30 s | **12 s** | stop holding a pipeline slot while faster providers finish |
+| `SEARXNG_TIMEOUT_MS` meaning | unchanged | unchanged | per-request, deployments keep their override |
+
+Plus **slow-base demotion**: per-base latency memory (`SLOW_BASE_MS = 4 s`,
+median over the last 6 answered calls) re-orders the dial list so a chronically
+slow base is tried AFTER fast fallbacks — and its leverage is ORDER, never
+starvation: a slow-but-real source still gets its full per-try slice (pinned by
+a live-server test). Demotion decays the moment faster answers arrive.
+
+Measured result on the real chat path (same round, same public instance):
+F1 leader 20–23 s → **2.3 s** · F1 standings **2.7 s** · football scores
+**0.6 s** · worst case 10.8 s (a search where lumy timed out at 5 s and the
+fallbacks still passed) · **zero rows over the 12 s slot**.
+
+### 3. Per-engine health — all eight contract metrics
+
+`searxEngineHealthSnapshot()` now reports per upstream SearXNG engine:
+successes, failures, **success rate**, **timeout rate**, **latency p50** (window
+10), **avg result count**, **freshness share** (dated results / results),
+**last successful request**, **last failure** (+ `suspended` — the action taken
+on those signals; threshold 2 strikes, 10-min cooldown, first success clears).
+Result counts and dated counts are fed per payload from each instance response
+(`resultsByEngine`), and rates use lifetime counters so one good call cannot
+flip a 0% rate to 100%. Suspension semantics are unchanged: streak counters
+clear on success, lifetime counters never do.
+
+Surface: `bunx convex run searchEngineHealth:snapshot '{}'` → `searxEngines[]`
+(isolate-local) + `telemetryHealth[]` (persisted, cross-restart). The per-engine
+metrics are isolate-local like the engine registry itself; the self-hosted
+instance's own Prometheus/logging (deploy package) is the fleet-wide view.
+
+### 4. ACCEPTANCE MATRIX — 8 owner-named queries, real chat path, live
+
+All via `currentInfoProbe:runOne`, 2026-09-29 ~22:0x UTC, evidence
+`.qa-tmp/matrix-{1..8}.json`:
+
+| # | Query | Status | Found/Fresh | Engines (kept) | Failed | Latency | Answer |
+|---|---|---|---|---|---|---|---|
+| 1 | F1 2026 leader | pass | 5/7 | SearXNG + LangSearch | 0 | **2.3 s** | Antonelli leads, 302 pts; **formula1.com itself kept** (site: angle working) |
+| 2 | Current F1 standings | pass | 5/10 | SearXNG + LangSearch | 0 | **2.7 s** | standings answered from dated sources |
+| 3 | Latest IPL news | pass | 5/2 | Wiki-CE + LangSearch | lumy 5 s timeout | 10.8 s | Khaleej Times + Ary News, dated 2026-09-29/26 — degraded, never blocked |
+| 4 | Live football scores | pass | 2/2 | structured feed | 0 | **0.6 s** | live scoreboard |
+| 5 | EPL standings | pass | 1/7 | TheSportsDB | 0 | **0.6 s** | dated table coverage (si.com, BBC) |
+| 6 | NBA standings | pass | 5/8 | 2 engines | 0 | 6.3 s | dated standings coverage |
+| 7 | Latest India news | pass | 5/3 | 3 engines | 0 | 6.8 s | dated news coverage |
+| 8 | Latest world news | pass | 5/2 | 3 engines | 0 | 3.1 s | dated wire coverage |
+
+Rejections worked in every row (off-topic / wrong-competition / stale dropped
+with reasons — e.g. Azerbaijan-GP race report dropped from the F1 leader query
+as off-topic). Refusal path intact where evidence is insufficient.
+
+### 5. Self-host deployment status
+
+- The `deploy/searxng/` package (compose + Caddy + settings + limiter + README)
+  is complete and pinned by tests — unchanged this round.
+- **No Docker daemon in this sandbox** (`docker: not found`), so the compose
+  stack could not be smoke-run here; and **no VPS provider exists in the
+  integration catalog** — provisioning requires the owner's account.
+- Wiring is one env var away and already implemented: the adapter puts the
+  configured base FIRST, fallbacks after it, health-memory and demotion apply
+  to both. `bunx convex env set SEARXNG_BASE_URL https://<host>` (+
+  `SEARXNG_SHARED_SECRET`) is the entire switch.
+- Owner steps: `deploy/searxng/README.md` — provision VPS (1 vCPU/1–2 GB is
+  ample) → DNS A/AAAA → `docker compose up -d` → prove JSON
+  (`curl -H "X-Omi-Secret: …" https://<host>/search?q=test&format=json`) → set
+  the two env vars → `probeSearxngCandidates` shows the instance healthy.
+
+### 6. Acceptance criteria scoring (against the owner's list)
+
+| Criterion | Verdict | Evidence |
+|---|---|---|
+| respond reliably | PARTIAL — flaky public instance; degraded-but-passing; self-host pending | matrix rows 1–8 |
+| not block the whole search | **PASS** | row 3: lumy timed out, turn still passed; allSettled isolation pinned |
+| multiple results | **PASS** | 5 kept rows in 6/8 queries |
+| valid JSON | **PASS** | JSON contract enforced per response; HTML-only instances rejected loudly |
+| preserve publication dates | **PASS** | `freshSplitCounts` dated rows in every pass; per-engine freshness share now measured |
+| preserve domains | **PASS** | citations carry URLs/domains; formula1.com kept on F1 |
+| survive individual engine failures | **PASS** | suspension + auto-recovery + fail-open scoping, pinned; row 3 live |
+| work with Andromeda's relevance system | **PASS** | entity anchors, answerability floor, authority gate all applied on SearXNG rows |
+| respond FAST (new, round 7) | **PASS on pipeline discipline** — public instance remains the latency ceiling | p50 3.97 s → rows ≤ 10.8 s; zero > 12 s |
+
+**"Not production-ready" until the self-host is deployed and the matrix re-runs
+against it — per the owner's own bar. Current state: pipeline-side acceptance
+achieved; instance-side BLOCKED on provisioning (owner account + Docker host).**
+
+### 7. Gates
+
+1,409 tests / 0 fail (+6 round-7 tests: budget discipline, demotion, engine
+metrics) · tsc 0 errors · eslint 0 errors · deployed 21:51 UTC.
+
+---
+
 ## Addendum 6 — SELF-HOST SEARXNG PACKAGE, ENGINE HEALTH SURFACE, GENERALIZED AUTHORITY, CONFLICT REGRESSIONS (325e8e5/a583591 review, 2026-09-29)
 
 Review round 6 (owner verdict on the prior round: "major improvement"). Scope was
@@ -757,3 +872,47 @@ deployed 12:32.
 
 **1,403 tests / 0 fail** (72 files) · **tsc 0 errors** · **eslint 0 errors** ·
 deployed 20:55 UTC · evidence in `.qa-tmp/*phase6*`.
+
+---
+
+## FINAL VERDICT — round 7 (SearXNG latency + per-engine health + acceptance matrix), 2026-09-29
+
+### PASS (pipeline-side, live-verified)
+
+1. **Latency discipline** — ceilings TIGHTENED (15→5 s per rung, 20→10 s total,
+   30→12 s fan-out slot), slow-base demotion added. Same-round live matrix:
+   F1 leader 2.3 s, F1 standings 2.7 s, football 0.6 s, worst 10.8 s, zero rows
+   over the slot. No global timeout was raised anywhere.
+   **Repro:** `.qa-tmp/matrix-{1..8}.json` + `bun test tests/omiSearxngResilienceRegression.test.ts`.
+2. **Per-engine health, all 8 contract metrics** — success rate, timeout rate,
+   latency p50, avg results, freshness share, last-ok, last-fail, suspended;
+   lifetime counters so rates cannot flip on one good call; suspension +
+   auto-recovery unchanged and pinned.
+   **Repro:** `bunx convex run searchEngineHealth:snapshot '{}'`.
+3. **8-query acceptance matrix** — 8/8 pass on the real chat path, including one
+   row where SearXNG itself timed out and the turn still passed (never blocks).
+   Rejections, freshness, domains, dates, and answerability all verified per row.
+   **Repro:** Addendum 7 §4 table + `.qa-tmp/matrix-*.json`.
+4. **Refusal behavior** — unchanged and still correct (owner-confirmed).
+
+### BLOCKED (owner-side)
+
+1. **Self-hosted SearXNG instance** — the entire remaining blocker. Package,
+   wiring, health memory, demotion and fallbacks are done and pinned; what is
+   missing is a Docker host with a public DNS record, which does not exist in
+   this sandbox (`docker: not found`) and has no provisionable provider in the
+   integration catalog.
+   **Steps to unblock (owner):** `deploy/searxng/README.md` → VPS + DNS →
+   `docker compose up -d` → prove the JSON endpoint → `bunx convex env set
+   SEARXNG_BASE_URL https://<host>` + `SEARXNG_SHARED_SECRET <value>` →
+   `bunx convex run diagnosticsSearxngDeep:probeSearxngCandidates '{}'` →
+   re-run the 8-query matrix (Addendum 7 §4) against the new instance.
+   Acceptance bar: same matrix, all rows pass, SearXNG p50 < 1 s.
+2. **Human QA of the Omi interface** — unchanged from round 6; checklist at
+   `docs/HUMAN_QA_CHECKLIST.md`.
+
+### Gates at verdict time
+
+**1,409 tests / 0 fail** (72 files) · **tsc 0 errors** · **eslint 0 errors** ·
+deployed 21:51 UTC · evidence `.qa-tmp/matrix-*.json`, `engine-health-snapshot3.json`,
+`telemetry-recent.json`.

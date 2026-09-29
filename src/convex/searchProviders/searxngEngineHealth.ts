@@ -37,12 +37,25 @@
 export const ENGINE_FAILURE_THRESHOLD = 2;
 /** How long a suspended engine stays out of the request. */
 export const ENGINE_COOLDOWN_MS = 10 * 60_000;
+/** Latency window kept per engine for the p50 (bounded, newest-wins). */
+const LATENCY_WINDOW = 10;
 
 type EngineState = {
   failures: number;
+  /** Lifetime failure count — NEVER cleared by a success, so rates stay honest. */
+  totalFailures: number;
+  timeouts: number;
+  successes: number;
+  /** Wall-clock ms of the calls this engine answered, for the p50. */
+  latencyMs: number[];
+  /** Results this engine contributed across calls (avg = / successes). */
+  resultsContributed: number;
+  /** Of those, how many carried a publication date (freshness share). */
+  datedResults: number;
   suspendedUntil: number | null;
   lastError: string | null;
   lastOkAt: number | null;
+  lastFailAt: number | null;
 };
 
 const engines = new Map<string, EngineState>();
@@ -50,7 +63,19 @@ const engines = new Map<string, EngineState>();
 function stateFor(engine: string): EngineState {
   let s = engines.get(engine);
   if (!s) {
-    s = { failures: 0, suspendedUntil: null, lastError: null, lastOkAt: null };
+    s = {
+      failures: 0,
+      totalFailures: 0,
+      timeouts: 0,
+      successes: 0,
+      latencyMs: [],
+      resultsContributed: 0,
+      datedResults: 0,
+      suspendedUntil: null,
+      lastError: null,
+      lastOkAt: null,
+      lastFailAt: null,
+    };
     engines.set(engine, s);
   }
   return s;
@@ -81,12 +106,27 @@ export function recordSearxEngineUnresponsive(
     s.failures = 0;
   }
   s.failures += 1;
+  s.totalFailures += 1;
+  if (/timeout/i.test(String(reason ?? ""))) s.timeouts += 1;
   s.lastError = String(reason ?? "unresponsive").slice(0, 120);
+  s.lastFailAt = now;
   if (s.failures >= ENGINE_FAILURE_THRESHOLD) s.suspendedUntil = now + ENGINE_COOLDOWN_MS;
 }
 
-/** Record that `engine` contributed results — clears its failure history. */
-export function recordSearxEngineResponsive(engine: string, now = Date.now()): void {
+/**
+ * Record that `engine` contributed results — clears its failure history.
+ *
+ * `stats` carries the measured per-call contribution: how many results the
+ * engine produced and how many of those carried a publication date. They feed
+ * the operator metrics (avg result count, freshness share) WITHOUT ever
+ * touching the suspension policy — a low-yield engine is a quality signal,
+ * not a failure.
+ */
+export function recordSearxEngineResponsive(
+  engine: string,
+  stats: { latencyMs?: number; results?: number; dated?: number } = {},
+  now = Date.now(),
+): void {
   const id = normalizeEngineName(engine);
   if (!id) return;
   const s = stateFor(id);
@@ -94,6 +134,15 @@ export function recordSearxEngineResponsive(engine: string, now = Date.now()): v
   s.suspendedUntil = null;
   s.lastError = null;
   s.lastOkAt = now;
+  s.successes += 1;
+  if (typeof stats.latencyMs === "number" && Number.isFinite(stats.latencyMs) && stats.latencyMs >= 0) {
+    s.latencyMs.push(Math.round(stats.latencyMs));
+    if (s.latencyMs.length > LATENCY_WINDOW) s.latencyMs.splice(0, s.latencyMs.length - LATENCY_WINDOW);
+  }
+  if (typeof stats.results === "number" && Number.isFinite(stats.results) && stats.results >= 0) {
+    s.resultsContributed += stats.results;
+    s.datedResults += Math.max(0, Math.min(stats.dated ?? 0, stats.results));
+  }
 }
 
 /**
@@ -107,6 +156,7 @@ export function recordSearxEngineResponsive(engine: string, now = Date.now()): v
 export function recordSearxResponse(
   unresponsive: unknown,
   responsive: Iterable<string>,
+  stats: { latencyMs?: number; resultsByEngine?: Map<string, { results: number; dated: number }> } = {},
   now = Date.now(),
 ): void {
   try {
@@ -128,7 +178,14 @@ export function recordSearxResponse(
         }
       }
     }
-    for (const e of responsive) recordSearxEngineResponsive(e, now);
+    for (const e of responsive) {
+      const per = stats.resultsByEngine?.get(normalizeEngineName(e));
+      recordSearxEngineResponsive(
+        e,
+        { latencyMs: stats.latencyMs, results: per?.results, dated: per?.dated },
+        now,
+      );
+    }
   } catch {
     /* telemetry must never break a search */
   }
@@ -151,18 +208,56 @@ export function suspendedSearxEngines(now = Date.now()): string[] {
   return out.sort();
 }
 
-/** Read-only snapshot for the diagnostics/status surface. */
+/**
+ * Read-only snapshot for the diagnostics/status surface — the eight metrics
+ * the operator contract names, per engine:
+ *   engine · success rate · timeout rate · latency (p50) · avg result count ·
+ *   freshness (dated share) · last successful request · last failure
+ * (+ suspended, which is the ACTION taken on the failure signals).
+ */
 export function searxEngineHealthSnapshot(
   now = Date.now(),
-): Array<{ engine: string; failures: number; suspended: boolean; lastError: string | null; lastOkAt: number | null }> {
+): Array<{
+  engine: string;
+  successes: number;
+  failures: number;
+  successRate: number;
+  timeoutRate: number;
+  latencyP50Ms: number | null;
+  avgResults: number | null;
+  freshnessShare: number | null;
+  suspended: boolean;
+  lastError: string | null;
+  lastOkAt: number | null;
+  lastFailAt: number | null;
+}> {
   return [...engines.entries()]
-    .map(([engine, s]) => ({
-      engine,
-      failures: s.failures,
-      suspended: s.suspendedUntil !== null && now < s.suspendedUntil,
-      lastError: s.lastError,
-      lastOkAt: s.lastOkAt,
-    }))
+    .map(([engine, s]) => {
+      // Rates use the LIFETIME counters: the streak counters (`failures`) are
+      // cleared by a success — that is the right suspension semantics, but it
+      // would make a rate flip from 0% to 100% on one good call.
+      const attempts = s.successes + s.totalFailures;
+      const sortedLat = [...s.latencyMs].sort((a, b) => a - b);
+      return {
+        engine,
+        successes: s.successes,
+        failures: s.totalFailures,
+        successRate: attempts > 0 ? Math.round((s.successes / attempts) * 100) / 100 : 0,
+        timeoutRate:
+          attempts > 0 ? Math.round((s.timeouts / attempts) * 100) / 100 : 0,
+        latencyP50Ms: sortedLat.length > 0 ? sortedLat[Math.floor(sortedLat.length / 2)] : null,
+        avgResults:
+          s.successes > 0 ? Math.round((s.resultsContributed / s.successes) * 10) / 10 : null,
+        freshnessShare:
+          s.resultsContributed > 0
+            ? Math.round((s.datedResults / s.resultsContributed) * 100) / 100
+            : null,
+        suspended: s.suspendedUntil !== null && now < s.suspendedUntil,
+        lastError: s.lastError,
+        lastOkAt: s.lastOkAt,
+        lastFailAt: s.lastFailAt,
+      };
+    })
     .sort((a, b) => Number(b.suspended) - Number(a.suspended) || b.failures - a.failures);
 }
 

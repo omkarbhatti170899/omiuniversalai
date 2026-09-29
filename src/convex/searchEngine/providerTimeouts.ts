@@ -54,7 +54,13 @@ export const TIMEOUT_ENV_PREFIX = "SEARCH_TIMEOUT_MS_";
  * see `timeoutEnvVarName` for the ONLY valid way to spell that override.
  */
 export const PROVIDER_TIMEOUT_MS: Record<string, number> = {
-  searxng: 30_000,
+  // MEASURED 2026-09-29 (review round 7): successful searches through the flaky
+  // public instance reached 12–15 s and held a fan-out slot for up to 30 s while
+  // faster providers had already finished. Owner direction: 20–30 s searches are
+  // NOT acceptable; do not fix latency by raising the ceiling. 12 s still
+  // clears the measured p95 of a healthy instance with room for one slow rung,
+  // and a self-hosted instance (sub-second) can tighten it via env.
+  searxng: 12_000,
   gdelt: 20_000,
 };
 

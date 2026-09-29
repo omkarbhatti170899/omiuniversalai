@@ -50,11 +50,19 @@ import {
   extractSearxDate,
 } from "../src/convex/searchProviders/searxng";
 import {
+  SLOW_BASE_MS,
+  baseIsSlow,
+  recordSearxBaseLatency,
+  resetSearxBaseLatency,
+  searxBaseMedianLatency,
+} from "../src/convex/searchProviders/searxng";
+import {
   ENGINE_FAILURE_THRESHOLD,
   buildEngineScopedQuery,
   recordSearxEngineUnresponsive,
   recordSearxResponse,
   resetSearxEngineHealth,
+  searxEngineHealthSnapshot,
   searxEngineSuspended,
   suspendedSearxEngines,
 } from "../src/convex/searchProviders/searxngEngineHealth";
@@ -161,6 +169,17 @@ describe("2. SearXNG has a single, bounded wall-clock budget", () => {
     expect(ADAPTER_SRC).toContain("remaining");
   });
 
+  test("budget relations under the tightened ceilings (round-7 discipline)", () => {
+    // MEASURED 2026-09-29: the public instance answers JSON in ~4.4–5.0 s, so
+    // the old 15 s per-try / 20 s total let a three-rung walk become a 15 s
+    // search. New discipline: per-rung 5 s, total 10 s, and the provider's
+    // fan-out slot is 12 s — the search ends before the pipeline slot does.
+    expect(SEARXNG_PER_TRY_TIMEOUT_MS).toBe(5_000);
+    expect(SEARXNG_TOTAL_BUDGET_MS).toBe(10_000);
+    expect(SEARXNG_TOTAL_BUDGET_MS).toBeLessThan(PROVIDER_TIMEOUT_MS.searxng);
+    expect(SEARXNG_PER_TRY_TIMEOUT_MS).toBeLessThanOrEqual(SEARXNG_TOTAL_BUDGET_MS);
+  });
+
   test("SEARXNG_TIMEOUT_MS keeps its per-request meaning; the total is a SEPARATE knob", () => {
     // MEASURED during this fix: re-using SEARXNG_TIMEOUT_MS as the total
     // silently reinterpreted a deployment that had already set it to ~11 s,
@@ -221,6 +240,7 @@ function stopServer(): void {
 
 beforeEach(() => {
   resetSearxEngineHealth();
+  resetSearxBaseLatency();
   queriesSeen = [];
   seed = { results: [] };
   savedBase = process.env.SEARXNG_BASE_URL;
@@ -356,6 +376,84 @@ describe("3. individual upstream engine timeouts", () => {
       recordSearxResponse([null, 42, {}, ["ok", 7], "stringy"] as unknown, []),
     ).not.toThrow();
     expect(() => recordSearxResponse("not-an-array" as unknown, [])).not.toThrow();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 2d. Slow-base demotion (measured 12–15 s searches through a flaky instance)
+// ---------------------------------------------------------------------------
+
+describe("2d. slow-base demotion caps a flaky instance's latency tax", () => {
+  test("latency memory: median is computed over answered calls only", () => {
+    resetSearxBaseLatency();
+    expect(searxBaseMedianLatency("https://x.test")).toBeNull();
+    recordSearxBaseLatency("https://x.test", 4_900);
+    recordSearxBaseLatency("https://x.test", 5_100);
+    recordSearxBaseLatency("https://x.test", 1_000);
+    expect(searxBaseMedianLatency("https://x.test")).toBe(4_900);
+    expect(baseIsSlow("https://x.test")).toBe(true); // ≥ SLOW_BASE_MS (4 s)
+  });
+
+  test("a base under the slow line is not demoted, and the boundary is at SLOW_BASE_MS", () => {
+    resetSearxBaseLatency();
+    recordSearxBaseLatency("https://fast.test", 800);
+    expect(baseIsSlow("https://fast.test")).toBe(false);
+    recordSearxBaseLatency("https://edge.test", SLOW_BASE_MS);
+    expect(baseIsSlow("https://edge.test")).toBe(true);
+  });
+
+  test("a slow base still answers within its own per-try ceiling, then is demoted in memory", async () => {
+    await startServer();
+    seed = { results: [SEARX_RESULT], delayMs: SLOW_BASE_MS + 600 };
+    process.env.SEARXNG_BASE_URL = base;
+    // Per-try must EXCEED the simulated latency so the slow-but-alive base
+    // answers — this pins "demotion never starves a real source".
+    process.env.SEARXNG_TIMEOUT_MS = "6000";
+    process.env.SEARXNG_TOTAL_BUDGET_MS = "12000";
+    // The demotion lever is ORDER, never starvation: the slow base must still
+    // answer (the old behavior), and its measured latency then marks it slow.
+    const out = await createSearxProvider().search("latest news", 5, {});
+    expect(out.citations.length).toBe(1);
+    expect(searxBaseMedianLatency(base)).toBeGreaterThanOrEqual(SLOW_BASE_MS);
+    expect(baseIsSlow(base)).toBe(true);
+  }, 15_000);
+
+  test("engine health: per-engine metrics include success/timeout rates, p50, results, freshness, last-ok/last-fail", () => {
+    resetSearxEngineHealth();
+    recordSearxResponse(
+      [["duckduckgo", "timeout"]],
+      ["yandex"],
+      {
+        latencyMs: 2_100,
+        resultsByEngine: new Map([
+          ["yandex", { results: 4, dated: 1 }],
+        ]),
+      },
+    );
+    recordSearxResponse(
+      [],
+      ["yandex", "duckduckgo"],
+      {
+        latencyMs: 2_600,
+        resultsByEngine: new Map([
+          ["yandex", { results: 3, dated: 3 }],
+          ["duckduckgo", { results: 2, dated: 0 }],
+        ]),
+      },
+    );
+    const snap = searxEngineHealthSnapshot();
+    const yandex = snap.find((e) => e.engine === "yandex")!;
+    const ddg = snap.find((e) => e.engine === "duckduckgo")!;
+    expect(yandex.successRate).toBe(1);
+    expect(yandex.avgResults).toBe(3.5);
+    expect(yandex.freshnessShare).toBeCloseTo(4 / 7, 2);
+    expect(yandex.latencyP50Ms).toBe(2_600);
+    expect(yandex.lastOkAt).not.toBeNull();
+    expect(yandex.lastFailAt).toBeNull();
+    expect(ddg.successRate).toBe(0.5);
+    expect(ddg.timeoutRate).toBe(0.5);
+    expect(ddg.lastFailAt).not.toBeNull();
+    expect(ddg.suspended).toBe(false);
   });
 });
 
