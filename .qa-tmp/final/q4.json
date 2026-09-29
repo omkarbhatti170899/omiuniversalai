@@ -1,0 +1,54 @@
+{
+  "row": {
+    "answer": "The Formula 1 CEO also discussed the remarkable season Andrea Kimi Antonelli is currently enjoying, focusing particularly on the young driver’s ability to deal with pressure while leading the championship.Buy official Ferrari 2026 F1 products. [3]\n\nFollowing a season of adaptation to the new 2026 Formula 1 rules, George Russell is starting to hit his best form.\"Now I feel like if the season had started today, or since the summer break, I feel very much I would have been able to fight.\" George Russell, Mercedes, Oscar Piastri, McLaren. [6]\n\nFernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026\n\nFernando Alonso and Lance Stroll will remain with Aston Martin beyond the 2026 Formula 1 season after both drivers agreed long-term contract extensions, the team said on Tuesday. [1]\n\nSpeaking after the race, Kimi Antonelli described his Baku weekend as the worst by far of his 2026 Formula 1 season after finishing fifth, scoring 10 points and leaving Azerbaijan 66 points ahead of George Russell . [4]\n\nSources: [1] Fernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026 (grandprix247.com)  [2] Things To Do This Week in Los Angeles [9-28-2026 to 10-2-2026] (welikela.com)  [3] Stefano Domenicali warns Ferrari against ‘fanciful solutions’ amid... (scuderiafans.com)  [4] Antonelli's worst weekend of 2026 was still an... - Motor Sport Magazine (motorsportmagazine.com)",
+    "detail": "8 fresh result(s) from 2 source(s) in 11590ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 8,
+    "freshness": "Based on 8 reports published in the last 5 days (newest: just now).",
+    "intent": "knowledge",
+    "query": "Formula 1 2026 season results",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 11590,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T11:21:00.000Z",
+        "title": "Fernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026",
+        "url": "https://www.grandprix247.com/formula-1-news/fernando-alonso-and-lance-stroll-extend-aston-martin-contracts-beyond-2026"
+      },
+      {
+        "publishedAt": "2026-09-28T19:09:20.000Z",
+        "title": "Things To Do This Week in Los Angeles [9-28-2026 to 10-2-2026]",
+        "url": "https://www.welikela.com/things-to-do-this-week-in-los-angeles-9-28-2026-to-10-2-2026"
+      },
+      {
+        "publishedAt": "2026-09-29T09:18:46.000Z",
+        "title": "Stefano Domenicali warns Ferrari against ‘fanciful solutions’ amid...",
+        "url": "https://scuderiafans.com/stefano-domenicali-warns-ferrari-against-fanciful-solutions-amid-christian-horner-rumours"
+      },
+      {
+        "publishedAt": "2026-09-28T10:36:01.000Z",
+        "title": "Antonelli's worst weekend of 2026 was still an... - Motor Sport Magazine",
+        "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/antonellis-worst-weekend-of-2026-was-still-an-f1-champions-drive"
+      },
+      {
+        "publishedAt": "2026-09-28T11:21:54.000Z",
+        "title": "Red Bull 'hierarchy' noted behind Baku team order... | RacingNews365",
+        "url": "https://racingnews365.com/red-bull-hierarchy-noted-behind-baku-team-order-debate"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

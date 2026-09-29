@@ -1,0 +1,50 @@
+{
+  "row": {
+    "answer": "Latest cricket news, match reports, analysis and features. [3]\n\nFeatures.Your No.1 destination for live cricket scores, match coverage, breaking news, video highlights and in‑depth feature stories. [4]\n\nReal Cricket’s next big move brings more international stars into the game\n\nThe cricket action may end on the field, but for fans, the game can now continue on their screens. [1]\n\nThe latest expansion builds on that partnership by adding players from two more cricket-playing nations, giving the game a broader mix of international talent and fans more ways to enjoy the sport beyond real-world matches. [1]\n\nSources: [1] Real Cricket’s next big move brings more international stars into the game (pcquest.com)  [2] No rest for England after turbulent summer of cricket | RNZ (rnz.co.nz)  [3] India A Beat Australia A by 162 Runs | Read Cricket (readcricket.com)  [4] Murphy's four keeps Australia A's hopes hanging by... | cricket.com.au (cricket.com.au)",
+    "detail": "4 fresh result(s) from 3 source(s) in 3171ms",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 4,
+    "freshness": "Based on 4 reports published in the last 5 days (newest: just now).",
+    "intent": "news",
+    "query": "latest cricket news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 3171,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T16:16:37.000Z",
+        "title": "Real Cricket’s next big move brings more international stars into the game",
+        "url": "https://www.pcquest.com/news/real-cricket-international-stars-bangladesh-sri-lanka-12589864"
+      },
+      {
+        "publishedAt": "2026-09-27T20:30:33.000Z",
+        "title": "No rest for England after turbulent summer of cricket | RNZ",
+        "url": "https://www.rnz.co.nz/news/sport/1625112/no-rest-for-england-after-turbulent-summer-of-cricket"
+      },
+      {
+        "publishedAt": "2026-09-26T09:35:57.000Z",
+        "title": "India A Beat Australia A by 162 Runs | Read Cricket",
+        "url": "https://readcricket.com/2026/09/26/india-a-beat-australia-a-puducherry-todd-murphy"
+      },
+      {
+        "publishedAt": "2026-09-24T19:41:11.000Z",
+        "title": "Murphy's four keeps Australia A's hopes hanging by... | cricket.com.au",
+        "url": "https://www.cricket.com.au/news/4581058/india-a-v-australia-a-first-four-day-match-day-three-report-scores-sangha-murphy-konstas-mcsweeney"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

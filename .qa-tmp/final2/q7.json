@@ -1,0 +1,39 @@
+{
+  "row": {
+    "answer": "IPL 2026 Points Table: Check the updated IPL team standings, rankings, matches wins, losses and net run rate at Times of India. [1]\n\nIPL 2027: Schedule Window, Teams, Auction and Live Updates. [2]\n\nThe 20th edition is expected to be played in India with the league’s current 10 franchises. [2]\n\nSources: [1] IPL 2026 Points Table: IPL Team Standings, IPL Rankings and Net... (clm41.icu)  [2] IPL 2027 Schedule, Auction, Teams & Live Updates (ipl2027in.com)",
+    "detail": "2 fresh result(s) from 2 source(s) in 2327ms",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshness": "Based on 2 reports published in the last 5 days (newest: 4 hours ago).",
+    "intent": "current",
+    "query": "current IPL standings",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2327,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T08:50:02.000Z",
+        "title": "IPL 2026 Points Table: IPL Team Standings, IPL Rankings and Net...",
+        "url": "https://clm41.icu/sports/cricket/ipl/points-table"
+      },
+      {
+        "publishedAt": "2026-09-24T21:19:56.000Z",
+        "title": "IPL 2027 Schedule, Auction, Teams & Live Updates",
+        "url": "https://ipl2027in.com"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

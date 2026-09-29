@@ -1,0 +1,315 @@
+{
+  "conflictNotice": null,
+  "conflicts": [],
+  "engineError": null,
+  "refusal": null,
+  "retrievalPlan": {
+    "notes": [
+      "added sports terms: result, report",
+      "added the strong recency word \"today\" to the primary query"
+    ],
+    "primary": "live football scores result report today",
+    "variantTargets": [
+      "searxng",
+      "gdelt",
+      "commoncrawl",
+      "langsearch"
+    ],
+    "variants": [
+      "live football scores result report today latest",
+      "live football scores today",
+      "live football scores 2026-09-29"
+    ]
+  },
+  "retrievalQuery": "live football scores result report today",
+  "summary": "[search] \"live football scores\" intent=current fresh=true vertical=sports years=- raw=12 kept=8 stale-rejected=4 domains=7 conflicts=0 verdict=answer searchMs=13449 totalMs=13449",
+  "trace": {
+    "askedEvent": null,
+    "askedYears": [],
+    "conflicts": [],
+    "contributionsByProvider": [
+      {
+        "kept": 4,
+        "provider": "searxng",
+        "retrieved": 7
+      },
+      {
+        "kept": 4,
+        "provider": "langsearch",
+        "retrieved": 4
+      },
+      {
+        "kept": 0,
+        "provider": "wikipedia",
+        "retrieved": 1
+      }
+    ],
+    "dedupedCount": 12,
+    "freshnessReasons": [
+      "explicit freshness wording",
+      "decision engine classified the query as \"current\"",
+      "asks for a live value (\"score\")"
+    ],
+    "independentDomains": 7,
+    "intent": "current",
+    "liveData": "score",
+    "providersFailed": [],
+    "providersSearched": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "wikidata",
+      "arxiv",
+      "openalex",
+      "openlibrary",
+      "hackernews",
+      "openverse",
+      "commoncrawl",
+      "github",
+      "openmeteo",
+      "market-rates",
+      "sports-scores",
+      "mwmbl",
+      "duckduckgo-instant",
+      "langsearch"
+    ],
+    "query": "live football scores",
+    "rawCount": 12,
+    "rejectedStale": [
+      {
+        "ageDays": 7.2371746875000005,
+        "domain": "bbcfootballs.uk",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://bbcfootballs.uk/bbc-sport-football"
+      },
+      {
+        "ageDays": 6.189420057870371,
+        "domain": "flashscore.info",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://www.flashscore.info/team/samira/l2rSNdH7"
+      },
+      {
+        "ageDays": 5.510056631944444,
+        "domain": "almanacstats.com",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://almanacstats.com/.well-known/mcp.json"
+      },
+      {
+        "ageDays": null,
+        "domain": "en.wikipedia.org",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "url": "https://en.wikipedia.org/wiki/Thursday_Night_Football"
+      }
+    ],
+    "rejectedStaleCount": 4,
+    "requiresFreshness": true,
+    "searchMs": 13449,
+    "selectedCount": 8,
+    "sources": [
+      {
+        "age": "3 days ago",
+        "domain": "theguardian.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T17:18:42.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.92,
+        "selected": true,
+        "title": "England 2-3 Spain: Nations League football – as it... | The Guardian",
+        "url": "https://www.theguardian.com/football/live/2026/sep/26/england-v-spain-nations-league-football-live-score-updates"
+      },
+      {
+        "age": "7 days ago",
+        "domain": "bbcfootballs.uk",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-22T06:41:02.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.89,
+        "selected": false,
+        "title": "BBC Sport Football: Latest Scores, News, Fixtures and Football...",
+        "url": "https://bbcfootballs.uk/bbc-sport-football"
+      },
+      {
+        "age": "20 hours ago",
+        "domain": "soccerpunter.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T16:11:12.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.87,
+        "selected": true,
+        "title": "Botafogo SP vs Ponte Preta: Head-to-Head Analysis, Form Guide & Match Prediction - SoccerPunter.com",
+        "url": "https://www.soccerpunter.com/news/botafogo-sp-vs-ponte-preta-head-to-head-analysis-form-guide-match-prediction"
+      },
+      {
+        "age": "21 hours ago",
+        "domain": "soccerpunter.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-28T15:12:14.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.87,
+        "selected": true,
+        "title": "Belgium U21 vs Wales U21: Young Lions Ready to Roar Against the Red Flames - SoccerPunter.com",
+        "url": "https://www.soccerpunter.com/news/belgium-u21-vs-wales-u21-young-lions-ready-to-roar-against-the-red-flames"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "flashscore.info",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-23T07:49:48.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.86,
+        "selected": false,
+        "title": "Samira live scores, results, fixtures | Football, Liberia",
+        "url": "https://www.flashscore.info/team/samira/l2rSNdH7"
+      },
+      {
+        "age": "6 days ago",
+        "domain": "almanacstats.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T00:08:05.000Z",
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.86,
+        "selected": false,
+        "title": "AlmanacStats — live football scores, standings & FIFA World Cup 2026",
+        "url": "https://almanacstats.com/.well-known/mcp.json"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "si.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-25T20:00:00.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.86,
+        "selected": true,
+        "title": "California High School Football Schedule, Scores & Live Updates - September 25",
+        "url": "https://www.si.com/high-school/california/california-high-school-football-schedule-scores-live-updates-september-25-01m3ab1mmscj"
+      },
+      {
+        "age": "3 days ago",
+        "domain": "camel1.to",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-26T16:04:48.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.79,
+        "selected": true,
+        "title": "Uganda vs Libya Head-to-Head Record, Live Score & Streaming...",
+        "url": "https://www.camel1.to/football/head-to-head/20260930-uganda-vs-libya"
+      },
+      {
+        "age": "5 days ago",
+        "domain": "sporty.com",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-24T12:56:39.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.79,
+        "selected": true,
+        "title": "Football: Norway vs Denmark - Live Score & Result | SportyTV",
+        "url": "https://sporty.com/football/uefa-nations-league/match/norway-vs-denmark/sr:match:68931762"
+      },
+      {
+        "age": "2 days ago",
+        "domain": "livesports088.site",
+        "providers": [
+          "searxng"
+        ],
+        "publishedAt": "2026-09-27T04:59:55.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.78,
+        "selected": true,
+        "title": "Denmark vs Wales Live Match Schedule - UEFA... | Livesports088",
+        "url": "https://www.livesports088.site/football/live-denmark-vs-wales-live-stream-2026-09-27-denmark-vs-wales"
+      },
+      {
+        "age": "date not shown by the source",
+        "domain": "en.wikipedia.org",
+        "providers": [
+          "wikipedia"
+        ],
+        "reason": "dropped: outside the 5-day window, undated, or past the result limit",
+        "score": 0.78,
+        "selected": false,
+        "title": "Thursday Night Football",
+        "url": "https://en.wikipedia.org/wiki/Thursday_Night_Football"
+      },
+      {
+        "age": "4 days ago",
+        "domain": "theadvocate.com",
+        "providers": [
+          "langsearch"
+        ],
+        "publishedAt": "2026-09-25T21:00:00.000Z",
+        "reason": "kept as current evidence",
+        "score": 0.78,
+        "selected": true,
+        "title": "Live: High school football scores in the Baton Rouge area for Week 4 of the 2026 season",
+        "url": "https://www.theadvocate.com/baton_rouge/sports/high_schools/scoreboard/preps-br-live-week-4-season/article_1137ede1-a7a6-4206-bf59-6f487eb442b8.html"
+      }
+    ],
+    "totalMs": 13449,
+    "verification": {
+      "failedChecks": [],
+      "passRate": 1,
+      "unverifiable": [],
+      "verdict": "answer"
+    },
+    "vertical": "sports"
+  },
+  "validation": {
+    "checks": [
+      {
+        "critical": true,
+        "detail": "best source scores 1.00 on directness",
+        "id": "relevance",
+        "passed": true
+      },
+      {
+        "critical": true,
+        "detail": "newest source is 0.8 day(s) old, within the 5-day window",
+        "id": "recency",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "best source tier weight 0.85",
+        "id": "authority",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "7 independent domains",
+        "id": "corroboration",
+        "passed": true
+      },
+      {
+        "critical": false,
+        "detail": "8/8 source(s) carry a date",
+        "id": "timestamp",
+        "passed": true
+      }
+    ],
+    "datedSources": 8,
+    "independentDomains": 7,
+    "newestSourceAgeHours": 20.2,
+    "newestSourceAt": "2026-09-28T16:11:12.000Z",
+    "passRate": 1,
+    "unverifiable": [],
+    "verdict": "answer"
+  }
+}

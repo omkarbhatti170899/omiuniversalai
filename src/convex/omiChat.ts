@@ -45,6 +45,7 @@ import { validateEvidence, cannotVerifyMessage, type ValidationReport } from "./
 import { buildSearchTrace, summarizeTrace } from "./searchEngine/debugTrace";
 import { classifyCurrentIntent } from "./searchEngine/intent";
 import { planRetrieval } from "./searchEngine/rewrite";
+import { strictVerticalFallbackFor } from "./searchEngine/resilience";
 import type { WebCitation } from "./searchProviders/types";
 
 /**
@@ -834,7 +835,23 @@ async function runTurn(
                 askedYears: policy.years,
                 askedEvent: policy.event,
                 strictVertical: false,
-                preferredProviders: policy.preferredProviders,
+                // MEASURED DEFECT (2026-09-29, FAIL 3 root): escalation used
+                // to re-dial the SAME narrow feed the first pass just proved
+                // stale ("current Premier League standings" → sports-scores
+                // → the same old table → escalate → the same old table).
+                // "Retrieve again / use another provider" per the contract:
+                // widen with the vertical's general-web backstop so the second
+                // pass can actually find newer evidence. For broad questions
+                // the union already includes these, so this changes nothing
+                // there — it only matters when the first pass was narrowed.
+                preferredProviders: policy.preferredProviders?.length
+                  ? Array.from(
+                      new Set([
+                        ...policy.preferredProviders,
+                        ...(strictVerticalFallbackFor(policy.vertical) ?? []),
+                      ]),
+                    )
+                  : undefined,
                 retrievalVariants: [`${retrieval} today`, `${retrieval} "${todayIso()}"`],
                 variantTargets: retrievalPlan.variantTargets,
               });

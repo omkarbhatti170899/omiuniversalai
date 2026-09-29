@@ -1,0 +1,55 @@
+{
+  "row": {
+    "answer": "Latest cricket news, match reports, analysis and features. [2]\n\nXtra Time — Latest cricket, football and more — news, scores and analysis.Stay Updated. [7]\n\nGet the latest Sports News and Live updates.He specialises in analytical, statistical and data-driven sports coverage, with a particular interest in cricket, football, tennis and Olympic sports. [8]\n\nDavid Boon is named Cricket Australia's Interim Chairman as Mike Baird steps down from his role!Get Latest Mathrubhumi Updates in English. [9]\n\nSources: [1] Real Cricket’s next big move brings more international stars into the game (pcquest.com)  [2] India A Beat Australia A by 162 Runs | Read Cricket (readcricket.com)  [3] Murphy's four keeps Australia A's hopes hanging by... | cricket.com.au (cricket.com.au)  [4] Babar Azam to play in UAE's IPL style T20 league in November 2026 (khaleejtimes.com)",
+    "detail": "9 fresh result(s) from 3 source(s) in 9256ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 9,
+    "freshness": "Based on 9 reports published in the last 5 days (newest: just now).",
+    "intent": "news",
+    "query": "latest cricket news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 9256,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T16:16:37.000Z",
+        "title": "Real Cricket’s next big move brings more international stars into the game",
+        "url": "https://www.pcquest.com/news/real-cricket-international-stars-bangladesh-sri-lanka-12589864"
+      },
+      {
+        "publishedAt": "2026-09-26T09:35:57.000Z",
+        "title": "India A Beat Australia A by 162 Runs | Read Cricket",
+        "url": "https://readcricket.com/2026/09/26/india-a-beat-australia-a-puducherry-todd-murphy"
+      },
+      {
+        "publishedAt": "2026-09-24T19:41:11.000Z",
+        "title": "Murphy's four keeps Australia A's hopes hanging by... | cricket.com.au",
+        "url": "https://www.cricket.com.au/news/4581058/india-a-v-australia-a-first-four-day-match-day-three-report-scores-sangha-murphy-konstas-mcsweeney"
+      },
+      {
+        "publishedAt": "2026-09-29T10:12:08.000Z",
+        "title": "Babar Azam to play in UAE's IPL style T20 league in November 2026",
+        "url": "https://www.khaleejtimes.com/sports/cricket/ilt20-cricket-league-uae-player-auction-babar-azam"
+      },
+      {
+        "publishedAt": "2026-09-29T10:05:04.000Z",
+        "title": "Rizwan writes letter to NCCIA seeking return of phone, asks nature of inquiry: Report",
+        "url": "https://www.thehansindia.com/sports/rizwan-writes-letter-to-nccia-seeking-return-of-phone-asks-nature-of-inquiry-report-1126946"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

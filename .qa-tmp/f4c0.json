@@ -1,0 +1,40 @@
+{
+  "row": {
+    "answer": "Fernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026\n\nFernando Alonso and Lance Stroll will remain with Aston Martin beyond the 2026 Formula 1 season after both drivers agreed long-term contract extensions, the team said on Tuesday. [1]\n\nThings To Do This Week in Los Angeles [9-28-2026 to 10-2-2026]\n\nThe fall season is officially upon us. [2]\n\nStroll, who joined the Silverstone-based operation in 2019 when it raced as Racing Point, will enter his 11th Formula 1 season in 2027. [1]\n\nThe decision gives Aston Martin continuity as it seeks to improve its competitiveness, with Alonso and Stroll set to race together for a fifth consecutive season in 2027. [1]\n\nSources: [1] Fernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026 (grandprix247.com)  [2] Things To Do This Week in Los Angeles [9-28-2026 to 10-2-2026] (welikela.com)",
+    "detail": "2 fresh result(s) from 1 source(s) in 20921ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 4995ms exceeded"
+    ],
+    "freshResults": 2,
+    "freshness": "Based on 2 reports published today (newest: just now).",
+    "intent": "knowledge",
+    "query": "Formula 1 2026 season results",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 20921,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T11:21:00.000Z",
+        "title": "Fernando Alonso and Lance Stroll extend Aston Martin contracts beyond 2026",
+        "url": "https://www.grandprix247.com/formula-1-news/fernando-alonso-and-lance-stroll-extend-aston-martin-contracts-beyond-2026"
+      },
+      {
+        "publishedAt": "2026-09-28T19:09:20.000Z",
+        "title": "Things To Do This Week in Los Angeles [9-28-2026 to 10-2-2026]",
+        "url": "https://www.welikela.com/things-to-do-this-week-in-los-angeles-9-28-2026-to-10-2-2026"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

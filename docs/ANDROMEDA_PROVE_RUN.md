@@ -256,15 +256,31 @@ remains in the suite.
   the numbers move. This stays a FAIL until measured green.
 
 **BLOCKED** (cannot be done from this environment)
-1. **Convex deployment is PAUSED at the platform level** ("Cannot run functions
-   while this deployment is paused"). Blocks: live re-run of weather/sports
-   clusters, the Asian Games end-to-end trace, `/selftest`, `/currentinfo`.
-   Owner action: Dashboard → deployment → Settings → **Resume**, then:
-   ```bash
-   bunx convex run searchQualityBenchmark:runSearchQualityBenchmark '{"categories":["weather","sports"]}'
-   bunx convex run searchDebug:traceSearch '{"query":"Indian contingent medals tally in Asian Games 2026","limit":10}'
-   curl -s https://resolute-ptarmigan-187.convex.site/selftest | head -40
-   ```
-2. **SearXNG self-host** needs a host the owner controls (plan ready, §1).
-3. **Final-answer correctness in a browser** — no browser/device session here;
+1. **SearXNG self-host** needs a host the owner controls (plan ready, §1).
+2. **Final-answer correctness in a browser** — no browser/device session here;
    retrieval evidence is not a substitute for a human reading the answers.
+
+---
+
+## Addendum — the five f190e36 failures: root-caused, fixed, live-verified
+### (2026-09-29, `tests/omiSportRelevanceRegressions.test.ts`)
+
+| FAIL | Root cause (measured) | Fix | Live re-run |
+|---|---|---|---|
+| 1 — "latest IPL news" kept B.Arch/NEET/panferov-art.ru | Nothing required a source to be about the IPL; any page carrying "2026" passed the year gate. `panferov-art.ru` scored 0 noise. | **Entity anchor** in `scoreSourceDetailed`: a question naming a competition scores every source that never mentions it at FINAL 0. **Anti-garbage**: spam TLDs (`.ru`/`.top`/…), URL shorteners, malformed URLs ⇒ +0.45 penalty (noise floor). | pass — cricket sources only, all dated 2026-09-26..29 |
+| 2 — "live football scores" dropped real score data | Chat-path `isOffTopic` required literal word overlap; a Premier League table page and a TheSportsDB event row never contain "football". | **Sport-domain semantic override** inside `isOffTopic`: when the question is about a sport, a source speaking that sport's result vocabulary is on-topic; unrelated pages still fail. | pass — live scoreboard with in-play scores from the structured feed |
+| 3 — EPL standings answered from a 112h source | (a) chat path now drops sources older than the freshness promise; (b) refusal contract enforced; (c) escalation re-dialed the SAME narrow feed, so widening was impossible. | (a) `age <= preferFreshHours` usable filter (prior turn); (b) `shouldEscalateForFreshness` refuses stale turns; (c) **escalation widens with the vertical backstop** (`omiChat.ts` + probe mirror). | pass — general-web escalation found 3h-old standings coverage |
+| 4/5 — Formula 1 / NBA: "All search engines failed ... Tried: sports-scores" | A DATALESS vertical result (`merged.length === 0` with a non-empty provider list) threw — the full fan-out retry only existed in the `providers.length === 0` guard. | New retry in the zero-merge branch: a narrowed vertical with no results re-enters the full fan-out ONCE (`attemptedBackstop`), then fails honestly if the web is silent too. | pass — F1: 5 dated sources via SearXNG+LangSearch; NBA: 5 dated sources |
+
+**Named-query matrix (10/10 pass, `currentInfoProbe:runOne`, 2026-09-29):** latest IPL
+news ✓ (2 cricket sources, dated) · live football scores ✓ (live scoreboard, in-play)
+· current Premier League standings ✓ (3h-old) · Formula 1 2026 season results ✓ ·
+NBA standings ✓ · latest cricket news ✓ · current IPL standings ✓ (IPL 2026 points
+table) · latest Champions League results ✓ (live feed) · current NBA scores ✓ ·
+latest F1 results ✓ (Azerbaijan GP results). Zero garbage sources in any set.
+
+**Mutation checks:** disabling the entity anchor → 9 tests fail; disabling the
+semantic `isOffTopic` override → 2 tests fail. Both restored clean.
+
+**Gates:** 1,302 tests / 0 fail (26 new) · tsc 0 errors · eslint 0 errors ·
+deployed 12:32.

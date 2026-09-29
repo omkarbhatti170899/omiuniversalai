@@ -379,6 +379,26 @@ export async function runUniversalSearch(
         });
       }
     }
+    // MEASURED DEFECT (2026-09-29, FAIL 4/5): a freshness question narrowed to
+    // ONE structured feed ("Formula 1 2026 season results", "NBA standings" →
+    // sports-scores) that legitimately had no data died here with
+    // "All search engines failed ... Tried: sports-scores" even though SearXNG
+    // and LangSearch were configured and answering in the same deployment.
+    // An empty vertical result is NOT evidence that the web has nothing. ONE
+    // full fan-out retry is the honest degradation — and the recursion's own
+    // empty guard is the honest failure if the whole web is silent too.
+    if (
+      !opts?.attemptedBackstop &&
+      providers.length > 0 &&
+      providers.length < allProviders.length
+    ) {
+      return runUniversalSearch(ctx, query, {
+        ...opts,
+        preferredProviders: undefined,
+        strictVertical: false,
+        attemptedBackstop: true,
+      });
+    }
     // The failure detail matters: an operator reading this needs to know WHICH
     // engines were tried, not just that "search failed".
     throw new Error(

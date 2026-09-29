@@ -1,0 +1,54 @@
+{
+  "row": {
+    "answer": "Latest sports betting odds Latest Formula 1 results Join now - bet365 Open Account Offer. [2]\n\nF1 The latest Formula 1 news, race reports, technical analysis, and features. [4]\n\nF2 All the latest Formula 2 news, race results, driver features, and technical explainers. [4]\n\nMercedes Formula 1 driver George Russell held off Red Bull's Max Verstappen to win an Azerbaijan Grand Prix punctuated by two safety car periods. [1]\n\nSources: [1] F1 2026 Azerbaijan Grand Prix race results (the-race.com)  [2] How many Formula 1 races has George Russell won following... (news.bet365.com)  [3] F1 News - The Latest Formula 1 News, Articles & F1 Results - Page [2] (motorsport.com)  [4] Heron Preston Formula E: GEN4 Livery Previewed at ComplexCon (coffeecornermotorsport.com)",
+    "detail": "5 fresh result(s) from 2 source(s) in 10822ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 5,
+    "freshness": "Based on 5 reports published in the last 5 days (newest: 6 hours ago).",
+    "intent": "current",
+    "query": "latest F1 results",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 10822,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-26T12:46:49.000Z",
+        "title": "F1 2026 Azerbaijan Grand Prix race results",
+        "url": "https://www.the-race.com/formula-1/f1-2026-azerbaijan-grand-prix-race-results"
+      },
+      {
+        "publishedAt": "2026-09-26T23:59:38.000Z",
+        "title": "How many Formula 1 races has George Russell won following...",
+        "url": "https://news.bet365.com/en-gb/article/how-many-formula-1-races-has-george-russell-won-following-dramatic-azerbaijan-triumph/2026092612501979118"
+      },
+      {
+        "publishedAt": "2026-09-27T05:37:24.000Z",
+        "title": "F1 News - The Latest Formula 1 News, Articles & F1 Results - Page [2]",
+        "url": "https://www.motorsport.com/f1/news?_kpcb=1790487298.0863&p=2"
+      },
+      {
+        "publishedAt": "2026-09-29T06:36:49.000Z",
+        "title": "Heron Preston Formula E: GEN4 Livery Previewed at ComplexCon",
+        "url": "https://coffeecornermotorsport.com/heron-preston-formula-e"
+      },
+      {
+        "publishedAt": "2026-09-28T05:43:32.000Z",
+        "title": "F1 News - The Latest Formula 1 News, Articles & F1 Results - Page [3]",
+        "url": "https://www.motorsport.com/f1/news?t=title&s=3&p=3"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "row": {
+    "answer": "NBA Standings: Conference & Division Rankings (2026-27)What is the date of NBA Standings Update for NBA Season 2026-27?How Are NBA Standings Determined? [4]\n\nIn the apron-conscious NBA world of 2026, the implications of handing out any max player contract, especially designated rookie extensions (aka rookie max contracts), are worth factoring into any hypothetical projections about future team success for an NBA franchise. [2]\n\nJosh Giddey’s NBA development should heed Chris Finch’s offensive wisdom\n\nWhat if (near) triple-doubles don't translate to long-term NBA success? [1]\n\nTap in with us as we bring you all the best from 28 NBA teams' meetings with the press for their 2026 Media Days. [3]\n\nSources: [1] Josh Giddey’s NBA development should heed Chris Finch’s offensive wisdom (pippenainteasy.com)  [2] Caleb Wilson’s Chicago Bulls roadmap to NBA max money has a few scenarios (pippenainteasy.com)  [3] Live updates: 2026 NBA Media Days | NBA.com (nba.com)  [4] NBA Standings: Conference & Division Rankings (2026-27) (sports.okbet.com)",
+    "detail": "7 fresh result(s) from 2 source(s) in 8336ms (after a freshness escalation pass)",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 7,
+    "freshness": "Based on 7 reports published in the last 5 days (newest: just now).",
+    "intent": "knowledge",
+    "query": "NBA standings",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 8336,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:00:00.000Z",
+        "title": "Josh Giddey’s NBA development should heed Chris Finch’s offensive wisdom",
+        "url": "https://pippenainteasy.com/josh-giddey-nba-development-chris-finch-wisdom"
+      },
+      {
+        "publishedAt": "2026-09-28T12:00:00.000Z",
+        "title": "Caleb Wilson’s Chicago Bulls roadmap to NBA max money has a few scenarios",
+        "url": "https://pippenainteasy.com/caleb-wilson-chicago-bulls-nba-max-money-scenarios"
+      },
+      {
+        "publishedAt": "2026-09-28T12:49:34.000Z",
+        "title": "Live updates: 2026 NBA Media Days | NBA.com",
+        "url": "https://www.nba.com/news/live-updates-2026-nba-media-days"
+      },
+      {
+        "publishedAt": "2026-09-29T08:50:51.000Z",
+        "title": "NBA Standings: Conference & Division Rankings (2026-27)",
+        "url": "https://sports.okbet.com/nba-standings-2026-27"
+      },
+      {
+        "publishedAt": "2026-09-28T14:36:48.000Z",
+        "title": "Terrorists defy govt curfew to attack Plateau communities — NBA alleges",
+        "url": "https://dailypost.ng/2026/09/28/terrorists-defy-govt-curfew-to-attack-plateau-communities-nba-alleges"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

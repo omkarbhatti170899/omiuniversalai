@@ -1,0 +1,36 @@
+{
+  "row": {
+    "answer": "Completed results from earlier today are not included. [1]\n\nGibraltar U17 v Bosnia and Herzegovina U17 — in play (1H), 0 – 1. [1]\n\nCompetition: UEFA European Under-17 Championship. [1]\n\nGreece U17 v Iceland U17 — in play (1H), 1 – 1. [2]\n\nSources: [1] Gibraltar U17 v Bosnia and Herzegovina U17 0 – 1 (UEFA European Under-17 Championship · 16 · 2026-09-29 12:00:00) (thesportsdb.com)  [2] Greece U17 v Iceland U17 1 – 1 (UEFA European Under-17 Championship · 16 · 2026-09-29 12:00:00) (thesportsdb.com)",
+    "detail": "2 fresh result(s) from 1 source(s) in 714ms",
+    "enginesTried": [
+      "sports-scores"
+    ],
+    "enginesWithResults": [
+      "Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshness": "Based on 2 reports published today (newest: just now).",
+    "intent": "current",
+    "query": "latest Champions League results",
+    "requiresFreshness": true,
+    "resultsFound": 2,
+    "searchMs": 714,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T12:18:53.968Z",
+        "title": "Gibraltar U17 v Bosnia and Herzegovina U17 0 – 1 (UEFA European Under-17 Championship · 16 · 2026-09-29 12:00:00)",
+        "url": "https://www.thesportsdb.com/team/149867"
+      },
+      {
+        "publishedAt": "2026-09-29T12:18:53.968Z",
+        "title": "Greece U17 v Iceland U17 1 – 1 (UEFA European Under-17 Championship · 16 · 2026-09-29 12:00:00)",
+        "url": "https://www.thesportsdb.com/team/149869"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

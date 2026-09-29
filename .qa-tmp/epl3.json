@@ -1,0 +1,49 @@
+{
+  "row": {
+    "answer": "Live scores, fixtures, results and current standings for South Africa Premier Soccer League. [2]\n\nCurrent English Premier League Standings. [3]\n\nAnd now that an independent panel has decided that the eight-time Premier League champions breached 114 of the 115 charges levelled against them by the league, as revealed by The Athletic, those discussions are now intensifying. [4]\n\n2026/27 Premier League Power Rankings: How Tottenham stack up after the September break\n\nMany predicted Spurs to finish in Champions League qualification. [1]\n\nSources: [1] 2026/27 Premier League Power Rankings: How Tottenham stack up after the September break (hotspurhq.com)  [2] South Africa Premier Soccer League 2021-2022 top scorers | Rotascore (rotascore.com)  [3] Fulham Vs Manchester United Live Match English Premier League (tigoals.candil.eu.org)  [4] Manchester City charges: Premier League clubs planning legal action... (nytimes.com)",
+    "detail": "4 fresh result(s) from 2 source(s) in 7694ms",
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 4,
+    "freshness": "Based on 4 reports published in the last 5 days (newest: 3 hours ago).",
+    "intent": "current",
+    "query": "current Premier League standings",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 7694,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T10:00:02.000Z",
+        "title": "2026/27 Premier League Power Rankings: How Tottenham stack up after the September break",
+        "url": "https://hotspurhq.com/2026-27-premier-league-power-rankings-how-tottenham-stack-up-after-the-september-break-01m3m3p6xs35"
+      },
+      {
+        "publishedAt": "2026-09-29T04:14:49.000Z",
+        "title": "South Africa Premier Soccer League 2021-2022 top scorers | Rotascore",
+        "url": "https://www.rotascore.com/league/premier-soccer-league/p4jwq2gh472m0ve/top-scorers/2021-2022"
+      },
+      {
+        "publishedAt": "2026-09-26T21:31:55.000Z",
+        "title": "Fulham Vs Manchester United Live Match English Premier League",
+        "url": "https://tigoals.candil.eu.org/2026/09/fulham-vs-manchester-united-live-match.html"
+      },
+      {
+        "publishedAt": "2026-09-25T19:14:32.000Z",
+        "title": "Manchester City charges: Premier League clubs planning legal action...",
+        "url": "https://www.nytimes.com/athletic/7630331/2026/09/25/man-city-charges-premier-league-clubs"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

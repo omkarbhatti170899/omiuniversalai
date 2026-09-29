@@ -52,7 +52,7 @@ import {
 } from "./aiProviders/imageCatalog";
 import { runImageOp } from "./aiProviders/imageProviders";
 import { getConfiguredProviders } from "./searchProviders";
-import { withTimeout } from "./searchEngine/resilience";
+import { withTimeout, strictVerticalFallbackFor } from "./searchEngine/resilience";
 import { planQuery } from "./andromeda/query";
 import type { ActionCtx } from "./_generated/server";
 import { decideSearch } from "./searchEngine/decision";
@@ -332,7 +332,18 @@ export async function probeCurrentInfo(
           askedYears: policy.years,
           askedEvent: policy.event,
           strictVertical: false,
-          preferredProviders: policy.preferredProviders,
+          // Mirrors the chat turn's escalation widening: a second pass against
+          // the SAME narrow feed just proved stale finds the same stale data.
+          // Add the vertical's general-web backstop so "use another provider"
+          // is real (measured: EPL standings escalated into the same table).
+          preferredProviders: policy.preferredProviders?.length
+            ? Array.from(
+                new Set([
+                  ...policy.preferredProviders,
+                  ...(strictVerticalFallbackFor(policy.vertical) ?? []),
+                ]),
+              )
+            : undefined,
         });
         const secondFresh = splitByFreshness(
           second.citations,

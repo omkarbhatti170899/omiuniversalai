@@ -1,0 +1,36 @@
+{
+  "row": {
+    "answer": "Live scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nThailand v Vietnam — in play (1H), 0 – 0. [1]\n\nGibraltar U17 v Bosnia and Herzegovina U17 — in play (1H), 0 – 2. [2]\n\nCompleted results from earlier today are not included. [1]\n\nSources: [1] Thailand v Vietnam 0 – 0 (FIFA ASEAN Cup · 2 · 2026-09-29 12:30:00) (thesportsdb.com)  [2] Gibraltar U17 v Bosnia and Herzegovina U17 0 – 2 (UEFA European Under-17 Championship · 30 · 2026-09-29 12:00:00) (thesportsdb.com)",
+    "detail": "2 fresh result(s) from 1 source(s) in 638ms",
+    "enginesTried": [
+      "sports-scores"
+    ],
+    "enginesWithResults": [
+      "Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshness": "Based on 2 reports published today (newest: just now).",
+    "intent": "current",
+    "query": "live football scores",
+    "requiresFreshness": true,
+    "resultsFound": 2,
+    "searchMs": 638,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T12:33:19.674Z",
+        "title": "Thailand v Vietnam 0 – 0 (FIFA ASEAN Cup · 2 · 2026-09-29 12:30:00)",
+        "url": "https://www.thesportsdb.com/team/140162"
+      },
+      {
+        "publishedAt": "2026-09-29T12:33:19.674Z",
+        "title": "Gibraltar U17 v Bosnia and Herzegovina U17 0 – 2 (UEFA European Under-17 Championship · 30 · 2026-09-29 12:00:00)",
+        "url": "https://www.thesportsdb.com/team/149867"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}
