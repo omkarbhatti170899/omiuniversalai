@@ -12,3 +12,21 @@ dist
 .env.*
 !.env.example
 *.local
+
+# Explicit, even though `.env.*` already matches it. `.env.keys` holds a
+# dotenvx private key; an ignore rule CANNOT untrack a file that is already
+# committed, so it is listed here to keep it out of every future commit, and
+# tests/omiSecretHygiene.test.ts fails if the file exists in the tree at all.
+.env.keys
+
+# Anything that looks like a deploy credential or private key.
+*.pem
+*.key
+id_rsa
+id_ed25519
+.env.vault
+
+# Convex deploy keys and provider credentials must never live in the repo.
+# They belong in the Convex dashboard (server side) or the host's secrets store.
+.convex-deploy-key
+convex-deploy-key.txt
