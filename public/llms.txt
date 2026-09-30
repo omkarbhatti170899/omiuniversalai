@@ -22,9 +22,9 @@ He did not create any third-party technology, company, model or service.
 
 ## Machine-readable status
 
-- Plain text summary: https://resolute-ptarmigan-187.convex.site/
-- Health (JSON): https://resolute-ptarmigan-187.convex.site/health
-- Full status (JSON): https://resolute-ptarmigan-187.convex.site/status
+- Plain text summary: https://majestic-turtle-372.convex.site/
+- Health (JSON): https://majestic-turtle-372.convex.site/health
+- Full status (JSON): https://majestic-turtle-372.convex.site/status
 
 These endpoints are public and contain no API keys, credentials or user data.
 They report only booleans and public metadata: which AI/vision providers are
