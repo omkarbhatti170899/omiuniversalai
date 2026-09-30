@@ -1,0 +1,529 @@
+[CONVEX ?(currentInfoProbe:runSuite)] [WARN] 2 unawaited operations: [fetch]. Async operations should be awaited or they might not run. See https://docs.convex.dev/functions/actions#dangling-promises for more information.
+{
+  "cached": false,
+  "failed": 0,
+  "passed": 10,
+  "rows": [
+    {
+      "answer": "Get the latest India News, breaking headlines and real-time updates from across the country. [2]\n\nIf you use apps like Paytm, PhonePe, or CRED in India, you may have noticed that they also offer biometric or fingerprint payment options.Latest news. [4]\n\nThe impact was particularly severe in Uttar Pradesh.According to the India Meteorological Department, this was the second-lowest September minimum since 2001, after 20.8 degrees Celsius recorded in 2008. [1]\n\nAccording to Reuters, cited by Report, 15 people have died and five others have been injured in India's Uttar Pradesh state over the past 48 hours. [3]\n\nSources: [1] Odisha Floods To Delhi Chill: Depression In Bay Of Bengal Leaves... (ndtv.com)  [2] BJP faces heat from Murli Manohar Joshi; he slams cultural fest at... (hindustantimes.com)  [3] Weather-related disasters in India and Nepal claim 19 lives | Report.az (report.az)  [4] https://qvive.in/india-news/the-fear-of-fraud-by... (qvive.in)",
+      "conflictResolution": null,
+      "detail": "4 fresh result(s) from 3 source(s) in 3480ms",
+      "droppedFresh": [
+        {
+          "reason": "non-sequitur",
+          "title": "12 years of Make in India: What worked... - CNBC TV18"
+        }
+      ],
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 4,
+      "freshSplitCounts": {
+        "fresh": 5,
+        "stale": 0,
+        "undated": 0
+      },
+      "freshness": "Based on 4 reports published in the last 5 days (newest: yesterday).",
+      "intent": "news",
+      "query": "What is the latest news in India?",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 3480,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-28T15:59:32.000Z",
+          "title": "Odisha Floods To Delhi Chill: Depression In Bay Of Bengal Leaves...",
+          "url": "https://www.ndtv.com/india-news/odisha-floods-to-delhi-chill-depression-in-bay-of-bengal-leaves-rain-trail-12110901"
+        },
+        {
+          "publishedAt": "2026-09-28T04:04:16.000Z",
+          "title": "BJP faces heat from Murli Manohar Joshi; he slams cultural fest at...",
+          "url": "https://www.hindustantimes.com/india-news/bjp-faces-heat-from-murli-manohar-joshi-he-slams-cultural-fest-at-badrinath-101790567703825.html"
+        },
+        {
+          "publishedAt": "2026-09-27T08:38:09.000Z",
+          "title": "Weather-related disasters in India and Nepal claim 19 lives | Report.az",
+          "url": "https://report.az/en/other-countries/weather-related-disasters-in-india-and-nepal-claim-19-lives"
+        },
+        {
+          "publishedAt": "2026-09-25T21:39:02.000Z",
+          "title": "https://qvive.in/india-news/the-fear-of-fraud-by...",
+          "url": "https://qvive.in/india-news/the-fear-of-fraud-by-someone-seeing-your-pin-is-overfingerprint-upi-payments-introduced"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "news"
+    },
+    {
+      "answer": "Most AI safety today happens inside the model. [1]\n\n“Suffice it to say that what happened, what almost happened, what could have happened in the U.K. [2]\n\nover the weekend is a very serious situation.” He added, “It’s one that clearly involves the hands of a foreign actor.” Mr. [2]\n\nSources: [1] Everything That Happened in AI Today (Monday...) | The Neuron (theneuron.ai)  [2] Rubio Says Incident at UK Air Base RAF Fairford ‘Clearly Involved... (nytimes.com)",
+      "conflictResolution": null,
+      "detail": "2 fresh result(s) from 3 source(s) in 2868ms",
+      "droppedFresh": [
+        {
+          "reason": "off-topic",
+          "title": "Deepening the India-US defence partnership"
+        }
+      ],
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 2,
+      "freshSplitCounts": {
+        "fresh": 3,
+        "stale": 0,
+        "undated": 2
+      },
+      "freshness": "Based on 2 reports published in the last 2 days (newest: 19 hours ago).",
+      "intent": "news",
+      "query": "What happened in the world today?",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 2868,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-29T04:21:29.000Z",
+          "title": "Everything That Happened in AI Today (Monday...) | The Neuron",
+          "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-september-28-2026"
+        },
+        {
+          "publishedAt": "2026-09-29T09:56:07.000Z",
+          "title": "Rubio Says Incident at UK Air Base RAF Fairford ‘Clearly Involved...",
+          "url": "https://www.nytimes.com/2026/09/29/world/europe/uk-raf-fairford-air-base-incident-rubio-us.html"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "day",
+      "vertical": "news"
+    },
+    {
+      "answer": "PSA: There are several recalls happening right now, including a popular sound machine for babies and thousands of bottles of hand soap. [2]\n\nThe biggest news, opinion and culture shaping California right now.Bowman argued that much of the crime police are seeing has more to do with how people are behaving on the streets than with what is happening inside bars like his. [3]\n\n“Anecdotally, my understanding is that the industry might be producing around a third of its normal level right now,” he said. [4]\n\nLook, it stinks what is happening with DJI and with Xtra.Beyond that, Xtra might garner more support if it continued to be publicly transparent with the truth: it wants to sell the Muse 2 Pro in the U.S. [1]\n\nSources: [1] Xtra Infers the Muse 2 Pro Delay Is Actually Caused By Its... | PetaPixel (petapixel.com)  [2] What voters are most concerned about heading into midterms and Jack... (nbcnews.com)  [3] SoCal city considers alcohol ban after midnight to curb rising crime (nypost.com)  [4] On the rocks? Scotch distilleries pause production as... | The Guardian (theguardian.com)",
+      "conflictResolution": null,
+      "detail": "4 fresh result(s) from 4 source(s) in 1258ms",
+      "droppedFresh": [
+        {
+          "reason": "non-sequitur",
+          "title": "Steelers Can't Trade Joey Porter Jr. Now"
+        }
+      ],
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "Hacker News",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 4,
+      "freshSplitCounts": {
+        "fresh": 5,
+        "stale": 0,
+        "undated": 0
+      },
+      "freshness": "Based on 4 reports published today (newest: 8 hours ago).",
+      "intent": "current",
+      "query": "What is happening right now?",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 1258,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-29T14:23:09.000Z",
+          "title": "Xtra Infers the Muse 2 Pro Delay Is Actually Caused By Its... | PetaPixel",
+          "url": "https://petapixel.com/2026/09/29/xtra-infers-the-muse-2-pro-delay-is-actually-caused-by-its-high-standards"
+        },
+        {
+          "publishedAt": "2026-09-29T11:21:40.000Z",
+          "title": "What voters are most concerned about heading into midterms and Jack...",
+          "url": "https://www.nbcnews.com/news/us-news/voters-are-concerned-heading-midterms-jack-smith-faces-senate-gop-trum-rcna600415"
+        },
+        {
+          "publishedAt": "2026-09-29T20:35:11.000Z",
+          "title": "SoCal city considers alcohol ban after midnight to curb rising crime",
+          "url": "https://nypost.com/2026/09/29/us-news/socal-city-considers-alcohol-ban-after-midnight-to-curb-rising-crime"
+        },
+        {
+          "publishedAt": "2026-09-29T09:05:00.000Z",
+          "title": "On the rocks? Scotch distilleries pause production as... | The Guardian",
+          "url": "https://www.theguardian.com/food/2026/sep/29/scotch-distilleries-pause-production-whisky-loch-scotland"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "day",
+      "vertical": "news"
+    },
+    {
+      "answer": "New technology allows zero alcohol beers to be poured from a beer tap\n\nCLOSE\n\nSECTIONS\n\nLife & Style\n\nFood & Wine facebook twitter whatsapp email linkedin\n\nPHOTO\n\nLatest News\n\n1\n\nSUBSCRIBER\n\nDunedin\n\nSeptember 29\n\nA warm spell has been cast for the rest of the working week\n\n2\n\nSUBSCRIBER\n\nDunedin\n\nSeptember 29 [1]\n\nTechnology News.Stay updated with the latest Technology News, gadget launches, app updates, artificial intelligence and digital trends. [2]\n\nInterestingly, Musk's latest comments for the data center bring the total number of GPUs present at the site to 230,000 as he outlined that Colossus 1 also relies on 30,000 NVIDIA GB200 AI GPUs.Subscribe to get an everyday digest of the latest technology news in your inbox. [3]\n\nExplore the latest in audio technology with expert reviews, news and insights on headphones, speakers, sound systems and more. [4]\n\nSources: [1] New technology allows zero alcohol beers to be poured from a beer tap (odt.co.nz)  [2] WhatsApp Android update could bring an iPhone-like navigation bar... (hindustantimes.com)  [3] Elon Musk Goes All In To Bring A Whopping 1.2 Million... (wccftech.com)  [4] Gemini Goes Beyond Answering Calls With Outbound Calling (tech.yahoo.com)",
+      "conflictResolution": null,
+      "detail": "5 fresh result(s) from 3 source(s) in 1439ms",
+      "droppedFresh": [],
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "SearXNG",
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 5,
+      "freshSplitCounts": {
+        "fresh": 5,
+        "stale": 0,
+        "undated": 0
+      },
+      "freshness": "Based on 5 reports published in the last 5 days (newest: 12 hours ago).",
+      "intent": "news",
+      "query": "Latest technology news",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 1439,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-29T16:30:00.000Z",
+          "title": "New technology allows zero alcohol beers to be poured from a beer tap",
+          "url": "https://www.odt.co.nz/life-and-style/food-and-wine/new-technology-allows-zero-alcohol-beers-to-be-poured-from-a-beer-tap-bfbfb5wo"
+        },
+        {
+          "publishedAt": "2026-09-28T05:46:25.000Z",
+          "title": "WhatsApp Android update could bring an iPhone-like navigation bar...",
+          "url": "https://www.hindustantimes.com/technology/whatsapp-android-update-could-bring-an-iphone-like-navigation-bar-what-we-know-101790573964238.html"
+        },
+        {
+          "publishedAt": "2026-09-25T14:47:04.000Z",
+          "title": "Elon Musk Goes All In To Bring A Whopping 1.2 Million...",
+          "url": "https://wccftech.com/elon-musk-goes-all-in-to-bring-a-whopping-1-2-million-nvidias-latest-gpus-online-in-his-mega-data-center-to-take-on-openai"
+        },
+        {
+          "publishedAt": "2026-09-28T12:10:08.000Z",
+          "title": "Gemini Goes Beyond Answering Calls With Outbound Calling",
+          "url": "https://tech.yahoo.com/ai/gemini/articles/gemini-goes-beyond-answering-calls-110000642.html"
+        },
+        {
+          "publishedAt": "2026-09-26T03:51:19.000Z",
+          "title": "India Harnesses Human-Centric AI to... - Travel And Tour World",
+          "url": "https://www.travelandtourworld.com/news/article/india-harnesses-human-centric-ai-to-transform-travel-with-smarter-infrastructure-safer-journeys-real-time-insights-and-global-innovation-impact-new-update-you-need-to-know"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "news"
+    },
+    {
+      "answer": "Latest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [1]\n\nWelcome to “AI News Today,” your go-to source for the latest updates in the AI industry. [1]\n\nOpenAI scraps New AI Model Rollout over Safety Concerns\n\nIt remains unclear whether a revised version will be unveiled\n\nOpenAI has scrapped plans to release its latest AI model, GPT-6.1 Astra, after internal testing found that it failed to meet the company’s safety standards. [3]\n\nAnthropic CEO Dario Amodei has called for the AI industry to slow the pace of new model rollouts in response to these concerns, the report said. [2]\n\nSources: [1] Today’s AI News – July 15, 2024 (bn.edu.pl)  [2] Anthropic IPO Plans Show $518 Billion in Projected Spending (pymnts.com)  [3] OpenAI scraps New AI Model Rollout over Safety Concerns (desiblitz.com)  [4] Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion (reuters.com)",
+      "conflictResolution": null,
+      "detail": "4 fresh result(s) from 2 source(s) in 2201ms",
+      "droppedFresh": [],
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 4,
+      "freshSplitCounts": {
+        "fresh": 4,
+        "stale": 1,
+        "undated": 0
+      },
+      "freshness": "Based on 4 reports published in the last 5 days (newest: 4 hours ago).",
+      "intent": "news",
+      "query": "Latest AI news",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 2201,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-27T02:04:08.000Z",
+          "title": "Today’s AI News – July 15, 2024",
+          "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+        },
+        {
+          "publishedAt": "2026-09-29T11:00:14.000Z",
+          "title": "Anthropic IPO Plans Show $518 Billion in Projected Spending",
+          "url": "https://www.pymnts.com/news/artificial-intelligence/2026/anthropic-ipo-plans-show-518-billion-in-projected-spending"
+        },
+        {
+          "publishedAt": "2026-09-29T11:54:14.000Z",
+          "title": "OpenAI scraps New AI Model Rollout over Safety Concerns",
+          "url": "https://www.desiblitz.com/content/openai-scraps-new-ai-model-rollout-over-safety-concerns"
+        },
+        {
+          "publishedAt": "2026-09-30T00:00:00.000Z",
+          "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion",
+          "url": "https://www.reuters.com/world/us-forces-exit-iraq-emboldening-irans-proxies-islamic-state-2026-09-30"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "news"
+    },
+    {
+      "answer": "Which location do you mean? I can pull live conditions for any city — try \"what's the weather in Mumbai\". I won't guess a location and give you the wrong forecast.",
+      "detail": "Omi correctly asks for the missing input instead of guessing or failing: \"Which location do you mean? I can pull live conditions for any city — try \"what's the weat\"",
+      "enginesTried": [],
+      "enginesWithResults": [],
+      "failedEngines": [],
+      "freshResults": 0,
+      "freshness": null,
+      "intent": "current",
+      "query": "Today's weather",
+      "requiresFreshness": true,
+      "resultsFound": 0,
+      "searchMs": 1,
+      "searchTriggered": false,
+      "sources": [],
+      "status": "pass",
+      "timeRange": "day",
+      "vertical": "weather"
+    },
+    {
+      "answer": "1 USD = 96.0635 INR (rate updated Wed, 30 Sep 2026 00:02:31 +0000). [1]\n\nRates are reference values for information only, not a trading quote and not financial advice. [1]\n\nSource: open.er-api.com / exchangerate-api.com (keyless public exchange-rate feed). [1]\n\nSources: [1] 1 USD = 96.0635 INR (xe.com)",
+      "conflictResolution": null,
+      "detail": "1 fresh result(s) from 2 source(s) in 2167ms",
+      "droppedFresh": [],
+      "enginesTried": [
+        "searxng",
+        "market-rates",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Live exchange rates (keyless)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 1,
+      "freshSplitCounts": {
+        "fresh": 1,
+        "stale": 3,
+        "undated": 0
+      },
+      "freshness": "Based on 1 report published today (newest: 4 hours ago).",
+      "intent": "current",
+      "query": "Current USD/INR rate",
+      "requiresFreshness": true,
+      "resultsFound": 4,
+      "searchMs": 2167,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-30T00:02:31.000Z",
+          "title": "1 USD = 96.0635 INR",
+          "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "markets"
+    },
+    {
+      "answer": "Live scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nPapua New Guinea v Solomon Islands — in play (1H), 0 – 1. [1]\n\nVegas Golden Knights v Chicago Blackhawks — in play (BT), 3 – 1. [2]\n\nCompleted results from earlier today are not included. [1]\n\nSources: [1] Papua New Guinea v Solomon Islands 0 – 1 (International Friendlies · 27 · 2026-09-30 04:00:00) (thesportsdb.com)  [2] Vegas Golden Knights v Chicago Blackhawks 3 – 1 (NHL · 2026-09-30 02:30:00) (thesportsdb.com)",
+      "conflictResolution": null,
+      "detail": "2 fresh result(s) from 1 source(s) in 863ms",
+      "droppedFresh": [],
+      "enginesTried": [
+        "sports-scores"
+      ],
+      "enginesWithResults": [
+        "Live sports scores (TheSportsDB)"
+      ],
+      "failedEngines": [],
+      "freshResults": 2,
+      "freshSplitCounts": {
+        "fresh": 2,
+        "stale": 0,
+        "undated": 0
+      },
+      "freshness": "Based on 2 reports published today (newest: just now).",
+      "intent": "current",
+      "query": "Live sports score",
+      "requiresFreshness": true,
+      "resultsFound": 2,
+      "searchMs": 863,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-30T04:28:11.713Z",
+          "title": "Papua New Guinea v Solomon Islands 0 – 1 (International Friendlies · 27 · 2026-09-30 04:00:00)",
+          "url": "https://www.thesportsdb.com/team/140256"
+        },
+        {
+          "publishedAt": "2026-09-30T04:28:11.713Z",
+          "title": "Vegas Golden Knights v Chicago Blackhawks 3 – 1 (NHL · 2026-09-30 02:30:00)",
+          "url": "https://www.thesportsdb.com/team/135913"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "sports"
+    },
+    {
+      "answer": "Carney in Vancouver for announcements on energy, ocean protection\n\nRead this article for free:\n\nor\n\nAlready have an account? [2]\n\nAs we navigate through unprecedented times, our journalists are working harder than ever to bring you the latest local updates to keep you safe and informed. [2]\n\nYen Press Announces Nineteen Acquisitions\n\nYen Press has announced nineteen acquisitions on social media, adding new titles and series to a prolific catalog of manga, novels, and audiobooks. [1]\n\nStarting off this slate of announcements were a couple of new additions to Yen Audio (Mirai and Valkyrie Bullet), giving the imprint another great work from esteemed storyteller Mamoru Hosoda and an adaptation of one of the most highly anticipated releases from Yen On. [1]\n\nSources: [1] Yen Press Announces Nineteen Acquisitions (graphicpolicy.com)  [2] Carney in Vancouver for announcements on energy, ocean protection (brandonsun.com)",
+      "conflictResolution": null,
+      "detail": "2 fresh result(s) from 3 source(s) in 2429ms (after a freshness escalation pass)",
+      "droppedFresh": [
+        {
+          "reason": "off-topic",
+          "title": "Navigator announces new sales director"
+        },
+        {
+          "reason": "off-topic",
+          "title": "Carney announces $1.2 billion for oceans ahead of expected pipeline decision"
+        },
+        {
+          "reason": "off-topic",
+          "title": "NTPC Green Energy. Juniper Green Energy announce capacity additions; stocks in focus"
+        },
+        {
+          "reason": "off-topic",
+          "title": "OpenAI delays latest model over security concerns"
+        },
+        {
+          "reason": "off-topic",
+          "title": "OpenAI delays latest model over security concerns, as industry faces pressure"
+        },
+        {
+          "reason": "off-topic",
+          "title": "This Eternal Decay announce new single and video ‘Violate’"
+        }
+      ],
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "Hacker News",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 2,
+      "freshSplitCounts": {
+        "fresh": 8,
+        "stale": 3,
+        "undated": 0
+      },
+      "freshness": "Based on 2 reports published in the last 5 days (newest: 22 hours ago).",
+      "intent": "current",
+      "query": "Latest announcements",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 2429,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-27T23:08:38.000Z",
+          "title": "Yen Press Announces Nineteen Acquisitions",
+          "url": "https://graphicpolicy.com/2026/09/27/yen-press-announces-nineteen-acquisitions"
+        },
+        {
+          "publishedAt": "2026-09-29T06:30:08.000Z",
+          "title": "Carney in Vancouver for announcements on energy, ocean protection",
+          "url": "https://www.brandonsun.com/lifestyles/2026/09/29/carney-in-vancouver-for-announcements-on-energy-ocean-protection"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "week",
+      "vertical": "news"
+    },
+    {
+      "answer": "Phantom 4 Pro V2.0 + 7.85” CrystalSky Monitor + Case Club Hard Case (Low Hours)\n\nDescription: Selling a clean, low-hour DJI Phantom 4 Pro V2.0 package alongside a 7.85” High-Bright CrystalSky Monitor, housed in a custom-cut Case Club heavy-duty hard case. [2]\n\nBackyard ultra runner Harvey Lewis — who ran 354 miles in just 85 hours when he was 45 — is an exception. [3]\n\nNew world record for longest dance marathon set by Nigerian dancer\n\nLAGOS, Nigeria -- A Nigerian dancer has broken the world record for the longest individual dance marathon. [1]\n\nBenjamin Daniel, known as Ben Dancer, danced continuously for 168 hours. [1]\n\nSources: [1] New world record for longest dance marathon set by Nigerian dancer (6abc.com)  [2] Phantom 4 Pro V2.0 + 7.85” CrystalSky Monitor + Case Club Hard Case (Low Hours) (phantompilots.com)  [3] What is a ‘backyard ultra’? The endurance race with no finish line that can last for days and hundreds of miles (nypost.com)",
+      "conflictResolution": null,
+      "detail": "3 fresh result(s) from 2 source(s) in 2154ms",
+      "droppedFresh": [
+        {
+          "reason": "off-topic",
+          "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion"
+        },
+        {
+          "reason": "off-topic",
+          "title": "Armed conflicts and attacks: Withdrawal of United States troops from Iraq"
+        }
+      ],
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "freshResults": 3,
+      "freshSplitCounts": {
+        "fresh": 5,
+        "stale": 0,
+        "undated": 0
+      },
+      "freshness": "Based on 3 reports published in the last 24 hours (newest: 4 hours ago).",
+      "intent": "news",
+      "query": "News from the last hour",
+      "requiresFreshness": true,
+      "resultsFound": 5,
+      "searchMs": 2154,
+      "searchTriggered": true,
+      "sources": [
+        {
+          "publishedAt": "2026-09-30T00:40:34.000Z",
+          "title": "New world record for longest dance marathon set by Nigerian dancer",
+          "url": "https://6abc.com/post/new-world-record-longest-dance-marathon-set-by-nigerian-dancer/19889588"
+        },
+        {
+          "publishedAt": "2026-09-29T21:26:43.000Z",
+          "title": "Phantom 4 Pro V2.0 + 7.85” CrystalSky Monitor + Case Club Hard Case (Low Hours)",
+          "url": "https://phantompilots.com/threads/phantom-4-pro-v2-0-7-85%E2%80%9D-crystalsky-monitor-case-club-hard-case-low-hours.154932"
+        },
+        {
+          "publishedAt": "2026-09-29T16:53:33.000Z",
+          "title": "What is a ‘backyard ultra’? The endurance race with no finish line that can last for days and hundreds of miles",
+          "url": "https://nypost.com/2026/09/29/health/backyard-ultra-the-endurance-race-with-no-finish-line"
+        }
+      ],
+      "status": "pass",
+      "timeRange": "hour",
+      "vertical": "news"
+    }
+  ],
+  "scenarios": 10,
+  "total": 10
+}

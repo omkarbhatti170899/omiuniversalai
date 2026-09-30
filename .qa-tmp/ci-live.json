@@ -1,0 +1,517 @@
+{
+  "service": "Omi Universal AI — current information",
+  "time": "2026-09-30T04:28:38.844Z",
+  "summary": {
+    "total": 10,
+    "passed": 9,
+    "failed": 1
+  },
+  "scenarios": [
+    {
+      "query": "What is the latest news in India?",
+      "searchTriggered": true,
+      "vertical": "news",
+      "requiresFreshness": true,
+      "intent": "news",
+      "timeRange": "week",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "resultsFound": 5,
+      "freshResults": 2,
+      "freshness": "Based on 2 reports published in the last 5 days (newest: 20 hours ago).",
+      "answer": "Riders searching for the latest bobber bike price in India are advised to confirm final figures with their nearest authorised dealer. [1]\n\n[City], India, September 29, 2026: Jawa Yezdi Motorcycles has released a buyer's overview of the Jawa 42 Bobber for riders looking for a bobber bike in India. [1]\n\nToyoda Gosei to build new component plant in India\n\nThe highly automated plant will be the Japanese company’s eighth facility in India. [2]\n\nThe new INR 5.8 billion (US$ 60 million) facility, to be built in the Maharashtra Bidkin Industrial Area by Toyoda Gosei South India Pvt Ltd, is scheduled to begin production of large interior and exterior components, including bumpers and instrument panels, from the first half of 2029. [2]\n\nSources: [1] Jawa Yezdi Motorcycles Shares Latest Bobber Bike Price in India (news.prfree.org)  [2] Toyoda Gosei to build new component plant in India (just-auto.com)",
+      "sources": [
+        {
+          "title": "Jawa Yezdi Motorcycles Shares Latest Bobber Bike Price in India",
+          "url": "https://news.prfree.org/@gajodharrizzu/jawa-yezdi-motorcycles-shares-latest-bobber-bike-price-in-india-svt3dkurfz6j",
+          "publishedAt": "2026-09-29T08:38:19.000Z"
+        },
+        {
+          "title": "Toyoda Gosei to build new component plant in India",
+          "url": "https://www.just-auto.com/news/toyoda-gosei-to-build-new-component-plant-in-india",
+          "publishedAt": "2026-09-25T08:02:23.000Z"
+        }
+      ],
+      "searchMs": 4236,
+      "status": "pass",
+      "detail": "2 fresh result(s) from 2 source(s) in 4236ms",
+      "freshSplitCounts": {
+        "fresh": 3,
+        "undated": 0,
+        "stale": 2
+      },
+      "droppedFresh": [
+        {
+          "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion",
+          "reason": "off-topic"
+        }
+      ],
+      "conflictResolution": null
+    },
+    {
+      "query": "What happened in the world today?",
+      "searchTriggered": true,
+      "vertical": "news",
+      "requiresFreshness": true,
+      "intent": "news",
+      "timeRange": "day",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "resultsFound": 5,
+      "freshResults": 0,
+      "freshness": null,
+      "answer": "Live search is currently unavailable, so I can't reliably verify the latest information about \"What happened in the world today?\". I'm not going to answer this from memory, because my training data is not a live news feed and could be months out of date. Press Retry Search to try again, or switch a search provider in Settings.",
+      "sources": [],
+      "searchMs": 2918,
+      "status": "fail",
+      "detail": "Search ran (5 raw result(s)) but none survived the freshness window AND the relevance/quality floor. Omi would refuse rather than answer with stale or unrelated material.",
+      "freshSplitCounts": {
+        "fresh": 5,
+        "undated": 0,
+        "stale": 0
+      },
+      "droppedFresh": [
+        {
+          "title": "Deepening the India-US defence partnership",
+          "reason": "off-topic"
+        },
+        {
+          "title": "Owen Doyle: World Rugby must tackle laissez-faire policy spreading like a virus in southern hemisphere",
+          "reason": "off-topic"
+        },
+        {
+          "title": "Zinedine Zidane’s Take on Viral Goal Celebration Explains His Premier League Decision",
+          "reason": "off-topic"
+        },
+        {
+          "title": "Think Burning Man meets the end of the world: This Pulitzer winner’s new book is a chaotic trip",
+          "reason": "off-topic"
+        },
+        {
+          "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion",
+          "reason": "off-topic"
+        }
+      ],
+      "conflictResolution": null,
+      "userMessage": "Live search is currently unavailable, so I can't reliably verify the latest information about \"What happened in the world today?\". I'm not going to answer this from memory, because my training data is not a live news feed and could be months out of date. Press Retry Search to try again, or switch a search provider in Settings."
+    },
+    {
+      "query": "What is happening right now?",
+      "searchTriggered": true,
+      "vertical": "news",
+      "requiresFreshness": true,
+      "intent": "current",
+      "timeRange": "day",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "Hacker News",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [],
+      "resultsFound": 5,
+      "freshResults": 2,
+      "freshness": "Based on 2 reports published today (newest: just now).",
+      "answer": "Here's What Happens When You Only Pay the Minimum on a $10,000 Credit Card Balance\n\nSomewhere out there right now is a person that's $10,000 in credit card debt, and they're only making the minimum payment each month. [2]\n\nHow long it takes to pay off $10,000 with only minimum payments\n\nThe average credit card interest rate is 21% right now, according to Motley Fool Money research. [2]\n\nLet's find out what January is up to now and what she has lined up... [1]\n\nSadly, what that person probably doesn't realize is at that pace, they'll still be paying off the balance 29 years from now. [2]\n\nSources: [1] What happened to Jon Hamm's Mad Men co-star January Jones? Inside her life now after stepping away from Hollywood (hellomagazine.com)  [2] Here's What Happens When You Only Pay the Minimum on a $10,000 Credit Card Balance (fool.com)",
+      "sources": [
+        {
+          "title": "What happened to Jon Hamm's Mad Men co-star January Jones? Inside her life now after stepping away from Hollywood",
+          "url": "https://www.hellomagazine.com/us/926120/what-happened-to-january-jones-after-stepping-away-from-hollywood",
+          "publishedAt": "2026-09-30T03:50:00.000Z"
+        },
+        {
+          "title": "Here's What Happens When You Only Pay the Minimum on a $10,000 Credit Card Balance",
+          "url": "https://www.fool.com/money/credit-cards/articles/heres-what-happens-when-you-only-pay-the-minimum-on-a-10000-credit-card-balance",
+          "publishedAt": "2026-09-29T10:30:42.000Z"
+        }
+      ],
+      "searchMs": 1687,
+      "status": "pass",
+      "detail": "2 fresh result(s) from 3 source(s) in 1687ms",
+      "freshSplitCounts": {
+        "fresh": 3,
+        "undated": 0,
+        "stale": 2
+      },
+      "droppedFresh": [
+        {
+          "title": "Steelers Can't Trade Joey Porter Jr. Now",
+          "reason": "non-sequitur"
+        }
+      ],
+      "conflictResolution": null
+    },
+    {
+      "query": "Latest technology news",
+      "searchTriggered": true,
+      "vertical": "news",
+      "requiresFreshness": true,
+      "intent": "news",
+      "timeRange": "week",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [
+        "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the recovery dial was already attempted within "
+      ],
+      "resultsFound": 5,
+      "freshResults": 3,
+      "freshness": "Based on 3 reports published in the last 5 days (newest: 11 hours ago).",
+      "answer": "New technology allows zero alcohol beers to be poured from a beer tap\n\nCLOSE\n\nSECTIONS\n\nLife & Style\n\nFood & Wine facebook twitter whatsapp email linkedin\n\nPHOTO\n\nLatest News\n\n1\n\nSUBSCRIBER\n\nDunedin\n\nSeptember 29\n\nA warm spell has been cast for the rest of the working week\n\n2\n\nSUBSCRIBER\n\nDunedin\n\nSeptember 29 [1]\n\nOpenAI delays latest model over security concerns, as industry faces new safety pressures\n\nOpenAI said Monday it was delaying the release of a new artificial intelligence model out of security concerns voiced by its researchers, the latest in the company's effort to decelerate the pace of the technology's advance. [3]\n\nASE Technology (NYSE:ASX) Reaches New 52-Week High – Here’s Why\n\nASE Technology Holding Co., Ltd. [2]\n\nView Our Latest Analysis on ASE Technology [2]\n\nSources: [1] New technology allows zero alcohol beers to be poured from a beer tap (odt.co.nz)  [2] ASE Technology (NYSE:ASX) Reaches New 52-Week High – Here’s Why (watchlistnews.com)  [3] OpenAI delays latest model over security concerns, as industry faces new safety pressures (kiro7.com)",
+      "sources": [
+        {
+          "title": "New technology allows zero alcohol beers to be poured from a beer tap",
+          "url": "https://www.odt.co.nz/life-and-style/food-and-wine/new-technology-allows-zero-alcohol-beers-to-be-poured-from-a-beer-tap-bfbfb5wo",
+          "publishedAt": "2026-09-29T16:30:00.000Z"
+        },
+        {
+          "title": "ASE Technology (NYSE:ASX) Reaches New 52-Week High – Here’s Why",
+          "url": "https://www.watchlistnews.com/ase-technology-nyseasx-reaches-new-52-week-high-heres-why/11242382.html",
+          "publishedAt": "2026-09-29T17:01:11.000Z"
+        },
+        {
+          "title": "OpenAI delays latest model over security concerns, as industry faces new safety pressures",
+          "url": "https://www.kiro7.com/news/business/openai-delays-latest/BG6BWPI2QYYSROLHUA62BPNC7A",
+          "publishedAt": "2026-09-29T01:48:03.000Z"
+        }
+      ],
+      "searchMs": 1186,
+      "status": "pass",
+      "detail": "3 fresh result(s) from 2 source(s) in 1186ms; failed engines: SearXNG (https://search.lumy.live) skipped: every base is known-dead and the recovery dial was already attempted within ",
+      "freshSplitCounts": {
+        "fresh": 4,
+        "undated": 0,
+        "stale": 1
+      },
+      "droppedFresh": [
+        {
+          "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion",
+          "reason": "off-topic"
+        }
+      ],
+      "conflictResolution": null
+    },
+    {
+      "query": "Latest AI news",
+      "searchTriggered": true,
+      "vertical": "news",
+      "requiresFreshness": true,
+      "intent": "news",
+      "timeRange": "week",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [
+        "SearXNG: circuit open (cooling down)"
+      ],
+      "resultsFound": 5,
+      "freshResults": 4,
+      "freshness": "Based on 4 reports published in the last 5 days (newest: 4 hours ago).",
+      "answer": "Latest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [1]\n\nWelcome to “AI News Today,” your go-to source for the latest updates in the AI industry. [1]\n\nOpenAI scraps New AI Model Rollout over Safety Concerns\n\nIt remains unclear whether a revised version will be unveiled\n\nOpenAI has scrapped plans to release its latest AI model, GPT-6.1 Astra, after internal testing found that it failed to meet the company’s safety standards. [3]\n\nAnthropic CEO Dario Amodei has called for the AI industry to slow the pace of new model rollouts in response to these concerns, the report said. [2]\n\nSources: [1] Today’s AI News – July 15, 2024 (bn.edu.pl)  [2] Anthropic IPO Plans Show $518 Billion in Projected Spending (pymnts.com)  [3] OpenAI scraps New AI Model Rollout over Safety Concerns (desiblitz.com)  [4] Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion (reuters.com)",
+      "sources": [
+        {
+          "title": "Today’s AI News – July 15, 2024",
+          "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html",
+          "publishedAt": "2026-09-27T02:04:08.000Z"
+        },
+        {
+          "title": "Anthropic IPO Plans Show $518 Billion in Projected Spending",
+          "url": "https://www.pymnts.com/news/artificial-intelligence/2026/anthropic-ipo-plans-show-518-billion-in-projected-spending",
+          "publishedAt": "2026-09-29T11:00:14.000Z"
+        },
+        {
+          "title": "OpenAI scraps New AI Model Rollout over Safety Concerns",
+          "url": "https://www.desiblitz.com/content/openai-scraps-new-ai-model-rollout-over-safety-concerns",
+          "publishedAt": "2026-09-29T11:54:14.000Z"
+        },
+        {
+          "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion",
+          "url": "https://www.reuters.com/world/us-forces-exit-iraq-emboldening-irans-proxies-islamic-state-2026-09-30",
+          "publishedAt": "2026-09-30T00:00:00.000Z"
+        }
+      ],
+      "searchMs": 823,
+      "status": "pass",
+      "detail": "4 fresh result(s) from 2 source(s) in 823ms; failed engines: SearXNG: circuit open (cooling down)",
+      "freshSplitCounts": {
+        "fresh": 4,
+        "undated": 0,
+        "stale": 1
+      },
+      "droppedFresh": [],
+      "conflictResolution": null
+    },
+    {
+      "query": "Today's weather",
+      "searchTriggered": false,
+      "vertical": "weather",
+      "requiresFreshness": true,
+      "intent": "current",
+      "timeRange": "day",
+      "enginesTried": [],
+      "enginesWithResults": [],
+      "failedEngines": [],
+      "resultsFound": 0,
+      "freshResults": 0,
+      "freshness": null,
+      "answer": "Which location do you mean? I can pull live conditions for any city — try \"what's the weather in Mumbai\". I won't guess a location and give you the wrong forecast.",
+      "sources": [],
+      "searchMs": 0,
+      "status": "pass",
+      "detail": "Omi correctly asks for the missing input instead of guessing or failing: \"Which location do you mean? I can pull live conditions for any city — try \"what's the weat\""
+    },
+    {
+      "query": "Current USD/INR rate",
+      "searchTriggered": true,
+      "vertical": "markets",
+      "requiresFreshness": true,
+      "intent": "current",
+      "timeRange": "week",
+      "enginesTried": [
+        "searxng",
+        "market-rates",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Live exchange rates (keyless)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [
+        "SearXNG: circuit open (cooling down)"
+      ],
+      "resultsFound": 4,
+      "freshResults": 1,
+      "freshness": "Based on 1 report published today (newest: 4 hours ago).",
+      "answer": "1 USD = 96.0635 INR (rate updated Wed, 30 Sep 2026 00:02:31 +0000). [1]\n\nRates are reference values for information only, not a trading quote and not financial advice. [1]\n\nSource: open.er-api.com / exchangerate-api.com (keyless public exchange-rate feed). [1]\n\nSources: [1] 1 USD = 96.0635 INR (xe.com)",
+      "sources": [
+        {
+          "title": "1 USD = 96.0635 INR",
+          "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR",
+          "publishedAt": "2026-09-30T00:02:31.000Z"
+        }
+      ],
+      "searchMs": 1094,
+      "status": "pass",
+      "detail": "1 fresh result(s) from 2 source(s) in 1094ms; failed engines: SearXNG: circuit open (cooling down)",
+      "freshSplitCounts": {
+        "fresh": 1,
+        "undated": 0,
+        "stale": 3
+      },
+      "droppedFresh": [],
+      "conflictResolution": null
+    },
+    {
+      "query": "Live sports score",
+      "searchTriggered": true,
+      "vertical": "sports",
+      "requiresFreshness": true,
+      "intent": "current",
+      "timeRange": "week",
+      "enginesTried": [
+        "sports-scores"
+      ],
+      "enginesWithResults": [
+        "Live sports scores (TheSportsDB)"
+      ],
+      "failedEngines": [],
+      "resultsFound": 2,
+      "freshResults": 2,
+      "freshness": "Based on 2 reports published today (newest: just now).",
+      "answer": "Live scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nPapua New Guinea v Solomon Islands — in play (1H), 0 – 1. [1]\n\nVegas Golden Knights v Chicago Blackhawks — in play (BT), 3 – 1. [2]\n\nCompleted results from earlier today are not included. [1]\n\nSources: [1] Papua New Guinea v Solomon Islands 0 – 1 (International Friendlies · 27 · 2026-09-30 04:00:00) (thesportsdb.com)  [2] Vegas Golden Knights v Chicago Blackhawks 3 – 1 (NHL · 2026-09-30 02:30:00) (thesportsdb.com)",
+      "sources": [
+        {
+          "title": "Papua New Guinea v Solomon Islands 0 – 1 (International Friendlies · 27 · 2026-09-30 04:00:00)",
+          "url": "https://www.thesportsdb.com/team/140256",
+          "publishedAt": "2026-09-30T04:28:35.502Z"
+        },
+        {
+          "title": "Vegas Golden Knights v Chicago Blackhawks 3 – 1 (NHL · 2026-09-30 02:30:00)",
+          "url": "https://www.thesportsdb.com/team/135913",
+          "publishedAt": "2026-09-30T04:28:35.502Z"
+        }
+      ],
+      "searchMs": 750,
+      "status": "pass",
+      "detail": "2 fresh result(s) from 1 source(s) in 750ms",
+      "freshSplitCounts": {
+        "fresh": 2,
+        "undated": 0,
+        "stale": 0
+      },
+      "droppedFresh": [],
+      "conflictResolution": null
+    },
+    {
+      "query": "Latest announcements",
+      "searchTriggered": true,
+      "vertical": "news",
+      "requiresFreshness": true,
+      "intent": "current",
+      "timeRange": "week",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "Hacker News",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [
+        "SearXNG: circuit open (cooling down)"
+      ],
+      "resultsFound": 5,
+      "freshResults": 2,
+      "freshness": "Based on 2 reports published in the last 5 days (newest: 22 hours ago).",
+      "answer": "Carney in Vancouver for announcements on energy, ocean protection\n\nRead this article for free:\n\nor\n\nAlready have an account? [2]\n\nAs we navigate through unprecedented times, our journalists are working harder than ever to bring you the latest local updates to keep you safe and informed. [2]\n\nYen Press Announces Nineteen Acquisitions\n\nYen Press has announced nineteen acquisitions on social media, adding new titles and series to a prolific catalog of manga, novels, and audiobooks. [1]\n\nStarting off this slate of announcements were a couple of new additions to Yen Audio (Mirai and Valkyrie Bullet), giving the imprint another great work from esteemed storyteller Mamoru Hosoda and an adaptation of one of the most highly anticipated releases from Yen On. [1]\n\nSources: [1] Yen Press Announces Nineteen Acquisitions (graphicpolicy.com)  [2] Carney in Vancouver for announcements on energy, ocean protection (brandonsun.com)",
+      "sources": [
+        {
+          "title": "Yen Press Announces Nineteen Acquisitions",
+          "url": "https://graphicpolicy.com/2026/09/27/yen-press-announces-nineteen-acquisitions",
+          "publishedAt": "2026-09-27T23:08:38.000Z"
+        },
+        {
+          "title": "Carney in Vancouver for announcements on energy, ocean protection",
+          "url": "https://www.brandonsun.com/lifestyles/2026/09/29/carney-in-vancouver-for-announcements-on-energy-ocean-protection",
+          "publishedAt": "2026-09-29T06:30:08.000Z"
+        }
+      ],
+      "searchMs": 787,
+      "status": "pass",
+      "detail": "2 fresh result(s) from 3 source(s) in 787ms (after a freshness escalation pass); failed engines: SearXNG: circuit open (cooling down)",
+      "freshSplitCounts": {
+        "fresh": 8,
+        "undated": 0,
+        "stale": 3
+      },
+      "droppedFresh": [
+        {
+          "title": "Navigator announces new sales director",
+          "reason": "off-topic"
+        },
+        {
+          "title": "Carney announces $1.2 billion for oceans ahead of expected pipeline decision",
+          "reason": "off-topic"
+        },
+        {
+          "title": "NTPC Green Energy. Juniper Green Energy announce capacity additions; stocks in focus",
+          "reason": "off-topic"
+        },
+        {
+          "title": "OpenAI delays latest model over security concerns",
+          "reason": "off-topic"
+        },
+        {
+          "title": "OpenAI delays latest model over security concerns, as industry faces pressure",
+          "reason": "off-topic"
+        },
+        {
+          "title": "This Eternal Decay announce new single and video ‘Violate’",
+          "reason": "off-topic"
+        }
+      ],
+      "conflictResolution": null
+    },
+    {
+      "query": "News from the last hour",
+      "searchTriggered": true,
+      "vertical": "news",
+      "requiresFreshness": true,
+      "intent": "news",
+      "timeRange": "hour",
+      "enginesTried": [
+        "searxng",
+        "wikipedia-current-events",
+        "hackernews",
+        "langsearch"
+      ],
+      "enginesWithResults": [
+        "Wikipedia Current Events (today's news, dated)",
+        "LangSearch (temporary, feature-gated)"
+      ],
+      "failedEngines": [
+        "SearXNG: circuit open (cooling down)"
+      ],
+      "resultsFound": 5,
+      "freshResults": 3,
+      "freshness": "Based on 3 reports published in the last 24 hours (newest: 4 hours ago).",
+      "answer": "Phantom 4 Pro V2.0 + 7.85” CrystalSky Monitor + Case Club Hard Case (Low Hours)\n\nDescription: Selling a clean, low-hour DJI Phantom 4 Pro V2.0 package alongside a 7.85” High-Bright CrystalSky Monitor, housed in a custom-cut Case Club heavy-duty hard case. [2]\n\nBackyard ultra runner Harvey Lewis — who ran 354 miles in just 85 hours when he was 45 — is an exception. [3]\n\nNew world record for longest dance marathon set by Nigerian dancer\n\nLAGOS, Nigeria -- A Nigerian dancer has broken the world record for the longest individual dance marathon. [1]\n\nBenjamin Daniel, known as Ben Dancer, danced continuously for 168 hours. [1]\n\nSources: [1] New world record for longest dance marathon set by Nigerian dancer (6abc.com)  [2] Phantom 4 Pro V2.0 + 7.85” CrystalSky Monitor + Case Club Hard Case (Low Hours) (phantompilots.com)  [3] What is a ‘backyard ultra’? The endurance race with no finish line that can last for days and hundreds of miles (nypost.com)",
+      "sources": [
+        {
+          "title": "New world record for longest dance marathon set by Nigerian dancer",
+          "url": "https://6abc.com/post/new-world-record-longest-dance-marathon-set-by-nigerian-dancer/19889588",
+          "publishedAt": "2026-09-30T00:40:34.000Z"
+        },
+        {
+          "title": "Phantom 4 Pro V2.0 + 7.85” CrystalSky Monitor + Case Club Hard Case (Low Hours)",
+          "url": "https://phantompilots.com/threads/phantom-4-pro-v2-0-7-85%E2%80%9D-crystalsky-monitor-case-club-hard-case-low-hours.154932",
+          "publishedAt": "2026-09-29T21:26:43.000Z"
+        },
+        {
+          "title": "What is a ‘backyard ultra’? The endurance race with no finish line that can last for days and hundreds of miles",
+          "url": "https://nypost.com/2026/09/29/health/backyard-ultra-the-endurance-race-with-no-finish-line",
+          "publishedAt": "2026-09-29T16:53:33.000Z"
+        }
+      ],
+      "searchMs": 991,
+      "status": "pass",
+      "detail": "3 fresh result(s) from 2 source(s) in 991ms; failed engines: SearXNG: circuit open (cooling down)",
+      "freshSplitCounts": {
+        "fresh": 5,
+        "undated": 0,
+        "stale": 0
+      },
+      "droppedFresh": [
+        {
+          "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion",
+          "reason": "off-topic"
+        },
+        {
+          "title": "Armed conflicts and attacks: Withdrawal of United States troops from Iraq",
+          "reason": "off-topic"
+        }
+      ],
+      "conflictResolution": null
+    }
+  ]
+}
