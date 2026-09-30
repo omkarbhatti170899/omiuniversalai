@@ -17,6 +17,7 @@
  */
 
 import { describe, expect, test, beforeEach, afterEach } from "bun:test";
+import { readFileSync } from "node:fs";
 import { createServer, type Server } from "node:http";
 import type { AddressInfo } from "node:net";
 
@@ -222,4 +223,49 @@ describe("FINAL FAILURE TEST — ALL engines unavailable", () => {
     // Fast-fail at the per-request ceiling, not the total budget.
     expect(Date.now() - started).toBeLessThan(4_000);
   }, 15_000);
+});
+
+// ---------------------------------------------------------------------------
+// ROUND 10 — EARLY-CONTINUE GATE: a failed provider must not add its timeout
+// ---------------------------------------------------------------------------
+
+describe("EARLY-CONTINUE GATE — no straggler holds the answer hostage", () => {
+  const {
+    shouldEarlyContinue,
+    EARLY_CONTINUE_MIN_PROVIDERS,
+    EARLY_CONTINUE_MIN_CITATIONS,
+    EARLY_CONTINUE_GRACE_MS,
+  } = require("../src/convex/searchEngine/resilience");
+
+  test("gate fires only with breadth: ≥2 providers answered, ≥2 contributed, enough citations, pending > 0", () => {
+    // Happy path: two providers answered with results, enough citations, one
+    // straggler pending → release the wait.
+    expect(
+      shouldEarlyContinue(2, EARLY_CONTINUE_MIN_CITATIONS, 2, 1),
+    ).toBe(true);
+    // Too few answered.
+    expect(shouldEarlyContinue(1, 8, 1, 2)).toBe(false);
+    // Breadth missing: one provider only (echo risk).
+    expect(shouldEarlyContinue(2, 8, 1, 2)).toBe(false);
+    // Not enough citations yet.
+    expect(shouldEarlyContinue(3, EARLY_CONTINUE_MIN_CITATIONS - 1, 2, 1)).toBe(false);
+    // Nothing pending → never fires (the wait is already over).
+    expect(shouldEarlyContinue(5, 20, 4, 0)).toBe(false);
+  });
+
+  test("constants are conservative by design (a fast source cannot starve the fan-out)", () => {
+    expect(EARLY_CONTINUE_MIN_PROVIDERS).toBeGreaterThanOrEqual(2);
+    expect(EARLY_CONTINUE_MIN_CITATIONS).toBeGreaterThanOrEqual(4);
+    expect(EARLY_CONTINUE_GRACE_MS).toBeGreaterThan(0);
+    expect(EARLY_CONTINUE_GRACE_MS).toBeLessThanOrEqual(2_000);
+  });
+
+  test("wiring: the fan-out races the gate against settlement; stragglers still merge", () => {
+    const s = readFileSync("src/convex/universalSearch.ts", "utf8");
+    expect(s).toContain("shouldEarlyContinue(");
+    expect(s).toContain("Promise.race([Promise.allSettled(tracked), gatePromise])");
+    // The grace window is real: late results land in settledSlots and merge.
+    expect(s).toContain("EARLY_CONTINUE_GRACE_MS");
+    expect(s).toContain("settledSlots[i] = s;");
+  });
 });

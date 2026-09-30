@@ -25,7 +25,12 @@ import {
   dedupeSyndication,
 } from "./searchEngine/quality";
 import { internal } from "./_generated/api";
-import { guardedCall, strictVerticalFallbackFor } from "./searchEngine/resilience";
+import {
+  guardedCall,
+  strictVerticalFallbackFor,
+  shouldEarlyContinue,
+  EARLY_CONTINUE_GRACE_MS,
+} from "./searchEngine/resilience";
 import {
   scoreSourceDetailed,
   usefulnessPenalty,
@@ -272,29 +277,43 @@ export async function runUniversalSearch(
   // request alive. `Promise.allSettled` already means one slow engine cannot
   // break others; the deadline means it cannot even make them WAIT for it.
   const globalDeadlineAt = opts?.deadlineAt; // absolute wall-clock ms
-  const settled = await Promise.allSettled(
-    providers.flatMap((p) => {
-      // General-web providers additionally see each rewritten angle; a
-      // structured provider gets exactly one call with the primary query.
-      const variants =
-        opts?.retrievalVariants && (opts?.variantTargets ?? []).includes(p.id)
-          ? opts.retrievalVariants
-          : [];
-      const perProviderTimeoutMs = providerTimeoutMs(p.id, defaultProviderTimeoutMs);
-      // Cap by the global deadline's remaining slice (min 1.5 s so a provider
-      // called at the edge of the deadline still gets a real chance).
-      const remainingBudget =
-        globalDeadlineAt !== undefined
-          ? Math.max(1_500, globalDeadlineAt - Date.now())
-          : perProviderTimeoutMs;
-      const effectiveTimeout = Math.min(perProviderTimeoutMs, remainingBudget);
-      const calls = [query, ...variants].map((q) => {
-        // Health is measured around the REAL call, so the numbers reflect what
-        // the provider actually did rather than what its status page claims.
-        // Failure is still isolated: a health-recording error can never fail a
-        // search.
-        const started = Date.now();
-        return guardedCall(
+
+  // EARLY-CONTINUE GATE (round 10): launch every call, then wait on a race
+  // between (a) all calls settling naturally and (b) the gate firing. When
+  // enough free providers have already answered with enough breadth, the gate
+  // releases the wait after a short grace period instead of paying each slow
+  // provider's full timeout — a timing-out SearXNG costs ~1.2 s, not 5 s.
+  // Isolation is unchanged: health observations still record per call, results
+  // that land inside the grace window are still merged, and nothing that
+  // settles is dropped from telemetry.
+  type SettledCall = PromiseSettledResult<{
+    engine: (typeof providers)[number];
+    result: Awaited<ReturnType<(typeof providers)[number]["search"]>>;
+  }>;
+  const perCall: Array<Promise<SettledCall>> = [];
+  for (const p of providers) {
+    // General-web providers additionally see each rewritten angle; a
+    // structured provider gets exactly one call with the primary query.
+    const variants =
+      opts?.retrievalVariants && (opts?.variantTargets ?? []).includes(p.id)
+        ? opts.retrievalVariants
+        : [];
+    const perProviderTimeoutMs = providerTimeoutMs(p.id, defaultProviderTimeoutMs);
+    // Cap by the global deadline's remaining slice (min 1.5 s so a provider
+    // called at the edge of the deadline still gets a real chance).
+    const remainingBudget =
+      globalDeadlineAt !== undefined
+        ? Math.max(1_500, globalDeadlineAt - Date.now())
+        : perProviderTimeoutMs;
+    const effectiveTimeout = Math.min(perProviderTimeoutMs, remainingBudget);
+    for (const q of [query, ...variants]) {
+      // Health is measured around the REAL call, so the numbers reflect what
+      // the provider actually did rather than what its status page claims.
+      // Failure is still isolated: a health-recording error can never fail a
+      // search.
+      const started = Date.now();
+      perCall.push(
+        guardedCall(
           p.id,
           p.label,
           () => p.search(q, perEngine, engineOpts),
@@ -317,7 +336,7 @@ export async function runUniversalSearch(
             } catch {
               /* telemetry must never break a search */
             }
-            return { engine: p, result };
+            return { status: "fulfilled" as const, value: { engine: p, result } };
           })
           .catch((err) => {
             try {
@@ -335,12 +354,58 @@ export async function runUniversalSearch(
             } catch {
               /* telemetry must never break a search */
             }
-            throw err;
-          });
-      });
-      return calls;
+            return { status: "rejected" as const, reason: err };
+          }),
+      );
+    }
+  }
+
+  // Settlement tracker for the gate: counts, breadth, and the final slots.
+  const settledSlots: Array<SettledCall | undefined> = new Array(perCall.length).fill(undefined);
+  let answeredCalls = 0;
+  let citationsSoFar = 0;
+  const providersWithResults = new Set<string>();
+  const tracked = perCall.map((pr, i) =>
+    pr.then((s) => {
+      settledSlots[i] = s;
+      answeredCalls += 1;
+      if (s.status === "fulfilled" && s.value.result.citations.length > 0) {
+        providersWithResults.add(s.value.engine.id);
+        citationsSoFar += s.value.result.citations.length;
+      }
     }),
   );
+
+  const gatePromise = (async () => {
+    const gateStart = Date.now();
+    // Hard stop for the poller: the global deadline (or 30 s) — whichever
+    // comes first — bounds this loop even if the gate never fires.
+    const gateCeiling =
+      globalDeadlineAt !== undefined
+        ? Math.max(0, globalDeadlineAt - Date.now())
+        : 30_000;
+    while (Date.now() - gateStart < gateCeiling) {
+      await new Promise((r) => setTimeout(r, 120));
+      if (
+        shouldEarlyContinue(
+          answeredCalls,
+          citationsSoFar,
+          providersWithResults.size,
+          tracked.length - answeredCalls,
+        )
+      ) {
+        // Grace window: stragglers that answer here are still merged.
+        await new Promise((r) => setTimeout(r, EARLY_CONTINUE_GRACE_MS));
+        return;
+      }
+    }
+  })();
+
+  // allSettled (not `all`): tracked never reject by construction, but the
+  // settle-for-itself composition is the pinned contract — one provider leg
+  // failing can never fail the wait.
+  await Promise.race([Promise.allSettled(tracked), gatePromise]);
+  const settled = settledSlots.filter((s): s is SettledCall => s !== undefined);
 
   const merged: Array<{ c: WebCitation; engine: string; score: number }> = [];
   const seenUrls = new Map<string, number>(); // normalized URL -> engine count

@@ -1,0 +1,53 @@
+[CONVEX ?(currentInfoProbe:runOne)] [WARN] 1 unawaited operation: [fetch]. Async operations should be awaited or they might not run. See https://docs.convex.dev/functions/actions#dangling-promises for more information.
+{
+  "row": {
+    "answer": "Riders searching for the latest bobber bike price in India are advised to confirm final figures with their nearest authorised dealer. [1]\n\n[City], India, September 29, 2026: Jawa Yezdi Motorcycles has released a buyer's overview of the Jawa 42 Bobber for riders looking for a bobber bike in India. [1]\n\nToyoda Gosei to build new component plant in India\n\nThe highly automated plant will be the Japanese company’s eighth facility in India. [2]\n\nThe new INR 5.8 billion (US$ 60 million) facility, to be built in the Maharashtra Bidkin Industrial Area by Toyoda Gosei South India Pvt Ltd, is scheduled to begin production of large interior and exterior components, including bumpers and instrument panels, from the first half of 2029. [2]\n\nSources: [1] Jawa Yezdi Motorcycles Shares Latest Bobber Bike Price in India (news.prfree.org)  [2] Toyoda Gosei to build new component plant in India (just-auto.com)",
+    "conflictResolution": null,
+    "detail": "2 fresh result(s) from 2 source(s) in 4744ms",
+    "droppedFresh": [
+      {
+        "reason": "off-topic",
+        "title": "Armed conflicts and attacks: Piracy off the coast of Somalia, Anti-piracy measures, Controversies of Hassan Sheikh Mohamud"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshSplitCounts": {
+      "fresh": 3,
+      "stale": 2,
+      "undated": 0
+    },
+    "freshness": "Based on 2 reports published in the last 5 days (newest: 16 hours ago).",
+    "intent": "news",
+    "query": "latest India news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 4744,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T08:38:19.000Z",
+        "title": "Jawa Yezdi Motorcycles Shares Latest Bobber Bike Price in India",
+        "url": "https://news.prfree.org/@gajodharrizzu/jawa-yezdi-motorcycles-shares-latest-bobber-bike-price-in-india-svt3dkurfz6j"
+      },
+      {
+        "publishedAt": "2026-09-25T08:02:23.000Z",
+        "title": "Toyoda Gosei to build new component plant in India",
+        "url": "https://www.just-auto.com/news/toyoda-gosei-to-build-new-component-plant-in-india"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

@@ -1,5 +1,53 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## Addendum 10 — FREE-FALLBACK LATENCY: EARLY-CONTINUE GATE (round 10, 2026-09-30)
+
+Owner rule: SearXNG frozen as opportunistic-free; the free-provider fallback
+system must be FAST/RELIABLE/GLOBAL/CURRENT/VERIFIED — and **one failed
+provider must not add unnecessary 5–10 s to the user's search.**
+
+### The remaining delay, measured
+
+A timing-out SearXNG (5 s budget) made the whole fan-out WAIT its full timeout
+even when healthy free providers had already answered: identical queries took
+5.8 s with SearXNG down vs 2.4 s with it up. The gap was pure straggler cost.
+
+### Fix — early-continue gate (no architecture change)
+
+`searchEngine/resilience.ts` gains the pure, pinned decision
+`shouldEarlyContinue(answered, citations, distinctProvidersWithResults,
+pending)`: conservative thresholds (≥2 answered, ≥2 distinct providers with
+results, ≥4 citations, >0 pending) so a single fast source can never starve a
+broad fan-out. `universalSearch` now RACES full settlement against the gate;
+when the gate fires, stragglers get `EARLY_CONTINUE_GRACE_MS = 1.2 s` to land —
+then the wait is released. Everything that lands still merges; every failure is
+still observed; `Promise.allSettled` composition preserved (pinned).
+
+### Live measurement (real chat path, same hour)
+
+| Query | Status | Latency | SearXNG |
+|---|---|---|---|
+| current F1 standings | pass | **2.1 s** | up |
+| NBA standings | pass | **2.2 s** | up |
+| latest world news | pass | 4.6 s | n/a (providers varied) |
+| latest IPL news | pass | 3.6 s | not dispatched (health memory) |
+| latest India news | pass | 4.7 s | not dispatched |
+
+Down-flap turns now complete in 3.6–4.7 s (were 5.8–12.5 s); up-state turns at
+2.1–2.2 s. Worst observed case this round: 4.7 s — the 5–10 s straggler delay
+is gone.
+
+### Gates
+
+1,428 tests / 0 fail (+3 gate pins: decision thresholds, conservative
+constants, wiring incl. the allSettled composition) · tsc 0 · eslint 0 ·
+deployed 00:46 UTC.
+
+**SEARXNG: FROZEN (opportunistic-free). Search layer: FROZEN.** Next phase:
+Omi intelligence.
+
+---
+
 ## Addendum 9 — ₹0 SEARCH POLICY: FLY PLAN REMOVED, SEARXNG OPPORTUNISTIC, FREE STACK VERIFIED (owner decision, 2026-09-30)
 
 Owner decision: **the entire search infrastructure stays at ₹0/month.** No Fly.io,

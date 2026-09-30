@@ -136,3 +136,39 @@ export function strictVerticalFallbackFor(
       return null;
   }
 }
+
+/**
+ * EARLY-CONTINUE GATE (round 10) — "one failed provider must not add its
+ * timeout to the user's search."
+ *
+ * MEASURED: with the flaky free SearXNG base timing out at 5 s, a turn whose
+ * healthy free providers (Wikipedia CE, LangSearch, structured feeds) had
+ * already answered still WAITED the full 5 s per slow engine — IPL news took
+ * 5.8 s while the identical query with SearXNG up took 2.4 s. That gap is pure
+ * straggler cost, not evidence.
+ *
+ * The gate answers one question: given what has ALREADY answered, is what is
+ * still pending worth its worst-case wait? It is deliberately conservative —
+ * it only releases the wait when a MINIMUM number of providers have answered
+ * AND a MINIMUM number of citations exist (with breadth: ≥2 distinct
+ * providers), so a single lucky fast source can never starve a broad fan-out.
+ * Release = `Promise.race` with a resolve-once promise per pending call; the
+ * stragglers' results are still collected if they land, and their failures
+ * are still recorded — this only stops the WAIT, never the isolation.
+ */
+export const EARLY_CONTINUE_MIN_PROVIDERS = 2;
+export const EARLY_CONTINUE_MIN_CITATIONS = 4;
+/** Never release the wait entirely — stragglers get at most this long. */
+export const EARLY_CONTINUE_GRACE_MS = 1_200;
+
+export function shouldEarlyContinue(
+  answeredProviders: number,
+  citationsSoFar: number,
+  distinctProvidersWithResults: number,
+  pendingProviders: number,
+): boolean {
+  if (pendingProviders <= 0) return false;
+  if (answeredProviders < EARLY_CONTINUE_MIN_PROVIDERS) return false;
+  if (distinctProvidersWithResults < 2) return false;
+  return citationsSoFar >= EARLY_CONTINUE_MIN_CITATIONS;
+}
