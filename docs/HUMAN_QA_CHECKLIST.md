@@ -9,23 +9,59 @@ App: `https://omkarbhatti170899.github.io/omiuniversalai/` · Backend: `resolute
 
 The live site may still be serving an **older commit**. Confirm the deploy landed first:
 
+**Step 0 — confirm the backend is AWAKE (do this first).** The frontend is built
+against `https://resolute-ptarmigan-187.convex.cloud`. If that deployment is
+paused, the app shell loads and then *every* action fails with a server error.
+
+```bash
+curl -s -X POST https://resolute-ptarmigan-187.convex.cloud/api/query \
+  -H 'Content-Type: application/json' \
+  -d '{"path":"aiStatus:status","args":{},"format":"json"}'
+```
+
+A healthy deployment answers with `{"status":"success","value":{...}}`.
+A paused one answers with `"Cannot run functions while this deployment is
+paused"` — that is a **deployment problem, not an app bug**: resume the
+deployment in the Convex dashboard, then re-run this command.
+
 ```bash
 curl -s https://omkarbhatti170899.github.io/omiuniversalai/ | grep -o 'assets/index-[A-Za-z0-9]*\.js'
 ```
 
-Then fetch that bundle and confirm the NEW code is present:
+Then confirm the NEW code is present. **Important:** these markers are *not* in
+the entry bundle — they live in the lazily-loaded view chunks, so grep only the
+entry bundle and you will get a false "stale build". Walk the chunks:
 
 ```bash
-curl -s https://omkarbhatti170899.github.io/omiuniversalai/assets/index-<HASH>.js \
-  | grep -c "Searching live sources"   # expect >= 1
+BASE=https://omkarbhatti170899.github.io/omiuniversalai
+ENTRY=$(curl -s $BASE/ | grep -o 'assets/index-[A-Za-z0-9-]*\.js' | head -1)
+rm -rf /tmp/omichunks && mkdir -p /tmp/omichunks
+curl -s "$BASE/$ENTRY" -o /tmp/omichunks/entry.js
+grep -oE '\./[A-Za-z0-9_-]+\.js' /tmp/omichunks/entry.js | sed 's|^\./||' | sort -u > /tmp/omichunks/names.txt
+# Chunks import OTHER chunks two levels deep, so walk the graph until it stops
+# growing (two passes is enough today: entry -> views -> panels).
+for pass in 1 2; do
+  xargs -P 8 -I{} curl -s -o /tmp/omichunks/{} "$BASE/assets/{}" < /tmp/omichunks/names.txt
+  cat /tmp/omichunks/*.js | grep -oE '\./[A-Za-z0-9_-]+\.js' | sed 's|^\./||' | sort -u > /tmp/omichunks/next.txt
+  comm -13 /tmp/omichunks/names.txt /tmp/omichunks/next.txt > /tmp/omichunks/new.txt
+  [ -s /tmp/omichunks/new.txt ] || break
+  cp /tmp/omichunks/new.txt /tmp/omichunks/names.txt
+done
+cat /tmp/omichunks/*.js > /tmp/omi-all.js
+for m in "Searching live sources" "Single source" "Cross-checked" "Back online"; do
+  printf '%-24s %s\n' "$m" "$(grep -c "$m" /tmp/omi-all.js)"
+done
 ```
 
-| Marker | Expected |
-|---|---|
-| `Searching live sources` | ≥ 1 — the new calm research status |
-| `Single source` | ≥ 1 — the honest source-verification badge |
-| `Cross-checked` | ≥ 1 — only shown for genuine cross-checking |
-| `Back online` | ≥ 1 — offline/reconnect bar |
+Expected on the current build: ~25 chunks, ~1.7 MB concatenated, and **all four
+markers >= 1**. Verified live 2026-09-30 against the deployed site.
+
+| Marker | Expected | Lives in |
+|---|---|---|
+| `Searching live sources` | ≥ 1 — the calm research status | `OmiAssistantPanel` chunk |
+| `Single source` | ≥ 1 — the honest source-verification badge | `Dashboard` chunk |
+| `Cross-checked` | ≥ 1 — only shown for genuine cross-checking | `Dashboard` chunk |
+| `Back online` | ≥ 1 — offline/reconnect bar | entry bundle |
 
 **If any marker is 0, STOP: you are testing a stale build.** Ask for a redeploy before recording any result — every result below would be invalid.
 

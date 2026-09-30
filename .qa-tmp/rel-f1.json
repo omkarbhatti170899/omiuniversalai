@@ -1,0 +1,74 @@
+{
+  "row": {
+    "answer": "With this victory, Antonelli becomes the youngest multiple race winner in Formula 1 history and moves into the lead of the drivers’ championship ahead of Russell. [1]\n\nThe Mercedes driver leads the 2026 drivers’ championship with 302 points and has won eight of the 15 races run this season. [2]\n\nGeorge Russell closed the gap in the drivers’ championship to 66 points from his Mercedes teammate Kimi Antonelli after taking his third win of the season at the Azerbaijan Grand Prix. [3]\n\nWho is the favorite to win the Bahrain Grand Prix? [2]\n\nSources: [1] Kimi Antonelli wins F1 Japanese Grand Prix to take championship lead (destinationformula1.com)  [2] 2026 F1 Bahrain Grand Prix Odds - Antonelli Favored at Sepang (thespread.com)  [3] George Russell continues chase of Kimi Antonelli at Bahrain Grand... (tsn.ca)  [4] Was Baku really Max Verstappen's best chance to win in F1 2026? (motorsport.com)",
+    "conflictResolution": null,
+    "detail": "4 fresh result(s) from 1 source(s) in 6348ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+    "droppedFresh": [
+      {
+        "reason": "off-topic",
+        "title": "IT'S RACE WEEK: 5 storylines we're excited about ahead of the 2026..."
+      },
+      {
+        "reason": "off-topic",
+        "title": "Lance Stroll and Fernando Alonso commit to... - Aston Martin F1 Team"
+      },
+      {
+        "reason": "off-topic",
+        "title": "F1 COSMOS | Fernando Alonso Extends Stay at Aston Martin for 2027"
+      },
+      {
+        "reason": "off-topic",
+        "title": "Andrea Kimi Antonelli - F1 2026 Driver | CalendarF1"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded"
+    ],
+    "freshResults": 4,
+    "freshSplitCounts": {
+      "fresh": 8,
+      "stale": 4,
+      "undated": 0
+    },
+    "freshness": "Based on 4 reports published today (newest: 13 hours ago).",
+    "intent": "knowledge",
+    "query": "Who is leading the F1 2026 drivers championship?",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 6348,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T12:54:30.000Z",
+        "title": "Kimi Antonelli wins F1 Japanese Grand Prix to take championship lead",
+        "url": "https://destinationformula1.com/kimi-antonelli-wins-f1-japanese-grand-prix-to-take-championship-lead"
+      },
+      {
+        "publishedAt": "2026-09-29T13:10:31.000Z",
+        "title": "2026 F1 Bahrain Grand Prix Odds - Antonelli Favored at Sepang",
+        "url": "https://www.thespread.com/auto-racing/2026-f1-bahrain-grand-prix-odds"
+      },
+      {
+        "publishedAt": "2026-09-29T13:04:00.000Z",
+        "title": "George Russell continues chase of Kimi Antonelli at Bahrain Grand...",
+        "url": "https://www.tsn.ca/motorsports/formula-1/article/russell-continues-chase-of-antonelli-at-bahrain-grand-prix-from-malaysia-on-tsn-n1-49971200"
+      },
+      {
+        "publishedAt": "2026-09-29T15:39:56.000Z",
+        "title": "Was Baku really Max Verstappen's best chance to win in F1 2026?",
+        "url": "https://www.motorsport.com/f1/news/was-baku-really-max-verstappens-best-chance-to-win-in-f1-2026/10859854"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

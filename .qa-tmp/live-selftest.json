@@ -1,0 +1,177 @@
+{
+  "service": "Omi Universal AI",
+  "identity": "Omi Universal AI was created by Mr. Omkar Prakash Bhatti.",
+  "status": "degraded",
+  "time": "2026-09-30T04:17:57.984Z",
+  "summary": {
+    "pass": 19,
+    "fail": 3,
+    "configured": 5,
+    "unverified": 0
+  },
+  "subsystems": [
+    {
+      "subsystem": "frontend",
+      "status": "pass",
+      "detail": "Live site served its HTML shell with the Omi marker (HTTP 200)",
+      "ms": 91
+    },
+    {
+      "subsystem": "deployment",
+      "status": "pass",
+      "detail": "Current artifact published by the Actions → Pages pipeline (llms.txt HTTP 200); workflow run status unavailable (GitHub API rate limited)",
+      "ms": 85
+    },
+    {
+      "subsystem": "convex",
+      "status": "pass",
+      "detail": "This report is served by the live Convex deployment",
+      "ms": 28
+    },
+    {
+      "subsystem": "database",
+      "status": "pass",
+      "detail": "Read 3 table(s) successfully (documents, research runs, agents)",
+      "ms": 83
+    },
+    {
+      "subsystem": "authentication",
+      "status": "pass",
+      "detail": "Auth guard resolved (unauthenticated request → authenticated=false), so sessions are enforced rather than bypassed",
+      "ms": 65
+    },
+    {
+      "subsystem": "request routing",
+      "status": "pass",
+      "detail": "\"What's 25 × 48?\" → intent \"calculation\" → 1200 (calculator, no provider call)",
+      "ms": 28
+    },
+    {
+      "subsystem": "andromeda",
+      "status": "pass",
+      "detail": "plan → kind \"temporal\", 2 angle(s), freshness=true; 17 source(s) ready",
+      "ms": 26
+    },
+    {
+      "subsystem": "searxng reachability",
+      "status": "pass",
+      "detail": "https://search.lumy.live: OK",
+      "ms": 12330
+    },
+    {
+      "subsystem": "current information",
+      "status": "fail",
+      "detail": "9/10 live current-information scenarios returned fresh, dated sources. \"What is the latest news in India?\" → 2 fresh from Wikipedia Current Events (today's news, dated)+LangSearch (temporary, feature-gated); \"What is happening right now?\" → 4 fresh from SearXNG+Wikipedia Current Events (today's news, dated)+Hacker News+LangSearch (temporary, feature-gated); \"Latest technology news\" → 4 fresh from SearXNG+Wikipedia Current Events (today's news, dated)+LangSearch (temporary, feature-gated); \"Latest AI news\" → 10 fresh from SearXNG+Wikipedia Current Events (today's news, dated)+LangSearch (temporary, feature-gated)",
+      "ms": 17303
+    },
+    {
+      "subsystem": "universal search",
+      "status": "pass",
+      "detail": "\"Andromeda Galaxy\" → 2 result(s) via Wikipedia",
+      "ms": 271
+    },
+    {
+      "subsystem": "ai providers",
+      "status": "pass",
+      "detail": "AI responded via groq (openai/gpt-oss-20b)",
+      "ms": 280
+    },
+    {
+      "subsystem": "ai fallback",
+      "status": "pass",
+      "detail": "Independent fallback answered via gemini (gemini-flash-lite-latest) — chain: groq → gemini → openai",
+      "ms": 1188
+    },
+    {
+      "subsystem": "vision",
+      "status": "pass",
+      "detail": "Read a real image via groq (qwen/qwen3.8-27b) — answered \"red\"",
+      "ms": 384
+    },
+    {
+      "subsystem": "image generation",
+      "status": "fail",
+      "detail": "Image generation failed: pollinations: 402 | gemini: free-tier quota is exhausted right now — retry later or enable billing | openai: the account has no remaining credits or balance — add credits for this provider; tried pollinations/sana → gemini/gemini-2.5-flash-image → openai/gpt-image-1",
+      "ms": 1076
+    },
+    {
+      "subsystem": "image editing",
+      "status": "pass",
+      "detail": "Edited a real image via pollinations-edit (kontext) — returned 25800 bytes at 1024×1024",
+      "ms": 1440
+    },
+    {
+      "subsystem": "image background removal",
+      "status": "pass",
+      "detail": "background removal returned a real verified image via pollinations-edit (kontext) — 27886 bytes at 1024×1024",
+      "ms": 1373
+    },
+    {
+      "subsystem": "image background replacement",
+      "status": "pass",
+      "detail": "background replacement returned a real verified image via pollinations-edit (kontext) — 69388 bytes at 1024×1024",
+      "ms": 1022
+    },
+    {
+      "subsystem": "image variation",
+      "status": "fail",
+      "detail": "image variation failed: pollinations: 402 | gemini: free-tier quota is exhausted right now — retry later or enable billing | openai: the account has no remaining credits or balance — add credits for this provider; tried pollinations/sana → gemini/gemini-2.5-flash-image → openai/gpt-image-1",
+      "ms": 1405
+    },
+    {
+      "subsystem": "image combination",
+      "status": "pass",
+      "detail": "image combination returned a real verified image via pollinations-edit (kontext) — 20198 bytes at 1024×1024",
+      "ms": 1374
+    },
+    {
+      "subsystem": "image upscaling",
+      "status": "pass",
+      "detail": "upscaling returned a real verified image via pollinations-edit (kontext) — 132728 bytes at 1024×1024",
+      "ms": 1479
+    },
+    {
+      "subsystem": "image enhancement",
+      "status": "pass",
+      "detail": "image enhancement returned a real verified image via pollinations-edit (kontext) — 18258 bytes at 1024×1024",
+      "ms": 1375
+    },
+    {
+      "subsystem": "image transparency",
+      "status": "pass",
+      "detail": "image generation returned a real verified image via pollinations (sana) — 27547 bytes at 1024×1024",
+      "ms": 705
+    },
+    {
+      "subsystem": "image upload",
+      "status": "configured",
+      "detail": "Upload → ingest → omiDocuments path is deployed with on-device size/type validation; end-to-end upload needs a signed-in session",
+      "ms": 1
+    },
+    {
+      "subsystem": "image storage",
+      "status": "configured",
+      "detail": "Generated bytes are stored in Convex file storage only after format verification; end-to-end store needs a signed-in session",
+      "ms": 1
+    },
+    {
+      "subsystem": "image retrieval",
+      "status": "configured",
+      "detail": "Gallery/URL reads are ownership-checked queries; end-to-end retrieval needs a signed-in session",
+      "ms": 1
+    },
+    {
+      "subsystem": "file processing",
+      "status": "configured",
+      "detail": "Extraction runs on-device (PDF/DOCX/XLSX/OCR) with server-side ingest — verified by unit tests; end-to-end upload needs a signed-in session",
+      "ms": 1
+    },
+    {
+      "subsystem": "deep research",
+      "status": "configured",
+      "detail": "Pipeline + researchRuns persistence deployed (table read verified under database); end-to-end run needs a signed-in session",
+      "ms": 1
+    }
+  ],
+  "cached": false
+}
