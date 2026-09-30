@@ -124,8 +124,8 @@ describe("freshness regression — scoring can tell today from last week", () =>
       snippet: "India won 4 gold, 12 silver and 14 bronze — 30 medals.",
       publishedAt: iso(3 * D),
     };
-    const scoreToday = scoreSource(today, keywords, { freshnessMatters: true, freshnessTier: "recent" });
-    const scoreOld = scoreSource(threeDaysOld, keywords, { freshnessMatters: true, freshnessTier: "recent" });
+    const scoreToday = scoreSource(today, keywords, { freshnessMatters: true, freshnessTier: "recent", now: NOW });
+    const scoreOld = scoreSource(threeDaysOld, keywords, { freshnessMatters: true, freshnessTier: "recent", now: NOW });
     expect(scoreToday).toBeGreaterThan(scoreOld);
   });
 
@@ -145,8 +145,8 @@ describe("freshness regression — scoring can tell today from last week", () =>
       snippet: "India medal tally 2026.",
       publishedAt: iso(7 * D),
     };
-    const a = scoreSource(freshBlog, keywords, { freshnessMatters: true, freshnessTier: "recent" });
-    const b = scoreSource(staleOfficial, keywords, { freshnessMatters: true, freshnessTier: "recent" });
+    const a = scoreSource(freshBlog, keywords, { freshnessMatters: true, freshnessTier: "recent", now: NOW });
+    const b = scoreSource(staleOfficial, keywords, { freshnessMatters: true, freshnessTier: "recent", now: NOW });
     expect(a).toBeGreaterThan(b);
   });
 });

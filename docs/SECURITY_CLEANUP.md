@@ -104,3 +104,35 @@ Pinned by test, not by convention:
 
 `index-C5_zbKv7.js` (478,788 bytes, the live Pages entry chunk) scanned against
 all credential patterns: **0 matches**.
+
+## 7. Why CI (GitHub Actions / Vercel) is red while `.env.keys` is tracked
+
+These are **one** failure, not three, so they are fixed by one change.
+
+The security gate is deliberately wired into the build, not left as a local
+convenience:
+
+- `.github/workflows/deploy-pages.yml` runs `bun run typecheck` and
+  `bun run test` (`bun test tests/`) **before** it builds or deploys anything.
+- `tests/omiSecretHygiene.test.ts` fails whenever a credential file is present
+  in the tree, and `.env.keys` is present in the tree.
+- So the suite exits non-zero, the build step never runs, and the commit shows
+  a red status. Any host that runs the same verify step (GitHub Actions, the
+  platform's Vercel build) reports FAILURE for the same reason.
+
+The gate must not be relaxed to get green. A green build that ignores a
+tracked private key is worse than a red one, because it looks like a release.
+
+**Untracking the file is what turns CI green** — no other change is required:
+
+```bash
+git rm --cached .env.keys
+rm .env.keys
+git commit -m "chore(security): untrack leaked dotenvx private key"
+```
+
+`tests/omiSecretHygiene.test.ts` then reports 16 pass / 0 fail, the Pages
+workflow proceeds to `bun run build`, and the red status clears on the next
+commit. Rotation (§4 step 2) and the history purge (§4 step 3) remain
+required and are **independent** of the CI fix: untracking stops the leak from
+continuing, it does not un-leak what is already in history.

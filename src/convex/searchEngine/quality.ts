@@ -807,6 +807,13 @@ export function scoreSource(
      * outranks everything else.
      */
     freshnessTier?: string;
+    /**
+     * Clock override, for tests that pin a fixed "now". Defaults to
+     * Date.now() so production behaviour is unchanged. Without it a test that
+     * builds citations from a FIXED date silently scores them against the real
+     * wall clock, and ages out of its own fixtures as time passes.
+     */
+    now?: number;
   } = {},
 ): number {
   return scoreSourceDetailed(c, keywords, opts).final;
@@ -844,6 +851,8 @@ export function scoreSourceDetailed(
      * is read from its interrogative frame, which the retrieval rewriter
      * strips. Answerability is judged against it. */
     userQuestion?: string;
+    /** Clock override for tests. Defaults to Date.now(). See scoreSource. */
+    now?: number;
   } = {},
 ): ScoreBreakdown {
   // ENTITY ANCHOR: when the question names a competition, a source that never
@@ -872,7 +881,7 @@ export function scoreSourceDetailed(
   const sportDomain = detectSportDomain(keywords.join(" "));
   const rel = sportDomain ? sportRelevance(c, sportDomain) : relevanceScore(c, keywords);
   const tier = sourceTier(c.url).weight;
-  const fresh = freshnessScore(c.publishedAt);
+  const fresh = freshnessScore(c.publishedAt, opts.now ?? Date.now());
   const comp = completenessScore(c);
   const ft = opts.freshnessTier;
   // Freshness demand still raises the weight — but never above relevance,
