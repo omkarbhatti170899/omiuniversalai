@@ -50,6 +50,7 @@ import {
 } from "./searchEngine/freshness";
 import { classifyCurrentIntent } from "./searchEngine/intent";
 import { planRetrieval } from "./searchEngine/rewrite";
+import { strictVerticalFallbackFor } from "./searchEngine/resilience";
 import { isOffTopic, isNonSequiturForBroadNews, topicKeywords, sharesTopic, keywordSet } from "./searchEngine/quality";
 import { matchTemporal, isWrongYear } from "./searchEngine/temporal";
 import type { WebCitation } from "./searchProviders/types";
@@ -452,11 +453,74 @@ export const runSearchQualityBenchmark = internalAction({
           // Same floor the chat turn applies — a diagnostic that keeps sources
           // production would drop overstates the product's relevance.
           reason = "non-sequitur for a broad news question";
-        } else if (yearScoped && isWrongYear(matchTemporal(c, policy.years, null))) {
+        } else if (
+          yearScoped &&
+          // Production's year/event gate drops wrong-year AND unknown-verdict
+          // sources when the question names a year (omiChat: "a result about a
+          // different year is a wrong answer"). Mirroring exactly — but ONLY
+          // when a year is actually asked; event-only questions match on the
+          // event vocabulary in matchTemporal.
+          (policy.years.length > 0
+            ? matchTemporal(c, policy.years, null).verdict !== "match"
+            : false)
+        ) {
           reason = "different year";
         }
         if (reason) dropReasons[reason] = (dropReasons[reason] ?? 0) + 1;
         else kept.push(c);
+      }
+
+      // --- ESCALATION PASS (Phase-2 tooling): mirror production's freshness
+      // escalation so the benchmark stops under-reporting. The chat turn (see
+      // omiChat) re-searches with a hard "day" filter when pass 1 produced
+      // nothing recent enough; the old benchmark judged pass 1 only, which is
+      // why sports/current rows read 0-kept while the SAME query passed 7/8
+      // through the real path. Identical gate, identical widening: kept rows
+      // merge (dedup by URL), freshness is re-judged after the merge.
+      const pass1Newest = minAgeHours(kept, Date.now());
+      const nothingFresh = pass1Newest === null;
+      const tooStale = pass1Newest !== null && policy.requiresFreshness && pass1Newest > policy.preferFreshHours;
+      let escalated = false;
+      if (policy.requiresFreshness && policy.preferFreshHours > 0 && (nothingFresh || tooStale)) {
+        escalated = true;
+        try {
+          const second = await runUniversalSearch(ctx, retrievalPlan.primary, {
+            retrievalVariants: [`${retrievalPlan.primary} today`, `${retrievalPlan.primary} "${new Date().toISOString().slice(0, 10)}"`],
+            variantTargets: retrievalPlan.variantTargets,
+            perEngineLimit: 6,
+            maxCitations: 8,
+            category: "news",
+            timeRange: "day",
+            skipCache: true,
+            freshnessMatters: true,
+            freshnessTier: policy.freshnessTier,
+            askedYears: policy.years,
+            askedEvent: policy.event,
+            strictVertical: false,
+            preferredProviders: policy.preferredProviders?.length
+              ? Array.from(new Set([...policy.preferredProviders, ...(strictVerticalFallbackFor(policy.vertical) ?? [])]))
+              : undefined,
+          });
+          const seen = new Set(kept.map((c) => c.url));
+          for (const c of second.citations) {
+            if (seen.has(c.url)) continue;
+            seen.add(c.url);
+            const age = ageInDays(c.publishedAt);
+            let reason: string | null = null;
+            if (policy.requiresFreshness && (age === null || age > policy.maxAgeDays)) {
+              reason = age === null ? "undated (escalated)" : "outside freshness window (escalated)";
+            } else if (isOffTopic(c, topic)) {
+              reason = "shares no subject word (escalated)";
+            }
+            if (reason) dropReasons[reason] = (dropReasons[reason] ?? 0) + 1;
+            else kept.push(c);
+          }
+          enginesTried = [...new Set([...enginesTried, ...(second.enginesTried ?? [])])];
+          enginesWithResults = [...new Set([...enginesWithResults, ...(second.enginesWithResults ?? [])])];
+        } catch {
+          // Escalation is best-effort, exactly as in production: pass-1
+          // evidence (or an honest refusal) stands on its own.
+        }
       }
 
       const keywords = keywordSet(query);
@@ -497,7 +561,16 @@ export const runSearchQualityBenchmark = internalAction({
           keptDomains: new Set(urls).size,
           newestSourceAgeHours: newest === null ? null : Math.round(newest * 10) / 10,
           relevanceAvg,
-          offTopicKept: kept.filter((c) => !sharesTopic(c, keywords)).length,
+          // Round 10: judge off-topic with the SAME semantic the chat turn
+          // uses. The raw keyword overlap (`sharesTopic`) flagged the two
+          // U21 fixtures kept for "live football scores" as off-topic because
+          // neither row contains "football" — but isOffTopic (production)
+          // keeps them via the sport-domain override + structured-feed
+          // provenance. Reporting production-kept rows as off-topic inflated
+          // the defect count on a behaviour the product intends.
+          offTopicKept: kept.filter(
+            (c) => !sharesTopic(c, keywords) && isOffTopic(c, topic),
+          ).length,
           wrongYearKept: yearScoped
             ? kept.filter((c) => isWrongYear(matchTemporal(c, policy.years, null))).length
             : 0,

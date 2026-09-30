@@ -1,0 +1,1296 @@
+{
+  "answerContract": {
+    "allSourcesDated": 7,
+    "citationsResolve": 7,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 7,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "stale-prone": {
+      "fresh": 3,
+      "kept": 17,
+      "n": 3
+    },
+    "tech": {
+      "fresh": 4,
+      "kept": 26,
+      "n": 4
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 1
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 18,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 22,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 7,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 854,
+        "statesFreshness": true,
+        "text": "Whats NewUpdated to version 2.0.4 with latest engine stabilityFull compatibility with iOS 16, 17, and iOS 18 (iPhone & iPad) [3]\n\nWhere is the problem I updated to latest version today reinstalled yesterday but there must be bug…Brave-Matt. [4]\n\nMitamaton is out now for iPhone, on iOS 18 or later.Mitamaton is iPhone only and needs iOS 18 or later. [1]\n\nUltFone IOS Data Manager 9.6.3.2 Multilingual\n\nFile Size: 193 MB\n\nUltFone iOS Data Manager is a program that allows you to manage your iOS data from your desktop computer. [5]\n\nSources: [1] Mitamaton · A chief of staff for your day (mitamaton.com)  [2] Apple Releases iOS 27.0.1 With Face ID Bug Fix - MacRumors (macrumors.com)  [3] Underneath IPA v2.0.4 (Subscription Unlocked) for iOS (kurd4u.com)  [4] The size of the deleted files is cumulated - Mobile... - Brave Community (community.brave.app)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "latest iOS version",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 27.8,
+            "domain": "mitamaton.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:41:13.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Mitamaton · A chief of staff for your day",
+            "url": "https://mitamaton.com"
+          },
+          {
+            "ageHours": 33.3,
+            "domain": "macrumors.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:11:29.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Apple Releases iOS 27.0.1 With Face ID Bug Fix - MacRumors",
+            "url": "https://www.macrumors.com/2026/09/28/apple-releases-ios-27-0-1"
+          },
+          {
+            "ageHours": 51,
+            "domain": "kurd4u.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T23:34:16.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Underneath IPA v2.0.4 (Subscription Unlocked) for iOS",
+            "url": "https://kurd4u.com/underneath-ipa"
+          },
+          {
+            "ageHours": 102.8,
+            "domain": "community.brave.app",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T19:41:23.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "The size of the deleted files is cumulated - Mobile... - Brave Community",
+            "url": "https://community.brave.app/t/the-size-of-the-deleted-files-is-cumulated/658730"
+          },
+          {
+            "ageHours": 67.7,
+            "domain": "consolebang.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T06:47:12.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "UltFone IOS Data Manager 9.6.3.2 Multilingual",
+            "url": "https://consolebang.com/threads/ultfone-ios-data-manager-9-6-3-2-multilingual.1204372"
+          },
+          {
+            "ageHours": 73.3,
+            "domain": "mojira.dev",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T01:16:08.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "[MCPE-243163] Still bugged on IOS",
+            "url": "https://mojira.dev/MCPE-243163"
+          },
+          {
+            "ageHours": 87.4,
+            "domain": "androidauthority.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:09:15.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "9 excellent iOS apps I wish would come to Android (but probably never...",
+            "url": "https://www.androidauthority.com/ios-apps-i-want-on-android-2026-3713705"
+          },
+          {
+            "ageHours": 90.7,
+            "domain": "emojipedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T07:50:31.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Man Technologist on Apple iOS 26.4",
+            "url": "https://emojipedia.org/apple/ios-26.4/man-technologist"
+          },
+          {
+            "ageHours": 31.5,
+            "domain": "theblaze.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:00:00.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Siri has always been lame — until now. Here's how to make the latest version pay off.",
+            "url": "https://www.theblaze.com/tech/ios27-new-siri"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 27.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.872,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 3912,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 776,
+        "statesFreshness": false,
+        "text": "Now install the current Long Term Support releaseWrong Node.js version showing up. [1]\n\nLTS (Long Term Support).Which Node.js version should a beginner install? [2]\n\nRuntime upgrades — moving services off end-of-life Node.js versions onto a supported LTS line. [3]\n\nDownload and install the LTS version from nodejs.org.node --version # Should output v22.x or later npm --version # Should output 10.x or later. [4]\n\nSources: [1] How to Install Node.js on Linux: 3 Methods, 1 Right Answer › Shell... (cavecreekcoffee.com)  [2] How to Install Node.js on Windows, macOS and Linux (with nvm) (enterno.io)  [3] JavaScript Software Development Services: 2026 Guide | YuSMP (yusmpgroup.com)  [4] Detailed installation instructions for all platforms and configurations. (docs.gauzy.co)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "current Node.js LTS version",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 8.8,
+            "domain": "cavecreekcoffee.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T17:46:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "How to Install Node.js on Linux: 3 Methods, 1 Right Answer › Shell...",
+            "url": "https://cavecreekcoffee.com/linux-guides/how-to-install-nodejs-on-linux"
+          },
+          {
+            "ageHours": 68.4,
+            "domain": "enterno.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T06:10:08.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "How to Install Node.js on Windows, macOS and Linux (with nvm)",
+            "url": "https://enterno.io/en/articles/node-js-install-guide"
+          },
+          {
+            "ageHours": 51,
+            "domain": "yusmpgroup.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T23:33:21.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "JavaScript Software Development Services: 2026 Guide | YuSMP",
+            "url": "https://yusmpgroup.com/blog/javascript-software-development-services"
+          },
+          {
+            "ageHours": 33.4,
+            "domain": "docs.gauzy.co",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T17:08:37.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Detailed installation instructions for all platforms and configurations.",
+            "url": "https://docs.gauzy.co/getting-started/installation"
+          },
+          {
+            "ageHours": 111.5,
+            "domain": "learn.microsoft.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:01:37.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Build apps with the Microsoft Copilot Managed... | Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer?view=o365-worldwide"
+          },
+          {
+            "ageHours": 29.3,
+            "domain": "github.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T21:13:00.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "GitHub - LilRed92/node-homework: Code The Dream's Node Course...",
+            "url": "https://github.com/LilRed92/node-homework"
+          },
+          {
+            "ageHours": 65.3,
+            "domain": "x386.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T09:15:11.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.91,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Node.js | Debian & Ubuntu Tutorials",
+            "url": "https://x386.org/guides/nodejs"
+          },
+          {
+            "ageHours": 106.9,
+            "domain": "warp2search.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T15:40:04.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Linux Kernel 7.2.8 and 6.18.54 Released with Heavy SMB and AMD GPU Fixes",
+            "url": "https://www.warp2search.net/story/linux-kernel-728-and-61854-released-with-heavy-smb-and-amd-gpu-fixes"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 8.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.966,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 3434,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 823,
+        "statesFreshness": false,
+        "text": "Google Chrome Update to Latest Version with Relaunch button on computer It will complete the Chrome browser update process. [2]\n\nMV3 is the current version of AdGuard Browser Extension for Chrome and the only one available from the Chrome Web Store. [3]\n\nThe newly released version 4.6.3 of Permanent Clipboard for Chrome offers an efficient solution for saving and organizing clipboard snippets. [1]\n\nChrome attachments\n\nposts are cast into the back of each chrome accent and they are either pushed into a barrel nut or have a PAL nut on the back. [5]\n\nSources: [1] Permanent Clipboard for Chrome 4.6.3 released (warp2search.net)  [2] How to Fix Instagram Not Working in Chrome on Computer (browserhow.com)  [3] AdGuard Knowledge Base (kb.adguard.info)  [4] How To Fix err_quic_protocol_error In Chrome? (commandlinux.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "latest Chrome version number",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 72.5,
+            "domain": "warp2search.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:00:07.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Permanent Clipboard for Chrome 4.6.3 released",
+            "url": "https://www.warp2search.net/story/permanent-clipboard-for-chrome-463-released"
+          },
+          {
+            "ageHours": 83.3,
+            "domain": "browserhow.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:13:16.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "How to Fix Instagram Not Working in Chrome on Computer",
+            "url": "https://browserhow.com/how-to-fix-instagram-not-working-in-chrome-browser"
+          },
+          {
+            "ageHours": 75.5,
+            "domain": "kb.adguard.info",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T23:03:11.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "AdGuard Knowledge Base",
+            "url": "https://kb.adguard.info/kb/adguard-browser-extension/solving-problems/mv2-removal-in-chrome"
+          },
+          {
+            "ageHours": 103.5,
+            "domain": "commandlinux.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:02:10.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "How To Fix err_quic_protocol_error In Chrome?",
+            "url": "https://commandlinux.com/how-to/err_quic_protocol_error"
+          },
+          {
+            "ageHours": 21.6,
+            "domain": "forabodiesonly.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:56:44.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Chrome attachments",
+            "url": "https://www.forabodiesonly.com/mopar/threads/chrome-attachments.605241"
+          },
+          {
+            "ageHours": 78.2,
+            "domain": "neveropen.tech",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T20:22:45.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "After 10 years of Chrome chaos, one... | Never Open Always Closed",
+            "url": "https://neveropen.tech/after-10-years-of-chrome-chaos-one-feature-finally-gave-me-control-over-my-tabs"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 21.6,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.787,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1614,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 935,
+        "statesFreshness": false,
+        "text": "The promo runs until September 30, 2026, and covers iPhone 12 up to iPhone 16 models. [3]\n\nThe iOS 27.0.1 update is anticipated to be released explicitly for users of the iPhone 18 Pro and iPhone 18 Pro Max, with a possible launch date of Monday, September 28, or Tuesday, September 29, 2026. [2]\n\nNotably, users of other iPhone models that were updated to iOS 27 are exempt from this particular Face ID inconvenience. [2]\n\nBeyond the Box offers iPhone battery replacement discount for a limited time\n\nBeyond the Box is giving iPhone users a chance to save with a 20% discount on iPhone battery replacement. [3]\n\nSources: [1] MobiKin Updates iOS Assistant for Faster Data Migration to iPhone 18 (send2press.com)  [2] iOS 27.0.1 Launch Date: Apple Update Addressing Face ID Freezing and Restart Problems on iPhone 18 Pro (rswebsols.com)  [3] Beyond the Box offers iPhone battery replacement discount f"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "iPhone 2026 model announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 15.1,
+            "domain": "send2press.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:25:09.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "MobiKin Updates iOS Assistant for Faster Data Migration to iPhone 18",
+            "url": "https://www.send2press.com/wire/mobikin-updates-ios-assistant-for-faster-data-migration-to-iphone-18"
+          },
+          {
+            "ageHours": 30.5,
+            "domain": "rswebsols.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:00:00.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "iOS 27.0.1 Launch Date: Apple Update Addressing Face ID Freezing and Restart Problems on iPhone 18 Pro",
+            "url": "https://www.rswebsols.com/news/ios-27-0-1-launch-date-apple-update-addressing-face-id-freezing-and-restart-problems-on-iphone-18-pro"
+          },
+          {
+            "ageHours": 24.6,
+            "domain": "technobaboy.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:54:14.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Beyond the Box offers iPhone battery replacement discount for a limited time",
+            "url": "https://www.technobaboy.com/2026/09/29/beyond-the-box-offers-iphone-battery-replacement-discount-for-a-limited-time"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 15.1,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.883,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1682,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 675,
+        "statesFreshness": false,
+        "text": "Women's cricket will debut at next year's Commonwealth Games with a re-match of the 2020 T20 World Cup final.The other six teams were chosen based on their place in the ICC T20 rankings as of April 1 last year. [1]\n\nBecause now, it's about 10 games at a T20 level of intensity. [2]\n\nThe ICC announced the update on Wednesday, and the news spread fast. [3]\n\nBut you are playing 2.5 T20 games in one day. [2]\n\nSources: [1] Australia vs India to kick off Commonwealth Games Women's T20 (cricinfo.com)  [2] ‘Absolutely ready’ to do whatever it takes to win in 2027: Virat Kohli (ianslive.in)  [3] Abrar Ahmed Becomes No. 1 T20I Bowler in Latest ICC Rankings 2026 (propakistan.pk)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "current ICC T20 rankings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 25.2,
+            "domain": "cricinfo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T01:18:14.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "Australia vs India to kick off Commonwealth Games Women's T20",
+            "url": "https://www.cricinfo.com/print/story/1289027"
+          },
+          {
+            "ageHours": 88.3,
+            "domain": "ianslive.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T10:14:25.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.84,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "‘Absolutely ready’ to do whatever it takes to win in 2027: Virat Kohli",
+            "url": "https://ianslive.in/absolutely-ready-to-do-whatever-it-takes-to-win-in-2027-virat-kohli--20260926134501"
+          },
+          {
+            "ageHours": 110.6,
+            "domain": "propakistan.pk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:58:04.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "Abrar Ahmed Becomes No. 1 T20I Bowler in Latest ICC Rankings 2026",
+            "url": "https://propakistan.pk/abrar-ahmed-becomes-no-1-t20i-bowler-in-latest-icc-rankings-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 25.2,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.867,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 5354,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1340,
+        "statesFreshness": true,
+        "text": "Asian Games 2026 India Schedule Today, September 30: Jyothi Vennam, Lovlina Borgohain In Medal Hunt; Hockey Team In Semifinal | Medal Events, Live Streaming Details, IST Timings\n\nIndia heads into September 30 with another busy day of medal opportunities at the Asian Games 2026 in Aichi-Nagoya. [1]\n\nAsian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Channel\n\nAsian Games 2026 India Schedule September 29 LIVE: India will look to add to its medal tally with a packed programme featuring several finals and crucial knockout contests. [2]\n\npediatrician/consultations and vaccinations schedule: ~₹3,500/month. [3]\n\nphotos.Officials urged citizens to complete the recommended rabies vaccination schedule to prevent the disease. [4]\n\nSources: [1] Asian Games 2026 India Schedule Today, September 30: Jyothi Vennam, Lovlina Borgohain In Medal Hunt; "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "latest vaccinations schedule India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:37:42.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule Today, September 30: Jyothi Vennam, Lovlina Borgohain In Medal Hunt; Hockey Te",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-today-september-30-jyothi-vennam-lovlina-borgohain-in-medal-hunt-hockey-team-in-semifinal-medal-events-live-streaming-details-ist-timings-295504"
+          },
+          {
+            "ageHours": 25,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:33:25.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Ch",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-29-live-streaming-check-todays-events-timings-fixtures-and-tv-channel-294887"
+          },
+          {
+            "ageHours": 87.5,
+            "domain": "youtubesummary.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:00:07.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Video Summary - Can Indian Parents afford to raise a kid in India?",
+            "url": "https://youtubesummary.com/summary/EUhOrRbQcJY"
+          },
+          {
+            "ageHours": 55.4,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T19:09:57.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "NMC to educate citizens on rabies treatment - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/city/nagpur/nmc-to-educate-citizens-on-rabies-treatment/articleshow/134525437.cms"
+          },
+          {
+            "ageHours": 67,
+            "domain": "news.prfree.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T07:34:05.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Reefer Express Expands Pharmaceutical Cold Chain Logistics in India to Meet Rising Demand for Temperature-Cont",
+            "url": "https://news.prfree.org/@reefers123/reefer-express-expands-pharmaceutical-cold-chain-logistics-in-india-to-meet-rising-demand-for-temperature-controlled-shipping-v2bdrnhicbds"
+          },
+          {
+            "ageHours": 110.8,
+            "domain": "indiatoday.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T11:43:45.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "CDC vaccine guidance stalled after mFlusiva approval... - India Today",
+            "url": "https://www.indiatoday.in/world/story/cdc-vaccine-guidance-stalled-after-mflusiva-approval-rfk-jr-acip-overhaul-ptag-3002892-2026-09-25"
+          },
+          {
+            "ageHours": 85.1,
+            "domain": "washingtontimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T13:26:03.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.7,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "One shot or two? What to know about HPV vaccination...",
+            "url": "https://www.washingtontimes.com/news/2026/sep/26/know-hpv-vaccination-recommendations"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 1.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.829,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2666,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1049,
+        "statesFreshness": false,
+        "text": "After the US, Brazil, and India, where the double-mutated Delta variant was first found, recorded the largest numbers of COVID deaths with 555 thousand and 424 thousand, respectively. [4]\n\nHonda CB350: Price and variants explained\n\nThe CB350 is Honda’s retro contender in India, first launched in 2020. [6]\n\nCOVID-19 killed millions, shattered health systems and brought the global economy to a virtual standstill.WHO/PAHO How Honduras first performed genomic sequencing of the COVID-19 virus to detect circulating variants in June 2023. [2]\n\nIndia's Covid tally rose to over 4.13 million cases, overtaking Brazil as the country with the second-highest recorded cases. [3]\n\nSources: [1] OPPO Launches K14 Plus in India: Price, Features and Specifications (thehansindia.com)  [2] LIVE: Six years on from COVID-19, is the world ready for... | UN News (news.un.org)  [3] Coronavirus live updates: With a"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "current COVID variant in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 16.4,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:05:24.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "OPPO Launches K14 Plus in India: Price, Features and Specifications",
+            "url": "https://www.thehansindia.com/tech/oppo-launches-k14-plus-in-india-price-features-and-specifications-1126947"
+          },
+          {
+            "ageHours": 109.1,
+            "domain": "news.un.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T13:23:25.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "LIVE: Six years on from COVID-19, is the world ready for... | UN News",
+            "url": "https://news.un.org/en/story/2026/09/1168437"
+          },
+          {
+            "ageHours": 52,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T22:30:51.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Coronavirus live updates: With a cap of 5,000... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/india/coronavirus-live-updates-indias-covid-cases-worlds-second-highest/liveblog/77956485.cms?curpg=3"
+          },
+          {
+            "ageHours": 4.7,
+            "domain": "presstv.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T21:50:26.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "US plunged into confusion over masks as country hit by Delta",
+            "url": "https://www.presstv.co.uk/Detail/2021/07/31/663446/US-CDC-Mask-Delta-"
+          },
+          {
+            "ageHours": 85.8,
+            "domain": "nokiamob.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:42:17.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Oppo K14 Plus Design and Storage Variants Revealed Ahead of India Launch",
+            "url": "https://nokiamob.net/2026/09/26/oppo-k14-plus-design-and-storage-variants-revealed-ahead-of-india-launch"
+          },
+          {
+            "ageHours": 117,
+            "domain": "autocarindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T05:30:07.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Honda CB350: Price and variants explained",
+            "url": "https://www.autocarindia.com/auto-features/honda-cb350-price-and-variants-explained-441107"
+          },
+          {
+            "ageHours": 6.9,
+            "domain": "freedompress.org.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T19:40:18.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "True Covid death toll passes 117,000 - Freedom Press",
+            "url": "https://freedompress.org.uk/2021/02/04/true-covid-death-toll-passes-117000"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 4.7,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.833,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2657,
+      "vertical": "general"
+    }
+  ],
+  "total": 7
+}

@@ -1,0 +1,2601 @@
+{
+  "answerContract": {
+    "allSourcesDated": 14,
+    "citationsResolve": 15,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 4,
+    "withCitations": 15,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "sports": {
+      "fresh": 15,
+      "kept": 86,
+      "n": 15
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 2,
+      "kept": 11,
+      "n": 2
+    },
+    "current": {
+      "fresh": 4,
+      "kept": 30,
+      "n": 4
+    },
+    "latest": {
+      "fresh": 4,
+      "kept": 15,
+      "n": 4
+    },
+    "live": {
+      "fresh": 1,
+      "kept": 2,
+      "n": 1
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 2
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 14,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 15,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 957,
+        "statesFreshness": true,
+        "text": "So that’s it then from India’s most successful day yet at the Asian Games 2026 in terms of number of medals won, with the country adding eight to their tally - four silver and four bronze - led by a double podium in the javelin throw. [2]\n\nIndia’s medal tally at the 2026 Asian Games climbed to 48 medals on Tuesday, with the country adding a gold and a silver in shooting on Day 11. [4]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [3]\n\nAsian Games 2026 Day 12 LIVE: India enters Day 12 of the Asian Games 2026 with strong medal opportunities across multiple events. [5]\n\nSources: [1] Asian Games 2026 India schedule today, September 28: Indian... (olympics.com)  [2] India at Asian Games 2026, Day 9: Double podium in javelin and... (olympics.com)  [3] Asian Games 2026: Updated medal tally after Day 8, September 27 (khelnow.com)  [4] Asian Games 2026 Medal Tally To"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 India medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 55.9,
+            "domain": "olympics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T18:40:24.000Z",
+            "relevance": 1.15,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.15,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 India schedule today, September 28: Indian...",
+            "url": "https://www.olympics.com/en/news/asian-games-2026-india-schedule-today-september-28-monday"
+          },
+          {
+            "ageHours": 50.9,
+            "domain": "olympics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T23:39:51.000Z",
+            "relevance": 1.06,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.06,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "India at Asian Games 2026, Day 9: Double podium in javelin and...",
+            "url": "https://www.olympics.com/en/news/asian-games-2026-live-scores-updates-results-india-september-28"
+          },
+          {
+            "ageHours": 57,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 19.6,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T06:54:18.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 Medal Tally Today... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-medal-tally-today-29/09/2026-india-rank-and-full-medals-table/articleshow/134558496.cms"
+          },
+          {
+            "ageHours": 4,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T22:35:52.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.36,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 LIVE Day 12: Bullseye beckons as Indian archers...",
+            "url": "https://www.hindustantimes.com/sports/others/asian-games-2026-live-updates-day-12-schedule-results-medal-tally-today-30-september-latest-updates-japan-101790691669532.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 4,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.048,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 13057,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 522,
+        "statesFreshness": true,
+        "text": "Completed results from earlier today are not included. [1]\n\nBelize v St Vincent and the Grenadines — in play (1H), 0 – 1. [1]\n\nIndependiente Medellín v Millonarios — in play (2H), 2 – 2. [2]\n\nLive scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nSources: [1] Belize v St Vincent and the Grenadines 0 – 1 (CONCACAF Nations League · 32 · 2026-09-30 02:00:00) (thesportsdb.com)  [2] Independiente Medellín v Millonarios 2 – 2 (Colombian Liga DIMAYOR · 67 · 2026-09-30 01:05:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "football results today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-30T02:32:52.499Z",
+            "relevance": 0.56,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.56,
+              "freshness": 0.24,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Belize v St Vincent and the Grenadines 0 – 1 (CONCACAF Nations League · 32 · 2026-09-30 02:00:00)",
+            "url": "https://www.thesportsdb.com/team/140259"
+          },
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-30T02:32:52.499Z",
+            "relevance": 0.56,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.56,
+              "freshness": 0.24,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Independiente Medellín v Millonarios 2 – 2 (Colombian Liga DIMAYOR · 67 · 2026-09-30 01:05:00)",
+            "url": "https://www.thesportsdb.com/team/137613"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.56,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 497,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 444,
+        "statesFreshness": true,
+        "text": "South Africa Cricket vs Australia Cricket — scheduled. [1]\n\nIndia Cricket vs West Indies Cricket — scheduled. [2]\n\nFree-tier feed: this is a small selection of today's fixtures, not the full schedule. [1]\n\nSources: [1] South Africa Cricket vs Australia Cricket (One Day International Series · 2026-09-30 11:30:00) (thesportsdb.com)  [2] India Cricket vs West Indies Cricket (One Day International Series · 2026-09-30 08:30:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest cricket match result",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-30T02:32:52.991Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.24,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "South Africa Cricket vs Australia Cricket (One Day International Series · 2026-09-30 11:30:00)",
+            "url": "https://www.thesportsdb.com/team/137150"
+          },
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-30T02:32:52.991Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.24,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "India Cricket vs West Indies Cricket (One Day International Series · 2026-09-30 08:30:00)",
+            "url": "https://www.thesportsdb.com/team/137143"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.98,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 388,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 436,
+        "statesFreshness": true,
+        "text": "Faroe Islands U21 vs Luxembourg U21 — not started. [1]\n\nPortugal U21 vs Gibraltar U21 — not started. [2]\n\nFree-tier feed: this is a small selection of today's fixtures, not the full schedule. [1]\n\nSources: [1] Faroe Islands U21 vs Luxembourg U21 (UEFA European Under-21 Championship · 2026-09-30 15:00:00) (thesportsdb.com)  [2] Portugal U21 vs Gibraltar U21 (UEFA European Under-21 Championship · 2026-09-30 15:00:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "live football scores",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-30T02:32:53.380Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.24,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Faroe Islands U21 vs Luxembourg U21 (UEFA European Under-21 Championship · 2026-09-30 15:00:00)",
+            "url": "https://www.thesportsdb.com/team/140202"
+          },
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-30T02:32:53.380Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.24,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Portugal U21 vs Gibraltar U21 (UEFA European Under-21 Championship · 2026-09-30 15:00:00)",
+            "url": "https://www.thesportsdb.com/team/140211"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 2,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.91,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 478,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1304,
+        "statesFreshness": false,
+        "text": "Sanction has not yet been decided\n\nDespite the guilty verdict, the Premier League has stressed that the process is not yet complete. [2]\n\nMORE FALLOUT ON MAN CITY CHARGES VERDICT\n\nMan City Charges: The Premier League’s Multi-Year Investigation Explained\nThe Potential Punishments Facing Man City for 115 Premier League Charges\nEvery Premier League Points Deduction in History—and the Clubs Hit by Them\nThe Premier League Champions If Man City Are Stripped of Titles [3]\n\n'Disappointed & Surprised': Manchester City Respond To Premier League Verdict On Financial Rule Breaches\n\nManchester City responded to the Premier League Commission's findings, saying the club is \"disappointed and surprised\" by the decision and continues to maintain that it is innocent of the accusations. [4]\n\nManchester City\n\nThe verdict has been delivered in the seismic case between the Premier League and Manchester City. ["
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Premier League standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "outside freshness window (escalated)": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 9,
+            "domain": "thestar.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:35:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Timeline of the Premier League vs. Manchester City",
+            "url": "https://www.thestar.com/sports/soccer/timeline-of-the-premier-league-vs-manchester-city/article_2ef9aa5a-9c7e-5222-8b76-7fff04e5b7cd.html"
+          },
+          {
+            "ageHours": 9.7,
+            "domain": "notjustok.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:48:37.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Premier League release statement on Manchester City financial regulation breaches",
+            "url": "https://notjustok.com/sports/premier-league-manchester-city-financial-rule-breaches-verdict"
+          },
+          {
+            "ageHours": 9.9,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:35:58.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "‘Sham’—Premier League Stun Man City With Scathing Official Guilty Verdict",
+            "url": "https://www.si.com/soccer/premier-league-stun-man-city-scathing-official-guilty-verdict"
+          },
+          {
+            "ageHours": 8.9,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:37:21.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "'Disappointed & Surprised': Manchester City Respond To Premier League Verdict On Financial Rule Breaches",
+            "url": "https://www.freepressjournal.in/sports/disappointed-surprised-manchester-city-respond-to-premier-league-verdict-on-financial-rule-breaches"
+          },
+          {
+            "ageHours": 9.5,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:00:01.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "The 10 Best Premier League Right Wingers of All Time—Ranked",
+            "url": "https://www.si.com/soccer/best-premier-league-right-wingers-all-time-ranked"
+          },
+          {
+            "ageHours": 16.5,
+            "domain": "hotspurhq.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:00:02.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "2026/27 Premier League Power Rankings: How Tottenham stack up after the September break",
+            "url": "https://hotspurhq.com/2026-27-premier-league-power-rankings-how-tottenham-stack-up-after-the-september-break-01m3m3p6xs35"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 8.9,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores",
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 3038,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1076,
+        "statesFreshness": true,
+        "text": "Log in here »\n\nHere is a roundup of stories from The Canadian Press designed to bring you up to speed ... [1]\n\nPresident Donald Trump’s previously announced bans affecting some alcoholic drinks, dairy byproducts and motorcycles, among other goods, mark the latest escalation of the trade war as the Trump administration seeks to pressure Canada into concessions in trade talks. [1]\n\nSlipknot Announce 2027 Stadium Tour With 11 Different Openers\n\nSlipknot have just announced a 2027 stadium tour with 11 different openers at select dates, including Marilyn Manson, Hatebreed, Bring Me the Horizon, Lamb of God, Motionless in White, Lorna Shore, Loathe, Acid Bath, Polyphia, Kublai Khan TX and Vended. [2]\n\nThe trade restrictions could prove devastating for the affected industries but are unlikely to significantly undermine Canada’s overall economic growth in the near term. [1]\n\nSources: [1] In the "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest IPL news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 18,
+            "domain": "brandonsun.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:31:47.000Z",
+            "relevance": 0,
+            "scores": {
+              "answerability": 0,
+              "authority": 0,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0,
+              "freshness": 0,
+              "relevance": 0,
+              "sourceQuality": 0
+            },
+            "title": "In the news today: Trade war escalates, Carney talks energy, AI chatbot for health",
+            "url": "https://www.brandonsun.com/national/2026/09/29/in-the-news-today-trade-war-escalates-carney-talks-energy-ai-chatbot-for-health"
+          },
+          {
+            "ageHours": 37.1,
+            "domain": "banana1015.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:29:35.000Z",
+            "relevance": 0,
+            "scores": {
+              "answerability": 0,
+              "authority": 0,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0,
+              "freshness": 0,
+              "relevance": 0,
+              "sourceQuality": 0
+            },
+            "title": "Slipknot Announce 2027 Stadium Tour With 11 Different Openers",
+            "url": "https://banana1015.com/ixp/366/p/slipknot-2027-tour-dates"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 18,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 2,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2206,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 801,
+        "statesFreshness": false,
+        "text": "Get the listings of soccer leagues and competitions for each region, including past seasons results and football statistics. [1]\n\nBlake Corum OVER 44.5 Rush Yards (-115) – Iain MacMillan\n\nEarlier this week, MacMillan shared in his Player Prop Countdown why Blake Corum is his No. [3]\n\nDenver has an elite secondary, but Adams is 1-for-1 in converting red-zone targets into touchdowns in 2026. [3]\n\nTipsters whom have lost a few matches in a row. [1]\n\nSources: [1] Botafogo SP vs Ponte Preta: Head-to-Head Analysis, Form Guide & Match Prediction - SoccerPunter.com (soccerpunter.com)  [2] Belgium U21 vs Wales U21: Young Lions Ready to Roar Against the Red Flames - SoccerPunter.com (soccerpunter.com)  [3] Best NFL Picks and Predictions for Rams vs. Broncos on Sunday Night Football in Week 3 (si.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Formula 1 2026 season results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 34.4,
+            "domain": "soccerpunter.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:11:12.000Z",
+            "relevance": 0,
+            "scores": {
+              "answerability": 0,
+              "authority": 0,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0,
+              "freshness": 0,
+              "relevance": 0,
+              "sourceQuality": 0
+            },
+            "title": "Botafogo SP vs Ponte Preta: Head-to-Head Analysis, Form Guide & Match Prediction - SoccerPunter.com",
+            "url": "https://www.soccerpunter.com/news/botafogo-sp-vs-ponte-preta-head-to-head-analysis-form-guide-match-prediction"
+          },
+          {
+            "ageHours": 35.3,
+            "domain": "soccerpunter.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:12:14.000Z",
+            "relevance": 0,
+            "scores": {
+              "answerability": 0,
+              "authority": 0,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0,
+              "freshness": 0,
+              "relevance": 0,
+              "sourceQuality": 0
+            },
+            "title": "Belgium U21 vs Wales U21: Young Lions Ready to Roar Against the Red Flames - SoccerPunter.com",
+            "url": "https://www.soccerpunter.com/news/belgium-u21-vs-wales-u21-young-lions-ready-to-roar-against-the-red-flames"
+          },
+          {
+            "ageHours": 60.5,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:00:02.000Z",
+            "relevance": 0,
+            "scores": {
+              "answerability": 0,
+              "authority": 0,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0,
+              "freshness": 0,
+              "relevance": 0,
+              "sourceQuality": 0
+            },
+            "title": "Best NFL Picks and Predictions for Rams vs. Broncos on Sunday Night Football in Week 3",
+            "url": "https://www.si.com/betting/best-nfl-picks-and-predictions-for-rams-vs-broncos-on-sunday-night-football-in-week-3"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 34.4,
+        "normalizedCount": 11,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1884,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 664,
+        "statesFreshness": false,
+        "text": "Bryson Graham sees something in his NBA past worth placing in the Bulls’ future\n\nReboots are a coin flip. [1]\n\nChris Mannix’s NBA Notes: The Latest on Jalen Duren and the Pistons\n\nPlus, LeBron once thought he would play for the Knicks? [2]\n\nSince the NBA is well known to be a league of relationships, it’s worth pointing out the common denominator within a few of Graham’s latest staff hirings. [1]\n\nNews, notes and observations from a busy Monday in the NBA ... [2]\n\nSources: [1] Bryson Graham sees something in his NBA past worth placing in the Bulls’ future (pippenainteasy.com)  [2] Chris Mannix’s NBA Notes: The Latest on Jalen Duren and the Pistons (si.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "NBA standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 37.5,
+            "domain": "pippenainteasy.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:00:03.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Bryson Graham sees something in his NBA past worth placing in the Bulls’ future",
+            "url": "https://pippenainteasy.com/bryson-graham-nba-past-bulls-future"
+          },
+          {
+            "ageHours": 15,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:34:58.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Chris Mannix’s NBA Notes: The Latest on Jalen Duren and the Pistons",
+            "url": "https://www.si.com/nba/chris-mannix-nba-notes-latest-jalen-duren-and-pistons"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 15,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.845,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1671,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 995,
+        "statesFreshness": false,
+        "text": "Kou Lei – Chop Serve and Chop Loop Combo\n\n(by: Bowmar Sports)\n\nIn this Butterfly Training Tips, Kou Lei is working with a student chopper on a combo of chopping the serve, followed by chopping a loop\n\nStay “In The Loop” with Butterfly professional table tennis equipment, table tennis news, table tennis technology, tournament results, and We Are Butterfly players, coaches, clubs and more [6]\n\n2026 NJSIAA girls tennis tournament brackets. [1]\n\nABN AMRO World Tennis Tournament: Day 6: Night Session. [5]\n\nBOONE – The Webster City girls tennis team took part in a Class 1A regional tournament for singles and doubles here on Wednesday. [8]\n\nSources: [1] Google News - NJSIAA girls tennis state tournament brackets are... (news.google.com)  [2] Paolini steers Italy past China in Billie Jean King Cup tennis tourney (philstar.com)  [3] Fabian Marozsan vs. Taro Daniel Hangzhou 2026... | ATP Tour | Te"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest tennis tournament results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 104.4,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T18:08:13.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - NJSIAA girls tennis state tournament brackets are...",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2p0NHZ1Q0VoRXVwSWdmQS03aVBpZ0FQAQ?hl=en-US&gl=US&ceid=US%3Aen"
+          },
+          {
+            "ageHours": 116.5,
+            "domain": "philstar.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:04:48.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "Paolini steers Italy past China in Billie Jean King Cup tennis tourney",
+            "url": "https://www.philstar.com/sports/2026/09/25/2558836/paolini-steers-italy-past-china-billie-jean-king-cup-tennis-tourney"
+          },
+          {
+            "ageHours": 114.4,
+            "domain": "atptour.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T08:07:38.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.43,
+              "sourceQuality": 0.07
+            },
+            "title": "Fabian Marozsan vs. Taro Daniel Hangzhou 2026... | ATP Tour | Tennis",
+            "url": "https://www.atptour.com/en/scores/stats-centre/live/2026/4713/MS012"
+          },
+          {
+            "ageHours": 75.5,
+            "domain": "tennisstats.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T23:01:03.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Curitiba Chall. Men Stats & Results - TennisStats.com",
+            "url": "https://tennisstats.com/tournament/curitiba-chall-men"
+          },
+          {
+            "ageHours": 102.1,
+            "domain": "sportsevents365.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T20:28:08.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "ABN AMRO World Tennis Tournament: Day... | Sports Events 365",
+            "url": "https://sportsevents365.com/event/391294?a_aid=4ae70507a906b"
+          },
+          {
+            "ageHours": 38.3,
+            "domain": "butterflyonline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T12:15:20.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Kou Lei – Chop Serve and Chop Loop Combo",
+            "url": "https://butterflyonline.com/kou-lei-chop-serve-and-chop-loop-combo"
+          },
+          {
+            "ageHours": 87.4,
+            "domain": "omanobserver.om",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:08:35.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.07
+            },
+            "title": "tennis - Oman Observer",
+            "url": "https://www.omanobserver.om/morearticles/sports/tennis?pgno=22"
+          },
+          {
+            "ageHours": 69,
+            "domain": "freemanjournal.net",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T05:33:48.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.77,
+              "freshness": 0.17,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "Webster City girls compete in regional tennis tournament",
+            "url": "https://www.freemanjournal.net/sports/local-sports/2026/09/webster-city-girls-compete-in-regional-tennis-tournament"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 38.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.829,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2329,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 947,
+        "statesFreshness": true,
+        "text": "Today’s Soccer Match Fixtures | Global Football Schedule on September 30, 2026. [1]\n\nEngland, Spain headline today’s fixtures\n\nAttention now turns to today’s 10 fixtures as Matchday 2 reaches its conclusion, with Czechia hosting England and Spain welcoming Croatia in the two headline League A encounters. [5]\n\nHere you can stream Scotland vs Switzerland with predictions, live scores, lineups, schedules, fixtures, minute-by-minute updates, and full match stats. [6]\n\nToday's paper.Hello folks and welcome to live coverage of the Socceroos’ second and final friendly match against Brazil. [9]\n\nSources: [1] Soccer Match Fixtures September 30, 2026: Full Schedule (fifaworldcupnews.com)  [2] World Championship of Legends 2026 Schedule, Fixtures & Match... (cricxtra.com)  [3] Fixtures, Schedule | Afghanistan Cricket | Cricinfo.com (cricinfo.com)  [4] Northern Premier League - West Division | Clith"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "today's match fixtures",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 15,
+            "domain": "fifaworldcupnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T11:31:55.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Soccer Match Fixtures September 30, 2026: Full Schedule",
+            "url": "https://www.fifaworldcupnews.com/soccer-match-fixtures-30-september-2026"
+          },
+          {
+            "ageHours": 17.7,
+            "domain": "cricxtra.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T08:51:15.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "World Championship of Legends 2026 Schedule, Fixtures & Match...",
+            "url": "https://www.cricxtra.com/world-championship-of-legends-2026-schedule-fixtures-match-dates"
+          },
+          {
+            "ageHours": 21.9,
+            "domain": "cricinfo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T04:37:03.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Fixtures, Schedule | Afghanistan Cricket | Cricinfo.com",
+            "url": "https://www.cricinfo.com/afghanistan/content/match/fixtures.html?team_country=40%3Bfuture%3D1"
+          },
+          {
+            "ageHours": 26.1,
+            "domain": "footballwebpages.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T00:24:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Northern Premier League - West Division | Clitheroe v Runcorn Linnets",
+            "url": "https://www.footballwebpages.co.uk/match/2026-2027/northern-premier-league-west-division/clitheroe/runcorn-linnets/582761"
+          },
+          {
+            "ageHours": 18.8,
+            "domain": "blueprint.ng",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:45:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Nations League: Italy thrash Türkiye, France edge Belgium *Full results, Tuesday fixtures",
+            "url": "https://blueprint.ng/nations-league-italy-thrash-turkiye-france-edge-belgium-full-results-tuesday-fixtures"
+          },
+          {
+            "ageHours": 7.7,
+            "domain": "camel1.tv",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T18:49:17.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Watch Scotland vs Switzerland Live Score, Free Streaming, Match...",
+            "url": "https://www.camel1.tv/football/match-scotland-vs-switzerland/live/dn1m1ghl9ygymoe"
+          },
+          {
+            "ageHours": 19.5,
+            "domain": "tennisonline.im",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T07:05:34.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Tennis Streams | Live Tennis Matches Today | Stream All Tennis...",
+            "url": "https://tennisonline.im/tennis-fixtures-online-stream"
+          },
+          {
+            "ageHours": 9.3,
+            "domain": "worldsoccertalk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:12:18.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Why is Christian Pulisic not playing today for USMNT against Chile in 2026 International friendly?",
+            "url": "https://worldsoccertalk.com/news/why-is-christian-pulisic-not-playing-today-for-usmnt-against-chile-in-2026-international-friendly"
+          },
+          {
+            "ageHours": 17.1,
+            "domain": "theguardian.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T09:24:55.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Australia v Brazil: men’s international football friendly – live",
+            "url": "https://www.theguardian.com/football/live/2026/sep/29/socceroos-australia-vs-brazil-football-live-scores"
+          },
+          {
+            "ageHours": 25,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:33:25.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Ch",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-29-live-streaming-check-todays-events-timings-fixtures-and-tv-channel-294887"
+          },
+          {
+            "ageHours": 22.9,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T03:39:40.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.01,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "BAN vs MAS 4th Quarter Final Results | Bangladesh vs Malaysia...",
+            "url": "https://www.hindustantimes.com/cricket/match-result-ban-vs-mas-asian-games-men%E2%80%99s-t20i-2026-4th-quarter-final-bangladesh-vs-malaysia-t20-bamal09292026274305"
+          },
+          {
+            "ageHours": 11.7,
+            "domain": "ewebdiscussion.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:48:15.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "What games offer HadesBet UK?",
+            "url": "https://www.ewebdiscussion.com/threads/what-games-offer-hadesbet-uk.434680"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 7.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.939,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1533,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1085,
+        "statesFreshness": true,
+        "text": "It almost opened the door for Verstappen, who fell short of victory by just one tenth as Russell took his first F1 grand slam and just his third win of the season.Tsolov did not finish the first Feature Race after being involved in a multi-car incident, which was won by Alexander Dunne from pole. [2]\n\nAzerbaijan’s capital hosted its first F1 race in 2016 as the European Grand Prix , won by Nico Rosberg . [5]\n\nIn today’s race I just tried to… today was about damage limitation.F1 will move on to Malaysia and Singapore over the next two weekends, as the season heads into a busy final phase – and Antonelli is hopeful that Azerbaijan will turn out to be only a blip in the road. [3]\n\nWe do remember some races here; they have very heavy rain. [1]\n\nSources: [1] Sepang roars back to life as F1 returns after nine-year wait (malaymail.com)  [2] All the key moments from the 2026 Azerbaijan Grand Pri"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "who won the most recent F1 race",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 17.7,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:49:11.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Sepang roars back to life as F1 returns after nine-year wait",
+            "url": "https://www.malaymail.com/news/sports/2026/09/29/sepang-roars-back-to-life-as-f1-returns-after-nine-year-wait/237011"
+          },
+          {
+            "ageHours": 81.3,
+            "domain": "formula1.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T17:12:52.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "All the key moments from the 2026 Azerbaijan Grand Prix",
+            "url": "https://www.formula1.com/en/latest/article/azerbaijan-lowdown-all-the-key-moments-as-russell-takes-victory-and-baku-puts-on-another-show.7l4pAjByompPX9hC6YkB8F"
+          },
+          {
+            "ageHours": 83.7,
+            "domain": "formula1.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T14:51:09.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Antonelli vows to learn from ‘worst weekend of the season’",
+            "url": "https://www.formula1.com/en/latest/article/antonelli-vows-to-take-lessons-from-worst-weekend-of-the-season-in-azerbaijan.2gFddBKt9w2Zp3y6deTe5r"
+          },
+          {
+            "ageHours": 83.4,
+            "domain": "motorsport.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T15:09:00.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Kimi Antonelli: I was \"driving like my grandmother\" in Baku F1 race",
+            "url": "https://www.motorsport.com/f1/news/kimi-antonelli-driving-like-my-grandmother-in-baku-f1-race/10859321"
+          },
+          {
+            "ageHours": 51.8,
+            "domain": "formulaonehistory.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T22:47:27.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Every F1 Race Held Outside The Countries They Were Named After",
+            "url": "https://www.formulaonehistory.com/every-f1-race-held-outside-the-countries-they-were-named-after"
+          },
+          {
+            "ageHours": 108.3,
+            "domain": "indiatimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T14:17:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Will Max Verstappen join McLaren? CEO Zak Brown’s 'wide open' remark sparks backlash as F1 fans accuse him of ",
+            "url": "https://www.indiatimes.com/trending/will-max-verstappen-join-mclaren-ceo-zak-browns-wide-open-remark-sparks-backlash-as-f1-fans-accuse-him-of-throwing-oscar-piastri-under-the-bus/articleshow/134487061.html"
+          },
+          {
+            "ageHours": 26.6,
+            "domain": "hachette.co.nz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Racing Legends by David Clayton - Hachette Aotearoa | New Zealand",
+            "url": "https://www.hachette.co.nz/david-clayton/racing-legends"
+          },
+          {
+            "ageHours": 85.5,
+            "domain": "timeslive.co.za",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T13:02:12.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Russell wins Azerbaijan Grand Prix to cut Antonelli’s F1 title lead",
+            "url": "https://www.timeslive.co.za/motoring/2026-09-26-russell-wins-azerbaijan-grand-prix-to-cut-antonellis-f1-title-lead"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 17.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.88,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1489,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 889,
+        "statesFreshness": true,
+        "text": "Asian Games 2026: Updated Indian medal tally after 27th September\n\nIndia now have 37 medals – 4 gold, 16 silver and 17 bronze and are placed 12th in the overall standings. [1]\n\nIndia's Asian Games 2026 schedule today, Monday, September 28, covers cricket, athletics, shooting, boxing, squash and hockey.India’s Asian Games 2026 medal tally. [2]\n\nRelated: Asian Games 2026: India’s medal winners, live medal tally, results\n\nWhat to expect from the Indian contingent on 28th September? [1]\n\nAsian Games 2026 wrestling: Indian medal winners. [3]\n\nSources: [1] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [2] Asian Games 2026 India schedule today, September 28: Indian... (olympics.com)  [3] Asian Games 2026 wrestling: Scores, schedule, results of Indian... (olympics.com)  [4] Asian Games 2026: Updated medal tally after Day 8, September 27 (khelnow.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 medal tally India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 50.4,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:09:28.000Z",
+            "relevance": 1.12,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.12,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+            "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+          },
+          {
+            "ageHours": 55.9,
+            "domain": "olympics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T18:40:24.000Z",
+            "relevance": 1.11,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.11,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 India schedule today, September 28: Indian...",
+            "url": "https://www.olympics.com/en/news/asian-games-2026-india-schedule-today-september-28-monday"
+          },
+          {
+            "ageHours": 22.3,
+            "domain": "olympics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T04:15:19.000Z",
+            "relevance": 1.07,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.07,
+              "freshness": 0.21,
+              "relevance": 0.43,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 wrestling: Scores, schedule, results of Indian...",
+            "url": "https://www.olympics.com/en/news/asian-games-2026-wrestling-scores-results-winners-list-india"
+          },
+          {
+            "ageHours": 57,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 4,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T22:35:52.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.36,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 LIVE Day 12: Bullseye beckons as Indian archers...",
+            "url": "https://www.hindustantimes.com/sports/others/asian-games-2026-live-updates-day-12-schedule-results-medal-tally-today-30-september-latest-updates-japan-101790691669532.html"
+          },
+          {
+            "ageHours": 12.7,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T13:53:01.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 Medal Tally: How two gold... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-medal-tally-how-two-gold-medals-lifted-india-back-into-the-top-10/articleshow/134568178.cms"
+          },
+          {
+            "ageHours": 61.1,
+            "domain": "news18.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T13:26:54.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026, Day 9: Athletics Fires 5 Medals As India's Tally...",
+            "url": "https://www.news18.com/sports/other-sports/asian-games-2026-day-9-athletics-fires-5-medals-as-indias-tally-touches-37-ws-l-10355831.html"
+          },
+          {
+            "ageHours": 57.3,
+            "domain": "english.mathrubhumi.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T17:12:10.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 medal tally: India reaches 37 after day...",
+            "url": "https://english.mathrubhumi.com/sports/news/asian-games-2026-medal-tally-india-day-9-l0dfxpwb"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 4,
+        "normalizedCount": 12,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.041,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1427,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 758,
+        "statesFreshness": true,
+        "text": "Asian Games 2026 live, India updates from September 26, Saturday. [1]\n\nChikitha Taniparthi and Sahil Jadhav will compete in the compound mixed team semi-final against Thailand, with the Asian Games champions earning an LA 2028 Olympics quota. [2]\n\nIndia will also have medal chances in the men’s and women’s compound team events on Day 11 at the Asian Games, according to Olympics.com. [2]\n\nGet scores, athletes’ results and medal winners from today, Day 7. [1]\n\nSources: [1] Asian Games 2026 live, September 26: Know India scores, updates... (olympics.com)  [2] Asian Games 2026 LIVE: Archery, hockey, shooting headline India’s medal hunt on Asian Games Day 11 (thehindu.com)  [3] Aichi Nagoya 2026 – 20th Asian Games: Hayato Katsuki... (marciadalmondo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest Asian Games 2026 results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 98.8,
+            "domain": "olympics.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T23:44:33.000Z",
+            "relevance": 1.07,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.07,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Asian Games 2026 live, September 26: Know India scores, updates...",
+            "url": "https://www.olympics.com/en/news/asian-games-2026-live-scores-updates-results-india-september-26"
+          },
+          {
+            "ageHours": 1.8,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:46:08.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.23,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 LIVE: Archery, hockey, shooting headline India’s medal hunt on Asian Games Day 11",
+            "url": "https://www.thehindu.com/sport/asian-games-2026-live-updates-on-september-30-2026/article71525800.ece"
+          },
+          {
+            "ageHours": 41.4,
+            "domain": "marciadalmondo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T09:10:33.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Aichi Nagoya 2026 – 20th Asian Games: Hayato Katsuki...",
+            "url": "https://marciadalmondo.com/results/2026/aichi-nagoya-2026-20th-asian-games-hayato-katsuki-jpn-and-toxanbayeva-yasmina-kaz-are-the-winner-of-the-marathon-race-walk"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.98,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 895,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1089,
+        "statesFreshness": true,
+        "text": "Today Luke Campbell became the first boxer from these shores to claim top prize in the bantamweight category since 1908, and Ed McKeever clinched victory in the men's 200m kayak final.olympic medals table.jpg. [1]\n\nWinter Paralympics Medal Table.In 1996, five-time Olympic medalist Janet Evans ran through the Olympic Stadium in Atlanta, torch in hand. [6]\n\nOlympic Medalist Elizabeth Beisel Is On a National Tour, for Music, Not Swimming.It’s not his fault, both of us did a great job. [8]\n\nReach relevant USA TODAY Network news sites.Her comeback is not simply about adding another medal to a career that already includes 11 Olympic medals and 20 World Championship medals. [9]\n\nSources: [1] London 2012: Double medalist Mo adds his Midas... | Daily Mail Online (dailymail.com)  [2] Olympedia – Francisco Martín (olympedia.org)  [3] The miracle on the wrestling mat (ilfoglio.it)  [4] Asian Games 2"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Olympic medal table",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [
+          {
+            "ageHours": 62.8,
+            "domain": "dailymail.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-27T11:45:01.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "London 2012: Double medalist Mo adds his Midas... | Daily Mail Online",
+            "url": "https://www.dailymail.com/news/article-2187081/London-2012-Double-medalist-Mo-adds-Midas-touch-GB-pick-THREE-golds--Daley-scoops-bronze-final-night.html"
+          },
+          {
+            "ageHours": 95.9,
+            "domain": "olympedia.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T02:36:59.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.04
+            },
+            "title": "Olympedia – Francisco Martín",
+            "url": "https://www.olympedia.org/athletes/2303984"
+          },
+          {
+            "ageHours": 89.9,
+            "domain": "ilfoglio.it",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T08:37:27.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "The miracle on the wrestling mat",
+            "url": "https://www.ilfoglio.it/en/sport/2026/09/26/news/the-miracle-on-the-wrestling-mat--408688"
+          },
+          {
+            "ageHours": 1.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:37:42.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule Today, September 30: Jyothi Vennam, Lovlina Borgohain In Medal Hunt; Hockey Te",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-today-september-30-jyothi-vennam-lovlina-borgohain-in-medal-hunt-hockey-team-in-semifinal-medal-events-live-streaming-details-ist-timings-295504"
+          },
+          {
+            "ageHours": 1.8,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:46:08.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 LIVE: Archery, hockey, shooting headline India’s medal hunt on Asian Games Day 11",
+            "url": "https://www.thehindu.com/sport/asian-games-2026-live-updates-on-september-30-2026/article71525800.ece"
+          },
+          {
+            "ageHours": 12,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T14:31:18.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympic torch will travel through all 50 states for first time ahead of...",
+            "url": "https://www.nytimes.com/athletic/7642670/2026/09/29/los-angeles-olympics-torch-relay-50-states-atlanta"
+          },
+          {
+            "ageHours": 21.7,
+            "domain": "mensxp.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:50:02.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: PV Sindhu Blames Poor Scheduling for Exit & We Don't Blame Her",
+            "url": "https://www.mensxp.com/sports/other-sports/186057-asian-games-2026-pv-sindhu-blames-poor-scheduling-for-exit-and-we-dont-blame-her.html"
+          },
+          {
+            "ageHours": 7.4,
+            "domain": "swimswam.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T19:09:36.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "European Aquatics Responds to Critical Comments on Disqualifications...",
+            "url": "https://swimswam.com/european-aquatics-responds-to-critical-comments-on-disqualifications-of-hungarian-athletes-at-open-water-swimming-cup"
+          },
+          {
+            "ageHours": 14.4,
+            "domain": "einnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T12:06:37.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Allyson Felix Embraces Motherhood and an Olympic Comeback with...",
+            "url": "https://www.einnews.com/pr_news/945813073/allyson-felix-embraces-motherhood-and-an-olympic-comeback-with-momcozy"
+          },
+          {
+            "ageHours": 12.7,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T13:53:01.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 Medal Tally: How two gold... - The Times of India",
+            "url": "https://timesofindia.indiatimes.com/sports/asian-games-2026/asian-games-2026-medal-tally-how-two-gold-medals-lifted-india-back-into-the-top-10/articleshow/134568178.cms"
+          },
+          {
+            "ageHours": 21.6,
+            "domain": "sportzdaily.in",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T04:56:22.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games Medal Tally: Why India dropped out of top 10 despite...",
+            "url": "https://sportzdaily.in/asian-games-medal-tally-why-india-dropped-out-of-top-10-despite-winning-seven-more-medals-asian-games-2026-news-2"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 1.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch",
+          "sports-scores"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.873,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2428,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          10,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1051,
+        "statesFreshness": false,
+        "text": "Argentina have won the World Cup after a thrilling match which saw them take the lead and then lose it again twice before winning a penalty shootout, in what is already being described as one of the greatest finals in history. [2]\n\nFrom Iran to the World Cup Final: Australian Referee Makes History. [4]\n\nThe 1982 World Cup group stage saw one of the most cynical displays of \"match-fixing\" without technically breaking any rules.Perhaps the most infamous moment in World Cup history unfolded during the 1986 quarter-final between Argentina and England. [10]\n\nOnly two other teams in history have reached a World Cup semi-final having conceded just once - France in 1998 and Italy in 2006, and both went on to lift the trophy. [12]\n\nSources: [1] 2022 FIFA World Cup final (en.wikipedia.org)  [2] Qatar World Cup: Fairytale ending for Messi – Argentina... | Sky News (news.sky.com)  [3] I finally made"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "history of the World Cup final",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 1.09,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.09,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "2022 FIFA World Cup final",
+            "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.sky.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1.03,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 1.03,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Qatar World Cup: Fairytale ending for Messi – Argentina... | Sky News",
+            "url": "https://news.sky.com/story/qatar-world-cup-fairytale-ending-for-messi-argentina-beat-france-in-penalty-shootout-12770790"
+          },
+          {
+            "ageHours": 47820.3,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-04-16T14:18:14Z",
+            "relevance": 1.02,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.02,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "I finally made a free app for collecting panini stickers",
+            "url": "https://news.ycombinator.com/item?id=26834185"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.google.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Google News - Argentina vs Spain in World Cup final - Overview",
+            "url": "https://news.google.com/stories/CAAqNggKIjBDQklTSGpvSmMzUnZjbmt0TXpZd1NoRUtEd2k0a2FYSkVSR0NPUzB3dVpQZVd5Z0FQAQ?hl=en-KE&gl=KE&ceid=KE%3Aen"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "searxng",
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "List of FIFA World Cup finals - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals"
+          },
+          {
+            "ageHours": null,
+            "domain": "fifa.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "FIFA World Cup 2026™ Final",
+            "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/final"
+          },
+          {
+            "ageHours": null,
+            "domain": "topendsports.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "List of Soccer World Cup historical firsts",
+            "url": "https://www.topendsports.com/events/worldcupsoccer/firsts.htm"
+          },
+          {
+            "ageHours": 1019.5,
+            "domain": "dailytrust.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T15:04:12.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "FLASHBACK: How World Cup final referee was arrested at a criminal location 6 years ago",
+            "url": "https://dailytrust.com/flashback-how-world-cup-final-referee-was-arrested-at-a-criminal-location-6-years-ago"
+          },
+          {
+            "ageHours": null,
+            "domain": "sportco.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.99,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Top 7 Most Emotional Moments in World Cup History",
+            "url": "https://www.sportco.io/article/top-7-most-emotional-moments-in-world-cup-history-218542"
+          },
+          {
+            "ageHours": null,
+            "domain": "aol.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.99,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.99,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "11 infamous World Cup moments we still think about - AOL",
+            "url": "https://www.aol.com/articles/11-infamous-world-cup-moments-185643791.html"
+          },
+          {
+            "ageHours": 1051.9,
+            "domain": "onthisday.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T06:39:23.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "FIFA World Cup History",
+            "url": "https://www.onthisday.com/sport/soccer/soccer-tournaments/football-world-cup"
+          },
+          {
+            "ageHours": null,
+            "domain": "sportsmole.co.uk",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Spain vs Argentina: Lionel Messi’s farewell, Lamine... - Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/spain/world-cup-2026/feature/why-spain-vs-argentina-is-the-greatest-world-cup-final-in-years_601410.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1019.5,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.008,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1913,
+      "vertical": "sports"
+    }
+  ],
+  "total": 15
+}
