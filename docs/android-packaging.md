@@ -22,9 +22,42 @@ missing and is called out explicitly rather than worked around.
 Safety note: `sw.js` never caches Convex API responses. A stale cached answer
 from Omi would be worse than an offline error, so only the app shell is cached.
 
-## Gap: raster icons
+## Raster icons — RESOLVED (were the last BLOCKED code-side item)
 
-The manifest currently ships a single **SVG** icon. That is enough for Chrome's
+**Status: done.** The icons this document used to call an owner-side blocker now
+exist in the repository, are committed, and are wired into the manifest.
+
+`scripts/generateBrandIcons.ts` renders the master mark to PNG using nothing but
+the standard library (no libcairo, no ImageMagick, no native dependency, nothing
+added to the browser bundle). It was written for exactly the reason this section
+used to be blocked: the environment has no rasteriser. Run it with:
+
+```bash
+bun scripts/generateBrandIcons.ts
+```
+
+Committed output:
+
+| File | Size | Purpose |
+|---|---|---|
+| `public/icons/icon-192.png` | 192×192 | Android launcher / PWA install |
+| `public/icons/icon-512.png` | 512×512 | Play listing, high-density |
+| `public/icons/maskable-512.png` | 512×512 | Maskable — art inside Android's 80% safe zone, opaque background |
+| `public/icons/apple-touch-icon.png` | 180×180 | iOS home screen |
+
+`public/manifest.webmanifest` lists all of them (`purpose: any` and
+`purpose: maskable`) alongside the SVGs, which stay for desktop sharpness. The
+geometry is verified by `tests/omiBrandIdentity.test.ts`, which reads each PNG's
+IHDR header and fails if a size is wrong or a file is a stub.
+
+**Nothing here needs a design tool or a paid service any more.** If the mark
+itself changes, change `public/logo.svg` *and* the constants in
+`generateBrandIcons.ts` in the same commit, then re-run the script.
+
+<details>
+<summary>Original gap analysis (kept for context — no longer applies)</summary>
+
+The manifest used to ship a single **SVG** icon. That is enough for Chrome's
 desktop/Android *install* prompt, but it is **not** enough for store packaging:
 
 - Google Play requires a **512×512 PNG** app icon for the listing.
@@ -58,7 +91,9 @@ build dependency for two static files, so this is left as an explicit
 3. No code change is needed anywhere else: `index.html` references the manifest
    by path, and `sw.js` already caches PNGs under `/assets/` rules.
 
-## Packaging path (once the icons exist)
+</details>
+
+## Packaging path
 
 A Trusted Web Activity is the right target: it renders the real Omi web app
 full-screen with no browser UI, so there is no second codebase to keep in sync

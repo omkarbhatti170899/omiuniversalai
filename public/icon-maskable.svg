@@ -1,8 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Omi">
-  <!-- Full-bleed background (required for maskable icons) -->
-  <rect width="512" height="512" fill="#121216"/>
-  <!-- Brand mark kept within the maskable safe zone (centre 80%) -->
-  <circle cx="256" cy="256" r="118" fill="none" stroke="#7d8cf5" stroke-width="34"/>
-  <circle cx="256" cy="256" r="30" fill="#7d8cf5"/>
-  <circle cx="256" cy="116" r="20" fill="#c9d4ff"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  OMI UNIVERSAL AI — maskable app icon.
+
+  Android crops a maskable icon to whatever shape the launcher uses (circle,
+  squircle, rounded square) and guarantees only the inner 80% is safe. So this
+  variant does two things the master mark must NOT do:
+
+    1. paints the near-black background edge-to-edge (no transparency, or the
+       crop would show whatever is behind the launcher);
+    2. scales the artwork to 80% and re-centres it, so no node of the orbital
+       ring is ever clipped by a circular crop.
+
+  Same geometry as public/logo.svg — a variant, not a redraw.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Omi Universal AI">
+  <defs>
+    <linearGradient id="omiMCore" x1="205" y1="205" x2="307" y2="307" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8B98FF"/>
+      <stop offset="0.55" stop-color="#6E7BFF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="omiMRing" x1="148" y1="163" x2="364" y2="349" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#6E7BFF" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#8B98FF" stop-opacity="0.55"/>
+    </linearGradient>
+    <radialGradient id="omiMGlow" cx="256" cy="256" r="157" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6E7BFF" stop-opacity="0.30"/>
+      <stop offset="0.55" stop-color="#6E7BFF" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#6E7BFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Opaque canvas: the launcher crop must never reveal a transparent hole. -->
+  <rect width="512" height="512" fill="#0B0B0F"/>
+
+  <!-- Artwork at 80% (0.8 scale about the centre) so it survives any mask. -->
+  <g transform="translate(51.2 51.2) scale(0.8)">
+    <circle cx="256" cy="256" r="196" fill="url(#omiMGlow)"/>
+    <g transform="rotate(-22 256 256)">
+      <ellipse cx="256" cy="256" rx="176" ry="132" fill="none"
+               stroke="url(#omiMRing)" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="424" cy="256" r="19" fill="url(#omiMCore)"/>
+      <circle cx="140" cy="192" r="13" fill="#22D3EE"/>
+      <circle cx="196" cy="374" r="11" fill="#8B98FF"/>
+    </g>
+    <circle cx="256" cy="256" r="74" fill="url(#omiMCore)"/>
+  </g>
 </svg>

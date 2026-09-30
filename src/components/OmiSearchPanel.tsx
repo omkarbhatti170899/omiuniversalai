@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
+import { TrustStrip } from "@/components/answer/TrustStrip";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import {
@@ -422,17 +423,28 @@ export function OmiSearchPanel({
           <div className="flex items-center justify-center gap-2">
             <Globe className="size-4 text-primary" />
             <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Andromeda · Universal Meta-Search
+              Andromeda · Search &amp; Research
             </span>
           </div>
           <h2 className="mt-2 text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            Ask Andromeda anything
+            Ask anything. Omi checks it before answering.
           </h2>
           <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
-            Parallel retrieval across SearXNG, Wikipedia, arXiv, OpenAlex, Open
-            Library, Hacker News and more — deduplicated, ranked, cited. $0
-            per search, no API keys required.
+            Andromeda searches across the live web and free knowledge sources,
+            reads what it finds, cross-checks the claims, and hands back an
+            answer with its sources attached.
           </p>
+
+          {/* The journey, not the plumbing. Provider names are infrastructure and
+              belong in the disclosure below, not in the first thing a user reads. */}
+          <ol className="mx-auto mt-5 flex max-w-lg flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+            {["Search", "Find", "Compare", "Verify", "Answer"].map((step, i, all) => (
+              <li key={step} className="flex items-center gap-2">
+                <span className={i === all.length - 1 ? "text-primary" : undefined}>{step}</span>
+                {i < all.length - 1 ? <span className="text-border">→</span> : null}
+              </li>
+            ))}
+          </ol>
 
           <div className="mx-auto mt-6 flex max-w-2xl flex-col gap-3 sm:flex-row">
             <div className="relative flex-1">
@@ -622,6 +634,11 @@ export function OmiSearchPanel({
                       {renderAnswer(s.answer)}
                     </p>
 
+                    {/* Trust strip. Every value here is derived from what actually
+                        came back — no invented counts, no "verified" that did not
+                        happen. See lib/sourceVerification.ts for the rules. */}
+                    <TrustStrip result={s} />
+
                     {s.citations.length > 0 && (
                       <div>
                         <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -650,16 +667,22 @@ export function OmiSearchPanel({
                                   </p>
                                 )}
                                 {c.providers && c.providers.length > 0 && (
-                                  <div className="mt-1 flex flex-wrap gap-1">
-                                    {c.providers.slice(0, 4).map((p) => (
-                                      <span
-                                        key={p}
-                                        className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-medium text-primary"
-                                      >
-                                        {p}
-                                      </span>
-                                    ))}
-                                  </div>
+                                  <details className="group/prov mt-1">
+                                    <summary className="cursor-pointer list-none text-[10px] text-muted-foreground/70 underline decoration-dotted underline-offset-2 hover:text-foreground">
+                                      via {c.providers.length} source
+                                      {c.providers.length === 1 ? "" : "s"}
+                                    </summary>
+                                    <div className="mt-1 flex flex-wrap gap-1">
+                                      {c.providers.slice(0, 4).map((p) => (
+                                        <span
+                                          key={p}
+                                          className="rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-medium text-primary"
+                                        >
+                                          {p}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  </details>
                                 )}
                               </div>
                             </a>

@@ -23,6 +23,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { BRAND, OmiMark } from "@/components/brand/OmiMark";
 import {
   Bell,
   BookMarked,
@@ -74,37 +75,65 @@ type NavItem = {
  * Grouping is the navigation hierarchy: what you do (create), what Omi
  * reasons with (intelligence), and what runs underneath (system).
  */
+/**
+ * Progressive disclosure, not an admin panel.
+ *
+ * The sidebar used to group by internal team ("Create / Intelligence /
+ * System"), which read as tooling rather than a product. It now groups by how
+ * often something is used: PRIMARY is the daily loop, TOOLS are used when
+ * needed, AUTOMATION runs on its own, SYSTEM is configuration.
+ *
+ * Nothing was removed. Every id below existed before, so no view became
+ * unreachable — only its position changed.
+ */
 const NAV_GROUPS: Array<{ label: string; items: NavItem[] }> = [
   {
-    label: "Create",
+    label: "Primary",
     items: [
       { id: "home", label: "Home", icon: Home, ready: true },
       { id: "chat", label: "Chat with Omi", icon: MessageSquare, ready: true },
-      { id: "image", label: "Image Studio", icon: ImageIcon, ready: true },
+      { id: "search", label: "Andromeda", icon: Search, ready: true },
+      { id: "research", label: "Research", icon: Globe, ready: true },
       { id: "projects", label: "Projects", icon: FolderKanban, ready: true },
     ],
   },
   {
-    label: "Intelligence",
+    label: "Tools",
     items: [
-      { id: "search", label: "Andromeda", icon: Search, ready: true },
+      { id: "files", label: "Files", icon: Files, ready: true },
+      { id: "knowledge", label: "Knowledge", icon: BookOpen, ready: true },
       { id: "knowledge-intelligence", label: "Knowledge AI", icon: BookMarked, ready: true },
-      { id: "research", label: "Research", icon: Globe, ready: true },
-      { id: "agents", label: "Agents", icon: Bot, ready: true },
+      { id: "image", label: "Image Studio", icon: ImageIcon, ready: true },
       { id: "memory", label: "Memory", icon: Brain, ready: true },
       { id: "emotions", label: "Emotions AI", icon: Sparkles, ready: true },
     ],
   },
   {
-    label: "System",
+    label: "Automation",
     items: [
+      { id: "agents", label: "Agents", icon: Bot, ready: true },
       { id: "tasks", label: "Tasks", icon: ListChecks, ready: true },
       { id: "automation", label: "Automation", icon: Workflow, ready: true },
-      { id: "files", label: "Files", icon: Files, ready: true },
-      { id: "knowledge", label: "Knowledge", icon: BookOpen, ready: true },
+    ],
+  },
+  {
+    label: "System",
+    items: [
       { id: "settings", label: "Settings", icon: Settings, ready: true },
     ],
   },
+];
+
+/**
+ * Mobile is designed, not squeezed: five destinations, with everything else
+ * one tap away in the "More" sheet. Chat sits centre because it is the primary
+ * interaction, and the composer always sits above this bar.
+ */
+const MOBILE_NAV: NavItem[] = [
+  { id: "home", label: "Home", icon: Home, ready: true },
+  { id: "chat", label: "Chat", icon: MessageSquare, ready: true },
+  { id: "search", label: "Andromeda", icon: Search, ready: true },
+  { id: "files", label: "Files", icon: Files, ready: true },
 ];
 
 const VIEW_TITLES: Record<WorkspaceView, string> = {
@@ -125,22 +154,11 @@ const VIEW_TITLES: Record<WorkspaceView, string> = {
   settings: "Settings",
 };
 
-function OmiMark({ className }: { className?: string }) {
-  return (
-    <span
-      className={cn(
-        "relative flex size-9 shrink-0 items-center justify-center rounded-[10px] border border-white/10 bg-gradient-to-b from-white/[0.09] to-white/[0.02] text-[15px] font-semibold tracking-tight text-foreground shadow-[0_1px_0_0_oklch(1_0_0/6%)_inset]",
-        className,
-      )}
-    >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent"
-      />
-      O
-    </span>
-  );
-}
+/**
+ * The sidebar previously drew its own "O" in a bordered box. That is now the
+ * shared brand mark (imported above), so the app cannot drift into a second
+ * logo — one mark, everywhere.
+ */
 
 function NavList({
   view,
@@ -271,7 +289,7 @@ export function WorkspaceShell({
               collapsed && "justify-center px-0",
             )}
           >
-            <OmiMark />
+            <OmiMark className="size-8" />
             {!collapsed && (
               <div className="min-w-0 leading-tight">
                 <p className="truncate text-[13px] font-semibold tracking-[0.18em]">
@@ -352,7 +370,7 @@ export function WorkspaceShell({
                 >
                   <SheetHeader className="px-4 pb-2 pt-5">
                     <SheetTitle className="flex items-center gap-3 text-left text-[13px] font-semibold tracking-[0.18em]">
-                      <OmiMark />
+                      <OmiMark className="size-7" />
                       OMI
                     </SheetTitle>
                     <SheetDescription className="sr-only">
@@ -501,14 +519,60 @@ export function WorkspaceShell({
             </div>
           </header>
 
-          {/* Content */}
-          <main className="flex-1 px-4 py-6 sm:px-6 lg:px-8">{children}</main>
+          {/* Content. Extra bottom padding on mobile clears the tab bar, so the
+              composer is never trapped underneath it. */}
+          <main className="flex-1 px-4 pb-28 pt-6 sm:px-6 md:pb-6 lg:px-8">
+            {children}
+          </main>
+
+          {/* Mobile tab bar — designed for the phone, not a squeezed sidebar.
+              Five destinations; everything else lives in the More sheet, which
+              is the same nav list the hamburger opens. */}
+          <nav
+            aria-label="Primary"
+            className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/90 backdrop-blur-xl md:hidden"
+            style={{ paddingBottom: viewport.safeArea.bottom }}
+          >
+            <div className="grid grid-cols-5">
+              {MOBILE_NAV.map((item) => {
+                const active = view === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => onNavigate(item.id)}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "flex min-h-[3.25rem] cursor-pointer flex-col items-center justify-center gap-1 py-2 text-[10px] transition-colors",
+                      active ? "text-primary" : "text-muted-foreground",
+                    )}
+                  >
+                    <item.icon className="size-5" />
+                    <span className="leading-none">{item.label}</span>
+                  </button>
+                );
+              })}
+              <button
+                type="button"
+                onClick={() => setMobileNavOpen(true)}
+                aria-label="More options"
+                className={cn(
+                  "flex min-h-[3.25rem] cursor-pointer flex-col items-center justify-center gap-1 py-2 text-[10px] transition-colors",
+                  !MOBILE_NAV.some((i) => i.id === view)
+                    ? "text-primary"
+                    : "text-muted-foreground",
+                )}
+              >
+                <Menu className="size-5" />
+                <span className="leading-none">More</span>
+              </button>
+            </div>
+          </nav>
 
           <footer
-            className="border-t border-border/60 px-4 py-4 text-center text-[11px] text-muted-foreground/70 sm:px-6"
-            style={{ paddingBottom: Math.max(16, viewport.safeArea.bottom) }}
+            className="hidden border-t border-border/60 px-4 py-4 text-center text-[11px] text-muted-foreground/70 md:block"
           >
-            Omi Universal AI · created by Mr. Omkar Prakash Bhatti ·{" "}
+            Omi Universal AI · {BRAND.creator} ·{" "}
             <Link to="/" className="transition-colors hover:text-foreground">
               Ominnovations
             </Link>

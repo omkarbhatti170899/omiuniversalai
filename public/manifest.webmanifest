@@ -1,7 +1,7 @@
 {
   "name": "Omi Universal AI — Ominnovations Intelligence",
   "short_name": "Omi",
-  "description": "Omi Universal AI + Andromeda universal search — provider-neutral, free-first intelligence by Ominnovations.",
+  "description": "One Intelligence. Infinite Possibilities. Omi Universal AI brings conversation, live research, knowledge, memory, files, vision and intelligent tools into one workspace.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
@@ -11,9 +11,27 @@
   "lang": "en",
   "dir": "ltr",
   "categories": ["productivity", "utilities", "education"],
-  "background_color": "#121216",
-  "theme_color": "#121216",
+  "background_color": "#0B0B0F",
+  "theme_color": "#0B0B0F",
   "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
     {
       "src": "logo.svg",
       "sizes": "any",
@@ -29,15 +47,28 @@
   ],
   "shortcuts": [
     {
-      "name": "Open Omi workspace",
-      "short_name": "Workspace",
-      "description": "Chat, Image Studio, Projects, Agents and Andromeda.",
+      "name": "Chat with Omi",
+      "short_name": "Chat",
+      "description": "Ask Omi anything — it researches, verifies and cites.",
       "url": "./dashboard",
       "icons": [
         {
-          "src": "logo.svg",
-          "sizes": "any",
-          "type": "image/svg+xml"
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Andromeda — search & research",
+      "short_name": "Andromeda",
+      "description": "Universal search and research with verification.",
+      "url": "./dashboard",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
         }
       ]
     },
@@ -48,9 +79,9 @@
       "url": "./auth",
       "icons": [
         {
-          "src": "logo.svg",
-          "sizes": "any",
-          "type": "image/svg+xml"
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
         }
       ]
     }

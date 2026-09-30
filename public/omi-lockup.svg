@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  OMI UNIVERSAL AI — primary lockup (mark + wordmark).
+
+  Used where the brand needs to read as a signature rather than an app icon:
+  social previews, README, printed material. In the app itself the wordmark is
+  rendered as real text (see src/components/brand/OmiMark.tsx) so it stays
+  selectable, translatable and crisp at any size — never as this SVG.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 320" width="1024" height="320" role="img" aria-label="Omi Universal AI — One Intelligence. Infinite Possibilities.">
+  <defs>
+    <linearGradient id="omiLCore" x1="86" y1="86" x2="234" y2="234" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8B98FF"/>
+      <stop offset="0.55" stop-color="#6E7BFF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="omiLRing" x1="24" y1="52" x2="296" y2="268" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#6E7BFF" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#8B98FF" stop-opacity="0.55"/>
+    </linearGradient>
+    <radialGradient id="omiLGlow" cx="160" cy="160" r="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6E7BFF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#6E7BFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="omiLWord" x1="368" y1="120" x2="700" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6F7FB"/>
+      <stop offset="1" stop-color="#C9CEE4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Mark (the same geometry as public/logo.svg, at lockup scale) -->
+  <circle cx="160" cy="160" r="150" fill="url(#omiLGlow)"/>
+  <g transform="rotate(-22 160 160)">
+    <ellipse cx="160" cy="160" rx="132" ry="99" fill="none"
+             stroke="url(#omiLRing)" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="284" cy="160" r="15" fill="url(#omiLCore)"/>
+    <circle cx="52" cy="115" r="10" fill="#22D3EE"/>
+    <circle cx="94" cy="250" r="9" fill="#8B98FF"/>
+  </g>
+  <circle cx="160" cy="160" r="56" fill="url(#omiLCore)"/>
+
+  <!-- Wordmark. Letter-spaced caps: the one place the brand shouts. -->
+  <text x="368" y="176" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif"
+        font-size="104" font-weight="700" letter-spacing="14" fill="url(#omiLWord)">OMI</text>
+  <text x="372" y="228" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif"
+        font-size="27" font-weight="500" letter-spacing="7.5" fill="#8B93AD">UNIVERSAL INTELLIGENCE</text>
+  <text x="372" y="268" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif"
+        font-size="22" font-weight="400" letter-spacing="1.5" fill="#6C7490">One Intelligence. Infinite Possibilities.</text>
+</svg>

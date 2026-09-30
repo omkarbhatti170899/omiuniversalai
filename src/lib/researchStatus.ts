@@ -25,6 +25,7 @@
 
 export type ResearchPhase =
   | "idle"
+  | "thinking"
   | "searching"
   | "reading"
   | "verifying"
@@ -50,6 +51,7 @@ const TOTAL_STEPS = 4;
 /** Every phase the status can take. Exported so the UI and tests share it. */
 export const RESEARCH_PHASES: ResearchPhase[] = [
   "idle",
+  "thinking",
   "searching",
   "reading",
   "verifying",
@@ -74,6 +76,9 @@ export function researchPhaseFor(status: string | undefined): ResearchPhase {
   if (/\breading\b|\bsources found\b|\bfound \d+ source/.test(s)) return "reading";
   if (/searching|looking up|search(?:ing)? the web|searching live/.test(s)) return "searching";
   if (/checking approved|checking your|verifying/.test(s)) return "verifying";
+  // "Omi is thinking…" / "Omi is reasoning…" are real backend signals, so they
+  // get their own state instead of being mislabelled "preparing answer".
+  if (/thinking|reasoning/.test(s)) return "thinking";
   return "answering";
 }
 
@@ -87,8 +92,15 @@ export function parseSourceCount(status: string | undefined): number | undefined
   return undefined;
 }
 
+/**
+ * Labels map 1:1 onto a REAL backend status. There is deliberately no
+ * "Comparing…" state: cross-checking genuinely happens inside the turn, but the
+ * backend emits no distinct status for it, so showing it would be theatre. A
+ * state appears only when the operation is actually reported.
+ */
 const LABELS: Record<ResearchPhase, string> = {
   idle: "",
+  thinking: "Thinking…",
   searching: "Searching live sources…",
   reading: "Reading sources…",
   verifying: "Verifying information…",
@@ -123,6 +135,7 @@ export function researchStatusFor(
   // A completed step is stated as a fact, with its real count, rather than
   // shown as a bar that keeps moving.
   const completedSteps: Record<Exclude<ResearchPhase, "idle" | "done" | "failed">, number> = {
+    thinking: 0,
     searching: 1,
     reading: 2,
     verifying: 3,

@@ -14,9 +14,12 @@
         align-items: center;
         justify-content: center;
         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-        background: #121216;
+        background: #0B0B0F;
         color: #eceaf2;
       }
+      /* The Omi mark, inline: the offline shell is a static file and cannot
+         import the app, so it carries the same geometry in miniature. */
+      .mark { width: 56px; height: 56px; display: block; margin: 0 auto 1.25rem; }
       .card {
         max-width: 26rem;
         padding: 2.5rem 2rem;
@@ -26,11 +29,11 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         font-weight: 600;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.3em;
         text-transform: uppercase;
-        color: #a5a1f0;
+        color: #8B93AD;
       }
       h1 { font-size: 1.375rem; margin: 0.75rem 0 0.5rem; }
       p { font-size: 0.875rem; line-height: 1.6; opacity: 0.75; margin: 0 0 1.5rem; }
@@ -49,7 +52,27 @@
   </head>
   <body>
     <main class="card">
-      <span class="badge">Ominnovations Intelligence</span>
+      <svg class="mark" viewBox="0 0 512 512" role="img" aria-label="Omi Universal AI">
+        <defs>
+          <linearGradient id="c" x1="186" y1="186" x2="326" y2="326" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8B98FF" />
+            <stop offset="0.55" stop-color="#6E7BFF" />
+            <stop offset="1" stop-color="#22D3EE" />
+          </linearGradient>
+          <linearGradient id="r" x1="96" y1="120" x2="416" y2="392" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#22D3EE" stop-opacity="0.9" />
+            <stop offset="0.5" stop-color="#6E7BFF" stop-opacity="0.75" />
+            <stop offset="1" stop-color="#8B98FF" stop-opacity="0.55" />
+          </linearGradient>
+        </defs>
+        <g transform="rotate(-22 256 256)">
+          <ellipse cx="256" cy="256" rx="176" ry="132" fill="none" stroke="url(#r)" stroke-width="14" stroke-linecap="round" />
+          <circle cx="424" cy="256" r="19" fill="url(#c)" />
+          <circle cx="140" cy="192" r="13" fill="#22D3EE" />
+        </g>
+        <circle cx="256" cy="256" r="74" fill="url(#c)" />
+      </svg>
+      <span class="badge">Omi Universal AI</span>
       <h1>You're offline</h1>
       <p>
         Omi couldn't reach the network. Your data is safe — conversations,

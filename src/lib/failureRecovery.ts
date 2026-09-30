@@ -165,7 +165,7 @@ const RECOVERIES: Record<FailureCode, Omit<Recovery, "code">> = {
     tone: "critical",
   },
   timeout: {
-    title: "Took too long",
+    title: "That took too long",
     whatHappened: "Omi waited for a reply that never arrived and stopped waiting.",
     whatToDoNext: "Retry — this is usually transient. If it repeats, narrow the request (one file, one topic) or choose a faster provider.",
     retryable: true,
@@ -187,9 +187,11 @@ const RECOVERIES: Record<FailureCode, Omit<Recovery, "code">> = {
     tone: "warning",
   },
   provider_unavailable: {
-    title: "Provider unavailable",
-    whatHappened: "Every configured provider for this task failed, so Omi has no answer to give.",
-    whatToDoNext: "Try again shortly, or switch provider in Settings → AI. Omi will show the failure rather than invent a substitute answer.",
+    title: "I couldn't verify this right now",
+    whatHappened:
+      "Omi couldn't reach the information sources it needed for this one, and it won't guess at an answer it couldn't check.",
+    whatToDoNext:
+      "Try again in a moment — sources come and go. Omi will say so rather than invent an answer it couldn't check.",
     retryable: true,
     retryAfterMs: 3000,
     tone: "critical",
