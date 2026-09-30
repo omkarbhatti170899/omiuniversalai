@@ -1,0 +1,5118 @@
+{
+  "answerContract": {
+    "allSourcesDated": 26,
+    "citationsResolve": 30,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 30,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "europe": {
+      "fresh": 3,
+      "kept": 12,
+      "n": 3
+    },
+    "science": {
+      "fresh": 8,
+      "kept": 56,
+      "n": 10
+    },
+    "technology": {
+      "fresh": 4,
+      "kept": 35,
+      "n": 4
+    },
+    "usa": {
+      "fresh": 5,
+      "kept": 34,
+      "n": 5
+    },
+    "weather": {
+      "fresh": 7,
+      "kept": 26,
+      "n": 8
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 4,
+      "kept": 18,
+      "n": 4
+    },
+    "current": {
+      "fresh": 5,
+      "kept": 18,
+      "n": 6
+    },
+    "latest": {
+      "fresh": 5,
+      "kept": 32,
+      "n": 6
+    },
+    "live": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 1
+    },
+    "none": {
+      "fresh": 5,
+      "kept": 49,
+      "n": 5
+    },
+    "recent": {
+      "fresh": 1,
+      "kept": 5,
+      "n": 1
+    },
+    "today": {
+      "fresh": 6,
+      "kept": 38,
+      "n": 7
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 90,
+  "ran": 30,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          9,
+          10
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 819,
+        "statesFreshness": false,
+        "text": "Read this detailed comparison between Rust vs Go and decide which programming language is correct for your next project. [10]\n\nRust vs Go at a Glance: Complete Specification Comparison. [4]\n\nThe comparison of Rust vs Go in 2025 highlights that both languages have their places in modern software development. [5]\n\nThe performance comparison between Rust, Go, and Node.js shows that each language has its strengths: Rust: Best for high-performance systems, memory-constrained environments, and CPU-bound tasks. [9]\n\nSources: [1] Ask HN: Go vs. Rust Dependency Management (news.ycombinator.com)  [2] Rust vs Go: Which Language Should You Choose in 2026? (blog.jetbrains.com)  [3] Rust vs Go: A Hands-On Comparison | Hacker News (news.ycombinator.com)  [4] Rust vs Go: 40% Latency Gap in 2026 Benchmarks (tech-insider.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "rust vs go comparison",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 46541.6,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-06-08T19:29:05Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Ask HN: Go vs. Rust Dependency Management",
+            "url": "https://news.ycombinator.com/item?id=27439681"
+          },
+          {
+            "ageHours": null,
+            "domain": "blog.jetbrains.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go: Which Language Should You Choose in 2026?",
+            "url": "https://blog.jetbrains.com/rust/2025/06/12/rust-vs-go"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rust vs Go: A Hands-On Comparison | Hacker News",
+            "url": "https://news.ycombinator.com/item?id=37675988"
+          },
+          {
+            "ageHours": null,
+            "domain": "tech-insider.org",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go: 40% Latency Gap in 2026 Benchmarks",
+            "url": "https://tech-insider.org/rust-vs-go-2026"
+          },
+          {
+            "ageHours": null,
+            "domain": "evrone.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go in 2025: Comparison of Performance, Complexity, and...",
+            "url": "https://evrone.com/blog/rustvsgo"
+          },
+          {
+            "ageHours": 38059.6,
+            "domain": "terasol.medium.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2022-05-28T05:33:44.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rust vs Go: Which is the best programming language to use in 2022?",
+            "url": "https://terasol.medium.com/rust-vs-go-which-is-the-best-programming-language-to-use-in-2022-ea1838271c32"
+          },
+          {
+            "ageHours": 2847.7,
+            "domain": "github.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-03T09:26:31.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rust vs. C vs. Go runtime speed comparison",
+            "url": "https://github.com/oscar6echo/rust-c-go-speed"
+          },
+          {
+            "ageHours": null,
+            "domain": "codestax.medium.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Go: The Only Backend Language Comparison That... | Medium",
+            "url": "https://codestax.medium.com/rust-vs-go-the-only-backend-language-comparison-that-actually-matters-in-2026-6b8303dbb7c2"
+          },
+          {
+            "ageHours": null,
+            "domain": "dev.to",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Rust vs Node.js vs Go: Performance Comparison... - DEV Community",
+            "url": "https://dev.to/hamzakhan/rust-vs-nodejs-vs-go-performance-comparison-for-backend-development-2g69"
+          },
+          {
+            "ageHours": null,
+            "domain": "konstantinfo.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Which is Better Rust vs Go in 2025? - Konstantinfo",
+            "url": "https://www.konstantinfo.com/blog/rust-vs-go"
+          },
+          {
+            "ageHours": null,
+            "domain": "elixirforum.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Portability: Rust - Go Comparison - #3 by OvermindDL1 - General …",
+            "url": "https://elixirforum.com/t/portability-rust-go-comparison/20115/3"
+          },
+          {
+            "ageHours": null,
+            "domain": "xenoss.io",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Rust vs Go vs Python: Which language is the best strategic move",
+            "url": "https://xenoss.io/blog/rust-vs-go-vs-python-comparison"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 2847.7,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the rec",
+          "OpenAlex: circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.848,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2202,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1272,
+        "statesFreshness": false,
+        "text": "How to Invest.Manufacturing chips is hard and expensive, and it requires a lot of expertise. [6]\n\nAccording to Jin10, Nikkei reported that VIS, in which TSMC holds a stake, held an opening ceremony on Monday for its first advanced chip manufacturing plant in Singapore and is already planning a second plant. [7]\n\nHardware.Intel's struggles with high-end chip manufacturing, along with market share gains by AMD and Taiwan's TSMC continuing to dominate the global contract chip manufacturing industry. [3]\n\nEU Ministers Push New Chips Act 2.0 for Tech Sovereignty – Brussels\n\nBrussels, Belgium, 25 September, (Brussels Morning Newspaper) – European Union industry ministers have debated Chips Act 2.0, with member states broadly supporting efforts to strengthen Europe’s semiconductor industry, reduce strategic dependencies and make critical chip supply chains more resilient. [4]\n\nSources: [1] ‘We "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest chip manufacturing news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 26.7,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:23:14.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "‘We don’t have to repeat the 30 years’: India taps Asia’s chip hubs to...",
+            "url": "https://www.channelnewsasia.com/asia/india-asia-chip-hubs-fast-track-semiconductor-ambitions-6409171"
+          },
+          {
+            "ageHours": 114.5,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T06:35:39.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "India opts for mature chips over 2nm nodes due to high costs: Official",
+            "url": "https://www.hindustantimes.com/business/india-opts-for-mature-chips-over-2nm-nodes-due-to-high-costs-official-101790317694513.html"
+          },
+          {
+            "ageHours": 26.5,
+            "domain": "wccftech.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T22:36:27.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.93,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Intel CEO Lip-Bu Tan Calls TSMC a Partner Not a Rival, Even as He...",
+            "url": "https://wccftech.com/intel-ceo-lip-bu-tan-calls-tsmc-a-partner-not-a-rival-even-as-he-rebuilds-the-foundry"
+          },
+          {
+            "ageHours": 113,
+            "domain": "brusselsmorning.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T08:06:25.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "EU Ministers Push New Chips Act 2.0 for Tech Sovereignty – Brussels",
+            "url": "https://brusselsmorning.com/chips-act-2-0-eu-ministers/103909"
+          },
+          {
+            "ageHours": 85.6,
+            "domain": "tradingview.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-26T11:32:19.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Lattice Semiconductor, Amkor, Himax, Teradyne... — TradingView News",
+            "url": "https://www.tradingview.com/news/stockstory:48ace1464094b:0-lattice-semiconductor-amkor-himax-teradyne-and-entegris-stocks-trade-down-what-you-need-to-know"
+          },
+          {
+            "ageHours": 100.7,
+            "domain": "fool.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-25T20:27:12.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Meet the Magnificent Semiconductor Stock Crushing... | The Motley Fool",
+            "url": "https://www.fool.com/investing/2026/09/25/meet-the-magnificent-semiconductor-stock-crushing"
+          },
+          {
+            "ageHours": 44.3,
+            "domain": "binance.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-28T04:50:57.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "AI Demand Drives VIS Singapore... | Binance News on Binance Square",
+            "url": "https://www.binance.com/en/square/post/09-28-2026-ai-demand-drives-vis-singapore-fab-to-full-capacity-at-launch-371423835910764"
+          },
+          {
+            "ageHours": 96.5,
+            "domain": "businesstoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:40:03.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Gold’s hidden role in AI: From chips and connectors to data centres powering the AI boom",
+            "url": "https://www.businesstoday.in/technology/news/story/golds-hidden-role-in-ai-from-chips-and-connectors-to-data-centres-powering-the-ai-boom-557980-2026-09-26"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 26.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.881,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2064,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1212,
+        "statesFreshness": true,
+        "text": "We're leaving you with the news that Donald Trump has vowed to leave the status quo regarding the technology \"exactly where it is\" in a highly anticipated meeting with China's president today. [2]\n\n29, 2026 /PRNewswire/ -- Reactive Technologies today announced the launch of Nyquist, a new technology partnership programme that opens access to selected technologies and expertise developed through the company's work with power system operators and utilities worldwide. [1]\n\nFounded in 1846, AP today remains the most trusted source of fast, accurate, unbiased news in all formats and the essential provider of the technology and services vital to the news business. [4]\n\nEurope Today.Euronews Tech Talks goes beyond discussions to explore the impact of new technologies on our lives. [8]\n\nSources: [1] Reactive Technologies launches Nyquist licensing programme to accelerate grid innovation through "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "technology news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 17.6,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:30:36.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Reactive Technologies launches Nyquist licensing programme to accelerate grid innovation through technology pa",
+            "url": "https://www.prnewswire.co.uk/news-releases/reactive-technologies-launches-nyquist-licensing-programme-to-accelerate-grid-innovation-through-technology-partnerships-302889394.html"
+          },
+          {
+            "ageHours": 14,
+            "domain": "news.sky.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T11:06:36.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "AI latest: New model scrapped after showing 'higher levels... | Sky News",
+            "url": "https://news.sky.com/story/ai-latest-new-model-scrapped-after-showing-higher-levels-of-deception-as-trump-prepares-to-host-tech-bosses-13588677"
+          },
+          {
+            "ageHours": 24.8,
+            "domain": "nytimes.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T00:19:50.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "OpenAI Says It Will Not Release Newest Astra A.I. Model Over Safety...",
+            "url": "https://www.nytimes.com/2026/09/28/technology/openai-astra-safety.html"
+          },
+          {
+            "ageHours": 23.3,
+            "domain": "apnews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T01:47:26.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "OpenAI delays GPT-6.1 Astra release over security concerns | AP News",
+            "url": "https://apnews.com/article/open-ai-artificial-intelligence-altman-trump-astra-5afb865b2cddc439efdcf31ebdc406a5"
+          },
+          {
+            "ageHours": 16.3,
+            "domain": "dle.edizajn.rs",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T08:49:26.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Demo page of DataLife Engine",
+            "url": "https://dle.edizajn.rs"
+          },
+          {
+            "ageHours": 14.1,
+            "domain": "avnetwork.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Virginia Tech Ushers in College Football Season with New Technology",
+            "url": "https://www.avnetwork.com/installations/sports-entertainment/virginia-tech-ushers-in-college-football-season-with-new-technology"
+          },
+          {
+            "ageHours": 15.1,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:01:32.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Stock market today Dow, S&P 500, Nasdaq fall as Treasury.",
+            "url": "https://que.com/stock-market-today-dow-sp-500-nasdaq-fall-as-treasury"
+          },
+          {
+            "ageHours": 19.8,
+            "domain": "euronews.com",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T05:19:56.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.97,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Ukraine's digital minister: 'We want Europe to use Ukraine... | Eurone...",
+            "url": "https://www.euronews.com/2026/09/29/ukraines-digital-minister-we-want-europe-to-use-ukraine-as-an-ai-sandbox"
+          },
+          {
+            "ageHours": 19.1,
+            "domain": "stork.ai",
+            "providers": [
+              "searxng"
+            ],
+            "publishedAt": "2026-09-29T06:03:20.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "OpenAI halts training over model incidents | Stork AI Daily | Stork.AI",
+            "url": "https://www.stork.ai/newsletter/2026-09-28-openai-halts-training-over-model-incidents"
+          },
+          {
+            "ageHours": 3.9,
+            "domain": "gizchina.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:12:00.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "iQOO 16 is officially here: 8400mAh battery, 2K/165Hz display, and Snapdragon",
+            "url": "https://www.gizchina.com/iqoo/iqoo-16-is-officially-here-8400mah-battery-2k165hz-display-and-snapdragon"
+          },
+          {
+            "ageHours": 21.4,
+            "domain": "vir.com.vn",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T03:41:50.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Healthcare technology company MIMS expands artificial intelligence data platform",
+            "url": "https://vir.com.vn/healthcare-technology-company-mims-expands-artificial-intelligence-data-platform-161701.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 3.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.955,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1104,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1007,
+        "statesFreshness": true,
+        "text": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026\n\nBL Morning Report September 28, 2026: Get today’s top business news, market headlines about the Stock Market, Sensex & Nifty trends, key market insights, economic highlights, and the latest updates from India and global markets. [3]\n\nMust-See Top 15 Sites to Buy LinkedIn Accounts 2026\n\nLinkedIn has evolved far beyond a platform for job searches and professional networking. [1]\n\n2026 Kia Sorento Vs Skoda Kodiaq: What Do You Get For Your Money? [4]\n\nHere are 23 types of LinkedIn accounts and influential professional profiles worth following in 2026. [1]\n\nSources: [1] Must-See Top 15 Sites to Buy LinkedIn Accounts 2026 (ewebdiscussion.com)  [2] Exploit.in Database Reveals the Roots of Today’s Ransomware Ecosystem -. (que.com)  [3] Top Business & Market Headlines Today — BL Morning Report, September 28, 2026 (theh"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "2026 technology trends",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 18.3,
+            "domain": "ewebdiscussion.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T06:48:17.000Z",
+            "relevance": 1.16,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.16,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Must-See Top 15 Sites to Buy LinkedIn Accounts 2026",
+            "url": "https://www.ewebdiscussion.com/threads/must-see-top-15-sites-to-buy-linkedin-accounts-2026.434281"
+          },
+          {
+            "ageHours": 48.1,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:01:42.000Z",
+            "relevance": 1.11,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.11,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Exploit.in Database Reveals the Roots of Today’s Ransomware Ecosystem -.",
+            "url": "https://que.com/exploit-in-database-reveals-the-roots-of-todays-ransomware-ecosystem"
+          },
+          {
+            "ageHours": 47.6,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:30:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026",
+            "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+          },
+          {
+            "ageHours": 49.1,
+            "domain": "cardekho.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:00:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "2026 Kia Sorento Vs Skoda Kodiaq: What Do You Get For Your Money?",
+            "url": "https://www.cardekho.com/news/comparisons/2026-kia-sorento-vs-skoda-kodiaq-what-do-you-get-for-your-money-36722.htm"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 18.3,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.053,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1320,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1503,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [2]\n\nPhotography is at the heart of remarkable discovery of a new cat species – even if it was science that delivered the definitive proof\n\nYou’ve probably heard the global news that a new species of cat has been discovered, something that hasn’t happened for over a century. [5]\n\n29, 2026 /PRNewswire/ -- Thorne, the leader in science-backed health and wellness solutions, today announced results from a new consumer study evaluating its Creatine + Alpha-GPC. [1]\n\nRiver City Science Academy approved to open a seventh charter school at FSCJ’s Beach Blvd. [3]\n\nSources: [1] THOR"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "latest science news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.1,
+            "domain": "prnewswire.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:00:10.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "THORNE SETS A HIGHER STANDARD FOR SCIENCE-BACKED WELLNESS WITH NEW CREATINE + ALPHA-GPC CONSUMER RESEARCH SUPP",
+            "url": "https://www.prnewswire.com/news-releases/thorne-sets-a-higher-standard-for-science-backed-wellness-with-new-creatine--alpha-gpc-consumer-research-supporting-mental-and-physical-performance-302891083.html"
+          },
+          {
+            "ageHours": 29,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 100.4,
+            "domain": "actionnewsjax.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T20:42:30.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "River City Science Academy approved to open a seventh charter school at FSCJ’s Beach Blvd. campus",
+            "url": "https://www.actionnewsjax.com/news/local/river-city-science-academy-approved-open-seventh-charter-school-fscjs-beach-blvd-campus/EYZJX4SGABAU5NH2IPKQYCZCAY"
+          },
+          {
+            "ageHours": 107.6,
+            "domain": "sharewareonsale.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:30:37.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Science Master – Quiz Games (100% discount) | SharewareOnSale",
+            "url": "https://sharewareonsale.com/s/science-master-science-quiz-games"
+          },
+          {
+            "ageHours": 111,
+            "domain": "digitalcameraworld.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:09:18.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Photography is at the heart of remarkable discovery of a new cat species – even if it was science that deliver",
+            "url": "https://www.digitalcameraworld.com/photography/nature-and-wildlife-photography/photography-is-at-the-heart-of-remarkable-discovery-of-a-new-cat-species-even-if-it-was-science-that-delivered-the-definitive-proof"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 14.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.878,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2086,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1312,
+        "statesFreshness": true,
+        "text": "SpaceX's Starship engine failure could impact NASA's moon mission objectives\n\nThe Starship engine failure that nearly foiled the orbital debut of SpaceX's next-generation spacecraft on its 14th uncrewed test flight may complicate NASA's ability to meet its time frame for astronaut missions to the moon. [4]\n\nTop Space Stocks Worth Watching – September 25th\n\nSpaceX, Rocket Lab, and GE Aerospace are the three Space stocks to watch today, according to MarketBeat’s stock screener tool. [5]\n\nOff-Earth propellant transfer\n\nMost Starship missions will stay in Earth orbit, deploying satellites for the Starlink V3 constellation and the company's even bigger \"Starmind\" data center network, which will consist of about a million satellites, if all goes to plan. [1]\n\nDeep-space Starship missions will be more complicated than orbital ones, because they require more propellant. [1]\n\nSources: [1] Starshi"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current space missions",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 4.1,
+            "domain": "space.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Starship just reached orbit for the 1st time. What's next for the SpaceX megarocket?",
+            "url": "https://www.space.com/space-exploration/launches-spacecraft/starship-just-reached-orbit-for-the-1st-time-whats-next-for-the-spacex-megarocket"
+          },
+          {
+            "ageHours": 8.3,
+            "domain": "wsvn.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:47:53.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "NASA hoping to get Starliner back in space after 2025 malfunction that left 2 astronauts stranded at ISS",
+            "url": "https://wsvn.com/news/us-world/nasa-boeing-starliner-uncrewed-launch"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:13:56.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Cobb climate summary & weather forecast for Tuesday, September 29, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-tuesday-september-29-2026"
+          },
+          {
+            "ageHours": 15.1,
+            "domain": "devdiscourse.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:00:52.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "SpaceX's Starship engine failure could impact NASA's moon mission objectives",
+            "url": "https://www.devdiscourse.com/article/international/3983793-spacexs-starship-engine-failure-could-impact-nasas-moon-mission-objectives"
+          },
+          {
+            "ageHours": 101.6,
+            "domain": "themarketsdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:34:48.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Top Space Stocks Worth Watching – September 25th",
+            "url": "https://www.themarketsdaily.com/2026/09/25/top-space-stocks-worth-watching-september-25th.html"
+          },
+          {
+            "ageHours": 117.1,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T04:01:31.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Google To Send TPUs Into Space Next Week On A SpaceX Falcon 9 To Test If AI Data Centres Can Be Built Outside ",
+            "url": "https://www.freepressjournal.in/tech/google-to-send-tpus-in-space-next-week-on-a-spacex-falcon-9-to-test-if-ai-data-centres-can-be-built-outside-earth-or-not"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 4.1,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.783,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2368,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1187,
+        "statesFreshness": true,
+        "text": "29, 2026 /PRNewswire/ -- Thorne, the leader in science-backed health and wellness solutions, today announced results from a new consumer study evaluating its Creatine + Alpha-GPC. [1]\n\nNew evidence deepens mystery of moon’s ancient magnetic field\n\nAn unusual rock buried on the far side of the moon is providing fresh clues for a longstanding scientific puzzle: the ancient lunar magnetic field. [4]\n\n‘Avengers: Endgame – Encore’ reportedly returns to No. [2]\n\nIt also describes new end-credit material ahead of ‘Avengers: Doomsday.’\n\nHome\n\nTechnology\n\nGaming\n\nEntertainment\n\nWorld & Business\n\nScience\n\nSports\n\nAI\n\nToggle Sidebar\n\nHome\n\nTechnology\n\nGaming\n\nEntertainment\n\nWorld & Business\n\nScience\n\nSports\n\nAI\n\n‘Avengers: Endgame – Encore’ reportedly returns to No. [2]\n\nSources: [1] THORNE SETS A HIGHER STANDARD FOR SCIENCE-BACKED WELLNESS WITH NEW CREATINE + ALPHA-GPC CONSUMER RESEARCH SUPPORTING"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "science news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "shares no subject word": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.1,
+            "domain": "prnewswire.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:00:10.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "THORNE SETS A HIGHER STANDARD FOR SCIENCE-BACKED WELLNESS WITH NEW CREATINE + ALPHA-GPC CONSUMER RESEARCH SUPP",
+            "url": "https://www.prnewswire.com/news-releases/thorne-sets-a-higher-standard-for-science-backed-wellness-with-new-creatine--alpha-gpc-consumer-research-supporting-mental-and-physical-performance-302891083.html"
+          },
+          {
+            "ageHours": 17.9,
+            "domain": "digg.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:15:19.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "‘Avengers: Endgame – Encore’ reportedly returns to No. 1 at the worldwide box office",
+            "url": "https://digg.com/entertainment/pkdcuxau"
+          },
+          {
+            "ageHours": 23.4,
+            "domain": "digg.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:46:02.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "A call to give JJ a chance on a 2–1 team",
+            "url": "https://digg.com/sports/p3jyq2n9"
+          },
+          {
+            "ageHours": 8.4,
+            "domain": "kztv10.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:41:18.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "New evidence deepens mystery of moon’s ancient magnetic field",
+            "url": "https://www.kztv10.com/science-and-tech/space/new-evidence-deepens-mystery-of-moons-ancient-magnetic-field"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 8.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.87,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2120,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1089,
+        "statesFreshness": false,
+        "text": "CRISPR (; acronym for clustered regularly interspaced short palindromic repeats) is a family of DNA sequences found in the genomes of prokaryotic organisms such as bacteria and archaea. [1]\n\nJennifer Anne  Doudna  (; born February 19, 1964) is an American biochemist who has pioneered work in CRISPR gene editing, and made other fundamental contributions in biochemistry and genetics. [3]\n\nGenetically Modified Babies and a First Application of Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR-Cas9)\n\nOn November 26, 2018, at a gene editing conference in Hong Kong, Dr. [4]\n\nDoudna, Prashant Mali · 2016 — Genetic engineering, RNA, Laboratory manuals, Analysis, CRISPR-Cas Systems, CRISPR-Associated Proteins [6]\n\nSources: [1] CRISPR (en.wikipedia.org)  [2] Making sense of it all: Ethical reflections on the conditions surrounding the first genome-edited babies (ncbi.nlm.nih.gov)  "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "what is CRISPR",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "CRISPR",
+            "url": "https://en.wikipedia.org/wiki/CRISPR"
+          },
+          {
+            "ageHours": 1269.1,
+            "domain": "ncbi.nlm.nih.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:17.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Making sense of it all: Ethical reflections on the conditions surrounding the first genome-edited babies",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8340653"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Jennifer Doudna",
+            "url": "https://en.wikipedia.org/wiki/Jennifer_Doudna"
+          },
+          {
+            "ageHours": 1269.1,
+            "domain": "journals.lww.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:00:48.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Genetically Modified Babies and a First Application of Clustered Regularly Interspaced Short Palindromic Repea",
+            "url": "https://journals.lww.com/greenjournal/fulltext/2019/07000/genetically_modified_babies_and_a_first.23.aspx"
+          },
+          {
+            "ageHours": 1144.7,
+            "domain": "journals.plos.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:28:36.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Gene-edited babies: What went wrong and what could go wrong",
+            "url": "https://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.3000224"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "CRISPR-Cas (2016)",
+            "url": "https://openlibrary.org/works/OL21294749W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Crispr (2022)",
+            "url": "https://openlibrary.org/works/OL25315045W"
+          },
+          {
+            "ageHours": 1045.8,
+            "domain": "pypi.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T11:22:14.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "crispr 0.2.1",
+            "url": "https://pypi.org/project/crispr"
+          },
+          {
+            "ageHours": 756.3,
+            "domain": "mdpi.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-29T12:52:00.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "",
+            "url": "https://www.mdpi.com/2223-7747/13/15/2156"
+          },
+          {
+            "ageHours": 82495.1,
+            "domain": "sciencedirect.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2017-05-02T18:00:31Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.85,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "CRISPR eliminates HIV-1 infection in live animals",
+            "url": "http://www.sciencedirect.com/science/article/pii/S1525001617301107"
+          },
+          {
+            "ageHours": 34059.1,
+            "domain": "nature.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2022-11-10T22:04:54Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "CRISPR cancer trial success paves the way for personalized treatments",
+            "url": "https://www.nature.com/articles/d41586-022-03676-7"
+          },
+          {
+            "ageHours": 46112.2,
+            "domain": "npr.org",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-06-26T16:54:31Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "CRISPR gene-editing breakthrough opens door to treating broad array of diseases",
+            "url": "https://www.npr.org/sections/health-shots/2021/06/26/1009817539/he-inherited-a-devastating-disease-a-crispr-gene-editing-breakthrough-stopped-it"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 756.3,
+        "normalizedCount": 12,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.9,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2044,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1138,
+        "statesFreshness": true,
+        "text": "“NASA is targeting no earlier than December 2026 for an uncrewed Starliner 1 mission to the International Space Station to validate the recent remediation efforts,” said NASA Administrator Jared Isaacman. [2]\n\nIf all goes well, the missions are another key for SpaceX to support NASA’s Artemis moon landing in two years. [4]\n\nNASA hoping to get Starliner back in space after 2025 malfunction that left 2 astronauts stranded at ISS\n\nCAPE CANAVERAL, Fla. [2]\n\n28, 2026 /PRNewswire/ -- STARMUS today announces that the four members of the Artemis II crew — Commander Reid Wiseman, Pilot Victor Glover, Mission Specialist Christina Koch and Mission Specialist Jeremy Hansen — have been selected to receive the Stephen Hawking Medal for Science Communication. [3]\n\nSources: [1] Cobb climate summary & weather forecast for Tuesday, September 29, 2026 (cobbcountycourier.com)  [2] NASA hoping to get Starlin"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "space missions 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.9,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:13:56.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Cobb climate summary & weather forecast for Tuesday, September 29, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-tuesday-september-29-2026"
+          },
+          {
+            "ageHours": 8.3,
+            "domain": "wsvn.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:47:53.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "NASA hoping to get Starliner back in space after 2025 malfunction that left 2 astronauts stranded at ISS",
+            "url": "https://wsvn.com/news/us-world/nasa-boeing-starliner-uncrewed-launch"
+          },
+          {
+            "ageHours": 30.1,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:01:35.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "ARTEMIS II CREW TO RECEIVE THE STEPHEN HAWKING MEDAL",
+            "url": "https://www.prnewswire.co.uk/news-releases/artemis-ii-crew-to-receive-the-stephen-hawking-medal-302891849.html"
+          },
+          {
+            "ageHours": 34.6,
+            "domain": "actionnewsjax.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:30:46.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "SpaceX Starship goes into orbit for first time",
+            "url": "https://www.actionnewsjax.com/news/trending/spacex-starship-goes-into-orbit-first-time/W2AZPLDV6NDIBJPXNBXN5K6ZXE"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 8.3,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.985,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1273,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1359,
+        "statesFreshness": true,
+        "text": "Over the past 30 years, breast cancer deaths have declined by 44 percent,[3] while treatment options have expanded from a single targeted treatment in 1993 to more than 30 today, demonstrating the extraordinary progress that sustained investment in research and precision medicine can make possible. [1]\n\nWhen Should Cancer Patients Switch Treatment? [2]\n\nA new study published in the Journal of Cancer Research and Clinical Oncology set out to close that gap, and its findings could reshape how cancer clinical trials capture one of the most meaningful events in a patient’s treatment journey. [2]\n\nResearchers Build a Standard Rulebook for a Key Clinical Milestone\n\nIn modern cancer medicine, few moments carry as much weight as the day a patient and their doctor decide that the current therapy is no longer working and it is time to move on to the next one. [2]\n\nSources: [1] The Estée Lauder Com"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "latest research on cancer treatment",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 91.6,
+            "domain": "newswire.co.kr",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T05:30:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The Estée Lauder Companies and the Breast Cancer Research Foundation Launch Largest Global Research Initiative",
+            "url": "https://www.newswire.co.kr/newsRead.php?no=1043393"
+          },
+          {
+            "ageHours": 75.9,
+            "domain": "scienmag.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:16:35.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "When Should Cancer Patients Switch Treatment? Researchers Build a Standard Rulebook for a Key Clinical Milesto",
+            "url": "https://scienmag.com/when-should-cancer-patients-switch-treatment-researchers-build-a-standard-rulebook-for-a-key-clinical-milestone"
+          },
+          {
+            "ageHours": 115.1,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:04:39.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Gene Solutions Study Finds Preterm-Birth Signals in Routine triSure NIPT Data",
+            "url": "https://www.thehindu.com/brandhub/pr-release/gene-solutions-study-finds-preterm-birth-signals-in-routine-trisure-nipt-data/article71507340.ece"
+          },
+          {
+            "ageHours": 73.2,
+            "domain": "spacecoastdaily.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T23:56:37.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Brevard Native Dr. Stephanie Haridopolos NORD Award Honoree",
+            "url": "https://spacecoastdaily.com/2026/09/brevard-native-dr-stephanie-haridopolos-nord-award-honoree"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 73.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.828,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1545,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1271,
+        "statesFreshness": false,
+        "text": "PSD said on Sep 14 that it was reviewing the data and methodology within the paper, and would refer matters to the Corrupt Practices Investigation Bureau \"if there is a material basis to do so\". [3]\n\nMaine author's new book helping kids, adults cope with complex emotions\n\nCharlotte Agell, a longtime educator, author, and artist from Brunswick, is helping Maine's kids and adults find common ground in the stories they're reading. [4]\n\nPickleball is a paddle sport sometimes described as small tennis or large ping-pong, and it’s soared in popularity, particularly among older people. [5]\n\nSingapore's Immigration and Checkpoints Authority (ICA) has outlined the specific requirements that pregnant foreign nationals must fulfil if they wish to give birth in the country,\n\nThe guideline covers everything from documentation to fees. [1]\n\nSources: [1] Singapore Announces Requirements for Pregnant Fo"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "recently published physics papers",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 8.4,
+            "domain": "legit.ng",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:41:47.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Singapore Announces Requirements for Pregnant Foreigners Who Want to Give Birth in Country",
+            "url": "https://www.legit.ng/people/1733477-singapore-lists-requirements-pregnant-foreigners-give-birth-there"
+          },
+          {
+            "ageHours": 14.7,
+            "domain": "longreads.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:27:09.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Lost and Found: A Reading List on Labyrinths, Mazes, and Wayfinding",
+            "url": "https://longreads.com/2026/09/29/labyrinths-mazes-kanya-kanchana"
+          },
+          {
+            "ageHours": 110.6,
+            "domain": "channelnewsasia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:30:16.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Govt reviewing property purchases by rail planning officers between 2007 and 2011 after working paper allegati",
+            "url": "https://www.channelnewsasia.com/singapore/private-properties-mrt-stations-rail-planning-officials-review-nber-paper-6410066"
+          },
+          {
+            "ageHours": 98,
+            "domain": "wmtw.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T23:09:01.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Maine author's new book helping kids, adults cope with complex emotions",
+            "url": "https://www.wmtw.com/article/maine-authors-new-book-helping-kids-adults-cope-with-complex-emotions/73668406"
+          },
+          {
+            "ageHours": 112.1,
+            "domain": "postandcourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T09:00:00.000Z",
+            "relevance": 0.52,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.52,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Perturbed property owners protest Parkshore Park pickleball plan in Charleston suburbs",
+            "url": "https://www.postandcourier.com/news/pickleball-noise-concerns-charleston-parks-suburbs/article_70f9bdb8-eeaf-4e13-9433-90f46945de82.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 8.4,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.66,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1122,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1035,
+        "statesFreshness": false,
+        "text": "The evolution of photosynthesis refers to the origin and subsequent evolution of photosynthesis, the process by which light energy is used to assemble sugars from carbon dioxide and a hydrogen and electron source such as water. [5]\n\nPhotosynthesis is a vital biological process that sustains almost all life on Earth by converting light energy into chemical energy. [11]\n\nPhotosynthesis may very well be one of the most important biological processes that happen on our planet Earth. [3]\n\nOverview of Photosynthesis\n\nPhotosynthesis [8]\n\nSources: [1] Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science (2024) (openlibrary.org)  [2] Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science (2024) (openlibrary.org)  [3] Photosynthesis Explained - WorldAtlas (worldatlas.com)  [4] An improve"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "photosynthesis explained",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
+            "url": "https://openlibrary.org/works/OL39212144W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Photo What? Photosynthesis Explained Process, Products and Reactants of Photosynthesis Grade 6-8 Life Science ",
+            "url": "https://openlibrary.org/works/OL38617647W"
+          },
+          {
+            "ageHours": null,
+            "domain": "worldatlas.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Photosynthesis Explained - WorldAtlas",
+            "url": "https://www.worldatlas.com/feature/photosynthesis-explained.html"
+          },
+          {
+            "ageHours": 313345.1,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1991-01-01",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "An improved model of C3 photosynthesis at high CO2: Reversed O2 sensitivity explained by lack of glycerate ree",
+            "url": "https://doi.org/10.1007/bf00035838"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.67,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.67,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Evolution of photosynthesis",
+            "url": "https://en.wikipedia.org/wiki/Evolution_of_photosynthesis"
+          },
+          {
+            "ageHours": 1269.1,
+            "domain": "intechopen.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:13.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.67,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Comprehensive Analyses of the Enhancement of Oxygenesis in Photosynthesis by Bicarbonate and Effects of Divers",
+            "url": "https://www.intechopen.com/chapters/84963"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.66,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Chlorophyll",
+            "url": "https://en.wikipedia.org/wiki/Chlorophyll"
+          },
+          {
+            "ageHours": 1076.8,
+            "domain": "pearson.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T04:17:13.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.6,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "12. Photosynthesis",
+            "url": "https://www.pearson.com/channels/cell-biology/explore/photosynthesis/overview-of-photosynthesis"
+          },
+          {
+            "ageHours": 1072.9,
+            "domain": "pearson.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T08:11:42.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.6,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "13. Photosynthesis",
+            "url": "https://www.pearson.com/channels/microbiology/explore/ch-13-photosynthesis/introduction-to-photosynthesis-Bio-1"
+          },
+          {
+            "ageHours": 155545.1,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2009-01-01",
+            "relevance": 0.59,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.59,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Does greater leaf‐level photosynthesis explain the larger solar energy conversion efficiency of Miscanthus rel",
+            "url": "https://doi.org/10.1111/j.1365-3040.2009.02017.x"
+          },
+          {
+            "ageHours": 55777.1,
+            "domain": "vedantu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2020-05-20T00:00:00.000Z",
+            "relevance": 0.59,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.59,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Photosynthesis: Process, Equation, Diagram & Steps",
+            "url": "https://www.vedantu.com/biology/photosynthesis"
+          },
+          {
+            "ageHours": 111491,
+            "domain": "ucl.ac.uk",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2014-01-10T14:08:38Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Quantum mechanics explains efficiency of photosynthesis",
+            "url": "http://www.ucl.ac.uk/news/news-articles/0114/090114-Quantum-mechanics-explains-efficiency-of-photosynthesis"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1072.9,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.688,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1817,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 643,
+        "statesFreshness": false,
+        "text": "When NASA Perseverance Rover Reached Inner Mars Edge\n\nWhen NASA’s Perseverance rover reached 'Jezero Crater' - the inner edge of Mars in September 2023, the mission scientists were surprised by what they found. [1]\n\nThe scientists were especially intrigued by strong signals of carbonate minerals detected by Mars orbiters. [1]\n\nInstead, the rover team found igneous rock, which can form deep underground from magma or from volcanic activity at the surface. [1]\n\nComposed of clay and silt, sedimentary rocks on Earth are good at preserving past microbial life. [1]\n\nSources: [1] When NASA Perseverance Rover Reached Inner Mars Edge (ummid.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "current Mars rover status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "shares no subject word": 3,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 84.6,
+            "domain": "ummid.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:30:00.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "When NASA Perseverance Rover Reached Inner Mars Edge",
+            "url": "https://ummid.com/news/2026/9/26/when-nasa-perseverance-rover-reached-inner-mars-edge.html"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 84.6,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.82,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1277,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 939,
+        "statesFreshness": false,
+        "text": "Injury Report: Six NHL Officials Who Missed the 2026 Preseason\n\nThe NHL’s 2026 preseason is in the books with 65 games and 260 officiating assignments. [3]\n\nWhat was the climate like in the latest reporting period? [1]\n\nRecap of summer 2026 climate disasters across Canada\n\nCommunities across Canada navigated a summer defined by climate extremes, ranging from prolonged heat domes and aggressive wildfire activity to historic convective downpours. [2]\n\nClimate, however, is the average of weather over time and space.”\n\nThe climate report for the Atlanta area for the previous month shows how much departure from the average temperatures that month represents. [1]\n\nSources: [1] Cobb climate summary & weather forecast for Friday, September 25, 2026 (cobbcountycourier.com)  [2] Recap of summer 2026 climate disasters across Canada (brockpress.com)  [3] Injury Report: Six NHL Officials Who Missed t"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "science",
+      "query": "climate report 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "outside freshness window": 3,
+          "shares no subject word": 1,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 110.9,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:11:45.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Cobb climate summary & weather forecast for Friday, September 25, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-friday-september-25-2026"
+          },
+          {
+            "ageHours": 58.8,
+            "domain": "brockpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:21:14.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Recap of summer 2026 climate disasters across Canada",
+            "url": "https://brockpress.com/recap-of-summer-2026-climate-disasters-across-canada"
+          },
+          {
+            "ageHours": 10.4,
+            "domain": "scoutingtherefs.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:44:55.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Injury Report: Six NHL Officials Who Missed the 2026 Preseason",
+            "url": "https://scoutingtherefs.com/2026/09/53110/injury-report-six-nhl-officials-who-missed-the-2026-preseason"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 10.4,
+        "normalizedCount": 9,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.94,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1381,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 956,
+        "statesFreshness": true,
+        "text": "Today's weather is perfect for a little extra outdoor time. [2]\n\nGTA 6 Latest News: 12 New Screenshots Reveal Vice City and Leonida, While Rockstar Confirms Hurricanes, 170+ Animals and Advanced Weather – Check Details\n\nGTA 6 Latest News: Grand Theft Auto 6 is once again giving fans a closer look at the world of Leonida, with 12 new screenshots released alongside Game Informer’s major cover story. [4]\n\nTo read Jerry Shields' full weather forecast and for timely updates, please click here. [1]\n\nWEATHER ALERT: Tracking widespread flooding chances! [3]\n\nSources: [1] Good morning, Sault Ste. Marie! Here's today's weather! (sootoday.com)  [2] Perfect for extended Dog walks today (news5cleveland.com)  [3] WEATHER ALERT: Tracking widespread flooding chances! (krdo.com)  [4] GTA 6 Latest News: 12 New Screenshots Reveal Vice City and Leonida, While Rockstar Confirms Hurricanes, 170+ Animals and A"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's weather",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 15.1,
+            "domain": "sootoday.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:00:00.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Good morning, Sault Ste. Marie! Here's today's weather!",
+            "url": "https://www.sootoday.com/good-morning/good-morning-sault-ste-marie-heres-todays-weather-12830728"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "news5cleveland.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:12:36.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Perfect for extended Dog walks today",
+            "url": "https://www.news5cleveland.com/weather/dog-walking-forecast/perfect-for-extended-dog-walks-today"
+          },
+          {
+            "ageHours": 15.1,
+            "domain": "krdo.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:04:48.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.89,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "WEATHER ALERT: Tracking widespread flooding chances!",
+            "url": "https://krdo.com/weather/2026/09/29/weather-alert-tracking-widespread-flooding-chances"
+          },
+          {
+            "ageHours": 7.6,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:34:20.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "GTA 6 Latest News: 12 New Screenshots Reveal Vice City and Leonida, While Rockstar Confirms Hurricanes, 170+ A",
+            "url": "https://sundayguardianlive.com/tech-news/gta-6-latest-news-12-new-screenshots-reveal-vice-city-and-leonida-while-rockstar-confirms-hurricanes-170-animals-and-advanced-weather-check-details-295377"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "cobbcountycourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:13:56.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Cobb climate summary & weather forecast for Tuesday, September 29, 2026",
+            "url": "https://cobbcountycourier.com/2026/09/cobb-climate-summary-weather-forecast-for-tuesday-september-29-2026"
+          },
+          {
+            "ageHours": 8.4,
+            "domain": "6abc.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:41:10.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "AccuWeather: Back to the 70s today",
+            "url": "https://6abc.com/videoClip/19887889"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 7.6,
+        "normalizedCount": 9,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.848,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1303,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 198,
+        "statesFreshness": false,
+        "text": "Weather in Mumbai, Maharashtra, India: 26°C, overcast, wind 2 km/h, humidity 85%, precipitation chance 6% (next hour). [1]\n\nSources: [1] Current weather — Mumbai, Maharashtra, India (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current weather in Mumbai",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-30T01:08:06.276Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.24,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Mumbai, Maharashtra, India",
+            "url": "https://open-meteo.com?latitude=19.07283&longitude=72.88261"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.98,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1569,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1416,
+        "statesFreshness": true,
+        "text": "10 Nights accommodation in Double or Twin Room\nUp to 25% Savings applied\nReturn Flights from London Included\nPrivate transfers throughout the holiday\nFor solo departure please contact us\n\nOverview\n\nEnjoy the best of Thailand with a twin-centre escape to Pattaya and Bangkok, offering the perfect balance of relaxation and lively city experiences. [1]\n\nSeventeen people are arrested during a security operation involving 800 police officers against a \"suspected organised crime group\" in five cities in the United Kingdom, including London. [3]\n\nLondon Waterloo Station Fire Today: What Should Waterloo Commuters Do? [2]\n\nThis holiday includes return international flights from London, private transfers throughout including inter-hotel travel, complimentary welcome drinks and snacks on arrival, popcorn available in the lobby, and a daily replenishment of four bottles of drinking water, along with "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "live weather radar in London",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 2.1,
+            "domain": "samtravel.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T23:00:00.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.83,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Overview",
+            "url": "https://www.samtravel.co.uk/experience-pattaya-city-with-bangkok-stay"
+          },
+          {
+            "ageHours": 7.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:42:29.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "London Waterloo Station Fire Today: Emergency Crews Respond as Fire Reports Trigger Major Commuter Disruption ",
+            "url": "https://sundayguardianlive.com/world/london-waterloo-station-fire-today-emergency-crews-respond-as-fire-reports-trigger-major-commuter-disruption-in-london-check-latest-updates-station-status-train-delays-emergency-response-more-295380"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "news.sky.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Law and crime: Seventeen people are arrested during a security operation involving 800 police officers against",
+            "url": "https://news.sky.com/story/police-arrest-17-in-london-as-part-of-investigation-into-suspected-organised-crime-group-13592654"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.76,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1476,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 245,
+        "statesFreshness": false,
+        "text": "Weather in Delhi, National Capital Territory of Delhi, India: 23°C, clear sky, wind 6 km/h, humidity 89%, precipitation chance 0% (next hour). [1]\n\nSources: [1] Current weather — Delhi, National Capital Territory of Delhi, India (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "weather in Delhi today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-30T01:08:08.373Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Delhi, National Capital Territory of Delhi, India",
+            "url": "https://open-meteo.com?latitude=28.65195&longitude=77.23149"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 598,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 190,
+        "statesFreshness": false,
+        "text": "Weather in Tokyo, Tokyo, Japan: 19°C, partly cloudy, wind 4 km/h, humidity 91%, precipitation chance 16% (next hour). [1]\n\nSources: [1] Current weather — Tokyo, Tokyo, Japan (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "will it rain in Tokyo tomorrow",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-30T01:08:09.081Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.24,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Tokyo, Tokyo, Japan",
+            "url": "https://open-meteo.com?latitude=35.6895&longitude=139.69171"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.62,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 733,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 216,
+        "statesFreshness": false,
+        "text": "Weather in New York, New York, United States: 16°C, mainly clear, wind 6 km/h, humidity 82%, precipitation chance 0% (next hour). [1]\n\nSources: [1] Current weather — New York, New York, United States (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "current temperature in New York",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-30T01:08:09.970Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.24,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — New York, New York, United States",
+            "url": "https://open-meteo.com?latitude=40.71427&longitude=-74.00597"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 880,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 215,
+        "statesFreshness": false,
+        "text": "Weather in Sydney, New South Wales, Australia: 22°C, clear sky, wind 9 km/h, humidity 57%, precipitation chance 0% (next hour). [1]\n\nSources: [1] Current weather — Sydney, New South Wales, Australia (open-meteo.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "today's forecast for Sydney",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-30T01:08:11.044Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.24,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Sydney, New South Wales, Australia",
+            "url": "https://open-meteo.com?latitude=-33.86785&longitude=151.20732"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "openmeteo"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.62,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1064,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 689,
+        "statesFreshness": false,
+        "text": "Freezing rain is rain maintained at temperatures below freezing by the ambient air mass that causes freezing on contact with surfaces. [1]\n\n$\\begingroup$(Looks like carbon dioxide causes rain to have pH around 5.6, but the term acid rain is more often used for special cases when sulfur dioxid… [8]\n\nWeather in Causestown, Leinster, Ireland: 13°C, light rain, wind 13 km/h, humidity 93%, precipitation chance 100% (next hour). [3]\n\nPreface Have you ever wondered what causes the rain? [9]\n\nSources: [1] Freezing rain (en.wikipedia.org)  [2] What causes acid rain? (1992) (openlibrary.org)  [3] Current weather — Causestown, Leinster, Ireland (open-meteo.com)  [4] Rain (en.uncyclopedia.co)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "weather",
+      "query": "what causes rain",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Freezing rain",
+            "url": "https://en.wikipedia.org/wiki/Freezing_rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What causes acid rain? (1992)",
+            "url": "https://openlibrary.org/works/OL14959607W"
+          },
+          {
+            "ageHours": 0,
+            "domain": "open-meteo.com",
+            "providers": [
+              "openmeteo"
+            ],
+            "publishedAt": "2026-09-30T01:08:11.922Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.06,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Current weather — Causestown, Leinster, Ireland",
+            "url": "https://open-meteo.com?latitude=53.60748&longitude=-6.96837"
+          },
+          {
+            "ageHours": 1011.4,
+            "domain": "en.uncyclopedia.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T21:41:44.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rain",
+            "url": "https://en.uncyclopedia.co/w/index.php?oldid=6647270&title=Rain"
+          },
+          {
+            "ageHours": 1043.6,
+            "domain": "en.uncyclopedia.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T13:34:53.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rain",
+            "url": "https://en.uncyclopedia.co/w/index.php?section=5&title=Rain&veaction=edit"
+          },
+          {
+            "ageHours": 1111.7,
+            "domain": "lyricszoo.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-14T17:26:52.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Rains Lyrics Follow",
+            "url": "https://www.lyricszoo.com/rains"
+          },
+          {
+            "ageHours": 2598,
+            "domain": "krysstal.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-13T19:09:19.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "KryssTal : Rain",
+            "url": "https://www.krysstal.com/rain.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "earthscience.stackexchange.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "atmosphere - If there was less carbon dioxide, would rain be bas…",
+            "url": "https://earthscience.stackexchange.com/a/26312"
+          },
+          {
+            "ageHours": null,
+            "domain": "testbook.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What Causes Rain - Process of Rainfall, Formation of Clouds & Th…",
+            "url": "https://testbook.com/biology/rain"
+          },
+          {
+            "ageHours": null,
+            "domain": "usatoday.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Climate change causes rain events in Midwest that wash away fert…",
+            "url": "https://www.usatoday.com/in-depth/news/investigations/2021/11/30/fertilizer-runoff-rain/6201498001"
+          },
+          {
+            "ageHours": null,
+            "domain": "answers.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.08,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "What causes rain to become sleet? - Answers",
+            "url": "https://www.answers.com/Q/What_causes_rain_to_become_sleet"
+          },
+          {
+            "ageHours": 1248.7,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-09T00:29:06.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.72,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Cloud seeding",
+            "url": "https://en.wikipedia.org/wiki/Cloud_seeding"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"causes rain\" right now — Omi will not in"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.836,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1964,
+      "vertical": "weather"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1305,
+        "statesFreshness": false,
+        "text": "SAVE US release new single and official music video ‘Last Of Me’\n\nThe origin story of SAVE US and how the globally-based band came together is quite simple. [6]\n\nPiracy off the coast of Somalia, Anti-piracy measures, Controversies of Hassan Sheikh Mohamud [1]\n\nThe Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [2]\n\nAn Israeli airstrike kills Izz al-Din al-Beik, head of Hamas's armed wing in the northern Gaza Strip [3]\n\nSources: [1] Armed conflicts and attacks: Piracy off the coast of Somalia, Anti-piracy measures, Controversies of Hassan Sheikh Mohamud (en.wikipedia.org)  [2] Armed conflicts and attacks: The Puntland Maritime P"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest US news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Armed conflicts and attacks: Piracy off the coast of Somalia, Anti-piracy measures, Controversies of Hassan Sh",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: The Puntland Maritime Police Force successfully frees another hijacked oil tanker",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.46,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.46,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Armed conflicts and attacks: An Israeli airstrike kills Izz al-Din al-Beik, head of Hamas's armed wing in the ",
+            "url": "https://www.reuters.com/world/middle-east/israel-kills-senior-hamas-commander-gaza-officials-say-2026-09-29"
+          },
+          {
+            "ageHours": 7.9,
+            "domain": "nesn.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:14:15.000Z",
+            "relevance": 0.45,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.45,
+              "freshness": 0.21,
+              "relevance": 0,
+              "sourceQuality": 0.12
+            },
+            "title": "Ex-Celtics Star Jaylen Brown Used As Example in NBA Officiating Change",
+            "url": "https://nesn.com/boston-celtics/news/ex-celtics-star-jaylen-brown-nba-officiating-change/2907dfcc01c93edacb9d2355"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.41,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.41,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 per",
+            "url": "https://www.france24.com/en/live-news/20260929-australian-central-bank-lifts-key-interest-rate-to-15-year-high"
+          },
+          {
+            "ageHours": 31.8,
+            "domain": "rocknloadmag.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T17:20:03.000Z",
+            "relevance": 0.41,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.41,
+              "freshness": 0.17,
+              "relevance": 0,
+              "sourceQuality": 0.12
+            },
+            "title": "SAVE US release new single and official music video ‘Last Of Me’",
+            "url": "https://rocknloadmag.com/save-us-release-new-single-and-official-music-video-last-of-me"
+          },
+          {
+            "ageHours": 114.1,
+            "domain": "share-talk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:00:23.000Z",
+            "relevance": 0.37,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.37,
+              "freshness": 0.13,
+              "relevance": 0,
+              "sourceQuality": 0.12
+            },
+            "title": "Abingdon Health Official opening of manufacturing hub in the US",
+            "url": "https://www.share-talk.com/abingdon-health-official-opening-of-manufacturing-hub-in-the-us"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.449,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2267,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1189,
+        "statesFreshness": true,
+        "text": "Govt likely to reduce petrol price today\n\nBy Aleem Malik -\nSep 29, 2026\n\nISLAMABAD: The government will likely reduce petroleum prices for a second consecutive day today, as oil prices have declined in the international market, ARY News reported. [4]\n\n“Today’s announcement is great news for Dallas and reflects the continued growth and momentum of our financial sector,” said City Manager Kimberly Tolbert. [2]\n\nPerfect for extended Dog walks today\n\nMichelle Raebel sent in this great photo of Hank and Luna from Canton! [3]\n\nParseword Hints and Solutions Today: September 30, 2026\n\nFind the Parseword answer for September 30, 2026, with five spoiler-free hints and a step-by-step breakdown showing how “ridicules” and “cycling” transform into today’s long, baggy top. [5]\n\nSources: [1] “The Lord has done it this very day; let us rejoice today and be glad.” — Psalms 118:24, New International Versi"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 20.6,
+            "domain": "ijr.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:32:45.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "“The Lord has done it this very day; let us rejoice today and be glad.” — Psalms 118:24, New International Ver",
+            "url": "https://ijr.com/discover/the-lord-has-done-it-this-very-day-let-us-rejoice-today-and--97ebc6f6"
+          },
+          {
+            "ageHours": 13.7,
+            "domain": "candysdirt.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:25:12.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Morgan Stanley Officially Lands on Y’all Street",
+            "url": "https://candysdirt.com/2026/09/29/morgan-stanley-officially-lands-on-yall-street"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "news5cleveland.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:12:36.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Perfect for extended Dog walks today",
+            "url": "https://www.news5cleveland.com/weather/dog-walking-forecast/perfect-for-extended-dog-walks-today"
+          },
+          {
+            "ageHours": 11.4,
+            "domain": "arynews.tv",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:44:26.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Govt likely to reduce petrol price today",
+            "url": "https://arynews.tv/govt-likely-to-reduce-petrol-price-today"
+          },
+          {
+            "ageHours": 14.6,
+            "domain": "nerdschalk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:34:03.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Parseword Hints and Solutions Today: September 30, 2026",
+            "url": "https://nerdschalk.com/parseword-hints-and-solutions-today-september-30-2026"
+          },
+          {
+            "ageHours": 14,
+            "domain": "tuko.co.ke",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:05:32.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "US Revises New Visa Restrictions for Certain Category of Applicants in 2026",
+            "url": "https://www.tuko.co.ke/world/us/641454-us-revises-visa-restrictions-category-applicants-2026"
+          },
+          {
+            "ageHours": 13.2,
+            "domain": "krmg.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:56:48.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Officials are looking into a possible new ransom note related to Nancy Guthrie’s disappearance",
+            "url": "https://krmg.com/2026/09/29/officials-are-looking-into-a-possible-new-ransom-note-related-to-nancy-guthries-disappearance-2"
+          },
+          {
+            "ageHours": 14.5,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:37:08.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Explore NSE Top Gainers Today",
+            "url": "https://www.adproceed.com/ads/explore-nse-top-gainers-today"
+          },
+          {
+            "ageHours": 8.5,
+            "domain": "safetyandhealthmagazine.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:39:46.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.72,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "New toolbox talk: safe use of boom trucks",
+            "url": "https://www.safetyandhealthmagazine.com/new-toolbox-talk-safe-use-of-boom-trucks"
+          },
+          {
+            "ageHours": 14.5,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:37:29.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.72,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "US-Israel-Iran War Latest Live News: Iran IRGC Says US Has ‘No Other Choice’ but to Admit Failure and Leave Re",
+            "url": "https://sundayguardianlive.com/world/us-israel-iran-war-latest-live-news-iran-irgc-says-us-has-no-other-choice-but-to-admit-failure-and-leave-region-as-tensions-escalate-295180"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 8.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.848,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1470,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 914,
+        "statesFreshness": false,
+        "text": "Politics And The Markets 09/25/26\n\nThis is the forum for daily political discussion on Seeking Alpha. [2]\n\nPolitics And The Markets 09/26/26\n\nThis is the forum for daily political discussion on Seeking Alpha. [3]\n\nKey Takeaways\n\nThe Supreme Court was designed to be a political institution: 19th-century justices rode circuit, participated in state and local politics, ran for office, and even wrote legislation and presidential addresses. [1]\n\nTrump denies offering Iran sanctions relief for nuclear concessions – US politics live\n\nHello and welcome to the US politics live blog. [4]\n\nSources: [1] If You Can Imagine It, The Supreme Court Used To Be Even More Political (abovethelaw.com)  [2] Politics And The Markets 09/25/26 (seekingalpha.com)  [3] Politics And The Markets 09/26/26 (seekingalpha.com)  [4] Trump denies offering Iran sanctions relief for nuclear concessions – US politics live (th"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "current US politics",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 102.2,
+            "domain": "abovethelaw.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T18:54:14.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "If You Can Imagine It, The Supreme Court Used To Be Even More Political",
+            "url": "https://abovethelaw.com/2026/09/if-you-can-imagine-it-the-supreme-court-used-to-be-even-more-political"
+          },
+          {
+            "ageHours": 117.1,
+            "domain": "seekingalpha.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T04:03:04.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Politics And The Markets 09/25/26",
+            "url": "https://seekingalpha.com/article/4941674-politics-and-the-markets-092526"
+          },
+          {
+            "ageHours": 93.1,
+            "domain": "seekingalpha.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T04:00:00.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.93,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Politics And The Markets 09/26/26",
+            "url": "https://seekingalpha.com/article/4941676-politics-and-the-markets-092626"
+          },
+          {
+            "ageHours": 14.9,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:13:49.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Trump denies offering Iran sanctions relief for nuclear concessions – US politics live",
+            "url": "https://www.theguardian.com/us-news/live/2026/sep/29/donald-trump-iran-ai-jack-smith-media-white-house-latest-news-updates"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.76,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Politics and elections: King Mohammed VI appoints Fatima Ezzahra El Mansouri as the first female Prime Ministe",
+            "url": "https://www.reuters.com/world/africa/moroccos-king-appoints-first-woman-pm-following-sept-23-election-2026-09-29"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Politics and elections: 2026 Moroccan general election",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.843,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1012,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1154,
+        "statesFreshness": false,
+        "text": "From MDRS to the ISS: Jessica Watkins to Command NASA’s Crew-13 Mission\n\nThe Mars Society is proud to celebrate NASA astronaut Dr. [1]\n\nWhat You Need to Know About NASA’s SpaceX Crew-13 Mission\n\nFour crew members are set to launch to the International Space Station as part of NASA’s SpaceX Crew-13 mission to perform research, technology demonstrations, and maintenance aboard the orbiting laboratory. [2]\n\nNASA’s Science Mission Directorate Seeks Volunteer Reviewers\n\n[NASA]. [3]\n\nSpaceX's Starship engine failure could impact NASA's moon mission objectives\n\nThe Starship engine failure that nearly foiled the orbital debut of SpaceX's next-generation spacecraft on its 14th uncrewed test flight may complicate NASA's ability to meet its time frame for astronaut missions to the moon. [4]\n\nSources: [1] From MDRS to the ISS: Jessica Watkins to Command NASA’s Crew-13 Mission (marssociety.org)  [2] "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "latest NASA mission",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 4,
+            "domain": "marssociety.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:07:22.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "From MDRS to the ISS: Jessica Watkins to Command NASA’s Crew-13 Mission",
+            "url": "https://www.marssociety.org/news/2026/09/29/from-mdrs-to-the-iss-jessica-watkins-to-command-nasas-crew-13-mission"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "nasa.gov",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:13:19.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.2,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "What You Need to Know About NASA’s SpaceX Crew-13 Mission",
+            "url": "https://www.nasa.gov/missions/station/commercial-crew/what-you-need-to-know-about-nasas-spacex-crew-13-mission"
+          },
+          {
+            "ageHours": 33.7,
+            "domain": "astrobiology.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:23:47.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "NASA’s Science Mission Directorate Seeks Volunteer Reviewers",
+            "url": "https://astrobiology.com/2026/09/28/nasas-science-mission-directorate-seeks-volunteer-reviewers"
+          },
+          {
+            "ageHours": 15.1,
+            "domain": "devdiscourse.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:00:52.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "SpaceX's Starship engine failure could impact NASA's moon mission objectives",
+            "url": "https://www.devdiscourse.com/article/international/3983793-spacexs-starship-engine-failure-could-impact-nasas-moon-mission-objectives"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.933,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1102,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1214,
+        "statesFreshness": false,
+        "text": "Polk County 2026 Election Guide\n\nCurtis Knutson and Leonard Vonasek are running for Polk County Commissioner District 2. [1]\n\nCarlton County 2026 Election Guide\n\nTony Compo and Anny Gustafson are running for Carlton County Commissioner District 2. [4]\n\nRajasthan Jaipur Mayor Election 2026 Live: Sunil Kothari vs Sunita Mawar, Voting Underway From 10 AM To 2 PM; Check Latest Updates, Result Time And Who Will Become Jaipur Mayor\n\nJaipur Mayor Election 2026: The Rajasthan Mayor Election 2026 is being held in Jaipur, Jodhpur and Kota on Friday, September 25. [6]\n\nKota Mayor Election 2026 Live: Anusuya Goswami vs Sunita Suman as BJP-Congress Face High-Stakes Battle in Rajasthan – Check Who Is Leading and Who is Trailing, Result Date and Latest Update\n\nRajasthan Mayor Election 2026: Kota Mayor Election 2026 has produced a winner with BJP’s Anusuya Goswami emerging victorious as the new mayor, d"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "usa",
+      "query": "US election news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 30,
+            "domain": "kaxe.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:07:50.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Polk County 2026 Election Guide",
+            "url": "https://www.kaxe.org/2026-09-28/polk-county-mn-2026-election-guide"
+          },
+          {
+            "ageHours": 119.5,
+            "domain": "biospace.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T01:40:42.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.95,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Anavex Stockholders Elect All of the Company’s Director Nominees at 2026 Annual Meeting",
+            "url": "https://www.biospace.com/press-releases/anavex-stockholders-elect-all-of-the-companys-director-nominees-at-2026-annual-meeting"
+          },
+          {
+            "ageHours": 13.9,
+            "domain": "biznews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:12:02.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "US midterm elections 2026: The FT’s guide",
+            "url": "https://www.biznews.com/global-citizen/us-midterm-elections-2026-guide"
+          },
+          {
+            "ageHours": 29.9,
+            "domain": "kaxe.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:15:16.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Carlton County 2026 Election Guide",
+            "url": "https://www.kaxe.org/2026-09-28/carlton-county-mn-2026-election-guide"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.9,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.04
+            },
+            "title": "Politics and elections: 2026 Moroccan general election",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 113,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T08:08:29.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Rajasthan Jaipur Mayor Election 2026 Live: Sunil Kothari vs Sunita Mawar, Voting Underway From 10 AM To 2 PM; ",
+            "url": "https://sundayguardianlive.com/india/rajasthan-jaipur-mayor-election-2026-live-sunil-kothari-vs-sunita-mawar-voting-underway-from-10-am-to-2-pm-check-latest-updates-result-time-and-who-will-become-jaipur-mayor-292413"
+          },
+          {
+            "ageHours": 113.5,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:41:05.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Kota Mayor Election 2026 Live: Anusuya Goswami vs Sunita Suman as BJP-Congress Face High-Stakes Battle in Raja",
+            "url": "https://sundayguardianlive.com/india/kota-mayor-election-2026-live-anusuya-goswami-vs-sunita-suman-as-bjp-congress-face-high-stakes-battle-in-rajasthan-check-who-is-leading-and-who-is-trailing-result-date-and-latest-update-292396"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.917,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1163,
+      "vertical": "election"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 993,
+        "statesFreshness": false,
+        "text": "Trump Is Right to Denounce Canada’s Flirtation with European Union\n\nA de facto E.U. [1]\n\n\"Serbia is moving towards the European Union, not Russia.\"\n\nAlexander Vucic left the post of President of Serbia, acting became non-traditional* Ana Brnabic is an opponent of rapprochement with Moscow, a supporter of the EU. [2]\n\nPhoto: Chip Somodevilla/Getty Images\n\nThe global media is buzzing this week over interest from both Canada and the European Union in making America’s northern neighbor the first “associate member” of the E.U. [1]\n\nThe goal of both Vucic and everyone else is to move towards the European Union. [2]\n\nSources: [1] Trump Is Right to Denounce Canada’s Flirtation with European Union (amac.us)  [2] \"Serbia is moving towards the European Union, not Russia.\" (news-pravda.com)  [3] Special Olympics Joins Opening of European Week of Sport 2026 in Dublin (specialolympics.org)  [4] Ghana "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "latest European Union news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 110.9,
+            "domain": "amac.us",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:17:09.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Trump Is Right to Denounce Canada’s Flirtation with European Union",
+            "url": "https://amac.us/newsline/trump-is-right-to-denounce-canada-s-flirtation-with-european-union"
+          },
+          {
+            "ageHours": 34.7,
+            "domain": "news-pravda.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:23:41.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "\"Serbia is moving towards the European Union, not Russia.\"",
+            "url": "https://news-pravda.com/world/2026/09/28/2626547.html"
+          },
+          {
+            "ageHours": 117.1,
+            "domain": "specialolympics.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T04:00:00.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Special Olympics Joins Opening of European Week of Sport 2026 in Dublin",
+            "url": "https://www.specialolympics.org/stories/news/special-olympics-joins-opening-of-european-week-of-sport-2026-in-dublin"
+          },
+          {
+            "ageHours": 97.1,
+            "domain": "ghanabusinessnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:00:00.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Ghana opens 2026/27 Cocoa Season with producer price of GH¢42,400 per tonne",
+            "url": "https://www.ghanabusinessnews.com/2026/09/26/ghana-opens-2026-27-cocoa-season-with-producer-price-of-gh%C2%A242400-per-tonne"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 34.7,
+        "normalizedCount": 11,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0.8,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 993,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1457,
+        "statesFreshness": true,
+        "text": "Commercial Bank of Dubai becomes first bank outside Europe to join the CBMT network\n\nDubai, UAE: Commercial Bank of Dubai (CBD) today announced that it has joined the Commercial Bank Money Token (CBMT) initiative, the first bank from outside Europe to join the CBMT network. [3]\n\nTogether, these partners are bringing Von Dutch's distinctive identity to life across multiple categories, combining strong product offerings, local market expertise and cultural relevance to create new opportunities for retailers and consumers throughout Europe. [1]\n\nAbout the Europe Gulf Forum\n\nLaunched in September 2025, the Europe Gulf Forum is a platform bringing together the highest level of political and business leadership in Europe and the Gulf to advance greater strategic and economic engagement between the two regions. [5]\n\nFormal complaint that NZ climate backsliding breaches Europe trade deal\n\nThe Go"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "news in Europe today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 7.6,
+            "domain": "prnewswire.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:32:00.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "VON DUTCH BRINGS ITS SIGNATURE ATTITUDE TO EUROPE WITH FASHION, MUSIC AND A GROWING NETWORK OF PARTNERS",
+            "url": "https://www.prnewswire.co.uk/news-releases/von-dutch-brings-its-signature-attitude-to-europe-with-fashion-music-and-a-growing-network-of-partners-302893270.html"
+          },
+          {
+            "ageHours": 7.9,
+            "domain": "newsroom.co.nz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:11:43.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Formal complaint that NZ climate backsliding breaches Europe trade deal",
+            "url": "https://newsroom.co.nz/2026/09/30/formal-complaint-that-nz-climate-backsliding-breaches-europe-trade-deal"
+          },
+          {
+            "ageHours": 17.6,
+            "domain": "zawya.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:35:21.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.81,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Commercial Bank of Dubai becomes first bank outside Europe to join the CBMT network",
+            "url": "https://www.zawya.com/en/press-release/commercial-bank-of-dubai-becomes-first-bank-outside-europe-to-join-the-cbmt-network-1379426"
+          },
+          {
+            "ageHours": 14.4,
+            "domain": "irishtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:44:54.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.64,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "SETU connects Ireland’s southeast to a changing Europe",
+            "url": "https://www.irishtimes.com/advertising-feature/2026/09/29/setu-connects-irelands-southeast-to-a-changing-europe"
+          },
+          {
+            "ageHours": 8.4,
+            "domain": "atlanticcouncil.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:43:48.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Trade and connectivity in the Europe-Gulf strategic partnership",
+            "url": "https://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/trade-and-connectivity-in-the-europe-gulf-strategic-partnership"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 7.6,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.738,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1180,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1354,
+        "statesFreshness": false,
+        "text": "If the EU continues to drift, disintegration becomes a more plausible future\n\nGaps between the European Union’s advocacy of ambitious policy goals and its ability to implement them matter greatly in a world changed from market integration through globalisation to one dominated by power politics and growing security threats. [1]\n\nEU Agriculture and Climate Dashboard, International Association of Fire Fighters, British Library, More: Sunday Afternoon ResearchBuzz, September 27, 2026\n\nNEW RESOURCES\n\nInstitute for Agriculture & Trade Policy: Introducing: the EU Agriculture and Climate Dashboard. [3]\n\nSuch incoherence risks losing the public support vital to EU success, according to influential EU policy experts. [1]\n\nCustoms Union Proposal as a Solution\n\nIn response to lobbying for equal treatment for British products, the bloc told London its best solution would be to join the EU’s customs "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "europe",
+      "query": "current EU policy",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 2,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 44.6,
+            "domain": "irishtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:30:00.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "If the EU continues to drift, disintegration becomes a more plausible future",
+            "url": "https://www.irishtimes.com/opinion/2026/09/26/worldview-if-the-eu-continues-to-drift-disintegration-is-seen-as-a-more-plausible-future"
+          },
+          {
+            "ageHours": 116.1,
+            "domain": "globalbankingandfinance.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T05:04:59.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "EU urges Britain to raise tariffs on Chinese cars, FT says",
+            "url": "https://www.globalbankingandfinance.com/eu-urges-britain-raise-tariffs-chinese-cars-ft"
+          },
+          {
+            "ageHours": 85.6,
+            "domain": "researchbuzz.me",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T11:31:07.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "EU Agriculture and Climate Dashboard, International Association of Fire Fighters, British Library, More: Sunda",
+            "url": "https://researchbuzz.me/2026/09/27/eu-agriculture-and-climate-dashboard-international-association-of-fire-fighters-british-library-more-sunday-afternoon-researchbuzz-september-27-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 44.6,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.7,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1034,
+      "vertical": "general"
+    }
+  ],
+  "total": 178
+}

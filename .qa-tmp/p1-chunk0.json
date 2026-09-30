@@ -1,0 +1,2687 @@
+{
+  "answerContract": {
+    "allSourcesDated": 30,
+    "citationsResolve": 30,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 16,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 14
+  },
+  "byCategory": {
+    "conflict": {
+      "fresh": 2,
+      "kept": 4,
+      "n": 6
+    },
+    "current-news": {
+      "fresh": 2,
+      "kept": 6,
+      "n": 4
+    },
+    "government": {
+      "fresh": 4,
+      "kept": 26,
+      "n": 5
+    },
+    "sports": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "stale-prone": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 3
+    },
+    "statistics": {
+      "fresh": 7,
+      "kept": 10,
+      "n": 7
+    },
+    "tech": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 4
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 4,
+      "n": 2
+    },
+    "current": {
+      "fresh": 8,
+      "kept": 13,
+      "n": 16
+    },
+    "latest": {
+      "fresh": 5,
+      "kept": 23,
+      "n": 8
+    },
+    "recent": {
+      "fresh": 0,
+      "kept": 4,
+      "n": 1
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 2,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 30,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1624,
+        "statesFreshness": true,
+        "text": "In areas experiencing dangerous weather or transport disruption, the latest local administration order should take precedence over older holiday announcements. [1]\n\nCapital Small Finance Bank Names Ex-RBI CGM Rachna Dikshit Chair & HDFC Veteran Joseph D’souza Director\n\nMumbai, September 28, 2026: In a major leadership update, Capital Small Finance Bank Limited has announced the appointment of former Reserve Bank of India (RBI) veteran Mrs. [2]\n\nAndhra Pradesh School Holiday Today: Final Update\n\nThe most recent September 29 situation is very clear – there has been no confirmed school holiday throughout the state of Andhra Pradesh from any report received so far and however, weather warnings continue, with the IMD issuing warnings for thunderstorms, lightning and strong winds both in Coastal Andhra Pradesh and Rayalaseema regions. [1]\n\nCheck Latest Official Update, IMD Alert, Traffic Advis"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "latest RBI announcement",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 28.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:10:05.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Andhra Pradesh School Holiday Today: Are Schools Open or Closed on September 29 Amid Cyclone? Check Latest Upd",
+            "url": "https://sundayguardianlive.com/india/andhra-pradesh-school-holiday-today-are-schools-open-or-closed-on-september-29-amid-cyclone-check-latest-update-imd-heavy-rain-alert-thunderstorms-forecast-district-wise-closure-status-294784"
+          },
+          {
+            "ageHours": 36,
+            "domain": "psuconnect.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:05:00.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Capital Small Finance Bank Names Ex-RBI CGM Rachna Dikshit Chair & HDFC Veteran Joseph D’souza Director",
+            "url": "https://www.psuconnect.in/bank-news/capital-small-finance-bank-appoints-ex-rbi-cgm-rachna-dikshit-as-chair-hdfc-veteran-joseph-d-souza-as-director"
+          },
+          {
+            "ageHours": 116.1,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T05:00:23.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Bank Strike September 2026: Will You Get Your Salary On September 25? Check Who Will Get Paid Today",
+            "url": "https://www.jagranjosh.com/general-knowledge/bank-strike-september-2026-will-you-get-your-salary-on-september-25-check-who-will-get-paid-today-salary-pension-wages-1820012502-1"
+          },
+          {
+            "ageHours": 89.5,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T07:38:24.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Bank Strike 2026: Will PSU Banks Waive ATM Charges Beyond the Free Limit From September 28 to 30? Check Latest",
+            "url": "https://sundayguardianlive.com/trending/bank-strike-2026-will-psu-banks-waive-atm-charges-beyond-the-free-limit-from-september-28-to-30-check-latest-updates-293069"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 28.9,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the rec",
+          "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the rec",
+          "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the rec",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.727,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 3072,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 800,
+        "statesFreshness": false,
+        "text": "There is no space for retail investors like you and me to actively buy or sell bonds. [1]\n\nOil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about supply disruptions during the US-Israeli war on Iran [2]\n\nWhat Demat 2.0 means for your money\n\nTechnology does many things to help manage your money. [1]\n\nBesides, servicing individual investors is not an easy process for companies. [1]\n\nSources: [1] What Demat 2.0 means for your money (newindianexpress.com)  [2] Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about… (reuters.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "current SEBI regulations for retail investors",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 56.4,
+            "domain": "newindianexpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T16:42:18.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "What Demat 2.0 means for your money",
+            "url": "https://www.newindianexpress.com/business/2026/Sep/27/what-demat-20-means-for-your-money"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.23,
+              "relevance": 0.1,
+              "sourceQuality": 0.1
+            },
+            "title": "Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports ",
+            "url": "https://www.reuters.com/business/energy/oil-prices-rise-second-session-continued-middle-east-supply-concern-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 7,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.745,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1093,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1307,
+        "statesFreshness": true,
+        "text": "Govt likely to reduce petrol price today\n\nBy Aleem Malik -\nSep 29, 2026\n\nISLAMABAD: The government will likely reduce petroleum prices for a second consecutive day today, as oil prices have declined in the international market, ARY News reported. [5]\n\nLog in here »\n\nVANCOUVER – Prime Minister Mark Carney is in Vancouver today, where he’s set to make a major announcement related to the energy industry. [1]\n\nManjeet Singh Patel, president of the All India New Pension Scheme Employees Federation, indicated that the DA announcement should arrive within a week. [4]\n\nSpanish Government to extend fuel tax discounts until year-end\n\nThe government’s fuel support scheme will gradually decrease over the final months of the year\n\nThe Spanish government will maintain discounts on fuel taxes until the end of the year, with the reduction expected to stand at 20 cents per litre in October, according to "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "new government scheme announcement today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 18.6,
+            "domain": "brandonsun.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T06:30:08.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Carney in Vancouver for announcements on energy, ocean protection",
+            "url": "https://www.brandonsun.com/lifestyles/2026/09/29/carney-in-vancouver-for-announcements-on-energy-ocean-protection"
+          },
+          {
+            "ageHours": 16.6,
+            "domain": "brandonsun.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:31:47.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "In the news today: Trade war escalates, Carney talks energy, AI chatbot for health",
+            "url": "https://www.brandonsun.com/national/2026/09/29/in-the-news-today-trade-war-escalates-carney-talks-energy-ai-chatbot-for-health"
+          },
+          {
+            "ageHours": 18,
+            "domain": "realitytea.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:04:36.000Z",
+            "relevance": 0.99,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "White House Defends Nearly $1.5M in Taxpayer-Funded Donald Trump Ads",
+            "url": "https://www.realitytea.com/2026/09/29/donald-trump-taxpayer-ad-white-house-defense"
+          },
+          {
+            "ageHours": 23.5,
+            "domain": "timesbull.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:33:50.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "DA Hike: Big Update Expected This Week, How Much Could DA Increase?",
+            "url": "https://www.timesbull.com/da-hike-big-update-expected-this-week-how-much-could-da-increase"
+          },
+          {
+            "ageHours": 11.4,
+            "domain": "arynews.tv",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:44:26.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Govt likely to reduce petrol price today",
+            "url": "https://arynews.tv/govt-likely-to-reduce-petrol-price-today"
+          },
+          {
+            "ageHours": 14.5,
+            "domain": "majorcadailybulletin.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:34:10.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Spanish Government to extend fuel tax discounts until year-end",
+            "url": "https://www.majorcadailybulletin.com/news/local/2026/09/29/146169/spanish-government-extend-fuel-tax-discounts-until-year-end.html"
+          },
+          {
+            "ageHours": 7.6,
+            "domain": "livemint.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:30:35.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "WorldSkills Shanghai: Smriti Nambiar bags silver, Best of Nation award",
+            "url": "https://www.livemint.com/news/india/worldskills-shanghai-smriti-nambiar-bags-silver-best-of-nation-award-11790702449693.html"
+          },
+          {
+            "ageHours": 17.6,
+            "domain": "newindianexpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:33:14.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Fishermen stage protest against new TN Secretariat-Assembly project",
+            "url": "https://www.newindianexpress.com/states/tamil-nadu/2026/Sep/29/fishermen-stage-protest-against-new-tn-secretariat-assembly-project"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.71,
+              "freshness": 0.23,
+              "relevance": 0.2,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Erit",
+            "url": "https://www.aljazeera.com/news/2026/9/29/ethiopia-blames-regional-rivals-as-risk-of-conflict-spillover-rises"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "zawya.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:34:05.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.69,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "MBRSC announces integration of RTx payload on Rashid Rover 2",
+            "url": "https://www.zawya.com/en/business/mbrsc-announces-integration-of-rtx-payload-on-rashid-rover-2-1410372"
+          },
+          {
+            "ageHours": 17.9,
+            "domain": "mining-technology.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:11:04.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "GEL to build $57m lithium extraction facility in Cornwall",
+            "url": "https://www.mining-technology.com/news/gel-lithium-extraction-facility-cornwall"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.58,
+              "freshness": 0.23,
+              "relevance": 0.1,
+              "sourceQuality": 0.07
+            },
+            "title": "Law and crime: Twenty-one people are arrested in Myanmar for allegedly donating to the NUG-linked People's Rev",
+            "url": "https://www.reuters.com/world/asia-pacific/myanmar-arrests-21-over-alleged-donations-opposition-linked-fundraising-platform-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.816,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1289,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1144,
+        "statesFreshness": false,
+        "text": "What the new rental tax rules require\n\nUnder the updated framework, non-resident property owners are expected to ensure their rental income is properly registered with KRA. [2]\n\nYour Tax Rate Could Change the Answer\n\nTwo Canadians can invest the exact same amount, buy the exact same stock, earn the exact same return, and still end up with very different retirement outcomes. [1]\n\nThe authority shared the explainer on its official X account on Friday, September 25, outlining a simplified tax framework designed specifically for individuals living abroad who earn rental income from property located within Kenya. [2]\n\nContributions can reduce taxable income, investments grow tax-deferred, and withdrawals are generally taxable income later. [1]\n\nSources: [1] TFSA or RRSP? Your Tax Rate Could Change the Answer (fool.ca)  [2] KRA Explains Why Kenyans Living Abroad with Rental Property Face New T"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "recent income tax rule change",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 105.4,
+            "domain": "fool.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T15:45:07.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "TFSA or RRSP? Your Tax Rate Could Change the Answer",
+            "url": "https://www.fool.ca/2026/09/25/tfsa-or-rrsp-your-tax-rate-could-change-the-answer"
+          },
+          {
+            "ageHours": 93,
+            "domain": "tuko.co.ke",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T04:06:25.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.71,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "KRA Explains Why Kenyans Living Abroad with Rental Property Face New Tax Rules",
+            "url": "https://www.tuko.co.ke/business-economy/industry/641156-kra-explains-kenyans-living-rental-property-face-tax-rules"
+          },
+          {
+            "ageHours": 86.4,
+            "domain": "the74million.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:41:09.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.71,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Changing Head Start Rules Would Rob Kids of Skills They Need for School and Life",
+            "url": "https://www.the74million.org/zero2eight/changing-head-start-rules-would-rob-kids-of-skills-they-need-for-school-and-life"
+          },
+          {
+            "ageHours": 79.5,
+            "domain": "brandonsun.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T17:35:34.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Kennedy Center put off planned repairs despite known structural issues, former employees allege",
+            "url": "https://www.brandonsun.com/entertainment/2026/09/26/kennedy-center-put-off-planned-repairs-despite-known-structural-issues-former-employees-allege"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 79.5,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.71,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1223,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1489,
+        "statesFreshness": false,
+        "text": "NIF India Recruitment 2026: Apply for Administrative & Finance Officer, Assistant Posts\n\nThe National Innovation Foundation – India (NIF), an autonomous body of the Department of Science and Technology, Government of India, has released Advertisement No. [1]\n\nRITES Vacancy 2026: Manager Railway Design & Operation on Immediate Absorption\n\nNew Delhi: RITES Ltd., a Government of India Enterprise under the Ministry of Railways, has issued a vacancy circular for filling up one post of Manager / Railway Design & Operation on immediate absorption basis. [2]\n\nTwenty-one people are arrested in Myanmar for allegedly donating to the NUG-linked People's Revolution Supply Family fundraising platform as the government identifies more than 2,700 alleged contributors [4]\n\n03/2026 inviting applications from eligible Indian citizens. [1]\n\nSources: [1] NIF India Recruitment 2026: Apply for Administrative &"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "government",
+      "query": "government of India budget 2026 announcement",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 68,
+            "domain": "marugujarat.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T05:04:57.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "NIF India Recruitment 2026: Apply for Administrative & Finance Officer, Assistant Posts",
+            "url": "https://www.marugujarat.in/2026/09/nif-india-recruitment-2026"
+          },
+          {
+            "ageHours": 115,
+            "domain": "psuconnect.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:06:00.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "RITES Vacancy 2026: Manager Railway Design & Operation on Immediate Absorption",
+            "url": "https://www.psuconnect.in/jobs/rites-vacancy-2026-manager-railway-design-operation-on-immediate-absorption"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.67,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.67,
+              "freshness": 0.23,
+              "relevance": 0.08,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Erit",
+            "url": "https://www.aljazeera.com/news/2026/9/29/ethiopia-blames-regional-rivals-as-risk-of-conflict-spillover-rises"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.08,
+              "sourceQuality": 0.07
+            },
+            "title": "Law and crime: Twenty-one people are arrested in Myanmar for allegedly donating to the NUG-linked People's Rev",
+            "url": "https://www.reuters.com/world/asia-pacific/myanmar-arrests-21-over-alleged-donations-opposition-linked-fundraising-platform-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.723,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 914,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 653,
+        "statesFreshness": true,
+        "text": "1 USD = 96.0635 INR (rate updated Wed, 30 Sep 2026 00:02:31 +0000). [1]\n\nDollar-to-naira exchange rate today, September 29, 2026: Naira appreciates against USD\n\nThe naira recorded an appreciation against the dollar at the official foreign exchange market on Tuesday after beginning the week on a negative note. [2]\n\nSource: open.er-api.com / exchangerate-api.com (keyless public exchange-rate feed). [1]\n\nRates are reference values for information only, not a trading quote and not financial advice. [1]\n\nSources: [1] 1 USD = 96.0635 INR (xe.com)  [2] Dollar-to-naira exchange rate today, September 29, 2026: Naira appreciates against USD (dailypost.ng)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "current USD to INR exchange rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "xe.com",
+            "providers": [
+              "market-rates",
+              "Open Exchange Rates (keyless)"
+            ],
+            "publishedAt": "2026-09-30T00:02:31.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "1 USD = 96.0635 INR",
+            "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
+          },
+          {
+            "ageHours": 3.9,
+            "domain": "dailypost.ng",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:13:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Dollar-to-naira exchange rate today, September 29, 2026: Naira appreciates against USD",
+            "url": "https://dailypost.ng/2026/09/29/dollar-to-naira-exchange-rate-today-september-29-2026-naira-appreciates-against-usd"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 6,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 924,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 906,
+        "statesFreshness": false,
+        "text": "Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about supply disruptions during the US-Israeli war on Iran [1]\n\nIn badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the title, defeating Japan's Akane Yamaguchi 21–17, 21–9 [2]\n\nSources: [1] Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about… (reuters.com)  [2] Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the… (r"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "today's gold price in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports ",
+            "url": "https://www.reuters.com/business/energy/oil-prices-rise-second-session-continued-middle-east-supply-concern-2026-09-29"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, b",
+            "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "wikipedia-current-events"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.625,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 496,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 465,
+        "statesFreshness": false,
+        "text": "Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about supply disruptions during the US-Israeli war on Iran [1]\n\nSources: [1] Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about… (reuters.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "current bitcoin price",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports ",
+            "url": "https://www.reuters.com/business/energy/oil-prices-rise-second-session-continued-middle-east-supply-concern-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "wikipedia-current-events"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.79,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 274,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 465,
+        "statesFreshness": false,
+        "text": "Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about supply disruptions during the US-Israeli war on Iran [1]\n\nSources: [1] Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about… (reuters.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "latest petrol price in Delhi",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports ",
+            "url": "https://www.reuters.com/business/energy/oil-prices-rise-second-session-continued-middle-east-supply-concern-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.65,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 434,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 444,
+        "statesFreshness": true,
+        "text": "FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diuretic antihypertensive drug, created by Indian-based Inventia Healthcare Limited due to faulty dissolution times in the human body [1]\n\nSources: [1] Health and environment: The U.S. FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diuretic antihypertensive drug, created by Indian-based Inventia Healthcare Limited due to faulty… (usatoday.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "current Indian population estimate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "usatoday.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Health and environment: The U.S. FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diur",
+            "url": "https://www.usatoday.com/story/money/consumer-protection/recalls-alerts/2026/09/28/blood-pressure-medication-recall/91991981007"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.57,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 726,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "latest iOS version",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 4,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 4,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 449,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "current Node.js LTS version",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 563,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "latest Chrome version number",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 508,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "iPhone 2026 model announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 4
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 6,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "commoncrawl: upstream unavailable — Request failed with status code 503",
+          "commoncrawl: upstream unavailable — Request failed with status code 503",
+          "TheSportsDB has no current fixture for \"iPhone 2026 model announcements\" right n",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 2159,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 627,
+        "statesFreshness": false,
+        "text": "Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games [1]\n\nIn badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the title, defeating Japan's Akane Yamaguchi 21–17, 21–9 [2]\n\nSources: [1] Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games (en.wikipedia.org)  [2] Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the… (rfi.fr)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "India's current total medals at Asian Games 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.23,
+              "relevance": 0.19,
+              "sourceQuality": 0.04
+            },
+            "title": "Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.23,
+              "relevance": 0.19,
+              "sourceQuality": 0.1
+            },
+            "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, b",
+            "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.85,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 237,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "who is leading the F1 2026 drivers championship",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv timed out after 12000ms",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 12357,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 962,
+        "statesFreshness": false,
+        "text": "The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3 percent target range [1]\n\nPuntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [2]\n\nSources: [1] Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3… (france24.com)  [2] Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-lo"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current inflation rate India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.71,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 per",
+            "url": "https://www.france24.com/en/live-news/20260929-australian-central-bank-lifts-key-interest-rate-to-15-year-high"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 4,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 4,
+        "relevanceAvg": 0.68,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 589,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current F1 championship leader",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 261,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current cricket tournament standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current football standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 906,
+        "statesFreshness": false,
+        "text": "Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about supply disruptions during the US-Israeli war on Iran [1]\n\nIn badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the title, defeating Japan's Akane Yamaguchi 21–17, 21–9 [2]\n\nSources: [1] Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about… (reuters.com)  [2] Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the… (r"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "current gold price",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports ",
+            "url": "https://www.reuters.com/business/energy/oil-prices-rise-second-session-continued-middle-east-supply-concern-2026-09-29"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, b",
+            "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "wikipedia-current-events"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.765,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 341,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 422,
+        "statesFreshness": false,
+        "text": "The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3 percent target range [1]\n\nSources: [1] Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3… (france24.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "statistics",
+      "query": "current inflation figure India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 per",
+            "url": "https://www.france24.com/en/live-news/20260929-australian-central-bank-lifts-key-interest-rate-to-15-year-high"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.57,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 621,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "current ICC T20 rankings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 883,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "latest vaccinations schedule India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 876,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "current COVID variant in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 606,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 India medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 6
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 8,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1403,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is happening in the world today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 621,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "today's top stories",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 652,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1058,
+        "statesFreshness": false,
+        "text": "As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could draw in regional powers. [2]\n\nPuntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [3]\n\nSources: [1] Armed conflicts and attacks: Ethiopian civil conflict (en.wikipedia.org)  [2] Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could… (aljazeera.com)  [3] Armed conflicts and attacks: Puntland Maritime Police Force"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.6,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.04
+            },
+            "title": "Armed conflicts and attacks: Ethiopian civil conflict",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Erit",
+            "url": "https://www.aljazeera.com/news/2026/9/29/ethiopia-blames-regional-rivals-as-risk-of-conflict-spillover-rises"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.527,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 270,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1058,
+        "statesFreshness": false,
+        "text": "As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could draw in regional powers. [2]\n\nPuntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [3]\n\nSources: [1] Armed conflicts and attacks: Ethiopian civil conflict (en.wikipedia.org)  [2] Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could… (aljazeera.com)  [3] Armed conflicts and attacks: Puntland Maritime Police Force"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest world news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.6,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.04
+            },
+            "title": "Armed conflicts and attacks: Ethiopian civil conflict",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Erit",
+            "url": "https://www.aljazeera.com/news/2026/9/29/ethiopia-blames-regional-rivals-as-risk-of-conflict-spillover-rises"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.527,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 294,
+      "vertical": "news"
+    }
+  ],
+  "total": 178
+}

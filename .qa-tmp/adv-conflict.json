@@ -1,0 +1,52 @@
+[CONVEX ?(currentInfoProbe:runOne)] [WARN] 1 unawaited operation: [fetch]. Async operations should be awaited or they might not run. See https://docs.convex.dev/functions/actions#dangling-promises for more information.
+{
+  "row": {
+    "answer": "How many medals did India win on Day 8 (September 27) of Asian Games 2026? [1]\n\nIndia has clinched a total of 37 medals so far at the 2026 Asian Games—4 Gold, 16 Silver, 17 Bronze. [1]\n\nAbhay Singh [Squash] – Silver\n\nAnahat Singh [Squash] – Silver\n\nAncy Sojan [Squash] – Silver\n\nSarvesh Kushare [Athletics] – Silver\n\nHarita Bhadra [Athletics] – Bronze\n\nTejaswin Shankar [Athletics] – Bronze\n\nParul Chaudhary [Athletics] – Bronze\n\nHow many medals has India won so far at Asian Games 2026? [1]\n\nWhat is India’s position in the medal table after Day 8 (September 27) at Asian Games 2026? [1]\n\nSources: [1] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [2] Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 (freepressjournal.in)  [3] Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games (en.wikipedia.org)\n\nCONFLICT RESOLUTION — one figure per conflicting metric, each with its source. Set-aside values are NOT answers; do not list them as alternatives.\n\nMEDALS: report 37 as the current figure, cited to khelnow.com (2 days ago) — set aside: 4 (freepressjournal.in) — older than the selected reading and not authoritative; 38 (freepressjournal.in) — older than the selected reading and not authoritative; 205 (freepressjournal.in) — older than the selected reading and not authoritative; 157 (freepressjournal.in) — older than the selected reading and not authoritative. State this figure with its citation and the \"set aside\" note; do not present the set-aside numbers as equally valid.",
+    "conflictResolution": "CONFLICT RESOLUTION — one figure per conflicting metric, each with its source. Set-aside values are NOT answers; do not list them as alternatives.\n\nMEDALS: report 37 as the current figure, cited to khelnow.com (2 days ago) — set aside: 4 (freepressjournal.in) — older than the selected reading and not authoritative; 38 (freepressjournal.in) — older than the selected reading and not authoritative; 205 (freepressjournal.in) — older than the selected reading and not authoritative; 157 (freepressjournal.in) — older than the selected reading and not authoritative. State this figure with its citation and the \"set aside\" note; do not present the set-aside numbers as equally valid.",
+    "detail": "3 fresh result(s) from 2 source(s) in 3259ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 3,
+    "freshSplitCounts": {
+      "fresh": 3,
+      "stale": 2,
+      "undated": 0
+    },
+    "freshness": "Based on 3 reports published in the last 5 days (newest: yesterday).",
+    "intent": "current",
+    "query": "India current total medals at Asian Games 2026",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 3259,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T00:09:28.000Z",
+        "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+        "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+      },
+      {
+        "publishedAt": "2026-09-27T15:21:40.000Z",
+        "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+      },
+      {
+        "publishedAt": "2026-09-29T00:00:00.000Z",
+        "title": "Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games",
+        "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

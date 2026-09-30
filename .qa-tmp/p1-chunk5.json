@@ -1,0 +1,4428 @@
+{
+  "answerContract": {
+    "allSourcesDated": 20,
+    "citationsResolve": 28,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 20,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 8
+  },
+  "byCategory": {
+    "current-events": {
+      "fresh": 5,
+      "kept": 19,
+      "n": 6
+    },
+    "global": {
+      "fresh": 1,
+      "kept": 6,
+      "n": 1
+    },
+    "historical": {
+      "fresh": 4,
+      "kept": 43,
+      "n": 6
+    },
+    "multilingual": {
+      "fresh": 5,
+      "kept": 44,
+      "n": 9
+    },
+    "obscure": {
+      "fresh": 4,
+      "kept": 19,
+      "n": 6
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 3,
+      "kept": 12,
+      "n": 4
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 18,
+      "n": 4
+    },
+    "latest": {
+      "fresh": 4,
+      "kept": 29,
+      "n": 10
+    },
+    "none": {
+      "fresh": 7,
+      "kept": 66,
+      "n": 8
+    },
+    "today": {
+      "fresh": 2,
+      "kept": 6,
+      "n": 2
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 150,
+  "ran": 28,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1259,
+        "statesFreshness": false,
+        "text": "World Bank, ADB assures support for Amaravati greenery\n\nVIJAYAWADA: Representatives from the World Bank and the Asian Development Bank (ADB) have assured dedicated financial support to develop eco-tourism and bolster urban green cover across Amaravati, requesting the state government to submit a detailed Green Action Plan. [3]\n\nFG seeks fresh $1.5bn World Bank loans as debt hits N166.79tn\n\nThe Federal Government is in discussions with the World Bank for three new loans totalling $1.5bn, as Nigeria’s public debt rose to N166.79tn at the end of June 2026. [1]\n\nThe entire facility is expected to be financed by the International Development Association (IDA), the World Bank’s concessional lending arm. [1]\n\nDocuments from the World Bank show that the proposed facilities comprise $500m each for climate resilience, social protection and early childhood development. [1]\n\nSources: [1] FG seeks fr"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "global",
+      "query": "latest World Bank development update",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 30,
+            "domain": "nationalaccordnewspaper.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:09:17.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "FG seeks fresh $1.5bn World Bank loans as debt hits N166.79tn",
+            "url": "https://nationalaccordnewspaper.com/fg-seeks-fresh-1-5bn-world-bank-loans-as-debt-hits-n166-79tn"
+          },
+          {
+            "ageHours": 29.9,
+            "domain": "arynews.tv",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:16:25.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.88,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Punjab Revenue Authority, World Bank to introduce advanced systems to expand tax base",
+            "url": "https://arynews.tv/punjab-revenue-authority-world-bank-to-introduce-advanced-systems-to-expand-tax-base"
+          },
+          {
+            "ageHours": 116.9,
+            "domain": "newindianexpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T04:13:00.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "World Bank, ADB assures support for Amaravati greenery",
+            "url": "https://www.newindianexpress.com/states/andhra-pradesh/2026/Sep/25/world-bank-adb-assures-support-for-amaravati-greenery"
+          },
+          {
+            "ageHours": 37.4,
+            "domain": "legit.ng",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:44:24.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.76,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "FG Seeks $1.5bn World Bank Loans As Nigeria’s Debt per Person Hits N716,822",
+            "url": "https://www.legit.ng/business-economy/economy/1733223-fg-seeks-fresh-15bn-world-bank-loans-nigerias-debt-hits-n16679tn"
+          },
+          {
+            "ageHours": 83.7,
+            "domain": "pwmania.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T13:26:27.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.72,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Updated Lineup For WWE Money In The Bank 2026",
+            "url": "https://www.pwmania.com/updated-lineup-for-wwe-money-in-the-bank-2026-2"
+          },
+          {
+            "ageHours": 1.2,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.54,
+              "freshness": 0.23,
+              "relevance": 0.1,
+              "sourceQuality": 0.07
+            },
+            "title": "Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 per",
+            "url": "https://www.france24.com/en/live-news/20260929-australian-central-bank-lifts-key-interest-rate-to-15-year-high"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 1.2,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.795,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1791,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1244,
+        "statesFreshness": true,
+        "text": "France Strike Today: Teachers, Government Officials and More Protest Over Salary Freeze Ahead of PM Sébastien Lecornu’s Budget Bill Presentation – Here’s All You Need to Know\n\nFrance Strike Today: Public-sector employees across France are participating in a nationwide strike over wages, working conditions, and the government’s planned approach to public spending in the run-up to the 2027 budget. [1]\n\nFour face-off for Milan tonight as Belgium play France in Nations League\n\nTonight, AC Milan will potentially see four of their players face off, as Belgium play France in the latest game of the UEFA Nations League. [3]\n\nThe minority government led by Prime Minister Sébastien Lecornu is scheduled to table the budget in France’s parliament this Thursday. [1]\n\nFrance Strike Today: Why are Public Sector Workers Protesting? [1]\n\nSources: [1] France Strike Today: Teachers, Government Officials and"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "dernières nouvelles France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 18,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:07:52.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "France Strike Today: Teachers, Government Officials and More Protest Over Salary Freeze Ahead of PM Sébastien ",
+            "url": "https://sundayguardianlive.com/world/france-strike-today-teachers-government-officials-and-more-protest-over-salary-freeze-ahead-of-pm-sbastien-lecornus-budget-bill-presentation-heres-all-you-need-to-know-295047"
+          },
+          {
+            "ageHours": 14.8,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:21:27.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Which is the largest river in France?",
+            "url": "https://visitfranceguide.com/which-is-the-largest-river-in-france"
+          },
+          {
+            "ageHours": 37.9,
+            "domain": "sempremilan.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:14:21.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.63,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Four face-off for Milan tonight as Belgium play France in Nations League",
+            "url": "https://sempremilan.com/four-milan-face-off-belgium-france-nations-league"
+          },
+          {
+            "ageHours": 11.5,
+            "domain": "myjoyonline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:37:16.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.57,
+              "freshness": 0.21,
+              "relevance": 0.1,
+              "sourceQuality": 0.12
+            },
+            "title": "Latest Stories",
+            "url": "https://www.myjoyonline.com/kwabenya-court-denies-bail-to-six-accused-in-alleged-3-9-tonne-cocaine-shipment"
+          },
+          {
+            "ageHours": 51.3,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T21:51:01.000Z",
+            "relevance": 0.52,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.52,
+              "freshness": 0.17,
+              "relevance": 0.1,
+              "sourceQuality": 0.12
+            },
+            "title": "Which is the richest country between France and Spain?",
+            "url": "https://visitfranceguide.com/which-is-the-richest-country-between-france-and-spain"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 11.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.66,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1522,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "aktuelle Nachrichten Deutschland",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1063,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "日本の最新ニュース",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1250,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "últimas noticias España",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1177,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "ultime notizie Italia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1194,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1115,
+        "statesFreshness": true,
+        "text": "Travaillant tous les jours avec des écosystèmes de PME, de start-up et des entreprises innovantes en France, Huawei et EuraTechnologies ont donc souhaité lancé le plus grand concours de start-up privé en France, afin de soutenir l'émergence de projets innovants valorisant l'expertise française dans les domaines d'avenir des nouvelles technologies. [1]\n\n|\n\nLivraison\n\nDélai de livraison entre 3 et 6 jours ouvrés pour la France et la Belgique. [2]\n\nFrance Strike Today: Does France Have A Debt Issue? [4]\n\nThe minority government in France is facing pressure to reduce its budget deficit and keep its rising debt in check. [4]\n\nSources: [1] Inno'start récompense les entreprises innovantes (lillesagency.com)  [2] Figurine PVC - Grand Schtroumpf avec guitare: Figurines Pop culture par Peyo chez Plastoy (9e-store.fr)  [3] Porte-clés Cosmoschtroumpf: Porte-clés Pop culture par Peyo chez Plastoy (9e"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "nouvelles du jour en France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 58,
+            "domain": "lillesagency.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:06:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Inno'start récompense les entreprises innovantes",
+            "url": "https://www.lillesagency.com/blog-business/zoom-sur/innostart-recompense-les-entreprises-innovantes"
+          },
+          {
+            "ageHours": 1.2,
+            "domain": "9e-store.fr",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Figurine PVC - Grand Schtroumpf avec guitare: Figurines Pop culture par Peyo chez Plastoy",
+            "url": "https://9e-store.fr/inconnu/plastoy/figurines/figurine-pvc-grand-schtroumpf-avec-guitare-04041d"
+          },
+          {
+            "ageHours": 1.2,
+            "domain": "9e-store.fr",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Porte-clés Cosmoschtroumpf: Porte-clés Pop culture par Peyo chez Plastoy",
+            "url": "https://9e-store.fr/inconnu/plastoy/porte-cles/porte-cles-cosmoschtroumpf-043a42"
+          },
+          {
+            "ageHours": 18,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:07:52.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "France Strike Today: Teachers, Government Officials and More Protest Over Salary Freeze Ahead of PM Sébastien ",
+            "url": "https://sundayguardianlive.com/world/france-strike-today-teachers-government-officials-and-more-protest-over-salary-freeze-ahead-of-pm-sbastien-lecornus-budget-bill-presentation-heres-all-you-need-to-know-295047"
+          },
+          {
+            "ageHours": 33.7,
+            "domain": "stpetersfulham.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:27:14.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.55,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Julius Casino en ligne : étapes et méthodes pour s’inscrire et jouer",
+            "url": "https://stpetersfulham.co.uk/julius-casino-en-ligne-etapes-et-methodes-pour-s-inscrire-et-jouer"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 1.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.718,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1667,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 750,
+        "statesFreshness": false,
+        "text": "Últimas noticias sobre la economía de México y el mundo. [1]\n\nMéxico: Más noticias de actualidad nacional e internacional de política, cultura y deportes [6]\n\nXHTVM-TDT (channel 40) is a television station in Mexico City, Mexico, owned by Televisora del Valle de México and operated by TV Azteca. [3]\n\nIt is branded as adn Noticias and available over the air in much of Mexico on TV Azteca's transmitters. [3]\n\nSources: [1] Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy, Covid-19. (topbinhpgzdvkr.netlify.app)  [2] Nacional | Noticias actuales y de última hora en México - Publim… (publimetro.com.mx)  [3] XHTVM-TDT (en.wikipedia.org)  [4] Day: February 14, 2024 (mx.online-listing.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "noticias actuales de México",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1891.2,
+            "domain": "topbinhpgzdvkr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-13T05:55:43.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy,",
+            "url": "https://topbinhpgzdvkr.netlify.app/isadore80199goqe/cubl-es-la-mejor-fuente-de-noticias-en-lnnea-no.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "publimetro.com.mx",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Nacional | Noticias actuales y de última hora en México - Publim…",
+            "url": "http://www.publimetro.com.mx/nacional"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "XHTVM-TDT",
+            "url": "https://en.wikipedia.org/wiki/XHTVM-TDT"
+          },
+          {
+            "ageHours": 1656.3,
+            "domain": "mx.online-listing.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-23T00:52:52.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.69,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Day: February 14, 2024",
+            "url": "https://www.mx.online-listing.com/Noticias/Blogger/2024/02/14"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.67,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.67,
+              "freshness": 0.02,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "2025 Pacific hurricane season",
+            "url": "https://en.wikipedia.org/wiki/2025_Pacific_hurricane_season"
+          },
+          {
+            "ageHours": null,
+            "domain": "es.euronews.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "México | euronews - información internacional sobre México",
+            "url": "https://es.euronews.com/noticias/america/mexico"
+          },
+          {
+            "ageHours": null,
+            "domain": "laprensa.hn",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Videos de Noticias Actuales | La Prensa",
+            "url": "http://www.laprensa.hn/video"
+          },
+          {
+            "ageHours": null,
+            "domain": "elpais.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Los rostros actuales de la pobreza | Noticias de la Comunidad Va…",
+            "url": "https://elpais.com/ccaa/2012/06/02/valencia/1338669912_508193.html"
+          },
+          {
+            "ageHours": 1820.9,
+            "domain": "newsbytesapp.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-16T04:17:08.000Z",
+            "relevance": 0.48,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.48,
+              "freshness": 0.01,
+              "relevance": 0.17,
+              "sourceQuality": 0.04
+            },
+            "title": "Mexico: News",
+            "url": "https://www.newsbytesapp.com/news/world/mexico"
+          },
+          {
+            "ageHours": 1801.2,
+            "domain": "mx.online-listing.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-16T23:54:38.000Z",
+            "relevance": 0.41,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.41,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0
+            },
+            "title": "Category: Compras en México",
+            "url": "https://www.mx.online-listing.com/Noticias/Blogger/category/compras-en-mexico"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 1656.3,
+        "normalizedCount": 11,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"noticias actuales de México\" right now —"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0.646,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1795,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 815,
+        "statesFreshness": false,
+        "text": "'Battalions Party'), officially the Kataeb Party – Lebanese Social Democratic Party (Arabic: حزب الكتائب اللبنانية – الحزب الديمقراطي الاجتماعي اللبناني Ḥizb al-Katā'ib al-Lubnānīya), historically known as the Phalangist Party, is a Lebanese nationalist political party in Lebanon. [1]\n\nBonjus (Arabic: بون جوس, from French: good juice) is a Lebanese brand of juice, ice cream and dairy products, famous for its \"Pyramid-shaped\" (الهرم) juicebox (actually tetrahedral). [2]\n\nDepartamento de Economía\n\nNovedades\n\n21/06/2022 [3]\n\nيحيى غالي ياسين · 2018 — الحسين بن علي الشهيد عليه السلام, الامام الثالث, 4 – 61 للهجرة, شهادة, واقعة كربلاء, 61 للهجرة [4]\n\nSources: [1] Kataeb Party (en.wikipedia.org)  [2] Bonjus (en.wikipedia.org)  [3] Departamento de Economía (utdt.edu)  [4] القضية الحسينية (2018) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "آخر الأخبار",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Kataeb Party",
+            "url": "https://en.wikipedia.org/wiki/Kataeb_Party"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Bonjus",
+            "url": "https://en.wikipedia.org/wiki/Bonjus"
+          },
+          {
+            "ageHours": 1355.9,
+            "domain": "utdt.edu",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:46.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.62,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Departamento de Economía",
+            "url": "https://www.utdt.edu/ver_novedad.php?id_novedad=4958&id_item_menu=436"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.58,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "القضية الحسينية (2018)",
+            "url": "https://openlibrary.org/works/OL19646346W"
+          },
+          {
+            "ageHours": null,
+            "domain": "arabic.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.57,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "آخر الأخبار السياسية والرياضية والفنية وأحدث تقارير الفيديو | CN…",
+            "url": "http://arabic.cnn.com"
+          },
+          {
+            "ageHours": 2683.7,
+            "domain": "bestoptionsclmbdbr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-10T05:28:10.000Z",
+            "relevance": 0.56,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.56,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "آخر الأخبار nrl egtxi",
+            "url": "https://bestoptionsclmbdbr.netlify.app/lukens35411heq/nrl-for"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "الفرق بين المعاجز الإلهية وبين السحر وتحضير الأرواح (2018)",
+            "url": "https://openlibrary.org/works/OL19367404W"
+          },
+          {
+            "ageHours": 1144.7,
+            "domain": "kashmirsearch.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:27:53.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Products",
+            "url": "http://kashmirsearch.com/Products/Schools%20and%20Colleges/TYNDALE-BISCOE-AND-MALLINSON-HIGH-SECONDARY-SCHOOL"
+          },
+          {
+            "ageHours": 2535.6,
+            "domain": "banten.akurat.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-16T09:31:10.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Penculikan Nekat di Kawasan Super Aman PIK: Korban Lansia 70 Tahun Masih Trauma Keluar Sendirian",
+            "url": "https://banten.akurat.co/news/865793/penculikan-nekat-di-kawasan-super-aman-pik-korban-lansia-70-tahun-masih-trauma-keluar-sendirian"
+          },
+          {
+            "ageHours": null,
+            "domain": "shafaq.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.52,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.52,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "شفق نيوز | آخر الأخبار العاجلة في العراق وكوردستان والعالم",
+            "url": "https://shafaq.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Feed",
+            "url": "http://www.wikidata.org/entity/Q48835386"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار/7 أبريل 2007",
+            "url": "http://www.wikidata.org/entity/Q25707453"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1144.7,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.562,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 961,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 672,
+        "statesFreshness": false,
+        "text": "Lima is the capital and largest city of Peru, as well as a primate city. [1]\n\nPERU'S CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU'S CAPITAL\n\nCrossword Puzzle Infos\n\nPeru's capital is LIMA, a four-letter word. [3]\n\nPERU CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU CAPITAL\n\nCrossword Puzzle Infos\n\nThe capital of Peru is LIMA, which is a four-letter word. [4]\n\nCapital of Peru\n\nLima, situated at an altitude of 107 meters above sea level, is the capital of Peru. [7]\n\nSources: [1] Lima (en.wikipedia.org)  [2] Peru (en.wikipedia.org)  [3] PERU'S CAPITAL Crossword Clue (crossword-dictionary.com)  [4] PERU CAPITAL Crossword Clue (crossword-dictionary.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "what is the capital of Peru",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Lima",
+            "url": "https://en.wikipedia.org/wiki/Lima"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Peru",
+            "url": "https://en.wikipedia.org/wiki/Peru"
+          },
+          {
+            "ageHours": 1090.2,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T14:56:51.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PERU'S CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-s-capital"
+          },
+          {
+            "ageHours": 1096.4,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T08:47:22.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PERU CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-capital"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A guide to Lima, the capital of Peru (1949)",
+            "url": "https://openlibrary.org/works/OL2002609W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Lima, or Sketches of the capital of Peru (1866)",
+            "url": "https://openlibrary.org/works/OL45640253W"
+          },
+          {
+            "ageHours": 42613.1,
+            "domain": "mapsofworld.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-11-19T12:04:39.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Peru South America Map",
+            "url": "https://www.mapsofworld.com/peru/peru-political-map.html"
+          },
+          {
+            "ageHours": 1017.1,
+            "domain": "spanishdict.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T16:01:03.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "The capital of Peru is Lima.",
+            "url": "https://www.spanishdict.com/translate/The%20capital%20of%20Peru%20is%20Lima."
+          },
+          {
+            "ageHours": null,
+            "domain": "pubmed.ncbi.nlm.nih.gov",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Earliest Mysticete from the Late Eocene of Peru Sheds New Light …",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28502655"
+          },
+          {
+            "ageHours": 116783.2,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-06-04T01:58:51Z",
+            "relevance": 0.61,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.61,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Ask HN: How do you allocate equity in a startup?",
+            "url": "https://news.ycombinator.com/item?id=5817255"
+          },
+          {
+            "ageHours": 119624.8,
+            "domain": "breakingviews.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-02-05T16:20:06Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.55,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "U.S. venture capital needs a reboot",
+            "url": "http://www.breakingviews.com/us-venture-capital-needs-a-reboot/21066836.article"
+          },
+          {
+            "ageHours": null,
+            "domain": "cpj.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.55,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Peruvian journalist Erick Osores convicted of criminal defamatio…",
+            "url": "https://cpj.org?p=81034"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1017.1,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.794,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1047,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Kerguelen Islands current research station status",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1309,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest news about the Faroe Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 7
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2120,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1031,
+        "statesFreshness": false,
+        "text": "The Svalbard Global Seed Vault (Norwegian: Svalbard globale frøhvelv) is a secure backup facility for the Earth's crop diversity on the Norwegian island of Spitsbergen in the remote Arctic Svalbard archipelago. [2]\n\nSvalbard Global Seed Vault\n\nThe Svalbard Global Seed Vault is the world’s largest crop diversity storage facility. [6]\n\nSafe haven for the world’s crop diversity\n\nWith all this in mind, in 2008 The Svalbard Global Seed Vault was built aiming to provide a safe place for one of the world’s most important natural resources – our diminishing amounts of seeds. [1]\n\nSeeds of Love (136) The Svalbard Global Seed Vault\n\nThe Svalbard Global Seed Vault, tucked away in the Arctic Circle between Norway and the North Pole, has received a new intake of 50,000 seeds from all over the world. [3]\n\nSources: [1] Keeping the World’s Seeds Safe (greenlivingideas.com)  [2] Svalbard Global Seed Vaul"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "Svalbard Global Seed Vault capacity",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 1046.7,
+            "domain": "greenlivingideas.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T10:26:29.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Keeping the World’s Seeds Safe",
+            "url": "https://greenlivingideas.com/2011/08/29/keeping-the-worlds-seeds-safe"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Svalbard Global Seed Vault",
+            "url": "https://en.wikipedia.org/wiki/Svalbard_Global_Seed_Vault"
+          },
+          {
+            "ageHours": 1101.3,
+            "domain": "sbs.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T03:49:15.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Seeds of Love (136) The Svalbard Global Seed Vault",
+            "url": "https://www.sbs.com.au/language/vietnamese/en/podcast-episode/seeds-of-love-136-the-svalbard-global-seed-vault/9du6a10cc"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Strategic reserve",
+            "url": "https://en.wikipedia.org/wiki/Strategic_reserve"
+          },
+          {
+            "ageHours": null,
+            "domain": "croptrust.org",
+            "providers": [
+              "mwmbl",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Svalbard Global Seed Vault - Crop Trust",
+            "url": "https://www.croptrust.org/work/svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": 1097.9,
+            "domain": "bbva.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T07:16:12.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.01,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "'Seeds for the future': Partners in the fight against biodiversity loss",
+            "url": "https://www.bbva.com/en/sustainability/seeds-for-the-future-partners-in-the-fight-against-biodiversity-loss"
+          },
+          {
+            "ageHours": 17269,
+            "domain": "croptrust.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2024-10-10T12:12:06.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.76,
+              "freshness": 0,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "Svalbard Global Seed Vault Deposit - May 2024 - Crop Trust",
+            "url": "https://www.croptrust.org/news-events/events/svalbard-global-seed-vault-deposit-may-2024-1"
+          },
+          {
+            "ageHours": null,
+            "domain": "nationalgeographic.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Svalbard Global Seed Vault Protects Earth's Food's Supply—Here’s…",
+            "url": "https://www.nationalgeographic.com/environment/article/norway-svalbard-global-seed-vault"
+          },
+          {
+            "ageHours": null,
+            "domain": "abc.net.au",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Svalbard Global Seed Vault drafts plans for first 'return-to-sen…",
+            "url": "https://www.abc.net.au/news/rural/2015-08-24/seed-crop-varieties-svalbard-vault-genebank/6720522"
+          },
+          {
+            "ageHours": null,
+            "domain": "seedvault.no",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.67,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.67,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.04
+            },
+            "title": "About – Svalbard Global Seed Vault",
+            "url": "https://www.seedvault.no/about"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 1046.7,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.798,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1072,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 418,
+        "statesFreshness": true,
+        "text": "The first open house is today at Thetford Township Hall on East Vienna Road in Clio. [1]\n\nThe second annual barbecue lunch is today from 11 a.m. [1]\n\n29, 2026: 5 things you need to know\n\nSAGINAW, Mich. [1]\n\nThis is the last “nice” day we have until the end of this week, as rainy weather is expected to move in for Wednesday and Thursday. [1]\n\nSources: [1] Tuesday, Sept. 29, 2026: 5 things you need to know (wnem.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "what happened in Tuvalu today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 11
+        },
+        "finalSources": [
+          {
+            "ageHours": 13.5,
+            "domain": "wnem.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:40:23.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Tuesday, Sept. 29, 2026: 5 things you need to know",
+            "url": "https://www.wnem.com/2026/09/29/tuesday-sept-29-2026-5-things-you-need-know"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 13.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.83,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1352,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 943,
+        "statesFreshness": false,
+        "text": "With weather-beaten cliffs, tiny stone-walled fields, and a small, resilient population, the Aran Islands are steeped in history. [2]\n\nCape Verde, a collection of islands near Africa's west coast with a population of some 500,000, surprisingly reached the knockout stage in their first appearance at the global tournament before losing 3-2 to Argentina. [1]\n\nMore People Really Should Know About: Padraig Jack\n\nJust off the west coast of Ireland, west of Clare and south of Connemara, lie three small islands. [2]\n\nPadraig Jack is a bilingual singer and songwriter who hails from the largest of these islands, Inis Mór. [2]\n\nSources: [1] I preferred my old life, says Cape Verde World Cup hero Vozinha (straitstimes.com)  [2] More People Really Should Know About: Padraig Jack (americana-uk.com)  [3] Travel Restrictions Eased (newsweek.com)  [4] Meth is a key driver in Fiji's fast-growing HIV epide"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "current population of Pitcairn Islands",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 37.5,
+            "domain": "straitstimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:37:44.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "I preferred my old life, says Cape Verde World Cup hero Vozinha",
+            "url": "https://www.straitstimes.com/sport/football/i-preferred-my-old-life-says-cape-verde-world-cup-hero-vozinha"
+          },
+          {
+            "ageHours": 29,
+            "domain": "americana-uk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:10:09.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "More People Really Should Know About: Padraig Jack",
+            "url": "https://americana-uk.com/more-people-really-should-know-about-padraig-jack"
+          },
+          {
+            "ageHours": 34.3,
+            "domain": "newsweek.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:48:54.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Travel Restrictions Eased",
+            "url": "https://www.newsweek.com/hawaii-tourist-accused-of-hurling-rock-at-seal-has-restrictions-eased-12496308"
+          },
+          {
+            "ageHours": 85.6,
+            "domain": "kunr.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T11:31:33.000Z",
+            "relevance": 0.53,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.53,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Meth is a key driver in Fiji's fast-growing HIV epidemic: 1 in 60 adults are affected",
+            "url": "https://www.kunr.org/world-headlines/2026-09-26/meth-is-a-key-driver-in-fijis-fast-growing-hiv-epidemic-1-in-60-adults-are-affected"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 29,
+        "normalizedCount": 11,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0.72,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1362,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 925,
+        "statesFreshness": true,
+        "text": "Latest Updates in the AI Industry: OpenAI’s Path to Achieving Artificial General Intelligence, Virginia Congresswoman Advocates for AI Voice Technology, and More! [1]\n\nThis is now published in a new report, “ALERT: FY2025 NASA Planetary Research and Analysis Funding Cut by More than 50%” at: [2]\n\nWelcome to “AI News Today,” your go-to source for the latest updates in the AI industry. [1]\n\nOpenAI, a leader in AI research, has laid out a roadmap for achieving Artificial General Intelligence (AGI). [1]\n\nSources: [1] Today’s AI News – July 15, 2024 (bn.edu.pl)  [2] FY 2025 NASA Planetary Research And Analysis Funding Cut By More Than 50% (nasawatch.com)  [3] HLB's Flagship CIO Fund Launched with Strategic Alliance with Lombard Odier (thehindu.com)  [4] Quaise Energy Selected for Up to $25 Million in U.S. Department of Energy Support to Advance World's First Commercial Superhot Geothermal Pow"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "obscure",
+      "query": "latest research on tardigrades",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 71.1,
+            "domain": "bn.edu.pl",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:04:08.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Today’s AI News – July 15, 2024",
+            "url": "https://bn.edu.pl/todays-ai-news-july-15-2024.html"
+          },
+          {
+            "ageHours": 34,
+            "domain": "nasawatch.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:10:36.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.61,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "FY 2025 NASA Planetary Research And Analysis Funding Cut By More Than 50%",
+            "url": "https://nasawatch.com/2026/09/28/fy-2025-nasa-planetary-research-and-analysis-funding-cut-by-more-than-50"
+          },
+          {
+            "ageHours": 33.2,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:00:17.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.61,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "HLB's Flagship CIO Fund Launched with Strategic Alliance with Lombard Odier",
+            "url": "https://www.thehindu.com/brandhub/pr-release/hlbs-flagship-cio-fund-launched-with-strategic-alliance-with-lombard-odier/article71521041.ece"
+          },
+          {
+            "ageHours": 96.7,
+            "domain": "newswire.co.kr",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:30:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.13,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Quaise Energy Selected for Up to $25 Million in U.S. Department of Energy Support to Advance World's First Com",
+            "url": "https://www.newswire.co.kr/newsRead.php?no=1043362"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 33.2,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.648,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1407,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1084,
+        "statesFreshness": false,
+        "text": "Bolt’s race\n\n#JAM Usain Bolt wins his heat in the men's 100m with a 10.07 time at #Rio2016 #Athletics https://t.co/JAoL0ve2RK https://t.co/aWKt3JuxUC\n\n— CBC Olympics (@CBCOlympics) August 13, 2016\n\nCanadians Aaron Brown, who went sub-10 earlier this year, was eliminated in the heats as was Akeem Haynes. [1]\n\nThe men's 100 metres event at the 2016 Summer Olympics took place between 13–14 August at the Olympic Stadium. [3]\n\nAthletics: Koike wins men's 100m in rain-hit Oda Memorial HIROSHIMA (Kyodo) -- Yuki Koike, who made his Olympic debut in Tokyo last summer, won the men's… [8]\n\n— Athletics Australia (@AthsAust) August 15, 2016\n\nBolt, De Grasse, Gatlin, Vicaut, Meite, Simbine, Blake and Bromell make the men’s 100m final. [4]\n\nSources: [1] Andre De Grasse eyes 100m gold: “I don’t want to wait, I want to do it now” (runningmagazine.ca)  [2] Olympics men's 100m final: How Noah Lyles won the"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Who won the 2016 Olympics men's 100m?",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1075.7,
+            "domain": "runningmagazine.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T05:27:53.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.4,
+              "sourceQuality": 0.1
+            },
+            "title": "Andre De Grasse eyes 100m gold: “I don’t want to wait, I want to do it now”",
+            "url": "https://runningmagazine.ca/sections/runs-races/rio-2016/andre-de-grasse-eyes-100m-gold-i-dont-want-to-wait-i-want-to-do-it-now"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.co.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.4,
+              "sourceQuality": 0.07
+            },
+            "title": "Olympics men's 100m final: How Noah Lyles won the greatest race …",
+            "url": "http://www.bbc.co.uk/sport/olympics/articles/clwyy8jwp2go"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Athletics at the 2016 Summer Olympics – Men's 100 metres",
+            "url": "https://en.wikipedia.org/wiki/Athletics_at_the_2016_Summer_Olympics_%E2%80%93_Men's_100_metres"
+          },
+          {
+            "ageHours": 1016.3,
+            "domain": "runnerstribe.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T16:49:51.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Aussie Rio Updates Via Social Media: Day 3 EVENING",
+            "url": "https://runnerstribe.com/australian-olympic-team/olympic-news/aussie-rio-updates-via-social-media-day-3-evening"
+          },
+          {
+            "ageHours": 1355.9,
+            "domain": "performancelabofcalifornia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:43.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Usain Bolt Top Speed Explained: The Fastest Human Ever",
+            "url": "https://www.performancelabofcalifornia.com/usain-bolt"
+          },
+          {
+            "ageHours": 1269.1,
+            "domain": "essentiallysports.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:10.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "How Many mph Can Olympics Legend Usain Bolt Run?",
+            "url": "https://www.essentiallysports.com/olympics-news-how-many-mph-can-olympics-legend-usain-bolt-run"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.72,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "2016 Summer Olympics medal table",
+            "url": "https://en.wikipedia.org/wiki/2016_Summer_Olympics_medal_table"
+          },
+          {
+            "ageHours": null,
+            "domain": "mainichi.jp",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.68,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.68,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Athletics: Koike wins men's 100m in rain-hit Oda Memorial - The …",
+            "url": "http://mainichi.jp/english/articles/20220429/p2g/00m/0sp/063000c"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 1016.3,
+        "normalizedCount": 9,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.826,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1631,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "what happened in the 2008 financial crisis",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 2,
+          "outside freshness window": 6,
+          "shares no subject word": 4
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2130,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1074,
+        "statesFreshness": false,
+        "text": "The Battle of Waterloo was fought on Sunday 18 June 1815, near Waterloo (then in the United Kingdom of the Netherlands, now in Belgium), being the last engagement with Napoleon I. [1]\n\nAlessandro Barbero · 2005 — Waterloo, Battle of, Waterloo, Belgium, 1815, Military - Napoleonic Wars, Campaigns, Military History, Napoleonic Wars, 1800-1815, Waterloo, Bataille de, 1815 [4]\n\nManuel Komroff · 1936 — Elba and the Hundred Days, 1814-1815, Waterloo, Battle of, Waterloo, Belgium, 1815, The Battle of Waterloo, Battles, History, Fiction [5]\n\nBattle of Waterloo\n\n“...In the Battle of Waterloo (Sunday 18 June 1815[5] near Waterloo, Belgium) forces of the French Empire under Napoleon Bonaparte and Michel Ney were defeated by those of the Seventh Coalition, including an Anglo-Allied army under the command of the Duke of Wellington and a Prussian army under the command of Gebhard von Blücher. [7]\n\nSou"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "when was the Battle of Waterloo",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Waterloo, Belgium",
+            "url": "https://en.wikipedia.org/wiki/Waterloo%2C_Belgium"
+          },
+          {
+            "ageHours": 1269.3,
+            "domain": "artuk.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:54:23.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "How you can use this image",
+            "url": "https://artuk.org/discover/artworks/the-opening-of-waterloo-bridge-whitehall-stairs-june-18th-1817-117764"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Battle (2005)",
+            "url": "https://openlibrary.org/works/OL136014W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Battle of Waterloo (1936)",
+            "url": "https://openlibrary.org/works/OL4481467W"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo service attended by Royal Family - BBC News",
+            "url": "http://www.bbc.com/news/uk-33178490"
+          },
+          {
+            "ageHours": 150703.5,
+            "domain": "raymondpronk.wordpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2009-07-21T17:36:40.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo–Videos",
+            "url": "https://raymondpronk.wordpress.com/2009/07/21/battle-of-waterloo-videos?replytocom=16380"
+          },
+          {
+            "ageHours": 2636.3,
+            "domain": "en.metapedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-12T04:53:46.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo - Metapedia",
+            "url": "http://en.metapedia.org/m/index.php?oldid=528619&title=Battle_of_Waterloo"
+          },
+          {
+            "ageHours": 1010,
+            "domain": "de.zxc.wiki",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T23:09:40.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo",
+            "url": "https://de.zxc.wiki/wiki/Schlacht_von_Waterloo"
+          },
+          {
+            "ageHours": 1022.9,
+            "domain": "de.zxc.wiki",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T10:18:06.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo",
+            "url": "https://de.zxc.wiki/wiki/Schlacht_bei_Waterloo"
+          },
+          {
+            "ageHours": 99130.8,
+            "domain": "theguardian.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-06-09T14:20:04Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Belgium defies France as it mints €2.50 coin to mark Battle of Waterloo",
+            "url": "http://www.theguardian.com/world/2015/jun/08/belgium-france-coin-battle-waterloo-euro-napoleon"
+          },
+          {
+            "ageHours": 99536.4,
+            "domain": "economist.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-05-23T16:44:41Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "The Battle of Waterloo: A Near-Run Thing",
+            "url": "http://www.economist.com/news/books-and-arts/21651775-appallingly-bloody-yet-decisive-battle-waterloo-june-1815-deserves"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1010,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.884,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1122,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1374,
+        "statesFreshness": false,
+        "text": "The History of the Decline and Fall of the Roman Empire, sometimes shortened to Decline and Fall of the Roman Empire, is a six-volume work by the English historian Edward Gibbon. [2]\n\nThe history of the Roman Empire covers the history of ancient Rome from the traditional end of the Roman Republic in 27 BC until the abdication of Romulus Augustulus in AD 476 in the West, and the Fall of Constantinople in the East in 1453. [1]\n\nYouTube obviously has great videos on subjects like &quot;What is a derivative&quot;, &quot;Germany post world war 2&quot; or &quot;History of the roman empire&quot; but it won&#x27;t always have great videos for more niche subjects like say &quot;Swedish monetary theory through history&quot; or & [7]\n\nThe six volumes cover, from 98 to 1590, the peak of the Roman Empire, the history of early Christianity and its emergence as the Roman state religion, the fall of the"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "history of the Roman Empire",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "History of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The History of the Decline and Fall of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/The_History_of_the_Decline_and_Fall_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "History of the Decline and Fall of the Roman Empire Complete and Unabridged (1776)",
+            "url": "https://openlibrary.org/works/OL1285005W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The social and economic history of the Roman Empire (1899)",
+            "url": "https://openlibrary.org/works/OL256996W"
+          },
+          {
+            "ageHours": 1355.9,
+            "domain": "farmersalmanac.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:37.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "When Is the Next Leap Year? 2028 – Date, History, and the Rule",
+            "url": "https://www.farmersalmanac.com/when-is-leap-year"
+          },
+          {
+            "ageHours": 1608.9,
+            "domain": "historyworld.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-25T00:13:41.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "HISTORY OF THE ROMAN EMPIRE",
+            "url": "https://www.historyworld.net/history/romanEmpire/531?heading=revivalOfThePaganCult&section=christianRome"
+          },
+          {
+            "ageHours": 7521.7,
+            "domain": "explanans.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2025-11-20T15:30:10Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Show HN: Explanans – Personalized video lectures for any topic",
+            "url": "https://explanans.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "history of the Roman Empire",
+            "url": "http://www.wikidata.org/entity/Q2671119"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "History of the Roman Empire Category",
+            "url": "https://duckduckgo.com/c/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Timeline of Roman history - This is a timeline of Roman history, comprising important legal and territorial ch",
+            "url": "https://duckduckgo.com/Timeline_of_Roman_history"
+          },
+          {
+            "ageHours": 73316.2,
+            "domain": "kottke.org",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2018-05-20T04:56:01Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A year-by-year history of economic growth and pollution in the Roman Empire",
+            "url": "https://kottke.org/18/05/a-year-by-year-history-of-economic-growth-and-pollution-in-the-roman-empire"
+          },
+          {
+            "ageHours": 1355.9,
+            "domain": "discoverbritainmag.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:35.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.69,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "11 of the most spectacular spots on the Cornish coast, from pirate harbours to smugglers’ coves and mermaid ha",
+            "url": "https://www.discoverbritainmag.com/victoria-and-albert-museum"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1355.9,
+        "normalizedCount": 12,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.84,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1333,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Asian Games 2018 medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 3,
+          "outside freshness window": 9
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1689,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 953,
+        "statesFreshness": false,
+        "text": "The Summer Olympic Games , also known as the Summer Olympics or the Games of the Olympiad , are a major international multi-sport event normally held once every four years. [2]\n\nThe Ancient Olympic Games\n\nThe Origins and Mythology\n\nThe origins of the Olympic Games are steeped in Greek mythology and legend. [4]\n\nFirst city to host Summer and Winter Olympic Games\n\nWho\nBeijing\nWhat\nFirst\nWhere\nChina (Beijing)\nWhen\n20 February 2022\n\nThe first city to hold Summer and Winter Olympic Games is Beijing (China), as the Summer Olympic Games host city in 2008 and Winter Olympic Games host city in 2022. [7]\n\nThis is the year and this the principal month of the Olympic Games, the modern sporting revival of those sacred games of … [9]\n\nSources: [1] Athens 2004 (olympics.fandom.com)  [2] Summer Olympic Games (en.wikipedia.org)  [3] Asterix at the Olympic Games Xbox 360 (pricecharting.com)  [4] Exploring"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "origin of the Olympic Games",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1269.1,
+            "domain": "olympics.fandom.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:00:53.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Athens 2004",
+            "url": "https://olympics.fandom.com/wiki/Athens_2004"
+          },
+          {
+            "ageHours": 1269.2,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:59:58.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.01,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Summer Olympic Games",
+            "url": "https://en.wikipedia.org/wiki/Summer_Olympic_Games"
+          },
+          {
+            "ageHours": 1075.6,
+            "domain": "pricecharting.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T05:35:43.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.75,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Asterix at the Olympic Games Xbox 360",
+            "url": "https://www.pricecharting.com/game/xbox-360/asterix-at-the-olympic-games"
+          },
+          {
+            "ageHours": 1018,
+            "domain": "mossandfog.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T15:07:31.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Exploring the Ancient History of the Olympics",
+            "url": "https://mossandfog.com/exploring-the-ancient-history-of-the-olympics"
+          },
+          {
+            "ageHours": 1269.2,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:58:25.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.69,
+              "freshness": 0.01,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "List of Olympic Games host cities",
+            "url": "https://en.wikipedia.org/wiki/List_of_Olympic_Games_host_cities"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "The Olympic Games at Athens | Sport | The Guardian",
+            "url": "http://www.theguardian.com/sport/1896/apr/07/1"
+          },
+          {
+            "ageHours": 1269.1,
+            "domain": "guinnessworldrecords.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:10.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.01,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "First city to host Summer and Winter Olympic Games",
+            "url": "https://www.guinnessworldrecords.com/world-records/694622-first-city-to-host-summer-and-winter-olympic-games"
+          },
+          {
+            "ageHours": 1355.9,
+            "domain": "olympics.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:21.000Z",
+            "relevance": 0.56,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.56,
+              "freshness": 0.01,
+              "relevance": 0.2,
+              "sourceQuality": 0.04
+            },
+            "title": "Aizanat MURTAZAEVA",
+            "url": "https://olympics.com/en/athletes/aizanat-murtazaeva"
+          },
+          {
+            "ageHours": null,
+            "domain": "harpers.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.37,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.37,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.03
+            },
+            "title": "The Olympic Games, by John Roberts Tunis",
+            "url": "https://harpers.org/archive/1928/08/the-olympic-games"
+          },
+          {
+            "ageHours": null,
+            "domain": "techspot.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.37,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.37,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.03
+            },
+            "title": "Olympic Games News and Articles | TechSpot",
+            "url": "https://www.techspot.com/tag/olympic+games"
+          },
+          {
+            "ageHours": null,
+            "domain": "eev.ee",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0,
+            "scores": {
+              "answerability": 0,
+              "authority": 0,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0,
+              "freshness": 0,
+              "relevance": 0,
+              "sourceQuality": 0
+            },
+            "title": "fuzzy notepad",
+            "url": "http://eev.ee"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 11,
+        "keptDomains": 11,
+        "newestSourceAgeHours": 1018,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.575,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1906,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1159,
+        "statesFreshness": true,
+        "text": "Asian Games 2026: Updated Indian medal tally after 27th September\n\nIndia now have 37 medals – 4 gold, 16 silver and 17 bronze and are placed 12th in the overall standings. [2]\n\nAsian Games 2026: India fail to win individual badminton medal after 12 years\n\nThe Indian badminton contingent finished without 0 individual medals in the Asian Games. [1]\n\nGo Ad Lite\n\nHome sports other sports\n\nAsian Games 2026 | Indian athletes' schedule for September 29\n\nOn the ninth day, the track and field contingent delivered its best performance for India, who will be eyeing more medals on the 10th day of the compeition. [4]\n\nRelated: Asian Games 2026: India’s medal winners, live medal tally, results\n\nWhat to expect from the Indian contingent on 28th September? [2]\n\nSources: [1] Asian Games 2026: India fail to win individual badminton medal after 12 years (indiatoday.in)  [2] Asian Games 2026: India's medal "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "Indian contingent medals tally in Asian Games 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 66.6,
+            "domain": "indiatoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T06:30:58.000Z",
+            "relevance": 1.04,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.04,
+              "freshness": 0.17,
+              "relevance": 0.44,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: India fail to win individual badminton medal after 12 years",
+            "url": "https://www.indiatoday.in/sports/badminton/story/asian-games-2026-india-fail-to-win-individual-badminton-medal-after-12-years-3004018-2026-09-27"
+          },
+          {
+            "ageHours": 49,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:09:28.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+            "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+          },
+          {
+            "ageHours": 57.8,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:21:40.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+          },
+          {
+            "ageHours": 32.9,
+            "domain": "deccanherald.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T16:16:50.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 | Indian athletes' schedule for September 29",
+            "url": "https://www.deccanherald.com/sports/other-sports/asian-games-2026-indian-athletes-schedule-for-september-29-4163061"
+          },
+          {
+            "ageHours": 55.6,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.89,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 32.9,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.974,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1415,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1197,
+        "statesFreshness": true,
+        "text": "Hellebuyck’s future in Winnipeg had been a popular topic of discussion amidst a wave of American players requesting trades out of Canadian markets, particularly after Team USA captured gold at the 2026 Winter Olympics; the 33-year-old goaltender finally confirmed the news of his trade request on Aug. [2]\n\nAdding to this, the NBC show also earned a significant boost as the network carried the Winter Olympics and the Super Bowl this year. [1]\n\n2026-27 NHL team preview: Winnipeg Jets\n\nLAST SEASON\n\nAfter winning the Presidents’ Trophy in 2024-25, the Winnipeg Jets very much did not replicate that feat in 2025-26. [2]\n\nA sprawling Adirondacks time capsule built just before the 1980 Winter Olympics has hit the market for $1.39 million — complete with soaring ceilings, shaggy retro interiors and, yes, a hot tub in the living room. [3]\n\nSources: [1] ABC News Weighs Major Shakeup at 'Good Morning"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "2026 Winter Olympics results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.1,
+            "domain": "okmagazine.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:03:06.000Z",
+            "relevance": 1.04,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.04,
+              "freshness": 0.21,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "ABC News Weighs Major Shakeup at 'Good Morning America' After Losing No. 1 Spot to 'Today' Amid Anchor Tension",
+            "url": "https://okmagazine.com/p/abc-news-good-morning-america-losing-spot-today-anchor-tensions"
+          },
+          {
+            "ageHours": 57.3,
+            "domain": "dailyfaceoff.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:52:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.4,
+              "sourceQuality": 0.12
+            },
+            "title": "2026-27 NHL team preview: Winnipeg Jets",
+            "url": "https://www.dailyfaceoff.com/news/winnipeg-jets-2026-27-season-nhl-team-preview-predictions-roster-additions-departures"
+          },
+          {
+            "ageHours": 7.6,
+            "domain": "nypost.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:33:01.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.21,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Rare Lake Placid ‘70s time capsule’ hits market for first time in half a century — complete with groovy living",
+            "url": "https://nypost.com/2026/09/29/real-estate/groovy-1970s-lake-placid-time-capsule-lists-for-1-4m"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 7.6,
+        "normalizedCount": 11,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0.94,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1160,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1337,
+        "statesFreshness": true,
+        "text": "According to reports in September 2026, the independent commission has found Manchester City guilty of all but one of the 115 charges. [2]\n\nAirship Recognized in 2026 Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for Second Consecutive Year\n\nSAN FRANCISCO — Airship, the mobile-first customer experience company, today announced its recognition in the Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for two years in a row. [4]\n\nDragon Sourcing has managed to make its mark and is placed among the service providers who are featured in the report alongside many famous procurement and technology service organizations. [1]\n\nAs a response to this, the procurement service providers are looking forward to their investments in technology along with talent and reusable procurement assets to ensure that their procurement remains flexible, which is based on outcome-oriented models"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "COP31 2026 outcome",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 14.1,
+            "domain": "news.prfree.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:01:44.000Z",
+            "relevance": 1.07,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.07,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Dragon Sourcing Featured in Avasant’s Procurement Business Process Transformation 2026 RadarViewTM",
+            "url": "https://news.prfree.org/@debradin/dragon-sourcing-featured-in-avasant-s-procurement-business-process-transformation-2026-radarview-x19xga5xbbhz"
+          },
+          {
+            "ageHours": 11.3,
+            "domain": "notjustok.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:50:33.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "What are the 115 charges against Manchester City?",
+            "url": "https://notjustok.com/sports/what-are-the-115-charges-against-manchester-city"
+          },
+          {
+            "ageHours": 15,
+            "domain": "watchlistnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:10:47.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Virtual Reality Stocks To Watch Today – September 26th",
+            "url": "https://www.watchlistnews.com/virtual-reality-stocks-to-watch-today-september-26th/11241635.html"
+          },
+          {
+            "ageHours": 36,
+            "domain": "financialpost.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:11:35.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Airship Recognized in 2026 Gartner® Magic QuadrantTM for Multichannel Marketing Hubs for Second Consecutive Ye",
+            "url": "https://financialpost.com/pmn/business-wire-news-releases-pmn/airship-recognized-in-2026-gartner-magic-quadrant-for-multichannel-marketing-hubs-for-second-consecutive-year"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 11.3,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.013,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1144,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1234,
+        "statesFreshness": false,
+        "text": "England can take vital lessons from worst defeats into Rugby World Cup, says Johnson\n\nMartin Johnson believes England’s most painful defeats under Steve Borthwick can benefit them at the Rugby World Cup in Australia next year. [1]\n\nHamiso Tabuai-Fidow commits to Samoa ahead of Rugby League World Cup\n\nThe NRL superstar has turned down a massive carrot with his enormous decision. [2]\n\n‘Never write them off’ – Martin Johnson issues stark Australia warning ahead of 2027 Rugby World Cup\n\nMartin Johnson has warned of dismissing Australia’s chances next year, when the Rugby World Cup returns Down Under for the first time since his England team broke Wallaby hearts. [3]\n\nHong Kong China’s part-timers relish a Rugby World Cup baptism of fire\n\nThis time next year the Rugby World Cup will be looming large. [4]\n\nSources: [1] England can take vital lessons from worst defeats into Rugby World Cup, say"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "current status of the Rugby World Cup",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 2.1,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T23:01:03.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.21,
+              "sourceQuality": 0.12
+            },
+            "title": "England can take vital lessons from worst defeats into Rugby World Cup, says Johnson",
+            "url": "https://www.theguardian.com/sport/2026/sep/30/england-vital-lessons-from-defeat-rugby-world-cup-martin-johnson-steve-borthwick"
+          },
+          {
+            "ageHours": 20.6,
+            "domain": "7news.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:34:15.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.29,
+              "sourceQuality": 0.12
+            },
+            "title": "Hamiso Tabuai-Fidow commits to Samoa ahead of Rugby League World Cup",
+            "url": "https://7news.com.au/sport/rugby-league/hamiso-tabuai-fidow-commits-to-samoa-ahead-of-rugby-league-world-cup-c-22942121"
+          },
+          {
+            "ageHours": 10.1,
+            "domain": "planetrugby.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T15:01:47.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.21,
+              "sourceQuality": 0.12
+            },
+            "title": "‘Never write them off’ – Martin Johnson issues stark Australia warning ahead of 2027 Rugby World Cup",
+            "url": "https://www.planetrugby.com/news/never-write-them-off-martin-johnson-issues-stark-australia-warning-ahead-of-2027-rugby-world-cup"
+          },
+          {
+            "ageHours": 15.1,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:05:48.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.21,
+              "sourceQuality": 0.12
+            },
+            "title": "Hong Kong China’s part-timers relish a Rugby World Cup baptism of fire",
+            "url": "https://www.theguardian.com/sport/2026/sep/29/hong-kong-chinas-part-timers-relish-a-rugby-world-cup-baptism-of-fire"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 2.1,
+        "normalizedCount": 6,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 933,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 970,
+        "statesFreshness": true,
+        "text": "Exploring and Settling Space with the Help of Artificial Intelligence [Blog]\n\nReflections from the Nobel Prize Dialogue Seoul 2026\n\nBy Bill Maloney, Guest Writer, Red Planet Bound\n\nThis past Sunday, I attended the “Nobel Prize Dialogue Seoul 2026” as a representative of The Mars Society’s Mars Technology Institute (MTI). [2]\n\nFrom Lab Bench to Bedside: Medical Breakthroughs of 2026\n\nSome scientific discoveries never leave the laboratory. [1]\n\nKarikó and Weissman received the 2023 Nobel Prize in Physiology or Medicine for their foundational work. [1]\n\nIn 2026, we are witnessing the payoff of decades of basic research, as five landmark discoveries, each with roots stretching back years or even a century, are translating into real-world therapies that patients can access today. [1]\n\nSources: [1] From Lab Bench to Bedside: Medical Breakthroughs of 2026 (que.com)  [2] Exploring and Settling S"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "latest on the Nobel Prize 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "outside freshness window": 2,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 99.8,
+            "domain": "que.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:24:17.000Z",
+            "relevance": 1.07,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.07,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "From Lab Bench to Bedside: Medical Breakthroughs of 2026",
+            "url": "https://que.com/from-lab-bench-to-bedside-medical-breakthroughs-of-2026"
+          },
+          {
+            "ageHours": 99.6,
+            "domain": "marssociety.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T21:31:39.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Exploring and Settling Space with the Help of Artificial Intelligence [Blog]",
+            "url": "https://www.marssociety.org/red-planet-bound/2026/09/25/exploring-and-settling-space-with-the-help-of-artificial-intelligence-blog"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 99.6,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.99,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1338,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 600,
+        "statesFreshness": false,
+        "text": "He said the NDC would focus on responsible leadership rather than making promises it could not fulfil. [1]\n\nHe urged Nigerians to support the NDC in the 2027 elections, arguing that the party offers a realistic path to improved security, economic growth and better governance. [1]\n\n> “The NDC Obi/Kwankwaso is the only team committed to changing the country for good. [1]\n\nThat is the team that is committee to the unity and ensure protection of Nigerians anywhere they are. [1]\n\nSources: [1] 2027: Obi, Kwankwaso receive thousands of APC, ADC defectors to NDC in Sokoto (nationalaccordnewspaper.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-events",
+      "query": "upcoming general elections",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 17.2,
+            "domain": "nationalaccordnewspaper.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:55:54.000Z",
+            "relevance": 0,
+            "scores": {
+              "answerability": 0,
+              "authority": 0,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0,
+              "freshness": 0,
+              "relevance": 0,
+              "sourceQuality": 0
+            },
+            "title": "2027: Obi, Kwankwaso receive thousands of APC, ADC defectors to NDC in Sokoto",
+            "url": "https://nationalaccordnewspaper.com/2027-obi-kwankwaso-welcome-thousands-of-apc-adc-defectors-to-ndc-in-sokoto"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 17.2,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1366,
+      "vertical": "election"
+    }
+  ],
+  "total": 178
+}

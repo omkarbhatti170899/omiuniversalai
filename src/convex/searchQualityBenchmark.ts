@@ -244,6 +244,24 @@ const RAW: Array<[string, string, string]> = [
   ["south-korea", "today", "South Korea news today"],
   ["south-korea", "none", "South Korean technology sector"],
 
+  // --- UK + GLOBAL CLOSURE (Phase-1 reliability report, 2026-09-30) --------
+  // The masterplan's region matrix named the UK and Global explicitly; both
+  // were thin/absent. Test data only — no new providers, no ranking changes.
+  ["uk", "latest", "latest UK news"],
+  ["uk", "today", "UK news today"],
+  ["uk", "current", "current UK interest rate"],
+  ["uk", "latest", "latest Premier League results"],
+  ["uk", "none", "NHS structure"],
+  ["uk", "2026", "UK budget 2026"],
+  ["uk", "latest", "latest BBC headlines"],
+  ["uk", "current", "current UK inflation rate"],
+  ["global", "current", "current WHO health advisories"],
+  ["global", "latest", "latest UN security council news"],
+  ["global", "none", "world population by continent"],
+  ["global", "latest", "latest climate report from the IPCC"],
+  ["global", "current", "current global COVID statistics"],
+  ["global", "latest", "latest World Bank development update"],
+
   // --- MULTILINGUAL -------------------------------------------------------
   ["multilingual", "latest", "dernières nouvelles France"],
   ["multilingual", "latest", "aktuelle Nachrichten Deutschland"],

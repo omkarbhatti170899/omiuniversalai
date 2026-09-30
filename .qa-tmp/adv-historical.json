@@ -1,0 +1,83 @@
+[CONVEX ?(currentInfoProbe:runOne)] [WARN] 1 unawaited operation: [fetch]. Async operations should be awaited or they might not run. See https://docs.convex.dev/functions/actions#dangling-promises for more information.
+{
+  "row": {
+    "answer": "Canadian Andre De Grasse and Jamaican Usain Bolt as they cross the finish line in the men's 100m final race during Rio Olympics August 14, 2016.Bolt, who won his first Olympic gold medal at 21, looked slightly different for his third title, having shaved his head for Rio. [1]\n\n2004 Olympics Mens Platform Celebration Mathew Helm (born 9 December 1980) is an Australian diver who won the silver medal at the 2004 Summer Olympics in… [5]\n\nJames Dasaolu (GBR) and Chijindu Ujah (GBR) await the results to find out who won the mens 100m Credit: Da.Usain Bolt wins gold in the 4 x 100m men's final on the final night of Athletics at Olympic Stadium, London 11 August 2012 Stock Photo. [2]\n\nThe top four men's 100-meter dash times at the 2016 Olympics in Rio are shown in the table. [3]\n\nSources: [1] Bolt wins gold again, Canada's De Grasse takes bronze in 100 metres... (theglobeandmail.com)  [2] Mens 100m hi-res stock photography and images - Alamy (alamy.com)  [3] The top four mens 100 meter dash times at the | StudyX (studyx.ai)  [4] Swimming at the 2016 Summer Olympics – Men's 100 metre breaststroke (en.wikipedia.org)",
+    "conflictResolution": null,
+    "detail": "5 fresh result(s) from 7 source(s) in 3453ms; failed engines: Request failed with status code 429",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "wikidata",
+      "arxiv",
+      "openalex",
+      "openlibrary",
+      "hackernews",
+      "openverse",
+      "commoncrawl",
+      "github",
+      "openmeteo",
+      "market-rates",
+      "sports-scores",
+      "mwmbl",
+      "duckduckgo-instant",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia",
+      "arXiv",
+      "Open Library",
+      "Live sports scores (TheSportsDB)",
+      "Mwmbl (free, open, independent index)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "Request failed with status code 429"
+    ],
+    "freshResults": 5,
+    "freshSplitCounts": {
+      "fresh": 5,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": null,
+    "intent": "knowledge",
+    "query": "Who won the 2016 Olympics mens 100m?",
+    "requiresFreshness": false,
+    "resultsFound": 5,
+    "searchMs": 3453,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": null,
+        "title": "Bolt wins gold again, Canada's De Grasse takes bronze in 100 metres...",
+        "url": "https://www.theglobeandmail.com/sports/olympics/mens-100-metre/article31403087"
+      },
+      {
+        "publishedAt": null,
+        "title": "Mens 100m hi-res stock photography and images - Alamy",
+        "url": "https://www.alamy.com/stock-photo/mens-100m.html"
+      },
+      {
+        "publishedAt": null,
+        "title": "The top four mens 100 meter dash times at the | StudyX",
+        "url": "https://studyx.ai/homework/110321426-the-top-four-men-s-100-meter-dash-times-at-the-2016-olympics-in-rio-are-shown-in-the"
+      },
+      {
+        "publishedAt": null,
+        "title": "Swimming at the 2016 Summer Olympics – Men's 100 metre breaststroke",
+        "url": "https://en.wikipedia.org/wiki/Swimming_at_the_2016_Summer_Olympics_%E2%80%93_Men's_100_metre_breaststroke"
+      },
+      {
+        "publishedAt": null,
+        "title": "Mathew Helm - Alchetron, The Free Social Encyclopedia",
+        "url": "https://alchetron.com/Mathew-Helm"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "general"
+  }
+}

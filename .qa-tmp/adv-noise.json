@@ -1,0 +1,63 @@
+[CONVEX ?(currentInfoProbe:runOne)] [WARN] 1 unawaited operation: [fetch]. Async operations should be awaited or they might not run. See https://docs.convex.dev/functions/actions#dangling-promises for more information.
+{
+  "row": {
+    "answer": "Live search is currently unavailable, so I can't reliably verify the latest information about \"zxq quantum flux capacitor retrofit pricing 2026 kharsiia\". I'm not going to answer this from memory, because my training data is not a live general feed and could be months out of date. Press Retry Search to try again, or switch a search provider in Settings.",
+    "conflictResolution": null,
+    "detail": "4 fresh result(s) from 2 source(s) in 2270ms",
+    "droppedFresh": [
+      {
+        "reason": "off-topic",
+        "title": "Business and economy: Economic impact of the 2026 Iran war"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 4,
+    "freshSplitCounts": {
+      "fresh": 5,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": "Based on 4 reports published in the last 5 days (newest: 3 days ago).",
+    "intent": "current",
+    "query": "zxq quantum flux capacitor retrofit pricing 2026 kharsiia",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2270,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-27T11:12:52.000Z",
+        "title": "cosmicus0/CTF-Challenge-Flux-Capacitor-REV-: BeeFest 2026 rev...",
+        "url": "https://github.com/cosmicus0/CTF-Challenge-Flux-Capacitor-REV-"
+      },
+      {
+        "publishedAt": "2026-09-27T02:22:22.000Z",
+        "title": "Flux Kontext prompt: white dog like the reference, flyin...",
+        "url": "https://prompthero.com/prompt/d070f3bc540-flux-kontext-flux-kontext-pro-white-dog-like-the-reference-flying-happy-like-a-superhero"
+      },
+      {
+        "publishedAt": "2026-09-26T07:04:54.000Z",
+        "title": "Cost of R22 vs 410A Refrigerant: Pricing, Retrofit, and Recharge...",
+        "url": "https://qualityhomeaircare.com/cost-r22-410a-refrigerant-pricing-retrofit-recharge"
+      },
+      {
+        "publishedAt": "2026-09-26T05:35:26.000Z",
+        "title": "Tiny pyramid sensor maps hidden magnetism in quantum materials",
+        "url": "https://ioplus.nl/en/posts/tiny-pyramid-sensor-maps-hidden-magnetism-in-quantum-materials"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "general"
+  }
+}

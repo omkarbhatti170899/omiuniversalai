@@ -1,0 +1,2914 @@
+{
+  "answerContract": {
+    "allSourcesDated": 26,
+    "citationsResolve": 30,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 13,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 17
+  },
+  "byCategory": {
+    "finance": {
+      "fresh": 8,
+      "kept": 32,
+      "n": 12
+    },
+    "sports": {
+      "fresh": 3,
+      "kept": 12,
+      "n": 10
+    },
+    "technology": {
+      "fresh": 2,
+      "kept": 13,
+      "n": 8
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 1,
+      "n": 4
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 3,
+      "n": 6
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 5,
+      "n": 8
+    },
+    "live": {
+      "fresh": 1,
+      "kept": 1,
+      "n": 1
+    },
+    "none": {
+      "fresh": 4,
+      "kept": 45,
+      "n": 5
+    },
+    "recent": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 2
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 2,
+      "n": 4
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 60,
+  "ran": 30,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest IPL news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 305,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Formula 1 2026 season results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "NBA standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest tennis tournament results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "today's match fixtures",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "who won the most recent F1 race",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "Asian Games 2026 medal tally India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 6
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 6,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 705,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 627,
+        "statesFreshness": false,
+        "text": "Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games [1]\n\nIn badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the title, defeating Japan's Akane Yamaguchi 21–17, 21–9 [2]\n\nSources: [1] Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games (en.wikipedia.org)  [2] Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the… (rfi.fr)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest Asian Games 2026 results",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.3,
+              "sourceQuality": 0.04
+            },
+            "title": "Sports: Badminton at the 2026 Asian Games, South Korea at the 2026 Asian Games",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.23,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, b",
+            "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.955,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 259,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 448,
+        "statesFreshness": false,
+        "text": "In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the title, defeating Japan's Akane Yamaguchi 21–17, 21–9 [1]\n\nSources: [1] Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the… (rfi.fr)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Olympic medal table",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, b",
+            "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.6,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 237,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1070,
+        "statesFreshness": false,
+        "text": "The final match of the 2022 FIFA World Cup, the 22nd edition of FIFA's competition for men's national football teams, was played at Lusail Stadium in Lusail, Qatar, on 18 December 2022 (Qatari National Day), and was contested by Argentina and defending champions France. [1]\n\nThe final match of the 2026 FIFA World Cup—the 23rd edition of the FIFA competition for men's national soccer teams—was played at MetLife Stadium in East Rutherford, New Jersey, part of the New York metropolitan area, on July 19, 2026. [3]\n\nAlison Kervin · 2007 — History, Rugby football players, World Cup (Rugby football), World Cup (Rugby football) fast (OCoLC)fst01409526, Rugby football [4]\n\nWorld Cup 2022: Morocco and Portugal through to quarter-finals It was a really exciting night of football as the final two World Cup quarter-final spots … [5]\n\nSources: [1] 2022 FIFA World Cup final (en.wikipedia.org)  [2] I fi"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "history of the World Cup final",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 1.09,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.09,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "2022 FIFA World Cup final",
+            "url": "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final"
+          },
+          {
+            "ageHours": 47818.8,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-04-16T14:18:14Z",
+            "relevance": 1.02,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.02,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "I finally made a free app for collecting panini stickers",
+            "url": "https://news.ycombinator.com/item?id=26834185"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "2026 FIFA World Cup final",
+            "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_final"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "Thirty bullies (2007)",
+            "url": "https://openlibrary.org/works/OL24855426W"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "World Cup 2022: Morocco and Portugal through to quarter-finals -…",
+            "url": "https://www.bbc.com/newsround/63885518"
+          },
+          {
+            "ageHours": 4908.9,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-03-09T12:14:01Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.38,
+              "sourceQuality": 0.1
+            },
+            "title": "Show HN: Kairos, real-time AI who cross-verifies (Python, 100KB)",
+            "url": "https://news.ycombinator.com/item?id=47308049"
+          },
+          {
+            "ageHours": null,
+            "domain": "time.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.38,
+              "sourceQuality": 0.07
+            },
+            "title": "2018 FIFA World Cup Final: 5 Key Takeaways | TIME",
+            "url": "http://time.com/5339540/world-cup-final"
+          },
+          {
+            "ageHours": null,
+            "domain": "eff.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Counter-Surveillance Success Stories | Electronic Frontier Found…",
+            "url": "http://www.eff.org/csss"
+          },
+          {
+            "ageHours": null,
+            "domain": "wbur.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "WBUR",
+            "url": "https://www.wbur.org"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 4908.9,
+        "normalizedCount": 10,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.859,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 800,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "stock market today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 7
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 7,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 610,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 906,
+        "statesFreshness": false,
+        "text": "Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about supply disruptions during the US-Israeli war on Iran [1]\n\nIn badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the title, defeating Japan's Akane Yamaguchi 21–17, 21–9 [2]\n\nSources: [1] Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about… (reuters.com)  [2] Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, becoming the first woman to win two singles titles and the first to defend the… (r"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest gold price",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports ",
+            "url": "https://www.reuters.com/business/energy/oil-prices-rise-second-session-continued-middle-east-supply-concern-2026-09-29"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Sports: In badminton, South Korea's An Se-young wins the women's singles gold medal at the 2026 Asian Games, b",
+            "url": "https://www.rfi.fr/en/sports/20260929-ruthless-an-makes-history-to-retain-asian-games-badminton-crown"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "wikipedia-current-events"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.765,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 226,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 303,
+        "statesFreshness": false,
+        "text": "1 USD = 96.0635 INR (rate updated Wed, 30 Sep 2026 00:02:31 +0000). [1]\n\nRates are reference values for information only, not a trading quote and not financial advice. [1]\n\nSource: open.er-api.com / exchangerate-api.com (keyless public exchange-rate feed). [1]\n\nSources: [1] 1 USD = 96.0635 INR (xe.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "current USD to INR rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "xe.com",
+            "providers": [
+              "market-rates",
+              "Open Exchange Rates (keyless)"
+            ],
+            "publishedAt": "2026-09-30T00:02:31.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "1 USD = 96.0635 INR",
+            "url": "https://www.xe.com/currencyconverter/convert?Amount=1&From=USD&To=INR"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 1,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 267,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 422,
+        "statesFreshness": false,
+        "text": "The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3 percent target range [1]\n\nSources: [1] Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3… (france24.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "live sensex level",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 3,
+          "shares no subject word": 2,
+          "undated": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 per",
+            "url": "https://www.france24.com/en/live-news/20260929-australian-central-bank-lifts-key-interest-rate-to-15-year-high"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 10,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.65,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 606,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 465,
+        "statesFreshness": false,
+        "text": "Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about supply disruptions during the US-Israeli war on Iran [1]\n\nSources: [1] Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports from the Middle East, although prices ‌headed for monthly gains on lingering concern about… (reuters.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "current price of bitcoin",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Business and economy: Oil prices settled 2.5% lower as investors focused on signs of recovering crude exports ",
+            "url": "https://www.reuters.com/business/energy/oil-prices-rise-second-session-continued-middle-east-supply-concern-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "wikipedia-current-events"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.79,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 251,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 422,
+        "statesFreshness": false,
+        "text": "The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3 percent target range [1]\n\nSources: [1] Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3… (france24.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest inflation data",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 per",
+            "url": "https://www.france24.com/en/live-news/20260929-australian-central-bank-lifts-key-interest-rate-to-15-year-high"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 5,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 5,
+        "relevanceAvg": 0.62,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 494,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "interest rates 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 638,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 821,
+        "statesFreshness": false,
+        "text": "The S&P 500 (Standard and Poor's 500) is a stock market index tracking the stock performance of 500 companies listed on stock exchanges in the United States that are considered to have large market capitalizations. [1]\n\nThe S&P 500 is a stock market index maintained by S&P Dow Jones Indices. [2]\n\nThe S&P 500 index (SPX) tracks the performance of 500 of the largest companies listed on US exchanges, such as the New York Stock Exchange (NYSE) and Nasd… [7]\n\n(USD) · Market closed The S&P 500® is widely regarded as the best single gauge of large-cap U.S. [4]\n\nSources: [1] S&P 500 (en.wikipedia.org)  [2] List of S&P 500 companies (en.wikipedia.org)  [3] A test of efficiency for the S&P 500 index option market using variance forecasts (1993) (openlibrary.org)  [4] SPX Quote - S&P 500 INDEX - Bloomberg (bloomberg.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "S&P 500 index",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "S&P 500",
+            "url": "https://en.wikipedia.org/wiki/S%26P_500"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "List of S&P 500 companies",
+            "url": "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "A test of efficiency for the S&P 500 index option market using variance forecasts (1993)",
+            "url": "https://openlibrary.org/works/OL13587082W"
+          },
+          {
+            "ageHours": null,
+            "domain": "bloomberg.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "SPX Quote - S&P 500 INDEX - Bloomberg",
+            "url": "https://www.bloomberg.com/quote/SPX:IND?sref=byKgOh1x"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Predictable dynamics in the S&P 500 index options implied volatility surface (2005)",
+            "url": "https://openlibrary.org/works/OL5893683W"
+          },
+          {
+            "ageHours": 53099.7,
+            "domain": "nytimes.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2020-09-08T13:26:57Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Tesla Shares Fall as It Fails to Make It into S&P 500 Index",
+            "url": "https://www.nytimes.com/reuters/2020/09/08/business/08reuters-tesla-stocks.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "dailyfx.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "S&P 500 Index Today | SPX Chart and Forecasts",
+            "url": "https://www.dailyfx.com/sp-500"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "S&P 500",
+            "url": "http://www.wikidata.org/entity/Q242345"
+          },
+          {
+            "ageHours": null,
+            "domain": "marketswiki.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "CBOE S&P 500 BuyWrite Index - MarketsWiki, A Commonwealth of Mar…",
+            "url": "http://www.marketswiki.com/wiki/BXM"
+          },
+          {
+            "ageHours": 38289.4,
+            "domain": "barrons.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2022-05-18T15:43:43Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.78,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Tesla booted from S&P 500 ESG index",
+            "url": "https://www.barrons.com/articles/tesla-s-p-500-esg-index-51652886703"
+          },
+          {
+            "ageHours": 38289.1,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2022-05-18T16:02:35Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.78,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Tesla removed from S&P 500 ESG index on autopilot, discrimination concerns",
+            "url": "https://finance.yahoo.com/news/tesla-removed-p-500-esg-145519416.html"
+          },
+          {
+            "ageHours": 58323.9,
+            "domain": "finance.yahoo.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2020-02-03T21:16:00Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.78,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Is Tesla on Track to Join the Elite S&P 500 Index This Year?",
+            "url": "https://finance.yahoo.com/news/tesla-track-join-elite-p-135201063.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 38289.1,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.841,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 749,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 962,
+        "statesFreshness": false,
+        "text": "Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [1]\n\nThe Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3 percent target range [2]\n\nSources: [1] Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar… (reuters.com)  [2] Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, ci"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "rupee exchange rate today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 per",
+            "url": "https://www.france24.com/en/live-news/20260929-australian-central-bank-lifts-key-interest-rate-to-15-year-high"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 2,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "wikipedia-current-events"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0.61,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 245,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "recently announced layoffs in tech",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 225,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1000,
+        "statesFreshness": false,
+        "text": "Quantitative easing (QE) is a monetary policy action where a central bank purchases predetermined amounts of government bonds, company shares, or other financial assets (liquidity) in order to artificially stimulate economic activity. [1]\n\nCarbon quantitative easing (CQE) is an unconventional monetary policy or monetary program that is featured in a proposed international climate policy, called a global carbon reward or simply, the carbon reward. [2]\n\nBreadcrumb Explained: Quantitative easing An unconventional financial tool is getting more attention as the Fed tries to jump-start the U.S. [3]\n\nquantitative easing (review) The greatest danger I can see in QE is as Noung has put it: eventually its beneficiaries have to learn to stand on their own… [8]\n\nSources: [1] Quantitative easing (en.wikipedia.org)  [2] Carbon quantitative easing (en.wikipedia.org)  [3] Explained: Quantitative easing"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "what is quantitative easing",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Quantitative easing",
+            "url": "https://en.wikipedia.org/wiki/Quantitative_easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Carbon quantitative easing",
+            "url": "https://en.wikipedia.org/wiki/Carbon_quantitative_easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.mit.edu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.88,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Explained: Quantitative easing | MIT News | Massachusetts Instit…",
+            "url": "https://news.mit.edu/2010/explained-quantitative-easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Quantitative Easing (1920)",
+            "url": "https://openlibrary.org/works/OL21668065W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Quantitative Easing and Credit Rating Agencies (2022)",
+            "url": "https://openlibrary.org/works/OL28441463W"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Quantitative easing 'is good for the rich, bad for the poor' | Q…",
+            "url": "https://www.theguardian.com/business/2011/aug/14/quantitative-easing-riots"
+          },
+          {
+            "ageHours": null,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Quantitative easing doesn't drain anything except treasuries. It…",
+            "url": "http://news.ycombinator.com/item?id=29694174"
+          },
+          {
+            "ageHours": null,
+            "domain": "everything2.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "quantitative easing (review) by dscotese - Everything2.com",
+            "url": "https://everything2.com/user/dscotese/writeups/quantitative+easing"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.79,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Quantitative Easing in the Euro Area: Implications for Income and Wealth Inequality",
+            "url": "http://www.wikidata.org/entity/Q129671029"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "quantitative easing",
+            "url": "http://www.wikidata.org/entity/Q874727"
+          },
+          {
+            "ageHours": 137795.1,
+            "domain": "tbwa.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2011-01-10T13:58:12Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "The Trillion Dollar Website (a story of quantitative easing)",
+            "url": "http://tbwa.com"
+          },
+          {
+            "ageHours": 43549.3,
+            "domain": "fififinance.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2021-10-11T11:51:31Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Why Does Quantitative Easing Benefit the Rich?",
+            "url": "https://fififinance.com/quantitative-easing"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 43549.3,
+        "normalizedCount": 12,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.846,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 806,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "finance",
+      "query": "latest crypto market news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3,
+          "undated": 7
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 10,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 735,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "today's technology news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 217,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest AI announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 414,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "current top AI models",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 491,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 147,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n[1] Armed conflicts and attacks: 2026 Ethiopian offensive — 2026 Ethiopian offensive"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "AI news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.98,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.04
+            },
+            "title": "Armed conflicts and attacks: 2026 Ethiopian offensive",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.98,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 255,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 923,
+        "statesFreshness": false,
+        "text": "Kubernetes (), also known as K8s, is an open-source container orchestration system for automating software deployment, scaling, and management. [1]\n\nEDIT: Link on Google&#x27;s Official Documentation here  https:&#x2F;&#x2F;cloud.google.com&#x2F;kubernetes-engine&#x2F;pricing  Just received an email from Google Cloud - &quot;On June 6, 2020, your Google Kubernetes Engine (GKE) clusters will start accruing a management fee, with an exemption for all Anthos GKE clusters and one free zonal cluster. [6]\n\nThe Kubernetes Package Manager (Go, 30,295 stars, License: Apache-2.0) [7]\n\nKubernetes v1.37 promotes the PersistentVolumeClaimUnusedSinceTime feature gate to Beta (enabled by default). [8]\n\nSources: [1] Kubernetes (en.wikipedia.org)  [2] OpenShift (en.wikipedia.org)  [3] Kubernetes in Action (2017) (openlibrary.org)  [4] Managing Kubernetes: Operating Kubernetes Clusters in the Real World ("
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "what is kubernetes",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Kubernetes",
+            "url": "https://en.wikipedia.org/wiki/Kubernetes"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "OpenShift",
+            "url": "https://en.wikipedia.org/wiki/OpenShift"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Kubernetes in Action (2017)",
+            "url": "https://openlibrary.org/works/OL19542950W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Managing Kubernetes: Operating Kubernetes Clusters in the Real World (2018)",
+            "url": "https://openlibrary.org/works/OL19541992W"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "github.com",
+            "providers": [
+              "github"
+            ],
+            "publishedAt": "2026-09-29T21:38:23Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.06,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "kubernetes/kubernetes",
+            "url": "https://github.com/kubernetes/kubernetes"
+          },
+          {
+            "ageHours": 57607.8,
+            "domain": "cloud.google.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2020-03-04T17:20:56Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.84,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Google Kubernetes Engine is introducing a cluster management fee on June 6",
+            "url": "https://cloud.google.com/kubernetes-engine/pricing"
+          },
+          {
+            "ageHours": 3.6,
+            "domain": "github.com",
+            "providers": [
+              "github"
+            ],
+            "publishedAt": "2026-09-29T21:33:32Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.06,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "helm/helm",
+            "url": "https://github.com/helm/helm"
+          },
+          {
+            "ageHours": null,
+            "domain": "blog.kubernetes.io",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Kubernetes Blog | Kubernetes",
+            "url": "http://blog.kubernetes.io"
+          },
+          {
+            "ageHours": null,
+            "domain": "tomcat.apache.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.8,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "KubernetesMembershipProvider (Apache Tomcat 10.1.20 API Document…",
+            "url": "https://tomcat.apache.org/tomcat-10.1-doc/api/org/apache/catalina/tribes/membership/cloud/KubernetesMembershipProvider.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.79,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Kubernetes as a distributed operating system for multitenancy/multiuser",
+            "url": "http://www.wikidata.org/entity/Q117383836"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.79,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Kubernetes as a distributed operating system for multitenancy/multiuser",
+            "url": "http://www.wikidata.org/entity/Q120678969"
+          },
+          {
+            "ageHours": null,
+            "domain": "kubernetes.io",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Notes | Kubernetes",
+            "url": "http://kubernetes.io/fr/releases/notes"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.852,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 666,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "latest smartphone launches",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 4,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 4,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 525,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "recent open source releases",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 650,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "technology",
+      "query": "current version of TypeScript",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 601,
+      "vertical": "general"
+    }
+  ],
+  "total": 178
+}

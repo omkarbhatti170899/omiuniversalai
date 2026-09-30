@@ -1,0 +1,3063 @@
+{
+  "answerContract": {
+    "allSourcesDated": 26,
+    "citationsResolve": 30,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 14,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 16
+  },
+  "byCategory": {
+    "current-news": {
+      "fresh": 8,
+      "kept": 31,
+      "n": 14
+    },
+    "india": {
+      "fresh": 6,
+      "kept": 32,
+      "n": 12
+    },
+    "sports": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 4
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 1,
+      "n": 3
+    },
+    "current": {
+      "fresh": 2,
+      "kept": 4,
+      "n": 5
+    },
+    "latest": {
+      "fresh": 2,
+      "kept": 5,
+      "n": 4
+    },
+    "live": {
+      "fresh": 2,
+      "kept": 6,
+      "n": 5
+    },
+    "none": {
+      "fresh": 4,
+      "kept": 42,
+      "n": 4
+    },
+    "now": {
+      "fresh": 1,
+      "kept": 1,
+      "n": 2
+    },
+    "recent": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 3
+    },
+    "today": {
+      "fresh": 1,
+      "kept": 1,
+      "n": 4
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 30,
+  "ran": 30,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1367,
+        "statesFreshness": true,
+        "text": "South Korean defense minister Kang Shin-chul says that land mines planted by North Korea likely caused two explosions last week that injured three South Korean soldiers in the Demilitarized Zone south of the military demarcation line, potentially violating the armistice [2]\n\nMalaysia begins repatriating about 1,500 Burmese nationals from immigration detention centres under the first phase of a programme covering 5,000 people [3]\n\nThe United Nations Security Council extends the mandate of the Gang Suppression Force in Haiti by six months, allowing the multinational force to continue supporting Haitian security forces against armed gangs [4]\n\nSources: [1] International relations: North Korea–South Korea relations (en.wikipedia.org)  [2] International relations: South Korean defense minister Kang Shin-chul says that land mines planted by North Korea likely caused two explosions last week th"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest international headlines",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.7,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.04
+            },
+            "title": "International relations: North Korea–South Korea relations",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.62,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "International relations: South Korean defense minister Kang Shin-chul says that land mines planted by North Ko",
+            "url": "https://www.rfi.fr/en/international-news/20260929-north-korean-dmz-landmine-blasts-violation-of-armistice-seoul"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "today.rtl.lu",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "International relations: Malaysia begins repatriating about 1,500 Burmese nationals from immigration detention",
+            "url": "https://today.rtl.lu/news/world/malaysia-starts-sending-myanmar-migrants-home-1215114466"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "rfi.fr",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.59,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.59,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.07
+            },
+            "title": "International relations: The United Nations Security Council extends the mandate of the Gang Suppression Force",
+            "url": "https://www.rfi.fr/en/international-news/20260929-un-security-council-extends-haiti-mission-by-6-months"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 4,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 4,
+        "relevanceAvg": 0.633,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 249,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 547,
+        "statesFreshness": false,
+        "text": "Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [1]\n\nSources: [1] Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar… (reuters.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "current events around the world",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.65,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 697,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is the current situation in the world",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 606,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 547,
+        "statesFreshness": false,
+        "text": "Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [1]\n\nSources: [1] Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar… (reuters.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is going on right now",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.7,
+        "wrongYearKept": 0
+      },
+      "temporal": "now",
+      "totalMs": 759,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1058,
+        "statesFreshness": false,
+        "text": "As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could draw in regional powers. [2]\n\nPuntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [3]\n\nSources: [1] Armed conflicts and attacks: Ethiopian civil conflict (en.wikipedia.org)  [2] Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could… (aljazeera.com)  [3] Armed conflicts and attacks: Puntland Maritime Police Force"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "live news updates",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.6,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.04
+            },
+            "title": "Armed conflicts and attacks: Ethiopian civil conflict",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Erit",
+            "url": "https://www.aljazeera.com/news/2026/9/29/ethiopia-blames-regional-rivals-as-risk-of-conflict-spillover-rises"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.527,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 263,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "live breaking coverage",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 6
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 6,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 629,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "recent global developments",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 535,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "recently announced policy changes",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 295,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 147,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n[1] Armed conflicts and attacks: 2026 Ethiopian offensive — 2026 Ethiopian offensive"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news in 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 0.98,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.04
+            },
+            "title": "Armed conflicts and attacks: 2026 Ethiopian offensive",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.98,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 248,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 962,
+        "statesFreshness": false,
+        "text": "Frequently Asked Questions Polymarket is the world’s largest prediction market, where users trade on the real-world outcomes of events across World Event… [6]\n\neventsUpcoming eventsNumber of NJPW events by year Number of NJPW events List of All Elite Wrestling pay-per-view events List of major Lucha Libre AAA [5]\n\nEvents The World Inequality Lab organises events to stimulate debate and policy discussion on inequality. [7]\n\nWorld events 'building momentum' for nuclear Recent geopolitical events have focused world attention on the importance of energy security and the vital r… [9]\n\nSources: [1] 10 Leaders who highly influenced the world in 2015 and the Major World Events (10keythings.com)  [2] Detecting Major World Events Using Osint, Through Google Maps and Pizza (signalslice.sebastianalexis.com)  [3] An unbiased condensed version of major world events (legiblenews.com)  [4] How Major Wor"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "major world events",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 94312.5,
+            "domain": "10keythings.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-12-27T08:37:55Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.78,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "10 Leaders who highly influenced the world in 2015 and the Major World Events",
+            "url": "https://10keythings.com/leaders-2015"
+          },
+          {
+            "ageHours": 10953,
+            "domain": "signalslice.sebastianalexis.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2025-06-30T16:07:51Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Detecting Major World Events Using Osint, Through Google Maps and Pizza",
+            "url": "https://signalslice.sebastianalexis.com"
+          },
+          {
+            "ageHours": 55110.2,
+            "domain": "legiblenews.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2020-06-16T18:54:16Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "An unbiased condensed version of major world events",
+            "url": "http://legiblenews.com"
+          },
+          {
+            "ageHours": 112662.7,
+            "domain": "businessinsider.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-11-22T18:23:25Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "How Major World Events Affect Viewing Of Online Porn ",
+            "url": "http://www.businessinsider.com/how-porn-viewing-habits-are-affected-by-major-world-events-2013-11"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.69,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "List of major NJPW events",
+            "url": "https://en.wikipedia.org/wiki/List_of_major_NJPW_events"
+          },
+          {
+            "ageHours": null,
+            "domain": "polymarket.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "World Events Prediction Markets & Live Odds 2026 | Polymarket",
+            "url": "http://polymarket.com/world"
+          },
+          {
+            "ageHours": null,
+            "domain": "wid.world",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Events - World Inequality Lab",
+            "url": "https://wid.world/events"
+          },
+          {
+            "ageHours": null,
+            "domain": "vux.world",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Events – VUX World",
+            "url": "https://vux.world/events"
+          },
+          {
+            "ageHours": null,
+            "domain": "world-nuclear-news.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "World events 'building momentum' for nuclear : Energy & Environm…",
+            "url": "http://www.world-nuclear-news.org/Articles/Building-momentum-for-nuclear-change"
+          },
+          {
+            "ageHours": 5399.2,
+            "domain": "github.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-02-17T01:52:37Z",
+            "relevance": 0.48,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.48,
+              "freshness": 0.01,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Show HN: OpenEntropy – 47 hardware entropy sources from your computer's physics",
+            "url": "https://github.com/amenti-labs/openentropy"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 5399.2,
+        "normalizedCount": 10,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0.68,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1754,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 858,
+        "statesFreshness": false,
+        "text": "(Kitco News)- Gold prices are near steady in early New York trading Friday, despite overnight developments on the geopolitical front. [4]\n\nGEOPOLITICAL DEVELOPMENTS The United States is challenging its own foundations as the world's reserve currency with attacks on the legal system following… [6]\n\nGeopolitical developments in focus Indian equity markets were volatile this week on the back of escalating geo-political tension between Iran and US and … [3]\n\nTag: geopolitical Policymakers and market participants consistently cite geopolitical developments as a key risk to the global economy and financial syst… [7]\n\nSources: [1] Prisoners of Geography (en.wikipedia.org)  [2] The Hague Centre for Strategic Studies (en.wikipedia.org)  [3] Geopolitical developments in focus (deccanherald.com)  [4] Geopolitical Developments Fail To Boost Gold (forbes.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "geopolitical developments",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Prisoners of Geography",
+            "url": "https://en.wikipedia.org/wiki/Prisoners_of_Geography"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The Hague Centre for Strategic Studies",
+            "url": "https://en.wikipedia.org/wiki/The_Hague_Centre_for_Strategic_Studies"
+          },
+          {
+            "ageHours": null,
+            "domain": "deccanherald.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Geopolitical developments in focus",
+            "url": "https://www.deccanherald.com/business/geopolitical-developments-in-focus-793896.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "forbes.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Geopolitical Developments Fail To Boost Gold",
+            "url": "https://www.forbes.com/sites/kitconews/2017/09/15/geopolitical-developments-fail-to-boost-gold"
+          },
+          {
+            "ageHours": 5312.1,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-02-20T17:03:05Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.6,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Ask HN: Anyone else exhausted by too rapid development of news?",
+            "url": "https://news.ycombinator.com/item?id=47090622"
+          },
+          {
+            "ageHours": null,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.54,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.54,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.03
+            },
+            "title": "geopolitical developments News and Updates from The Economic Tim…",
+            "url": "https://economictimes.indiatimes.com/topic/geopolitical-developments/news"
+          },
+          {
+            "ageHours": null,
+            "domain": "bankunderground.co.uk",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.54,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.54,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.03
+            },
+            "title": "geopolitical – Bank Underground",
+            "url": "https://bankunderground.co.uk/tag/geopolitical"
+          },
+          {
+            "ageHours": null,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.54,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.54,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.03
+            },
+            "title": "geopolitical developments: Latest News & Videos, Photos about ge…",
+            "url": "https://economictimes.indiatimes.com/topic/geopolitical-developments"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 5312.1,
+        "normalizedCount": 9,
+        "normalizedDated": 2,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.715,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1695,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what happened today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 236,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1058,
+        "statesFreshness": false,
+        "text": "As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could draw in regional powers. [2]\n\nPuntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [3]\n\nSources: [1] Armed conflicts and attacks: Ethiopian civil conflict (en.wikipedia.org)  [2] Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could… (aljazeera.com)  [3] Armed conflicts and attacks: Puntland Maritime Police Force"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "breaking news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0,
+              "final": 0.6,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.04
+            },
+            "title": "Armed conflicts and attacks: Ethiopian civil conflict",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Erit",
+            "url": "https://www.aljazeera.com/news/2026/9/29/ethiopia-blames-regional-rivals-as-risk-of-conflict-spillover-rises"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.527,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 233,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news right now",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "now",
+      "totalMs": 227,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "latest India news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 244,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 3
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 283,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "current situation in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 622,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 254,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 762,
+        "statesFreshness": false,
+        "text": "Economy News The India Economy Review prepared by the Ministry of Finance said that the agricultural sector -- which is estimated to constitute 18 per ce… [5]\n\nIndian Economy is the sixth largest economy in the world in terms of nominal GDP ($1.15 billion) as of May, 2026. [6]\n\nIndia has a developing market-oriented economy with substantial state participation in strategic sectors. [1]\n\nIndus Valley Civilisation, the early civilisation of India and Pakistan, developed the economy of agriculture and craft which later spread into central India. [2]\n\nSources: [1] Economy of India (en.wikipedia.org)  [2] Economic history of India (en.wikipedia.org)  [3] Indian economy since independence (2008) (openlibrary.org)  [4] India's economy (2003) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Economy of India",
+            "url": "https://en.wikipedia.org/wiki/Economy_of_India"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Economic history of India",
+            "url": "https://en.wikipedia.org/wiki/Economic_history_of_India"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Indian economy since independence (2008)",
+            "url": "https://openlibrary.org/works/OL19746731W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India's economy (2003)",
+            "url": "https://openlibrary.org/works/OL5250162W"
+          },
+          {
+            "ageHours": null,
+            "domain": "ibtimes.co.in",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India & World Economy News – IBTimes India : page 2",
+            "url": "http://www.ibtimes.co.in/economy/page/2"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "economy of India",
+            "url": "http://www.wikidata.org/entity/Q233623"
+          },
+          {
+            "ageHours": 61547.8,
+            "domain": "nytimes.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2019-09-22T13:16:13Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "From Underwear to Cars, India’s Economy Is Fraying",
+            "url": "https://www.nytimes.com/2019/09/21/business/economy/india-economy-trade.html"
+          },
+          {
+            "ageHours": 17049.4,
+            "domain": "economist.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2024-10-19T15:45:26Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Is India's economy slowing down?",
+            "url": "https://www.economist.com/asia/2024/10/10/is-indias-economy-slowing-down"
+          },
+          {
+            "ageHours": null,
+            "domain": "ground.news",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India Economy Breaking News Headlines Today | Ground News",
+            "url": "https://ground.news/interest/india-economy"
+          },
+          {
+            "ageHours": null,
+            "domain": "worlddata.info",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Economy in India compared to the EU",
+            "url": "https://www.worlddata.info/asia/india/economy.php"
+          },
+          {
+            "ageHours": 37124,
+            "domain": "inc42.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2022-07-06T05:05:55Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.78,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Is Y Combinator Causing Long-Term Damage to India’s Tech Economy?(2020)",
+            "url": "https://inc42.com/features/y-combinator-india-flip-structure-startups"
+          },
+          {
+            "ageHours": null,
+            "domain": "indianarrative.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "India economy News, World Economy News at India Narrative",
+            "url": "https://www.indianarrative.com/economy-news"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 17049.4,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.849,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 883,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 444,
+        "statesFreshness": true,
+        "text": "FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diuretic antihypertensive drug, created by Indian-based Inventia Healthcare Limited due to faulty dissolution times in the human body [1]\n\nSources: [1] Health and environment: The U.S. FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diuretic antihypertensive drug, created by Indian-based Inventia Healthcare Limited due to faulty… (usatoday.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "latest Indian stock market news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "usatoday.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Health and environment: The U.S. FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diur",
+            "url": "https://www.usatoday.com/story/money/consumer-protection/recalls-alerts/2026/09/28/blood-pressure-medication-recall/91991981007"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 8,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.57,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 558,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 444,
+        "statesFreshness": true,
+        "text": "FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diuretic antihypertensive drug, created by Indian-based Inventia Healthcare Limited due to faulty dissolution times in the human body [1]\n\nSources: [1] Health and environment: The U.S. FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diuretic antihypertensive drug, created by Indian-based Inventia Healthcare Limited due to faulty… (usatoday.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "Indian railways news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "usatoday.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Health and environment: The U.S. FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diur",
+            "url": "https://www.usatoday.com/story/money/consumer-protection/recalls-alerts/2026/09/28/blood-pressure-medication-recall/91991981007"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.57,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 284,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1399,
+        "statesFreshness": true,
+        "text": "Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long counter-piracy operation near Bayla, Karkaar, Puntland, after it was seized by Somali pirates on 21 April ​around 30 nautical miles off Puntland's coast with 17 crew members on board [1]\n\nThe Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 percent, the highest level since 2011, citing persistently high inflation above its 2–3 percent target range [2]\n\nFDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diuretic antihypertensive drug, created by Indian-based Inventia Healthcare Limited due to faulty dissolution times in the human body [3]\n\nSources: [1] Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, the MT Honour ​25, following an ongoing week-long c"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "current Indian rupee exchange rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: Puntland Maritime Police Force successfully frees another hijacked oil tanker, th",
+            "url": "https://www.reuters.com/world/africa/puntland-forces-rescue-another-hijacked-ship-somali-pirates-2026-09-29"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "france24.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Business and economy: The Reserve Bank of Australia raises its cash rate by 0.25 percentage points to 4.60 per",
+            "url": "https://www.france24.com/en/live-news/20260929-australian-central-bank-lifts-key-interest-rate-to-15-year-high"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "usatoday.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Health and environment: The U.S. FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diur",
+            "url": "https://www.usatoday.com/story/money/consumer-protection/recalls-alerts/2026/09/28/blood-pressure-medication-recall/91991981007"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "wikipedia-current-events"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.597,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 282,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "live India cricket score",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1298,
+        "statesFreshness": true,
+        "text": "Twenty-one people are arrested in Myanmar for allegedly donating to the NUG-linked People's Revolution Supply Family fundraising platform as the government identifies more than 2,700 alleged contributors [2]\n\nAs renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could draw in regional powers. [1]\n\nFDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diuretic antihypertensive drug, created by Indian-based Inventia Healthcare Limited due to faulty dissolution times in the human body [3]\n\nSources: [1] Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Eritrea, Sudan and Egypt of backing armed opposition groups, raising fears that the conflict could… (aljazeera.com)  [2] Law and crime: Twenty-one people "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "recent Indian government announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1.1,
+            "domain": "aljazeera.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.63,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Armed conflicts and attacks: As renewed fighting spreads across northern Ethiopia, the government accuses Erit",
+            "url": "https://www.aljazeera.com/news/2026/9/29/ethiopia-blames-regional-rivals-as-risk-of-conflict-spillover-rises"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.61,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.61,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Law and crime: Twenty-one people are arrested in Myanmar for allegedly donating to the NUG-linked People's Rev",
+            "url": "https://www.reuters.com/world/asia-pacific/myanmar-arrests-21-over-alleged-donations-opposition-linked-fundraising-platform-2026-09-29"
+          },
+          {
+            "ageHours": 1.1,
+            "domain": "usatoday.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.57,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.07
+            },
+            "title": "Health and environment: The U.S. FDA issues two recalls for more than 25,000 bottles of chlorthalidone, a diur",
+            "url": "https://www.usatoday.com/story/money/consumer-protection/recalls-alerts/2026/09/28/blood-pressure-medication-recall/91991981007"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1.1,
+        "normalizedCount": 3,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 3,
+        "relevanceAvg": 0.603,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 433,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India budget 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 2,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 2,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 670,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 779,
+        "statesFreshness": false,
+        "text": "The Department of Space (DoS) is an Indian government department responsible for administration of the Indian space programme. [1]\n\nThe Indian Human Spaceflight Programme (or the Gaganyaan programme) is an ongoing project by ISRO to develop the technology needed to launch crewed spacecraft into low Earth orbit. [2]\n\nThe Indian space programme under the DoS aims to promote the development and application of space science and technology for the socio-economic benefit of the country. [1]\n\nIndian national space and aeronautics agency [8]\n\nSources: [1] Department of Space (en.wikipedia.org)  [2] Indian Human Spaceflight Programme (en.wikipedia.org)  [3] The Indian Space Programme (2017) (openlibrary.org)  [4] The Japanese and Indian Space Programmes (2000) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "Indian space programme",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Department of Space",
+            "url": "https://en.wikipedia.org/wiki/Department_of_Space"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian Human Spaceflight Programme",
+            "url": "https://en.wikipedia.org/wiki/Indian_Human_Spaceflight_Programme"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "The Indian Space Programme (2017)",
+            "url": "https://openlibrary.org/works/OL20826855W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "The Japanese and Indian Space Programmes (2000)",
+            "url": "https://openlibrary.org/works/OL7949279W"
+          },
+          {
+            "ageHours": 114091.6,
+            "domain": "thehindu.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-09-24T05:30:57Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "NSA targets Indian politics, space & N-programmes",
+            "url": "http://www.thehindu.com/news/national/nsa-targets-indian-politics-space-nprogrammes/article5161299.ece"
+          },
+          {
+            "ageHours": null,
+            "domain": "eu-space.europa.eu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "EU Space Programme | EU Space Policy",
+            "url": "https://eu-space.europa.eu"
+          },
+          {
+            "ageHours": null,
+            "domain": "space.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Russian and Indian Space Junk Buzzes Space Station | Space",
+            "url": "https://www.space.com/17814-space-junk-buzzes-space-station.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Indian Space Research Organisation",
+            "url": "http://www.wikidata.org/entity/Q229058"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "space programme of India",
+            "url": "http://www.wikidata.org/entity/Q15923652"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Space programme of India",
+            "url": "https://duckduckgo.com/c/Space_programme_of_India"
+          },
+          {
+            "ageHours": 67982,
+            "domain": "timesofindia.indiatimes.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2018-12-28T11:07:44Z",
+            "relevance": 0.59,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.59,
+              "freshness": 0,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Indian cabinet approves India's first manned space mission",
+            "url": "https://timesofindia.indiatimes.com/india/cabinet-approves-rs-10000-crore-for-indias-human-spaceflight-programme/articleshow/67286623.cms"
+          },
+          {
+            "ageHours": 131086.1,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2011-10-17T03:03:38Z",
+            "relevance": 0.51,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.51,
+              "freshness": 0,
+              "relevance": 0.17,
+              "sourceQuality": 0.1
+            },
+            "title": "Ask HN: How do I leave a startup on philosophical grounds?",
+            "url": "https://news.ycombinator.com/item?id=3119017"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 67982,
+        "normalizedCount": 12,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "arXiv: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.722,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 583,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "football results today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "latest cricket match result",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 0,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "live football scores",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)",
+          "LangSearch (temporary, feature-gated): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 273,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "sports",
+      "query": "current Premier League standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 0,
+        "normalizedDated": 0,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "All search engines failed for this query. Tried: searxng, wikipedia-current-events, langsearch | SearXNG: circuit open ("
+        ],
+        "providersSearched": [],
+        "rawCount": 0,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 0,
+      "vertical": "sports"
+    }
+  ],
+  "total": 178
+}
