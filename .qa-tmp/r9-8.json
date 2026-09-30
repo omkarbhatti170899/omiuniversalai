@@ -1,0 +1,84 @@
+{
+  "row": {
+    "answer": "The Institute for Quantum Computing (IQC) is an affiliate scientific research institute of the University of Waterloo located in Waterloo, Ontario with a multidisciplinary approach to the field of quantum information processing. [1]\n\nCloud-based quantum computing refers to the remote access of quantum computing resources—such as quantum emulators, simulators, or processors—via the internet. [2]\n\nWhy the work matters\n\nMartinis — who was a senior Google scientist working toward quantum computing before co-founding his own company, Qolab — said the big future goal is quantum computing, which would be a giant leap in speed and sophistication by relying on the power of the contradictory states in that subatomic world. [3]\n\nStones · 2007 — Computer science, Quantum computers, Research [5]\n\nSources: [1] Institute for Quantum Computing (en.wikipedia.org)  [2] Cloud-based quantum computing (en.wikipedia.org)  [3] Three scientists at US universities win Nobel Prize in physics for advancing quantum technology (apnews.com)  [4] Trends in quantum computing research (2006) (openlibrary.org)",
+    "conflictResolution": null,
+    "detail": "5 fresh result(s) from 6 source(s) in 8598ms; failed engines: SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded, Request failed with status code 429, commoncrawl: upstream unavailable — Request failed with status code 404, TheSportsDB has no current fixture for \"quantum computing research\" right now — Omi will not invent a scoreline.",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "wikidata",
+      "arxiv",
+      "openalex",
+      "openlibrary",
+      "hackernews",
+      "openverse",
+      "commoncrawl",
+      "github",
+      "openmeteo",
+      "market-rates",
+      "sports-scores",
+      "mwmbl",
+      "duckduckgo-instant",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia",
+      "arXiv",
+      "Open Library",
+      "Hacker News",
+      "Mwmbl (free, open, independent index)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+      "Request failed with status code 429",
+      "commoncrawl: upstream unavailable — Request failed with status code 404",
+      "TheSportsDB has no current fixture for \"quantum computing research\" right now — Omi will not invent a scoreline."
+    ],
+    "freshResults": 5,
+    "freshSplitCounts": {
+      "fresh": 5,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": "Based on 1 report published in the last 3650 days (newest: 1 months ago). 4 further result(s) did not show a publish date and are not counted as current.",
+    "intent": "research",
+    "query": "quantum computing research",
+    "requiresFreshness": false,
+    "resultsFound": 5,
+    "searchMs": 8598,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": null,
+        "title": "Institute for Quantum Computing",
+        "url": "https://en.wikipedia.org/wiki/Institute_for_Quantum_Computing"
+      },
+      {
+        "publishedAt": null,
+        "title": "Cloud-based quantum computing",
+        "url": "https://en.wikipedia.org/wiki/Cloud-based_quantum_computing"
+      },
+      {
+        "publishedAt": "2026-08-29T09:35:43.000Z",
+        "title": "Three scientists at US universities win Nobel Prize in physics for advancing quantum technology",
+        "url": "https://apnews.com/article/nobel-prize-physics-e74ee2acf652259cf268cc1d48873e14"
+      },
+      {
+        "publishedAt": null,
+        "title": "Trends in quantum computing research (2006)",
+        "url": "https://openlibrary.org/works/OL18301280W"
+      },
+      {
+        "publishedAt": null,
+        "title": "Computer Science And Quantum Computing (2007)",
+        "url": "https://openlibrary.org/works/OL9961174W"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "general"
+  }
+}

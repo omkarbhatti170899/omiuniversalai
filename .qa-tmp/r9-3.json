@@ -1,0 +1,43 @@
+{
+  "row": {
+    "answer": "Live scoreboard: these matches are in play right now, as reported by the feed. [1]\n\nScheduled/kicked off 2026-09-30 00:00:00 (as given by the feed). [1]\n\nUnión Magdalena v Real Cartagena — in play (2H), 1 – 1. [2]\n\nCompleted results from earlier today are not included. [1]\n\nSources: [1] USA v Chile 0 – 0 (International Friendlies · 11 · 2026-09-30 00:00:00) (thesportsdb.com)  [2] Unión Magdalena v Real Cartagena 1 – 1 (Colombian Torneo DIMAYOR · 58 · 2026-09-29 23:00:00) (thesportsdb.com)",
+    "conflictResolution": null,
+    "detail": "2 fresh result(s) from 1 source(s) in 578ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "sports-scores"
+    ],
+    "enginesWithResults": [
+      "Live sports scores (TheSportsDB)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshSplitCounts": {
+      "fresh": 2,
+      "stale": 0,
+      "undated": 0
+    },
+    "freshness": "Based on 2 reports published today (newest: just now).",
+    "intent": "current",
+    "query": "live football scores",
+    "requiresFreshness": true,
+    "resultsFound": 2,
+    "searchMs": 578,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-30T00:19:38.784Z",
+        "title": "USA v Chile 0 – 0 (International Friendlies · 11 · 2026-09-30 00:00:00)",
+        "url": "https://www.thesportsdb.com/team/134514"
+      },
+      {
+        "publishedAt": "2026-09-30T00:19:38.784Z",
+        "title": "Unión Magdalena v Real Cartagena 1 – 1 (Colombian Torneo DIMAYOR · 58 · 2026-09-29 23:00:00)",
+        "url": "https://www.thesportsdb.com/team/139042"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

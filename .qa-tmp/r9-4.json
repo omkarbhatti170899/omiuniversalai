@@ -1,0 +1,62 @@
+{
+  "row": {
+    "answer": "San Antonio Spurs aim to turn NBA Finals heartbreak into motivation this season\n\nIn his 2018 book, The Mamba Mentality, the late NBA legend Kobe Bryant wrote, “The agony of defeat is as low as the joy of winning is high.”\n\nIt’s a lesson the San Antonio Spurs had to learn after falling to the New York Knicks in the NBA Finals this past summer. [3]\n\nEx-Celtics Star Jaylen Brown Used As Example in NBA Officiating Change\n\nThe NBA has a new officiating point of emphasis for the 2026-27 season. [1]\n\nSmith arrested on family violence charge in North Texas\n\nTwo-time NBA champion J.R. [2]\n\nChris Mannix’s NBA Notes: The Latest on Jalen Duren and the Pistons\n\nPlus, LeBron once thought he would play for the Knicks? [4]\n\nSources: [1] Ex-Celtics Star Jaylen Brown Used As Example in NBA Officiating Change (nesn.com)  [2] Ex-NBA star J.R. Smith arrested on family violence charge in North Texas (cbsnews.com)  [3] San Antonio Spurs aim to turn NBA Finals heartbreak into motivation this season (sacurrent.com)  [4] Chris Mannix’s NBA Notes: The Latest on Jalen Duren and the Pistons (si.com)",
+    "conflictResolution": null,
+    "detail": "4 fresh result(s) from 1 source(s) in 6065ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+    "droppedFresh": [
+      {
+        "reason": "off-topic",
+        "title": "Overview"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded"
+    ],
+    "freshResults": 4,
+    "freshSplitCounts": {
+      "fresh": 5,
+      "stale": 4,
+      "undated": 0
+    },
+    "freshness": "Based on 4 reports published today (newest: 7 hours ago).",
+    "intent": "knowledge",
+    "query": "NBA standings",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 6065,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T17:14:15.000Z",
+        "title": "Ex-Celtics Star Jaylen Brown Used As Example in NBA Officiating Change",
+        "url": "https://nesn.com/boston-celtics/news/ex-celtics-star-jaylen-brown-nba-officiating-change/2907dfcc01c93edacb9d2355"
+      },
+      {
+        "publishedAt": "2026-09-29T16:52:15.000Z",
+        "title": "Ex-NBA star J.R. Smith arrested on family violence charge in North Texas",
+        "url": "https://www.cbsnews.com/texas/news/jr-smith-arrested-assault-violence-charge-north-texas"
+      },
+      {
+        "publishedAt": "2026-09-29T14:45:13.000Z",
+        "title": "San Antonio Spurs aim to turn NBA Finals heartbreak into motivation this season",
+        "url": "https://www.sacurrent.com/arts/sports-and-recreation/san-antonio-spurs-aim-to-turn-nba-finals-heartbreak-into-motivation-this-season"
+      },
+      {
+        "publishedAt": "2026-09-29T11:34:58.000Z",
+        "title": "Chris Mannix’s NBA Notes: The Latest on Jalen Duren and the Pistons",
+        "url": "https://www.si.com/nba/chris-mannix-nba-notes-latest-jalen-duren-and-pistons"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

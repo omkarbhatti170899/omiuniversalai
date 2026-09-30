@@ -1,0 +1,58 @@
+{
+  "row": {
+    "answer": "Tech News Tube is a real time news feed of the latest technology news headlines. [4]\n\nNew technology allows zero alcohol beers to be poured from a beer tap\n\nCLOSE\n\nSECTIONS\n\nLife & Style\n\nFood & Wine facebook twitter whatsapp email linkedin\n\nPHOTO\n\nLatest News\n\n1\n\nSUBSCRIBER\n\nDunedin\n\nSeptember 29\n\nA warm spell has been cast for the rest of the working week\n\n2\n\nSUBSCRIBER\n\nDunedin\n\nSeptember 29 [1]\n\nStay updated with the latest Technology News, gadget launches, app updates, artificial intelligence and digital trends. [2]\n\nExplore the latest in audio technology with expert reviews, news and insights on headphones, speakers, sound systems and more. [3]\n\nSources: [1] New technology allows zero alcohol beers to be poured from a beer tap (odt.co.nz)  [2] WhatsApp Android update could bring an iPhone-like navigation bar... (hindustantimes.com)  [3] Connections #1206 Hints And Answers For Today’s NYT Puzzle... (tech.yahoo.com)  [4] Your old GPU could be worth more than you think (technewstube.com)",
+    "conflictResolution": null,
+    "detail": "4 fresh result(s) from 3 source(s) in 8267ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 4,
+    "freshSplitCounts": {
+      "fresh": 4,
+      "stale": 1,
+      "undated": 0
+    },
+    "freshness": "Based on 4 reports published in the last 5 days (newest: 8 hours ago).",
+    "intent": "news",
+    "query": "latest technology news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 8267,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T16:30:00.000Z",
+        "title": "New technology allows zero alcohol beers to be poured from a beer tap",
+        "url": "https://www.odt.co.nz/life-and-style/food-and-wine/new-technology-allows-zero-alcohol-beers-to-be-poured-from-a-beer-tap-bfbfb5wo"
+      },
+      {
+        "publishedAt": "2026-09-28T05:46:25.000Z",
+        "title": "WhatsApp Android update could bring an iPhone-like navigation bar...",
+        "url": "https://www.hindustantimes.com/technology/whatsapp-android-update-could-bring-an-iphone-like-navigation-bar-what-we-know-101790573964238.html"
+      },
+      {
+        "publishedAt": "2026-09-28T20:18:48.000Z",
+        "title": "Connections #1206 Hints And Answers For Today’s NYT Puzzle...",
+        "url": "https://tech.yahoo.com/puzzles/connections/articles/connections-1206-hints-answers-today-160517853.html"
+      },
+      {
+        "publishedAt": "2026-09-27T00:47:27.000Z",
+        "title": "Your old GPU could be worth more than you think",
+        "url": "https://technewstube.com/engadget/1870876/old-gpu-could-worth-than-think"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}
