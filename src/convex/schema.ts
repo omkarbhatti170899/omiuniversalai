@@ -270,6 +270,10 @@ const schema = defineSchema(
       userId: v.id("users"),
       content: v.string(),
       source: v.union(v.literal("user"), v.literal("omi")),
+      // PHASE 7 (controlled memory): optional expiry. A memory with an
+      // expired expiresAt is excluded from prompts (controlled retention)
+      // but NOT deleted — the user can still see and purge it explicitly.
+      expiresAt: v.optional(v.number()),
     }).index("by_user", ["userId"]),
 
     // Omi Knowledge — Phase 3 local knowledge base. Documents live in Convex

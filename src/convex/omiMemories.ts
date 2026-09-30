@@ -18,8 +18,9 @@ export const listMine = query({
 });
 
 export const create = mutation({
-  args: { content: v.string() },
-  handler: async (ctx, { content }) => {
+  // PHASE 7: optional retention window (unix ms). Absent = keep forever.
+  args: { content: v.string(), expiresInDays: v.optional(v.number()) },
+  handler: async (ctx, { content, expiresInDays }) => {
     const userId = await getAuthUserId(ctx);
     if (userId === null) throw new Error("Not authenticated");
 
@@ -27,10 +28,15 @@ export const create = mutation({
     if (trimmed.length < 2) {
       throw new Error("Memory needs at least a few characters.");
     }
+    const expiresAt =
+      typeof expiresInDays === "number" && expiresInDays > 0
+        ? Date.now() + Math.min(expiresInDays, 365) * 86_400_000
+        : undefined;
     return await ctx.db.insert("omiMemories", {
       userId,
       content: trimmed,
       source: "user",
+      expiresAt,
     });
   },
 });
@@ -105,14 +111,26 @@ export const createInternal = internalMutation({
     });
   },
 });
-/** Internal read used by the chat action to ground Omi in approved memory. */
+/**
+ * Internal read used by the chat action to ground Omi in approved memory.
+ *
+ * PHASE 7 (controlled memory): memories past their optional `expiresAt` are
+ * EXCLUDED from grounding — controlled retention — but not deleted: the user
+ * still owns them, sees them in the list, and purges explicitly. The prompt
+ * therefore never cites a memory the user considers stale, while nothing is
+ * destroyed behind their back.
+ */
 export const listInternal = internalQuery({
   args: { userId: v.id("users"), limit: v.number() },
   handler: async (ctx, { userId, limit }) => {
-    return await ctx.db
+    const rows = await ctx.db
       .query("omiMemories")
       .withIndex("by_user", (q) => q.eq("userId", userId))
       .order("desc")
-      .take(limit);
+      .take(limit * 2); // headroom so expired rows don't starve the take
+    const now = Date.now();
+    return rows
+      .filter((m) => typeof m.expiresAt !== "number" || m.expiresAt > now)
+      .slice(0, limit);
   },
 });

@@ -32,6 +32,7 @@
 
 import type { Vertical } from "./intent";
 import { sourceTier } from "./quality";
+import { detectQueryLanguage } from "./language";
 
 /** Trust floor (sourceTier weight) for live-fact evidence, per vertical. */
 export const AUTHORITATIVE_MIN_WEIGHT: Record<Vertical, number> = {
@@ -165,6 +166,46 @@ export function officialDomainsFor(query: string): string[] {
     if (hint.match.test(query ?? "")) return hint.domains;
   }
   return [];
+}
+
+/**
+ * PHASE 3 (universal knowledge layer): LANGUAGE-AWARE STATISTICS AUTHORITY.
+ *
+ * A statistics question asked in Japanese should prefer Japan's official
+ * statistics bureau, in German Germany's, in French France's — the same way an
+ * English question gets data.worldbank.org. Detection is delegated to the
+ * shared language detector (fail-safe English ⇒ no extra domains), and the
+ * locale domains are APPENDED to whatever the topic hints matched, so topic
+ * authority always leads and locale authority only broadens the pool.
+ */
+const LOCALE_STATS_DOMAINS: Record<string, string[]> = {
+  ja: ["stat.go.jp", "e-stat.go.jp"],
+  de: ["destatis.de"],
+  fr: ["insee.fr"],
+  es: ["ine.es"],
+  it: ["istat.it"],
+  pt: ["ine.pt"],
+  ru: ["rosstat.gov.ru"],
+  ko: ["kostat.go.kr"],
+  zh: ["stats.gov.cn"],
+  ar: ["capsa.gov.sa"],
+};
+
+/** Locale-tagged official statistics domains for this query (may be empty). */
+export function localeStatsDomainsFor(query: string): string[] {
+  const lang = detectQueryLanguage(query);
+  if (lang.via === "default") return [];
+  return LOCALE_STATS_DOMAINS[lang.code] ?? [];
+}
+
+/**
+ * Topic hints + locale statistics hints, topic first. Used by the same
+ * call sites as officialDomainsFor when the question is statistics-shaped.
+ */
+export function officialDomainsWithLocaleFor(query: string): string[] {
+  const topic = officialDomainsFor(query);
+  const locale = localeStatsDomainsFor(query);
+  return [...topic, ...locale.filter((d) => !topic.includes(d))];
 }
 
 /** Human label of the matched official-source hint, or null. */
