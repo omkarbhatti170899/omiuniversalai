@@ -1,6 +1,6 @@
 # Omi Universal AI — Manual QA Checklist (22 flows)
 
-**Date:** 2026-09-27 · **Target:** `https://omkarbhatti170899.github.io/omiuniversalai/` (backend `resolute-ptarmigan-187`)
+**Date:** 2026-09-27 · **Target:** `https://omkarbhatti170899.github.io/omiuniversalai/` (backend `majestic-turtle-372`)
 **Status: API-VERIFIED ONLY. MANUALLY VERIFIED = 0 of 22 (2026-09-27).** A real guest (anonymous) session was created against the live deployment and the no-browser flows were driven end-to-end through the production API: **15 PASS / 1 FAIL** (the one FAIL is image editing on a full-size input — free-tier balance; small edits pass live). **Not one flow below has been verified by a human in a browser or on a device.** Rows marked ✅ API were executed and measured from the production backend; they prove behaviour, not rendered interaction.
 
 Legend: ✅ API = executed end-to-end from a real authenticated session · 👤 = still requires a human/browser/device (**all of section B is 👤**).

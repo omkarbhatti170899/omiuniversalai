@@ -1,7 +1,7 @@
 # HUMAN QA CHECKLIST — Omi Universal AI
 
 **For the human reviewer.** Run in a real browser against the **deployed** site.
-App: `https://omkarbhatti170899.github.io/omiuniversalai/` · Backend: `resolute-ptarmigan-187`
+App: `https://omkarbhatti170899.github.io/omiuniversalai/` · Backend: `majestic-turtle-372` (production)
 
 ---
 
@@ -9,20 +9,35 @@ App: `https://omkarbhatti170899.github.io/omiuniversalai/` · Backend: `resolute
 
 The live site may still be serving an **older commit**. Confirm the deploy landed first:
 
-**Step 0 — confirm the backend is AWAKE (do this first).** The frontend is built
-against `https://resolute-ptarmigan-187.convex.cloud`. If that deployment is
-paused, the app shell loads and then *every* action fails with a server error.
+**Step 0 — confirm the backend is AWAKE (do this first).** Production is
+`majestic-turtle-372`;
+dev is `striped-salmon-879`. If the deployment the frontend was built against is
+paused or empty, the app shell loads and then *every* action fails with a server
+error.
 
 ```bash
-curl -s -X POST https://resolute-ptarmigan-187.convex.cloud/api/query \
+# Production backend
+curl -s -X POST https://majestic-turtle-372.convex.cloud/api/query \
   -H 'Content-Type: application/json' \
   -d '{"path":"aiStatus:status","args":{},"format":"json"}'
 ```
 
 A healthy deployment answers with `{"status":"success","value":{...}}`.
 A paused one answers with `"Cannot run functions while this deployment is
-paused"` — that is a **deployment problem, not an app bug**: resume the
-deployment in the Convex dashboard, then re-run this command.
+paused"`; a never-deployed one answers with a bare `Server Error`. Both are
+**deployment problems, not app bugs** — fix the deployment in the Convex
+dashboard, then re-run this command.
+
+Also confirm the **built frontend actually targets that backend** (it is baked
+in at build time from `VITE_CONVEX_URL`):
+
+```bash
+# Extracts the Convex URL the deployed bundle was compiled against.
+grep -ohE '[a-z]+-[a-z]+-[0-9]+\.convex\.cloud' /tmp/omi-all.js | sort -u
+# Expect exactly: majestic-turtle-372.convex.cloud
+# If it shows resolute-ptarmigan-187.convex.cloud, the live site is pointed at
+# a retired deployment — rebuild the frontend before recording any result.
+```
 
 ```bash
 curl -s https://omkarbhatti170899.github.io/omiuniversalai/ | grep -o 'assets/index-[A-Za-z0-9]*\.js'

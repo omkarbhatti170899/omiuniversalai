@@ -99,7 +99,7 @@ A Trusted Web Activity is the right target: it renders the real Omi web app
 full-screen with no browser UI, so there is no second codebase to keep in sync
 and no fork of the provider-neutral backend.
 
-1. **Verify the live site is clean** — `https://resolute-ptarmigan-187.convex.site/selftest`
+1. **Verify the live site is clean** — `https://majestic-turtle-372.convex.site/selftest`
    must report `status: ok`. Packaging a degraded build ships the degradation.
 2. **Generate the project** with PWABuilder (`pwabuilder.com`, point it at the
    Pages URL) or Bubblewrap:

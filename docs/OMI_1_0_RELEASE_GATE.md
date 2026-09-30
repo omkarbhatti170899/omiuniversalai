@@ -3,9 +3,16 @@
 **Date:** 2026-09-30 · **Mode: release candidate — no development started**
 **Cost: ₹0/month** · Search architecture **frozen** · 178-row matrix = standing regression gate
 
-**Verdict: NOT READY.** Two owner-side blockers (paused production deployment,
-human QA). Everything else is verified and frozen. Image generation is explicitly
-**non-blocking** per the masterplan.
+**CORRECTION (2026-09-30, from the owner's Convex dashboard):** production is
+**`majestic-turtle-372`** and it has **never been deployed** — it is not paused.
+The earlier "paused production" finding referred to `resolute-ptarmigan-187`, a
+retired deployment that the built frontend still points at.
+
+**Verdict: NOT READY.** Three blockers, all owner-gated: production has never
+been deployed (needs a production deploy key), production has no environment
+variables, and the live frontend is compiled against the retired deployment.
+Human QA follows. Image generation is explicitly **non-blocking** per the
+masterplan.
 
 ---
 
@@ -28,7 +35,7 @@ human QA). Everything else is verified and frozen. Image generation is explicitl
 | **13 — Performance** | 🟢 | Parallel retrieval, per-provider timeouts, early-continue gate. Live this pass: 0.75–4.2 s typical, worst 8.0 s; one 12.3 s SearXNG probe isolated without delaying the answer. |
 | **14 — Search regression gate** | 🟢 frozen | **No source file has changed since the 178-row run** (verified by mtime against the run artifact) — the gate result still stands. Any future search change must re-run it. |
 | **15 — Production QA** | 🔴 **owner** | Automated tests are explicitly not sufficient. `docs/HUMAN_QA_CHECKLIST.md` gate was **fixed this pass** (see below). Desktop + mobile browser pass outstanding. |
-| **16 — Deployment** | 🔴 **owner** | Live deployment `resolute-ptarmigan-187` is **paused**; the deployed frontend is built against it, so real users currently get a shell with no working backend. `striped-salmon-879` (dev) is live and is where all evidence comes from. |
+| **16 — Deployment** | 🔴 **owner** | Production `majestic-turtle-372` is **never deployed** (all HTTP routes 404; the API returns a bare Server Error). The live frontend is compiled against `resolute-ptarmigan-187`, a retired deployment, so real users get a shell with no working backend. `striped-salmon-879` (dev) is live and is where all evidence comes from. |
 | **17 — Android / P10** | 🟡 owner-side | Config, manifest, service worker, offline shell, permissions, TWA + assetlinks instructions all committed. Icons need a rasterizer (no system rights here); native build needs a JDK (absent). **Does not block the web release.** |
 | **18 — Release gate** | ⛔ not met | 2 RED items open. |
 | **19 — Freeze** | ✅ in effect | No provider added, no SearXNG work, no retrieval rewrite, no paid dependency, no benchmark chasing. |
