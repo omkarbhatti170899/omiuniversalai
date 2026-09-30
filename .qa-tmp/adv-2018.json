@@ -1,0 +1,62 @@
+{
+  "row": {
+    "answer": "Asian Games: Vithya Breaks National Record As Parul Bags Double Bronze\n\nIndian athletes Vithya Ramraj and Parul Chaudhary reflected on their medal-winning performances at the Asian Games, with both runners adding to their medal tally at the continental sporting event. [2]\n\nEsports was first introduced as a demonstration sport at the 2018 Jakarta-Palembang Asian Games before becoming an official medal event at the 2022 Hangzhou Games. [1]\n\nThe performance also took Vithya's Asian Games medal tally to five. [2]\n\nAsian Games 2026: Athletics gold streak survives as India's medal mix changes\n\nIndia's athletics gold streak survived at the Asian Games, but the 2026 campaign was a marked shift from Hangzhou. [3]\n\nSources: [1] OCA Denies Dropping Esports from Asian Games: \"Will Maintain Medal Status\" - Inven Global (invenglobal.com)  [2] Asian Games: Vithya Breaks National Record As Parul Bags Double Bronze (pratidintime.com)  [3] Asian Games 2026: Athletics gold streak survives as India's medal mix changes (indiatoday.in)  [4] Asian Games 2026: Pooja Clinches High Jump Bronze, Sarvesh Kushare Wins Silver For India (freepressjournal.in)",
+    "conflictResolution": null,
+    "detail": "6 fresh result(s) from 1 source(s) in 6708ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded"
+    ],
+    "freshResults": 6,
+    "freshSplitCounts": {
+      "fresh": 6,
+      "stale": 4,
+      "undated": 0
+    },
+    "freshness": "Based on 6 reports published today (newest: 3 hours ago).",
+    "intent": "knowledge",
+    "query": "Asian Games 2018 medal tally",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 6708,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T07:35:10.000Z",
+        "title": "OCA Denies Dropping Esports from Asian Games: \"Will Maintain Medal Status\" - Inven Global",
+        "url": "https://www.invenglobal.com/articles/26582/oca-denies-dropping-esports-from-asian-games-will-maintain-medal-status"
+      },
+      {
+        "publishedAt": "2026-09-29T09:03:37.000Z",
+        "title": "Asian Games: Vithya Breaks National Record As Parul Bags Double Bronze",
+        "url": "https://www.pratidintime.com/sports/asian-games-vithya-breaks-national-record-as-parul-bags-double-bronze-12588203"
+      },
+      {
+        "publishedAt": "2026-09-30T00:31:35.000Z",
+        "title": "Asian Games 2026: Athletics gold streak survives as India's medal mix changes",
+        "url": "https://www.indiatoday.in/sports/asian-games/story/asian-games-2026-india-athletics-wrap-vithya-ramraj-gulveer-singh-medals-3006156-2026-09-30"
+      },
+      {
+        "publishedAt": "2026-09-29T13:37:46.000Z",
+        "title": "Asian Games 2026: Pooja Clinches High Jump Bronze, Sarvesh Kushare Wins Silver For India",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-pooja-clinches-high-jump-bronze-sarvesh-kushare-wins-silver-for-india"
+      },
+      {
+        "publishedAt": "2026-09-29T07:33:52.000Z",
+        "title": "Asian Games 2026: Narender Berwal Clinches Bronze In Men's +90kg Boxing After Losing To World Champion Aibek Oralbay",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-narender-berwal-clinches-bronze-in-mens-90kg-boxing-after-losing-to-world-champion-aibek-oralbay"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

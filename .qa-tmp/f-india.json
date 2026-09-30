@@ -1,0 +1,3659 @@
+{
+  "answerContract": {
+    "allSourcesDated": 16,
+    "citationsResolve": 21,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 18,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 3
+  },
+  "byCategory": {
+    "india": {
+      "fresh": 12,
+      "kept": 69,
+      "n": 12
+    },
+    "multilingual": {
+      "fresh": 6,
+      "kept": 45,
+      "n": 9
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 2,
+      "kept": 10,
+      "n": 2
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 17,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 5,
+      "kept": 24,
+      "n": 8
+    },
+    "live": {
+      "fresh": 1,
+      "kept": 1,
+      "n": 1
+    },
+    "none": {
+      "fresh": 3,
+      "kept": 36,
+      "n": 3
+    },
+    "recent": {
+      "fresh": 1,
+      "kept": 6,
+      "n": 1
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 20,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 21,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1240,
+        "statesFreshness": true,
+        "text": "Agriculture market in India and the number of farmers using it: Agriculture plays a significant role in India'seconomy, contributing approximately 16–17% of the nation's Gross Domestic Product (GDP) (Ministry of Finance, 2022). [2]\n\nE20 petrol can reduce India's dependence on imports: ONGC official\n\nE20 petrol can significantly reduce imports and substantially increase self-reliance, ONGC Director (exploration) Om Prakash Sinha said on Monday. [3]\n\nIndia'sagricultural market is crucial for ensuring food security, producing essential crops like wheat and rice that form the backbone of the nation'sfood supply. [2]\n\nMoreover, India is a major exporter of various agricultural products, including rice, wheat, spices, and cotton, contributing significantly to the global agricultural market. [2]\n\nSources: [1] School Assembly News Headlines Today [29 September]: Top National, Business News, Spor"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "latest India news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2,
+          "outside freshness window": 4,
+          "shares no subject word": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 31.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoear.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Trends and Challenges of Agriculture Marketing in India | Agriculture Journal IJOEAR",
+            "url": "https://ijoear.com/article-details/trends-and-challenges-of-agriculture-marketing-in-india"
+          },
+          {
+            "ageHours": 23.9,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T03:38:00.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.64,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "E20 petrol can reduce India's dependence on imports: ONGC official",
+            "url": "https://www.thehindubusinessline.com/news/e20-petrol-can-reduce-indias-dependence-on-imports-ongc-official/article71522332.ece"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.757,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 4638,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1166,
+        "statesFreshness": true,
+        "text": "India-China Ties Improving As Border Moves Towards Normalcy: Jaishankar\n\nXiJaishankar said in New York that India-China ties are better today than a couple of years ago, crediting border stabilisation after the 2020 standoff and saying normalcy at the border is helping bilateral relations. [1]\n\nAsian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Channel\n\nAsian Games 2026 India Schedule September 29 LIVE: India will look to add to its medal tally with a packed programme featuring several finals and crucial knockout contests. [2]\n\n6 total views, 6 today\n\nListing ID: 766abb9422606a0 [3]\n\nItinerary\n\nToday, you arrive in Delhi and complete all your formalities regarding baggage, immigration & customers before you exit the arrival halls. [4]\n\nSources: [1] India-China Ties Improving As Border Moves Towards Normalcy: Jaishankar (outlookindi"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 20.5,
+            "domain": "outlookindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:01:29.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "India-China Ties Improving As Border Moves Towards Normalcy: Jaishankar",
+            "url": "https://www.outlookindia.com/national/india-china-ties-improving-as-border-moves-towards-normalcy-jaishankar"
+          },
+          {
+            "ageHours": 26,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:33:25.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Ch",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-29-live-streaming-check-todays-events-timings-fixtures-and-tv-channel-294887"
+          },
+          {
+            "ageHours": 17,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:34:15.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Surrogacy in India – Cost, Laws, Surrogate Mother & Singles",
+            "url": "https://www.adproceed.com/ads/surrogacy-in-india-cost-laws-surrogate-mother-singles"
+          },
+          {
+            "ageHours": 4.5,
+            "domain": "luxtripper.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T23:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Overview",
+            "url": "https://www.luxtripper.co.uk/indias-golden-triangle-tour-with-goa-beach-stay"
+          },
+          {
+            "ageHours": 22.8,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:45:21.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Petrol and diesel prices today in Hyderabad, Delhi, Chennai and Mumbai on 29 September 2026",
+            "url": "https://www.thehansindia.com/business/market-compass/petrol-and-diesel-prices-today-in-hyderabad-delhi-chennai-and-mumbai-on-29-september-2026-1126840"
+          },
+          {
+            "ageHours": 16.9,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:37:08.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Explore NSE Top Gainers Today",
+            "url": "https://www.adproceed.com/ads/explore-nse-top-gainers-today"
+          },
+          {
+            "ageHours": 18.9,
+            "domain": "news.prfree.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:38:19.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.69,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Jawa Yezdi Motorcycles Shares Latest Bobber Bike Price in India",
+            "url": "https://news.prfree.org/@gajodharrizzu/jawa-yezdi-motorcycles-shares-latest-bobber-bike-price-in-india-svt3dkurfz6j"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoear.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Trends and Challenges of Agriculture Marketing in India | Agriculture Journal IJOEAR",
+            "url": "https://ijoear.com/article-details/trends-and-challenges-of-agriculture-marketing-in-india"
+          },
+          {
+            "ageHours": 23.9,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T03:38:00.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.64,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "E20 petrol can reduce India's dependence on imports: ONGC official",
+            "url": "https://www.thehindubusinessline.com/news/e20-petrol-can-reduce-indias-dependence-on-imports-ongc-official/article71522332.ece"
+          },
+          {
+            "ageHours": 10.2,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:18:09.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.64,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Days after India-Pakistan sparring at UN, senior Indian official visits Islamabad for SCO planning meet",
+            "url": "https://www.thehindu.com/news/national/days-after-india-pakistan-sparring-at-un-senior-indian-official-visits-islamabad-for-sco-planning-meet/article71525343.ece"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.798,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2260,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1652,
+        "statesFreshness": true,
+        "text": "Border Situation Moves Towards Normalcy, India-China Ties Begin to Improve: Jaishankar\n\nExternal Affairs Minister S Jaishankar said India-China ties have improved as border tensions ease, calling stability along the frontier key to restoring normal relations between the two nations. [1]\n\nRakesh Rathore and Shubhaom Panda (2019) paper explain Agricultural marketing is of utmost importance to India'seconomy, providing employment for 65% of the workforce. [2]\n\nThe primary objective of this study is to identify the perception and present situation of agriculture marketing system in India and outline the issues in agriculture marketing in India, the another objective is to measures for improvement in agriculture marketing in India and participation of farmers in e-NEM. [2]\n\nMoreover, according to the latest report from the India Meteorological Department (IMD), some northern states are free f"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "current situation in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 15.9,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:40:46.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Border Situation Moves Towards Normalcy, India-China Ties Begin to Improve: Jaishankar",
+            "url": "https://www.dynamitenews.com/international/border-situation-moves-towards-normalcy-india-china-ties-begin-to-improve-jaishankar"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoear.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Trends and Challenges of Agriculture Marketing in India | Agriculture Journal IJOEAR",
+            "url": "https://ijoear.com/article-details/trends-and-challenges-of-agriculture-marketing-in-india"
+          },
+          {
+            "ageHours": 32.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:12:38.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Holiday Today (September 29): Are Schools Open or Closed on Tuesday Amid Cyclone & Heavy Rain? Check La",
+            "url": "https://sundayguardianlive.com/india/school-holiday-today-september-29-are-schools-open-or-closed-on-tuesday-amid-cyclone-heavy-rain-check-latest-official-update-imd-alert-traffic-advisory-state-wise-closure-status-more-294755"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "A study on Rain Water Harvesting at Gandhi Institute of Engineering and Technology Main Campus, Gunupur, Odish",
+            "url": "https://ijoer.com/article-details/a-study-on-rain-water-harvesting-at-gandhi-institute-of-engineering-and-technology-main-campus-gunupur-odisha"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Protection of Solar Powered Vehicle using Sensor | Engineering Journal IJOER",
+            "url": "https://ijoer.com/article-details/protection-of-solar-powered-vehicle-using-sensor"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.93,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1562,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1308,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [2]\n\n60-second summary\n\nPOTATOES NEWS has become an international promotion partner of Global Potato Summit 2026, held on 16 and 17 December at the Mahatma Mandir Convention and Exhibition Centre in Gandhinagar, Gujarat. [1]\n\nCentral Bank of India BC Supervisor Recruitment 2026 - Apply Offline\n\nCentral Bank of India Recruitment 2026 - BC Supervisor\n\nCentral Bank of India has released an official notification for the recruitment of BC Supervisor posts (3 vacancies). [4]\n\nUnpredictable, uneven, unorganised: How the 2026 monsoon rains kept India guessing\n\nThe 2026 monsoon was marked by dry spells, concentrated rain and sharp regional contrasts. [5]\n\nSources: [1] In"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India news 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 20.8,
+            "domain": "potatoes.news",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T06:45:49.000Z",
+            "relevance": 1.16,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.16,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "India: POTATOES NEWS becomes international promotion partner of Global Potato Summit 2026",
+            "url": "https://potatoes.news/india-potatoes-news-becomes-international-promotion-partner-of-global-potato-summit-2026"
+          },
+          {
+            "ageHours": 46.9,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1.12,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.12,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 87,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:34:17.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Yono Game App 2026 | Discover the Latest Gaming Experience",
+            "url": "https://www.adproceed.com/ads/yono-game-app-2026-discover-the-latest-gaming-experience"
+          },
+          {
+            "ageHours": 19.7,
+            "domain": "fresherslive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:49:36.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Central Bank of India BC Supervisor Recruitment 2026 - Apply Offline",
+            "url": "https://www.fresherslive.com/articles/central-bank-of-india-bc-supervisor-recruitment-2026-apply-offline-3070132"
+          },
+          {
+            "ageHours": 48,
+            "domain": "indiatoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T03:30:00.000Z",
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Unpredictable, uneven, unorganised: How the 2026 monsoon rains kept India guessing",
+            "url": "https://www.indiatoday.in/science/story/india-monsoon-2026-rainfall-deficit-normal-uneven-distribution-seasonal-report-3003633-2026-09-28"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 19.7,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.968,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1092,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          8,
+          11
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 785,
+        "statesFreshness": false,
+        "text": "Indian Economy is the sixth largest economy in the world in terms of nominal GDP ($1.15 billion) as of May, 2026. [11]\n\nIndia has a developing market-oriented economy with substantial state participation in strategic sectors. [1]\n\nIndus Valley Civilisation, the early civilisation of India and Pakistan, developed the economy of agriculture and craft which later spread into central India. [2]\n\nGolden Revolution and Horticulture Sector in India (UPSC Economy)\n\nGolden Revolution expanded horticulture to 33% of agri-GVA on 14% of cropped area. [8]\n\nSources: [1] Economy of India (en.wikipedia.org)  [2] Economic history of India (en.wikipedia.org)  [3] How Vulnerable is India's Economy to Foreign Sanctions? (arxiv.org)  [4] Indian economy since independence (2008) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India economy",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Economy of India",
+            "url": "https://en.wikipedia.org/wiki/Economy_of_India"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Economic history of India",
+            "url": "https://en.wikipedia.org/wiki/Economic_history_of_India"
+          },
+          {
+            "ageHours": 4835,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2026-03-12T16:30:34Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "How Vulnerable is India's Economy to Foreign Sanctions?",
+            "url": "http://arxiv.org/abs/2603.12128v2"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Indian economy since independence (2008)",
+            "url": "https://openlibrary.org/works/OL19746731W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "India's economy (2003)",
+            "url": "https://openlibrary.org/works/OL5250162W"
+          },
+          {
+            "ageHours": 764.1,
+            "domain": "statista.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-29T07:28:29.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Nominal GDP growth of U.S. states 2025",
+            "url": "https://www.statista.com/statistics/248023/us-gross-domestic-product-gdp-by-state"
+          },
+          {
+            "ageHours": 760419.5,
+            "domain": "doi.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "1940-01-01",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Netherlands India: A Study of Plural Economy",
+            "url": "https://doi.org/10.2307/1788413"
+          },
+          {
+            "ageHours": 1147.1,
+            "domain": "anantamias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:27:54.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Golden Revolution and Horticulture Sector in India (UPSC Economy)",
+            "url": "https://anantamias.com/golden-revolution"
+          },
+          {
+            "ageHours": 1059.8,
+            "domain": "drishtiias.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T23:46:34.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Indian Economy",
+            "url": "https://www.drishtiias.com/current-affairs-news-analysis-editorials/news-analysis/30-07-2026"
+          },
+          {
+            "ageHours": 94203.5,
+            "domain": "openalex.org",
+            "providers": [
+              "openalex"
+            ],
+            "publishedAt": "2016-01-01",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "The Political Economy of Development in India",
+            "url": "https://openalex.org/W1595863468"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "economy of India",
+            "url": "http://www.wikidata.org/entity/Q233623"
+          },
+          {
+            "ageHours": 61550.3,
+            "domain": "nytimes.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2019-09-22T13:16:13Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "From Underwear to Cars, India’s Economy Is Fraying",
+            "url": "https://www.nytimes.com/2019/09/21/business/economy/india-economy-trade.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 764.1,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"India economy\" right now — Omi will not "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.88,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1966,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1178,
+        "statesFreshness": true,
+        "text": "Chris Wood of Jefferies explains\n\nStock market latest news: Amid a poor show by the key benchmark indices of the Indian stock market for the last two years, Chris Wood of Jefferies has lit a ray of hope for the bulls of Dalal Street. [3]\n\nMint Exclusive | How is Indian stock market bottom linked to the US 10-year bond yield? [3]\n\nBest Course to Understand the Indian Stock Market in Moti Nagar\n\nStreet: Complex, U 135, Laxmi nagar, Infront of Gate No. [1]\n\n4 Laxmi Nagar Metro Station, Delhi 110092\nCity: delhi\nState: delhi\nCountry: India\nZip/Postal Code: 110094\nContact No: 09821210875\nWebsite: https://icfmindia.in/\nEmail: [email protected]\nListed: September 30, 2026 2:32 am\nExpires: 29 days, 23 hours\n\nDescription\n\nUnderstanding the Indian stock market requires more than knowing how to place a buy or sell order. [1]\n\nSources: [1] Best Course to Understand the Indian Stock Market in Moti Naga"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "latest Indian stock market news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 1,
+            "domain": "adproceed.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T02:32:33.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.24,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Best Course to Understand the Indian Stock Market in Moti Nagar",
+            "url": "https://www.adproceed.com/ads/best-course-to-understand-the-indian-stock-market-in-moti-nagar"
+          },
+          {
+            "ageHours": 50.3,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:13:30.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334)",
+            "url": "https://www.thehindubusinessline.com/markets/sensex-nifty50-today-stock-market-live-updates-28-septmeber-2026/article71515691.ece"
+          },
+          {
+            "ageHours": 47,
+            "domain": "livemint.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:31:23.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Mint Exclusive | How is Indian stock market bottom linked to the US 10-year bond yield? Chris Wood of Jefferie",
+            "url": "https://www.livemint.com/market/stock-market-news/mint-exclusive-how-is-indian-stock-market-bottom-linked-to-the-us-10-year-bond-yield-chris-wood-of-jefferies-explains-11790566134388.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 1,
+        "normalizedCount": 5,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 5,
+        "relevanceAvg": 0.99,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 933,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1326,
+        "statesFreshness": false,
+        "text": "Indian Railways approves new MEMU services linking Meerut City with Khurja, Saharanpur\n\nIn Short\n\nThe new services will provide additional travel options for passengers and strengthen regional rail connectivity centred around Meerut City, according to an official statement. [2]\n\nFeatures of some interacting tropical cyclones in the Indian Ocean after the Mount Pinatubo eruption\n\nAbstract\n\nThe features of the impact of some tropical cyclones (TC) in the Indian Ocean on the environment after the eruption of Mount Pinatubo are considered. [4]\n\nNew Delhi: Indian Railways on Tuesday said that it has approved two MEMU services connecting Meerut City with Khurja and Saharanpur in Uttar Pradesh. [2]\n\nIndian Railways earlier this month approved a new daily train service between Kanpur Central and Anand Vihar, providing an overnight rail connectivity option between Kanpur and Delhi. [2]\n\nSources: "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "Indian railways news today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.5,
+            "domain": "ijoear.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.89,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Trends and Challenges of Agriculture Marketing in India | Agriculture Journal IJOEAR",
+            "url": "https://ijoear.com/article-details/trends-and-challenges-of-agriculture-marketing-in-india"
+          },
+          {
+            "ageHours": 16.2,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:20:14.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian Railways approves new MEMU services linking Meerut City with Khurja, Saharanpur",
+            "url": "https://www.thehansindia.com/news/cities/new-delhi/indian-railways-approves-new-memu-services-linking-meerut-city-with-khurja-saharanpur-1126988"
+          },
+          {
+            "ageHours": 6.4,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:05:00.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "A hundred years ago | Indian Railway Conference",
+            "url": "https://www.thehindu.com/archives/a-hundred-years-ago-indian-railway-conference/article71524535.ece"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Features of some interacting tropical cyclones in the Indian Ocean after the Mount Pinatubo eruption | Enginee",
+            "url": "https://ijoer.com/article-details/features-of-some-interacting-tropical-cyclones-in-the-indian-ocean-after-the-mount-pinatubo-eruption"
+          },
+          {
+            "ageHours": 10.2,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:18:09.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.6,
+              "freshness": 0.21,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Days after India-Pakistan sparring at UN, senior Indian official visits Islamabad for SCO planning meet",
+            "url": "https://www.thehindu.com/news/national/days-after-india-pakistan-sparring-at-un-senior-indian-official-visits-islamabad-for-sco-planning-meet/article71525343.ece"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.714,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1162,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1210,
+        "statesFreshness": false,
+        "text": "Features of some interacting tropical cyclones in the Indian Ocean after the Mount Pinatubo eruption\n\nAbstract\n\nThe features of the impact of some tropical cyclones (TC) in the Indian Ocean on the environment after the eruption of Mount Pinatubo are considered. [2]\n\nIt is a staple food to two third of Indian (Rout and Tiwari, 2012). [1]\n\nAmong the fungicides treatment maximum disease incidence was observed in Thiophanate (16) followed by Carbendazim (10.96) with per cent disease reduction of 41 and 59.58 over untreated control. [1]\n\nThe studies on rate of growth of disease severity by using linear and non linear parameters among the synthetic fungicides found that lowest average growth rate during the first crop seasons (2014-15) was observed in Propiconazole (0.124) at 10 days intervals of disease progression analysis studies. [1]\n\nSources: [1] Management of Brown Spot Disease of Rice a"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "current Indian rupee exchange rate",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.5,
+            "domain": "ijoear.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Management of Brown Spot Disease of Rice and Studies of Growth Rate of Disease on Application of Different Syn",
+            "url": "https://ijoear.com/article-details/management-of-brown-spot-disease-of-rice-and-studies-of-growth-rate-of-disease-on-application-of-different-synthetic-fungicides-by-using-different-statistical-tools"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Features of some interacting tropical cyclones in the Indian Ocean after the Mount Pinatubo eruption | Enginee",
+            "url": "https://ijoer.com/article-details/features-of-some-interacting-tropical-cyclones-in-the-indian-ocean-after-the-mount-pinatubo-eruption"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "market-rates",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.685,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1031,
+      "vertical": "markets"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 175,
+        "statesFreshness": false,
+        "text": "India Cricket vs West Indies Cricket — scheduled. [1]\n\nSources: [1] India Cricket vs West Indies Cricket (One Day International Series · 2026-09-30 08:30:00) (thesportsdb.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "live India cricket score",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 0,
+            "domain": "thesportsdb.com",
+            "providers": [
+              "sports-scores"
+            ],
+            "publishedAt": "2026-09-30T03:31:54.919Z",
+            "relevance": 0.99,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.99,
+              "freshness": 0.24,
+              "relevance": 0.43,
+              "sourceQuality": 0.1
+            },
+            "title": "India Cricket vs West Indies Cricket (One Day International Series · 2026-09-30 08:30:00)",
+            "url": "https://www.thesportsdb.com/team/137143"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 0,
+        "normalizedCount": 1,
+        "normalizedDated": 1,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "sports-scores"
+        ],
+        "rawCount": 1,
+        "relevanceAvg": 0.99,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 475,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1172,
+        "statesFreshness": true,
+        "text": "India Explores Formula One Return, Government Targets 2028 for Potential Grand Prix\n\nIndia is exploring the possibility of bringing Formula One back to the country, with the government considering 2028 as a potential year for the return of the Indian Grand Prix. [4]\n\nAs per reports, the statement from the SC read, “It is our request to the government of India. [3]\n\nThe gentle cow – beloved in the Indian tradition for millenia – has today been weaponised by Bharatiya Janata Party governments and Hindutva mobs. [1]\n\nWhile the Indian government highlighted the strikes as a strong counter-terror response, Pakistan rejected India’s claims and said the incident involved only cross-border firing. [2]\n\nSources: [1] Harsh Mander: How cow slaughter bans have annihilated farm, meat and leather livelihoods (scroll.in)  [2] 10 Years After Uri Attack: The Dawn Operation That Marked a Shift in India’s "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "recent Indian government announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10,
+          "shares no subject word": 2,
+          "shares no subject word (escalated)": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 18.5,
+            "domain": "scroll.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T09:00:02.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.86,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Harsh Mander: How cow slaughter bans have annihilated farm, meat and leather livelihoods",
+            "url": "https://scroll.in/article/1096046/harsh-mander-how-cow-slaughter-bans-have-annihilated-farm-meat-and-leather-livelihoods"
+          },
+          {
+            "ageHours": 17,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:30:39.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "10 Years After Uri Attack: The Dawn Operation That Marked a Shift in India’s Counter-Terror Strategy",
+            "url": "https://www.dynamitenews.com/national/10-years-after-uri-attack-the-dawn-operation-that-marked-a-shift-in-indias-counter-terror-strategy"
+          },
+          {
+            "ageHours": 12.6,
+            "domain": "indulgexpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:55:36.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Could India make social media 18+? Here’s what the Supreme Court's appeal to the government said",
+            "url": "https://www.indulgexpress.com/msociety/2026/Sep/29/could-india-make-social-media-18-heres-what-the-supreme-courts-appeal-to-the-government-said"
+          },
+          {
+            "ageHours": 16.4,
+            "domain": "in.eventfaqs.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:10:40.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "India Explores Formula One Return, Government Targets 2028 for Potential Grand Prix",
+            "url": "https://in.eventfaqs.com/2026/09/29/india-explores-formula-one-return-government-targets-2028-for-potential-grand-prix"
+          },
+          {
+            "ageHours": 12.1,
+            "domain": "edexlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T15:26:46.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian scientists settled abroad reverse decades of brain drain under new VAIBHAV network",
+            "url": "https://www.edexlive.com/news/indian-scientists-settled-abroad-reverse-decades-of-brain-drain-under-new-vaibhav-network"
+          },
+          {
+            "ageHours": 26,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:30:00.000Z",
+            "relevance": 0.56,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.56,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "A new governance model for Ladakh",
+            "url": "https://www.thehindu.com/news/national/a-new-governance-model-for-ladakh/article71521255.ece"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 12.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.728,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1835,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1504,
+        "statesFreshness": true,
+        "text": "Season of extremes: Why India and the world must take the 2026 El Nino seriously\n\nForecasters say the 2026-27 El Nino is strengthening into a very strong event. [1]\n\nTop Business & Market Headlines Today — BL Morning Report, September 28, 2026\n\nBL Morning Report September 28, 2026: Get today’s top business news, market headlines about the Stock Market, Sensex & Nifty trends, key market insights, economic highlights, and the latest updates from India and global markets. [2]\n\nAsian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Channel\n\nAsian Games 2026 India Schedule September 29 LIVE: India will look to add to its medal tally with a packed programme featuring several finals and crucial knockout contests. [4]\n\nCentral Bank of India BC Supervisor Recruitment 2026 - Apply Offline\n\nCentral Bank of India Recruitment 2026 - BC Supervisor\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "India budget 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1,
+            "domain": "indiatoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T02:30:00.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.03,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Season of extremes: Why India and the world must take the 2026 El Nino seriously",
+            "url": "https://www.indiatoday.in/science/story/season-of-extremes-why-india-and-the-world-must-take-the-2026-el-nino-seriously-3005849-2026-09-30"
+          },
+          {
+            "ageHours": 50,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:30:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026",
+            "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+          },
+          {
+            "ageHours": 70.3,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T05:13:18.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Petrol and diesel prices today in Hyderabad, Delhi, Chennai and Mumbai on 27 September 2026",
+            "url": "https://www.thehansindia.com/business/market-compass/petrol-and-diesel-prices-today-in-hyderabad-delhi-chennai-and-mumbai-on-27-september-2026-1126125"
+          },
+          {
+            "ageHours": 26,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:33:25.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Ch",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-29-live-streaming-check-todays-events-timings-fixtures-and-tv-channel-294887"
+          },
+          {
+            "ageHours": 19.7,
+            "domain": "fresherslive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:49:36.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Central Bank of India BC Supervisor Recruitment 2026 - Apply Offline",
+            "url": "https://www.fresherslive.com/articles/central-bank-of-india-bc-supervisor-recruitment-2026-apply-offline-3070132"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 1,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.954,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1985,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 807,
+        "statesFreshness": true,
+        "text": "The Department of Space (DoS) is an Indian government department responsible for administration of the Indian space programme. [1]\n\nIndian Space Programme is a remarkable example of India’s progress in the field of Technology. [4]\n\nIndian Space Programme\n\nThe Indian Space Programme is one of the most successful space programmes in the world, with a rich history of achievements and contributions to scientific research and national development. [3]\n\nThe Indian space programme under the DoS aims to promote the development and application of space science and technology for the socio-economic benefit of the country. [1]\n\nSources: [1] Department of Space (en.wikipedia.org)  [2] List of Indian satellites (en.wikipedia.org)  [3] Indian Space Programme (gktoday.in)  [4] Indian Space Programme (rajras.in)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "india",
+      "query": "Indian space programme",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Department of Space",
+            "url": "https://en.wikipedia.org/wiki/Department_of_Space"
+          },
+          {
+            "ageHours": 1271.6,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:57:38.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "List of Indian satellites",
+            "url": "https://en.wikipedia.org/wiki/List_of_Indian_satellites"
+          },
+          {
+            "ageHours": 1104.8,
+            "domain": "gktoday.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T02:46:42.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian Space Programme",
+            "url": "https://www.gktoday.in/indian-space-programme"
+          },
+          {
+            "ageHours": 1012.4,
+            "domain": "rajras.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T23:10:04.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Indian Space Programme",
+            "url": "https://rajras.in/ras/mains/paper-2/science/indian-space-programme"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "The Indian Space Programme (2017)",
+            "url": "https://openlibrary.org/works/OL20826855W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "The Japanese and Indian Space Programmes (2000)",
+            "url": "https://openlibrary.org/works/OL7949279W"
+          },
+          {
+            "ageHours": 114094,
+            "domain": "thehindu.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-09-24T05:30:57Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "NSA targets Indian politics, space & N-programmes",
+            "url": "http://www.thehindu.com/news/national/nsa-targets-indian-politics-space-nprogrammes/article5161299.ece"
+          },
+          {
+            "ageHours": null,
+            "domain": "eu-space.europa.eu",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "EU Space Programme | EU Space Policy",
+            "url": "https://eu-space.europa.eu"
+          },
+          {
+            "ageHours": 1146.6,
+            "domain": "testbook.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:54:35.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.69,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Rohini Satellite RS-1: India's First Indigenous Satellite Launch (1980)",
+            "url": "https://testbook.com/ias-preparation/rohini-satellite-rs-1-isro-space-mission"
+          },
+          {
+            "ageHours": 1271.5,
+            "domain": "csis.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:08.000Z",
+            "relevance": 0.68,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.68,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Another Leap Forward: India’s Historic Moon Landing and the Space Competition Underway",
+            "url": "https://www.csis.org/analysis/another-leap-forward-indias-historic-moon-landing-and-space-competition-underway"
+          },
+          {
+            "ageHours": null,
+            "domain": "space.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "Russian and Indian Space Junk Buzzes Space Station | Space",
+            "url": "https://www.space.com/17814-space-junk-buzzes-space-station.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Indian Space Research Organisation",
+            "url": "http://www.wikidata.org/entity/Q229058"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1012.4,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "TheSportsDB has no current fixture for \"Indian space programme\" right now — Omi "
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.807,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1819,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1244,
+        "statesFreshness": true,
+        "text": "France Strike Today: Teachers, Government Officials and More Protest Over Salary Freeze Ahead of PM Sébastien Lecornu’s Budget Bill Presentation – Here’s All You Need to Know\n\nFrance Strike Today: Public-sector employees across France are participating in a nationwide strike over wages, working conditions, and the government’s planned approach to public spending in the run-up to the 2027 budget. [1]\n\nFour face-off for Milan tonight as Belgium play France in Nations League\n\nTonight, AC Milan will potentially see four of their players face off, as Belgium play France in the latest game of the UEFA Nations League. [3]\n\nThe minority government led by Prime Minister Sébastien Lecornu is scheduled to table the budget in France’s parliament this Thursday. [1]\n\nFrance Strike Today: Why are Public Sector Workers Protesting? [1]\n\nSources: [1] France Strike Today: Teachers, Government Officials and"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "dernières nouvelles France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 20.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:07:52.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "France Strike Today: Teachers, Government Officials and More Protest Over Salary Freeze Ahead of PM Sébastien ",
+            "url": "https://sundayguardianlive.com/world/france-strike-today-teachers-government-officials-and-more-protest-over-salary-freeze-ahead-of-pm-sbastien-lecornus-budget-bill-presentation-heres-all-you-need-to-know-295047"
+          },
+          {
+            "ageHours": 17.2,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:21:27.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Which is the largest river in France?",
+            "url": "https://visitfranceguide.com/which-is-the-largest-river-in-france"
+          },
+          {
+            "ageHours": 40.3,
+            "domain": "sempremilan.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:14:21.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.63,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Four face-off for Milan tonight as Belgium play France in Nations League",
+            "url": "https://sempremilan.com/four-milan-face-off-belgium-france-nations-league"
+          },
+          {
+            "ageHours": 13.9,
+            "domain": "myjoyonline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:37:16.000Z",
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.57,
+              "freshness": 0.21,
+              "relevance": 0.1,
+              "sourceQuality": 0.12
+            },
+            "title": "Latest Stories",
+            "url": "https://www.myjoyonline.com/kwabenya-court-denies-bail-to-six-accused-in-alleged-3-9-tonne-cocaine-shipment"
+          },
+          {
+            "ageHours": 53.7,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T21:51:01.000Z",
+            "relevance": 0.52,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.52,
+              "freshness": 0.17,
+              "relevance": 0.1,
+              "sourceQuality": 0.12
+            },
+            "title": "Which is the richest country between France and Spain?",
+            "url": "https://visitfranceguide.com/which-is-the-richest-country-between-france-and-spain"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 13.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.66,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1449,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "aktuelle Nachrichten Deutschland",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 10,
+          "undated (escalated)": 2
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 10,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant"
+        ],
+        "rawCount": 10,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 14472,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 297,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n[1] さらに旨みを深めた濃厚な味わいへ! コンビニ限定『技のこだ割 たまり醤油だれ』 リニューアル! — さらに旨みを深めた濃厚な味わいへ! コンビニ限定『技のこだ割 たまり醤油だれ』 リニューアル!\n\n2026-09-30 11:00\n\n亀田製菓株式会社(本社:新潟県新潟市、代表取締役社長:髙木 政紀)は、『45g 技のこだ割り たまり醤油だれ』(以下:『技のこだ割り たまり醤油だれ』)をリニューアルし、10月5日(月)から全国のコンビニエンスストアにて発売し"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "日本の最新ニュース",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.5,
+            "domain": "newscast.jp",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T02:00:11.000Z",
+            "relevance": 0.47,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.47,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.12
+            },
+            "title": "さらに旨みを深めた濃厚な味わいへ! コンビニ限定『技のこだ割 たまり醤油だれ』 リニューアル!",
+            "url": "https://newscast.jp/news/6359309"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 1.5,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.47,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 3181,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "últimas noticias España",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8,
+          "shares no subject word (escalated)": 1
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 8,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 2078,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "ultime notizie Italia",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9,
+          "undated (escalated)": 7
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 4333,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1115,
+        "statesFreshness": true,
+        "text": "Travaillant tous les jours avec des écosystèmes de PME, de start-up et des entreprises innovantes en France, Huawei et EuraTechnologies ont donc souhaité lancé le plus grand concours de start-up privé en France, afin de soutenir l'émergence de projets innovants valorisant l'expertise française dans les domaines d'avenir des nouvelles technologies. [1]\n\n|\n\nLivraison\n\nDélai de livraison entre 3 et 6 jours ouvrés pour la France et la Belgique. [2]\n\nFrance Strike Today: Does France Have A Debt Issue? [4]\n\nThe minority government in France is facing pressure to reduce its budget deficit and keep its rising debt in check. [4]\n\nSources: [1] Inno'start récompense les entreprises innovantes (lillesagency.com)  [2] Figurine PVC - Grand Schtroumpf avec guitare: Figurines Pop culture par Peyo chez Plastoy (9e-store.fr)  [3] Porte-clés Cosmoschtroumpf: Porte-clés Pop culture par Peyo chez Plastoy (9e"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "nouvelles du jour en France",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 60.4,
+            "domain": "lillesagency.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:06:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Inno'start récompense les entreprises innovantes",
+            "url": "https://www.lillesagency.com/blog-business/zoom-sur/innostart-recompense-les-entreprises-innovantes"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "9e-store.fr",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Figurine PVC - Grand Schtroumpf avec guitare: Figurines Pop culture par Peyo chez Plastoy",
+            "url": "https://9e-store.fr/inconnu/plastoy/figurines/figurine-pvc-grand-schtroumpf-avec-guitare-04041d"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "9e-store.fr",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Porte-clés Cosmoschtroumpf: Porte-clés Pop culture par Peyo chez Plastoy",
+            "url": "https://9e-store.fr/inconnu/plastoy/porte-cles/porte-cles-cosmoschtroumpf-043a42"
+          },
+          {
+            "ageHours": 20.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:07:52.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "France Strike Today: Teachers, Government Officials and More Protest Over Salary Freeze Ahead of PM Sébastien ",
+            "url": "https://sundayguardianlive.com/world/france-strike-today-teachers-government-officials-and-more-protest-over-salary-freeze-ahead-of-pm-sbastien-lecornus-budget-bill-presentation-heres-all-you-need-to-know-295047"
+          },
+          {
+            "ageHours": 36.1,
+            "domain": "stpetersfulham.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T15:27:14.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.55,
+              "freshness": 0.17,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Julius Casino en ligne : étapes et méthodes pour s’inscrire et jouer",
+            "url": "https://stpetersfulham.co.uk/julius-casino-en-ligne-etapes-et-methodes-pour-s-inscrire-et-jouer"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.718,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1233,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 750,
+        "statesFreshness": false,
+        "text": "Últimas noticias sobre la economía de México y el mundo. [1]\n\nMéxico: Más noticias de actualidad nacional e internacional de política, cultura y deportes [6]\n\nXHTVM-TDT (channel 40) is a television station in Mexico City, Mexico, owned by Televisora del Valle de México and operated by TV Azteca. [3]\n\nIt is branded as adn Noticias and available over the air in much of Mexico on TV Azteca's transmitters. [3]\n\nSources: [1] Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy, Covid-19. (topbinhpgzdvkr.netlify.app)  [2] Nacional | Noticias actuales y de última hora en México - Publim… (publimetro.com.mx)  [3] XHTVM-TDT (en.wikipedia.org)  [4] Day: February 14, 2024 (mx.online-listing.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "noticias actuales de México",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 1893.6,
+            "domain": "topbinhpgzdvkr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-13T05:55:43.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Entérate al momento de las noticias más relevantes de México y el mundo | Coronavirus México, Noticias de hoy,",
+            "url": "https://topbinhpgzdvkr.netlify.app/isadore80199goqe/cubl-es-la-mejor-fuente-de-noticias-en-lnnea-no.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "publimetro.com.mx",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Nacional | Noticias actuales y de última hora en México - Publim…",
+            "url": "http://www.publimetro.com.mx/nacional"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.73,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "XHTVM-TDT",
+            "url": "https://en.wikipedia.org/wiki/XHTVM-TDT"
+          },
+          {
+            "ageHours": 1658.7,
+            "domain": "mx.online-listing.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-23T00:52:52.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.69,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Day: February 14, 2024",
+            "url": "https://www.mx.online-listing.com/Noticias/Blogger/2024/02/14"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.67,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.67,
+              "freshness": 0.02,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "2025 Pacific hurricane season",
+            "url": "https://en.wikipedia.org/wiki/2025_Pacific_hurricane_season"
+          },
+          {
+            "ageHours": null,
+            "domain": "es.euronews.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "México | euronews - información internacional sobre México",
+            "url": "https://es.euronews.com/noticias/america/mexico"
+          },
+          {
+            "ageHours": null,
+            "domain": "laprensa.hn",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Videos de Noticias Actuales | La Prensa",
+            "url": "http://www.laprensa.hn/video"
+          },
+          {
+            "ageHours": null,
+            "domain": "elpais.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.6,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Los rostros actuales de la pobreza | Noticias de la Comunidad Va…",
+            "url": "https://elpais.com/ccaa/2012/06/02/valencia/1338669912_508193.html"
+          },
+          {
+            "ageHours": 1823.3,
+            "domain": "newsbytesapp.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-16T04:17:08.000Z",
+            "relevance": 0.48,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.01,
+              "final": 0.48,
+              "freshness": 0.01,
+              "relevance": 0.17,
+              "sourceQuality": 0.04
+            },
+            "title": "Mexico: News",
+            "url": "https://www.newsbytesapp.com/news/world/mexico"
+          },
+          {
+            "ageHours": 1803.6,
+            "domain": "mx.online-listing.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-16T23:54:38.000Z",
+            "relevance": 0.41,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.41,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0
+            },
+            "title": "Category: Compras en México",
+            "url": "https://www.mx.online-listing.com/Noticias/Blogger/category/compras-en-mexico"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 1658.7,
+        "normalizedCount": 11,
+        "normalizedDated": 5,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0.646,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2066,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 815,
+        "statesFreshness": false,
+        "text": "'Battalions Party'), officially the Kataeb Party – Lebanese Social Democratic Party (Arabic: حزب الكتائب اللبنانية – الحزب الديمقراطي الاجتماعي اللبناني Ḥizb al-Katā'ib al-Lubnānīya), historically known as the Phalangist Party, is a Lebanese nationalist political party in Lebanon. [1]\n\nBonjus (Arabic: بون جوس, from French: good juice) is a Lebanese brand of juice, ice cream and dairy products, famous for its \"Pyramid-shaped\" (الهرم) juicebox (actually tetrahedral). [2]\n\nDepartamento de Economía\n\nNovedades\n\n21/06/2022 [3]\n\nيحيى غالي ياسين · 2018 — الحسين بن علي الشهيد عليه السلام, الامام الثالث, 4 – 61 للهجرة, شهادة, واقعة كربلاء, 61 للهجرة [4]\n\nSources: [1] Kataeb Party (en.wikipedia.org)  [2] Bonjus (en.wikipedia.org)  [3] Departamento de Economía (utdt.edu)  [4] القضية الحسينية (2018) (openlibrary.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "آخر الأخبار",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Kataeb Party",
+            "url": "https://en.wikipedia.org/wiki/Kataeb_Party"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Bonjus",
+            "url": "https://en.wikipedia.org/wiki/Bonjus"
+          },
+          {
+            "ageHours": 1358.3,
+            "domain": "utdt.edu",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:46.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.62,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Departamento de Economía",
+            "url": "https://www.utdt.edu/ver_novedad.php?id_novedad=4958&id_item_menu=436"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.58,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.58,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "القضية الحسينية (2018)",
+            "url": "https://openlibrary.org/works/OL19646346W"
+          },
+          {
+            "ageHours": null,
+            "domain": "arabic.cnn.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.57,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.57,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "آخر الأخبار السياسية والرياضية والفنية وأحدث تقارير الفيديو | CN…",
+            "url": "http://arabic.cnn.com"
+          },
+          {
+            "ageHours": 2686.1,
+            "domain": "bestoptionsclmbdbr.netlify.app",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-10T05:28:10.000Z",
+            "relevance": 0.56,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.56,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "آخر الأخبار nrl egtxi",
+            "url": "https://bestoptionsclmbdbr.netlify.app/lukens35411heq/nrl-for"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "الفرق بين المعاجز الإلهية وبين السحر وتحضير الأرواح (2018)",
+            "url": "https://openlibrary.org/works/OL19367404W"
+          },
+          {
+            "ageHours": 1147.1,
+            "domain": "kashmirsearch.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-13T08:27:53.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Products",
+            "url": "http://kashmirsearch.com/Products/Schools%20and%20Colleges/TYNDALE-BISCOE-AND-MALLINSON-HIGH-SECONDARY-SCHOOL"
+          },
+          {
+            "ageHours": 2538,
+            "domain": "banten.akurat.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-16T09:31:10.000Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0,
+              "final": 0.55,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Penculikan Nekat di Kawasan Super Aman PIK: Korban Lansia 70 Tahun Masih Trauma Keluar Sendirian",
+            "url": "https://banten.akurat.co/news/865793/penculikan-nekat-di-kawasan-super-aman-pik-korban-lansia-70-tahun-masih-trauma-keluar-sendirian"
+          },
+          {
+            "ageHours": null,
+            "domain": "shafaq.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.52,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.52,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "شفق نيوز | آخر الأخبار العاجلة في العراق وكوردستان والعالم",
+            "url": "https://shafaq.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "Feed",
+            "url": "http://www.wikidata.org/entity/Q48835386"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.49,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.49,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.04
+            },
+            "title": "آخر الأخبار/7 أبريل 2007",
+            "url": "http://www.wikidata.org/entity/Q25707453"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1147.1,
+        "normalizedCount": 12,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.562,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1433,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 658,
+        "statesFreshness": false,
+        "text": "Lima is the capital and largest city of Peru, as well as a primate city. [1]\n\nCapital of Peru\n\nLima, situated at an altitude of 107 meters above sea level, is the capital of Peru. [3]\n\nPERU'S CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU'S CAPITAL\n\nCrossword Puzzle Infos\n\nPeru's capital is LIMA, a four-letter word. [4]\n\nPERU CAPITAL Crossword Clue\n\nWe know 1 solutions for: PERU CAPITAL\n\nCrossword Puzzle Infos\n\nThe capital of Peru is LIMA, which is a four-letter word. [5]\n\nSources: [1] Lima (en.wikipedia.org)  [2] Peru (en.wikipedia.org)  [3] Peru South America Map (mapsofworld.com)  [4] PERU'S CAPITAL Crossword Clue (crossword-dictionary.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "multilingual",
+      "query": "what is the capital of Peru",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Lima",
+            "url": "https://en.wikipedia.org/wiki/Lima"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Peru",
+            "url": "https://en.wikipedia.org/wiki/Peru"
+          },
+          {
+            "ageHours": 42615.5,
+            "domain": "mapsofworld.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2021-11-19T12:04:39.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Peru South America Map",
+            "url": "https://www.mapsofworld.com/peru/peru-political-map.html"
+          },
+          {
+            "ageHours": 1092.6,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T14:56:51.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PERU'S CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-s-capital"
+          },
+          {
+            "ageHours": 1098.8,
+            "domain": "crossword-dictionary.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T08:47:22.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "PERU CAPITAL Crossword Clue",
+            "url": "https://crossword-dictionary.com/clue/peru-capital"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A guide to Lima, the capital of Peru (1949)",
+            "url": "https://openlibrary.org/works/OL2002609W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Lima, or Sketches of the capital of Peru (1866)",
+            "url": "https://openlibrary.org/works/OL45640253W"
+          },
+          {
+            "ageHours": 23145.3,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2024-02-08T18:16:47Z",
+            "relevance": 0.67,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.67,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "GET-Tok: A GenAI-Enriched Multimodal TikTok Dataset Documenting the 2022 Attempted Coup in Peru",
+            "url": "http://arxiv.org/abs/2402.05882v1"
+          },
+          {
+            "ageHours": 122545.9,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2012-10-07T01:40:02Z",
+            "relevance": 0.64,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.64,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "The Theory of Crowd Capital",
+            "url": "http://arxiv.org/abs/1210.2013v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "pubmed.ncbi.nlm.nih.gov",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.2,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.63,
+              "freshness": 0.02,
+              "relevance": 0.25,
+              "sourceQuality": 0.07
+            },
+            "title": "Earliest Mysticete from the Late Eocene of Peru Sheds New Light …",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28502655"
+          },
+          {
+            "ageHours": 116785.6,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-06-04T01:58:51Z",
+            "relevance": 0.61,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.61,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Ask HN: How do you allocate equity in a startup?",
+            "url": "https://news.ycombinator.com/item?id=5817255"
+          },
+          {
+            "ageHours": 119627.2,
+            "domain": "breakingviews.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-02-05T16:20:06Z",
+            "relevance": 0.55,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.55,
+              "freshness": 0,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "U.S. venture capital needs a reboot",
+            "url": "http://www.breakingviews.com/us-venture-capital-needs-a-reboot/21066836.article"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1092.6,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.795,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1054,
+      "vertical": "general"
+    }
+  ],
+  "total": 21
+}

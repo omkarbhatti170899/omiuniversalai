@@ -480,9 +480,7 @@ export const runSearchQualityBenchmark = internalAction({
       const pass1Newest = minAgeHours(kept, Date.now());
       const nothingFresh = pass1Newest === null;
       const tooStale = pass1Newest !== null && policy.requiresFreshness && pass1Newest > policy.preferFreshHours;
-      let escalated = false;
       if (policy.requiresFreshness && policy.preferFreshHours > 0 && (nothingFresh || tooStale)) {
-        escalated = true;
         try {
           const second = await runUniversalSearch(ctx, retrievalPlan.primary, {
             retrievalVariants: [`${retrievalPlan.primary} today`, `${retrievalPlan.primary} "${new Date().toISOString().slice(0, 10)}"`],
@@ -511,6 +509,15 @@ export const runSearchQualityBenchmark = internalAction({
               reason = age === null ? "undated (escalated)" : "outside freshness window (escalated)";
             } else if (isOffTopic(c, topic)) {
               reason = "shares no subject word (escalated)";
+            } else if (
+              // Same year-gate the pass-1 loop applies (mirrors the chat
+              // turn's year gate): a no-year source on a year-scoped question
+              // is fresh-but-not-about-the-question.
+              (policy.years.length > 0
+                ? matchTemporal(c, policy.years, null).verdict !== "match"
+                : false)
+            ) {
+              reason = "different year (escalated)";
             }
             if (reason) dropReasons[reason] = (dropReasons[reason] ?? 0) + 1;
             else kept.push(c);

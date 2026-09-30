@@ -1,0 +1,4653 @@
+{
+  "answerContract": {
+    "allSourcesDated": 22,
+    "citationsResolve": 24,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 24,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "conflict": {
+      "fresh": 5,
+      "kept": 34,
+      "n": 6
+    },
+    "current-news": {
+      "fresh": 18,
+      "kept": 120,
+      "n": 18
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 3,
+      "n": 1
+    },
+    "current": {
+      "fresh": 7,
+      "kept": 45,
+      "n": 8
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 15,
+      "n": 3
+    },
+    "live": {
+      "fresh": 3,
+      "kept": 22,
+      "n": 3
+    },
+    "none": {
+      "fresh": 2,
+      "kept": 24,
+      "n": 2
+    },
+    "now": {
+      "fresh": 2,
+      "kept": 20,
+      "n": 2
+    },
+    "recent": {
+      "fresh": 2,
+      "kept": 8,
+      "n": 2
+    },
+    "today": {
+      "fresh": 3,
+      "kept": 17,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 24,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1025,
+        "statesFreshness": false,
+        "text": "Asian Games 2026 Medals Tally LIVE Update: India Wins 2nd Gold, Shooting Silver | Latest Aichi-Nagoya Medal Count\n\nAsian Games 2026 Medal Tally LIVE Updates: The Aichi-Nagoya Asian Games 2026 are underway in Japan, with Indian athletes competing across several sports on another action-packed day. [4]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [2]\n\nIndia has clinched a total of 37 medals so far at the 2026 Asian Games—4 Gold, 16 Silver, 17 Bronze. [2]\n\nChina continues to lead the Asian Games 2026 medal standings by a significant margin. [1]\n\nSources: [1] Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 (freepressjournal.in)  [2] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [3] Asian Games 2026: Updated medal tally after Day 8, September 27 (khelnow.com)  [4] Asian Games 2"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "India's current total medals at Asian Games 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 60.1,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:21:40.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+            "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+          },
+          {
+            "ageHours": 51.3,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T00:09:28.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+            "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+          },
+          {
+            "ageHours": 57.9,
+            "domain": "khelnow.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:33:21.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.31,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026: Updated medal tally after Day 8, September 27",
+            "url": "https://khelnow.com/asian-games/medal-tally-september-27-asian-games-202609"
+          },
+          {
+            "ageHours": 116.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:04:54.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Medals Tally LIVE Update: India Wins 2nd Gold, Shooting Silver | Latest Aichi-Nagoya Medal Co",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-medals-tally-live-update-india-wins-2nd-gold-shooting-silver-latest-aichi-nagoya-medal-count-292356"
+          },
+          {
+            "ageHours": 2.7,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:46:08.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.23,
+              "relevance": 0.19,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 LIVE: Archery, hockey, shooting headline India’s medal hunt on Asian Games Day 11",
+            "url": "https://www.thehindu.com/sport/asian-games-2026-live-updates-on-september-30-2026/article71525800.ece"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 2.7,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.922,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2087,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 888,
+        "statesFreshness": false,
+        "text": "For Lavoie to claim a fourth career championship, he will need to outscore Root by at least 5 positions as he holds the advantage over Root should the two drivers end up tied in the championship standings. [2]\n\nKim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source\n\nKim Kardashian has another business idea up her sleeve, and her boyfriend, Lewis Hamilton, is here for it. [1]\n\nCadillac debuted on the grid in the 2026 season. [1]\n\nLimited Late Model Division\n\nThe race for the Limited Late Model crown will come down to second-year driver Norm Root, III and the #80 Root’s Auto Repair team versus 3-time Limited Late Model champion Jeremy Lavoie and the #6 L&S Equipment team. [2]\n\nSources: [1] Kim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source (realitytea.com)  [2] Stafford Speedway’s NAPA Championship Night to Determine 2026 Champions (speedwaydigest.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "who is leading the F1 2026 drivers championship",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9,
+          "shares no subject word": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 37.4,
+            "domain": "realitytea.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T14:07:44.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.17,
+              "relevance": 0.21,
+              "sourceQuality": 0.12
+            },
+            "title": "Kim Kardashian’s F1 Dream Gets Lewis Hamilton’s Approval — Source",
+            "url": "https://www.realitytea.com/2026/09/28/kim-kardashian-lewis-hamilton-f1-dream-team-rumors"
+          },
+          {
+            "ageHours": 6.2,
+            "domain": "speedwaydigest.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:16:48.000Z",
+            "relevance": 0,
+            "scores": {
+              "answerability": 0,
+              "authority": 0,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0,
+              "freshness": 0,
+              "relevance": 0,
+              "sourceQuality": 0
+            },
+            "title": "Stafford Speedway’s NAPA Championship Night to Determine 2026 Champions",
+            "url": "https://speedwaydigest.com/index.php/news/speedway-news/893430-stafford-speedways-napa-championship-night-to-determine-2026-champions"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 6.2,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.38,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1684,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1292,
+        "statesFreshness": true,
+        "text": "DHL Express Shipments Set To Cost More In India, 8.9% Rate Hike To Take Effect From January\n\nDHL Express will raise shipment charges in India by 8.9% from January 1, 2027, citing inflation, currency shifts and rising costs across its global network. [1]\n\nGold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? [3]\n\nRBI's rate pause faces pressure as Brent tops USD 100, inflation rises and global yields climb, while India's USD 800 billion forex reserves provide a crucial near-term policy cushion. [2]\n\nMumbai: The Reserve Bank of India (RBI) may have less room to keep interest rates unchanged as surging crude oil prices, persistent inflation and elevated global bond yields increase pressure on India’s macroeconomic outlook, according to a BNP Paribas India report. [2]\n\nSources: [1] DHL Express Shipments Set To Cost More In India, 8.9% Rate Hike To Take Effect From Janu"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current inflation rate India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 91.7,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T07:47:22.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "DHL Express Shipments Set To Cost More In India, 8.9% Rate Hike To Take Effect From January",
+            "url": "https://www.freepressjournal.in/business/dhl-express-shipments-set-to-cost-more-in-india-89-rate-hike-to-take-effect-from-january"
+          },
+          {
+            "ageHours": 18.9,
+            "domain": "freepressjournal.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:37:38.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "RBI’s Rate Pause Hits A Wall, Is Another Interest Rate Hike Now Inevitable?",
+            "url": "https://www.freepressjournal.in/business/rbis-rate-pause-hits-a-wall-is-another-interest-rate-hike-now-inevitable"
+          },
+          {
+            "ageHours": 97.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:09:47.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Gold Rate Today In India, September 26, 2026: How Much Is 24K Gold Per Gram? Check 22K, 18K, 10 Gram And 100 G",
+            "url": "https://sundayguardianlive.com/business/gold-rate-today-in-india-september-26-2026-how-much-is-24k-gold-per-gram-check-22k-18k-10-gram-and-100-gram-prices-plus-city-wise-gold-rates-292891"
+          },
+          {
+            "ageHours": 110,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "The Latest Fixed Deposit Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-fixed-deposit-interest-rates-sep-25-2026/article64808518.ece"
+          },
+          {
+            "ageHours": 110,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:31:24.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "The Latest Home Loan Interest Rates: Sep 25, 2026",
+            "url": "https://www.thehindubusinessline.com/money-and-banking/the-latest-home-loan-interest-rates-sep-25-2026/article64808517.ece"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoear.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.78,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Trends and Challenges of Agriculture Marketing in India | Agriculture Journal IJOEAR",
+            "url": "https://ijoear.com/article-details/trends-and-challenges-of-agriculture-marketing-in-india"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "kashitaxi.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.76,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Dev Deepawali 2026 — November 5, 2026 | Kashi Dev Diwali Guide",
+            "url": "https://www.kashitaxi.in/en/dev-deepawali-2026-varanasi-ultimate-guide"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoear.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Vegetation structure and species diversity in Garhjungle sacred forest, West Bengal, India | Agriculture Journ",
+            "url": "https://ijoear.com/article-details/vegetation-structure-and-species-diversity-in-garhjungle-sacred-forest-west-bengal-india"
+          },
+          {
+            "ageHours": 19,
+            "domain": "psuconnect.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:31:00.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Bank of India Keeps MCLR & RBLR Unchanged from October 1, 2026; Revises Fixed Rate Spread",
+            "url": "https://www.psuconnect.in/bank-news/bank-of-india-keeps-mclr-rblr-unchanged-from-october-1-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.816,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1160,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1109,
+        "statesFreshness": false,
+        "text": "Kimi Antonelli hits wall as George Russell takes F1 Azerbaijan GP pole\n\nKimi Antonelli was left ruing an uncharacteristic error in qualifying for the Azerbaijan Grand Prix which eliminated the championship leader in the first session after he hit a wall in Baku. [2]\n\nDuring Q1, the championship leader, his Mercedes teammate, Kimi Antonelli crashed into the wall and was out of the session – ultimately starting in P16. [1]\n\nGeorge Russell holds off Max Verstappen to win crash-filled F1 Azerbaijan GP\n\nGeorge Russell took a dominant victory from pole to flag at the Azerbaijan Grand Prix to give his world championship hopes the shot in the arm they required. [3]\n\nF1 Standings and Results After the 2026 Azerbaijan Grand Prix\n\nWho came out on top on the streets of the Baku City Circuit after a shocking Qualifying session? [1]\n\nSources: [1] F1 Standings and Results After the 2026 Azerbaijan Gran"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current F1 championship leader",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "shares no subject word (escalated)": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": 86.4,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T13:06:06.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "F1 Standings and Results After the 2026 Azerbaijan Grand Prix",
+            "url": "https://www.si.com/onsi/f1/news/f1-standings-and-results-after-the-2026-azerbaijan-grand-prix"
+          },
+          {
+            "ageHours": 109.7,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:47:49.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Kimi Antonelli hits wall as George Russell takes F1 Azerbaijan GP pole",
+            "url": "https://www.theguardian.com/sport/2026/sep/25/kimi-antonelli-hits-wall-as-george-russell-takes-f1-azerbaijan-gp-pole"
+          },
+          {
+            "ageHours": 86.2,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T13:19:35.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "George Russell holds off Max Verstappen to win crash-filled F1 Azerbaijan GP",
+            "url": "https://www.theguardian.com/sport/2026/sep/26/george-russell-holds-off-max-verstappen-to-win-crash-filled-f1-azerbaijan-gp"
+          }
+        ],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 86.2,
+        "normalizedCount": 4,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 4,
+        "relevanceAvg": 0.803,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 2157,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1151,
+        "statesFreshness": false,
+        "text": "ICC to announce ODI World Cup 2027 schedule on Oct 1\n\nCape Town: The schedule for the ICC Men’s ODI World Cup 2027 has been finalised and is set to be officially announced on October 1, with the International Cricket Council (ICC) and Cricket South Africa (CSA) expected to unveil the fixtures in Cape Town. [1]\n\nHong Kong, China's Cricket Team Bounces Back! [3]\n\nThe report said the tournament is scheduled to begin on October 1 and conclude on November 19, although the ICC’s official material has so far described the event window more broadly as October-November 2027. [1]\n\nThe Asian Cricket Council (ACC) chairman Mohsin Naqvi, who is also Pakistan’s Interior Minister and the Pakistan Cricket Board’s chief, finally quenched the eager camera’s thirst. [2]\n\nSources: [1] ICC to announce ODI World Cup 2027 schedule on Oct 1 (newskarnataka.com)  [2] Women cricket’s moment under the Indian politi"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current cricket tournament standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.6,
+            "domain": "newskarnataka.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:55:28.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "ICC to announce ODI World Cup 2027 schedule on Oct 1",
+            "url": "https://newskarnataka.com/sports/icc-to-announce-odi-world-cup-2027-schedule-on-oct-1/29092026"
+          },
+          {
+            "ageHours": 89.4,
+            "domain": "thehindu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:06:18.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.02,
+              "final": 0.84,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Women cricket’s moment under the Indian political sun",
+            "url": "https://www.thehindu.com/sport/cricket/women-crickets-moment-under-the-indian-political-sun/article71502656.ece"
+          },
+          {
+            "ageHours": 117.5,
+            "domain": "biblebyte.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:00:12.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Hong Kong, China's Cricket Team Bounces Back! | Ayush Shukla & Mohammad Ghazanfar Star in Oman Win (2026)",
+            "url": "https://biblebyte.org/article/hong-kong-china-s-cricket-team-bounces-back-ayush-shukla-mohammad-ghazanfar-star-in-oman-win"
+          },
+          {
+            "ageHours": 113.3,
+            "domain": "uaenews247.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T10:10:40.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.69,
+              "freshness": 0.13,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Gulf Giants Development crowned DP World ILT20 Development Tournament champions",
+            "url": "https://uaenews247.com/2026/09/25/gulf-giants-development-crowned-dp-world-ilt20-development-tournament-champions"
+          },
+          {
+            "ageHours": 97,
+            "domain": "musichits.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T02:27:09.000Z",
+            "relevance": 0.54,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.54,
+              "freshness": 0,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "AI in Real Estate: The Good, the Bad, and the Ugly (2026)",
+            "url": "https://musichits.org/article/ai-in-real-estate-the-good-the-bad-and-the-ugly"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 9.6,
+        "normalizedCount": 7,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 7,
+        "relevanceAvg": 0.754,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1262,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1255,
+        "statesFreshness": true,
+        "text": "Next steps for the weekend\n\nCollege football today sets the tone for the rest of Week 4 and the first conference standings snapshot. [2]\n\nI love a drink in the stands, but Burnham’s beer proposal feels out of step with modern football\n\nAndy Burnham is right that football fans have historically been treated differently from other sports fans. [1]\n\nHampton and Howard face off in legendary HBCU football rivalry\n\nThe “Battle of the Real HU” college football game between Hampton University and Howard University is set for Saturday, Oct. [4]\n\nThe High-Stakes Theater of Texas High School Football: When Bureaucracy Sidelines the Star Quarterback\n\nThere is a peculiar kind of obsession that takes over entire communities every autumn in the Lone Star State, where Friday night lights burn brighter than professional stadiums elsewhere. [5]\n\nSources: [1] I love a drink in the stands, but Burnham’s bee"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "conflict",
+      "query": "current football standings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6,
+          "shares no subject word (escalated)": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 109.5,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T14:00:08.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.9,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "I love a drink in the stands, but Burnham’s beer proposal feels out of step with modern football",
+            "url": "https://www.theguardian.com/commentisfree/2026/sep/25/drink-football-stands-burnham-beer-discrimination"
+          },
+          {
+            "ageHours": 93.6,
+            "domain": "filmdaily.co",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T05:53:23.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.1
+            },
+            "title": "College football today: Games, times, and how to watch",
+            "url": "https://filmdaily.co/news/college-football-today-games-times-and-how-to-watch"
+          },
+          {
+            "ageHours": 115.7,
+            "domain": "theguardian.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T07:48:44.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Havertz injury latest; Haaland fires Norway to victory; England v Spain buildup: football news – live",
+            "url": "https://www.theguardian.com/football/live/2026/sep/25/havertz-injury-latest-haaland-fires-norway-to-victory-england-v-spain-buildup-and-more-football-news-live"
+          },
+          {
+            "ageHours": 49.6,
+            "domain": "amsterdamnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:52:11.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Hampton and Howard face off in legendary HBCU football rivalry",
+            "url": "https://amsterdamnews.com/news/2026/09/27/hampton-and-howard-face-off-in-legendary-hbcu-football-rivalry"
+          },
+          {
+            "ageHours": 100.4,
+            "domain": "mi3dot.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T23:07:09.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.79,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Undefeated Texas High School Football Team Loses Star QB Over UIL Ruling (2026)",
+            "url": "https://mi3dot.org/article/undefeated-texas-high-school-football-team-loses-star-qb-over-uil-ruling"
+          },
+          {
+            "ageHours": 86.9,
+            "domain": "brobible.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:34:35.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.76,
+              "freshness": 0.13,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "North Carolina High School Football Game Is Stuck In Overtime Because Fans Threw Punches At Police Amid Brawl",
+            "url": "https://brobible.com/sports/article/north-carolina-high-school-football-millbrook-rolesville-fan-crowd-fight-suspended-overtime"
+          },
+          {
+            "ageHours": 10,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:30:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.43,
+              "sourceQuality": 0.12
+            },
+            "title": "Iowa Football's Bowl Projections Reach the College Football Playoff Discourse",
+            "url": "https://www.si.com/college/iowa/football/iowa-football-bowl-projections-college-football-playoff-discourse"
+          },
+          {
+            "ageHours": 13.7,
+            "domain": "digg.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:47:15.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "A bedtime joke about Case Keenum’s Monday Night Football game",
+            "url": "https://digg.com/sports/nd2nsu98"
+          },
+          {
+            "ageHours": 16.7,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:44:41.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.21,
+              "relevance": 0.37,
+              "sourceQuality": 0.12
+            },
+            "title": "Turkey arrests football refereeing chief and six others",
+            "url": "https://www.malaymail.com/news/sports/2026/09/29/turkey-arrests-football-refereeing-chief-and-six-others/237022"
+          },
+          {
+            "ageHours": 10.8,
+            "domain": "6abc.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:41:10.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.77,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.1
+            },
+            "title": "AccuWeather: Back to the 70s today",
+            "url": "https://6abc.com/videoClip/19887889"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 10,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch",
+          "sports-scores"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.842,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1875,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1116,
+        "statesFreshness": true,
+        "text": "Owen Doyle: World Rugby must tackle laissez-faire policy spreading like a virus in southern hemisphere\n\n“Turning and turning in the widening gyre, The falcon cannot hear the falconer;\n\nThings fall apart; the centre cannot hold; Mere anarchy is loosed upon the world.”\n\nWB Yeats’s powerful imagery, written in 1919 following the Great War, resonates strongly today. [2]\n\n7 Circle of Kindness Blood Drive happening today\n\nDAYTON — The American Red Cross and WHIO-TV’s 7 Circle of Kindness are partnering for an annual blood drive on Tuesday, September 29. [5]\n\nDeepening the India-US defence partnership\n\nThe Yudh Abhyas joint exercise is not happening in isolation. [1]\n\nI am happy about what is happening to me today. [3]\n\nSources: [1] Deepening the India-US defence partnership (hindustantimes.com)  [2] Owen Doyle: World Rugby must tackle laissez-faire policy spreading like a virus in southern hem"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is happening in the world today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 2.9,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:35:36.000Z",
+            "relevance": 1.07,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.07,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Deepening the India-US defence partnership",
+            "url": "https://www.hindustantimes.com/opinion/deepening-the-india-us-defence-partnership-101790708068443.html"
+          },
+          {
+            "ageHours": 17.5,
+            "domain": "irishtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Owen Doyle: World Rugby must tackle laissez-faire policy spreading like a virus in southern hemisphere",
+            "url": "https://www.irishtimes.com/sport/rugby/2026/09/29/owen-doyle-the-centre-cannot-hold-if-teams-continue-to-flout-the-laws-of-the-game"
+          },
+          {
+            "ageHours": 14,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T13:30:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Zinedine Zidane’s Take on Viral Goal Celebration Explains His Premier League Decision",
+            "url": "https://www.si.com/soccer/zinedine-zidane-viral-goal-celebration-explains-premier-league-decision"
+          },
+          {
+            "ageHours": 2.8,
+            "domain": "triathlonmagazine.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:39:24.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.84,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Hurricane Nolo and the Ironman World Championship: What We Know",
+            "url": "https://triathlonmagazine.ca/feature/hurricane-nolo-and-the-ironman-world-championship-what-we-know"
+          },
+          {
+            "ageHours": 17.5,
+            "domain": "whio.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:00:12.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "7 Circle of Kindness Blood Drive happening today",
+            "url": "https://www.whio.com/news/local/7-circle-kindness-blood-drive/TY2AAMAOQBHT3MZWZQ7I3OMXTE"
+          },
+          {
+            "ageHours": 22.7,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:45:21.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Petrol and diesel prices today in Hyderabad, Delhi, Chennai and Mumbai on 29 September 2026",
+            "url": "https://www.thehansindia.com/business/market-compass/petrol-and-diesel-prices-today-in-hyderabad-delhi-chennai-and-mumbai-on-29-september-2026-1126840"
+          },
+          {
+            "ageHours": 10.3,
+            "domain": "worldsoccertalk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:12:18.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Why is Christian Pulisic not playing today for USMNT against Chile in 2026 International friendly?",
+            "url": "https://worldsoccertalk.com/news/why-is-christian-pulisic-not-playing-today-for-usmnt-against-chile-in-2026-international-friendly"
+          },
+          {
+            "ageHours": 20,
+            "domain": "malaymail.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:31:08.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Beijing Chaoyang: A Sleepless City, A Stage for the World",
+            "url": "https://www.malaymail.com/news/money/mediaoutreach/2026/09/29/beijing-chaoyang-a-sleepless-city-a-stage-for-the-world/490822"
+          },
+          {
+            "ageHours": 22.8,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:44:08.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Kristen Stewart joins Olivier Assayas’ supernatural thriller ‘Spiritual World’",
+            "url": "https://www.thehansindia.com/cinema/kristen-stewart-joins-olivier-assayas-supernatural-thriller-spiritual-world-1126839"
+          },
+          {
+            "ageHours": 12.9,
+            "domain": "standard.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:35:10.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Guinea-Bissau vs Nigeria LIVE: AFCON qualifier match stream, latest team news, lineups, TV, prediction",
+            "url": "https://www.standard.co.uk/sport/football/guinea-bissau-vs-nigeria-live-stream-latest-score-updates-result-b1298848.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 2.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.886,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1939,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1027,
+        "statesFreshness": true,
+        "text": "🗞️ Today's other top stories\n\n🛣️ Drive to Decision Day: Three NBC News reporters took a road trip along I-80, hitting some of the most competitive congressional districts to find out what’s driving people’s votes in the midterms. [3]\n\nLog in here »\n\nHere is a roundup of stories from The Canadian Press designed to bring you up to speed ... [2]\n\nLas Vegas Golden Knights (ESPN)\n\n— Enjoy free coverage of the top news & trending stories with The Big Lead Newsletter — [1]\n\nLIVE UPDATES: Closing arguments to begin in Day 9 of Caleb Flynn murder trial\n\nMIAMI COUNTY — UPDATE @ 9 a.m.:\n\nThe jury has been seated, and closing arguments are underway. [5]\n\nSources: [1] NHL games on today, 2026 Opening Night TV schedule (thebiglead.com)  [2] In the news today: Trade war escalates, Carney talks energy, AI chatbot for health (brandonsun.com)  [3] Another majority that could be in Democrats’ reach: From"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "today's top stories",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 10.3,
+            "domain": "thebiglead.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:09:07.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "NHL games on today, 2026 Opening Night TV schedule",
+            "url": "https://www.thebiglead.com/nhl-games-today-2026-opening-night-tv-schedule"
+          },
+          {
+            "ageHours": 19,
+            "domain": "brandonsun.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:31:47.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.03,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "In the news today: Trade war escalates, Carney talks energy, AI chatbot for health",
+            "url": "https://www.brandonsun.com/national/2026/09/29/in-the-news-today-trade-war-escalates-carney-talks-energy-ai-chatbot-for-health"
+          },
+          {
+            "ageHours": 6.4,
+            "domain": "nbcnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:06:41.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Another majority that could be in Democrats’ reach: From the Politics Desk",
+            "url": "https://www.nbcnews.com/politics/politics-news/another-majority-democrats-reach-politics-desk-rcna600551"
+          },
+          {
+            "ageHours": 6.5,
+            "domain": "straitstimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:00:00.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Uniform, but unique: The stories and styles of Singapore school attire",
+            "url": "https://www.straitstimes.com/multimedia/uniform-but-unique-the-stories-and-styles-of-singapore-school-attire?ai-allowed=1"
+          },
+          {
+            "ageHours": 12.9,
+            "domain": "whio.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:36:26.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "LIVE UPDATES: Closing arguments to begin in Day 9 of Caleb Flynn murder trial",
+            "url": "https://www.whio.com/news/local/closing-statements-begin-day-9-caleb-flynn-murder-trial/MVKKBY5UD5CWJG6RPIZUGM5XKE"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 6.4,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.91,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 2004,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 908,
+        "statesFreshness": false,
+        "text": "Subscribe and read news in your favourite messenger. [1]\n\nAmerican troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. [2]\n\nSan Luis Obispo adopts new confidentiality policies for elected officials\n\nSan Luis Obispo City Council members unanimously decided to adapt confidentiality policies for elected officials on Sept. [3]\n\nWithdrawal of United States troops from Iraq [4]\n\nSources: [1] SRC Suspends New Pay Structures for County Officials, States Reason (tuko.co.ke)  [2] Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in the country that started with the 2003 U.S. invasion (reuters.com)  [3] San Luis Obispo adopts new confidentiality policies for elected officials (mustangnews.net)  [4] Armed conflicts and attacks: Withdrawal of United States troops from Iraq (en.wikipe"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 10.4,
+            "domain": "tuko.co.ke",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:07:35.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "SRC Suspends New Pay Structures for County Officials, States Reason",
+            "url": "https://www.tuko.co.ke/kenya/counties/641503-src-suspends-salary-structures-county-officials-high-wage-bills"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.46,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.46,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in t",
+            "url": "https://www.reuters.com/world/us-forces-exit-iraq-emboldening-irans-proxies-islamic-state-2026-09-30"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "mustangnews.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:44:35.000Z",
+            "relevance": 0.45,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.45,
+              "freshness": 0.21,
+              "relevance": 0,
+              "sourceQuality": 0.12
+            },
+            "title": "San Luis Obispo adopts new confidentiality policies for elected officials",
+            "url": "https://mustangnews.net/slo-council-updates-confidentiality-policies"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.44,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.44,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.04
+            },
+            "title": "Armed conflicts and attacks: Withdrawal of United States troops from Iraq",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          },
+          {
+            "ageHours": 81,
+            "domain": "record-eagle.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T18:30:00.000Z",
+            "relevance": 0.35,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.35,
+              "freshness": 0.13,
+              "relevance": 0,
+              "sourceQuality": 0.1
+            },
+            "title": "Blood Drive Calendar: 09/26/2026",
+            "url": "https://www.record-eagle.com/news/body_and_soul/blood-drive-calendar-09-26-2026/article_6d18cffa-c5fd-4197-b7ff-adeb1b8c0eda.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 11,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0.486,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1418,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1245,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [1]\n\nThese updates cover key national, international, sports, and general news to help you stay informed about what is happening around the world. [1]\n\nSchool Assembly News Headlines Today, 29 September 2026\n\nThe following are the National, Business, Sports, and World News. [1]\n\nChina is also a strong contender for the title of the oldest history in the world, with a civilization that dates back thousands of years. [3]\n\nSources: [1] School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather Ne"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest world news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 31.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 65.5,
+            "domain": "nytimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T10:00:07.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Today’s Wordle Hints for September 28, 2026 - The New York Times",
+            "url": "https://www.nytimes.com/2026/09/27/crosswords/wordle-review-1927.html"
+          },
+          {
+            "ageHours": 56,
+            "domain": "visitfranceguide.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T19:26:57.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "The Top Country with the Richest History in the World Revealed",
+            "url": "https://visitfranceguide.com/which-country-has-the-most-history-in-the-world"
+          },
+          {
+            "ageHours": 119.5,
+            "domain": "reflector.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T04:00:00.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Lib Campbell: Stability needed in today’s world must start with us",
+            "url": "https://www.reflector.com/apgstate/lib-campbell-stability-needed-in-today-s-world-must-start-with-us/article_5065d16c-b9bd-560c-832e-8d7085fc114c.html"
+          },
+          {
+            "ageHours": 2.8,
+            "domain": "6abc.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:40:34.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "New world record for longest dance marathon set by Nigerian dancer",
+            "url": "https://6abc.com/post/new-world-record-longest-dance-marathon-set-by-nigerian-dancer/19889588"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.46,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.46,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in t",
+            "url": "https://www.reuters.com/world/us-forces-exit-iraq-emboldening-irans-proxies-islamic-state-2026-09-30"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 2.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.743,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1095,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1762,
+        "statesFreshness": true,
+        "text": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News\n\nSchool Assembly News Headlines Today, September 28, 2026, cover important developments from India and across the world. [1]\n\nTop Business & Market Headlines Today — BL Morning Report, September 28, 2026\n\nBL Morning Report September 28, 2026: Get today’s top business news, market headlines about the Stock Market, Sensex & Nifty trends, key market insights, economic highlights, and the latest updates from India and global markets. [4]\n\nSchool Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News, Science & Tech News, Weather News & World News with Weather Updates & Thought of the Day\n\nSchool Assembly News Headlines Today, 29 September 2026: Here are the important news headlines for today, September 29. [3]\n\nSchool Assembly News Headl"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "latest international headlines",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 46.9,
+            "domain": "careerindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:36:51.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today – September 28, 2026 | National, International, Education & Sports News",
+            "url": "https://www.careerindia.com/news/school-assembly-news-headlines-today-september-28-2026-national-international-education-spo-066247.html"
+          },
+          {
+            "ageHours": 111,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T12:31:49.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines (September 26, 2026): 70,000 Youth Skill Drive, PM Modi Interacts with Seva Yat",
+            "url": "https://www.jagranjosh.com/articles/school-assembly-news-headlines-september-26-2026-70000-youth-skill-drive-pm-modi-interacts-with-seva-yatris-ncert-class-9-maths-update-other-news-1800016997-1"
+          },
+          {
+            "ageHours": 31.4,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:08:39.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "School Assembly News Headlines Today [29 September]: Top National, Business News, Sports News, Education News,",
+            "url": "https://sundayguardianlive.com/trending/school-assembly-news-headlines-today-29-september-top-national-business-news-sports-news-education-news-science-tech-news-weather-news-world-news-with-weather-updates-thought-of-the-day-294783"
+          },
+          {
+            "ageHours": 50,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:30:00.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Top Business & Market Headlines Today — BL Morning Report, September 28, 2026",
+            "url": "https://www.thehindubusinessline.com/multimedia/audio/bl-morning-report-september-28-2026/article71515731.ece"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 31.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.942,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1007,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1184,
+        "statesFreshness": false,
+        "text": "Around the world in 2 minutes\n\nOwner of rehab center where supermodel’s son died had drug arrests\n\nDetails are emerging about the controversial owner of the rehab center where the 27-year-old son of supermodel Cindy Crawford and businessman Rande Gerber died. [1]\n\nAround the World in Play: Lala Little Wonders Opens in Dubai\n\nA unique family destination blending immersive global landmarks, creativity, and salon pampering under one roof\n\nDubai, United Arab Emirates\n\nDubai has a new destination for little explorers, and it is unlike any usual kids’ play space. [5]\n\nFayetteville's International Folk Festival celebrates cultures from around the world\n\nFAYETTEVILLE, N.C. [4]\n\n(WTVD) -- The 48th annual International Folk Festival kicks off on Friday in downtown Fayetteville, marking Cumberland County's longest-running family celebration and bringing together more than 20 cultural groups from ar"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "current events around the world",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 68.5,
+            "domain": "postandcourier.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T07:00:00.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Around the world in 2 minutes",
+            "url": "https://www.postandcourier.com/nation-world/around-the-world-in-2-minutes/article_879cbccb-d887-4af8-9c5d-48289f02bd31.html"
+          },
+          {
+            "ageHours": 119.5,
+            "domain": "wvnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T04:00:00.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Calendar of Events for Friday",
+            "url": "https://www.wvnews.com/theet/calendar/calendar-of-events-for-friday/article_6a758903-eebc-4cec-be86-3140ff2a2e22.html"
+          },
+          {
+            "ageHours": 95.5,
+            "domain": "wvnews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T04:00:00.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.91,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Calendar of Events for Saturday",
+            "url": "https://www.wvnews.com/theet/calendar/calendar-of-events-for-saturday/article_d79f00c2-df1e-4d33-9866-0130f5313bd2.html"
+          },
+          {
+            "ageHours": 99.4,
+            "domain": "abc11.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:03:53.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Fayetteville's International Folk Festival celebrates cultures from around the world",
+            "url": "https://abc11.com/post/fayettevilles-international-folk-festival-celebrates-cultures-around-world/19872873"
+          },
+          {
+            "ageHours": 15.9,
+            "domain": "uaenews247.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:32:48.000Z",
+            "relevance": 0.72,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.72,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Around the World in Play: Lala Little Wonders Opens in Dubai",
+            "url": "https://uaenews247.com/2026/09/29/around-the-world-in-play-lala-little-wonders-opens-in-dubai"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 15.9,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.84,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1212,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1515,
+        "statesFreshness": true,
+        "text": "What The Hell Is Going on With the Pearl Jam Drummer Situation? [1]\n\nAndhra Pradesh School Holiday Today: Final Update\n\nThe most recent September 29 situation is very clear – there has been no confirmed school holiday throughout the state of Andhra Pradesh from any report received so far and however, weather warnings continue, with the IMD issuing warnings for thunderstorms, lightning and strong winds both in Coastal Andhra Pradesh and Rayalaseema regions. [3]\n\nMallett acknowledged that World Rugby appeared to have changed its guidance on head-contact decisions, with greater leniency in situations where players duck into contact or where a second tackler is involved. [5]\n\nMallett sympathises with Piardi\n\nDespite his criticism of the situation, Mallett was careful to separate referee Andrea Piardi from what he viewed as a broader systemic failure. [5]\n\nSources: [1] What The Hell Is Going "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is the current situation in the world",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "shares no subject word": 1,
+          "undated": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 9.9,
+            "domain": "rollingstone.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:35:52.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "What The Hell Is Going on With the Pearl Jam Drummer Situation?",
+            "url": "https://www.rollingstone.com/music/music-news/what-the-hell-pearl-jam-drummer-1235633713"
+          },
+          {
+            "ageHours": 15.8,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:40:46.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Border Situation Moves Towards Normalcy, India-China Ties Begin to Improve: Jaishankar",
+            "url": "https://www.dynamitenews.com/international/border-situation-moves-towards-normalcy-india-china-ties-begin-to-improve-jaishankar"
+          },
+          {
+            "ageHours": 31.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:10:05.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Andhra Pradesh School Holiday Today: Are Schools Open or Closed on September 29 Amid Cyclone? Check Latest Upd",
+            "url": "https://sundayguardianlive.com/india/andhra-pradesh-school-holiday-today-are-schools-open-or-closed-on-september-29-amid-cyclone-check-latest-update-imd-heavy-rain-alert-thunderstorms-forecast-district-wise-closure-status-294784"
+          },
+          {
+            "ageHours": 32.3,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:12:38.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "School Holiday Today (September 29): Are Schools Open or Closed on Tuesday Amid Cyclone & Heavy Rain? Check La",
+            "url": "https://sundayguardianlive.com/india/school-holiday-today-september-29-are-schools-open-or-closed-on-tuesday-amid-cyclone-heavy-rain-check-latest-official-update-imd-alert-traffic-advisory-state-wise-closure-status-more-294755"
+          },
+          {
+            "ageHours": 38.5,
+            "domain": "briefly.co.za",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T13:00:30.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Nick Mallett Slams 'Ridiculous' Comms Failure During Springboks vs Wallabies Test",
+            "url": "https://briefly.co.za/sports/rugby/254414-nick-mallett-slams-ridiculous-comms-failure-springboks-wallabies-test"
+          },
+          {
+            "ageHours": 39.7,
+            "domain": "footballinsider247.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T11:46:03.000Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.77,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Ex-Fifa official: Stripping Man City of titles is 'harsh in the extreme'",
+            "url": "https://www.footballinsider247.com/manchester-city/ex-fifa-official-stripping-man-city-of-titles-is-harsh-in-the-extreme"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 9.9,
+        "normalizedCount": 12,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.797,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 5027,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1282,
+        "statesFreshness": true,
+        "text": "Olay’s bestselling SPF 50 moisturiser is half price right now, down to just $34.95\n\nMy morning skincare routine has become a lot more streamlined lately and anything that can save me a step without making my makeup look questionable has my attention. [6]\n\nNow\n\nThere are rumors piling up about the Pittsburgh Steelers and Joey Porter Jr. [3]\n\nOver 1,500 Games Are Now Supported With Xbox Disc To Digital\n\nAs you may have seen, the Xbox Disc to Digital program has gone live for everyone today (following its brief Xbox Insider testing period), meaning you can now claim a digital license for your physical Xbox One and Series X games. [5]\n\nThe main resource here is a website called XCT.live that features 1,568 supported games on its Disc to Digital list so far, which appears to be the most exhaustive list on the web right now. [5]\n\nSources: [1] What Could Possibly Go Right? by Danny Meyer on App"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what is going on right now",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 27.5,
+            "domain": "books.apple.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "What Could Possibly Go Right? by Danny Meyer on Apple Books",
+            "url": "https://books.apple.com/us/book/what-could-possibly-go-right/id6761399003"
+          },
+          {
+            "ageHours": 27.5,
+            "domain": "books.apple.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.24,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "What Could Possibly Go Right?: The Essential Journey to Scale an Enduring Culture (Unabridged) by Danny Meyer ",
+            "url": "https://books.apple.com/us/audiobook/what-could-possibly-go-right-the-essential-journey-to/id1890066413"
+          },
+          {
+            "ageHours": 16.5,
+            "domain": "si.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:00:02.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Steelers Can't Trade Joey Porter Jr. Now",
+            "url": "https://www.si.com/nfl/steelers/onsi/pittsburgh-steelers-trade-joey-porter-jr-now"
+          },
+          {
+            "ageHours": 27.5,
+            "domain": "audiobooks.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.95,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Listen Free to What Could Possibly Go Right?: The Essential Journey to Scale an Enduring Culture by Danny Meye",
+            "url": "https://www.audiobooks.com/audiobook/what-could-possibly-go-right-the-essential-journey-to-scale-an-enduring-culture/1041476"
+          },
+          {
+            "ageHours": 4.5,
+            "domain": "purexbox.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T23:00:00.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.93,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Over 1,500 Games Are Now Supported With Xbox Disc To Digital",
+            "url": "https://www.purexbox.com/news/2026/09/over-1500-games-are-now-supported-with-xbox-disc-to-digital"
+          },
+          {
+            "ageHours": 4.4,
+            "domain": "7news.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T23:04:04.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.85,
+              "freshness": 0.23,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Olay’s bestselling SPF 50 moisturiser is half price right now, down to just $34.95",
+            "url": "https://7news.com.au/7you/beauty/olays-bestselling-spf-50-moisturiser-is-half-price-right-now-down-to-just-3495-c-22944461"
+          },
+          {
+            "ageHours": 22.7,
+            "domain": "abc7.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:50:40.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Latest weather with Niku Kazori",
+            "url": "https://abc7.com/videoClip/19885438"
+          },
+          {
+            "ageHours": 10.8,
+            "domain": "6abc.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:41:10.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "AccuWeather: Back to the 70s today",
+            "url": "https://6abc.com/videoClip/19887889"
+          },
+          {
+            "ageHours": 5.5,
+            "domain": "scroll.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T22:00:00.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.23,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Days to go for polling, Brazil sees a lackluster election campaign",
+            "url": "https://scroll.in/article/1096096/days-to-go-for-polling-brazil-sees-a-lackluster-election-campaign"
+          },
+          {
+            "ageHours": 16.8,
+            "domain": "dailypost.ng",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:44:06.000Z",
+            "relevance": 0.63,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.01,
+              "final": 0.63,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "‘Do your Tinubu Must Go in peace’ – Bashir Ahmad reacts as movement gains traction",
+            "url": "https://dailypost.ng/2026/09/29/do-your-tinubu-must-go-in-peace-bashir-ahmad-reacts-as-movement-gains-traction"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 4.4,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.864,
+        "wrongYearKept": 0
+      },
+      "temporal": "now",
+      "totalMs": 996,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1070,
+        "statesFreshness": true,
+        "text": "LIVE Club GAA minute-by-minute live updates\n\nThere's knockout action with football quarter-finals in Cork, hurling in Limerick, Clare, Kilkenny. [1]\n\n6 Months for €18.50\n\nCONNECT WITH US TODAY\n\nBe the first to know the latest news and updates\n\nNewsletter\n\nSign up to our daily sports bulletin, delivered straight to your inbox at 5pm. [1]\n\nSensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334)\n\nSensex, Nifty, Share Prices Live: The stock of Manappuram Finance saw a decline in price in the recent weeks. [2]\n\nTexas score today, UK-UT live match updates\n\nLEXINGTON — No. [3]\n\nSources: [1] LIVE Club GAA minute-by-minute live updates (irishexaminer.com)  [2] Sensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334) (thehindubusinessline.com)  [3] Kentucky volleyball vs. Texas score today, UK-UT live match updates (aol.com)  [4] Armed"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "live news updates",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1
+        },
+        "finalSources": [
+          {
+            "ageHours": 61.4,
+            "domain": "irishexaminer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T14:05:00.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "LIVE Club GAA minute-by-minute live updates",
+            "url": "https://www.irishexaminer.com/sport/gaa/arid-41916292.html"
+          },
+          {
+            "ageHours": 50.3,
+            "domain": "thehindubusinessline.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T01:13:30.000Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex today | Stock Market Live Updates: Stock to buy today: Manappuram Finance (₹334)",
+            "url": "https://www.thehindubusinessline.com/markets/sensex-nifty50-today-stock-market-live-updates-28-septmeber-2026/article71515691.ece"
+          },
+          {
+            "ageHours": 60.5,
+            "domain": "aol.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T15:01:09.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Kentucky volleyball vs. Texas score today, UK-UT live match updates",
+            "url": "https://www.aol.com/articles/kentucky-volleyball-vs-texas-score-150109000.html"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "reuters.com",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.46,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.46,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.07
+            },
+            "title": "Armed conflicts and attacks: American troops complete their withdrawal from Iraq after a 23-year presence in t",
+            "url": "https://www.reuters.com/world/us-forces-exit-iraq-emboldening-irans-proxies-islamic-state-2026-09-30"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia-current-events",
+              "Wikipedia Current Events"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.44,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0,
+              "final": 0.44,
+              "freshness": 0.23,
+              "relevance": 0,
+              "sourceQuality": 0.04
+            },
+            "title": "Armed conflicts and attacks: Withdrawal of United States troops from Iraq",
+            "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 5,
+        "keptDomains": 5,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 6,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 6,
+        "relevanceAvg": 0.708,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 861,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1161,
+        "statesFreshness": true,
+        "text": "Mortgage calculator: Here’s how much extra your repayments will be\n\nFollow along to our live coverage of today’s interest rate rise here. [2]\n\nGuinea-Bissau vs Nigeria LIVE\n\nHello and welcome to Standard Sport’s LIVE coverage of Guinea-Bissau vs Nigeria! [7]\n\nAsian Games 2026 India’s Events Live Streaming Details:\n\nFor fans in India, the Asian Games are being broadcast on Sony Sports Network, while live streaming is available on SonyLIV. [1]\n\nLive WALB newscasts, breaking news cut-ins, and on-demand video are also available through a Roku Express device. [5]\n\nSources: [1] Asian Games 2026 India Schedule Today, September 30: Jyothi Vennam, Lovlina Borgohain In Medal Hunt; Hockey Team In Semifinal | Medal Events, Live Streaming Details, IST Timings (sundayguardianlive.com)  [2] Mortgage calculator: Here’s how much extra your repayments will be (brisbanetimes.com.au)  [3] Franklin Madison I"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "live breaking coverage",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 2.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:37:42.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Asian Games 2026 India Schedule Today, September 30: Jyothi Vennam, Lovlina Borgohain In Medal Hunt; Hockey Te",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-today-september-30-jyothi-vennam-lovlina-borgohain-in-medal-hunt-hockey-team-in-semifinal-medal-events-live-streaming-details-ist-timings-295504"
+          },
+          {
+            "ageHours": 23,
+            "domain": "brisbanetimes.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:30:40.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Mortgage calculator: Here’s how much extra your repayments will be",
+            "url": "https://www.brisbanetimes.com.au/business/the-economy/mortgage-calculator-here-s-how-much-extra-your-repayments-will-be-20260929-p611c1.html?ref=rss"
+          },
+          {
+            "ageHours": 9.6,
+            "domain": "send2press.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:54:15.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Franklin Madison Introduces Guaranteed Issue Life Insurance, Expanding Access to Financial Protection",
+            "url": "https://www.send2press.com/wire/franklin-madison-introduces-guaranteed-issue-life-insurance-expanding-access-to-financial-protection"
+          },
+          {
+            "ageHours": 20.5,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T07:02:34.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 Ankush Panghal vs Kim Minseong Men’s 80kg Boxing Final: Date, Time, TV Channel, Live Streamin",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-ankush-panghal-vs-kim-minseong-mens-80kg-boxing-final-date-time-tv-channel-live-streaming-in-india-usa-uk-295039"
+          },
+          {
+            "ageHours": 12.9,
+            "domain": "walb.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:36:09.000Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.83,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "WALB News 10 4 p.m. newscasts move to digital platforms Tuesday and Wednesday",
+            "url": "https://www.walb.com/2026/09/29/walb-news-10-4-pm-newscasts-move-digital-platforms-tuesday-wednesday"
+          },
+          {
+            "ageHours": 10.9,
+            "domain": "standard.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:35:09.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Czech Republic vs England LIVE: Nations League match stream, latest team news, lineups, TV, prediction",
+            "url": "https://www.standard.co.uk/sport/football/czech-republic-vs-england-live-stream-latest-score-updates-result-nations-league-2026-b1298864.html"
+          },
+          {
+            "ageHours": 12.9,
+            "domain": "standard.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:35:10.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Guinea-Bissau vs Nigeria LIVE: AFCON qualifier match stream, latest team news, lineups, TV, prediction",
+            "url": "https://www.standard.co.uk/sport/football/guinea-bissau-vs-nigeria-live-stream-latest-score-updates-result-b1298848.html"
+          },
+          {
+            "ageHours": 9.7,
+            "domain": "armytimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:47:21.000Z",
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.65,
+              "freshness": 0.21,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "Nearly 500,000 veterans to get 3-month break from paying life insurance premiums",
+            "url": "https://www.armytimes.com/pay-benefits/mil-money/2026/09/29/nearly-500000-veterans-to-get-3-month-break-from-paying-life-insurance-premiums"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 8,
+        "keptDomains": 8,
+        "newestSourceAgeHours": 2.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+          "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the rec",
+          "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the rec",
+          "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the rec"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.854,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 5638,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 563,
+        "statesFreshness": true,
+        "text": "Sensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions\n\nSensex declined over 500 points as rising crude oil prices and global uncertainty affected investor sentiment. [1]\n\nMumbai: Indian stock markets witnessed a sharp decline on Monday as investors turned cautious amid rising crude oil prices and concerns over global developments. [1]\n\nMarkets remained cautious while tracking US-Iran developments and energy trends. [1]\n\nSources: [1] Sensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions (dynamitenews.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "recent global developments",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 9,
+          "shares no subject word": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 46.8,
+            "domain": "dynamitenews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T04:41:29.000Z",
+            "relevance": 0.97,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.97,
+              "freshness": 0.17,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Sensex Crashes Over 500 Points: Why Stock Market Fell Today Amid Global Tensions",
+            "url": "https://www.dynamitenews.com/business/sensex-crashes-over-500-points-why-stock-market-fell-today-amid-global-tensions"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 46.8,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.97,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 2590,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1475,
+        "statesFreshness": true,
+        "text": "The broader market backdrop is important for Nvidia because large-cap technology stocks have played a major role in recent Wall Street gains, while changes in Treasury yields and expectations for monetary policy can affect valuations across the sector. [2]\n\nManitoba premier says time changes are officially over with proclamation signing\n\nManitoba Premier Wab Kinew says time changes are officially over in Manitoba. [5]\n\nIndustrialists fear regulatory action if the government does not extend the policy, while many fear that shifting their units to designated industrial areas could impose a financial burden they cannot afford. [1]\n\nAnd we obviously work very closely with our colleagues in medicine, physiotherapy and dentistry through shared teaching and educational events.”\n\nRCSI has recently announced a unique partnership with Uniphar to support excellence and innovation in pharmacy educat"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "recently announced policy changes",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.5,
+            "domain": "hindustantimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T02:01:30.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.8,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Ludhiana: Small units on edge as mixed land use policy expires today",
+            "url": "https://www.hindustantimes.com/cities/chandigarh-news/ludhiana-small-units-on-edge-as-mixed-land-use-policy-expires-today-101790704587229.html"
+          },
+          {
+            "ageHours": 105,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T18:32:14.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.8,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Nvidia Stock Today: NVDA Falls 0.43% to $223.55 as AI Stocks Stay in Focus;Check Latest Nvidia Shares Update a",
+            "url": "https://sundayguardianlive.com/business/nvidia-stock-today-nvda-falls-043-to-22355-as-ai-stocks-stay-in-focuscheck-latest-nvidia-shares-update-as-ai-stocks-rally-oil-prices-ease-investors-track-jensen-huang-ai-demand-wall-street-292753"
+          },
+          {
+            "ageHours": 119.5,
+            "domain": "irishtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T04:00:00.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "‘It’s such an exciting time to become a pharmacist’: RCSI students prepare for big changes in the industry",
+            "url": "https://www.irishtimes.com/sponsored/2026/09/25/its-such-an-exciting-time-to-become-a-pharmacist-rcsi-students-prepare-for-big-changes-in-the-industry"
+          },
+          {
+            "ageHours": 117.5,
+            "domain": "richmondbizsense.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T06:00:35.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "New panelist announced for HealthForward RVA event on Oct. 28",
+            "url": "https://richmondbizsense.com/2026/09/25/new-panelist-announced-for-healthforward-rva-event-on-oct-28"
+          },
+          {
+            "ageHours": 103.1,
+            "domain": "narcity.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T20:25:34.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Manitoba premier says time changes are officially over with proclamation signing",
+            "url": "https://www.narcity.com/manitoba-premier-says-time-changes-officially-over"
+          },
+          {
+            "ageHours": 103.7,
+            "domain": "islamicinvitationturkey.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:47:09.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.64,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "General Ebn al-Reza: Iran’s defense doctrine has changed",
+            "url": "https://www.islamicinvitationturkey.com/general-ebn-al-reza-irans-defense-doctrine-has-changed"
+          },
+          {
+            "ageHours": 111.7,
+            "domain": "kztv10.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T11:47:24.000Z",
+            "relevance": 0.64,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.64,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Trump floats diesel export ban despite past attacks on Biden energy policy",
+            "url": "https://www.kztv10.com/science-and-tech/energy/trump-floats-diesel-export-ban-despite-past-attacks-on-biden-energy-policy"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 1.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.711,
+        "wrongYearKept": 0
+      },
+      "temporal": "recent",
+      "totalMs": 1717,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 947,
+        "statesFreshness": true,
+        "text": "Parseword Hints and Solutions Today: September 30, 2026\n\nFind the Parseword answer for September 30, 2026, with five spoiler-free hints and a step-by-step breakdown showing how “ridicules” and “cycling” transform into today’s long, baggy top. [1]\n\nIn this guide, you’ll find Parseword hints for September 30, 2026, followed by the full answer if you need help finishing today’s puzzle. [1]\n\nProgramming Assignment Help & Coding Project Assistance for University StudentsIf you're a computer science or... [2]\n\nLatest Home Services News and Contractor Announcements\n\nCustom Website Design & Mobile App Development ServicesAt Top Elite Services, we provide custom website... [2]\n\nSources: [1] Parseword Hints and Solutions Today: September 30, 2026 (nerdschalk.com)  [2] Latest Home Services News and Contractor Announcements (topeliteservices.com)  [3] 2026-09-27 - Rebecca Delle Piane - HATE Podcast "
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news in 2026",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 1,
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 16.9,
+            "domain": "nerdschalk.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:34:03.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Parseword Hints and Solutions Today: September 30, 2026",
+            "url": "https://nerdschalk.com/parseword-hints-and-solutions-today-september-30-2026"
+          },
+          {
+            "ageHours": 27.5,
+            "domain": "topeliteservices.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.9,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.9,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Latest Home Services News and Contractor Announcements",
+            "url": "https://topeliteservices.com/Content/View/272"
+          },
+          {
+            "ageHours": 55.9,
+            "domain": "mixesdb.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T19:36:32.000Z",
+            "relevance": 0.71,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.71,
+              "freshness": 0.17,
+              "relevance": 0.17,
+              "sourceQuality": 0.12
+            },
+            "title": "2026-09-27 - Rebecca Delle Piane - HATE Podcast 506: Difference between revisions",
+            "url": "https://www.mixesdb.com/w/index.php?diff=1049612&oldid=0&title=2026-09-27_-_Rebecca_Delle_Piane_-_HATE_Podcast_506"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 16.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.857,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1633,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          11,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1054,
+        "statesFreshness": false,
+        "text": "This is a list of major NJPW events, detailing all notable professional wrestling cards promoted on pay-per-view (PPV), aired on live TV broadcasts by TV Asahi, or streamed on New Japan Pro-Wrestling World by New Japan Pro-Wrestling (NJPW). [1]\n\nThe World Marathon Majors (WMM) is a championship-style competition for marathon runners that started in 2006. [2]\n\nAccessing and understanding contemporary and historical events of global impact such as the US elections and the Olympic Games is a major prerequisite for cross-lingual event analytics that investigate event causes, perception and consequences across country borders. [11]\n\nFrequently Asked Questions Polymarket is the world’s largest prediction market, where users trade on the real-world outcomes of events across World Event… [12]\n\nSources: [1] List of major NJPW events (en.wikipedia.org)  [2] World Marathon Majors (en.wikipedia.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "major world events",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.98,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "List of major NJPW events",
+            "url": "https://en.wikipedia.org/wiki/List_of_major_NJPW_events"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "langsearch"
+            ],
+            "publishedAt": null,
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.04,
+              "final": 0.92,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "World Marathon Majors",
+            "url": "https://en.wikipedia.org/wiki/World_Marathon_Majors"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The stock exchange specialist and unexpected major world events (1974)",
+            "url": "https://openlibrary.org/works/OL538142W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Major Events in World History (2021)",
+            "url": "https://openlibrary.org/works/OL25464948W"
+          },
+          {
+            "ageHours": 1061.9,
+            "domain": "thenational.com.pg",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T21:37:38.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Official commends Tsiamalili for staging major events",
+            "url": "https://www.thenational.com.pg/official-commends-tsiamalili-for-staging-major-events"
+          },
+          {
+            "ageHours": 94314.9,
+            "domain": "10keythings.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-12-27T08:37:55Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.78,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "10 Leaders who highly influenced the world in 2015 and the Major World Events",
+            "url": "https://10keythings.com/leaders-2015"
+          },
+          {
+            "ageHours": 10955.4,
+            "domain": "signalslice.sebastianalexis.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2025-06-30T16:07:51Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Detecting Major World Events Using Osint, Through Google Maps and Pizza",
+            "url": "https://signalslice.sebastianalexis.com"
+          },
+          {
+            "ageHours": 55112.6,
+            "domain": "legiblenews.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2020-06-16T18:54:16Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "An unbiased condensed version of major world events",
+            "url": "http://legiblenews.com"
+          },
+          {
+            "ageHours": 112665.1,
+            "domain": "businessinsider.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2013-11-22T18:23:25Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "How Major World Events Affect Viewing Of Online Porn ",
+            "url": "http://www.businessinsider.com/how-porn-viewing-habits-are-affected-by-major-world-events-2013-11"
+          },
+          {
+            "ageHours": 108393.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2014-05-19T18:00:16Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "It Doesn't Break Just on Twitter. Characterizing Facebook content During Real World Events",
+            "url": "http://arxiv.org/abs/1405.4820v1"
+          },
+          {
+            "ageHours": 31427.5,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2023-02-28T15:58:28Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "OEKG: The Open Event Knowledge Graph",
+            "url": "http://arxiv.org/abs/2302.14688v1"
+          },
+          {
+            "ageHours": null,
+            "domain": "polymarket.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.65,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.65,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.07
+            },
+            "title": "World Events Prediction Markets & Live Odds 2026 | Polymarket",
+            "url": "http://polymarket.com/world"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1061.9,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "TheSportsDB has no current fixture for \"major world events\" right now — Omi will"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.809,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1988,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          12
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 993,
+        "statesFreshness": false,
+        "text": "(Kitco News)- Gold prices are near steady in early New York trading Friday, despite overnight developments on the geopolitical front. [6]\n\nGEOPOLITICAL DEVELOPMENTS The United States is challenging its own foundations as the world's reserve currency with attacks on the legal system following… [12]\n\nGeopolitical developments in focus Indian equity markets were volatile this week on the back of escalating geo-political tension between Iran and US and … [5]\n\nThree developments are particularly salient:\n\nThe fluid and often ambiguous relationships between the three principal poles of power — the West, the East, and the increasingly assertive Global South, which has gained new geopolitical visibility since 2020. [1]\n\nSources: [1] News , | 07/29/2025 : Eurasia Rising? (rosalux.de)  [2] Prisoners of Geography (en.wikipedia.org)  [3] The Hague Centre for Strategic Studies (en.wikipedia.org)  [4]"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "geopolitical developments",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1078.7,
+            "domain": "rosalux.de",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T04:49:29.000Z",
+            "relevance": 0.95,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 0.95,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "News , | 07/29/2025 : Eurasia Rising?",
+            "url": "https://www.rosalux.de/en/news/id/53671/eurasia-rising"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Prisoners of Geography",
+            "url": "https://en.wikipedia.org/wiki/Prisoners_of_Geography"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The Hague Centre for Strategic Studies",
+            "url": "https://en.wikipedia.org/wiki/The_Hague_Centre_for_Strategic_Studies"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Kurdish status and geopolitical developments in the Middle East (1993)",
+            "url": "https://openlibrary.org/works/OL44370875W"
+          },
+          {
+            "ageHours": null,
+            "domain": "deccanherald.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Geopolitical developments in focus",
+            "url": "https://www.deccanherald.com/business/geopolitical-developments-in-focus-793896.html"
+          },
+          {
+            "ageHours": null,
+            "domain": "forbes.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.81,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.81,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Geopolitical Developments Fail To Boost Gold",
+            "url": "https://www.forbes.com/sites/kitconews/2017/09/15/geopolitical-developments-fail-to-boost-gold"
+          },
+          {
+            "ageHours": 5314.4,
+            "domain": "news.ycombinator.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2026-02-20T17:03:05Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.6,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.1
+            },
+            "title": "Ask HN: Anyone else exhausted by too rapid development of news?",
+            "url": "https://news.ycombinator.com/item?id=47090622"
+          },
+          {
+            "ageHours": 2133.5,
+            "domain": "barrycasselman.blogspot.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-03T05:59:01.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.6,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "barrycasselman: June 2026",
+            "url": "https://barrycasselman.blogspot.com/2026/06"
+          },
+          {
+            "ageHours": 1102.4,
+            "domain": "greaterkashmir.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T05:04:24.000Z",
+            "relevance": 0.6,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.6,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Global geopolitical situation: EAM calls for unity, reform at G-20 session",
+            "url": "https://www.greaterkashmir.com/national/global-geopolitical-situation-eam-calls-for-unity-reform-at-g-20-session"
+          },
+          {
+            "ageHours": 1987.8,
+            "domain": "barrycasselman.blogspot.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-09T07:41:56.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.58,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "barrycasselman: THE PRAIRIE EDITOR: A New Global Geopolitical Landscape",
+            "url": "http://barrycasselman.blogspot.com/2026/02/the-prairie-editor-new-global.html"
+          },
+          {
+            "ageHours": 1093.7,
+            "domain": "rappler.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T13:45:16.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.58,
+              "freshness": 0.01,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "[ANALYSIS] Towards a ‘hegemonic transition’ or ‘hegemonic stalemate?’",
+            "url": "https://www.rappler.com/voices/thought-leaders/analysis-hegemonic-transition-stalemate"
+          },
+          {
+            "ageHours": null,
+            "domain": "economictimes.indiatimes.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.54,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.54,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.03
+            },
+            "title": "geopolitical developments News and Updates from The Economic Tim…",
+            "url": "https://economictimes.indiatimes.com/topic/geopolitical-developments/news"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1078.7,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "Request failed with status code 429",
+          "Request failed with status code 429",
+          "commoncrawl: upstream unavailable — Request failed with status code 503",
+          "commoncrawl: upstream unavailable — Request failed with status code 503",
+          "Live sports scores (TheSportsDB): circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.737,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1197,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 866,
+        "statesFreshness": true,
+        "text": "Tobin described the fault having ripped right under Bainbridge Island, under the city, under Lake Washington.\"\n\nIf a similar earthquake happened today, the impacts could be devastating for downtown Seattle and communities around Elliott Bay. [1]\n\nThe first open house is today at Thetford Township Hall on East Vienna Road in Clio. [2]\n\nThe second annual barbecue lunch is today from 11 a.m. [2]\n\nWashington’s shakiest decade: Four earthquakes in 10 years left a deadly toll\n\nSEATTLE - A major earthquake on the Seattle Fault could send a tsunami as high as 33 feet into Elliott Bay, a potentially devastating scenario that has renewed interest online in Washington's earthquake risk. [1]\n\nSources: [1] Washington’s shakiest decade: Four earthquakes in 10 years left a deadly toll (fox13seattle.com)  [2] Tuesday, Sept. 29, 2026: 5 things you need to know (wnem.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "what happened today",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "shares no subject word": 10
+        },
+        "finalSources": [
+          {
+            "ageHours": 1.4,
+            "domain": "fox13seattle.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T02:07:05.000Z",
+            "relevance": 1.03,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.03,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Washington’s shakiest decade: Four earthquakes in 10 years left a deadly toll",
+            "url": "https://www.fox13seattle.com/news/washingtons-shakiest-decade-four-earthquakes"
+          },
+          {
+            "ageHours": 15.8,
+            "domain": "wnem.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:40:23.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Tuesday, Sept. 29, 2026: 5 things you need to know",
+            "url": "https://www.wnem.com/2026/09/29/tuesday-sept-29-2026-5-things-you-need-know"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 1.4,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 1.02,
+        "wrongYearKept": 0
+      },
+      "temporal": "today",
+      "totalMs": 1189,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          9
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 945,
+        "statesFreshness": true,
+        "text": "“While today’s decision was widely expected and anticipated, that doesn’t make it any easier.”\n\nTroy Dodds is the Weekender's Managing Editor and Breaking News Reporter. [3]\n\nA tantalizing pact between an ordinary woman and the silver-tongued son of the Devil is all that stands between Britain—and all hell breaking loose. [9]\n\nIn the news today: Trade war escalates, Carney talks energy, AI chatbot for health\n\nRead this article for free:\n\nor\n\nAlready have an account? [1]\n\nResearch Snipers has decade of experience in breaking technology news, covering latest trends in tech news, and recent developments. [4]\n\nSources: [1] In the news today: Trade war escalates, Carney talks energy, AI chatbot for health (brandonsun.com)  [2] Perfect for extended Dog walks today (news5cleveland.com)  [3] BREAKING: RBA makes call on rates (westernweekender.com.au)  [4] Emergency update: WatchOS 27.0.1 for new"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "breaking news",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 3
+        },
+        "finalSources": [
+          {
+            "ageHours": 19,
+            "domain": "brandonsun.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:31:47.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "In the news today: Trade war escalates, Carney talks energy, AI chatbot for health",
+            "url": "https://www.brandonsun.com/national/2026/09/29/in-the-news-today-trade-war-escalates-carney-talks-energy-ai-chatbot-for-health"
+          },
+          {
+            "ageHours": 17.3,
+            "domain": "news5cleveland.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:12:36.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Perfect for extended Dog walks today",
+            "url": "https://www.news5cleveland.com/weather/dog-walking-forecast/perfect-for-extended-dog-walks-today"
+          },
+          {
+            "ageHours": 22.7,
+            "domain": "westernweekender.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:45:35.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "BREAKING: RBA makes call on rates",
+            "url": "https://www.westernweekender.com.au/2026/09/breaking-rba-makes-call-on-rates"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "researchsnipers.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:41:06.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Emergency update: WatchOS 27.0.1 for new Apple Watches is ready",
+            "url": "https://researchsnipers.com/emergency-update-watchos-27-0-1-for-new-apple-watches-is-ready"
+          },
+          {
+            "ageHours": 12.8,
+            "domain": "researchsnipers.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:44:27.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Highly secure Android: Motorola Signature 27 officially receives GrapheneOS",
+            "url": "https://researchsnipers.com/highly-secure-android-motorola-signature-27-officially-receives-grapheneos"
+          },
+          {
+            "ageHours": 9.9,
+            "domain": "kwch.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:38:36.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Crews respond to water main breaks in Valley Center",
+            "url": "https://www.kwch.com/2026/09/29/crews-respond-water-main-breaks-valley-center"
+          },
+          {
+            "ageHours": 27.5,
+            "domain": "penguin.co.nz",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "The Forever Paycheck by Jean Chatzky (Hardback) - Penguin Books New Zealand",
+            "url": "https://www.penguin.co.nz/books/the-forever-paycheck-9798217179473"
+          },
+          {
+            "ageHours": 27.5,
+            "domain": "topeliteservices.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Latest Home Services News and Contractor Announcements",
+            "url": "https://topeliteservices.com/Content/View/272"
+          },
+          {
+            "ageHours": 27.5,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T00:00:00.000Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.7,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Demons and Diplomacy by Megan Frampton - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/demons-and-diplomacy-9798217189663"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 9,
+        "keptDomains": 9,
+        "newestSourceAgeHours": 9.9,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.816,
+        "wrongYearKept": 0
+      },
+      "temporal": "live",
+      "totalMs": 1920,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 701,
+        "statesFreshness": false,
+        "text": "The Price is Right LiveTM is coming to a town near you in TWO WEEKS! [2]\n\nTickets are on sale NOW for The Price is Right Live! [2]\n\nTickets are on sale now at https://priceisrightlive.com. [2]\n\nHabs Daily: Official Roster, Reinbacher And Fowler, Xhekaj\n\nHere are the Montreal Canadiens and NHL news items you may have missed on Monday. [3]\n\nSources: [1] Ghost Chickens: Omelet from the Other Side by Adi Rule (Hardback) - Penguin Books Australia (penguin.com.au)  [2] The Price is Right LiveTM is coming to a town near you in TWO WEEKS! (prweb.com)  [3] Habs Daily: Official Roster, Reinbacher And Fowler, Xhekaj (sportsnaut.com)  [4] North Florida Wildlife Center welcomes two new kangaroos (wctv.tv)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "current-news",
+      "query": "news right now",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "non-sequitur for a broad news question": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.5,
+            "domain": "penguin.com.au",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 1.02,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.02,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Ghost Chickens: Omelet from the Other Side by Adi Rule (Hardback) - Penguin Books Australia",
+            "url": "https://www.penguin.com.au/books/ghost-chickens-omelet-from-the-other-side-9781774889480"
+          },
+          {
+            "ageHours": 6.5,
+            "domain": "prweb.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T21:00:37.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The Price is Right LiveTM is coming to a town near you in TWO WEEKS!",
+            "url": "https://www.prweb.com/releases/the-price-is-right-live-is-coming-to-a-town-near-you-in-two-weeks-302892796.html"
+          },
+          {
+            "ageHours": 16.5,
+            "domain": "sportsnaut.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:00:00.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Habs Daily: Official Roster, Reinbacher And Fowler, Xhekaj",
+            "url": "https://sportsnaut.com/nhl/montreal-canadiens/montreal-canadiens-news-opening-roster-xhekaj-reinbacher-fowler"
+          },
+          {
+            "ageHours": 10,
+            "domain": "wctv.tv",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:32:50.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "North Florida Wildlife Center welcomes two new kangaroos",
+            "url": "https://www.wctv.tv/2026/09/29/north-florida-wildlife-center-welcomes-two-new-kangaroos"
+          },
+          {
+            "ageHours": 19,
+            "domain": "khaleejtimes.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:30:09.000Z",
+            "relevance": 1.01,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 1.01,
+              "freshness": 0.21,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "CNN, MS NOW, Politico ask judge to extend block on White House ban",
+            "url": "https://www.khaleejtimes.com/world/americas/cnn-ms-now-politico-judge-extend-block-white-house-ban"
+          },
+          {
+            "ageHours": 4.5,
+            "domain": "purexbox.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T23:00:00.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.23,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Over 1,500 Games Are Now Supported With Xbox Disc To Digital",
+            "url": "https://www.purexbox.com/news/2026/09/over-1500-games-are-now-supported-with-xbox-disc-to-digital"
+          },
+          {
+            "ageHours": 24,
+            "domain": "themuslimtimes.info",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T03:31:25.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Arab News | Saudi Arabia condemns Israeli officials, settlers for storming Al-Aqsa Mosque",
+            "url": "https://themuslimtimes.info/2026/09/29/arab-news-saudi-arabia-condemns-israeli-officials-settlers-for-storming-al-aqsa-mosque"
+          },
+          {
+            "ageHours": 9.9,
+            "domain": "newswire.ca",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:37:00.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.82,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Report calls on Canada for a New Approach to Children's Media: Putting Kids' Rights into Action",
+            "url": "https://www.newswire.ca/news-releases/report-calls-on-canada-for-a-new-approach-to-children-s-media-putting-kids-rights-into-action-873782343.html"
+          },
+          {
+            "ageHours": 12.9,
+            "domain": "standard.co.uk",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:35:10.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "Guinea-Bissau vs Nigeria LIVE: AFCON qualifier match stream, latest team news, lineups, TV, prediction",
+            "url": "https://www.standard.co.uk/sport/football/guinea-bissau-vs-nigeria-live-stream-latest-score-updates-result-b1298848.html"
+          },
+          {
+            "ageHours": 10.8,
+            "domain": "6abc.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T16:41:10.000Z",
+            "relevance": 0.8,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.8,
+              "freshness": 0.21,
+              "relevance": 0.33,
+              "sourceQuality": 0.1
+            },
+            "title": "AccuWeather: Back to the 70s today",
+            "url": "https://6abc.com/videoClip/19887889"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 10,
+        "keptDomains": 10,
+        "newestSourceAgeHours": 3.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.93,
+        "wrongYearKept": 0
+      },
+      "temporal": "now",
+      "totalMs": 2583,
+      "vertical": "news"
+    }
+  ],
+  "total": 24
+}

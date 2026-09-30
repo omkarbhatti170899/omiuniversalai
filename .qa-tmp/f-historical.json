@@ -1,0 +1,1251 @@
+{
+  "answerContract": {
+    "allSourcesDated": 2,
+    "citationsResolve": 6,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 5,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 1
+  },
+  "byCategory": {
+    "historical": {
+      "fresh": 5,
+      "kept": 40,
+      "n": 6
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 0,
+      "kept": 0,
+      "n": 1
+    },
+    "none": {
+      "fresh": 5,
+      "kept": 40,
+      "n": 5
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 6,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 859,
+        "statesFreshness": false,
+        "text": "The men's 100 metres event at the 2016 Summer Olympics took place between 13–14 August at the Olympic Stadium. [1]\n\nThe 2016 Summer Olympics, officially known as the Games of the XXXI Olympiad, and officially branded as Rio 2016, were an international multi-sport event held from 5 to 21 August 2016 in Rio de Janeiro, Brazil, with preliminary events in some sports beginning on 3 August. [2]\n\nThe 2016 Summer Games were the first Olympics to be held in South America. [2]\n\nGiven that Olympic Games held over the past decade each have cost USD 8.9 billion on average, the size and financial risks of the Games warrant study. [3]\n\nSources: [1] Athletics at the 2016 Summer Olympics – Men's 100 metres (en.wikipedia.org)  [2] 2016 Summer Olympics medal table (en.wikipedia.org)  [3] The Oxford Olympics Study 2016: Cost and Cost Overrun at the Games (arxiv.org)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Who won the 2016 Olympics men's 100m?",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 2,
+          "shares no subject word": 4
+        },
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.07
+            },
+            "title": "Athletics at the 2016 Summer Olympics – Men's 100 metres",
+            "url": "https://en.wikipedia.org/wiki/Athletics_at_the_2016_Summer_Olympics_%E2%80%93_Men's_100_metres"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.72,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.72,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "2016 Summer Olympics medal table",
+            "url": "https://en.wikipedia.org/wiki/2016_Summer_Olympics_medal_table"
+          },
+          {
+            "ageHours": 89511.3,
+            "domain": "arxiv.org",
+            "providers": [
+              "arxiv"
+            ],
+            "publishedAt": "2016-07-14T12:17:10Z",
+            "relevance": 0.7,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.19,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.7,
+              "freshness": 0,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "The Oxford Olympics Study 2016: Cost and Cost Overrun at the Games",
+            "url": "http://arxiv.org/abs/1607.04484v1"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 3,
+        "keptDomains": 3,
+        "newestSourceAgeHours": 89511.3,
+        "normalizedCount": 9,
+        "normalizedDated": 4,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "Request failed with status code 429"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.76,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2250,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 770,
+        "statesFreshness": false,
+        "text": "The most recent financial crisis was caused by sub-prime mortgages written in 2006, which mainly contributed to Lehman Brother’s bankruptcy in September 2008. [1]\n\nRecent financial crisis has caused extensive world-wide economic damages, predicting bankruptcy before it happens could help investors avoid large losses. [1]\n\nPredicting the Risk of Bankruptcy for ARO Stock\n\nAbstract\n\nIn the last several decades, many researchers have been focused on finding effective experimental methods to predict stocks with tendency of bankrupt. [1]\n\nKeywords\n\nDownload Options\n\nIntroduction\n\nBankruptcy forecasting has been an open challenging problem for financial analysts. [1]\n\nSources: [1] Predicting the Risk of Bankruptcy for ARO Stock | Engineering Journal IJOER (ijoer.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "what happened in the 2008 financial crisis",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 2,
+          "different year (escalated)": 4,
+          "outside freshness window": 7,
+          "shares no subject word": 2,
+          "shares no subject word (escalated)": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 3.6,
+            "domain": "ijoer.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.93,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.93,
+              "freshness": 0.23,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Predicting the Risk of Bankruptcy for ARO Stock | Engineering Journal IJOER",
+            "url": "https://ijoer.com/article-details/predicting-the-risk-of-bankruptcy-for-aro-stock"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 3.6,
+        "normalizedCount": 11,
+        "normalizedDated": 11,
+        "offTopicKept": 0,
+        "providersFailed": [],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 11,
+        "relevanceAvg": 0.93,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 4919,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1074,
+        "statesFreshness": false,
+        "text": "The Battle of Waterloo was fought on Sunday 18 June 1815, near Waterloo (then in the United Kingdom of the Netherlands, now in Belgium), being the last engagement with Napoleon I. [1]\n\nAlessandro Barbero · 2005 — Waterloo, Battle of, Waterloo, Belgium, 1815, Military - Napoleonic Wars, Campaigns, Military History, Napoleonic Wars, 1800-1815, Waterloo, Bataille de, 1815 [4]\n\nManuel Komroff · 1936 — Elba and the Hundred Days, 1814-1815, Waterloo, Battle of, Waterloo, Belgium, 1815, The Battle of Waterloo, Battles, History, Fiction [5]\n\nBattle of Waterloo\n\n“...In the Battle of Waterloo (Sunday 18 June 1815[5] near Waterloo, Belgium) forces of the French Empire under Napoleon Bonaparte and Michel Ney were defeated by those of the Seventh Coalition, including an Anglo-Allied army under the command of the Duke of Wellington and a Prussian army under the command of Gebhard von Blücher. [7]\n\nSou"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "when was the Battle of Waterloo",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Waterloo"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Waterloo, Belgium",
+            "url": "https://en.wikipedia.org/wiki/Waterloo%2C_Belgium"
+          },
+          {
+            "ageHours": 1271.7,
+            "domain": "artuk.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:54:23.000Z",
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "How you can use this image",
+            "url": "https://artuk.org/discover/artworks/the-opening-of-waterloo-bridge-whitehall-stairs-june-18th-1817-117764"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Battle (2005)",
+            "url": "https://openlibrary.org/works/OL136014W"
+          },
+          {
+            "ageHours": null,
+            "domain": "openlibrary.org",
+            "providers": [
+              "openlibrary"
+            ],
+            "publishedAt": null,
+            "relevance": 0.89,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.89,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "The Battle of Waterloo (1936)",
+            "url": "https://openlibrary.org/works/OL4481467W"
+          },
+          {
+            "ageHours": null,
+            "domain": "bbc.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.07
+            },
+            "title": "Battle of Waterloo service attended by Royal Family - BBC News",
+            "url": "http://www.bbc.com/news/uk-33178490"
+          },
+          {
+            "ageHours": 150706,
+            "domain": "raymondpronk.wordpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2009-07-21T17:36:40.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo–Videos",
+            "url": "https://raymondpronk.wordpress.com/2009/07/21/battle-of-waterloo-videos?replytocom=16380"
+          },
+          {
+            "ageHours": 2638.7,
+            "domain": "en.metapedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-06-12T04:53:46.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo - Metapedia",
+            "url": "http://en.metapedia.org/m/index.php?oldid=528619&title=Battle_of_Waterloo"
+          },
+          {
+            "ageHours": 1012.5,
+            "domain": "de.zxc.wiki",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T23:09:40.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo",
+            "url": "https://de.zxc.wiki/wiki/Schlacht_von_Waterloo"
+          },
+          {
+            "ageHours": 1025.3,
+            "domain": "de.zxc.wiki",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T10:18:06.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.86,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Battle of Waterloo",
+            "url": "https://de.zxc.wiki/wiki/Schlacht_bei_Waterloo"
+          },
+          {
+            "ageHours": 99133.3,
+            "domain": "theguardian.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-06-09T14:20:04Z",
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.83,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Belgium defies France as it mints €2.50 coin to mark Battle of Waterloo",
+            "url": "http://www.theguardian.com/world/2015/jun/08/belgium-france-coin-battle-waterloo-euro-napoleon"
+          },
+          {
+            "ageHours": 99538.9,
+            "domain": "economist.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2015-05-23T16:44:41Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.82,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "The Battle of Waterloo: A Near-Run Thing",
+            "url": "http://www.economist.com/news/books-and-arts/21651775-appallingly-bloody-yet-decisive-battle-waterloo-june-1815-deserves"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1012.5,
+        "normalizedCount": 12,
+        "normalizedDated": 7,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG (https://search.lumy.live) skipped: every base is known-dead and the rec",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"Battle Waterloo\" right now — Omi will no"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.884,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1784,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1327,
+        "statesFreshness": false,
+        "text": "The History of the Decline and Fall of the Roman Empire, sometimes shortened to Decline and Fall of the Roman Empire, is a six-volume work by the English historian Edward Gibbon. [2]\n\nThe history of the Roman Empire covers the history of ancient Rome from the traditional end of the Roman Republic in 27 BC until the abdication of Romulus Augustulus in AD 476 in the West, and the Fall of Constantinople in the East in 1453. [1]\n\nYouTube obviously has great videos on subjects like &quot;What is a derivative&quot;, &quot;Germany post world war 2&quot; or &quot;History of the roman empire&quot; but it won&#x27;t always have great videos for more niche subjects like say &quot;Swedish monetary theory through history&quot; or & [5]\n\nThe six volumes cover, from 98 to 1590, the peak of the Roman Empire, the history of early Christianity and its emergence as the Roman state religion, the fall of the"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "history of the Roman Empire",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia",
+              "mwmbl",
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 1,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "History of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.94,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.94,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "The History of the Decline and Fall of the Roman Empire",
+            "url": "https://en.wikipedia.org/wiki/The_History_of_the_Decline_and_Fall_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": 1358.4,
+            "domain": "farmersalmanac.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:37.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.06,
+              "final": 0.87,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "When Is the Next Leap Year? 2028 – Date, History, and the Rule",
+            "url": "https://www.farmersalmanac.com/when-is-leap-year"
+          },
+          {
+            "ageHours": 1611.4,
+            "domain": "historyworld.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-07-25T00:13:41.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.04,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "HISTORY OF THE ROMAN EMPIRE",
+            "url": "https://www.historyworld.net/history/romanEmpire/531?heading=revivalOfThePaganCult&section=christianRome"
+          },
+          {
+            "ageHours": 7524.1,
+            "domain": "explanans.com",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2025-11-20T15:30:10Z",
+            "relevance": 0.84,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.84,
+              "freshness": 0.01,
+              "relevance": 0.5,
+              "sourceQuality": 0.1
+            },
+            "title": "Show HN: Explanans – Personalized video lectures for any topic",
+            "url": "https://explanans.com"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "history of the Roman Empire",
+            "url": "http://www.wikidata.org/entity/Q2671119"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "History of the Roman Empire Category",
+            "url": "https://duckduckgo.com/c/History_of_the_Roman_Empire"
+          },
+          {
+            "ageHours": null,
+            "domain": "duckduckgo.com",
+            "providers": [
+              "duckduckgo-instant"
+            ],
+            "publishedAt": null,
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.78,
+              "freshness": 0.02,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "Timeline of Roman history - This is a timeline of Roman history, comprising important legal and territorial ch",
+            "url": "https://duckduckgo.com/Timeline_of_Roman_history"
+          },
+          {
+            "ageHours": 73318.7,
+            "domain": "kottke.org",
+            "providers": [
+              "hackernews"
+            ],
+            "publishedAt": "2018-05-20T04:56:01Z",
+            "relevance": 0.77,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.77,
+              "freshness": 0,
+              "relevance": 0.5,
+              "sourceQuality": 0.04
+            },
+            "title": "A year-by-year history of economic growth and pollution in the Roman Empire",
+            "url": "https://kottke.org/18/05/a-year-by-year-history-of-economic-growth-and-pollution-in-the-roman-empire"
+          },
+          {
+            "ageHours": 1358.4,
+            "domain": "discoverbritainmag.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:35.000Z",
+            "relevance": 0.69,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.69,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "11 of the most spectacular spots on the Cornish coast, from pirate harbours to smugglers’ coves and mermaid ha",
+            "url": "https://www.discoverbritainmag.com/victoria-and-albert-museum"
+          },
+          {
+            "ageHours": null,
+            "domain": "wikidata.org",
+            "providers": [
+              "wikidata"
+            ],
+            "publishedAt": null,
+            "relevance": 0.61,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.61,
+              "freshness": 0.02,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Classical Roman Empire",
+            "url": "http://www.wikidata.org/entity/Q14618893"
+          },
+          {
+            "ageHours": 1048.1,
+            "domain": "tcd.ie",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-17T11:30:26.000Z",
+            "relevance": 0.58,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.58,
+              "freshness": 0.01,
+              "relevance": 0.33,
+              "sourceQuality": 0.04
+            },
+            "title": "Roman History",
+            "url": "https://www.tcd.ie/courses/short-courses/a-z-of-short-courses/classics---roman-history-"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1048.1,
+        "normalizedCount": 12,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"history Roman Empire\" right now — Omi wi"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.791,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 1850,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 63,
+        "statesFreshness": false,
+        "text": "Here is what Omi found across the live web for your question:\n\n"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "Asian Games 2018 medal tally",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 3,
+          "different year (escalated)": 6,
+          "outside freshness window": 9
+        },
+        "finalSources": [],
+        "freshnessMet": false,
+        "freshnessStatement": null,
+        "keptCount": 0,
+        "keptDomains": 0,
+        "newestSourceAgeHours": null,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 3669,
+      "vertical": "sports"
+    },
+    {
+      "answer": {
+        "allSourcesDated": false,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 704,
+        "statesFreshness": false,
+        "text": "About the First Modern Olympic Games in 1896\n\nIt’s true that the Ancient Greeks founded the original Olympic Games. [5]\n\nThe Summer Olympic Games , also known as the Summer Olympics or the Games of the Olympiad , are a major international multi-sport event normally held once every four years. [2]\n\nThe originating Olympic Games are traditionally dated to 776 BC. [3]\n\nThe Ancient Olympic Games\n\nThe Origins and Mythology\n\nThe origins of the Olympic Games are steeped in Greek mythology and legend. [6]\n\nSources: [1] Athens 2004 (olympics.fandom.com)  [2] Summer Olympic Games (en.wikipedia.org)  [3] Ancient Olympic Games (en.wikipedia.org)  [4] Asterix at the Olympic Games Xbox 360 (pricecharting.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "historical",
+      "query": "origin of the Olympic Games",
+      "requiresFreshness": false,
+      "retrieval": {
+        "dropReasons": {},
+        "finalSources": [
+          {
+            "ageHours": 1271.6,
+            "domain": "olympics.fandom.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:00:53.000Z",
+            "relevance": 0.91,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.91,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Athens 2004",
+            "url": "https://olympics.fandom.com/wiki/Athens_2004"
+          },
+          {
+            "ageHours": 1271.6,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T03:59:58.000Z",
+            "relevance": 0.85,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.85,
+              "freshness": 0.01,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "Summer Olympic Games",
+            "url": "https://en.wikipedia.org/wiki/Summer_Olympic_Games"
+          },
+          {
+            "ageHours": null,
+            "domain": "en.wikipedia.org",
+            "providers": [
+              "wikipedia"
+            ],
+            "publishedAt": null,
+            "relevance": 0.83,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.18,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.83,
+              "freshness": 0.02,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Ancient Olympic Games",
+            "url": "https://en.wikipedia.org/wiki/Ancient_Olympic_Games"
+          },
+          {
+            "ageHours": 1078,
+            "domain": "pricecharting.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T05:35:43.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.75,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Asterix at the Olympic Games Xbox 360",
+            "url": "https://www.pricecharting.com/game/xbox-360/asterix-at-the-olympic-games"
+          },
+          {
+            "ageHours": 1059.9,
+            "domain": "greekboston.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-16T23:44:18.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.75,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "About the First Modern Olympic Games in 1896",
+            "url": "https://www.greekboston.com/culture/modern-history/first-modern-olympics"
+          },
+          {
+            "ageHours": 1020.5,
+            "domain": "mossandfog.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-18T15:07:31.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Exploring the Ancient History of the Olympics",
+            "url": "https://mossandfog.com/exploring-the-ancient-history-of-the-olympics"
+          },
+          {
+            "ageHours": 1096,
+            "domain": "assignmentpoint.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-15T11:38:12.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.74,
+              "freshness": 0.01,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "The Olympic Games - Assignment Point",
+            "url": "https://assignmentpoint.com/the-olympic-games"
+          },
+          {
+            "ageHours": null,
+            "domain": "theguardian.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.07
+            },
+            "title": "The Olympic Games at Athens | Sport | The Guardian",
+            "url": "http://www.theguardian.com/sport/1896/apr/07/1"
+          },
+          {
+            "ageHours": 1271.6,
+            "domain": "guinnessworldrecords.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-08T04:01:10.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.62,
+              "freshness": 0.01,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "First city to host Summer and Winter Olympic Games",
+            "url": "https://www.guinnessworldrecords.com/world-records/694622-first-city-to-host-summer-and-winter-olympic-games"
+          },
+          {
+            "ageHours": 1358.4,
+            "domain": "olympics.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-08-04T13:14:21.000Z",
+            "relevance": 0.56,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.56,
+              "freshness": 0.01,
+              "relevance": 0.2,
+              "sourceQuality": 0.04
+            },
+            "title": "Aizanat MURTAZAEVA",
+            "url": "https://olympics.com/en/athletes/aizanat-murtazaeva"
+          },
+          {
+            "ageHours": null,
+            "domain": "harpers.org",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.37,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.37,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.03
+            },
+            "title": "The Olympic Games, by John Roberts Tunis",
+            "url": "https://harpers.org/archive/1928/08/the-olympic-games"
+          },
+          {
+            "ageHours": null,
+            "domain": "techspot.com",
+            "providers": [
+              "mwmbl"
+            ],
+            "publishedAt": null,
+            "relevance": 0.37,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.37,
+              "freshness": 0.02,
+              "relevance": 0.2,
+              "sourceQuality": 0.03
+            },
+            "title": "Olympic Games News and Articles | TechSpot",
+            "url": "https://www.techspot.com/tag/olympic+games"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 12,
+        "keptDomains": 12,
+        "newestSourceAgeHours": 1020.5,
+        "normalizedCount": 12,
+        "normalizedDated": 8,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "OpenAlex: circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "Common Crawl (open web index): circuit open (cooling down)",
+          "TheSportsDB has no current fixture for \"origin Olympic report\" right now — Omi w"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "wikidata",
+          "arxiv",
+          "openalex",
+          "openlibrary",
+          "hackernews",
+          "openverse",
+          "commoncrawl",
+          "github",
+          "openmeteo",
+          "market-rates",
+          "sports-scores",
+          "mwmbl",
+          "duckduckgo-instant",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.676,
+        "wrongYearKept": 0
+      },
+      "temporal": "none",
+      "totalMs": 2002,
+      "vertical": "sports"
+    }
+  ],
+  "total": 6
+}

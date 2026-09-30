@@ -1,0 +1,1054 @@
+{
+  "answerContract": {
+    "allSourcesDated": 7,
+    "citationsResolve": 7,
+    "duplicateUrlTotal": 0,
+    "offTopicKeptTotal": 0,
+    "withCitations": 7,
+    "wrongYearKeptTotal": 0,
+    "zeroKept": 0
+  },
+  "byCategory": {
+    "stale-prone": {
+      "fresh": 3,
+      "kept": 14,
+      "n": 3
+    },
+    "tech": {
+      "fresh": 4,
+      "kept": 16,
+      "n": 4
+    }
+  },
+  "byTemporal": {
+    "2026": {
+      "fresh": 1,
+      "kept": 4,
+      "n": 1
+    },
+    "current": {
+      "fresh": 3,
+      "kept": 9,
+      "n": 3
+    },
+    "latest": {
+      "fresh": 3,
+      "kept": 17,
+      "n": 3
+    }
+  },
+  "note": "Retrieval metrics are machine-checkable. answerCorrectness is NOT: proving an answer is TRUE needs a human reading it against the real world. This benchmark proves an answer is grounded, cited, dated and on-topic — never that it is correct.",
+  "offset": 0,
+  "ran": 7,
+  "rows": [
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 841,
+        "statesFreshness": false,
+        "text": "UltFone IOS Data Manager 9.6.3.2 Multilingual\n\nFile Size: 193 MB\n\nUltFone iOS Data Manager is a program that allows you to manage your iOS data from your desktop computer. [1]\n\niOS 27 turns your iPhone’s Lock Screen into an AI wallpaper studio\n\nApple’s yearly wallpaper refresh is no longer just a gallery of new backgrounds. [3]\n\nHere's how to make the latest version pay off. [2]\n\nThe latest version brings a bunch of new capabilities to iPhone, thanks to Apple Intelligence. [2]\n\nSources: [1] UltFone IOS Data Manager 9.6.3.2 Multilingual (consolebang.com)  [2] Siri has always been lame — until now. Here's how to make the latest version pay off. (theblaze.com)  [3] iOS 27 turns your iPhone’s Lock Screen into an AI wallpaper studio (macdailynews.com)  [4] GSB Aviator Zambia - How to Play & Maximize Your Rewards (aviatorbetgame.co.zm)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "latest iOS version",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 8
+        },
+        "finalSources": [
+          {
+            "ageHours": 68.7,
+            "domain": "consolebang.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T06:47:12.000Z",
+            "relevance": 0.96,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.05,
+              "final": 0.96,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "UltFone IOS Data Manager 9.6.3.2 Multilingual",
+            "url": "https://consolebang.com/threads/ultfone-ios-data-manager-9-6-3-2-multilingual.1204372"
+          },
+          {
+            "ageHours": 32.5,
+            "domain": "theblaze.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T19:00:00.000Z",
+            "relevance": 0.79,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.79,
+              "freshness": 0.17,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "Siri has always been lame — until now. Here's how to make the latest version pay off.",
+            "url": "https://www.theblaze.com/tech/ios27-new-siri"
+          },
+          {
+            "ageHours": 105.5,
+            "domain": "macdailynews.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T17:57:11.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.75,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "iOS 27 turns your iPhone’s Lock Screen into an AI wallpaper studio",
+            "url": "https://macdailynews.com/2026/09/25/ios-27-turns-your-iphones-lock-screen-into-an-ai-wallpaper-studio"
+          },
+          {
+            "ageHours": 99.5,
+            "domain": "aviatorbetgame.co.zm",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T00:00:00.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.13,
+              "relevance": 0.33,
+              "sourceQuality": 0.12
+            },
+            "title": "GSB Aviator Zambia - How to Play & Maximize Your Rewards",
+            "url": "https://aviatorbetgame.co.zm/gsb"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 32.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.808,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1220,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 821,
+        "statesFreshness": true,
+        "text": "Two new Linux kernels, version 7.2.8 and LTS 6.18.54, have been released, focusing on bug fixes and security updates. [1]\n\nBoth kernels continue the project's regular update cadence, with the LTS version supported until December 2028\n\nLinux Kernel 7.2.8 and 6.18.54 Released with Heavy SMB and AMD GPU Fixes\n\nTwo Linux kernels have been released today. [1]\n\nFinal Cut Camera version 2.3 is available for free starting today. [2]\n\nKernel 7.2.8 includes approximately 438 commits, while LTS 6.18.54 has around 397 commits, with significant improvements in SMB/CIFS networking, AMD GPU stability, and wireless functionality. [1]\n\nSources: [1] Linux Kernel 7.2.8 and 6.18.54 Released with Heavy SMB and AMD GPU Fixes (warp2search.net)  [2] Final Cut Camera Gets Major Update, Including Expanded ProRes Support (petapixel.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "current Node.js LTS version",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 1,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 107.8,
+            "domain": "warp2search.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T15:40:04.000Z",
+            "relevance": 0.88,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.88,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Linux Kernel 7.2.8 and 6.18.54 Released with Heavy SMB and AMD GPU Fixes",
+            "url": "https://www.warp2search.net/story/linux-kernel-728-and-61854-released-with-heavy-smb-and-amd-gpu-fixes"
+          },
+          {
+            "ageHours": 10,
+            "domain": "petapixel.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T17:30:14.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Final Cut Camera Gets Major Update, Including Expanded ProRes Support",
+            "url": "https://petapixel.com/2026/09/29/final-cut-camera-gets-major-update-including-expanded-prores-support"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 2,
+        "keptDomains": 2,
+        "newestSourceAgeHours": 10,
+        "normalizedCount": 5,
+        "normalizedDated": 3,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 5,
+        "relevanceAvg": 0.805,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1807,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 708,
+        "statesFreshness": false,
+        "text": "The newly released version 4.6.3 of Permanent Clipboard for Chrome offers an efficient solution for saving and organizing clipboard snippets. [1]\n\nChrome attachments\n\nposts are cast into the back of each chrome accent and they are either pushed into a barrel nut or have a PAL nut on the back. [3]\n\nFAQs\n\nHow do I fix ERR_QUIC_PROTOCOL_ERROR in Chrome? [2]\n\nList your Chrome version, operating system, VPN and extensions. [2]\n\nSources: [1] Permanent Clipboard for Chrome 4.6.3 released (warp2search.net)  [2] How To Fix err_quic_protocol_error In Chrome? (commandlinux.com)  [3] Chrome attachments (forabodiesonly.com)  [4] L'aggiornamento Chrome di oggi contiene 108 correzioni di sicurezza (telefonino.net)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "latest Chrome version number",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 6
+        },
+        "finalSources": [
+          {
+            "ageHours": 73.5,
+            "domain": "warp2search.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T02:00:07.000Z",
+            "relevance": 1,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.06,
+              "final": 1,
+              "freshness": 0.13,
+              "relevance": 0.5,
+              "sourceQuality": 0.12
+            },
+            "title": "Permanent Clipboard for Chrome 4.6.3 released",
+            "url": "https://www.warp2search.net/story/permanent-clipboard-for-chrome-463-released"
+          },
+          {
+            "ageHours": 104.4,
+            "domain": "commandlinux.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T19:02:10.000Z",
+            "relevance": 0.74,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.03,
+              "final": 0.74,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "How To Fix err_quic_protocol_error In Chrome?",
+            "url": "https://commandlinux.com/how-to/err_quic_protocol_error"
+          },
+          {
+            "ageHours": 22.5,
+            "domain": "forabodiesonly.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T04:56:44.000Z",
+            "relevance": 0.73,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.02,
+              "final": 0.73,
+              "freshness": 0.21,
+              "relevance": 0.13,
+              "sourceQuality": 0.1
+            },
+            "title": "Chrome attachments",
+            "url": "https://www.forabodiesonly.com/mopar/threads/chrome-attachments.605241"
+          },
+          {
+            "ageHours": 115.3,
+            "domain": "telefonino.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T08:08:51.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "L'aggiornamento Chrome di oggi contiene 108 correzioni di sicurezza",
+            "url": "https://www.telefonino.net/notizie/aggiornamento-chrome-di-oggi-contiene-108-correzioni-di-sicurezza"
+          },
+          {
+            "ageHours": 78.4,
+            "domain": "nj.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T21:05:34.000Z",
+            "relevance": 0.53,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.53,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Farm Aid 2026, how to watch for free",
+            "url": "https://www.nj.com/tv/2026/09/farm-aid-2026-how-to-watch-for-free.html"
+          },
+          {
+            "ageHours": 89.3,
+            "domain": "footyheadlines.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T10:11:00.000Z",
+            "relevance": 0.53,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.53,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Special Nike 2026 Spain World Cup Winners Boots Revealed",
+            "url": "https://www.footyheadlines.com/3301301031/special-nike-2026-spain-world-cup-winners-boots-revealed.html"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 22.5,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.698,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1970,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1096,
+        "statesFreshness": false,
+        "text": "The promo runs until September 30, 2026, and covers iPhone 12 up to iPhone 16 models. [3]\n\n6 Best Belkin iPhone 18 Pro Accessories You Can Buy in 2026\n\nBelkin sells different iPhone 18 Pro accessories on Amazon worth considering, including cases and screen protectors, all built around the brand’s Nano-Titan reinforcement and MagSafe/Qi2 compatibility. [4]\n\nThe iOS 27.0.1 update is anticipated to be released explicitly for users of the iPhone 18 Pro and iPhone 18 Pro Max, with a possible launch date of Monday, September 28, or Tuesday, September 29, 2026. [2]\n\nNotably, users of other iPhone models that were updated to iOS 27 are exempt from this particular Face ID inconvenience. [2]\n\nSources: [1] MobiKin Updates iOS Assistant for Faster Data Migration to iPhone 18 (send2press.com)  [2] iOS 27.0.1 Launch Date: Apple Update Addressing Face ID Freezing and Restart Problems on iPhone 18 Pro ("
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "tech",
+      "query": "iPhone 2026 model announcements",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "different year": 1,
+          "outside freshness window": 7
+        },
+        "finalSources": [
+          {
+            "ageHours": 16.1,
+            "domain": "send2press.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T11:25:09.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "MobiKin Updates iOS Assistant for Faster Data Migration to iPhone 18",
+            "url": "https://www.send2press.com/wire/mobikin-updates-ios-assistant-for-faster-data-migration-to-iphone-18"
+          },
+          {
+            "ageHours": 31.5,
+            "domain": "rswebsols.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-28T20:00:00.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.05,
+              "final": 0.87,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "iOS 27.0.1 Launch Date: Apple Update Addressing Face ID Freezing and Restart Problems on iPhone 18 Pro",
+            "url": "https://www.rswebsols.com/news/ios-27-0-1-launch-date-apple-update-addressing-face-id-freezing-and-restart-problems-on-iphone-18-pro"
+          },
+          {
+            "ageHours": 25.6,
+            "domain": "technobaboy.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:54:14.000Z",
+            "relevance": 0.86,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.86,
+              "freshness": 0.17,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Beyond the Box offers iPhone battery replacement discount for a limited time",
+            "url": "https://www.technobaboy.com/2026/09/29/beyond-the-box-offers-iphone-battery-replacement-discount-for-a-limited-time"
+          },
+          {
+            "ageHours": 57.8,
+            "domain": "ithinkdiff.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T17:43:02.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.75,
+              "freshness": 0.17,
+              "relevance": 0.2,
+              "sourceQuality": 0.12
+            },
+            "title": "6 Best Belkin iPhone 18 Pro Accessories You Can Buy in 2026",
+            "url": "https://www.ithinkdiff.com/6-best-belkin-iphone-18-pro-accessories-you-can-buy-in-2026"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 4,
+        "keptDomains": 4,
+        "newestSourceAgeHours": 16.1,
+        "normalizedCount": 12,
+        "normalizedDated": 12,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.85,
+        "wrongYearKept": 0
+      },
+      "temporal": "2026",
+      "totalMs": 1062,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 546,
+        "statesFreshness": false,
+        "text": "He was part of the Indian squads that won the 2023 Asia Cup and the 2026 ICC T20 World Cup. [1]\n\nAccolades\n\nAmong Kishan’s notable achievements is holding the record for the fastest ODI double century, scored against Bangladesh in 2022, while also becoming the youngest player to reach that milestone and the first to convert a maiden ODI hundred into a double century. [1]\n\nEmail your news TIPS to Editor@Kahawatungu.com — this is our only official communication channel [1]\n\nSources: [1] Ishan Kishan Siblings: Meet Raj Kishan (kahawatungu.com)"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "current ICC T20 rankings",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 5,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 12.9,
+            "domain": "kahawatungu.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T14:36:25.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.21,
+              "relevance": 0.3,
+              "sourceQuality": 0.12
+            },
+            "title": "Ishan Kishan Siblings: Meet Raj Kishan",
+            "url": "https://kahawatungu.com/ishan-kishan-siblings-meet-raj-kishan"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 1,
+        "keptDomains": 1,
+        "newestSourceAgeHours": 12.9,
+        "normalizedCount": 8,
+        "normalizedDated": 6,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 8,
+        "relevanceAvg": 0.78,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1048,
+      "vertical": "general"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1820,
+        "statesFreshness": true,
+        "text": "Asian Games 2026 India Schedule Today, September 30: Jyothi Vennam, Lovlina Borgohain In Medal Hunt; Hockey Team In Semifinal | Medal Events, Live Streaming Details, IST Timings\n\nIndia heads into September 30 with another busy day of medal opportunities at the Asian Games 2026 in Aichi-Nagoya. [1]\n\nAsian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Channel\n\nAsian Games 2026 India Schedule September 29 LIVE: India will look to add to its medal tally with a packed programme featuring several finals and crucial knockout contests. [2]\n\nAsian Games 2026 India Schedule: Check September 26 Matches and 13 Medal Events\n\nAsian Games 2026: Check India’s complete schedule for September 26, 2026, including match timings, participating athletes and all 13 medal event details. [5]\n\nHyderabad, India — [Date] — Reefer Express, a cold chain logistic"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "latest vaccinations schedule India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 2.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:37:42.000Z",
+            "relevance": 0.98,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.98,
+              "freshness": 0.23,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule Today, September 30: Jyothi Vennam, Lovlina Borgohain In Medal Hunt; Hockey Te",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-today-september-30-jyothi-vennam-lovlina-borgohain-in-medal-hunt-hockey-team-in-semifinal-medal-events-live-streaming-details-ist-timings-295504"
+          },
+          {
+            "ageHours": 25.9,
+            "domain": "sundayguardianlive.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T01:33:25.000Z",
+            "relevance": 0.92,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.08,
+              "directness": 0.05,
+              "final": 0.92,
+              "freshness": 0.17,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Ch",
+            "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-29-live-streaming-check-todays-events-timings-fixtures-and-tv-channel-294887"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "kashitaxi.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.76,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.76,
+              "freshness": 0.23,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Dev Deepawali 2026 — November 5, 2026 | Kashi Dev Diwali Guide",
+            "url": "https://www.kashitaxi.in/en/dev-deepawali-2026-varanasi-ultimate-guide"
+          },
+          {
+            "ageHours": 67.9,
+            "domain": "news.prfree.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T07:34:05.000Z",
+            "relevance": 0.75,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.75,
+              "freshness": 0.17,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Reefer Express Expands Pharmaceutical Cold Chain Logistics in India to Meet Rising Demand for Temperature-Cont",
+            "url": "https://news.prfree.org/@reefers123/reefer-express-expands-pharmaceutical-cold-chain-logistics-in-india-to-meet-rising-demand-for-temperature-controlled-shipping-v2bdrnhicbds"
+          },
+          {
+            "ageHours": 109.9,
+            "domain": "jagranjosh.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T13:32:57.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Asian Games 2026 India Schedule: Check September 26 Matches and 13 Medal Events",
+            "url": "https://www.jagranjosh.com/general-knowledge/asian-games-2026-india-schedule-check-september-26-matches-and-13-medal-events-1820012523-1"
+          },
+          {
+            "ageHours": 3.5,
+            "domain": "ijoear.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-30T00:00:00.000Z",
+            "relevance": 0.62,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.02,
+              "final": 0.62,
+              "freshness": 0.23,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Trends and Challenges of Agriculture Marketing in India | Agriculture Journal IJOEAR",
+            "url": "https://ijoear.com/article-details/trends-and-challenges-of-agriculture-marketing-in-india"
+          },
+          {
+            "ageHours": 75.5,
+            "domain": "kashitaxi.in",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-27T00:00:00.000Z",
+            "relevance": 0.53,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.53,
+              "freshness": 0.13,
+              "relevance": 0.13,
+              "sourceQuality": 0.12
+            },
+            "title": "Ramlila Dussehra Varanasi 2026 - Book Airport Taxi Guide",
+            "url": "https://www.kashitaxi.in/en/ultimate-guide-ramlila-dussehra-varanasi-2025"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 7,
+        "keptDomains": 7,
+        "newestSourceAgeHours": 2.9,
+        "normalizedCount": 9,
+        "normalizedDated": 9,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "hackernews",
+          "langsearch"
+        ],
+        "rawCount": 9,
+        "relevanceAvg": 0.746,
+        "wrongYearKept": 0
+      },
+      "temporal": "latest",
+      "totalMs": 1200,
+      "vertical": "news"
+    },
+    {
+      "answer": {
+        "allSourcesDated": true,
+        "citationMarkers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "citationsResolve": true,
+        "duplicateUrls": 0,
+        "isRefusal": false,
+        "length": 1218,
+        "statesFreshness": true,
+        "text": "Honda CB350: Price and variants explained\n\nThe CB350 is Honda’s retro contender in India, first launched in 2020. [3]\n\nIn session: Digisafe India’s class on cybersecurity\n\nToday, the time is referred to as pre-Covid times, the Covid years, and everything that came after. [4]\n\nOppo K14 Plus Design and Storage Variants Revealed Ahead of India Launch\n\nAhead of its September 29 launch in India, Oppo has rolled out a dedicated webpage for the K14 Plus, providing the clearest look yet at the smartphone’s design and configuration options. [2]\n\nOPPO Launches K14 Plus in India: Price, Features and Specifications\n\nIn Short\n\nAvailable on Flipkart Unique from 8th October 2026, 12AM, during the Flipkart Big Billion-Day sale with INR 4,000 instant bank discount on the sale day along with a 6-month No Cost EMI option\n\nOPPO India today announced the launch of the OPPO K14 Plus. [1]\n\nSources: [1] OPPO La"
+      },
+      "answerCorrectness": "NOT-MACHINE-VERIFIABLE",
+      "category": "stale-prone",
+      "query": "current COVID variant in India",
+      "requiresFreshness": true,
+      "retrieval": {
+        "dropReasons": {
+          "outside freshness window": 4,
+          "undated": 2
+        },
+        "finalSources": [
+          {
+            "ageHours": 17.4,
+            "domain": "thehansindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T10:05:24.000Z",
+            "relevance": 0.87,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.04,
+              "final": 0.87,
+              "freshness": 0.21,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "OPPO Launches K14 Plus in India: Price, Features and Specifications",
+            "url": "https://www.thehansindia.com/tech/oppo-launches-k14-plus-in-india-price-features-and-specifications-1126947"
+          },
+          {
+            "ageHours": 86.8,
+            "domain": "nokiamob.net",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T12:42:17.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Oppo K14 Plus Design and Storage Variants Revealed Ahead of India Launch",
+            "url": "https://nokiamob.net/2026/09/26/oppo-k14-plus-design-and-storage-variants-revealed-ahead-of-india-launch"
+          },
+          {
+            "ageHours": 118,
+            "domain": "autocarindia.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T05:30:07.000Z",
+            "relevance": 0.82,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0.16,
+              "directness": 0.03,
+              "final": 0.82,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Honda CB350: Price and variants explained",
+            "url": "https://www.autocarindia.com/auto-features/honda-cb350-price-and-variants-explained-441107"
+          },
+          {
+            "ageHours": 107.9,
+            "domain": "newindianexpress.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-25T15:37:54.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.13,
+              "relevance": 0.38,
+              "sourceQuality": 0.12
+            },
+            "title": "In session: Digisafe India’s class on cybersecurity",
+            "url": "https://www.newindianexpress.com/cities/chennai/2026/Sep/26/in-session-digisafe-indias-class-on-cybersecurity"
+          },
+          {
+            "ageHours": 18.8,
+            "domain": "news.prfree.org",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-29T08:38:19.000Z",
+            "relevance": 0.78,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.17,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.78,
+              "freshness": 0.21,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Jawa Yezdi Motorcycles Shares Latest Bobber Bike Price in India",
+            "url": "https://news.prfree.org/@gajodharrizzu/jawa-yezdi-motorcycles-shares-latest-bobber-bike-price-in-india-svt3dkurfz6j"
+          },
+          {
+            "ageHours": 90,
+            "domain": "ruralneuropractice.com",
+            "providers": [
+              "langsearch"
+            ],
+            "publishedAt": "2026-09-26T09:26:42.000Z",
+            "relevance": 0.66,
+            "scores": {
+              "answerability": 1,
+              "authority": 0.12,
+              "corroboration": 0,
+              "directness": 0.03,
+              "final": 0.66,
+              "freshness": 0.13,
+              "relevance": 0.25,
+              "sourceQuality": 0.12
+            },
+            "title": "Distribution of genetic variants and cognitive profile in cases with Becker muscular dystrophy",
+            "url": "https://ruralneuropractice.com/distribution-of-genetic-variants-and-cognitive-profile-in-cases-with-becker-muscular-dystrophy"
+          }
+        ],
+        "freshnessMet": true,
+        "freshnessStatement": null,
+        "keptCount": 6,
+        "keptDomains": 6,
+        "newestSourceAgeHours": 17.4,
+        "normalizedCount": 12,
+        "normalizedDated": 10,
+        "offTopicKept": 0,
+        "providersFailed": [
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)",
+          "SearXNG: circuit open (cooling down)"
+        ],
+        "providersSearched": [
+          "searxng",
+          "wikipedia-current-events",
+          "wikipedia",
+          "langsearch"
+        ],
+        "rawCount": 12,
+        "relevanceAvg": 0.788,
+        "wrongYearKept": 0
+      },
+      "temporal": "current",
+      "totalMs": 1009,
+      "vertical": "general"
+    }
+  ],
+  "total": 7
+}
