@@ -1,0 +1,51 @@
+{
+  "row": {
+    "answer": "The Spaniard recently turned 45 years old and has been a vocal critic of F1's new regulations, and on top of that, Aston Martin have had a woeful season to date, currently sitting 10th in the constructors' standings with just three points on the board - all of them scored by Alonso. [1]\n\nThis phrase isn't often applied to Formula 1 racing in 2026, or even in the current era. [2]\n\nFernando Alonso confirms F1 future as Aston Martin make major announcement\n\nThe Spaniard is not going anywhere\n\nTwo-time F1 world champion Fernando Alonso has confirmed he will stay in F1 beyond 2026, signing a new contract at Aston Martin. [1]\n\nHowever, Azerbaijan is a track that loves to throw a wrench in things. [2]\n\nSources: [1] Fernando Alonso confirms F1 future as Aston Martin make major announcement (gpfans.com)  [2] F1 Standings and Results After the 2026 Azerbaijan Grand Prix (si.com)",
+    "conflictResolution": null,
+    "detail": "2 fresh result(s) from 2 source(s) in 9406ms",
+    "droppedFresh": [
+      {
+        "reason": "wrong competition (question asked \"formula 1\")",
+        "title": "F1H2O UIM World Championship"
+      }
+    ],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshSplitCounts": {
+      "fresh": 3,
+      "stale": 2,
+      "undated": 0
+    },
+    "freshness": "Based on 2 reports published in the last 5 days (newest: 13 hours ago).",
+    "intent": "current",
+    "query": "current F1 standings",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 9406,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T11:34:09.000Z",
+        "title": "Fernando Alonso confirms F1 future as Aston Martin make major announcement",
+        "url": "https://www.gpfans.com/en/f1-news/1090859/fernando-alonso-confirms-f1-future-aston-martin-major-announcement-lance-stroll-2027"
+      },
+      {
+        "publishedAt": "2026-09-26T13:06:06.000Z",
+        "title": "F1 Standings and Results After the 2026 Azerbaijan Grand Prix",
+        "url": "https://www.si.com/onsi/f1/news/f1-standings-and-results-after-the-2026-azerbaijan-grand-prix"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

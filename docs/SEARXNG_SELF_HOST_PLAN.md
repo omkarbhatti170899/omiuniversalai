@@ -1,7 +1,11 @@
 # Self-Hosted SearXNG — Plan
 
-**Status:** PLAN (not implemented — needs a host the owner controls)
-**Why now:** the current instance is the single biggest reliability risk in Omi's search path, and it is third-party.
+**Status:** PLAN, MOVED BEHIND THE FREE-TIER POLICY (owner decision 2026-09-30:
+Omi search stays at ₹0/month — see §3). Self-hosting happens ONLY on a free or
+owner-owned machine; until then SearXNG is OPPORTUNISTIC: used when a healthy
+free instance exists, skipped without penalty when it does not.
+**Why this plan exists:** the general-web breadth layer must not depend on a
+third-party community instance.
 
 ---
 
@@ -212,11 +216,17 @@ Readiness is **measured**, never inferred: `isConfigured()` treats a configured 
 
 ## 3. Where to host it
 
+> **POLICY (owner decision, 2026-09-30): the entire search infrastructure stays
+> at ₹0/month. No Fly.io deployment, no paid VPS, no paid proxy, no paid search
+> API. Nothing that can generate a bill gets provisioned without the owner's
+> explicit approval. Self-hosting remains POSSIBLE only as a free-tier or
+> owner-owned machine; until then SearXNG is used opportunistically — see §0.**
+
 | Option | Cost | Notes |
 |---|---|---|
-| A small VPS (Hetzner, DigitalOcean, Fly.io) | ~€4/mo | **Recommended.** Predictable, no cold starts. |
-| Fly.io / Railway | free–$5/mo | Easy; watch the free-tier sleep behaviour, which would reintroduce latency |
-| A home machine / NAS | free | Fine for development; not for production uptime |
+| **Free public instances (current mode)** | **₹0** | Use opportunistically; never a hard dependency (see §0) |
+| A home machine / NAS (owner-owned) | ₹0 | Fine for development; acceptable for production if uptime is real |
+| ~~Fly.io / any paid VPS~~ | ~~€4/mo~~ | **REMOVED from the roadmap by owner decision** — do not provision without explicit approval |
 | Cloudflare Workers | not suitable | SearXNG is a Python app, not edge-compatible |
 
 Anything with a public HTTPS endpoint and a stable IP will do. **Avoid serverless platforms that suspend instances** — a cold start is exactly the 12 s timeout we are trying to eliminate.

@@ -1,5 +1,54 @@
 # Andromeda Stabilize-and-Prove Run — 2026-09-28
 
+## Addendum 9 — ₹0 SEARCH POLICY: FLY PLAN REMOVED, SEARXNG OPPORTUNISTIC, FREE STACK VERIFIED (owner decision, 2026-09-30)
+
+Owner decision: **the entire search infrastructure stays at ₹0/month.** No Fly.io,
+no paid VPS, no paid proxy, no paid search API, no billable resource of any kind
+without explicit approval.
+
+### Actions
+
+1. **Fly.io deployment plan REMOVED** — `deploy/searxng/fly.toml` and
+   `Dockerfile.fly` deleted; `SEARXNG_SELF_HOST_PLAN.md` §3 marks paid hosting
+   as removed-by-policy (self-host only via a free/owner-owned machine).
+2. **No code changes to the architecture** — it was already provider-agnostic;
+   this round only pinned the policy.
+3. **Policy pinned in code** — `tests/omiZeroCostSearchPolicy.test.ts` (7 pins):
+   no paid deployment path in the repo, SearXNG opportunistic-only (never
+   load-bearing), fan-out continues without it, honest reporting, refusal when
+   nothing verifiable exists.
+4. **SearXNG selection remains honest** — configured base is used FIRST when it
+   answers, health-memorized + demoted when slow/dead, and its absence never
+   blocks the turn (allSettled isolation + free fallback chain: Wikipedia,
+   Wikipedia Current Events, arXiv, OpenAlex, Open Library, Hacker News,
+   Mwmbl, GitHub, LangSearch (free, feature-gated), structured feeds).
+
+### Live proof the free stack carries search (this round)
+
+| Query | Status | Latency | SearXNG | Carried by |
+|---|---|---|---|---|
+| latest IPL news | pass | 5.8 s | timed out | Wikipedia CE + LangSearch |
+| current F1 standings | pass | 9.4 s | up | SearXNG + LangSearch |
+| latest world news | pass | 2.4 s | up | SearXNG + Wikipedia CE |
+
+Plus the full round-9 matrix: 8/8 pass, mean 5.9 s, zero fabrications, and the
+failure-isolation suite (one/several/all engines down) 6/6.
+
+### Gates
+
+1,425 tests / 0 fail (+7 policy pins) · tsc 0 · eslint 0 · deployed 00:30 UTC.
+
+### SEARXNG FINAL STATUS: FROZEN AS OPPORTUNISTIC-FREE
+
+- IN PRODUCTION: used when a healthy free instance answers (verified live).
+- NOT a dependency: its absence degrades breadth, never availability.
+- Self-host plan: PARKED behind the ₹0 policy — only a free/owner-owned host
+  may revive it; nothing billable may be provisioned without owner approval.
+- Search layer: **FROZEN** — no more provider/ranking changes unless a genuine
+  production bug appears. Next phase: Omi intelligence work.
+
+---
+
 ## Addendum 8 — GLOBAL DEADLINE + FAST-FAIL + EXPLICIT CONFIG + PERSISTED ENGINE HEALTH (a1a7da8 review, 2026-09-29)
 
 Owner status: SearXNG returning production results (F1 2.3 s, 7 fresh, no failed

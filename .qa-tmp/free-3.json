@@ -1,0 +1,48 @@
+{
+  "row": {
+    "answer": "Latest world news September 25th: Two debris in the hold reveal the mystery of the last moment of MH370; World gold prices are on the path to recovery [1]\n\nGet the latest World News, breaking headlines and global updates from the US, UK, Pakistan, Bangladesh, Russia and other countries. [2]\n\nSources: [1] World 24h: Two strong storms operating together, threatening to cause... (news.laodong.vn)  [2] Italy's women senators pose in short skirts amid row over deputy... (hindustantimes.com)",
+    "conflictResolution": null,
+    "detail": "2 fresh result(s) from 3 source(s) in 2380ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 2,
+    "freshSplitCounts": {
+      "fresh": 2,
+      "stale": 3,
+      "undated": 0
+    },
+    "freshness": "Based on 2 reports published in the last 5 days (newest: yesterday).",
+    "intent": "news",
+    "query": "latest world news",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2380,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T12:12:26.000Z",
+        "title": "World 24h: Two strong storms operating together, threatening to cause...",
+        "url": "https://news.laodong.vn/podcast-tin-tuc/the-gioi-24h-hai-con-bao-manh-cung-hoat-dong-de-doa-gay-mua-lu-gio-manh-1774151.ldo"
+      },
+      {
+        "publishedAt": "2026-09-25T17:16:16.000Z",
+        "title": "Italy's women senators pose in short skirts amid row over deputy...",
+        "url": "https://www.hindustantimes.com/world-news/less-pretty-woman-longer-skirt-italian-minister-antonio-tajani-faces-backlash-over-sexist-remarks-101790331489202.html"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}
