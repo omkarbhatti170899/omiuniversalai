@@ -1,0 +1,62 @@
+{
+  "row": {
+    "answer": "One-off tournaments are a growing trend in the global cricket schedule. [3]\n\n\"Cricket, like baseball, you can't play it in the rain,\" said Jarrad Shearer, who is in charge of the cricket tournament. [6]\n\nHe currently focuses on international cricket, the Indian Premier League, global tournaments, and emerging trends shaping modern sport, blending advanced statistics with strong narrative context to explain performance, strategy, and decision-making. [4]\n\nThankfully, there is better weather on the horizon for the semi-finals and the final, so hopefully the cricket can finally take centre stage. [7]\n\nSources: [1] India men's cricket team takes bullet train to Nagoya, arrives in style for Asian Games (indiatoday.in)  [2] Women cricket’s moment under the Indian political sun (thehindu.com)  [3] One-Off Tournaments Standings: How They Work (sportsbyte.co.uk)  [4] PCB's outspoken critic Shoaib Akhtar now in line for major role after talks with Mohsin Naqvi: Report (hindustantimes.com)",
+    "conflictResolution": null,
+    "detail": "10 fresh result(s) from 1 source(s) in 6374ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded"
+    ],
+    "freshResults": 10,
+    "freshSplitCounts": {
+      "fresh": 10,
+      "stale": 2,
+      "undated": 0
+    },
+    "freshness": "Based on 10 reports published in the last 5 days (newest: 10 hours ago).",
+    "intent": "current",
+    "query": "current cricket tournament standings",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 6374,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-26T14:42:32.000Z",
+        "title": "India men's cricket team takes bullet train to Nagoya, arrives in style for Asian Games",
+        "url": "https://www.indiatoday.in/sports/asian-games/story/asian-games-india-mens-cricket-team-bullet-train-nagoya-quarter-final-3003728-2026-09-26"
+      },
+      {
+        "publishedAt": "2026-09-26T10:06:18.000Z",
+        "title": "Women cricket’s moment under the Indian political sun",
+        "url": "https://www.thehindu.com/sport/cricket/women-crickets-moment-under-the-indian-political-sun/article71502656.ece"
+      },
+      {
+        "publishedAt": "2026-09-29T14:11:12.000Z",
+        "title": "One-Off Tournaments Standings: How They Work",
+        "url": "https://sportsbyte.co.uk/one-off-tournaments-standings"
+      },
+      {
+        "publishedAt": "2026-09-29T14:39:22.000Z",
+        "title": "PCB's outspoken critic Shoaib Akhtar now in line for major role after talks with Mohsin Naqvi: Report",
+        "url": "https://www.hindustantimes.com/cricket/pcbs-outspoken-critic-shoaib-akhtar-now-in-line-for-major-role-after-talks-with-mohsin-naqvi-report-101790691989926.html"
+      },
+      {
+        "publishedAt": "2026-09-29T03:47:06.000Z",
+        "title": "Cricket commentary | INDA vs AUSA, 2nd unofficial Test, Australia...",
+        "url": "https://www.cricbuzz.com/live-cricket-scores/155422/ausa-vs-inda-2nd-unofficial-test-australia-a-tour-of-india-2026"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

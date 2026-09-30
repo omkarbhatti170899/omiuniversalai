@@ -1,0 +1,43 @@
+{
+  "row": {
+    "answer": "Women's cricket will debut at next year's Commonwealth Games with a re-match of the 2020 T20 World Cup final.The other six teams were chosen based on their place in the ICC T20 rankings as of April 1 last year. [1]\n\nSources: [1] Australia vs India to kick off Commonwealth Games Women's T20 (cricinfo.com)",
+    "conflictResolution": null,
+    "detail": "1 fresh result(s) from 3 source(s) in 2101ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 1,
+    "freshSplitCounts": {
+      "fresh": 1,
+      "stale": 2,
+      "undated": 2
+    },
+    "freshness": "Based on 1 report published in the last 5 days (newest: yesterday).",
+    "intent": "current",
+    "query": "current ICC T20 rankings",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2101,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T01:18:14.000Z",
+        "title": "Australia vs India to kick off Commonwealth Games Women's T20",
+        "url": "https://www.cricinfo.com/print/story/1289027"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "general"
+  }
+}

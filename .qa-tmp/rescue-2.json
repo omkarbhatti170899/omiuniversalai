@@ -1,0 +1,37 @@
+{
+  "row": {
+    "answer": "Live search is currently unavailable, so I can't reliably verify the latest information about \"current Node.js LTS version\". I'm not going to answer this from memory, because my training data is not a live general feed and could be months out of date. Press Retry Search to try again, or switch a search provider in Settings.",
+    "conflictResolution": null,
+    "detail": "Search ran (3 raw result(s)) but none survived the freshness window AND the relevance/quality floor. Omi would refuse rather than answer with stale or unrelated material.",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "wikipedia",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "Wikipedia",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 0,
+    "freshSplitCounts": {
+      "fresh": 0,
+      "stale": 1,
+      "undated": 2
+    },
+    "freshness": null,
+    "intent": "current",
+    "query": "current Node.js LTS version",
+    "requiresFreshness": true,
+    "resultsFound": 3,
+    "searchMs": 3210,
+    "searchTriggered": true,
+    "sources": [],
+    "status": "fail",
+    "timeRange": "week",
+    "userMessage": "Live search is currently unavailable, so I can't reliably verify the latest information about \"current Node.js LTS version\". I'm not going to answer this from memory, because my training data is not a live general feed and could be months out of date. Press Retry Search to try again, or switch a search provider in Settings.",
+    "vertical": "general"
+  }
+}

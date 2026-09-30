@@ -1,0 +1,42 @@
+{
+  "row": {
+    "answer": "Is the Aktuelle Nachrichten aus Deutschland RSS feed working? [1]\n\nSources: [1] Aktuelle Nachrichten aus Deutschland... | Feeder – RSS Feed Reader (feeder.co)",
+    "conflictResolution": null,
+    "detail": "1 fresh result(s) from 2 source(s) in 2169ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 1,
+    "freshSplitCounts": {
+      "fresh": 1,
+      "stale": 0,
+      "undated": 4
+    },
+    "freshness": "Based on 1 report published in the last 5 days (newest: yesterday).",
+    "intent": "knowledge",
+    "query": "aktuelle Nachrichten Deutschland",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2169,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T12:31:42.000Z",
+        "title": "Aktuelle Nachrichten aus Deutschland... | Feeder – RSS Feed Reader",
+        "url": "https://feeder.co/discover/71e6a59d74/tagesschau-de-inland"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "news"
+  }
+}

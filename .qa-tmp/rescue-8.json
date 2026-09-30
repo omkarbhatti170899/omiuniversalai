@@ -1,0 +1,63 @@
+[CONVEX ?(currentInfoProbe:runOne)] [WARN] 1 unawaited operation: [fetch]. Async operations should be awaited or they might not run. See https://docs.convex.dev/functions/actions#dangling-promises for more information.
+{
+  "row": {
+    "answer": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Channel\n\nAsian Games 2026 India Schedule September 29 LIVE: India will look to add to its medal tally with a packed programme featuring several finals and crucial knockout contests. [5]\n\nHow many medals did India win on Day 8 (September 27) of Asian Games 2026? [2]\n\nAsian Games 2026: Athletics gold streak survives as India's medal mix changes\n\nIndia's athletics gold streak survived at the Asian Games, but the 2026 campaign was a marked shift from Hangzhou. [3]\n\nAsian Games 2026: Pooja Clinches High Jump Bronze, Sarvesh Kushare Wins Silver For India\n\nIndia’s Pooja won the bronze medal in the women’s high jump at the Asian Games 2026 in Aichi-Nagoya, clearing 1.84m. [4]\n\nSources: [1] Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37 (freepressjournal.in)  [2] Asian Games 2026: India's medal tally after Day 8, 27th September (khelnow.com)  [3] Asian Games 2026: Athletics gold streak survives as India's medal mix changes (indiatoday.in)  [4] Asian Games 2026: Pooja Clinches High Jump Bronze, Sarvesh Kushare Wins Silver For India (freepressjournal.in)\n\nCONFLICT RESOLUTION — one figure per conflicting metric, each with its source. Set-aside values are NOT answers; do not list them as alternatives.\n\nMEDALS: report 24 as the current figure, cited to indiatoday.in (about an hour ago) — set aside: 4 (freepressjournal.in) — older than the selected reading and not authoritative; 38 (freepressjournal.in) — older than the selected reading and not authoritative; 205 (freepressjournal.in) — older than the selected reading and not authoritative; 157 (freepressjournal.in) — older than the selected reading and not authoritative; 37 (khelnow.com) — older than the selected reading and not authoritative; 26 (indiatoday.in) — older than the selected reading and not authoritative. State this figure with its citation and the \"set aside\" note; do not present the set-aside numbers as equally valid.",
+    "conflictResolution": "CONFLICT RESOLUTION — one figure per conflicting metric, each with its source. Set-aside values are NOT answers; do not list them as alternatives.\n\nMEDALS: report 24 as the current figure, cited to indiatoday.in (about an hour ago) — set aside: 4 (freepressjournal.in) — older than the selected reading and not authoritative; 38 (freepressjournal.in) — older than the selected reading and not authoritative; 205 (freepressjournal.in) — older than the selected reading and not authoritative; 157 (freepressjournal.in) — older than the selected reading and not authoritative; 37 (khelnow.com) — older than the selected reading and not authoritative; 26 (indiatoday.in) — older than the selected reading and not authoritative. State this figure with its citation and the \"set aside\" note; do not present the set-aside numbers as equally valid.",
+    "detail": "10 fresh result(s) from 1 source(s) in 7268ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded"
+    ],
+    "freshResults": 10,
+    "freshSplitCounts": {
+      "fresh": 10,
+      "stale": 2,
+      "undated": 0
+    },
+    "freshness": "Based on 10 reports published in the last 5 days (newest: just now).",
+    "intent": "knowledge",
+    "query": "Asian Games 2026 India medal tally",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 7268,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-27T15:21:40.000Z",
+        "title": "Asian Games 2026 Medals Tally: India Slip To 12th Despite 4 Silver Medals, Total Tally Rises To 37",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-medals-tally-india-slip-to-12th-despite-4-silver-medals-total-tally-rises-to-37"
+      },
+      {
+        "publishedAt": "2026-09-28T00:09:28.000Z",
+        "title": "Asian Games 2026: India's medal tally after Day 8, 27th September",
+        "url": "https://khelnow.com/asian-games/india-medal-tally-day-8-asian-games-202609"
+      },
+      {
+        "publishedAt": "2026-09-30T00:31:35.000Z",
+        "title": "Asian Games 2026: Athletics gold streak survives as India's medal mix changes",
+        "url": "https://www.indiatoday.in/sports/asian-games/story/asian-games-2026-india-athletics-wrap-vithya-ramraj-gulveer-singh-medals-3006156-2026-09-30"
+      },
+      {
+        "publishedAt": "2026-09-29T13:37:46.000Z",
+        "title": "Asian Games 2026: Pooja Clinches High Jump Bronze, Sarvesh Kushare Wins Silver For India",
+        "url": "https://www.freepressjournal.in/sports/asian-games-2026-pooja-clinches-high-jump-bronze-sarvesh-kushare-wins-silver-for-india"
+      },
+      {
+        "publishedAt": "2026-09-29T01:33:25.000Z",
+        "title": "Asian Games 2026 India Schedule September 29 LIVE Streaming: Check Today’s Events, Timings, Fixtures And TV Channel",
+        "url": "https://sundayguardianlive.com/sports/asian-games-2026-india-schedule-september-29-live-streaming-check-todays-events-timings-fixtures-and-tv-channel-294887"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "sports"
+  }
+}

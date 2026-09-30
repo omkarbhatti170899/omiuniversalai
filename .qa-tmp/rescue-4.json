@@ -1,0 +1,61 @@
+{
+  "row": {
+    "answer": "Aston Martin confirms Fernando Alonso and Lance Stroll for 2027, leaving only four F1 seats open for next season.Haas is expected to keep Ollie Bearman and consider Rafael Camara, the current Formula 2 championship leader. [4]\n\nAs the current championship leader with an 81-point advantage over teammate George Russell, Antonelli's ability to recover from the midfield will be a critical test of his resilience. [1]\n\nFerrari junior and FIA Formula 2 Championship leader Rafael Camara is favourite to get the nod, having had competition from McLaren reserve driver Leo Fornaroli and Haas reserves Jack Doohan and Ryo Hirakawa. [5]\n\nFerrari had hoped the new ­regulations this season would ­present a chance to once more compete for the title but while they are second in the constructors’ championship they are 160 points off the leaders, Mercedes. [7]\n\nSources: [1] F1 COSMOS | Kimi Antonelli to Start 16th in Baku After Q1 Crash (f1cosmos.com)  [2] Kimi Antonelli hits wall as George Russell takes... | The Guardian (theguardian.com)  [3] F1 Standings and Results After the 2026 Azerbaijan Grand Prix (si.com)  [4] Aston Martin confirms Alonso and Stroll for 2027, narrowing driver market (f1ingenerale.com)",
+    "conflictResolution": null,
+    "detail": "11 fresh result(s) from 2 source(s) in 1129ms (after a freshness escalation pass)",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 11,
+    "freshSplitCounts": {
+      "fresh": 11,
+      "stale": 2,
+      "undated": 0
+    },
+    "freshness": "Based on 11 reports published in the last 5 days (newest: 9 hours ago).",
+    "intent": "current",
+    "query": "current F1 championship leader",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 1129,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-25T13:49:42.000Z",
+        "title": "F1 COSMOS | Kimi Antonelli to Start 16th in Baku After Q1 Crash",
+        "url": "https://f1cosmos.com/dashboard/news/kimi-antonelli-to-start-16th-in-baku-after-q1-crash-269252198"
+      },
+      {
+        "publishedAt": "2026-09-25T13:54:31.000Z",
+        "title": "Kimi Antonelli hits wall as George Russell takes... | The Guardian",
+        "url": "https://www.theguardian.com/sport/2026/sep/25/kimi-antonelli-hits-wall-as-george-russell-takes-f1-azerbaijan-gp-pole"
+      },
+      {
+        "publishedAt": "2026-09-26T13:06:06.000Z",
+        "title": "F1 Standings and Results After the 2026 Azerbaijan Grand Prix",
+        "url": "https://www.si.com/onsi/f1/news/f1-standings-and-results-after-the-2026-azerbaijan-grand-prix"
+      },
+      {
+        "publishedAt": "2026-09-29T12:35:23.000Z",
+        "title": "Aston Martin confirms Alonso and Stroll for 2027, narrowing driver market",
+        "url": "https://f1ingenerale.com/en/f1/aston-martin-confirms-alonso-and-stroll-for-2027-narrowing-driver-market"
+      },
+      {
+        "publishedAt": "2026-09-29T13:45:01.000Z",
+        "title": "ANALYSIS: Why Alonso has re-signed with Aston Martin",
+        "url": "https://www.formula1.com/en/latest/article/analysis-why-alonso-is-staying-at-aston-martin-and-what-it-means-for-the-2027-grid.2b7yrPKHBN8kcLMJy5PbFa"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}

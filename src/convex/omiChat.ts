@@ -54,6 +54,7 @@ import {
   isAuthoritativeFor,
 } from "./searchEngine/authority";
 import { planRetrieval } from "./searchEngine/rewrite";
+import { providerLocaleFor } from "./searchEngine/language";
 import { strictVerticalFallbackFor } from "./searchEngine/resilience";
 import type { WebCitation } from "./searchProviders/types";
 
@@ -795,6 +796,11 @@ async function runTurn(
           retrievalVariants: retrievalPlan.variants,
           variantTargets: retrievalPlan.variantTargets,
           freshnessTier: policy.freshnessTier,
+          // PHASE 3 (universal knowledge layer, minimal step): detect the
+          // query's language and pass a provider locale through — SearXNG
+          // weights results by it. English/unsure → undefined (default
+          // behaviour, byte-for-byte). Fail-safe by construction.
+          language: providerLocaleFor(trimmed),
           // The USER's words, not the rewritten query: question-type
           // answerability is judged against the interrogative frame the
           // rewriter strips.

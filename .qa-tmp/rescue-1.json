@@ -1,0 +1,58 @@
+{
+  "row": {
+    "answer": "If you’re still experiencing Face ID glitches on your brand-new iPhone 18 Pro or iPhone 18 Pro Max, you should update your device to the latest iOS version immediately. [2]\n\nSupports Latest iOS Versions (Up to iOS 26.1 for iPhone 14) Verified Working Before Release Fast Turnaround Professional Service. [3]\n\nA merchant needs an iPhone XS or later with the latest iOS version and a compatible payment app. [4]\n\nHere's how to make the latest version pay off. [1]\n\nSources: [1] Siri has always been lame — until now. Here's how to make the latest version pay off. (theblaze.com)  [2] iOS 27.0.1 Face ID Fix for iPhone 18 Pro UAE | PCMag Middle East (me.pcmag.com)  [3] IPhone 14 iCloud Activation Lock Bypass COMPLETED & VERIFIED! (phcorner.org)  [4] Tap to Pay in Costa Rica: Apple’s iPhone service | NeoTeo (neoteo.com)",
+    "conflictResolution": null,
+    "detail": "4 fresh result(s) from 3 source(s) in 1934ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Hacker News",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 4,
+    "freshSplitCounts": {
+      "fresh": 4,
+      "stale": 1,
+      "undated": 0
+    },
+    "freshness": "Based on 4 reports published in the last 5 days (newest: 11 hours ago).",
+    "intent": "current",
+    "query": "latest iOS version",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 1934,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T19:00:00.000Z",
+        "title": "Siri has always been lame — until now. Here's how to make the latest version pay off.",
+        "url": "https://www.theblaze.com/tech/ios27-new-siri"
+      },
+      {
+        "publishedAt": "2026-09-29T14:59:10.000Z",
+        "title": "iOS 27.0.1 Face ID Fix for iPhone 18 Pro UAE | PCMag Middle East",
+        "url": "https://me.pcmag.com/en/ios-1/38188/apples-latest-ios-27-update-fixes-face-id-bug-on-iphone-18-pro"
+      },
+      {
+        "publishedAt": "2026-09-27T10:58:23.000Z",
+        "title": "IPhone 14 iCloud Activation Lock Bypass COMPLETED & VERIFIED!",
+        "url": "https://phcorner.org/threads/2609902"
+      },
+      {
+        "publishedAt": "2026-09-28T07:09:27.000Z",
+        "title": "Tap to Pay in Costa Rica: Apple’s iPhone service | NeoTeo",
+        "url": "https://www.neoteo.com/en/apple-announced-tap-to-pay-on-iphone-in-costa-rica"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "news"
+  }
+}

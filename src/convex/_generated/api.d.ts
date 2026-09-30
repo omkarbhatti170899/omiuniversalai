@@ -97,6 +97,7 @@ import type * as searchEngine_decision from "../searchEngine/decision.js";
 import type * as searchEngine_evidence from "../searchEngine/evidence.js";
 import type * as searchEngine_freshness from "../searchEngine/freshness.js";
 import type * as searchEngine_intent from "../searchEngine/intent.js";
+import type * as searchEngine_language from "../searchEngine/language.js";
 import type * as searchEngine_limits from "../searchEngine/limits.js";
 import type * as searchEngine_providerHealth from "../searchEngine/providerHealth.js";
 import type * as searchEngine_providerTimeouts from "../searchEngine/providerTimeouts.js";
@@ -237,6 +238,7 @@ declare const fullApi: ApiFromModules<{
   "searchEngine/evidence": typeof searchEngine_evidence;
   "searchEngine/freshness": typeof searchEngine_freshness;
   "searchEngine/intent": typeof searchEngine_intent;
+  "searchEngine/language": typeof searchEngine_language;
   "searchEngine/limits": typeof searchEngine_limits;
   "searchEngine/providerHealth": typeof searchEngine_providerHealth;
   "searchEngine/providerTimeouts": typeof searchEngine_providerTimeouts;

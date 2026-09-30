@@ -1,0 +1,63 @@
+{
+  "row": {
+    "answer": "‘Reliable Sources Have Said Tinubu Is Undergoing Treatment In France’ – Sowore\n\nAfrican Action Congress (AAC) presidential candidate, Omoyele Sowore, has alleged that President Bola Tinubu is hospitalised and undergoing treatment in France. [6]\n\nPresident Tinubu Returns to Nigeria After Working Visit to France\n\nBy Bello Wakili\n\nPresident Bola Ahmed Tinubu has returned to Nigeria after a working visit to France. [1]\n\nAir France to resume nonstop Manila–Paris flights in October after seasonal halt\n\nAir France will resume its nonstop flights between Paris-Charles de Gaulle Airport (CDG) and Manila’s Ninoy Aquino International Airport (MNL) on October 19, 2026, ending a months-long seasonal suspension of the route. [4]\n\nFrance warns against escalation of high school demonstrations\n\nFrance's prime minister on Monday said any escalation of demonstrations at high schools would be \"irresponsible\", as a student protest movement spread to cities beyond the Paris region, a day ahead of a nationwide strike by public sector workers. [5]\n\nSources: [1] President Tinubu Returns to Nigeria After Working Visit to France (radionigeriakaduna.gov.ng)  [2] Hundreds detained as student protests across France turn violent (theguardian.com)  [3] France snatch late winner in Belgium, Italy thrash Turkey (timeslive.co.za)  [4] Air France to resume nonstop Manila–Paris flights in October after seasonal halt (aerotime.aero)",
+    "conflictResolution": null,
+    "detail": "8 fresh result(s) from 1 source(s) in 5810ms (after a freshness escalation pass); failed engines: SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "hackernews",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [
+      "SearXNG (https://search.lumy.live) failed: timeout of 5000ms exceeded"
+    ],
+    "freshResults": 8,
+    "freshSplitCounts": {
+      "fresh": 8,
+      "stale": 4,
+      "undated": 0
+    },
+    "freshness": "Based on 8 reports published in the last 5 days (newest: 3 hours ago).",
+    "intent": "knowledge",
+    "query": "dernières nouvelles France",
+    "requiresFreshness": true,
+    "resultsFound": 4,
+    "searchMs": 5810,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-29T21:24:02.000Z",
+        "title": "President Tinubu Returns to Nigeria After Working Visit to France",
+        "url": "https://www.radionigeriakaduna.gov.ng/2026/09/29/president-tinubu-returns-to-nigeria-after-working-visit-to-france"
+      },
+      {
+        "publishedAt": "2026-09-29T23:00:47.000Z",
+        "title": "Hundreds detained as student protests across France turn violent",
+        "url": "https://www.theguardian.com/world/2026/sep/29/french-students-police-clash-school-blockades-violent"
+      },
+      {
+        "publishedAt": "2026-09-29T07:36:38.000Z",
+        "title": "France snatch late winner in Belgium, Italy thrash Turkey",
+        "url": "https://www.timeslive.co.za/sport/soccer/2026-09-29-france-snatch-late-winner-in-belgium-italy-thrash-turkey"
+      },
+      {
+        "publishedAt": "2026-09-29T10:37:44.000Z",
+        "title": "Air France to resume nonstop Manila–Paris flights in October after seasonal halt",
+        "url": "https://www.aerotime.aero/articles/air-france-to-resume-nonstop-manila-paris-flights-in-october-after-seasonal-halt"
+      },
+      {
+        "publishedAt": "2026-09-29T06:30:29.000Z",
+        "title": "France warns against escalation of high school demonstrations",
+        "url": "https://www.thelocal.fr/20260929/france-warns-against-escalation-of-high-school-demonstrations"
+      }
+    ],
+    "status": "pass",
+    "timeRange": null,
+    "vertical": "news"
+  }
+}

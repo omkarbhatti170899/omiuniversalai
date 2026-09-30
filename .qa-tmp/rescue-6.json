@@ -1,0 +1,57 @@
+{
+  "row": {
+    "answer": "Current -Mostly Sunny.High School Football. [1]\n\nFootball standings provide a simple and useful way to follow league competitions. [2]\n\nAn early look at the SEC football standings entering a historic Week 4. [4]\n\nLancaster-Lebanon League football standings through Week 5. [1]\n\nSources: [1] Lancaster-Lebanon League football standings through... - pennlive.com (pennlive.com)  [2] Football Standings: Latest League Tables and Rankings - fxsound (fxsound.org)  [3] Template:2026 Minnesota College Athletic Conference football... (en.wikipedia.org)  [4] SEC football standings entering a historic week 4 (msn.com)",
+    "conflictResolution": null,
+    "detail": "4 fresh result(s) from 3 source(s) in 2075ms",
+    "droppedFresh": [],
+    "enginesTried": [
+      "searxng",
+      "wikipedia-current-events",
+      "langsearch"
+    ],
+    "enginesWithResults": [
+      "SearXNG",
+      "Wikipedia Current Events (today's news, dated)",
+      "LangSearch (temporary, feature-gated)"
+    ],
+    "failedEngines": [],
+    "freshResults": 4,
+    "freshSplitCounts": {
+      "fresh": 4,
+      "stale": 1,
+      "undated": 0
+    },
+    "freshness": "Based on 4 reports published in the last 5 days (newest: yesterday).",
+    "intent": "current",
+    "query": "current football standings",
+    "requiresFreshness": true,
+    "resultsFound": 5,
+    "searchMs": 2075,
+    "searchTriggered": true,
+    "sources": [
+      {
+        "publishedAt": "2026-09-28T09:31:07.000Z",
+        "title": "Lancaster-Lebanon League football standings through... - pennlive.com",
+        "url": "https://www.pennlive.com/highschoolsports/football/2026/09/lancaster-lebanon-league-football-standings-through-week-5.html"
+      },
+      {
+        "publishedAt": "2026-09-28T10:16:49.000Z",
+        "title": "Football Standings: Latest League Tables and Rankings - fxsound",
+        "url": "https://fxsound.org/football-standings-latest-league-tables-and-rankings"
+      },
+      {
+        "publishedAt": "2026-09-26T04:29:50.000Z",
+        "title": "Template:2026 Minnesota College Athletic Conference football...",
+        "url": "https://en.wikipedia.org/wiki/Template:2026_Minnesota_College_Athletic_Conference_football_standings"
+      },
+      {
+        "publishedAt": "2026-09-25T10:10:22.000Z",
+        "title": "SEC football standings entering a historic week 4",
+        "url": "https://www.msn.com/en-us/news/other/sec-football-standings-entering-a-historic-week-4/ar-AA2cWm7e"
+      }
+    ],
+    "status": "pass",
+    "timeRange": "week",
+    "vertical": "sports"
+  }
+}
