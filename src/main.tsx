@@ -101,22 +101,40 @@ class RootErrorBoundary extends React.Component<
   }
 }
 
+/** Shown when VITE_CONVEX_URL is missing: a visible, actionable notice beats a
+ *  permanently blank page. The URL is configured per host (vercel.json
+ *  build.env / the Pages workflow); it is public, never a secret. */
+function MissingBackendConfig() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-6 text-foreground">
+      <div className="max-w-md text-center">
+        <OmiMark className="mx-auto size-10" />
+        <h1 className="mt-4 text-base font-semibold">Omi is not connected yet</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          This deployment is missing its backend URL. Set{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-[0.75rem]">VITE_CONVEX_URL</code>{" "}
+          to the Convex deployment URL (for example{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-[0.75rem]">
+            https://&lt;deployment&gt;.convex.cloud
+          </code>
+          ) and rebuild.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // Convex URL is a PUBLIC connection string by design (like a Firebase
 // project id) — it identifies the backend, it is not a secret (§28). Secrets
 // (Groq/DeepSeek/OpenAI keys) stay server-side in the Convex dashboard and
 // are never compiled into the frontend.
 const CONVEX_URL = import.meta.env.VITE_CONVEX_URL as string | undefined;
-const convex = new ConvexReactClient(
-  CONVEX_URL ||
-    // Fail loudly and clearly in a misconfigured deployment (e.g. GitHub
-    // Pages CI without the env var) instead of a cryptic runtime error.
-    (() => {
-      throw new Error(
-        "VITE_CONVEX_URL is not set. The frontend cannot reach the Omi backend. " +
-          "Set it to your Convex deployment URL (https://<deployment>.convex.cloud).",
-      );
-    })(),
-);
+
+// Build the client lazily. Constructing it with a throwing fallback would run
+// at MODULE scope — before React mounts and outside every error boundary — so a
+// build with no VITE_CONVEX_URL shipped a permanently blank page. A missing
+// value now renders an actionable notice instead (see MissingBackendConfig).
+const convex = CONVEX_URL ? new ConvexReactClient(CONVEX_URL) : null;
 
 // SPA deep links on static hosts (GitHub Pages): public/404.html catches the
 // missed route, stashes it, and bounces here — restore the exact path before
@@ -167,6 +185,10 @@ dismissSplash();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RootErrorBoundary>
+      {convex === null ? (
+        <MissingBackendConfig />
+      ) : (
+        <>
       <ToolbarErrorBoundary>
         <VlyToolbar />
       </ToolbarErrorBoundary>
@@ -209,6 +231,8 @@ createRoot(document.getElementById("root")!).render(
         </ConvexAuthProvider>
       </ThemeProvider>
       </MotionConfig>
+        </>
+      )}
     </RootErrorBoundary>
   </StrictMode>,
 );
