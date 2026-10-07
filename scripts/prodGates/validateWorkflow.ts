@@ -113,20 +113,28 @@ if (!/^\s{2}group:\s*pages\s*$/m.test(raw)) {
 // 5. Deterministic backend selection (Phase 2).
 // ---------------------------------------------------------------------------
 const backendLines = lines.filter((line) =>
-  line.trimStart().startsWith("OMI_PRODUCTION_BACKEND:"),
+  line.trimStart().startsWith("VITE_CONVEX_URL:"),
 );
 if (backendLines.length !== 1) {
   problems.push(
-    `expected exactly one OMI_PRODUCTION_BACKEND declaration, found ${backendLines.length}`,
+    `expected exactly one VITE_CONVEX_URL declaration, found ${backendLines.length}`,
   );
 } else if (!backendLines[0].includes(APPROVED_BACKEND)) {
   problems.push(
-    `OMI_PRODUCTION_BACKEND is not the approved backend ${APPROVED_BACKEND}`,
+    `VITE_CONVEX_URL is not the approved backend ${APPROVED_BACKEND}`,
+  );
+} else if (backendLines[0].includes("${{")) {
+  // A variable/secret reference here is exactly the "fallback that can silently
+  // select an old backend" this workflow exists to rule out.
+  problems.push(
+    "VITE_CONVEX_URL is a variable/secret reference rather than a literal — it could silently select a different backend",
   );
 }
-if (/^\s*(VITE_CONVEX_URL|CONVEX_URL):\s*(?!\s*$)/m.test(raw)) {
+// A bare CONVEX_URL declaration would let the old variable/secret shape back
+// in, so it is rejected outright rather than merely ignored.
+if (/^\s*CONVEX_URL:\s*/m.test(raw)) {
   problems.push(
-    "the workflow declares VITE_CONVEX_URL/CONVEX_URL directly — the backend must be derived from OMI_PRODUCTION_BACKEND only",
+    "the workflow declares CONVEX_URL directly — the backend must come from VITE_CONVEX_URL only",
   );
 }
 
@@ -154,7 +162,54 @@ if (!/^\s{4}needs:\s*deploy\s*$/m.test(raw)) {
 }
 
 // ---------------------------------------------------------------------------
-// 8. Referenced gate scripts exist.
+// 8. Step outputs are JOB-scoped: nothing after the build job may reach into
+//    `steps.identity`, and the deployment record must carry every required
+//    field using only deploy-job/github context.
+// ---------------------------------------------------------------------------
+const deploySection = raw.slice(raw.indexOf("\n  deploy:\n"));
+if (deploySection.length === 0) {
+  problems.push("could not locate the deploy job section");
+} else {
+  // Comment-only lines are dropped first: this checker documents the rule it
+  // enforces, and matching its own prose would be a false positive.
+  const deployCode = deploySection
+    .split("\n")
+    .filter((line) => !line.trim().startsWith("#"))
+    .join("\n");
+  if (deployCode.includes("steps.identity")) {
+    problems.push(
+      "the deploy/verify-live jobs reference `steps.identity` outputs, which are job-scoped and would expand to empty strings",
+    );
+  }
+  const RECORD_FIELDS = [
+    '"commit"',
+    '"backend"',
+    '"basePath"',
+    '"pagesDeploymentStatus"',
+    '"pagesUrl"',
+    '"triggeredBy"',
+    '"trigger"',
+  ];
+  for (const field of RECORD_FIELDS) {
+    if (!deployCode.includes(field)) {
+      problems.push(`the persisted deployment record is missing the ${field} field`);
+    }
+  }
+  for (const required of [
+    "steps.deployment.outputs.status",
+    "steps.deployment.outputs.page_url",
+    "github.sha",
+    "github.actor",
+    "github.event_name",
+  ]) {
+    if (!deployCode.includes(required)) {
+      problems.push(`the deployment record does not use ${required}`);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 9. Referenced gate scripts exist.
 // ---------------------------------------------------------------------------
 for (const script of REFERENCED_SCRIPTS) {
   if (!raw.includes(script)) {

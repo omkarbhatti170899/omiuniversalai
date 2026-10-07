@@ -5,14 +5,14 @@ name: Deploy to GitHub Pages
 # This workflow is the SINGLE production deployment path for the frontend.
 #
 # Design rule (Phase 2): the approved production Convex backend exists in
-# exactly ONE place in this repository — OMI_PRODUCTION_BACKEND below. The
-# build derives VITE_CONVEX_URL from it, the artifact gates re-assert it, and
-# the live-verification job proves the deployed bytes still contain it.
+# exactly ONE place in this repository — the `VITE_CONVEX_URL` literal below.
+# The artifact gates re-assert it, and the live-verification job proves the
+# deployed bytes still contain it.
 #
 # A stale repository variable or secret named CONVEX_URL can never override
-# this: Vite only inlines VITE_-prefixed vars, the backend is re-pinned from
-# OMI_PRODUCTION_BACKEND before the build, and a hard guard fails the job if a
-# legacy CONVEX_URL variable/secret exists with a different value.
+# this: Vite only inlines VITE_-prefixed vars, the pin step asserts
+# VITE_CONVEX_URL still equals the approved deployment, and a hard guard fails
+# the job if a legacy CONVEX_URL variable/secret exists with a different value.
 #
 # Everything is automated. The workflow fails hard rather than shipping a build
 # against the wrong backend.
@@ -42,11 +42,16 @@ env:
   # ---------------------------------------------------------------------------
   # SINGLE SOURCE OF TRUTH for the production backend.
   #
-  # The ONLY owner-side change needed to switch backends is to edit this
-  # literal. Every other reference in this file derives from it or asserts
-  # against it, so an edit here either propagates cleanly or fails the build.
+  # Vite inlines `VITE_*` variables at build time, so this literal is what the
+  # shipped bundle actually talks to. It is the ONLY backend declaration in the
+  # workflow; every other reference derives from it.
+  #
+  # The "Pin production backend" step below asserts this still equals the
+  # approved production deployment, and refuses to build if a legacy repository
+  # variable or secret named CONVEX_URL exists with a different value. A wrong
+  # or silently-overridden backend must fail the build, never deploy.
   # ---------------------------------------------------------------------------
-  OMI_PRODUCTION_BACKEND: https://majestic-turtle-372.convex.cloud
+  VITE_CONVEX_URL: https://majestic-turtle-372.convex.cloud
   VITE_BASE_PATH: /omiuniversalai/
   # Live checks below target the published Pages origin.
   OMI_PAGES_ORIGIN: https://omkarbhatti170899.github.io
@@ -87,25 +92,29 @@ jobs:
 
           APPROVED="https://majestic-turtle-372.convex.cloud"
 
-          if [ "${OMI_PRODUCTION_BACKEND}" != "${APPROVED}" ]; then
-            echo "::error::OMI_PRODUCTION_BACKEND ('${OMI_PRODUCTION_BACKEND}') is not the approved production backend '${APPROVED}'."
+          if [ "${VITE_CONVEX_URL}" != "${APPROVED}" ]; then
+            echo "::error::VITE_CONVEX_URL ('${VITE_CONVEX_URL}') is not the approved production backend '${APPROVED}'."
             echo "::error::Update the literal in .github/workflows/deploy-pages.yml deliberately, then re-run."
             exit 1
           fi
 
-          # A legacy repository variable or secret named CONVEX_URL must never
-          # silently redirect production. Fail loudly if one exists and differs.
+          # DETECTION ONLY. These two values are never used to select a backend:
+          # the backend comes solely from the VITE_CONVEX_URL literal above (Vite
+          # only inlines VITE_-prefixed variables, so a bare CONVEX_URL could not
+          # reach the bundle anyway). A stale repository variable or secret of
+          # that name is still a misconfiguration worth failing on loudly, so its
+          # PRESENCE is reported — and its value is deliberately never echoed,
+          # since build logs are retained and readable.
           if [ -n "${LEGACY_CONVEX_URL_VAR:-}" ] && [ "${LEGACY_CONVEX_URL_VAR}" != "${APPROVED}" ]; then
-            echo "::error::Repository variable CONVEX_URL is set to '${LEGACY_CONVEX_URL_VAR}' and would shadow production. Delete it in Settings -> Secrets and variables -> Actions."
+            echo "::error::A repository variable named CONVEX_URL exists and does not match the approved production backend. It is never used as a fallback; delete it in Settings -> Secrets and variables -> Actions."
             exit 1
           fi
           if [ -n "${LEGACY_CONVEX_URL_SECRET:-}" ] && [ "${LEGACY_CONVEX_URL_SECRET}" != "${APPROVED}" ]; then
-            echo "::error::Repository secret CONVEX_URL is set and does not match production. Delete it in Settings -> Secrets and variables -> Actions."
+            echo "::error::A repository secret named CONVEX_URL exists and does not match the approved production backend. It is never used as a fallback; delete it in Settings -> Secrets and variables -> Actions."
             exit 1
           fi
 
-          echo "VITE_CONVEX_URL=${OMI_PRODUCTION_BACKEND}" >> "${GITHUB_ENV}"
-          echo "Pinned VITE_CONVEX_URL=${OMI_PRODUCTION_BACKEND}"
+          echo "Pinned VITE_CONVEX_URL=${VITE_CONVEX_URL}"
           echo "Pinned VITE_BASE_PATH=${VITE_BASE_PATH}"
 
       # -----------------------------------------------------------------------
@@ -135,7 +144,7 @@ jobs:
         run: |
           set -euo pipefail
           COMMIT="${GITHUB_SHA}"
-          BACKEND="${OMI_PRODUCTION_BACKEND}"
+          BACKEND="${VITE_CONVEX_URL}"
           BASE_PATH="${VITE_BASE_PATH}"
 
           mkdir -p dist
@@ -163,7 +172,7 @@ jobs:
       - name: Verify deployment artifact
         env:
           COMMIT: ${{ github.sha }}
-          BACKEND: ${{ env.OMI_PRODUCTION_BACKEND }}
+          BACKEND: ${{ env.VITE_CONVEX_URL }}
           BASE_PATH: ${{ env.VITE_BASE_PATH }}
         run: |
           set -euo pipefail
@@ -227,7 +236,7 @@ jobs:
       # -----------------------------------------------------------------------
       - name: Verify production backend is live
         env:
-          BACKEND: ${{ env.OMI_PRODUCTION_BACKEND }}
+          BACKEND: ${{ env.VITE_CONVEX_URL }}
         run: |
           set -euo pipefail
           SITE="${BACKEND%.convex.cloud}.convex.site"
@@ -262,23 +271,41 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Record deployment
+      # -----------------------------------------------------------------------
+      # The deployment record lives in the DEPLOY job, so it may only use values
+      # available there: its own `steps.deployment` outputs and `github` context.
+      # It must NOT reach into the build job's `steps.identity` outputs — step
+      # outputs are job-scoped and would silently expand to an empty string.
+      # `backend` / `basePath` come from the workflow-level env (the single
+      # source of truth), which is in scope for every job.
+      # -----------------------------------------------------------------------
+      - name: Persist deployment record
         if: always()
-        env:
-          BACKEND: ${{ env.OMI_PRODUCTION_BACKEND }}
-          BASE_PATH: ${{ env.VITE_BASE_PATH }}
         run: |
+          set -euo pipefail
+
+          RECORD="$(cat <<EOF
           {
-            echo "### GitHub Pages deployment"
+            "commit": "${{ github.sha }}",
+            "backend": "${VITE_CONVEX_URL}",
+            "basePath": "${VITE_BASE_PATH}",
+            "pagesDeploymentStatus": "${{ steps.deployment.outputs.status }}",
+            "pagesUrl": "${{ steps.deployment.outputs.page_url }}",
+            "triggeredBy": "${{ github.actor }}",
+            "trigger": "${{ github.event_name }}"
+          }
+          EOF
+          )"
+
+          echo "deployment record:"
+          echo "${RECORD}"
+
+          {
+            echo "### Deployment record"
             echo ""
-            echo "| field | value |"
-            echo "| --- | --- |"
-            echo "| commit | ${GITHUB_SHA} |"
-            echo "| backend | ${BACKEND} |"
-            echo "| basePath | ${BASE_PATH} |"
-            echo "| status | ${{ steps.deployment.outputs.status }} |"
-            echo "| pages url | ${{ steps.deployment.outputs.page_url }} |"
-            echo "| trigger | ${GITHUB_EVENT_NAME} by ${GITHUB_ACTOR} |"
+            echo '```json'
+            echo "${RECORD}"
+            echo '```'
           } >> "${GITHUB_STEP_SUMMARY}"
 
   # ===========================================================================
@@ -301,7 +328,7 @@ jobs:
       - name: Verify live site matches this commit and backend
         env:
           COMMIT: ${{ github.sha }}
-          BACKEND: ${{ env.OMI_PRODUCTION_BACKEND }}
+          BACKEND: ${{ env.VITE_CONVEX_URL }}
           ORIGIN: ${{ env.OMI_PAGES_ORIGIN }}
           BASE: ${{ env.OMI_PAGES_BASE }}
         run: |
