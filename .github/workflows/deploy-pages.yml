@@ -247,6 +247,39 @@ jobs:
           done
           bun scripts/prodGates/summarizeSelfTest.ts /tmp/omiselftest.json
 
+      # -----------------------------------------------------------------------
+      # Phase 17 — reachability is NOT configuration.
+      #
+      # The three probes above prove the backend ANSWERS. This audit proves the
+      # deployment is actually configured to do what the product needs: publish
+      # auth signing keys (without them every sign-in fails with HTTP 500) and
+      # call a configured AI / vision / keyed-search provider. Production was
+      # previously in that state — every endpoint 200, sign-in broken — and no
+      # status-code check could see it.
+      #
+      # `--report` keeps the frontend deploy unblocked: the missing env vars are
+      # an owner-side action, and refusing to publish would leave users on a
+      # bundle compiled against a retired backend, which is strictly worse. The
+      # failure signal lives in the strict post-deploy job instead.
+      # -----------------------------------------------------------------------
+      - name: Audit production backend configuration (report)
+        env:
+          BACKEND: ${{ env.VITE_CONVEX_URL }}
+        run: |
+          set -euo pipefail
+
+          AUDIT="$(bun scripts/prodGates/checkBackendConfig.ts "${BACKEND}" --report 2>&1)"
+          printf '%s\n' "${AUDIT}"
+
+          {
+            echo ""
+            echo "### Production backend configuration"
+            echo ""
+            echo '```'
+            printf '%s\n' "${AUDIT}"
+            echo '```'
+          } >> "${GITHUB_STEP_SUMMARY}"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -386,3 +419,32 @@ jobs:
             echo ""
             echo "Live frontend **${URL}** is commit ${COMMIT} and is compiled against ${BACKEND}."
           } >> "${GITHUB_STEP_SUMMARY}"
+
+          # ---------------------------------------------------------------------
+          # STRICT: the published site is reachable AND the backend it talks to
+          # can actually serve users. A backend that answers but cannot
+          # authenticate or synthesise is not a working release, so this one
+          # fails the job — the published bytes above are still updated, and the
+          # report lands in the step summary either way.
+          # ---------------------------------------------------------------------
+          echo "== live backend configuration (strict) =="
+          set +e
+          AUDIT="$(bun scripts/prodGates/checkBackendConfig.ts "${BACKEND}" --strict 2>&1)"
+          audit_rc=$?
+          set -e
+          printf '%s\n' "${AUDIT}"
+
+          {
+            echo ""
+            echo "### Production backend configuration (strict)"
+            echo ""
+            echo '```'
+            printf '%s\n' "${AUDIT}"
+            echo '```'
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+          if [ "${audit_rc}" -ne 0 ]; then
+            echo "::error::production backend '${BACKEND}' is reachable but not fully configured (see the audit above; env vars are set per-deployment, never in this repository)."
+            exit "${audit_rc}"
+          fi
+          echo "ok production backend configuration complete"

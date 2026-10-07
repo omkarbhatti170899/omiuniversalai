@@ -12,7 +12,7 @@
  * It reads only unauthenticated public endpoints and prints only booleans,
  * status codes, provider ids and ENV VAR NAMES — never a key, token or value.
  *
- * Usage: bun scripts/prodGates/checkBackendConfig.ts <backendUrl> [--strict]
+ * Usage: bun scripts/prodGates/checkBackendConfig.ts <backendUrl> [--strict|--report]
  *        <backendUrl> may be the .convex.cloud or .convex.site form.
  *
  * Exit codes:
@@ -24,6 +24,11 @@
  * `--strict` is used by the post-deploy live-verification job: "the site is
  * published and reachable" is not sufficient there either, because publishing
  * a frontend whose backend cannot sign users in is not a working release.
+ *
+ * `--report` never fails on findings (usage errors still exit 2) and is used by
+ * the pre-deploy build job. This is deliberately NOT `|| true` in the workflow:
+ * swallowing a nonzero exit in shell hides real breakage too, so "report only"
+ * is an explicit, named mode instead of a suppressed failure.
  */
 
 import {
@@ -38,10 +43,11 @@ const RUNBOOK = "docs/PRODUCTION_BACKEND_CONFIGURATION.md";
 
 const argv = process.argv.slice(2);
 const strict = argv.includes("--strict");
+const reportOnly = argv.includes("--report");
 const backend = argv.find((arg) => !arg.startsWith("--"));
 
 if (!backend) {
-  console.error("usage: checkBackendConfig.ts <backendUrl> [--strict]");
+  console.error("usage: checkBackendConfig.ts <backendUrl> [--strict|--report]");
   process.exit(2);
 }
 
@@ -53,14 +59,18 @@ if (!site) {
   process.exit(2);
 }
 
-/** Never throws: a transport failure is itself a finding-shaped observation. */
+/** Never throws: a transport failure is itself a finding-shaped observation.
+ *  The FULL body is returned — `/status` must be parsed as JSON end to end, and
+ *  truncating it would silently yield an empty snapshot, i.e. a fabricated
+ *  "nothing is configured" report against a perfectly configured backend.
+ *  Bodies are trimmed only where they are printed as a message. */
 async function get(path: string): Promise<{ status: number; body: string }> {
   try {
     const response = await fetch(`${site}${path}`, {
       headers: { accept: "application/json" },
       signal: AbortSignal.timeout(20_000),
     });
-    return { status: response.status, body: (await response.text()).slice(0, 400) };
+    return { status: response.status, body: await response.text() };
   } catch (error) {
     const detail = error instanceof Error ? error.message : String(error);
     return { status: 0, body: detail };
@@ -78,7 +88,7 @@ async function probeJwks(): Promise<JwksProbe> {
       keyCount = null;
     }
   }
-  return { status, keyCount, body };
+  return { status, keyCount, body: body.slice(0, 400) };
 }
 
 async function readStatus(): Promise<StatusSnapshot> {
@@ -134,13 +144,15 @@ async function main(): Promise<void> {
   } else {
     console.log("");
     console.log(
-      `${blockers} blocker(s), ${warnings} warning(s). ` +
-        `Env vars named above belong on the '${slug}' deployment, not in the repository — ` +
-        `see ${RUNBOOK}.`,
+      `${blockers} blocker(s), ${warnings} warning(s).`,
+    );
+    console.log(
+      `Env vars to set on the '${slug}' deployment (names only — never in this repository): ` +
+        `${envVars.join(", ")} — see ${RUNBOOK}.`,
     );
   }
 
-  const failed = blockers > 0 || (strict && warnings > 0);
+  const failed = !reportOnly && (blockers > 0 || (strict && warnings > 0));
   if (failed) {
     if (strict && blockers === 0) {
       console.log(

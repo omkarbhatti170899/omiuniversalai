@@ -26,6 +26,9 @@ const WORKFLOW = process.argv[2] ?? ".github/workflows/deploy-pages.yml";
 
 const APPROVED_BACKEND = "https://majestic-turtle-372.convex.cloud";
 
+/** How the workflow passes the backend to the audit scripts (shell env var). */
+const BACKEND_REF = "${BACKEND}";
+
 /** Every script the workflow invokes, so a rename cannot silently break CI. */
 const REFERENCED_SCRIPTS = [
   "scripts/prodGates/checkDeploymentInfo.ts",
@@ -33,6 +36,7 @@ const REFERENCED_SCRIPTS = [
   "scripts/prodGates/checkSecretShapes.ts",
   "scripts/prodGates/checkLiveBundle.ts",
   "scripts/prodGates/summarizeSelfTest.ts",
+  "scripts/prodGates/checkBackendConfig.ts",
 ];
 
 /** Ordered gates that must run before anything is deployed. */
@@ -218,6 +222,28 @@ for (const script of REFERENCED_SCRIPTS) {
   if (!existsSync(script)) {
     problems.push(`workflow references ${script}, which does not exist`);
   }
+}
+
+// ---------------------------------------------------------------------------
+// 10. Reachability is not configuration, so the configuration audit must run in
+//     BOTH modes: a pre-deploy report (unblocks the frontend) and a strict
+//     post-deploy assertion (the failure signal). Dropping the strict one would
+//     silently return the workflow to "the backend answered 200, ship it" — the
+//     exact blind spot that let an unconfigured production backend pass every
+//     gate while sign-in returned HTTP 500.
+// ---------------------------------------------------------------------------
+const AUDIT = "scripts/prodGates/checkBackendConfig.ts";
+const auditCalls = raw.split(AUDIT).length - 1;
+if (auditCalls < 2) {
+  problems.push(
+    `the workflow must invoke ${AUDIT} in both jobs (found ${auditCalls} invocation(s))`,
+  );
+}
+if (!raw.includes(`${AUDIT} "${BACKEND_REF}" --report`)) {
+  problems.push("the pre-deploy audit step must run the config audit with --report");
+}
+if (!raw.includes(`${AUDIT} "${BACKEND_REF}" --strict`)) {
+  problems.push("the verify-live job must run the config audit with --strict");
 }
 
 if (problems.length > 0) {
