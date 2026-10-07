@@ -1,33 +1,44 @@
 name: Deploy to GitHub Pages
 
-# Omi Universal AI — frontend deployment (GitHub Pages target).
-# Builds the EXISTING production bundle (convex codegen → tsc → vite build,
-# all via the repo's own `bun run build`) and publishes dist/ to Pages.
-# The backend stays on the existing Convex deployment; the frontend talks to
-# it via the PUBLIC VITE_CONVEX_URL connection string.
+# Omi Universal AI — primary production frontend (GitHub Pages).
 #
-# Convex bindings: src/convex/_generated is COMMITTED (Convex's documented
-# best practice — https://docs.convex.dev/producing-code). CI therefore needs
-# NO Convex credentials: if `convex codegen` has no deployment configured it
-# falls back to the committed bindings (see package.json build script).
-# No secrets live in the repo — GitHub injects its ephemeral Pages deploy
-# token automatically, and AI keys remain server-side in the Convex
-# dashboard (§28).
+# This workflow is the SINGLE production deployment path for the frontend.
+# It gates on the full verification chain and makes backend selection
+# deterministic: the build pins the approved production Convex backend
+# directly, so a stale repository variable or secret can never silently deploy
+# against the wrong backend.
+#
+# Owner-only actions live inline where they are unavoidable; everything else is
+# automated and fails hard rather than shipping a wrong build.
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+# Prevent two Pages deploys from racing.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# One deployment at a time; don't cancel an in-flight deploy mid-publish.
-concurrency:
-  group: pages
-  cancel-in-progress: false
+env:
+  # Deterministic production backend. This is the ONLY place the GitHub Pages
+  # build gets its backend URL from. Do not add/use vars.CONVEX_URL or
+  # secrets.CONVEX_URL for this job — they cannot be audited from build output
+  # the way a literal value can.
+  #
+  # The ONLY owner-side change needed to switch backends is to edit this
+  # literal AND the runtime "REJECT WRONG BACKEND" gate below, then push/rerun.
+  #
+  # DO NOT fall back to a variable. A fallback is exactly the class of config
+  # that produced stale deployments in the past.
+  VITE_CONVEX_URL: https://majestic-turtle-372.convex.cloud
+  VITE_BASE_PATH: /omiuniversalai/
 
 jobs:
   build:
@@ -35,60 +46,151 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Set up Bun (uses the repo's bun.lock)
+      - name: Set up Bun
         uses: oven-sh/setup-bun@v2
 
-      - name: Install dependencies (frozen lockfile)
+      - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      # Gates below: a broken commit must never reach the live site. These run
-      # BEFORE the build so failures are unambiguous, and they need no network
-      # or Convex credentials (the suite is pure — bun:test only).
       - name: Typecheck
         run: bun run typecheck
+
+      - name: Lint
+        run: bun run lint
 
       - name: Test suite
         run: bun run test
 
       - name: Build production bundle
-        env:
-          # Public backend connection string (NOT a secret). Resolution order:
-          # repo VARIABLE → repo SECRET → this repo's existing deployment URL.
-          # (A convex.cloud URL identifies the backend like a Firebase project
-          # id — safe to expose; it grants no access.)
-          # NOTE: the fallback below is the project's PRODUCTION deployment
-          # (`majestic-turtle-372`). It used to point at a retired deployment
-          # whose HTTP endpoints are paused, which meant a build with no
-          # configured variable shipped a frontend that could not talk to any
-          # live backend. If `vars.CONVEX_URL` is set, it still wins.
-          VITE_CONVEX_URL: ${{ vars.CONVEX_URL || secrets.CONVEX_URL || 'https://majestic-turtle-372.convex.cloud' }}
-          # Serve the SPA under the repository subpath.
-          VITE_BASE_PATH: /omiuniversalai/
         run: bun run build
 
-      - name: Verify backend URL is compiled into the bundle
-        env:
-          # NOTE: the fallback below is the project's PRODUCTION deployment
-          # (`majestic-turtle-372`). It used to point at a retired deployment
-          # whose HTTP endpoints are paused, which meant a build with no
-          # configured variable shipped a frontend that could not talk to any
-          # live backend. If `vars.CONVEX_URL` is set, it still wins.
-          VITE_CONVEX_URL: ${{ vars.CONVEX_URL || secrets.CONVEX_URL || 'https://majestic-turtle-372.convex.cloud' }}
+      # --------------------------------------------------------------------------
+      # Deterministic deployment metadata
+      # --------------------------------------------------------------------------
+      - name: Compute deployment identity
+        id: identity
         run: |
-          # Tripwire: if VITE_CONVEX_URL ever resolves empty, the bundle ships
-          # a runtime throw ("VITE_CONVEX_URL is not set") = blank page for
-          # every visitor. Fail here, before the deploy step, instead.
-          if [ -z "$VITE_CONVEX_URL" ] || ! grep -rqF "$VITE_CONVEX_URL" dist/assets/; then
-            echo "::error::VITE_CONVEX_URL was not compiled into the bundle — the deployed site would be a blank page."
+          COMMIT="${{ github.sha }}"
+          BACKEND="${{ env.VITE_CONVEX_URL }}"
+          BASE_PATH="${{ env.VITE_BASE_PATH }}"
+
+          # A tiny bit of defense: the backend literal in env must match the
+          # approved production backend that this workflow declares above. This
+          # is belt-and-suspenders for a future maintainer who might paste a new
+          # value in and forget to update the runtime check.
+          if [ "$BACKEND" != "https://majestic-turtle-372.convex.cloud" ]; then
+            echo "::error::VITE_CONVEX_URL is not the approved production backend"
             exit 1
           fi
-          echo "✓ Backend URL compiled into bundle"
+
+          mkdir -p dist
+          cat > dist/deployment-info.json <<EOF
+{
+  "commit": "${COMMIT}",
+  "backend": "${BACKEND}",
+  "basePath": "${BASE_PATH}",
+  "builtBy": "github-pages-workflow"
+}
+EOF
+
+          echo "commit=${COMMIT}" >> "$GITHUB_OUTPUT"
+          echo "backend=${BACKEND}" >> "$GITHUB_OUTPUT"
+          echo "basePath=${BASE_PATH}" >> "$GITHUB_OUTPUT"
+
+      # --------------------------------------------------------------------------
+      # Pre-deploy artifact verification
+      # --------------------------------------------------------------------------
+      - name: Verify deployment artifact
+        run: |
+          set -euo pipefail
+
+          echo "== required files =="
+          for f in index.html dist/index.html; do
+            if [ ! -f "$f" ]; then
+              echo "::error::missing $f"
+              exit 1
+            fi
+            echo "ok $f"
+          done
+
+          # SPA fallback page for static hosting
+          if [ ! -f public/404.html ]; then
+            echo "::error::missing public/404.html (SPA fallback for static host)"
+            exit 1
+          fi
+          echo "ok public/404.html"
+
+          # PWA / routing assets
+          for f in public/manifest.webmanifest public/sw.js public/offline.html public/llms.txt; do
+            if [ ! -f "$f" ]; then
+              echo "::error::missing $f"
+              exit 1
+            fi
+            echo "ok $f"
+          done
+
+          echo "== deployment-info.json =="
+          if [ ! -f dist/deployment-info.json ]; then
+            echo "::error::missing dist/deployment-info.json"
+            exit 1
+          fi
+          python3 - <<'PY'
+import json, sys
+data = json.load(open("dist/deployment-info.json"))
+assert data.get("backend") == "https://majestic-turtle-372.convex.cloud", data
+assert data.get("basePath") == "/omiuniversalai/", data
+assert data.get("commit"), data
+print("ok dist/deployment-info.json:", data)
+PY
+
+          echo "== backend URL compiled into bundle =="
+          if ! grep -rqF "https://majestic-turtle-372.convex.cloud" dist/assets/; then
+            echo "::error::VITE_CONVEX_URL not found in built bundle"
+            exit 1
+          fi
+          echo "ok backend URL present in dist/assets/"
+
+          # Reject the retired backend shape anywhere it might accidentally
+          # reappear (including in comments, error messages, and misplaced
+          # env references).
+          if grep -rqE "resolute-ptarmigan-187\.convex\.(site|cloud)" dist/; then
+            echo "::error::retired backend URL resolute-ptarmigan-187 found in artifact"
+            exit 1
+          fi
+          echo "ok no retired resolute-ptarmigan-187 backend in dist/"
+
+          # ------------------------------------------------------------------------
+          # Security: fail if frontend assets contain anything that looks like a
+          # live credential. This is a hard gate, not a warning.
+          # ------------------------------------------------------------------------
+          echo "== credential scan on shipped artifacts =="
+          if grep -rEnE \
+            "sk_live_[A-Za-z0-9]{20,}|sk_test_[A-Za-z0-9]{20,}|pk_live_[A-Za-z0-9]{20,}|"\
+            "AIza[0-9A-Za-z_-]{35}|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{30,}|"\
+            "[Aa][Kk][Ii][Aa][0-9A-Z]{16}|xox[bpsa]-[A-Za-z0-9-]{10,}|"\
+            "-----BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----|"\
+            "dotenv://:key_[A-Za-z0-9]{32,}@|"\
+            "[Dd][Oo][Tt][Ee][Nn][Vv]_PRIVATE_KEY[A-Z_]*[\"']?[A-Za-z0-9]{16,}" \
+            dist/; then
+            echo "::error::credential-shaped value found in dist/ — do not deploy"
+            exit 1
+          fi
+          echo "ok no credential-shaped value in dist/"
+
+          echo "== commit reachability =="
+          # The built deployment-info.json commit must be a real commit in this
+          # repo, otherwise we would be deploying metadata we did not actually build.
+          git cat-file -t "${{ steps.identity.outputs.commit }}" >/dev/null 2>&1 \
+            || { echo "::error::deployment-info.json commit is not a known git object"; exit 1; }
+          echo "ok commit is reachable"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -103,3 +205,20 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Persist deployment record
+        if: always()
+        run: |
+          mkdir -p "$HOME/.omi-deploy-log"
+          cat > "$HOME/.omi-deploy-log/$(date +%Y%m%dT%H%M%SZ).json" <<EOF
+{
+  "commit": "${{ steps.identity.outputs.commit }}",
+  "backend": "${{ steps.identity.outputs.backend }}",
+  "basePath": "${{ steps.identity.outputs.basePath }}",
+  "pagesDeploymentStatus": "${{ steps.deployment.outputs.status }}",
+  "pagesUrl": "${{ steps.deployment.outputs.page_url }}",
+  "triggeredBy": "${{ github.actor }}",
+  "trigger": "${{ github.event_name }}"
+}
+EOF
+          echo "Deployment record written to $HOME/.omi-deploy-log"
