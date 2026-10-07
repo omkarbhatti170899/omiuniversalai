@@ -8,11 +8,39 @@
 The earlier "paused production" finding referred to `resolute-ptarmigan-187`, a
 retired deployment that the built frontend still points at.
 
-**Verdict: NOT READY.** Three blockers, all owner-gated: production has never
-been deployed (needs a production deploy key), production has no environment
-variables, and the live frontend is compiled against the retired deployment.
-Human QA follows. Image generation is explicitly **non-blocking** per the
-masterplan.
+**STATUS (2026-10-07, measured):** production **is now deployed** — every HTTP
+route answers 200 and the deployed functions are current — but it has **no
+environment variables at all**, so it is deployed and still unusable:
+
+| Probe | Production `majestic-turtle-372` | Dev `striped-salmon-879` |
+|---|---|---|
+| `/.well-known/jwks.json` | **HTTP 500** → no sign-in | HTTP 200 (1 signing key) |
+| `/status` → `ai.configured` | `false` (0/4 providers) | `true` (`groq`) |
+| `/status` → `vision.available` | `false` | `true` |
+| keyed search sources configured | **0/2** | 2/2 |
+
+The credentials live only on the dev deployment, so `process.env` on production
+finds nothing (Convex reads env at request time — a redeploy cannot fix this).
+Configuration is now machine-checked by `scripts/prodGates/checkBackendConfig.ts`
+(report in the build job, `--strict` in `verify-live`); the exact env vars and
+verification commands are in `docs/PRODUCTION_BACKEND_CONFIGURATION.md`.
+
+Still not shipped: the pinned backend. Pages runs **have** succeeded historically
+(81 of the last 100; last green run `868c353` at 2026-10-07 03:45), but **every
+run since the backend pin was introduced failed the "reject legacy CONVEX_URL"
+gate**, because a repository *variable* named `CONVEX_URL` held a different value
+— the owner deleted it on 2026-10-07, so the next push is the first run that can
+reach the deploy job. The live site therefore still serves the bundle published
+at 03:45 — compiled against the retired `resolute-ptarmigan-187` — and does not
+publish `deployment-info.json` at all (fetching it returns the SPA 404 fallback),
+which is how "this deployment predates the identity gates" is observed rather
+than assumed.
+
+**Verdict: NOT READY.** Two blockers, both owner-gated: production has no
+environment variables (auth first — nothing else matters if sign-in 500s), and
+the live frontend is still compiled against the retired deployment until a Pages
+run goes green. Human QA follows. Image generation is explicitly **non-blocking**
+per the masterplan.
 
 ---
 
@@ -35,7 +63,7 @@ masterplan.
 | **13 — Performance** | 🟢 | Parallel retrieval, per-provider timeouts, early-continue gate. Live this pass: 0.75–4.2 s typical, worst 8.0 s; one 12.3 s SearXNG probe isolated without delaying the answer. |
 | **14 — Search regression gate** | 🟢 frozen | **No source file has changed since the 178-row run** (verified by mtime against the run artifact) — the gate result still stands. Any future search change must re-run it. |
 | **15 — Production QA** | 🔴 **owner** | Automated tests are explicitly not sufficient. `docs/HUMAN_QA_CHECKLIST.md` gate was **fixed this pass** (see below). Desktop + mobile browser pass outstanding. |
-| **16 — Deployment** | 🔴 **owner** | Production `majestic-turtle-372` is **never deployed** (all HTTP routes 404; the API returns a bare Server Error). The live frontend is compiled against `resolute-ptarmigan-187`, a retired deployment, so real users get a shell with no working backend. `striped-salmon-879` (dev) is live and is where all evidence comes from. |
+| **16 — Deployment** | 🔴 **owner** | Production `majestic-turtle-372` **is deployed** (HTTP routes 200, functions current as of 2026-10-07) but has **no environment variables**, so sign-in 500s and AI / vision / keyed search are off — `scripts/prodGates/checkBackendConfig.ts` reports 1 blocker + 4 warnings against it. The live frontend is still compiled against `resolute-ptarmigan-187` (retired) and publishes no `deployment-info.json`, because every Pages run failed the `CONVEX_URL` repository-variable gate; the owner deleted that variable on 2026-10-07. `striped-salmon-879` (dev) is fully configured and is where all evidence comes from. Env vars + verification: `docs/PRODUCTION_BACKEND_CONFIGURATION.md`. |
 | **17 — Android / P10** | 🟡 owner-side | Config, manifest, service worker, offline shell, permissions, TWA + assetlinks instructions all committed. Icons need a rasterizer (no system rights here); native build needs a JDK (absent). **Does not block the web release.** |
 | **18 — Release gate** | ⛔ not met | 2 RED items open. |
 | **19 — Freeze** | ✅ in effect | No provider added, no SearXNG work, no retrieval rewrite, no paid dependency, no benchmark chasing. |

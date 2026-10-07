@@ -28,6 +28,20 @@ paused"`; a never-deployed one answers with a bare `Server Error`. Both are
 **deployment problems, not app bugs** — fix the deployment in the Convex
 dashboard, then re-run this command.
 
+**Step 0b — confirm the backend is CONFIGURED, not merely awake.** A 200 from
+`/api/query` proves the deployment answers; it does not prove a user can sign in
+or that AI is on. Production was found reachable-but-unconfigured exactly this
+way (sign-in returning HTTP 500 while every status check stayed green):
+
+```bash
+bun scripts/prodGates/checkBackendConfig.ts https://majestic-turtle-372.convex.cloud --strict
+```
+
+Exit `0` = configured. Exit `1` = the missing env vars are listed **by name**;
+`docs/PRODUCTION_BACKEND_CONFIGURATION.md` says where to set them. Do not record
+any QA result while this fails — sign-in and AI are broken, and the failures you
+would see downstream are symptoms, not findings.
+
 Also confirm the **built frontend actually targets that backend** (it is baked
 in at build time from `VITE_CONVEX_URL`):
 
