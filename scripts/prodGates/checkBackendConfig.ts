@@ -33,6 +33,8 @@
 
 import {
   auditBackendConfiguration,
+  cloudUrlOf,
+  formatDeployStamp,
   siteUrlOf,
   summarizeFindings,
   type JwksProbe,
@@ -102,13 +104,37 @@ async function readStatus(): Promise<StatusSnapshot> {
   }
 }
 
+/**
+ * When this deployment's functions were last built — on the `.convex.cloud`
+ * origin, where `/version` is served. Pure context (never a finding): it is
+ * what lets a reader distinguish "stale deploy" from "missing env vars", the
+ * two hypotheses that look identical from the outside.
+ */
+async function probeDeployStamp(): Promise<string> {
+  const cloud = cloudUrlOf(backend);
+  if (!cloud) return "unknown";
+  try {
+    const response = await fetch(`${cloud}/version`, {
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (!response.ok) return `unknown (HTTP ${response.status})`;
+    return (await response.text()).trim().slice(0, 120);
+  } catch {
+    return "unknown";
+  }
+}
+
 async function main(): Promise<void> {
   const slug = backend.replace(/^https:\/\//, "").split(".")[0];
   console.log(`# production backend configuration audit — ${slug}`);
   console.log(`# ${site}`);
   console.log("");
 
-  const [jwks, status] = await Promise.all([probeJwks(), readStatus()]);
+  const [jwks, status, deployStamp] = await Promise.all([
+    probeJwks(),
+    readStatus(),
+    probeDeployStamp(),
+  ]);
   console.log(
     `jwks.json:            HTTP ${jwks.status}` +
       (jwks.keyCount === null ? "" : ` (${jwks.keyCount} signing key(s))`),
@@ -124,6 +150,10 @@ async function main(): Promise<void> {
   console.log(
     `keyed search sources: ${keyed.length - keyed.filter((s) => s.configured === true).length}` +
       `/${keyed.length} unconfigured (${keyed.map((s) => s.id).join(", ") || "none"})`,
+  );
+  console.log(
+    `functions last built: ${formatDeployStamp(deployStamp)} ` +
+      `(env vars resolve at request time, so this never gates the audit)`,
   );
   console.log("");
 

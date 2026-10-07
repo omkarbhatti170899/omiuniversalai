@@ -37,6 +37,7 @@ const REFERENCED_SCRIPTS = [
   "scripts/prodGates/checkLiveBundle.ts",
   "scripts/prodGates/summarizeSelfTest.ts",
   "scripts/prodGates/checkBackendConfig.ts",
+  "scripts/secretExposureCheck.ts",
 ];
 
 /** Ordered gates that must run before anything is deployed. */
@@ -45,6 +46,9 @@ const REQUIRED_GATES = [
   "bun run typecheck",
   "bun run lint",
   "bun run test",
+  // Repo-text credential scan must run — and must run BEFORE the build, so a
+  // committed key can never reach a bundle or the published site.
+  "bun scripts/secretExposureCheck.ts",
   "bun run build",
 ];
 

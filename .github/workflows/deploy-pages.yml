@@ -105,12 +105,17 @@ jobs:
           # that name is still a misconfiguration worth failing on loudly, so its
           # PRESENCE is reported — and its value is deliberately never echoed,
           # since build logs are retained and readable.
+          #
+          # NOTE: variables and secrets are TWO DIFFERENT stores with two
+          # different tabs. The messages below name the tab deliberately: an
+          # operator who deletes the entry from the wrong tab gets this exact
+          # failure again on the next push, which is what happened once already.
           if [ -n "${LEGACY_CONVEX_URL_VAR:-}" ] && [ "${LEGACY_CONVEX_URL_VAR}" != "${APPROVED}" ]; then
-            echo "::error::A repository variable named CONVEX_URL exists and does not match the approved production backend. It is never used as a fallback; delete it in Settings -> Secrets and variables -> Actions."
+            echo "::error::A repository VARIABLE named CONVEX_URL exists and does not match the approved production backend. It is never used as a fallback — the backend comes only from the VITE_CONVEX_URL literal — but it is a stale setting, so the build refuses to proceed. Fix: Settings -> Secrets and variables -> Actions -> VARIABLES tab (the Secrets tab is a different store) -> delete CONVEX_URL, or set its value to the approved backend. The value is deliberately not printed; build logs are retained and readable."
             exit 1
           fi
           if [ -n "${LEGACY_CONVEX_URL_SECRET:-}" ] && [ "${LEGACY_CONVEX_URL_SECRET}" != "${APPROVED}" ]; then
-            echo "::error::A repository secret named CONVEX_URL exists and does not match the approved production backend. It is never used as a fallback; delete it in Settings -> Secrets and variables -> Actions."
+            echo "::error::A repository SECRET named CONVEX_URL exists and does not match the approved production backend. It is never used as a fallback; the backend comes only from the VITE_CONVEX_URL literal. Fix: Settings -> Secrets and variables -> Actions -> SECRETS tab (the Variables tab is a different store) -> delete CONVEX_URL. The value is deliberately not printed; build logs are retained and readable."
             exit 1
           fi
 
@@ -131,6 +136,19 @@ jobs:
 
       - name: Test suite
         run: bun run test
+
+      # -----------------------------------------------------------------------
+      # Credential containment, BEFORE anything is built or published.
+      #
+      # `checkSecretShapes` (below) scans the SHIPPED artifact; this scans the
+      # repository TEXT it is built from, so a key pasted into a component, doc
+      # or config fails the run before it can reach a bundle. It skips dist/,
+      # node_modules/ and its own redaction fixtures, and — critically — it
+      # prints only the FILE and the PATTERN NAME it matched, never a value:
+      # a scanner that echoes the secret would itself become the leak.
+      # -----------------------------------------------------------------------
+      - name: Scan repository for credential-shaped strings
+        run: bun scripts/secretExposureCheck.ts
 
       - name: Build production bundle
         run: bun run build

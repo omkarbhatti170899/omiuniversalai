@@ -141,3 +141,35 @@ and `vercel.json` → `build.env.VITE_CONVEX_URL`), but it means production runs
 on the **dev** deployment: same database as preview, no isolation, and
 `docs/OMI_1_0_RELEASE_GATE.md` documents that deployment as dev. Prefer
 configuring `majestic-turtle-372` unless you deliberately decide otherwise.
+
+---
+
+## 6. Who deploys what (and how to tell whether it is stale)
+
+Three separate things move, and only the first is automated:
+
+| What | How it ships | Automated? |
+| --- | --- | --- |
+| **Frontend** (Pages bundle) | `.github/workflows/deploy-pages.yml` on push to `main`: build → gates → deploy → `verify-live` | ✅ |
+| **Convex functions** (`src/convex/**`) | deployed separately — Convex CLI in a session (`bunx convex deploy`) or the platform's sync. **The Pages workflow does not deploy them**; it only verifies they answer. | ❌ |
+| **Environment variables** | per-deployment, dashboard or CLI (§3) | ❌ owner |
+
+Check when the functions were last built:
+
+```bash
+curl -s https://majestic-turtle-372.convex.cloud/version
+# → 20261006T210904Z-157d34b07ed0   (2026-10-06 21:09:04 UTC + build hash)
+```
+
+The config audit prints the same stamp as `functions last built:` so the two
+hypotheses behind "not configured" can be separated in one glance — they look
+identical from the outside but have opposite fixes:
+
+- **Env vars missing** → set them (§2). Convex resolves `process.env` **at
+  request time**, so no redeploy is needed; the change is live immediately.
+- **Functions stale** → redeploy `src/convex` (`bunx convex deploy`). Env vars
+  are *not* the reason a stale bundle behaves oddly.
+
+One exception worth knowing: anything evaluated at module scope — the set of
+exported functions, and cron definitions — only updates **on deploy**. Handler
+bodies re-read env on every call.

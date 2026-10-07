@@ -29,6 +29,8 @@ import {
   SEARCH_ENV_BY_PROVIDER,
   VISION_ENV_BY_PROVIDER,
   auditBackendConfiguration,
+  cloudUrlOf,
+  formatDeployStamp,
   siteUrlOf,
   summarizeFindings,
   type ConfigFinding,
@@ -116,6 +118,46 @@ describe("siteUrlOf", () => {
   test("rejects a non-Convex URL rather than probing a foreign host", () => {
     expect(siteUrlOf("https://example.com")).toBeNull();
     expect(siteUrlOf("")).toBeNull();
+  });
+});
+
+describe("cloudUrlOf — the origin where /version is served", () => {
+  test("normalises .site to .cloud and is idempotent on .cloud", () => {
+    expect(cloudUrlOf("https://majestic-turtle-372.convex.site")).toBe(
+      "https://majestic-turtle-372.convex.cloud",
+    );
+    expect(cloudUrlOf("https://majestic-turtle-372.convex.cloud")).toBe(
+      "https://majestic-turtle-372.convex.cloud",
+    );
+    expect(cloudUrlOf("https://majestic-turtle-372.convex.cloud/")).toBe(
+      "https://majestic-turtle-372.convex.cloud",
+    );
+  });
+
+  test("rejects a non-Convex URL", () => {
+    expect(cloudUrlOf("https://example.com")).toBeNull();
+    expect(cloudUrlOf("")).toBeNull();
+  });
+});
+
+describe("formatDeployStamp — context, never a verdict", () => {
+  test("formats a real Convex /version stamp as ISO-8601", () => {
+    // The literal shape observed live on 2026-10-07.
+    expect(formatDeployStamp("20261006T210904Z-157d34b07ed0")).toBe("2026-10-06T21:09:04Z");
+  });
+
+  test("returns 'unknown' instead of throwing on empty or absent input", () => {
+    expect(formatDeployStamp("")).toBe("unknown");
+    expect(formatDeployStamp("   ")).toBe("unknown");
+    expect(formatDeployStamp(null)).toBe("unknown");
+    expect(formatDeployStamp(undefined)).toBe("unknown");
+  });
+
+  test("passes unrecognised text through truncated rather than inventing a date", () => {
+    // Fabricating a deploy time would be worse than saying nothing: an operator
+    // must never be shown a timestamp this audit guessed.
+    expect(formatDeployStamp("proxy-error-page")).toBe("proxy-error-page");
+    expect(formatDeployStamp("x".repeat(200)).length).toBe(60);
   });
 });
 

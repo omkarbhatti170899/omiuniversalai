@@ -249,3 +249,40 @@ export function summarizeFindings(findings: ConfigFinding[]): {
   }
   return { blockers, warnings, envVars: [...envVars].sort() };
 }
+
+/**
+ * The Convex origin of a deployment (`.convex.cloud`) — the counterpart of
+ * `siteUrlOf`. HTTP actions live on `.convex.site`, but `GET /version`, which
+ * reports when this deployment's FUNCTIONS were last built, is served on
+ * `.convex.cloud` only, so the audit needs both forms.
+ */
+export function cloudUrlOf(backend: string): string | null {
+  if (!approvedSlugOf(backend)) return null;
+  return backend.replace(/\.convex\.site\/?$/, ".convex.cloud").replace(/\/$/, "");
+}
+
+/**
+ * Format the stamp Convex returns from `GET /version`, e.g.
+ * `20261006T210904Z-157d34b07ed0` → `2026-10-06T21:09:04Z`.
+ *
+ * WHY this is reported at all: "the deployed functions are stale" and "the
+ * deployment has no environment variables" look identical from the outside —
+ * both surface as "not configured" — yet the fix for each is completely
+ * different (redeploy vs set env vars). That ambiguity is exactly what made
+ * the original diagnosis hard, so the stamp is printed next to the config
+ * report to let an operator rule the staleness hypothesis out in one glance.
+ *
+ * Note the asymmetry it resolves: env vars are resolved at request time, so an
+ * old stamp does NOT mean configuration is invisible — and a fresh stamp does
+ * not mean anything is configured. It is context, never a verdict.
+ *
+ * Returns "unknown" rather than throwing — this is context, not a gate.
+ */
+export function formatDeployStamp(raw: string | null | undefined): string {
+  const value = (raw ?? "").trim();
+  if (!value) return "unknown";
+  const match = /^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z/.exec(value);
+  if (!match) return value.slice(0, 60);
+  const [, year, month, day, hour, minute, second] = match;
+  return `${year}-${month}-${day}T${hour}:${minute}:${second}Z`;
+}
