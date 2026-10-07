@@ -20,7 +20,7 @@
  * Usage: bun scripts/gitHistorySecretScan.ts
  */
 
-import { deflateSync, inflateSync, inflateRawSync } from "node:zlib";
+import { inflateSync, inflateRawSync } from "node:zlib";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 

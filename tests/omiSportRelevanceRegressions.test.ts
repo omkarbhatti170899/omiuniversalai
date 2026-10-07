@@ -38,7 +38,6 @@ import {
   usefulnessPenalty,
   detectSportDomain,
   sportRelevance,
-  entityInSource,
   keywordSet,
   isOffTopic,
 } from "../src/convex/searchEngine/quality";
@@ -264,7 +263,6 @@ describe("FAIL 2: sport-domain semantic relevance", () => {
 
 describe("FAIL 3: the 112-hour staleness gate", () => {
   const stale = iso(112);
-  const kw = keywordSet("current Premier League standings");
 
   test("a 112h-old source cannot pass the freshness promise (plausibleAgeHours)", () => {
     const age = plausibleAgeHours(stale, now);

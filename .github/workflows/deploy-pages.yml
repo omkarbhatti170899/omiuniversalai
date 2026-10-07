@@ -3,13 +3,25 @@ name: Deploy to GitHub Pages
 # Omi Universal AI — primary production frontend (GitHub Pages).
 #
 # This workflow is the SINGLE production deployment path for the frontend.
-# It gates on the full verification chain and makes backend selection
-# deterministic: the build pins the approved production Convex backend
-# directly, so a stale repository variable or secret can never silently deploy
+#
+# Design rule (Phase 2): the approved production Convex backend exists in
+# exactly ONE place in this repository — OMI_PRODUCTION_BACKEND below. The
+# build derives VITE_CONVEX_URL from it, the artifact gates re-assert it, and
+# the live-verification job proves the deployed bytes still contain it.
+#
+# A stale repository variable or secret named CONVEX_URL can never override
+# this: Vite only inlines VITE_-prefixed vars, the backend is re-pinned from
+# OMI_PRODUCTION_BACKEND before the build, and a hard guard fails the job if a
+# legacy CONVEX_URL variable/secret exists with a different value.
+#
+# Everything is automated. The workflow fails hard rather than shipping a build
 # against the wrong backend.
 #
-# Owner-only actions live inline where they are unavoidable; everything else is
-# automated and fails hard rather than shipping a wrong build.
+# NOTE ON FORMATTING: every `run:` block below is a YAML literal block scalar.
+# All of its lines — including heredoc bodies and their terminators — must be
+# indented deeper than the `run:` key. A line at column 0 silently terminates
+# the scalar and makes the whole workflow unparseable, so the workflow is
+# validated by scripts/prodGates/validateWorkflow.ts (also run in CI).
 
 on:
   push:
@@ -27,20 +39,23 @@ permissions:
   id-token: write
 
 env:
-  # Deterministic production backend. This is the ONLY place the GitHub Pages
-  # build gets its backend URL from. Do not add/use vars.CONVEX_URL or
-  # secrets.CONVEX_URL for this job — they cannot be audited from build output
-  # the way a literal value can.
+  # ---------------------------------------------------------------------------
+  # SINGLE SOURCE OF TRUTH for the production backend.
   #
   # The ONLY owner-side change needed to switch backends is to edit this
-  # literal AND the runtime "REJECT WRONG BACKEND" gate below, then push/rerun.
-  #
-  # DO NOT fall back to a variable. A fallback is exactly the class of config
-  # that produced stale deployments in the past.
-  VITE_CONVEX_URL: https://majestic-turtle-372.convex.cloud
+  # literal. Every other reference in this file derives from it or asserts
+  # against it, so an edit here either propagates cleanly or fails the build.
+  # ---------------------------------------------------------------------------
+  OMI_PRODUCTION_BACKEND: https://majestic-turtle-372.convex.cloud
   VITE_BASE_PATH: /omiuniversalai/
+  # Live checks below target the published Pages origin.
+  OMI_PAGES_ORIGIN: https://omkarbhatti170899.github.io
+  OMI_PAGES_BASE: /omiuniversalai/
 
 jobs:
+  # ===========================================================================
+  # BUILD + GATE
+  # ===========================================================================
   build:
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +67,51 @@ jobs:
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
 
-      - name: Install dependencies
+      # -----------------------------------------------------------------------
+      # Phase 16 — the workflow must be valid before it is trusted to deploy.
+      # This is the check that would have caught the broken block-scalar
+      # indentation that silently stopped production from tracking main.
+      # -----------------------------------------------------------------------
+      - name: Validate deployment workflow
+        run: bun scripts/prodGates/validateWorkflow.ts
+
+      # -----------------------------------------------------------------------
+      # Phase 2 — deterministic backend selection.
+      # -----------------------------------------------------------------------
+      - name: Pin production backend (reject legacy CONVEX_URL override)
+        env:
+          LEGACY_CONVEX_URL_VAR: ${{ vars.CONVEX_URL }}
+          LEGACY_CONVEX_URL_SECRET: ${{ secrets.CONVEX_URL }}
+        run: |
+          set -euo pipefail
+
+          APPROVED="https://majestic-turtle-372.convex.cloud"
+
+          if [ "${OMI_PRODUCTION_BACKEND}" != "${APPROVED}" ]; then
+            echo "::error::OMI_PRODUCTION_BACKEND ('${OMI_PRODUCTION_BACKEND}') is not the approved production backend '${APPROVED}'."
+            echo "::error::Update the literal in .github/workflows/deploy-pages.yml deliberately, then re-run."
+            exit 1
+          fi
+
+          # A legacy repository variable or secret named CONVEX_URL must never
+          # silently redirect production. Fail loudly if one exists and differs.
+          if [ -n "${LEGACY_CONVEX_URL_VAR:-}" ] && [ "${LEGACY_CONVEX_URL_VAR}" != "${APPROVED}" ]; then
+            echo "::error::Repository variable CONVEX_URL is set to '${LEGACY_CONVEX_URL_VAR}' and would shadow production. Delete it in Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          if [ -n "${LEGACY_CONVEX_URL_SECRET:-}" ] && [ "${LEGACY_CONVEX_URL_SECRET}" != "${APPROVED}" ]; then
+            echo "::error::Repository secret CONVEX_URL is set and does not match production. Delete it in Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+
+          echo "VITE_CONVEX_URL=${OMI_PRODUCTION_BACKEND}" >> "${GITHUB_ENV}"
+          echo "Pinned VITE_CONVEX_URL=${OMI_PRODUCTION_BACKEND}"
+          echo "Pinned VITE_BASE_PATH=${VITE_BASE_PATH}"
+
+      # -----------------------------------------------------------------------
+      # Phase 4 — build gates. Deployment cannot happen if any gate fails.
+      # -----------------------------------------------------------------------
+      - name: Install dependencies (frozen lockfile)
         run: bun install --frozen-lockfile
 
       - name: Typecheck
@@ -67,125 +126,117 @@ jobs:
       - name: Build production bundle
         run: bun run build
 
-      # --------------------------------------------------------------------------
-      # Deterministic deployment metadata
-      # --------------------------------------------------------------------------
+      # -----------------------------------------------------------------------
+      # Phase 3 — deployment identity. Not a secret; makes production
+      # debugging deterministic.
+      # -----------------------------------------------------------------------
       - name: Compute deployment identity
         id: identity
         run: |
-          COMMIT="${{ github.sha }}"
-          BACKEND="${{ env.VITE_CONVEX_URL }}"
-          BASE_PATH="${{ env.VITE_BASE_PATH }}"
-
-          # A tiny bit of defense: the backend literal in env must match the
-          # approved production backend that this workflow declares above. This
-          # is belt-and-suspenders for a future maintainer who might paste a new
-          # value in and forget to update the runtime check.
-          if [ "$BACKEND" != "https://majestic-turtle-372.convex.cloud" ]; then
-            echo "::error::VITE_CONVEX_URL is not the approved production backend"
-            exit 1
-          fi
+          set -euo pipefail
+          COMMIT="${GITHUB_SHA}"
+          BACKEND="${OMI_PRODUCTION_BACKEND}"
+          BASE_PATH="${VITE_BASE_PATH}"
 
           mkdir -p dist
           cat > dist/deployment-info.json <<EOF
-{
-  "commit": "${COMMIT}",
-  "backend": "${BACKEND}",
-  "basePath": "${BASE_PATH}",
-  "builtBy": "github-pages-workflow"
-}
-EOF
+          {
+            "commit": "${COMMIT}",
+            "backend": "${BACKEND}",
+            "basePath": "${BASE_PATH}",
+            "builtBy": "github-pages-workflow",
+            "builtAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "runId": "${GITHUB_RUN_ID}"
+          }
+          EOF
 
-          echo "commit=${COMMIT}" >> "$GITHUB_OUTPUT"
-          echo "backend=${BACKEND}" >> "$GITHUB_OUTPUT"
-          echo "basePath=${BASE_PATH}" >> "$GITHUB_OUTPUT"
+          {
+            echo "commit=${COMMIT}"
+            echo "backend=${BACKEND}"
+            echo "basePath=${BASE_PATH}"
+          } >> "${GITHUB_OUTPUT}"
 
-      # --------------------------------------------------------------------------
-      # Pre-deploy artifact verification
-      # --------------------------------------------------------------------------
+      # -----------------------------------------------------------------------
+      # Phase 5 — production bundle verification. Fails the deployment on any
+      # mismatch, wrong backend, or credential-shaped string.
+      # -----------------------------------------------------------------------
       - name: Verify deployment artifact
+        env:
+          COMMIT: ${{ github.sha }}
+          BACKEND: ${{ env.OMI_PRODUCTION_BACKEND }}
+          BASE_PATH: ${{ env.VITE_BASE_PATH }}
         run: |
           set -euo pipefail
 
-          echo "== required files =="
-          for f in index.html dist/index.html; do
-            if [ ! -f "$f" ]; then
-              echo "::error::missing $f"
-              exit 1
-            fi
-            echo "ok $f"
-          done
+          fail() { echo "::error::$1"; exit 1; }
 
-          # SPA fallback page for static hosting
-          if [ ! -f public/404.html ]; then
-            echo "::error::missing public/404.html (SPA fallback for static host)"
-            exit 1
-          fi
-          echo "ok public/404.html"
+          echo "== entry point =="
+          [ -f index.html ] || fail "missing repository index.html"
+          [ -f dist/index.html ] || fail "missing dist/index.html"
+          echo "ok index.html + dist/index.html"
 
-          # PWA / routing assets
-          for f in public/manifest.webmanifest public/sw.js public/offline.html public/llms.txt; do
-            if [ ! -f "$f" ]; then
-              echo "::error::missing $f"
-              exit 1
-            fi
-            echo "ok $f"
+          echo "== SPA routing + PWA source assets =="
+          for f in public/404.html public/manifest.webmanifest public/sw.js public/offline.html public/llms.txt; do
+            [ -f "$f" ] || fail "missing $f"
           done
+          echo "ok 404.html, manifest.webmanifest, sw.js, offline.html, llms.txt"
+
+          echo "== those assets are present in the shipped artifact =="
+          for f in dist/404.html dist/manifest.webmanifest dist/sw.js dist/offline.html dist/index.html; do
+            [ -f "$f" ] || fail "missing $f in shipped artifact"
+          done
+          echo "ok SPA/PWA files shipped"
+
+          echo "== hashed JS/CSS assets =="
+          JS_COUNT=$(find dist/assets -maxdepth 1 -name '*.js' | wc -l | tr -d ' ')
+          CSS_COUNT=$(find dist/assets -maxdepth 1 -name '*.css' | wc -l | tr -d ' ')
+          [ "$JS_COUNT" -ge 1 ] || fail "no hashed .js assets in dist/assets"
+          [ "$CSS_COUNT" -ge 1 ] || fail "no hashed .css assets in dist/assets"
+          echo "ok $JS_COUNT hashed JS chunks, $CSS_COUNT hashed CSS files"
+
+          echo "== base path is compiled in =="
+          grep -qF "${BASE_PATH}" dist/index.html \
+            || fail "dist/index.html does not reference ${BASE_PATH} — VITE_BASE_PATH was not applied"
+          grep -rqF "basename:\"${BASE_PATH}\"" dist/assets/ \
+            || fail "router basename ${BASE_PATH} not compiled into bundle"
+          echo "ok base path ${BASE_PATH} present in index.html and router basename"
 
           echo "== deployment-info.json =="
-          if [ ! -f dist/deployment-info.json ]; then
-            echo "::error::missing dist/deployment-info.json"
-            exit 1
-          fi
-          python3 - <<'PY'
-import json, sys
-data = json.load(open("dist/deployment-info.json"))
-assert data.get("backend") == "https://majestic-turtle-372.convex.cloud", data
-assert data.get("basePath") == "/omiuniversalai/", data
-assert data.get("commit"), data
-print("ok dist/deployment-info.json:", data)
-PY
+          [ -f dist/deployment-info.json ] || fail "missing dist/deployment-info.json"
+          bun scripts/prodGates/checkDeploymentInfo.ts dist/deployment-info.json "${COMMIT}" "${BACKEND}" "${BASE_PATH}"
 
-          echo "== backend URL compiled into bundle =="
-          if ! grep -rqF "https://majestic-turtle-372.convex.cloud" dist/assets/; then
-            echo "::error::VITE_CONVEX_URL not found in built bundle"
-            exit 1
-          fi
-          echo "ok backend URL present in dist/assets/"
+          echo "== intended backend is compiled into the bundle =="
+          grep -rqF "${BACKEND}" dist/assets/ \
+            || fail "approved backend ${BACKEND} not found in built bundle"
+          echo "ok ${BACKEND} present in dist/assets/"
 
-          # Reject the retired backend shape anywhere it might accidentally
-          # reappear (including in comments, error messages, and misplaced
-          # env references).
-          if grep -rqE "resolute-ptarmigan-187\.convex\.(site|cloud)" dist/; then
-            echo "::error::retired backend URL resolute-ptarmigan-187 found in artifact"
-            exit 1
-          fi
-          echo "ok no retired resolute-ptarmigan-187 backend in dist/"
+          echo "== no other Convex deployment is referenced anywhere in the artifact =="
+          bun scripts/prodGates/checkConvexDeployments.ts dist "${BACKEND}"
 
-          # ------------------------------------------------------------------------
-          # Security: fail if frontend assets contain anything that looks like a
-          # live credential. This is a hard gate, not a warning.
-          # ------------------------------------------------------------------------
-          echo "== credential scan on shipped artifacts =="
-          if grep -rEnE \
-            "sk_live_[A-Za-z0-9]{20,}|sk_test_[A-Za-z0-9]{20,}|pk_live_[A-Za-z0-9]{20,}|"\
-            "AIza[0-9A-Za-z_-]{35}|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{30,}|"\
-            "[Aa][Kk][Ii][Aa][0-9A-Z]{16}|xox[bpsa]-[A-Za-z0-9-]{10,}|"\
-            "-----BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----|"\
-            "dotenv://:key_[A-Za-z0-9]{32,}@|"\
-            "[Dd][Oo][Tt][Ee][Nn][Vv]_PRIVATE_KEY[A-Z_]*[\"']?[A-Za-z0-9]{16,}" \
-            dist/; then
-            echo "::error::credential-shaped value found in dist/ — do not deploy"
-            exit 1
-          fi
-          echo "ok no credential-shaped value in dist/"
+          echo "== credential-shaped strings in shipped artifacts =="
+          bun scripts/prodGates/checkSecretShapes.ts dist
 
           echo "== commit reachability =="
-          # The built deployment-info.json commit must be a real commit in this
-          # repo, otherwise we would be deploying metadata we did not actually build.
-          git cat-file -t "${{ steps.identity.outputs.commit }}" >/dev/null 2>&1 \
-            || { echo "::error::deployment-info.json commit is not a known git object"; exit 1; }
-          echo "ok commit is reachable"
+          git cat-file -t "${COMMIT}" >/dev/null 2>&1 \
+            || fail "deployment-info.json commit is not a known git object"
+          echo "ok commit reachable"
+
+      # -----------------------------------------------------------------------
+      # Phase 13 (pre-deploy half) — the production backend must actually
+      # answer before we point the frontend at it.
+      # -----------------------------------------------------------------------
+      - name: Verify production backend is live
+        env:
+          BACKEND: ${{ env.OMI_PRODUCTION_BACKEND }}
+        run: |
+          set -euo pipefail
+          SITE="${BACKEND%.convex.cloud}.convex.site"
+          for path in /status /health /selftest; do
+            code=$(curl -s -o "/tmp/omi$(basename "$path").json" -w '%{http_code}' -m 30 "${SITE}${path}" || echo 000)
+            echo "${SITE}${path} -> ${code}"
+            [ "$code" = "200" ] || { echo "::error::production backend endpoint ${path} returned ${code}"; exit 1; }
+          done
+          bun scripts/prodGates/summarizeSelfTest.ts /tmp/omiselftest.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -195,30 +246,116 @@ PY
         with:
           path: dist
 
+  # ===========================================================================
+  # DEPLOY
+  # ===========================================================================
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Persist deployment record
+      - name: Record deployment
         if: always()
+        env:
+          BACKEND: ${{ env.OMI_PRODUCTION_BACKEND }}
+          BASE_PATH: ${{ env.VITE_BASE_PATH }}
         run: |
-          mkdir -p "$HOME/.omi-deploy-log"
-          cat > "$HOME/.omi-deploy-log/$(date +%Y%m%dT%H%M%SZ).json" <<EOF
-{
-  "commit": "${{ steps.identity.outputs.commit }}",
-  "backend": "${{ steps.identity.outputs.backend }}",
-  "basePath": "${{ steps.identity.outputs.basePath }}",
-  "pagesDeploymentStatus": "${{ steps.deployment.outputs.status }}",
-  "pagesUrl": "${{ steps.deployment.outputs.page_url }}",
-  "triggeredBy": "${{ github.actor }}",
-  "trigger": "${{ github.event_name }}"
-}
-EOF
-          echo "Deployment record written to $HOME/.omi-deploy-log"
+          {
+            echo "### GitHub Pages deployment"
+            echo ""
+            echo "| field | value |"
+            echo "| --- | --- |"
+            echo "| commit | ${GITHUB_SHA} |"
+            echo "| backend | ${BACKEND} |"
+            echo "| basePath | ${BASE_PATH} |"
+            echo "| status | ${{ steps.deployment.outputs.status }} |"
+            echo "| pages url | ${{ steps.deployment.outputs.page_url }} |"
+            echo "| trigger | ${GITHUB_EVENT_NAME} by ${GITHUB_ACTOR} |"
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+  # ===========================================================================
+  # PHASE 7 + 16 — LIVE deployment verification.
+  #
+  # "Actions said success" is not proof. This job fetches the published bytes
+  # and proves: live frontend commit == this commit, and the live bundle is
+  # compiled against the approved backend.
+  # ===========================================================================
+  verify-live:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Verify live site matches this commit and backend
+        env:
+          COMMIT: ${{ github.sha }}
+          BACKEND: ${{ env.OMI_PRODUCTION_BACKEND }}
+          ORIGIN: ${{ env.OMI_PAGES_ORIGIN }}
+          BASE: ${{ env.OMI_PAGES_BASE }}
+        run: |
+          set -euo pipefail
+
+          URL="${ORIGIN}${BASE}"
+          LIVE_INFO="${URL}deployment-info.json"
+          mkdir -p live
+
+          echo "== waiting for deployment-info.json to propagate =="
+          ok=0
+          for attempt in $(seq 1 30); do
+            if curl -fsS -m 20 "${LIVE_INFO}" -o live/deployment-info.json 2>/dev/null; then
+              if bun scripts/prodGates/checkDeploymentInfo.ts live/deployment-info.json "${COMMIT}" "${BACKEND}" "${BASE}" >/dev/null 2>&1; then
+                ok=1
+                echo "matched on attempt ${attempt}"
+                break
+              fi
+              echo "attempt ${attempt}: deployment-info.json present but not yet this commit"
+            else
+              echo "attempt ${attempt}: deployment-info.json not published yet"
+            fi
+            sleep 10
+          done
+
+          if [ "$ok" != "1" ]; then
+            echo "::error::Live ${LIVE_INFO} never reported commit ${COMMIT}. The published site is NOT this build."
+            echo "::error::Last document received:"
+            head -c 400 live/deployment-info.json 2>/dev/null || true
+            exit 1
+          fi
+
+          echo "== live deployment identity =="
+          bun scripts/prodGates/checkDeploymentInfo.ts live/deployment-info.json "${COMMIT}" "${BACKEND}" "${BASE}"
+
+          echo "== live index.html =="
+          curl -fsS -m 30 "${URL}" -o live/index.html
+          grep -qF "${BASE}assets/" live/index.html \
+            || { echo "::error::live index.html does not reference ${BASE}assets/"; exit 1; }
+          echo "ok live index.html references ${BASE}assets/"
+
+          echo "== live bundle backend identity =="
+          bun scripts/prodGates/checkLiveBundle.ts "${URL}" "${BACKEND}"
+
+          echo "== live backend reachability =="
+          SITE="${BACKEND%.convex.cloud}.convex.site"
+          for path in /status /selftest; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -m 30 "${SITE}${path}" || echo 000)
+            echo "${SITE}${path} -> ${code}"
+            [ "$code" = "200" ] || { echo "::error::live backend ${path} returned ${code}"; exit 1; }
+          done
+
+          {
+            echo "### Live verification"
+            echo ""
+            echo "Live frontend **${URL}** is commit ${COMMIT} and is compiled against ${BACKEND}."
+          } >> "${GITHUB_STEP_SUMMARY}"

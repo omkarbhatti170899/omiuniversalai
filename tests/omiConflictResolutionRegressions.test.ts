@@ -43,7 +43,6 @@ import { readFileSync } from "node:fs";
 import {
   crossCheckClaims,
   resolveConflict,
-  type ConflictingClaim,
 } from "../src/convex/searchEngine/crossCheck";
 
 const now = Date.now();
@@ -262,13 +261,12 @@ describe("SearXNG fallback — no single instance or provider may block Andromed
   test("unavailable SearXNG is reported honestly and never counts as a working general-web source", () => {
     const s = searxngSrc();
     // The readiness hint names the real fix instead of pretending partial health.
-
-
-// End of SearXNG fallback pin block.
-// (Real pins live above this section; this placeholder keeps the file parseable
-//  if future edits remove the block above.)
-describe("SearXNG fallback — no single instance or provider may block Andromeda", () => {
-  test("placeholder — real pins live above", () => {
-    expect(1 + 1).toBe(2);
+    expect(s).toContain("this instance has search.formats JSON disabled");
+    // Readiness is MEASURED, never inferred from configuration alone.
+    expect(s).toContain("HONEST readiness");
+    // And the chat turn REFUSES rather than dressing weak or absent evidence up
+    // as a current answer.
+    const c = chatSrc();
+    expect(c).toContain("NO_VERIFIED_RESULTS");
   });
 });

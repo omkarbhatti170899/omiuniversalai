@@ -16,7 +16,11 @@
  * Usage: bun scripts/searchStress.ts
  */
 
-const BASE = "https://resolute-ptarmigan-187.convex.site/currentinfo";
+// Production backend is the default so this harness can never silently probe a
+// retired deployment. Override OMI_BACKEND to test another one deliberately.
+const BACKEND =
+  process.env.OMI_BACKEND ?? "https://majestic-turtle-372.convex.site";
+const BASE = `${BACKEND}/currentinfo`;
 
 type Case = { group: string; q: string };
 
