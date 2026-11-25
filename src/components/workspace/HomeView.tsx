@@ -142,30 +142,30 @@ export function HomeView({
   );
 
   return (
-    <div className="mx-auto max-w-5xl space-y-10">
+    <div className="mx-auto max-w-5xl space-y-9">
       {/* Central ask-Omi experience */}
       <motion.section
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="pt-6 text-center sm:pt-10"
+        className="pt-6 text-center sm:pt-8"
       >
-        <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/[0.02] px-3 py-1 text-[11px] text-muted-foreground">
+        <span className="inline-flex items-center gap-2 rounded-full border border-border/30 bg-white/[0.02] px-3 py-1 text-[11px] text-muted-foreground/60">
           <Sparkles className="size-3 text-primary" />
-          Omi Universal AI · created by Mr. Omkar Prakash Bhatti
+          Omi Universal AI · Mr. Omkar Prakash Bhatti
         </span>
 
-        <h1 className="mt-5 text-2xl font-semibold tracking-tight sm:text-[34px] sm:leading-tight">
+        <h1 className="mt-4 text-2xl font-semibold tracking-tight sm:text-[32px] sm:leading-tight">
           What can Omi do for you?
         </h1>
-        <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
+        <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground/80">
           One intelligence for chat, search, research, images and files — routed
           through Andromeda to whichever engine fits the job.
         </p>
 
-        <div className="mx-auto mt-7 max-w-2xl">
+        <div className="mx-auto mt-6 max-w-2xl">
           <div className="relative">
-            <Sparkles className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Sparkles className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground/70" />
             <Input
               value={ask}
               onChange={(e) => setAsk(e.target.value)}
@@ -177,14 +177,14 @@ export function HomeView({
               }}
               placeholder="Ask Omi anything, or describe what you want…"
               aria-label="Ask Omi anything"
-              className="h-14 rounded-2xl border-border/70 bg-white/[0.03] pl-11 pr-32 text-base shadow-none placeholder:text-muted-foreground/70 focus-visible:border-primary/40"
+              className="h-13 rounded-2xl border-border/40 bg-white/[0.02] pl-11 pr-32 text-base shadow-none placeholder:text-muted-foreground/60 focus-visible:border-primary/40"
               maxLength={500}
             />
-            <div className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center gap-1">
+            <div className="absolute right-2.5 top-1/2 flex -translate-y-1/2 items-center gap-1">
               <Button
                 size="sm"
                 variant="ghost"
-                className="h-9 cursor-pointer gap-1.5 text-xs text-muted-foreground"
+                className="h-9 cursor-pointer gap-1.5 text-xs text-muted-foreground/70 hover:text-foreground"
                 onClick={() => handleAsk("search")}
                 disabled={ask.trim().length < 2}
               >
@@ -193,7 +193,7 @@ export function HomeView({
               </Button>
               <Button
                 size="icon"
-                className="size-9 cursor-pointer rounded-xl"
+                className="size-9 cursor-pointer rounded-xl text-foreground"
                 onClick={() => handleAsk("chat")}
                 disabled={ask.trim().length < 2}
                 aria-label="Ask Omi"
@@ -202,14 +202,14 @@ export function HomeView({
               </Button>
             </div>
           </div>
-          <p className="mt-2 text-[11px] text-muted-foreground/70">
+          <p className="mt-2 text-[11px] text-muted-foreground/50">
             Enter to chat · Shift + Enter to search the web
           </p>
         </div>
       </motion.section>
 
       {/* Capability shortcuts */}
-      <section>
+      <section className="space-y-2">
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((c, i) => {
             const Icon = c.icon;
@@ -221,17 +221,17 @@ export function HomeView({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.25, delay: i * 0.025 }}
                 onClick={c.onClick}
-                className="group flex cursor-pointer flex-col items-start gap-3 rounded-xl border border-border/60 bg-white/[0.015] p-4 text-left transition-colors duration-150 hover:border-border hover:bg-white/[0.04]"
+                className="group flex cursor-pointer flex-col items-start gap-2.5 rounded-xl border border-border/30 bg-white/[0.015] p-4 text-left transition-colors duration-150 hover:border-primary/40 hover:bg-white/[0.03]"
               >
                 <span className="flex w-full items-center justify-between">
-                  <span className="flex size-8 items-center justify-center rounded-lg border border-border/70 bg-white/[0.03] text-muted-foreground transition-colors group-hover:text-primary">
+                  <span className="flex size-8 items-center justify-center rounded-lg border border-border/30 bg-white/[0.02] text-muted-foreground transition-colors group-hover:text-primary">
                     <Icon className="size-4" />
                   </span>
                   <ArrowRight className="size-3.5 text-muted-foreground/40 transition-all group-hover:translate-x-0.5 group-hover:text-primary" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-sm font-medium">{c.label}</span>
-                  <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">
+                  <span className="block text-sm font-medium text-foreground/95">{c.label}</span>
+                  <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground/70">
                     {c.desc}
                   </span>
                 </span>
@@ -242,7 +242,7 @@ export function HomeView({
       </section>
 
       {/* Quiet status row */}
-      <section className="grid gap-3 sm:grid-cols-3">
+      <section className="grid gap-2.5 sm:grid-cols-3">
         <StatusPanel
           label="Agents ready"
           value={agents === undefined ? null : String(agents.length)}
@@ -273,13 +273,13 @@ export function HomeView({
       </section>
 
       {/* Recent activity */}
-      <section className="space-y-3">
+      <section className="space-y-2">
         <div className="flex items-center justify-between">
-          <p className="text-sm font-medium">Recent activity</p>
+          <p className="text-sm font-medium text-foreground/90">Recent activity</p>
           <Button
             variant="ghost"
             size="sm"
-            className="cursor-pointer text-xs text-muted-foreground hover:text-foreground"
+            className="cursor-pointer text-xs text-muted-foreground/70 hover:text-foreground"
             onClick={() => onNavigate("tasks")}
           >
             View tasks
@@ -292,18 +292,18 @@ export function HomeView({
             <Skeleton className="h-10 w-3/4" />
           </div>
         ) : audit.length === 0 ? (
-          <p className="rounded-xl border border-dashed border-border/70 px-4 py-8 text-center text-sm text-muted-foreground">
+          <p className="rounded-xl border border-dashed border-border/30 px-4 py-7 text-center text-sm text-muted-foreground/60">
             Nothing yet. Ask Omi something above, or delegate work to an agent.
           </p>
         ) : (
-          <ul className="divide-y divide-border/50 rounded-xl border border-border/60 bg-white/[0.01]">
+          <ul className="divide-y divide-border/20 rounded-xl border border-border/20 bg-white/[0.01]">
             {(audit as AuditEvent[]).slice(0, 5).map((e) => (
               <li key={e._id} className="flex items-center gap-3 px-4 py-2.5">
-                <span className="size-1.5 shrink-0 rounded-full bg-primary/70" />
+                <span className="size-1.5 shrink-0 rounded-full bg-primary/60" />
                 <span className="min-w-0 flex-1 truncate text-sm text-foreground/90">
                   {e.detail ?? e.event}
                 </span>
-                <span className="shrink-0 text-[11px] text-muted-foreground">
+                <span className="shrink-0 text-[11px] text-muted-foreground/60">
                   {timeAgo(e._creationTime)}
                 </span>
               </li>
@@ -314,8 +314,8 @@ export function HomeView({
 
       {/* Pending approvals nudge */}
       {pending.length > 0 && (
-        <section className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3">
-          <p className="flex items-center gap-2 text-sm text-amber-400">
+        <section className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-primary/25 bg-primary/5 px-4 py-3">
+          <p className="flex items-center gap-2 text-sm text-primary/90">
             <Loader2 className="size-4 animate-spin" />
             {pending.length} plan{pending.length === 1 ? "" : "s"} awaiting your
             approval
@@ -331,11 +331,11 @@ export function HomeView({
       )}
 
       <section className="flex flex-wrap items-center gap-2 pb-2">
-        <Badge variant="outline" className="border-border/70 text-muted-foreground">
+        <Badge variant="outline" className="border-border/30 text-muted-foreground/70">
           <Bot className="mr-1 size-3" />
           Provider-neutral
         </Badge>
-        <span className="text-[11px] text-muted-foreground">
+        <span className="text-[11px] text-muted-foreground/50">
           Omi chooses the model; the underlying provider is an implementation
           detail.
         </span>
