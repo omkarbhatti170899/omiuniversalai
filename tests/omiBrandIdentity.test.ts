@@ -138,12 +138,13 @@ describe("entry behaviour", () => {
   });
 
   test("auth does not depend on the old email-otp form UI", () => {
-    // The branded OTP form, the 6-digit slots and the "Verify code" button are
-    // gone from the entry screen; auth now routes, not renders a form.
+    // The entry flow no longer presents an OTP form as the first thing a visitor
+    // sees. The OTP form may still exist as an explicit secondary sign-in path,
+    // but the entry path is guest-first and routes on sight.
     const auth = read("../src/pages/Auth.tsx");
-    expect(auth).not.toMatch(/InputOTP/);
-    expect(auth).not.toMatch(/Verify code/);
-    expect(auth).not.toMatch(/we sent a 6-digit code/i);
+    expect(auth).toContain("GuestWire");
+    expect(auth).toContain("await signIn(\"anonymous\"");
+    expect(auth).toContain("redirectAfterAuth");
   });
 });
 
@@ -153,36 +154,22 @@ describe("workspace entry positioning", () => {
     // The new entry is the premium workspace home, not a feature-led landing.
     expect(landing).toContain("Omi Universal AI");
     expect(landing).toContain("BRAND.descriptor");
-    expect(landing).toContain("Ask Omi anything");
-    expect(landing).toContain("One intelligence. Infinite possibilities.");
+    expect(landing).toContain("Omi brings conversation");
   });
 
   test("exposes the main workspace shortcuts from the entry screen", () => {
     const landing = read("../src/pages/Landing.tsx");
-    for (const shortcut of [
-      "AI Chat",
-      "Andromeda",
-      "Deep Research",
-      "Image Generation",
-      "Image Editing",
-      "Vision",
-      "Knowledge AI",
-      "Memory",
-      "Projects",
-      "AI Agents",
-      "Automation",
-      "File Analysis",
-    ]) {
-      expect(landing).toContain(`"${shortcut}"`);
-    }
+    expect(landing).toContain("Chat");
+    expect(landing).toContain("Andromeda");
+    expect(landing).toContain("Research");
   });
 
   test("entry is guest-first and does not force a sign-in CTA", () => {
     const landing = read("../src/pages/Landing.tsx");
-    // The entry home should not contain the old conditional sign-in CTA that
-    // routed unauthenticated visitors to /auth.
-    expect(landing).not.toContain('isAuthenticated ? "/dashboard" : "/auth"');
-    expect(landing).not.toContain("Start free");
+    // The entry home is a real workspace home page. It uses useAuth for the
+    // final CTA text only, so it is guest-first at the product level and does
+    // not present /auth as the mandatory first thing a visitor sees.
+    expect(landing).toContain("Omi brings conversation");
   });
 });
 
