@@ -271,14 +271,14 @@ export function WorkspaceShell({
 
   return (
     <div
-      className="omi-ambient min-h-dvh bg-[#07070c] text-foreground"
+      className="omi-ambient min-h-dvh bg-background text-foreground"
       style={{ paddingTop: viewport.safeArea.top }}
     >
       <div className="flex min-h-dvh">
         {/* Sidebar (desktop) */}
         <aside
           className={cn(
-            "sticky top-0 hidden h-dvh shrink-0 flex-col border-r border-border/40 bg-[#0b0b12]/90 backdrop-blur-xl transition-[width] duration-200 ease-out md:flex",
+            "sticky top-0 hidden h-dvh shrink-0 flex-col border-r border-sidebar-border bg-sidebar/80 backdrop-blur-xl transition-[width] duration-200 ease-out md:flex",
             collapsed ? "w-[68px]" : "w-[248px]",
           )}
         >
@@ -292,17 +292,17 @@ export function WorkspaceShell({
             <OmiMark className="size-8" />
             {!collapsed && (
               <div className="min-w-0 leading-tight">
-                <p className="truncate text-[13px] font-semibold tracking-[0.2em] text-white">
+                <p className="truncate text-[13px] font-semibold tracking-[0.18em]">
                   OMI
                 </p>
-                <p className="truncate text-[10px] uppercase tracking-[0.18em] text-muted-foreground/60">
-                  Universal Intelligence
+                <p className="truncate text-[10px] uppercase tracking-[0.16em] text-muted-foreground/70">
+                  Universal AI
                 </p>
               </div>
             )}
           </div>
 
-          <div className="mx-3 h-px bg-border/40" />
+          <div className="mx-3 h-px bg-sidebar-border" />
 
           {/* Nav */}
           <nav className="omi-scroll flex-1 overflow-y-auto px-2 pb-3">
@@ -310,10 +310,10 @@ export function WorkspaceShell({
           </nav>
 
           {/* Identity footer */}
-          <div className="mx-3 mb-3 rounded-xl border border-border/30 bg-white/[0.02] p-3">
+          <div className="mx-3 mb-3 rounded-xl border border-sidebar-border bg-white/[0.02] p-3">
             {collapsed ? (
               <p
-                className="text-center text-[10px] uppercase tracking-widest text-muted-foreground/70"
+                className="text-center text-[10px] uppercase tracking-widest text-muted-foreground"
                 title="Created by Mr. Omkar Prakash Bhatti"
               >
                 OPB
@@ -323,8 +323,8 @@ export function WorkspaceShell({
                 <p className="text-[11px] font-medium leading-snug text-foreground/90">
                   One intelligence, infinite possibilities.
                 </p>
-                <p className="mt-1.5 text-[10px] leading-relaxed text-muted-foreground/60">
-                  Omi Universal AI · Mr. Omkar Prakash Bhatti
+                <p className="mt-1.5 text-[10px] leading-relaxed text-muted-foreground/70">
+                  Omi Universal AI was created by Mr. Omkar Prakash Bhatti.
                 </p>
               </>
             )}
@@ -333,7 +333,7 @@ export function WorkspaceShell({
           <button
             type="button"
             onClick={() => setCollapsed((c) => !c)}
-            className="mb-3 flex cursor-pointer items-center justify-center gap-2 px-3 py-1.5 text-[11px] text-muted-foreground/70 transition-colors hover:text-foreground"
+            className="mb-3 flex cursor-pointer items-center justify-center gap-2 px-3 py-1.5 text-[11px] text-muted-foreground transition-colors hover:text-foreground"
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             {collapsed ? (
@@ -341,7 +341,7 @@ export function WorkspaceShell({
             ) : (
               <>
                 <ChevronsLeft className="size-4" />
-                <span className="hidden xs:inline">Expand</span>
+                Collapse
               </>
             )}
           </button>
@@ -350,7 +350,7 @@ export function WorkspaceShell({
         {/* Main column */}
         <div className="flex min-w-0 flex-1 flex-col">
           {/* Command bar */}
-          <header className="sticky top-0 z-40 border-b border-border/40 bg-[#0b0b12]/70 backdrop-blur-xl">
+          <header className="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur-xl">
             <div className="flex h-14 items-center gap-2 px-3 sm:h-16 sm:gap-3 sm:px-5">
               {/* Mobile nav trigger */}
               <Sheet open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
@@ -391,10 +391,10 @@ export function WorkspaceShell({
               </Sheet>
 
               {/* Current section */}
-                              <span className="hidden shrink-0 text-sm font-medium text-foreground/90 lg:block">
+              <span className="hidden shrink-0 text-sm font-medium lg:block">
                 {VIEW_TITLES[view]}
               </span>
-              <span className="hidden h-4 w-px shrink-0 bg-border/40 lg:block" />
+              <span className="hidden h-4 w-px shrink-0 bg-border lg:block" />
 
               {/* Command bar */}
               <div className="relative mx-auto w-full max-w-xl">
@@ -409,9 +409,9 @@ export function WorkspaceShell({
                       handleSubmitGlobal();
                     }
                   }}
-                  placeholder="Ask Omi or search the workspace…"
-                  aria-label="Ask Omi or search the workspace"
-                  className="h-10 rounded-xl border-border/50 bg-white/[0.02] pl-10 pr-16 text-sm placeholder:text-muted-foreground/60 focus-visible:border-primary/40"
+                  placeholder="Ask Omi or search your workspace…"
+                  aria-label="Ask Omi or search your workspace"
+                  className="h-10 rounded-xl border-border/70 bg-white/[0.03] pl-10 pr-16 text-sm placeholder:text-muted-foreground/70 focus-visible:border-primary/40"
                   maxLength={500}
                 />
                 <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
@@ -457,45 +457,45 @@ export function WorkspaceShell({
                   <DropdownMenuTrigger asChild>
                     <button
                       type="button"
-                      className="flex cursor-pointer items-center gap-2 rounded-lg px-1 py-1 outline-none transition-colors hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-ring/50"
+                      className="flex cursor-pointer items-center gap-2.5 rounded-lg px-1 py-1 outline-none transition-colors hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-ring/50"
                       aria-label="Account menu"
                     >
-                      <Avatar className="size-7">
-                        <AvatarFallback className="bg-primary/15 text-[10px] font-semibold text-primary">
+                      <Avatar className="size-8">
+                        <AvatarFallback className="bg-primary/15 text-xs font-semibold text-primary">
                           {initials}
                         </AvatarFallback>
                       </Avatar>
                       <span className="hidden text-left leading-tight xl:block">
-                        <span className="block max-w-28 truncate text-xs font-medium text-foreground/90">
+                        <span className="block max-w-32 truncate text-xs font-medium">
                           {user?.name ?? user?.email ?? "Signed in"}
                         </span>
-                        <span className="block text-[10px] text-muted-foreground/70">
-                          <span className="mr-1 inline-block size-1.5 rounded-full bg-emerald-400 align-middle" />
+                        <span className="block text-[10px] text-muted-foreground">
+                          <span className="mr-1 inline-block size-1.5 rounded-full bg-emerald-500 align-middle" />
                           Online
                         </span>
                       </span>
                     </button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-52">
-                    <DropdownMenuLabel className="truncate text-foreground">
+                  <DropdownMenuContent align="end" className="w-56">
+                    <DropdownMenuLabel className="truncate">
                       {user?.name ?? user?.email ?? "Signed in"}
                     </DropdownMenuLabel>
-                    <DropdownMenuSeparator className="bg-border/30" />
+                    <DropdownMenuSeparator />
                     <DropdownMenuItem
-                      className="cursor-pointer text-foreground/90"
+                      className="cursor-pointer"
                       onClick={() => onNavigate("settings")}
                     >
                       <Settings className="size-4" />
                       Settings
                     </DropdownMenuItem>
                     <DropdownMenuItem
-                      className="cursor-pointer text-foreground/90"
+                      className="cursor-pointer"
                       onClick={() => onNavigate("memory")}
                     >
                       <Brain className="size-4" />
                       Memory &amp; privacy
                     </DropdownMenuItem>
-                    <DropdownMenuSeparator className="bg-border/30" />
+                    <DropdownMenuSeparator />
                     <DropdownMenuItem
                       className="cursor-pointer text-destructive focus:text-destructive"
                       onClick={() => void handleSignOut()}
@@ -530,7 +530,7 @@ export function WorkspaceShell({
               is the same nav list the hamburger opens. */}
           <nav
             aria-label="Primary"
-            className="fixed inset-x-0 bottom-0 z-40 border-t border-border/40 bg-[#0b0b12]/90 backdrop-blur-xl md:hidden"
+            className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/90 backdrop-blur-xl md:hidden"
             style={{ paddingBottom: viewport.safeArea.bottom }}
           >
             <div className="grid grid-cols-5">
@@ -543,14 +543,12 @@ export function WorkspaceShell({
                     onClick={() => onNavigate(item.id)}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "flex min-h-[3.25rem] cursor-pointer flex-col items-center justify-center gap-0.5 py-2 text-[10px] transition-colors",
-                      active
-                        ? "text-primary"
-                        : "text-muted-foreground/60 hover:text-foreground/90",
+                      "flex min-h-[3.25rem] cursor-pointer flex-col items-center justify-center gap-1 py-2 text-[10px] transition-colors",
+                      active ? "text-primary" : "text-muted-foreground",
                     )}
                   >
                     <item.icon className="size-5" />
-                    <span className="leading-none font-medium">{item.label}</span>
+                    <span className="leading-none">{item.label}</span>
                   </button>
                 );
               })}
@@ -562,20 +560,20 @@ export function WorkspaceShell({
                   "flex min-h-[3.25rem] cursor-pointer flex-col items-center justify-center gap-1 py-2 text-[10px] transition-colors",
                   !MOBILE_NAV.some((i) => i.id === view)
                     ? "text-primary"
-                    : "text-muted-foreground/60 hover:text-foreground/90",
+                    : "text-muted-foreground",
                 )}
               >
                 <Menu className="size-5" />
-                <span className="leading-none font-medium">More</span>
+                <span className="leading-none">More</span>
               </button>
             </div>
           </nav>
 
           <footer
-            className="hidden border-t border-border/30 px-4 py-3 text-center text-[10px] text-muted-foreground/50 md:block"
+            className="hidden border-t border-border/60 px-4 py-4 text-center text-[11px] text-muted-foreground/70 md:block"
           >
             Omi Universal AI · {BRAND.creator} ·{" "}
-            <Link to="/" className="transition-colors hover:text-foreground/80">
+            <Link to="/" className="transition-colors hover:text-foreground">
               Ominnovations
             </Link>
           </footer>

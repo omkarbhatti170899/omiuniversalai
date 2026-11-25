@@ -15,9 +15,9 @@ export function RequireAuth({ children }: { children: ReactNode }) {
     );
   }
 
-  // Allow the workspace to open for an anonymous/guest session (when the backend
-  // supports it). Ownership, tenant isolation and authorization stay server-side;
-  // this guard only decides whether to keep the visitor out of the workspace UI.
+  // Anonymous/guest entry is allowed when the backend supports it. Ownership,
+  // tenant isolation and authorization stay server-side; this guard only decides
+  // whether to keep the visitor out of the workspace UI.
   if (!isAuthenticated) {
     return children;
   }
