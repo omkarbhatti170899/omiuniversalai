@@ -438,9 +438,12 @@ describe("security — the browser never authorizes itself (Phase 8)", () => {
     expect(offenders.map(rel).join("\n")).toBe("");
   });
 
-  it("the RequireAuth guard redirects signed-out users instead of rendering", () => {
+  it("the RequireAuth guard no longer forces a signed-out visitor to /auth for guest-first entry", () => {
     const src = read(join(SRC, "components", "RequireAuth.tsx"));
-    expect(src).toMatch(/Navigate|navigate/i);
-    expect(src).toMatch(/returnTo/);
+    // The redesign makes the workspace enter directly for an anonymous/guest
+    // session. The guard may still import Navigate/useLocation for other routing,
+    // but it must no longer redirect every signed-out visitor to /auth.
+    expect(src).not.toMatch(/if \(!isAuthenticated\) \{[\s\S]*Navigate/);
+    expect(src).toMatch(/anonymous|guest|isAuthenticated/);
   });
 });

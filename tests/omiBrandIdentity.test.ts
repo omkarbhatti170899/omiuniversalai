@@ -119,77 +119,70 @@ describe("store + PWA icons (this is what un-blocks Android packaging)", () => {
   });
 });
 
-describe("sign-in experience", () => {
-  test("is branded with the mark, the motto and the creator credit", () => {
+describe("entry behaviour", () => {
+  test("auth redirects into the workspace instead of showing a sign-in screen", () => {
     const auth = read("../src/pages/Auth.tsx");
-    expect(auth).toContain("OmiMark");
-    expect(auth).toContain("BRAND.motto");
-    expect(auth).toContain("BRAND.creator");
-    expect(auth).toContain("UNIVERSAL"); // descriptor rendered as real text
-  });
-
-  test("does not trap a returning user behind the entrance animation", () => {
-    const auth = read("../src/pages/Auth.tsx");
-    // First-visit gate + a reduced-motion gate. Without both, "premium" becomes
-    // "slow for everyone".
-    expect(auth).toContain("omi-brand-seen");
-    expect(auth).toContain("useReducedMotion");
-  });
-
-  test("the sign-in canvas is light-on-dark in BOTH themes", () => {
-    // The screen is always the brand's near-black. If it leaned on theme tokens
-    // for text, a light-theme user would get dark text on near-black — a
-    // contrast failure no automated test would otherwise catch.
-    const auth = code(read("../src/pages/Auth.tsx"));
-    expect(auth).toContain("bg-[#0B0B0F]");
-    // No token-based text colour survives anywhere on that surface.
-    expect(auth).not.toMatch(/text-foreground/);
-    expect(auth).not.toMatch(/text-muted-foreground/);
-    expect(auth).not.toMatch(/text-destructive/);
-  });
-
-  test("keeps both sign-in paths and the redirect contract intact", () => {
-    const auth = read("../src/pages/Auth.tsx");
-    expect(auth).toContain('signIn("email-otp"');
-    expect(auth).toContain('signIn("anonymous"');
-    expect(auth).toContain("resolveRedirectAfterAuth");
+    // The page is no longer a sign-in/sign-up screen. It redirects to the
+    // workspace and preserves the old returnTo resolution for any existing links.
+    expect(auth).toContain("redirectAfterAuth");
     expect(auth).toContain("returnTo");
+    expect(auth).toMatch(/navigate\(redirect/);
+  });
+
+  test("the workspace is guest-first, with anonymous sign-in best-effort", () => {
+    const auth = read("../src/pages/Auth.tsx");
+    // The redesign enters the workspace for a guest session if the backend
+    // supports it; if anonymous sign-in is unavailable, it still proceeds.
+    expect(auth).toMatch(/signIn\(("|\))anonymous/);
+    expect(auth).toMatch(/isAuthenticated|isLoading/);
+  });
+
+  test("auth does not depend on the old email-otp form UI", () => {
+    // The branded OTP form, the 6-digit slots and the "Verify code" button are
+    // gone from the entry screen; auth now routes, not renders a form.
+    const auth = read("../src/pages/Auth.tsx");
+    expect(auth).not.toMatch(/InputOTP/);
+    expect(auth).not.toMatch(/Verify code/);
+    expect(auth).not.toMatch(/we sent a 6-digit code/i);
   });
 });
 
-describe("landing page positioning", () => {
-  test("leads with the product, not with one feature", () => {
+describe("workspace entry positioning", () => {
+  test("leads with the product, the tagline and the central prompt", () => {
     const landing = read("../src/pages/Landing.tsx");
-    // The hero must name the product and the motto.
+    // The new entry is the premium workspace home, not a feature-led landing.
     expect(landing).toContain("Omi Universal AI");
-    expect(landing).toContain("BRAND.motto");
-    // The old positioning line described a different company.
-    expect(landing).not.toContain("Human Emotions AI");
-    expect(landing).not.toContain("emotions in your inbox");
+    expect(landing).toContain("BRAND.descriptor");
+    expect(landing).toContain("Ask Omi anything");
+    expect(landing).toContain("One intelligence. Infinite possibilities.");
   });
 
-  test("presents the real capability set, with Emotion AI as one card", () => {
+  test("exposes the main workspace shortcuts from the entry screen", () => {
     const landing = read("../src/pages/Landing.tsx");
-    for (const cap of [
-      "Chat",
+    for (const shortcut of [
+      "AI Chat",
       "Andromeda",
-      "Research",
-      "Knowledge",
-      "Memory",
-      "Files",
+      "Deep Research",
+      "Image Generation",
+      "Image Editing",
       "Vision",
-      "Agents",
+      "Knowledge AI",
+      "Memory",
+      "Projects",
+      "AI Agents",
       "Automation",
-      "Image Studio",
-      "Emotions AI",
+      "File Analysis",
     ]) {
-      expect(landing).toContain(`"${cap}"`);
+      expect(landing).toContain(`"${shortcut}"`);
     }
   });
 
-  test("routes a visitor into the product", () => {
+  test("entry is guest-first and does not force a sign-in CTA", () => {
     const landing = read("../src/pages/Landing.tsx");
-    expect(landing).toContain('isAuthenticated ? "/dashboard" : "/auth"');
+    // The entry home should not contain the old conditional sign-in CTA that
+    // routed unauthenticated visitors to /auth.
+    expect(landing).not.toContain('isAuthenticated ? "/dashboard" : "/auth"');
+    expect(landing).not.toContain("Start free");
   });
 });
 
