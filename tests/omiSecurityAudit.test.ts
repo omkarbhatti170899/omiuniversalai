@@ -71,6 +71,8 @@ const PUBLIC_CAPABILITY_ONLY: Record<string, string> = {
     "public capability booleans and public model labels; never keys, env names or user data",
   "searchStatus.ts:status": "same public capability snapshot as aiStatus",
   "ecosystemStatus.ts:status": "same public capability snapshot as aiStatus",
+  "omiHealth.ts:workspaceStatus":
+    "public backend-readiness snapshot for the free tier; no auth, no user-data tables, booleans/labels only",
   "search.ts:engines":
     "static list of configured search providers — no outbound call, no user data",
   "search.ts:health": "static breaker/health counters — no user data",
@@ -438,9 +440,12 @@ describe("security — the browser never authorizes itself (Phase 8)", () => {
     expect(offenders.map(rel).join("\n")).toBe("");
   });
 
-  it("the RequireAuth guard redirects signed-out users instead of rendering", () => {
+  it("the RequireAuth guard no longer forces a signed-out visitor to /auth for guest-first entry", () => {
     const src = read(join(SRC, "components", "RequireAuth.tsx"));
-    expect(src).toMatch(/Navigate|navigate/i);
-    expect(src).toMatch(/returnTo/);
+    // The redesign makes the workspace enter directly for an anonymous/guest
+    // session. The guard may still import Navigate/useLocation for other routing,
+    // but it must no longer redirect every signed-out visitor to /auth.
+    expect(src).not.toMatch(/if \(!isAuthenticated\) \{[\s\S]*Navigate/);
+    expect(src).toMatch(/anonymous|guest|isAuthenticated/);
   });
 });

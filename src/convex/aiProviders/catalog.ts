@@ -104,7 +104,10 @@ export const AI_PROVIDERS: ProviderDescriptor[] = [
     // Independent quota: a separate company and rate budget from Groq, which
     // is the whole point of this slot — one provider's 429 no longer means
     // every capability stalls.
-    cost: "free tier, rate-limited",
+    // Honest caveat: text/query inference is the free-tier path here; image
+    // generation on Gemini is NOT assumed free — the image catalog records
+    // that billing may be required for images.
+    cost: "free tier for text/query inference; rate-limited; image generation may require billing",
     // The `-latest` aliases are deliberate. gemini-2.5-flash and
     // gemini-2.5-flash-lite are still LISTED by the API but answer 404 "no
     // longer available to new users" — probed live on 2026-09-23, and the

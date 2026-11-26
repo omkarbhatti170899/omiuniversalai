@@ -1,6 +1,7 @@
-import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import type { Id } from "@/convex/_generated/dataModel";
+import { useQuery } from "convex/react";
+import { ConvexStatusCard } from "@/components/workspace/ConvexStatusCard";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -65,6 +66,7 @@ export function HomeView({
   onAskOmi: (query: string, mode: "chat" | "search") => void;
   onOpenImageStudio: (mode: "generate" | "edit") => void;
 }) {
+  const workspaceStatus = useQuery(api.omiHealth.workspaceStatus);
   const audit = useQuery(api.omiAudit.listMine);
   const agents = useQuery(api.omiAgents.listMine);
   const tasks = useQuery(api.omiTasks.listMine);
@@ -271,6 +273,16 @@ export function HomeView({
           onClick={() => onNavigate("search")}
         />
       </section>
+
+      {/* Workspace backend readiness */}
+      {workspaceStatus && !workspaceStatus.backendOk && (
+        <section className="space-y-3">
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-medium">Workspace backend status</p>
+          </div>
+          <ConvexStatusCard />
+        </section>
+      )}
 
       {/* Recent activity */}
       <section className="space-y-3">

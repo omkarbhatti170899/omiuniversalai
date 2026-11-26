@@ -3,10 +3,6 @@
   "framework": "vite",
   "buildCommand": "bun run build",
   "outputDirectory": "dist",
-  "build": {
-    "env": {
-      "VITE_CONVEX_URL": "https://majestic-turtle-372.convex.cloud"
-    }
-  },
+
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

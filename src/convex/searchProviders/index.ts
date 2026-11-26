@@ -54,8 +54,9 @@ export type ProviderStatus = {
  * Registered Andromeda sources (master plan §5), in priority order.
  *
  * All keyless, all $0 per query, all free/open APIs:
- *   SearXNG      — self-hosted metasearch floor (SEARXNG_BASE_URL optional;
- *                  public instances used until configured)
+  * SearXNG      — self-hosted metasearch floor (SEARXNG_BASE_URL required for
+ *                  reliable general web; public instances measured returning
+ *                  HTML/403 and are not counted as a working source today)
  *   Wikipedia    — encyclopedic entities and stable facts
  *   Wikidata     — CC0 structured knowledge graph (Freebase successor)
  *   arXiv        — scientific/technical papers (spec §5 knowledge/research)

@@ -15,14 +15,11 @@ export function RequireAuth({ children }: { children: ReactNode }) {
     );
   }
 
+  // Anonymous/guest entry is allowed when the backend supports it. Ownership,
+  // tenant isolation and authorization stay server-side; this guard only decides
+  // whether to keep the visitor out of the workspace UI.
   if (!isAuthenticated) {
-    const returnTo = `${location.pathname}${location.search}`;
-    return (
-      <Navigate
-        to={`/auth?returnTo=${encodeURIComponent(returnTo)}`}
-        replace
-      />
-    );
+    return children;
   }
 
   return children;

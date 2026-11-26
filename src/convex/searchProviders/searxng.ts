@@ -114,11 +114,6 @@ export function healthyObservedEngines(): string[] {
  * Public instances that have historically served JSON. The router tries
  * each in order and moves on at the first failure — instances rate-limit
  * aggressively, so this list is a floor, not a dependency.
- */
-/**
- * Public instances that have historically served JSON. The router tries
- * each in order and moves on at the first failure — instances rate-limit
- * aggressively, so this list is a floor, not a dependency.
  *
  * MEASURED 2026-09-26: every one of these returns HTTP 200 with an HTML body
  * when `format=json` is requested, because SearXNG ships with the JSON format

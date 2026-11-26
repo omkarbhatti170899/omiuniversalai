@@ -15,10 +15,20 @@ are unchanged. **No search-engine restrictions are bypassed**: the engine
 list in `settings.yml` enables only official-API / permissive sources, and
 Google/Bing/DuckDuckGo/Startpage/Qwant remain off (see the file's reasoning).
 
-## 1. Provision a host
+## 1. Provision a host (self-host path)
 
-Any small VPS with a stable IP and Docker (Hetzner/DO ~€4/mo). Point a DNS
-A/AAAA record at it, e.g. `searxng.example.com`.
+Self-hosting is the path that makes the general-web floor genuinely under your
+control and removes dependence on a third-party instance.
+
+A VPS is one way to do that, and it is NOT free: small hosted VPS options are
+commonly around the low single-digit euros per month. That is a real recurring
+cost, not a free-tier detail. Do not treat it as free, and do not enable it by
+default unless you have approved that cost.
+
+If you want ₹0 operation, self-hosting still needs a place to run. The honest
+options are: a host you already control and can run Docker on, or accepting that
+until a suitable backend exists the general-web floor remains limited and the
+product reports that honestly.
 
 ## 2. Configure
 

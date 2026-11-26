@@ -75,6 +75,11 @@ const PUBLIC_ALLOWLIST = new Set([
   "aiStatus.ts:",
   "searchStatus.ts:",
   "search.ts:",
+  // Public backend-readiness snapshot for the free tier. No auth check by
+  // design: it describes the backend, not the user. Returns booleans, public
+  // provider/service labels and cost hints only — never a key, env var name
+  // or user-specific data, and touches no user-data table.
+  "omiHealth.ts:workspaceStatus",
 ]);
 
 export type Finding = {
