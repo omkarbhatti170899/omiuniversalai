@@ -74,14 +74,23 @@
 - **RESULT:** PASS at the pure-logic and pipeline level.
 - **REMAINING BLOCKER:** A signed-in live deep-research run could not be executed here.
 
+### 3b. Free search backend floor
+
+- **FEATURE:** A genuinely free general-web search backend (SearXNG primary) so Andromeda can actually search the web without a paid API dependency.
+- **STATUS:** PARTIAL — architecture complete; backend not live in this deployment
+- **IMPLEMENTATION:** `src/convex/searchProviders/searxng.ts`, `src/convex/searchProviders/index.ts`, `deploy/searxng/*`, `FREE_INFRASTRUCTURE_AND_COST_REPORT.md`. SearXNG is the documented primary general-web provider; readiness is measured from a live probe, not assumed from configuration; public/community instances are not counted as a working source when they do not serve the JSON API.
+- **TEST PERFORMED:** typecheck, build, and the search provider/health code paths already covered by the existing suites.
+- **RESULT:** The code side of the free search backend is in place and honest. The missing piece is operational: there is no configured, measured-healthy general-web backend on this deployment right now.
+- **REMAINING BLOCKER:** A self-hosted SearXNG instance (or equivalent permitted free backend) with `SEARXNG_BASE_URL` and, where applicable, `SEARXNG_SHARED_SECRET` set server-side on the deployment. This is the single item that most affects whether the product actually searches the web for free.
+
 ### 4. Image generation + editing
 
 - **FEATURE:** Text-to-image, image-to-image, editing, background/object/style, enhancement, upscaling, variations, outpainting, understanding.
 - **STATUS:** PARTIAL (generation works; editing BLOCKED externally)
-- **IMPLEMENTATION:** `src/convex/aiProviders/image*`, `src/convex/omiImages.ts`, `src/components/workspace/ImageStudioView.tsx`. Edit-family intents route ONLY to image-input-capable providers; a missing edit provider fails honestly and never silently becomes text-to-image. A new **Pollinations Image Edits** provider (`pollinations-edit`, model `kontext`) adds a **free-tier, OpenAI Images-Edits-compatible** editing path that requires only a `POLLINATIONS_API_KEY` — no billing. The OpenAI images transport was generalized to serve both OpenAI and the Pollinations edits endpoint, and now also accepts raw-image responses.
-- **TEST PERFORMED:** `tests/omiImageContract.test.ts`, `omiImageIntent`, `omiImageRouting`, `omiImageErrors`, `omiImageEditing.test.ts` (new: routing excludes the text-to-image provider for edits; capability report flags editing available; the adapter POSTs to the edits endpoint and returns a verified image; an edit with no key calls NO provider).
+- **IMPLEMENTATION:** `src/convex/aiProviders/image*`, `src/convex/omiImages.ts`, `src/components/workspace/ImageStudioView.tsx`. Edit-family intents route ONLY to image-input-capable providers; a missing edit provider fails honestly and never silently becomes text-to-image. A free-tier edit path exists via `pollinations-edit` (model `kontext`) and requires only a `POLLINATIONS_API_KEY` — no billing. The OpenAI images transport was generalized to serve both OpenAI and the Pollinations edits endpoint, and now also accepts raw-image responses.
+- **TEST PERFORMED:** `tests/omiImageContract.test.ts`, `omiImageIntent`, `omiImageRouting`, `omiImageErrors`, `omiImageEditing.test.ts` (routing excludes the text-to-image provider for edits; capability report flags editing available; the adapter POSTs to the edits endpoint and returns a verified image; an edit with no key calls NO provider).
 - **RESULT:** Generation verified working (keyless path, real PNG bytes). Edit routing is correct and honest, and the free-tier edit adapter is exercised end-to-end against a mocked transport.
-- **REMAINING BLOCKER:** A live edit needs `POLLINATIONS_API_KEY` (free) — or Gemini billing / OpenAI credits. Confirmed live: all six edit-family probes fail only on that external cause. Without a key the op fails honestly; it is never downgraded to generation.
+- **REMAINING BLOCKER:** A real edit needs a configured image-input-capable provider — `POLLINATIONS_API_KEY` (free) is the no-billing route, or Gemini billing / OpenAI credits. Without a key the op fails honestly; it is never downgraded to generation.
 
 ### 5. Vision
 
@@ -305,12 +314,34 @@
 - Signed-in **end-to-end** journeys and real mobile browser QA: no session/device in this environment.
 - Store-grade **192/512 PNG** PWA icons (a maskable SVG icon now exists).
 
-### 5. External API/provider requirements
-- A free `GROQ_API_KEY` (primary) and/or `GEMINI_API_KEY` (independent fallback) unlock chat/reasoning/vision/search synthesis. `OPENAI_API_KEY` / `DEEPSEEK_API_KEY` are optional adapters. Keys go in the Keys/API Keys tab and are used server-side only — never in `VITE_*`.
-- Image editing requires an image-input-capable provider: a free `POLLINATIONS_API_KEY` (enter.pollinations.ai — model `kontext`) is the no-billing route, or Gemini billing / OpenAI credits.
+### 5. Workspace backend readiness (the decisive one)
+
+Before this project can be called genuinely complete under the ₹0 directive, the workspace backend must actually provide the free surfaces the app advertises. The app now reports that honestly on the Home screen through `ConvexStatusCard` + `omiHealth.workspaceStatus`.
+
+What the visitor should see when the backend is ready:
+- Convex backend online.
+- A free AI provider active (for example Groq free tier).
+- A working general-web search backend (SearXNG primary, or another permitted free backend).
+- Image generation available from a free provider if that capability is wanted.
+
+What the visitor sees when the backend is not ready:
+- The workspace still opens guest-first.
+- The Home screen shows a Workspace backend status card explaining exactly which free surface is missing and why.
+- Chat, search and image generation stay honest instead of silently pretending to work.
+
+Required to make the workspace backend ready:
+- `VITE_CONVEX_URL` configured so the frontend can reach the deployment.
+- `GROQ_API_KEY` (free) and/or `GEMINI_API_KEY` (free, independent quota) on the backend for AI.
+- A free general-web search backend deployed and accessible — self-hosted SearXNG with JSON enabled and `SEARXNG_BASE_URL` set server-side, with `SEARXNG_SHARED_SECRET` where the instance is gated.
+- Optionally `POLLINATIONS_API_KEY` (free) if image editing is wanted without billing.
+
+No paid provider is mandatory. If any of these is missing, the app should say so plainly.
 
 ### 6. Web deployment status
-- CI (`deploy-pages.yml`) runs typecheck + tests + build with `VITE_BASE_PATH=/omiuniversalai/` and `VITE_CONVEX_URL`, verifies the URL is compiled into the bundle, and deploys to GitHub Pages. Live: https://omkarbhatti170899.github.io/omiuniversalai/
+- The project is deployable to a static host with `bun install` then `bun run build`, which produces `dist/`. On this branch, the deploy check reports `deployable: true` with no problems.
+- This branch is served as a Freebuff-managed workspace preview when that control plane is available; no deploy was started from this sandbox because the managed deploy controls were not present as commands here.
+- Production env is currently empty, so the deployment is not yet configured with the free backend keys required above. Those keys belong in the deployment’s environment configuration, not in the sandbox `.env` files.
+- Live web address when deployed: `https://omkarbhatti170899.github.io/omiuniversalai/` on GitHub Pages, or the host’s own URL if another free static host is used.
 
 ### 7. Android build status
 - Capacitor metadata is correct and the web bundle builds for `dist`, but **no native build was produced** — the toolchain is not present in this environment.

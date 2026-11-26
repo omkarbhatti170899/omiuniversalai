@@ -71,6 +71,8 @@ const PUBLIC_CAPABILITY_ONLY: Record<string, string> = {
     "public capability booleans and public model labels; never keys, env names or user data",
   "searchStatus.ts:status": "same public capability snapshot as aiStatus",
   "ecosystemStatus.ts:status": "same public capability snapshot as aiStatus",
+  "omiHealth.ts:workspaceStatus":
+    "public backend-readiness snapshot for the free tier; no auth, no user-data tables, booleans/labels only",
   "search.ts:engines":
     "static list of configured search providers — no outbound call, no user data",
   "search.ts:health": "static breaker/health counters — no user data",

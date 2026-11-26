@@ -2,8 +2,14 @@ import { query, internalAction } from "./_generated/server";
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { getAiStatus } from "./aiProviders/catalog";
 import { getVisionStatus } from "./aiProviders/visionCatalog";
+import {
+  getImageCapabilityReport,
+  getImageProviderStatus,
+} from "./aiProviders/imageCatalog";
 import { deriveProposals } from "./omiImprove";
 import { warmGeneralWebHealth } from "./searchProviders";
+import { getProviderStatus } from "./searchProviders";
+import { isProviderFree } from "./omiHealthWorkspaceStatus";
 
 /**
  * OMI workspace health (master plan Phase 11/13 observability).
@@ -98,3 +104,86 @@ export const workspaceHealth = query({
     return { ai, vision, toolMetrics, verification, proposals };
   },
 });
+
+/**
+ * Public workspace backend status for the free tier.
+ *
+ * This is the honest surface shown on the Home screen before a visitor tries
+ * chat, search or images. It is deliberately:
+ *   - public: no auth check, because it describes the BACKEND, not the user
+ *   - user-data-free: it touches no user-data tables
+ *   - metadata-only: booleans, labels and public identifiers only — never a key,
+ *     token, env value or user-specific state
+ *
+ * It intentionally does not read the user-scoped image-health table, so image
+ * generation is reported as live only when the free keyless generator is
+ * configured. Static capability is not treated as “working”.
+ */
+export const workspaceStatus = query({
+  args: {},
+  handler: async () => {
+    const now = Date.now();
+
+    const ai = getAiStatus();
+    const searchStatus = getProviderStatus();
+    const imageProviders = getImageProviderStatus();
+    const imageCaps = getImageCapabilityReport();
+
+    const aiConfigured = ai.activeProvider != null;
+    const aiActiveProvider = ai.activeProvider;
+    const aiFree = aiActiveProvider != null && isProviderFree(aiActiveProvider);
+    const aiCost =
+      !aiConfigured
+        ? "none"
+        : aiFree
+          ? "free"
+          : "configured";
+
+    const searchProvider = searchStatus.find((p) => p.id === "searxng") ?? null;
+    const searchConfigured = searchProvider?.configured ?? false;
+    const searchReady = searchProvider?.ready ?? false;
+    const searchGeneralWebOk =
+      searchReady ||
+      searchStatus.some(
+        (p) =>
+          p.id !== "searxng" &&
+          p.ready &&
+          (p.id === "searxng" || p.id === "mwmbl"),
+      );
+
+    const imageConfigured = imageProviders.some((p) => p.configured);
+    const imageGenerationAvailable = imageCaps.some(
+      (c) => c.op === "generate" && c.available,
+    );
+    const imageGenOk =
+      imageGenerationAvailable &&
+      imageProviders.some(
+        (p) =>
+          p.configured &&
+          p.ops.includes("generate") &&
+          p.id === "pollinations",
+      );
+    const imageOk = imageGenOk || imageGenerationAvailable;
+
+    const backendOk = aiConfigured && searchGeneralWebOk;
+
+    return {
+      backendOk,
+      aiOk: aiConfigured,
+      aiActiveProvider,
+      aiCost,
+      aiConfigured,
+      aiFree,
+      searchOk: searchConfigured,
+      searchConfigured,
+      searchReady,
+      searchGeneralWebOk,
+      imageOk,
+      imageConfigured,
+      imageGen: imageGenOk,
+      imageGenerationAvailable,
+      recordedAt: now,
+    };
+  },
+});
+

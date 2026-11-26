@@ -3,9 +3,12 @@ import type { WorkspaceView } from "@/components/workspace/WorkspaceShell";
 import { HomeView } from "@/components/workspace/HomeView";
 import { MemoryView } from "@/components/workspace/MemoryView";
 import { OmiSearchPanel } from "@/components/OmiSearchPanel";
+import { ConvexStatusCard } from "@/components/workspace/ConvexStatusCard";
 import { useState, lazy, Suspense } from "react";
 import { Loader2 } from "lucide-react";
 import type { Id } from "@/convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
+import { useQuery } from "convex/react";
 
 /**
  * Phase 3 — code splitting by view.
@@ -92,6 +95,8 @@ export default function Dashboard() {
     null,
   );
   /** Image Studio: which mode the studio opens in (Home shortcuts seed this). */
+  const statusCard = useQuery(api.omiHealth.workspaceStatus);
+
   const [imageMode, setImageMode] = useState<"generate" | "edit">("generate");
 
   const navigate = (next: WorkspaceView) => {
